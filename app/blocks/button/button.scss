@@ -1,0 +1,45 @@
+.button {
+  display: inline-flex;
+  padding: 3px;
+  border-radius: 21px;
+  background: linear-gradient(to left, $color-gradient-one 0%, $color-gradient-two 100%);
+  vertical-align: middle;
+  box-sizing: border-box;
+  color: $color-basic;
+  background-color: transparent;
+  transition: opacity $ease-main;
+  cursor: pointer;
+
+  &__text {
+    background: $color-bg;
+    padding: 10px 25px;
+    border-radius: 21px;
+
+  }
+
+  &_gradient {
+    background: linear-gradient(to left, $color-gradient-one 0%, $color-gradient-two 100%);
+    display: flex;
+    padding: 13px 0;
+    border-radius: 21px;
+    background: linear-gradient(to left, $color-gradient-one 0%, $color-gradient-two 100%);
+    vertical-align: middle;
+    box-sizing: border-box;
+    color: $color-basic;
+    background-color: transparent;
+    transition: opacity $ease-main;
+    cursor: pointer;
+    justify-content: center;
+    color: $color-wite;
+  }
+  @include text;
+
+  &:disabled,
+  &.is-disabled {
+    opacity: .5;
+    cursor: not-allowed;
+  }
+
+  &:hover,
+  &.is-active { opacity: .5; }
+}
