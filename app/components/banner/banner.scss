@@ -6,14 +6,16 @@
   color: $color-wite;
 
   &__left {
-    width: 33.3%;
+    flex: 1;
     padding: 63px 67px 50px 67px;
     background: $color-grey-dark;
-    height: 100%;
+    display: flex;
+    flex-direction: column;
   }
 
   &__right {
-    width: 66.6%;
+    flex: 2.5;
+    overflow: hidden;
   }
 
   &__top-list {
@@ -65,9 +67,10 @@
 
   &__title {
     @include heading-2;
-    margin-bottom: auto;
     letter-spacing: -0.8px;
     display: block;
+    margin-bottom: auto;
+    line-height: 1.2;
   }
 
   &__down-list {
@@ -110,5 +113,5 @@
 
 .slide-img {
   height: 100%;
-  width: auto;
+  width: 100%;
 }
