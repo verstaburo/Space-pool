@@ -13,3 +13,15 @@ mixin slide()
   .swiper-slide
     +e.slide&attributes(attributes)
       block
+
+
+mixin slider-two(pagination, buttons)
+  +b.slider&attributes(attributes).swiper-container.js-slider-two
+    .swiper-wrapper
+      block
+    if pagination
+      +e.dots
+        +e.dot
+    if buttons
+      +e.button._prev
+      +e.button._next

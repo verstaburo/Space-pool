@@ -27,5 +27,29 @@ export default function slider() {
       },
     },
   });
+
+  const mySliderTwo = new Swiper('.js-slider-two', {
+    loop: true,
+    speed: 700,
+    spaceBetween: 35,
+    slidesPerView: 4,
+    navigation: {
+      nextEl: '.slider__button_next',
+      prevEl: '.slider__button_prev',
+    },
+    pagination: {
+      el: '.slider__dots',
+      clickable: true,
+      paginationClickableClass: 'slider__dots_clickable',
+      bulletClass: 'slider__dot',
+      bulletActiveClass: 'active',
+    },
+    roundLengths: true,
+    breakpoints: {
+      320: {
+        slidesPerView: 1,
+      },
+    },
+  });
 }
 /* eslint-enable no-unused-vars */
