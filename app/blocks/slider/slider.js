@@ -6,7 +6,7 @@ const $ = window.$;
 
 export default function slider() {
   const mySlider = new Swiper('.js-slider', {
-    loop: true,
+    loop: false,
     speed: 700,
     slidesPerView: 3,
     navigation: {
