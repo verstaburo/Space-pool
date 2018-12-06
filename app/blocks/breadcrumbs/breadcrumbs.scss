@@ -2,22 +2,30 @@ $breadpadding: 35px;
 
 .breadcrumbs {
   display: block;
+  padding: 20px 0;
 
   &__item {
     display: inline-block;
     position: relative;
 
     &:not(:last-child) {
-      padding-right: $breadpadding;
+      padding-right: 20px;
 
       &::after {
         content: '-';
         position: absolute;
         top: 0;
         margin: auto;
-        right: $breadpadding/2;
+        right: 6px;
         width: 5px;
         height: 5px;
+      }
+    }
+
+    .link {
+      font-size: 14px;
+      span {
+        border-bottom: 0px solid #fff;
       }
     }
 
@@ -25,6 +33,7 @@ $breadpadding: 35px;
       pointer-events: none;
 
       &__text {
+        font-size: 14px;
         @include link-disabled;
       }
     }

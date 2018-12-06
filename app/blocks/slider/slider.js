@@ -8,7 +8,7 @@ export default function slider() {
   const mySlider = new Swiper('.js-slider', {
     loop: true,
     speed: 700,
-    slidesPerView: 1,
+    slidesPerView: 3,
     navigation: {
       nextEl: '.slider__button_next',
       prevEl: '.slider__button_prev',
