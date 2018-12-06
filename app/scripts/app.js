@@ -7,6 +7,7 @@ import scrollanimation from '../blocks/js-functions/scrollanimation';
 import { selects, sliders, datepicker, inputmask, numberinput } from '../blocks/form-elements/form-elements';
 import popups from '../blocks/popups/popups';
 import scrollbar from '../blocks/scrollbar/scrollbar';
+import scrollCont from '../blocks/scroll-form/scroll-form';
 import slider from '../blocks/slider/slider';
 import tooltips from '../blocks/tooltip/tooltip';
 import tabs from '../blocks/tabs/tabs';
@@ -35,4 +36,5 @@ $(() => {
   numberinput();
   maps();
   scrollanimation();
+  scrollCont();
 });
