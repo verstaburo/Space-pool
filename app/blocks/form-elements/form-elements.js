@@ -60,12 +60,12 @@ export function inputmask() {
 export function numberinput() {
   $(document).on('click', '.js-numberbox-minus, .js-numberbox-plus', function (e) {
     e.preventDefault();
-    
+
     const input = $(this).parent().find('.js-numberbox-input');
     let val = +input.val();
-   
+
     const minus = $(this).attr('class').includes('minus') || false;
-    
+
     if (!val.length) {
       input.val(1);
     }
