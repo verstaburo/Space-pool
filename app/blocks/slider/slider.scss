@@ -5,6 +5,25 @@
   
   &__slide {
     text-align: center;
+    position: relative;
+    cursor: pointer;
+    &:hover {
+      .slider-title__slide {
+        color: $color-basic-dark;
+      }
+
+      .slider__heart {
+        opacity: 1;
+      }
+    }
+  }
+
+  &__heart {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    opacity: 0;
+    transition: .3s;
   }
 
   &__dots {
@@ -92,9 +111,9 @@
 }
 
 .slider-title{
-  font-size: 25px;
+  font-size: 23px;
   font-weight: 700;
-  letter-spacing: -0.5px;
+  letter-spacing: -0.3px;
   span {
     color: $color-blue;
   }
@@ -106,6 +125,8 @@
   font-size: 18px;
   font-weight: 700;
   margin: 12px 0;
+  transition: .3s;
+  color: $color-basic;
 }
 
 .slider-plach {
@@ -114,4 +135,5 @@
   letter-spacing: -0.32px;
   color: $color-basic-light;
   font-weight: 400;
+  transition: .3s;
 }

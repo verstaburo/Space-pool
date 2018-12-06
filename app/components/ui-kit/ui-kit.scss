@@ -14,14 +14,13 @@ $ui-kit-color-darkbg: #111;
     box-shadow: 0 0 30px rgba($color-basic, .15);
     z-index: 10;
     padding: 20px;
-    background-color: white;
+    background-color:$color-grey-dark;
     transform: translate3d(15%, 0, 0);
     width: 240px;
     opacity: .5;
     transition: opacity $ease-main, transform $ease-main;
     overflow: auto;
     box-sizing: border-box;
-
     &-burger {
       position: absolute;
       width: 18px;
@@ -57,9 +56,19 @@ $ui-kit-color-darkbg: #111;
     li {
       @include text;
 
-      a { @include link; }
+      a { @include link;
+          color: $color-wite;
+          transition: .3s;
+          font-weight: 700;
+          font-size: 17px;
+          &:hover {
+            color: $color-green;
+          }
+      }
 
       &:not(:last-child) { margin-bottom: 5px; }
+
+      
     }
   }
 
