@@ -9,9 +9,11 @@ mixin slider(pagination, buttons)
       +e.button._prev
       +e.button._next
 
-mixin slide()
-  a(href="#").swiper-slide
+mixin slide(href)
+  .swiper-slide
     +e.slide&attributes(attributes)
+      +e.A(href=href).__search.js-fancybox
+        +e.IMG(src='./assets/images/search.png').__search-img
       block
 
 mixin slide-two()
