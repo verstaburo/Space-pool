@@ -32,3 +32,15 @@ mixin slider-two(pagination, buttons)
     if buttons
       +e.button._prev
       +e.button._next
+
+
+mixin slider-three(pagination, buttons)
+  +b.slider._three&attributes(attributes).swiper-container.js-slider-three
+    .swiper-wrapper
+      block
+    if pagination
+      +e.dots
+        +e.dot
+    if buttons
+      +e.button._prev
+      +e.button._next
