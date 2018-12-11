@@ -28,21 +28,22 @@ $(document).on('click', '.js-accordion-button', function (e) {
       .trigger(afterEvent);
     button
       .toggleClass('is-active-button')
-      .triggner(afterEvent);
+      .trigger(afterEvent);
   });
 
   if (!isMultiple) {
-    const siblingsTabs = block.siblings('.accordion.is-active');
-    siblingsTabs
+    const siblings = block.siblings('.accordion.is-active');
+
+    siblings
       .trigger(BEFORE_HIDE)
       .find('.accordion__body')
       .slideUp(DURATION, () => {
-        siblingsTabs
+        siblings
           .removeClass('is-active')
           .trigger(HIDDEN);
-        siblingsTabs
-        .find('.is-active-button')
-        .removeClass('is-active-button');
       });
+    siblings
+      .find('.accordion__button')
+      .removeClass('is-active-button');
   }
 });
