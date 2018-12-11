@@ -26,18 +26,23 @@ $(document).on('click', '.js-accordion-button', function (e) {
     block
       .toggleClass('is-active')
       .trigger(afterEvent);
+    button
+      .toggleClass('is-active-button')
+      .trigger(afterEvent);
   });
 
   if (!isMultiple) {
-    const siblings = block.siblings('.accordion.is-active');
-
-    siblings
+    const siblingsTabs = block.siblings('.accordion.is-active');
+    siblingsTabs
       .trigger(BEFORE_HIDE)
       .find('.accordion__body')
       .slideUp(DURATION, () => {
-        siblings
+        siblingsTabs
           .removeClass('is-active')
           .trigger(HIDDEN);
+        siblingsTabs
+        .find('.is-active-button')
+        .removeClass('is-active-button');
       });
   }
 });

@@ -72,6 +72,9 @@
     justify-content: center;
     align-items: center;
     border: 1px solid $color-border;
+    &::after {
+      content: '+';
+    }
   }
 
   &__text-acr {
@@ -108,10 +111,18 @@
     box-sizing: border-box;
     display: none;
 
-    #{$b}.is-active & { display: block; }
+    #{$b}.is-active & { display: block;}
+
   }
+
 }
 
 .accordions {
   padding-top: 1px;
+}
+
+.is-active-button {
+  &::after {
+    content: '-';
+  }
 }
