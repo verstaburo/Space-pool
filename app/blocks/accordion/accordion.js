@@ -28,7 +28,7 @@ $(document).on('click', '.js-accordion-button', function (e) {
       .trigger(afterEvent);
     button
       .toggleClass('is-active-button')
-      .trigger(afterEvent);
+      .triggner(afterEvent);
   });
 
   if (!isMultiple) {
