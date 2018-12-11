@@ -31,7 +31,7 @@ export default function slider() {
   const mySliderTwo = new Swiper('.js-slider-two', {
     loop: true,
     speed: 700,
-    spaceBetween: 50,
+    spaceBetween: 55,
     slidesPerView: 4,
     navigation: {
       nextEl: '.slider__button_next',
@@ -55,7 +55,7 @@ export default function slider() {
   const mySliderThree = new Swiper('.js-slider-three', {
     loop: true,
     speed: 700,
-    spaceBetween: 35,
+    spaceBetween: 55,
     slidesPerView: 3,
     navigation: {
       nextEl: '.slider__button_next',

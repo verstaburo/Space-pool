@@ -4,7 +4,7 @@
   background-size: cover;
   color: $color-wite;
   padding: 7.5% 9% 2% 8.5%;
-  margin: 0 0 100px;
+  margin: 0;
 
   &__content {
     display: flex;
@@ -22,13 +22,17 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-bottom: 40px;
+    margin-bottom: 36px;
+    &-text {
+      font-weight: 700;
+    }
   }
 
   &__selects {
     display: flex;
     justify-content: flex-end;
-    margin-bottom: 165px;
+    margin-bottom: 152px;
+    align-items: center;
 
     .choices__list--single {
       padding-right: 20px !important;
@@ -41,32 +45,57 @@
 
     .button {
       width: 143px;
-      padding: 0;
+      padding:10px 0;
       align-items: center;
+    }
+    .is-open {
+      border: 1px solid $color-wite !important;
     }
 
     .choices {
       height: 20px;
       margin-right: 40px;
+      padding-bottom: 5px !important;
       border-bottom: 1px solid $color-wite !important;
-      
+
       &__inner {
         height: 20px !important;
         border:0 !important;
         padding: 0 !important;
+       
         
+      }
 
+      &__list {
+        background: rgba(0, 0, 0, 0) !important ;
+        overflow: hidden;
       }
 
       &__item {
+        font-size: 16px;
+        
         &:hover {
+          font-weight: 700;
           background: rgba(0, 0, 0, 0) !important ;
         }
       }
 
       &__item {
         background: rgba(0, 0, 0, 0) !important ;
+   
       }
+
+      &:hover {
+        .choices__inner{
+          background: rgba(0, 0, 0, 0) !important ;
+        }
+        .choices__item {
+          background: rgba(0, 0, 0, 0) !important;
+          
+        }
+        
+      }
+
     }
 
 
@@ -78,5 +107,6 @@
 }
 
 .info-two {
+  margin-top: 100px;
   background: url('../images/bottom.jpg') center center no-repeat;
 }
