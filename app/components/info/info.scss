@@ -3,35 +3,77 @@
   background: url('../images/top.jpg') center center no-repeat;
   background-size: cover;
   color: $color-wite;
-  padding: 250px 160px 50px 285px;
+  padding: 7.5% 9% 2% 8.5%;
+  margin: 0 0 100px;
 
   &__content {
     display: flex;
   }
 
   &__content-left {
-    flex: 1
+    width: 42%;
   }
   &__content-right {
-    flex: 2;
+    width: 58%;
+    padding-top: 13px;
   }
 
   &__links {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-bottom: 60px;
+    margin-bottom: 40px;
   }
 
   &__selects {
     display: flex;
     justify-content: flex-end;
-    margin-bottom: 200px;
+    margin-bottom: 165px;
+
+    .choices__list--single {
+      padding-right: 20px !important;
+    }
+
+    .choices[data-type*=select-one]:after {
+      right: 0 !important;
+      border-color: $color-wite rgba(0, 0, 0, 0);
+    }
+
+    .button {
+      width: 143px;
+      padding: 0;
+      align-items: center;
+    }
+
+    .choices {
+      height: 20px;
+      margin-right: 40px;
+      border-bottom: 1px solid $color-wite !important;
+      
+      &__inner {
+        height: 20px !important;
+        border:0 !important;
+        padding: 0 !important;
+        
+
+      }
+
+      &__item {
+        &:hover {
+          background: rgba(0, 0, 0, 0) !important ;
+        }
+      }
+
+      &__item {
+        background: rgba(0, 0, 0, 0) !important ;
+      }
+    }
+
 
   }
 
   &__bottom {
-    margin-top: 10px;
+    margin-top: 24px;
   }
 }
 
