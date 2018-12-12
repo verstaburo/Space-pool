@@ -11,26 +11,6 @@
     box-sizing: border-box;
     align-items: center;
 
-    // &::after {
-    //   content: '';
-    //   position: absolute;
-    //   top: 50%;
-    //   right: 10px;
-    //   width: 5px;
-    //   height: 5px;
-    //   border-width: 1px 1px 0 0;
-    //   border-style: solid;
-    //   border-color: $color-basic;
-    //   transform-origin: center;
-    //   transform: translateY(-50%) rotate(135deg);
-    //   transition: transform $ease-main;
-
-    //   #{$b}.is-active & {
-    //     transform: translateY(-50%) rotate(-45deg);
-    //     margin-top: 2px;
-    //   }
-    // }
-
   }
 
   &__heart {
@@ -104,14 +84,24 @@
   }
 
   &__body {
-    padding: 0px 0px 10px 37px;
+    padding: 0px 0px 50px 37px;
     border-bottom: 1px solid $color-border;
-
     width: 100%;
     box-sizing: border-box;
-    display: none;
-
-    #{$b}.is-active & { display: block;}
+    position: relative;
+    height: 70px;
+    overflow: hidden;
+    &::after {
+      content: '';
+      display: block;
+      width: 100%;
+      height: 40px;
+      background: rgba($color: $color-bg, $alpha: .8);
+      position: absolute;
+      bottom: 0;
+      left: 0;
+    }
+    #{$b}.is-active-body & { height: auto;}
 
   }
 
