@@ -8,6 +8,7 @@ import { selects, sliders, datepicker, inputmask, numberinput } from '../blocks/
 import popups from '../blocks/popups/popups';
 import scrollbar from '../blocks/scrollbar/scrollbar';
 import header from '../components/header/header';
+import banner from '../components/banner/banner';
 import scrollCont from '../blocks/scroll-form/scroll-form';
 import slider from '../blocks/slider/slider';
 import tooltips from '../blocks/tooltip/tooltip';
@@ -29,6 +30,7 @@ $(() => {
   sliders();
   popups();
   scrollbar();
+  banner();
   header();
   slider();
   tooltips();
