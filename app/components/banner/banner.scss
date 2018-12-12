@@ -24,15 +24,18 @@
   }
 
   &__top-item {
-    &_center {
-      border-left: 1px solid $color-basic;
-      border-right: 1px solid $color-basic;
-      padding: 0 9px;
-    }
-    &_left {
+    border-left: 1px solid $color-basic;
+    border-right: 1px solid $color-basic;
+    padding: 0 9px;
+
+    &:first-child{
+      border: 0px solid $color-basic;
+      padding: 0;
       padding-right: 12px;
     }
-    &_right {
+    &:last-child {
+      border: 0px solid $color-basic;
+      padding: 0;
       padding-left: 12px;
     }
     
@@ -83,8 +86,9 @@
   }
 
   &__down-item {
-    &:first-child {
-      margin-right: 53px;
+    margin-right: 53px;
+    &:last-child {
+      margin-right: 0px;
     }
   }
 
