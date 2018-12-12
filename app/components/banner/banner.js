@@ -1,4 +1,6 @@
 const $ = window.$;
 export default function banner() {
-  $('.banner a').fancybox();
+  $('.slider__search').on('click', () => {
+    $.fancybox.open($('.slide-img'));
+  });
 }
