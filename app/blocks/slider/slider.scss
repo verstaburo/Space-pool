@@ -79,6 +79,9 @@
 
   &__button {
     position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     top: 0;
     bottom: 0;
     margin: auto;
@@ -92,43 +95,38 @@
     cursor: pointer;
     
 
-    &::before {
-      content: '';
-      width: 30px;
-      height: 30px;
-      border-style: solid;
-      border-color: $color-wite;
-      border-width: 0;
-      position: absolute;
-      transform: rotate(45deg);
-      transform-origin: center;
-      top: 0;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      margin: auto;
-    }
+    // &::before {
+    //   content: '';
+    //   width: 30px;
+    //   height: 30px;
+    //   border-style: solid;
+    //   border-color: $color-wite;
+    //   border-width: 0;
+    //   position: absolute;
+    //   transform: rotate(45deg);
+    //   transform-origin: center;
+    //   top: 0;
+    //   bottom: 0;
+    //   left: 0;
+    //   right: 0;
+    //   margin: auto;
+    // }
 
+    svg {
+      height: 50px;
+      width: 30px;
+      fill: $color-wite;
+      stroke: $color-wite;
+    }
     &:hover { background-color:rgba($color: $color-grey-dark, $alpha: .8); }
 
     &_next {
       right: 0;
-
-      &::before {
-        border-top-width: 2px;
-        border-right-width: 2px;
-        right: 3px;
-      }
     }
 
     &_prev {
       left: 0;
-
-      &::before {
-        border-bottom-width: 2px;
-        border-left-width: 2px;
-        left: 3px;
-      }
+      transform: rotate(180deg);
     }
   }
 
@@ -199,4 +197,12 @@
     }
   }
   
+}
+
+.slider_two,
+.slider_three {
+  svg {
+    fill: black;
+    stroke: black;
+  }
 }
