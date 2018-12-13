@@ -10,9 +10,17 @@
     display: flex;
     justify-content: center;
     margin-top: $tab-gap;
-    border: 1px solid $color-border-light;
+    border-top: 1px solid $color-border-light;
+    border-right: 1px solid $color-border-light;
     // transition: border-color $ease-main, opacity $ease-main;
     padding: 21px 0px;
+    &:first-child {
+      border-left: 1px solid $color-border-light;
+      border-radius: 3px 0 0 3px;
+    }
+    &:last-child {
+      border-radius:0 3px 3px 0;
+    }
     cursor: pointer;
     font-size: 17px;
     font-weight: 700;
