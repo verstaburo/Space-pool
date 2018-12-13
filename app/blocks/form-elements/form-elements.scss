@@ -174,14 +174,18 @@
     }
     
     &::after {
-      border-width: 5px 5px 0;
+      content: '';
       top: 0;
       bottom: 0;
-      right: 10px;
+      right: 20px;
       margin: auto;
       transform: rotate(0) translate3d(0, 0, 0);
-      transition: transform $ease-main;
-      border-color: #333 transparent transparent;
+      height: 7px;
+      width: 12px;
+      background-image: url('../images/arrow.svg');
+      background-repeat: no-repeat;
+      border: 0 !important;
+      transition: .5s;
     }
 
     &.is-open::after {
