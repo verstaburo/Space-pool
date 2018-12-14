@@ -4,153 +4,160 @@ block head
   - var pageTitle = 'Space Pool'
 
 block content
-  +b.page1
+  +b.page
     +header
 
-    +info
-    .container.container_slider
-      .content-left__title.content-left__title_page Featured Spaces
-      +slider-two(false, true)
-        +slide-two
-          img(src='./assets/images/sbo.jpg').slide-index
-          .slider-cube
-            .cube
-          .slider-title__slide TOG - Henry Wood House
-          .slider-plach W1W, London
-        +slide-two
-          img(src='./assets/images/sbt.jpg').slide-index
-          .slider-cube
-            .cube.cube_yellow
-            .cube.cube_red
-            .cube.cube_blue
-          .slider-title__slide Blooming Founders (Former Blooms Lon...
-          .slider-plach EC2A, London
-        +slide-two
-          img(src='./assets/images/sbth.jpg').slide-index
-          .slider-cube
-            .cube.cube_yellow
-            .cube.cube_red
-            .cube.cube_blue
-          .slider-title__slide Blooming Founders (Former Blooms Lon...
-          .slider-plach EC2A, London
-        +slide-two
-          img(src='./assets/images/sbf.jpg').slide-index
-          .slider-cube
-            .cube.cube_yellow
-          .slider-title__slide Blooming Founders (Former Blooms Lon...
-          .slider-plach EC2A, London
+    section.section
+      +info
 
-    .container
-      .title-map
-        .title-map__title Locations
-        +select.footer-select.select-slider
-                option(value="London")
-                option(value="London")
-                option(value="London")
-                option(value="London")
-        +select.footer-select.select-slider
-                option(value="Areas")
-                option(value="Areas")
-                option(value="Areas")
-                option(value="Areas")
-        +select.footer-select.select-slider
-                option(value="Tube Stations")
-                option(value="Tube Stations")
-                option(value="Tube Stations")
-                option(value="Tube Stations")
-        +select.footer-select.select-slider
-                option(value="Workplace type")
-                option(value="Workplace type")
-                option(value="Workplace type")
-                option(value="Workplace type")
-        .title-map__title.title-map__title_last &#169; Clear map settings
-      +map()#map
+    section.section.section_slider
+      .container.container_slider
+        h3.page__title  Featured Spaces
+        +slider-two(false, true)
+          +slide-two
+            img(src='./assets/images/sbo.jpg').slide-index
+            .slider-cube
+              .cube
+            p.slider-title__slide TOG - Henry Wood House
+            p.slider-plach W1W, London
+          +slide-two
+            img(src='./assets/images/sbt.jpg').slide-index
+            .slider-cube
+              .cube.cube_yellow
+              .cube.cube_red
+              .cube.cube_blue
+            p.slider-title__slide Blooming Founders (Former Blooms Lon...
+            p.slider-plach EC2A, London
+          +slide-two
+            img(src='./assets/images/sbth.jpg').slide-index
+            .slider-cube
+              .cube.cube_yellow
+              .cube.cube_red
+              .cube.cube_blue
+            p.slider-title__slide Blooming Founders (Former Blooms Lon...
+            p.slider-plach EC2A, London
+          +slide-two
+            img(src='./assets/images/sbf.jpg').slide-index
+            .slider-cube
+              .cube.cube_yellow
+            p.slider-title__slide Blooming Founders (Former Blooms Lon...
+            p.slider-plach EC2A, London
 
-    .container.container_slider
-      .content-left__title.content-left__title_page-down Meeting Rooms
-      +slider-three(false, true)
-        +slide-two
-          img(src='./assets/images/sbo.jpg').slide-index
-          .slider-cube__text 18 seats
-          .slider-title__slide TOG - Henry Wood House
-          .slider-plach W1W, London
-        +slide-two
-          img(src='./assets/images/sbt.jpg').slide-index
-          .slider-cube__text 18 seats
-          .slider-title__slide Blooming Founders (Former Blooms Lon...
-          .slider-plach EC2A, London
-        +slide-two
-          img(src='./assets/images/sbth.jpg').slide-index
-          .slider-cube__text 18 seats
-          .slider-title__slide Blooming Founders (Former Blooms Lon...
-          .slider-plach EC2A, London
-        +slide-two 18 seats
-          img(src='./assets/images/sbf.jpg').slide-index
-          .slider-cube__text 18 seats
-          .slider-title__slide Blooming Founders (Former Blooms Lon...
-          .slider-plach EC2A, London
+    section.section.section_map
+      .container
+        .title-map
+          h3.title-map__title Locations
+          +select.footer-select.select-slider
+                  option(value="London")
+                  option(value="London")
+                  option(value="London")
+                  option(value="London")
+          +select.footer-select.select-slider
+                  option(value="Areas")
+                  option(value="Areas")
+                  option(value="Areas")
+                  option(value="Areas")
+          +select.footer-select.select-slider
+                  option(value="Tube Stations")
+                  option(value="Tube Stations")
+                  option(value="Tube Stations")
+                  option(value="Tube Stations")
+          +select.footer-select.select-slider
+                  option(value="Workplace type")
+                  option(value="Workplace type")
+                  option(value="Workplace type")
+                  option(value="Workplace type")
+          .title-map__title.title-map__title_last &#169; Clear map settings
+        +map()#map
 
-    +info-two
+    section.section.section_slider-two
+      .container.container_slider
+        h3.page__title  Meeting Rooms
+        +slider-three(false, true)
+          +slide-two
+            img(src='./assets/images/sbo.jpg').slide-index
+            p.slider-cube__text 18 seats
+            p.slider-title__slide TOG - Henry Wood House
+            p.slider-plach W1W, London
+          +slide-two
+            img(src='./assets/images/sbt.jpg').slide-index
+            p.slider-cube__text 18 seats
+            p.slider-title__slide Blooming Founders (Former Blooms Lon...
+            p.slider-plach EC2A, London
+          +slide-two
+            img(src='./assets/images/sbth.jpg').slide-index
+            p.slider-cube__text 18 seats
+            p.slider-title__slide Blooming Founders (Former Blooms Lon...
+            p.slider-plach EC2A, London
+          +slide-two 18 seats
+            img(src='./assets/images/sbf.jpg').slide-index
+            p.slider-cube__text 18 seats
+            p.slider-title__slide Blooming Founders (Former Blooms Lon...
+            p.slider-plach EC2A, London
+    
+    section.section.section_slider-two
+      +info-two
 
-    .container.container_slider
-      +e.H3.__title New Places
-      +slider-two(false, true)
-        +slide-two
-          img(src='./assets/images/sbo.jpg').slide-index
-          .slider-cube
-            .cube
-          .slider-title__slide TOG - Henry Wood House
-          .slider-plach W1W, London
-        +slide-two
-          img(src='./assets/images/sbt.jpg').slide-index
-          .slider-cube
-            .cube.cube_yellow
-            .cube.cube_red
-            .cube.cube_blue
-          .slider-title__slide Blooming Founders (Former Blooms Lon...
-          .slider-plach EC2A, London
-        +slide-two
-          img(src='./assets/images/sbth.jpg').slide-index
-          .slider-cube
-            .cube.cube_yellow
-            .cube.cube_red
-            .cube.cube_blue
-          .slider-title__slide Blooming Founders (Former Blooms Lon...
-          .slider-plach EC2A, London
-        +slide-two
-          img(src='./assets/images/sbf.jpg').slide-index
-          .slider-cube
-            .cube.cube_yellow
-          .slider-title__slide Blooming Founders (Former Blooms Lon...
-          .slider-plach EC2A, London
+    section.section.section_map
+      .container.container_slider
+        h3.page__title  New Places
+        +slider-two(false, true)
+          +slide-two
+            img(src='./assets/images/sbo.jpg').slide-index
+            .slider-cube
+              .cube
+            p.slider-title__slide TOG - Henry Wood House
+            p.slider-plach W1W, London
+          +slide-two
+            img(src='./assets/images/sbt.jpg').slide-index
+            .slider-cube
+              .cube.cube_yellow
+              .cube.cube_red
+              .cube.cube_blue
+            p.slider-title__slide Blooming Founders (Former Blooms Lon...
+            p.slider-plach EC2A, London
+          +slide-two
+            img(src='./assets/images/sbth.jpg').slide-index
+            .slider-cube
+              .cube.cube_yellow
+              .cube.cube_red
+              .cube.cube_blue
+            p.slider-title__slide Blooming Founders (Former Blooms Lon...
+            p.slider-plach EC2A, London
+          +slide-two
+            img(src='./assets/images/sbf.jpg').slide-index
+            .slider-cube
+              .cube.cube_yellow
+            p.slider-title__slide Blooming Founders (Former Blooms Lon...
+            p.slider-plach EC2A, London
 
 
 
+    section.section.section_down
+      .container.container_slider
+        +e.__title
+        h3.page__title Articles
 
-    .container.container_slider
-      +e.__title
-      .content-left__title.content-left__title_page-down Articles
-
-      +slider-three(false, true)
-        +slide-two
-          img(src='./assets/images/sbo.jpg').slide-index
-          .slider-cube__text September 9
-          .slider-title__slide TOG - Henry Wood House
-          .slider-text For many employers, career success is desired. Establishing a profitable company, we’re looking for the best candidates only, whose knowledge and experience can help to achieve career goals.
-        +slide-two
-          img(src='./assets/images/sbt.jpg').slide-index
-          .slider-cube__text September 9
-          .slider-title__slide Blooming Founders (Former Blooms Lon...
-          .slider-text For many employers, career success is desired. Establishing a profitable company, we’re looking for the best candidates only, whose knowledge and experience can help to achieve career goals.
-        +slide-two
-          img(src='./assets/images/sbth.jpg').slide-index
-          .slider-cube__text September 9
-          .slider-title__slide Blooming Founders (Former Blooms Lon...
-          .slider-text For many employers, career success is desired. Establishing a profitable company, we’re looking for the best candidates only, whose knowledge and experience can help to achieve career goals.
-        +slide-two
-          img(src='./assets/images/sbf.jpg').slide-index
-          .slider-cube__text September 9
-          .slider-title__slide Blooming Founders (Former Blooms Lon...
-          .slider-text For many employers, career success is desired. Establishing a profitable company, we’re looking for the best candidates only, whose knowledge and experience can help to achieve career goals.
+        +slider-three(false, true)
+          +slide-two
+            img(src='./assets/images/sbo.jpg').slide-index
+            p.slider-cube__text September 9
+            p.slider-title__slide The perfect Workplace Do exist. 5 simple steps to make the office of your drem.
+            p.slider-text For many employers, career success is desired. Establishing a profitable company, we’re looking for the best candidates only, whose knowledge and experience can help to achieve career goals.
+          +slide-two
+            img(src='./assets/images/sbt.jpg').slide-index
+            p.slider-cube__text September 9
+            p.slider-title__slide Pet Friendly workspaces. Do not leave your friend home alone!
+            p.slider-text For many employers, career success is desired. Establishing a profitable company, we’re looking for the best candidates only, whose knowledge and experience can help to achieve career goals.
+          +slide-two
+            img(src='./assets/images/sbth.jpg').slide-index
+            p.slider-cube__text September 9
+            p.slider-title__slide Pet Friendly workspaces. Do not leave your friend home alone!
+            p.slider-text For many employers, career success is desired. Establishing a profitable company, we’re looking for the best candidates only, whose knowledge and experience can help to achieve career goals.
+          +slide-two
+            img(src='./assets/images/sbf.jpg').slide-index
+            p.slider-cube__text September 9
+            p.slider-title__slide Blooming Founders (Former Blooms Lon...
+            p.slider-text For many employers, career success is desired. Establishing a profitable company, we’re looking for the best candidates only, whose knowledge and experience can help to achieve career goals.
     
     +footer
