@@ -34,8 +34,8 @@ export default function slider() {
     spaceBetween: 50,
     slidesPerView: 4,
     navigation: {
-      nextEl: '.slider__button_next',
-      prevEl: '.slider__button_prev',
+      nextEl: '.slider__button-two_next',
+      prevEl: '.slider__button-two_prev',
     },
     pagination: {
       el: '.slider__dots',
@@ -58,8 +58,8 @@ export default function slider() {
     spaceBetween: 55,
     slidesPerView: 3,
     navigation: {
-      nextEl: '.slider__button_next',
-      prevEl: '.slider__button_prev',
+      nextEl: '.slider__button-two_next',
+      prevEl: '.slider__button-two_prev',
     },
     pagination: {
       el: '.slider__dots',
