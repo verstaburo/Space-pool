@@ -22,4 +22,5 @@ export default function maps() {
 
   marker.bindPopup('Кастомный HTML-попап');
 }
+
 /* eslint-enable no-unused-vars */
