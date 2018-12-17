@@ -35,12 +35,19 @@
     align-items: center;
 
     .choices__list--single {
-      padding-right: 20px !important;
+      padding-right: 10px !important;
+      padding-left: 5px !important;
     }
 
+
     .choices[data-type*=select-one]:after {
-      right: 0 !important;
+      right: 10px !important;
       border-color: $color-wite rgba(0, 0, 0, 0);
+      transition: .3s;
+      padding-left: 5px !important;
+      &__list {
+        padding-left: 5px !important;
+      }
     }
 
     .button {
@@ -57,6 +64,9 @@
       margin-right: 40px;
       padding-bottom: 5px !important;
       border-bottom: 1px solid $color-wite !important;
+      &:hover {
+        border:1px solid $color-wite !important;
+      }
 
       &::after {
         content: '';
@@ -67,8 +77,6 @@
         height: 20px !important;
         border:0 !important;
         padding: 0 !important;
-       
-        
       }
 
       &__list {

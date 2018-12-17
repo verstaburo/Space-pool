@@ -10,8 +10,8 @@ export default function slider() {
     speed: 700,
     slidesPerView: 3,
     navigation: {
-      nextEl: '.slider__button_next',
-      prevEl: '.slider__button_prev',
+      nextEl: '.slider__button-one_next',
+      prevEl: '.slider__button-one_prev',
     },
     pagination: {
       el: '.slider__dots',
@@ -34,8 +34,8 @@ export default function slider() {
     spaceBetween: 50,
     slidesPerView: 4,
     navigation: {
-      nextEl: '.slider__button-two_next',
-      prevEl: '.slider__button-two_prev',
+      nextEl: '.js-two-slider_next',
+      prevEl: '.js-two-slider_prev',
     },
     pagination: {
       el: '.slider__dots',
@@ -58,8 +58,56 @@ export default function slider() {
     spaceBetween: 55,
     slidesPerView: 3,
     navigation: {
-      nextEl: '.slider__button-two_next',
-      prevEl: '.slider__button-two_prev',
+      nextEl: '.js-three-slider_next',
+      prevEl: '.js-three-slider_prev',
+    },
+    pagination: {
+      el: '.slider__dots',
+      clickable: true,
+      paginationClickableClass: 'slider__dots_clickable',
+      bulletClass: 'slider__dot',
+      bulletActiveClass: 'active',
+    },
+    roundLengths: true,
+    breakpoints: {
+      320: {
+        slidesPerView: 1,
+      },
+    },
+  });
+
+  const mySliderFor = new Swiper('.js-slider-for', {
+    loop: true,
+    speed: 700,
+    spaceBetween: 55,
+    slidesPerView: 3,
+    navigation: {
+      nextEl: '.js-for-slider_next',
+      prevEl: '.js-for-slider_prev',
+    },
+    pagination: {
+      el: '.slider__dots',
+      clickable: true,
+      paginationClickableClass: 'slider__dots_clickable',
+      bulletClass: 'slider__dot',
+      bulletActiveClass: 'active',
+    },
+    roundLengths: true,
+    breakpoints: {
+      320: {
+        slidesPerView: 1,
+      },
+    },
+  });
+
+  const mySliderFive = new Swiper('.js-slider-five', {
+    loop: true,
+    speed: 700,
+    spaceBetween: 50,
+    slidesPerView: 4,
+    navigation: {
+      nextEl: '.js-five-slider_next',
+      prevEl: '.js-five-slider_prev',
     },
     pagination: {
       el: '.slider__dots',

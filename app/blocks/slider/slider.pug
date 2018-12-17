@@ -6,9 +6,9 @@ mixin slider(pagination, buttons)
       +e.dots
         +e.dot
     if buttons
-      +e.button._prev
+      +e.button._prev.slider__button-one_prev
         +icon('arrow2')
-      +e.button._next
+      +e.button._next.slider__button-one_next
         +icon('arrow2') 
       +e.A(href="#").__search
         +icon('search').__search-img
@@ -31,9 +31,9 @@ mixin slider-two(pagination, buttons)
     if pagination
       +e.dots
         +e.dot
-  .slider__button-two.slider__button-two_prev
+  .slider__button-two.slider__button-two_prev.js-two-slider_prev
     +icon('arrow2')
-  .slider__button-two.slider__button-two_next
+  .slider__button-two.slider__button-two_next.js-two-slider_next
     +icon('arrow2')
 
 
@@ -44,7 +44,31 @@ mixin slider-three(pagination, buttons)
     if pagination
       +e.dots
         +e.dot
-  .slider__button-two.slider__button-two_prev
+  .slider__button-two.slider__button-two_prev.js-three-slider_prev
     +icon('arrow2')
-  .slider__button-two.slider__button-two_next
+  .slider__button-two.slider__button-two_next.js-three-slider_next
+    +icon('arrow2')
+
+mixin slider-for(pagination, buttons)
+  +b.slider._for&attributes(attributes).swiper-container.js-slider-for
+    .swiper-wrapper
+      block
+    if pagination
+      +e.dots
+        +e.dot
+  .slider__button-two.slider__button-two_prev.js-for-slider_prev
+    +icon('arrow2')
+  .slider__button-two.slider__button-two_next.js-for-slider_next
+    +icon('arrow2')
+
+mixin slider-five(pagination, buttons)
+  +b.slider._for&attributes(attributes).swiper-container.js-slider-five
+    .swiper-wrapper
+      block
+    if pagination
+      +e.dots
+        +e.dot
+  .slider__button-two.slider__button-two_prev.js-five-slider_prev
+    +icon('arrow2')
+  .slider__button-two.slider__button-two_next.js-five-slider_next
     +icon('arrow2')
