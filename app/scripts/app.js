@@ -13,7 +13,7 @@ import scrollCont from '../blocks/scroll-form/scroll-form';
 import slider from '../blocks/slider/slider';
 import tooltips from '../blocks/tooltip/tooltip';
 import tabs from '../blocks/tabs/tabs';
-import maps from '../blocks/map/map';
+import { maps, mapsTwo } from '../blocks/map/map';
 import '../blocks/rating/rating';
 import '../blocks/accordion/accordion';
 import '../blocks/dropdown/dropdown';
@@ -39,6 +39,7 @@ $(() => {
   inputmask();
   numberinput();
   maps();
+  mapsTwo();
   scrollanimation();
   scrollCont();
 });
