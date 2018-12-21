@@ -1,14 +1,4 @@
 mixin button(newtag)
-  - var tag = 'a';
-  if newtag
-    - var tag = newtag;
-  +b(tag).button&attributes(attributes)
-    +e.__text
+  +b(newtag || 'a').button&attributes(attributes)
+    +e.SPAN.text
       block
-
-mixin button-gradient(newtag)
-  - var tag = 'a';
-  if newtag
-    - var tag = newtag;
-  +b(tag).button_gradient&attributes(attributes)
-    block

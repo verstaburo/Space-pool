@@ -1,27 +1,17 @@
 @mixin link {
   color: $color-basic;
-  border: 0;
   transition: fill $ease-main, color $ease-main, opacity $ease-main, border-color $ease-main;
-  fill: $color-basic;
+  fill: currentColor;
 
-  &__text {
-    border-bottom: 1px solid $color-bc-light;
-  }
-
-  &:hover { 
+  &:hover {
     color: $color-basic-dark;
-    
-    &__text {
-      border-bottom: 1px solid $color-basic-dark;
-    }
-   }
+  }
 }
 
 @mixin link-disabled {
   color: $color-bc-light;
-  border-color: transparent;
-}
 
-@mixin link-dashed {
-  border-bottom-style: dashed;
+  &__text {
+    border-color: transparent;
+  }
 }

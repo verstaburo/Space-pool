@@ -10,20 +10,35 @@ block content
       +e.UL.navigation__list
 
     +ui-kit-head
-      +e.logo
-        img(src="./assets/images/logo.png")
-      +e.name space pool
+      p Logo in header .logo
+      br
+      +logo
+      br
+      p Logo in footer .logo_footer
+      br
+      +logo-image._footer
+      br
+      +e.name SpacePool
+
+    //- Хэдер
+    +ui-section
+      +ui-section-head
+        h2 Хэдер (Header)
+        p Блок: components/header
+        p Состояние при логине хэдеру добавляется класс is-login
+        +button(onclick="$('.header').toggleClass('is-login')") Log In
 
     //- Сетка
     +ui-section._grid
       +ui-section-head
         h2 Сетка
-        p Отступы слева и справа от экрана: 20px ($container-padding)
-        p Ширина контейнера: 960px ($container-width)
+        p Отступы слева и справа от экрана: 40px ($container-padding)
+        p Отступы слева и справа от экрана на мобильныx: 20px ($container-padding-mobile)
+        p Максимальная ширина контейнера с учетом паддингов: 1700px ($container-width)
         p Ширина контейнера сетки: 100% ($grid-container-width)
         p Колонок: 12 ($grid-cols)
-        p Горизонтальное расстояние между колонками: 20px ($grid-gap)
-        p Вертикальное расстояние между колонками: 20px ($grid-gap-vertical)
+        p Горизонтальное расстояние между колонками: 50px ($grid-gap)
+        p Вертикальное расстояние между колонками: 50px ($grid-gap-vertical)
         p Переменные: styles/helpers/_variables.scss
         p Блок: blocks/grid/
 
@@ -79,7 +94,7 @@ block content
           +ui-color('#eb4433', '$color-red',true)
           +ui-color('#1dd5f0', '$color-blue',true)
           +ui-color('#29f785', '$color-green',true)
-          +ui-color('#ffffff', '$color-wite',true)
+          +ui-color('#ffffff', '$color-white',true)
           +ui-color('#acb5c0', '$color-bc-light',true)
           +ui-color('#303333', '$color-bc-dark',true)
 
@@ -119,17 +134,6 @@ block content
 
     +ui-section
       +ui-section-head
-        h2 header
-        p Блок: components/header
-      +ui-section-content()
-        +grid
-          +col(12)
-            +header
-          +col(12)
-            +header-login
-
-    +ui-section
-      +ui-section-head
         h2 scrollform
         p Блок: components/header
       +ui-section-content()
@@ -152,7 +156,8 @@ block content
       +ui-section-content()
         +ui-elements-list()
           +button()(href="#") .button
-          +button-gradient()(href="#") .button
+          +button()(href="#")._border .button_border
+          +button()(href="#")._border._border_bg-white .button_border._border_bg-white
           +button('button')(href="#" disabled) .button:disabled
         +ui-description При клике на .js-anchor происходит скролл к элементу из атрибута href. Блок: blocks/js-functions/anchor.js
         +button()(href="#section0").js-anchor .js-anchor
@@ -292,8 +297,8 @@ block content
       +ui-section-content()
         +ui-description .link
         +link()(href="#") Обычная ссылка
-        +ui-description .link._dashed
-        +link()(href="#")._dashed Пунктирная ссылка
+        +ui-description .link._bordered
+        +link()(href="#")._bordered Подчеркнутая ссылка
         +ui-description .link._icon
         +link-icon('refresh')(href="#") Ссылка с иконкой
         +ui-description .link.is-disabled

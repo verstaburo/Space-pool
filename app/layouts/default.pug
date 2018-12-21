@@ -2,9 +2,20 @@ include _externalIncludes
 include _internalIncludes
 
 doctype html
-html(lang='ru')
+html(lang='en')
   include head
   body
-    block content
+    block header
+    -var headerType = authorized || false
+
+    +header(headerType)
+
+    +b.MAIN.page
+      block content
+
+    +popups
+      block popups
+
+    +footer
     script(src='assets/scripts/app.min.js')
     script(src='assets/scripts/main.js')

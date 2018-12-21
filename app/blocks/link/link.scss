@@ -1,12 +1,7 @@
 .link {
   $b: &;
-  @include link;
 
-  &__text {
-    #{$b}_dashed & {
-      @include link-dashed;
-    }
-  }
+  @include link;
 
   &_icon {
     position: relative;
@@ -24,18 +19,30 @@
     font-size: 0;
   }
 
+  &__text {
+    transition: border $ease-main;
+
+    #{$b}_bordered & {
+      border-bottom: 1px solid $color-bc-light;
+    }
+
+    #{$b}_bordered:hover & {
+      border-bottom: 1px solid $color-basic-dark;
+    }
+  }
+
   &.is-disabled {
     pointer-events: none;
     fill: $color-border;
+
     @include link-disabled;
   }
 }
 
-
 .link-top {
   padding: 0;
   cursor: pointer;
-  color: $color-wite;
+  color: $color-white;
   border-bottom: 2px solid $color-yellow;
   border-top: 2px solid rgba(0, 0, 0, 0);
   border-left: 2px solid rgba(0, 0, 0, 0);
@@ -43,27 +50,29 @@
   transition: border-color $ease-main;
   font-weight: 700;
   padding: 3px;
-  
+
 
   &:hover {
     border: 2px solid $color-yellow;
   }
 
-  &_red{
+  &_red {
     border-bottom: 2px solid $color-red;
 
     &:hover {
       border: 2px solid $color-red;
     }
   }
-  &_blue{
+
+  &_blue {
     border-bottom: 2px solid $color-blue;
 
     &:hover {
       border: 2px solid $color-blue;
     }
   }
-  &_green{
+
+  &_green {
     border-bottom: 2px solid $color-green;
 
     &:hover {

@@ -38,14 +38,19 @@ export default function header() {
     }
   });
 
-  function fixHeader() {
+  // стилизуем хэдер в зависимости от позиции на странице
+  function headerStyle() {
     const sT = $(window).scrollTop();
+
     if (sT > 1) {
-      $('.header').addClass('is-fixed');
+      $('.page').addClass('is-short');
+      $('.header').addClass('is-short');
     } else {
-      $('.header').removeClass('is-fixed');
+      $('.page').removeClass('is-short');
+      $('.header').removeClass('is-short');
     }
   }
 
-  $(window).on('scroll', fixHeader);
+  headerStyle();
+  $(window).on('scroll', headerStyle);
 }

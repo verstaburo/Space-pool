@@ -4,7 +4,7 @@
 div {
   @include ratio(16,9);
 } */
-@mixin ratio($x,$y, $pseudo: false) {
+@mixin ratio($x, $y, $pseudo: false) {
   $padding: unquote(($y/$x) *100+'%');
 
   @if $pseudo {
@@ -17,7 +17,9 @@ div {
     }
   }
 
-  @else { padding-top: $padding; }
+  @else {
+    padding-top: $padding;
+  }
 }
 
 /*
@@ -55,28 +57,28 @@ div::after {
     border-radius: 3px;
   }
 
-  @if $direction == down {
+  @if $direction==down {
     border-left: $size solid transparent;
     border-right: $size solid transparent;
     border-top: $size solid $color;
     margin-top: 0 - round($size / 2.5);
   }
 
-  @else if $direction == up {
+  @else if $direction==up {
     border-left: $size solid transparent;
     border-right: $size solid transparent;
     border-bottom: $size solid $color;
     margin-bottom: 0 - round($size / 2.5);
   }
 
-  @else if $direction == right {
+  @else if $direction==right {
     border-top: $size solid transparent;
     border-bottom: $size solid transparent;
     border-left: $size solid $color;
     margin-right: -$size;
   }
 
-  @else if  $direction == left {
+  @else if $direction==left {
     border-top: $size solid transparent;
     border-bottom: $size solid transparent;
     border-right: $size solid $color;
@@ -97,22 +99,12 @@ div {
   }
 }
 */
-$breakpoints: (
-  'phone': 400px,
-  'phone-wide': 480px,
-  'phablet': 560px,
-  'tablet-small': 640px,
-  'tablet': 768px,
-  'tablet-wide': 1024px,
-  'desktop': 1248px,
-  'desktop-wide': 1440px
-);
 
-@mixin screen($width, $type: min) {
+@mixin screen($width, $type: max) {
   @if map_has_key($breakpoints, $width) {
     $width: map_get($breakpoints, $width);
 
-    @if $type == max {
+    @if $type==max {
       $width: $width - 1px;
     }
 

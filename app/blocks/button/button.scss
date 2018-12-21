@@ -1,48 +1,69 @@
 .button {
-  display: inline-flex;
-  padding: 3px;
-  border-radius: 21px;
-  background: linear-gradient(to left, $color-gradient-one 0%, $color-gradient-two 100%);
+  $b: &;
+
+  display: inline-block;
   vertical-align: middle;
   box-sizing: border-box;
-  color: $color-basic;
-  background-color: transparent;
+  color: $color-white;
+  background: linear-gradient(to left, $color-gradient-one 0%, $color-gradient-two 100%);
   transition: opacity $ease-main;
   cursor: pointer;
+  border-radius: 21px;
+  text-align: center;
+  font-weight: 700;
 
-  &__text {
-    background: $color-bg;
-    padding: 10px 25px;
-    border-radius: 21px;
-
-  }
-
-  &_gradient {
-    background: linear-gradient(to left, $color-gradient-one 0%, $color-gradient-two 100%);
-    display: flex;
-    padding: 13px 0;
-    border-radius: 21px;
-    background: linear-gradient(to left, $color-gradient-one 0%, $color-gradient-two 100%);
-    vertical-align: middle;
-    box-sizing: border-box;
-    color: $color-basic;
-    background-color: transparent;
-    transition: opacity $ease-main;
-    cursor: pointer;
-    justify-content: center;
-    color: $color-wite;
-    transition: .4s;
-  }
-  @include text;
+  @include text-mid;
 
   &:disabled,
   &.is-disabled {
     opacity: .5;
     cursor: not-allowed;
+    pointer-events: none;
   }
 
   &:hover,
-  &.is-active { 
-    // background: linear-gradient(to left, $color-gradient-two 0%, $color-gradient-one 100%);
-   }
+  &.is-active {
+    opacity: .5;
+  }
+
+  &__text {
+    position: relative;
+    display: block;
+    box-sizing: border-box;
+    padding: 8px 55px;
+    z-index: 1;
+    border-radius: 21px;
+  }
+
+  &_border {
+    position: relative;
+    padding: 3px;
+    transition:
+      opacity $ease-main,
+      color $ease-main;
+    color: $color-basic;
+
+    #{$b}__text {
+      padding: 5px 52px;
+      background: $color-bg;
+      transition: background $ease-main;
+    }
+
+    &_bg-white {
+
+      #{$b}__text {
+        background: $color-white;
+      }
+    }
+
+    &:hover,
+    .is-active {
+      color: $color-white;
+      opacity: 1;
+
+      #{$b}__text {
+        background: transparent;
+      }
+    }
+  }
 }

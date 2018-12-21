@@ -1,20 +1,103 @@
 .burger {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  width: 42px;
-  height: 32px;
-  cursor: pointer;
-  
-  svg {
-    transition: .3s;
-    fill: $color-basic;
+  $b: &;
+
+  position: relative;
+  display: block;
+  font-size: 0;
+  line-height: 0;
+  padding-right: 3px;
+
+  @include screen('xl') {
+    padding-right: 0;
   }
 
-  &:hover {
-    svg {
-      fill: $color-basic-dark;
+  &__image {
+    display: flex;
+    align-items: center;
+    width: 42px;
+    height: 32px;
+    cursor: pointer;
+
+    @include screen('sm') {
+      width: 30px;
+      height: 23px;
+    }
+
+    &::before,
+    &::after {
+      @include pseudo;
+
+      height: 4px;
+      left: 0;
+      background-color: $color-basic;
+      transition: all $ease-main;
+
+      @include screen('sm') {
+        height: 3px;
+      }
+    }
+
+    &::before {
+      top: 0;
+      width: 42px;
+
+      @include screen('sm') {
+        width: 30px;
+      }
+    }
+
+    &::after {
+      bottom: 0;
+      width: 32px;
+
+      @include screen('sm') {
+        width: 23px;
+      }
+    }
+
+    #{$b}:hover &::before,
+    #{$b}:hover &::after {
+      background-color: $color-basic-dark;
     }
   }
 
+  &__line {
+    position: relative;
+    display: block;
+    height: 4px;
+    width: 23px;
+
+    @include screen('sm') {
+      height: 3px;
+      width: 16px;
+    }
+
+    &::before,
+    &::after {
+      @include pseudo;
+
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      background-color: $color-basic;
+      transition: all $ease-main;
+      transform-origin: center;
+    }
+
+    #{$b}:hover &::before,
+    #{$b}:hover &::after {
+      background-color: $color-basic-dark;
+    }
+  }
+
+  &::before {
+    @include pseudo;
+
+    width: 74px;
+    height: 74px;
+    top: 50%;
+    left: 50%;
+    transform: translate3d(-50%, -50%, 0);
+  }
 }

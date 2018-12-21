@@ -18,9 +18,8 @@
   padding: 0 $container-padding;
   box-sizing: border-box;
 
-  &_flex {
-    display: flex;
-    align-items: center;
+  @include screen('sm') {
+    padding: 0 $container-padding-mobile;
   }
 
   &_banner {
@@ -29,18 +28,36 @@
   }
 
   &_content {
-    width: 1144px;
+    max-width: $content-container-width;
     display: flex;
     align-items: flex-start;
   }
-
-  &_slider {
-    position: relative;
-    max-width: 86%;
-  }
-
 }
 
 .js-sr {
   visibility: hidden;
+}
+
+// спрятать на десктопе
+
+.hide-xl {
+  @include screen('xl') {
+    display: none;
+  }
+}
+
+// cпрятать на планшете
+
+.hide-lg {
+  @include screen('lg') {
+    display: none;
+  }
+}
+
+// cпрятать на мобиле
+
+.hide-sm {
+  @include screen('sm') {
+    display: none;
+  }
 }

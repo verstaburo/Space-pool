@@ -1,3 +1,62 @@
 .logo {
-  display: block;
+  $b: &;
+
+  position: relative;
+  display: inline-block;
+  height: 54px;
+  font-size: 0;
+  line-height: 0;
+
+  @include screen('sm', max) {
+    height: 40px;
+  }
+
+  &__icon {
+    display: block;
+    height: 100%;
+    width: auto;
+    font-size: 0;
+    line-height: 0;
+  }
+
+  &__text {
+    fill: $color-header-logo;
+    transition: opacity $ease-main;
+
+    @include screen('sm') {
+      display: none;
+      opacity: 0;
+    }
+
+    .header.is-short & {
+      opacity: 0;
+    }
+  }
+
+  &:not(#{b}_footer)::before {
+    @include screen('sm') {
+      @include pseudo;
+
+      width: 74px;
+      height: 74px;
+      top: 50%;
+      left: 50%;
+      transform: translate3d(-50%, -50%, 0);
+    }
+  }
+
+  &_footer {
+    @include screen('sm', max) {
+      height: 54px;
+    }
+
+    #{$b}__text {
+      fill: $color-basic;
+
+      @include screen('sm') {
+        display: block;
+        opacity: 1;
+      }
+    }
+  }
 }

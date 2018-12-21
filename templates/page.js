@@ -2,8 +2,7 @@ module.exports = pageName => `
 extends ../../layouts/default
 
 block head
-  - var pageTitle = 'Versta Project Template'
+  - var pageTitle = 'SpacePool - '
 
 block content
-  +b.${pageName}
 `;

@@ -1,23 +1,21 @@
 .header-menu {
   display: flex;
-  margin-right: 74px;
+  justify-content: flex-end;
+
   &__item {
-    display: flex;
-    align-items: center;
-    margin-right: 58px;
-    &:last-child {
-      margin-right: 0px;
+    text-align: right;
+
+    &:not(:last-child) {
+      margin-right: 55px;
     }
-  }
-  &__link {
-    color: $color-basic;
-    transition: $ease-main;
-    font-weight: 700;
-    font-size: 17px;
-    letter-spacing: -0.34px;
-    &:hover {
-      color: $color-basic-dark;
-      
+
+    &_bmg:not(:last-child) {
+      margin-right: 61px;
+    }
+
+    .link {
+      @include text-mid;
+
       font-weight: 700;
     }
   }
