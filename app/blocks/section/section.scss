@@ -30,18 +30,30 @@
   }
 
   &__header {
+    display: block;
+    width: 100%;
     margin-bottom: 60px;
 
     #{$b}_bg & {
-      margin-bottom: auto;
+      margin-bottom: 62px;
     }
 
     #{$b}_lead & {
       display: flex;
+      margin-bottom: 120px;
 
       @include screen('lg') {
         flex-wrap: wrap;
       }
+    }
+  }
+
+  &__footer {
+    display: block;
+    width: 100%;
+
+    #{$b}_bg & {
+      margin-top: auto;
     }
   }
 
@@ -89,7 +101,12 @@
     box-sizing: border-box;
 
     #{$b}_bg & {
-      padding: 105px 136px 30px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: flex-start;
+      min-height: 470px;
+      padding: 105px 136px 28px;
 
       @include screen('xl') {
         padding: 113px 60px 30px;
@@ -105,7 +122,7 @@
     }
 
     #{$b}_lead & {
-      padding: 124px 136px 30px;
+      padding: 124px 136px 28px;
 
       @include screen('xl') {
         padding: 113px 60px 30px;
@@ -152,7 +169,11 @@
   &__note {
     @include text16;
 
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
     font-weight: 300;
+    padding-left: 2px;
 
     @include screen('sm') {
       @include text;
