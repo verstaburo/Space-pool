@@ -1,0 +1,25 @@
+.short-profile {
+  $b: &;
+
+  display: inline-flex;
+  align-items: center;
+
+  &__avatar {
+    margin-right: 10px;
+  }
+
+  &__name {
+    @include text-mid;
+
+    font-weight: 700;
+    color: $color-basic;
+    transition: color $ease-main;
+  }
+
+  &:hover {
+
+    #{$b}__name {
+      color: $color-basic-dark;
+    }
+  }
+}

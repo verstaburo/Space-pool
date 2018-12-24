@@ -6,17 +6,14 @@ import {
 const $ = window.$;
 
 export default function header() {
+  // открываем/закрываем навигацию
   const mainNavigation = {
     open() {
       freeze();
-      if ($(window).width() < 768) {
-        $('body').addClass('is-navigation-open');
-      }
+      $('body').addClass('is-navigation-open');
     },
     close() {
-      if ($(window).width() < 768) {
-        $('body').removeClass('is-navigation-open');
-      }
+      $('body').removeClass('is-navigation-open');
       unfreeze();
     },
     isActive() {
@@ -32,22 +29,24 @@ export default function header() {
     }
   });
 
-  $(window).on('resize', () => {
-    if ($(window).width() >= 768) {
-      mainNavigation.close();
-    }
+  $(document).on('click', '.overlay', () => {
+    mainNavigation.close();
   });
 
   // стилизуем хэдер в зависимости от позиции на странице
   function headerStyle() {
     const sT = $(window).scrollTop();
 
-    if (sT > 1) {
-      $('.page').addClass('is-short');
-      $('.header').addClass('is-short');
-    } else {
-      $('.page').removeClass('is-short');
-      $('.header').removeClass('is-short');
+    if (!$('html').hasClass('freeze')) {
+      if (sT > 1) {
+        $('.page').addClass('is-short');
+        $('.header').addClass('is-short');
+        $('.main-menu').addClass('is-short');
+      } else {
+        $('.page').removeClass('is-short');
+        $('.header').removeClass('is-short');
+        $('.main-menu').removeClass('is-short');
+      }
     }
   }
 

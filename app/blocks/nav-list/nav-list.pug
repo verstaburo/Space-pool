@@ -1,0 +1,5 @@
+mixin nav-list(data)
+  +b.nav-list&attributes(attributes)
+    each item in data
+      +e.LI.item
+        +link()(href=item.href)!= item.name

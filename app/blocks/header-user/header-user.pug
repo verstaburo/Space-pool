@@ -1,15 +1,11 @@
 mixin header-user()
   +b.header-user&attributes(attributes)
-    +e.__user
-      +e.IMG(src='./assets/images/user.png').__user-photo
-      +e.__name Spencer Macenthire
-    +e.UL.__list
-      +e.LI.__item
-        +e.IMG(src='./assets/images/calendar.png').__item-IMG
-        +e.span.__item-circle
-      +e.LI.__item
-        +e.IMG(src='./assets/images/messenge.png').__item-IMG
-        +e.span.__item-circle
-      +e.LI.__item
-        +e.IMG(src='./assets/images/heart.png').__item-IMG
-
+    +e.user
+      +short-profile(href="#")
+    +e.UL.list
+      +e.LI.item
+        +user-link('calendar', '_calendar', true)
+      +e.LI.item
+        +user-link('message', '_message', true)
+      +e.LI.item
+        +user-link('heart', '_heart')

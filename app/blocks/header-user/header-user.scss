@@ -1,46 +1,29 @@
 .header-user {
   display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  font-size: 0;
+  line-height: 0;
+  box-sizing: border-box;
+  padding-right: 18px;
 
   &__user {
-    display: flex;
-    align-items: center;
-    margin-right: 80px;
-    &-photo {
-      margin-right: 10px;
-      border-radius: 50%;
+    display: inline-block;
+
+    &:not(:last-child) {
+      margin-right: 80px;
     }
-
-  }
-
-
-  &__name {
-    font-size: 17px;
-    color: $color-basic;
-    font-weight: 700;
   }
 
   &__list {
     display: flex;
+    align-items: center;
+    justify-content: flex-end;
   }
 
   &__item {
-    display: flex;
-    align-items: center;
-    margin-right: 72px;
-    position: relative;
-    cursor: pointer;
-    &:last-child {
-      margin-right: 94px;
-    }
-    &-circle {
-      position: absolute;
-      height: 8px;
-      width: 8px;
-      background: $color-red;
-      border-radius: 50%;
-      right: -2px;
-      top: 4px;
+    &:not(:last-child) {
+      margin-right: 73px;
     }
   }
-  
 }

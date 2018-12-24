@@ -5,10 +5,7 @@ doctype html
 html(lang='en')
   include head
   body
-    block header
-    -var headerType = authorized || false
-
-    +header(headerType)
+    +header
 
     +b.MAIN.page
       block content
@@ -16,6 +13,8 @@ html(lang='en')
     +popups
       block popups
 
+    +overlay
+    +main-menu
     +footer
     script(src='assets/scripts/app.min.js')
     script(src='assets/scripts/main.js')

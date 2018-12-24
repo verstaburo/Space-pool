@@ -4,6 +4,8 @@ const $ = window.$;
 export function freeze() {
   const h = $('html');
 
+  h.addClass('freeze');
+
   if (h.css('position') !== 'fixed') {
     const top = h.scrollTop() ? h.scrollTop() : $('body').scrollTop();
 
@@ -22,6 +24,8 @@ export function freeze() {
 
 export function unfreeze() {
   const h = $('html');
+
+  h.removeClass('freeze');
 
   if (h.css('position') === 'fixed') {
     h.css('position', 'static');

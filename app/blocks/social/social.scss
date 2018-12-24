@@ -1,0 +1,24 @@
+.social {
+  $b: &;
+
+  display: inline-block;
+  font-size: 0;
+
+  &__icon {
+    display: inline-block;
+    font-size: 0;
+    width: 26px;
+    height: 30px;
+    fill: $color-basic;
+    transition: fill $ease-main;
+
+    #{$b}:hover & {
+      fill: $color-basic-dark;
+    }
+
+    #{$b}_big & {
+      width: 32px;
+      height: 37px;
+    }
+  }
+}

@@ -1,0 +1,19 @@
+mixin main-menu()
+  - var menuTop = getData('main-menu-top.json')
+  - var menuBottom = getData('main-menu-bottom.json')
+  +b.main-menu&attributes(attributes)
+    +e.wrapper
+      +e.block
+        +e.top
+          +close.js-open-navigation
+        +e.scrollblock.js-scrollbar-light
+          +e.content
+            +e.top-menu
+              +nav-list(menuTop)
+            +divider
+            +e.bottom-menu
+              +nav-list(menuBottom)
+              +socials
+              +e.links
+                +link(href="mailto:info@spacepool.com") info@spacepool.com
+                +link(href="tel:+4471478129419") +44 714 781 294 19

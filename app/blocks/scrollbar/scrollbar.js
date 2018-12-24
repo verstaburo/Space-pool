@@ -1,8 +1,24 @@
-import $ from 'jquery';
+// https://kingsora.github.io/OverlayScrollbars
+import OverlayScrollbars from 'overlayscrollbars';
 
-// https://github.com/gromo/jquery.scrollbar
-import 'jquery.scrollbar';
+const $ = window.$;
 
 export default function scrollbar() {
-  $('.js-scrollbar').scrollbar();
+  $('.js-scrollbar').each((i, el) => {
+    OverlayScrollbars(el, {
+      className: 'os-theme-custom',
+    });
+  });
+
+  $('.js-scrollbar-dark').each((i, el) => {
+    OverlayScrollbars(el, {
+      className: 'os-theme-custom-dark',
+    });
+  });
+
+  $('.js-scrollbar-light').each((i, el) => {
+    OverlayScrollbars(el, {
+      className: 'os-theme-custom-light',
+    });
+  });
 }

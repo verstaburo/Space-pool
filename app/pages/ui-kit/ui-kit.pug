@@ -113,12 +113,11 @@ block content
     +ui-section
       +ui-section-head
         h2 Шрифты и контентная зона
-        p Основной шрифт: Arial ($font-main), font-weight: 400, 600
-        p Дополнительный шрифт: Times New Roman ($font-second), font-weight: 400, 600
+        p Основной шрифт: ProximaNova ($font-main), font-weight: 400, 700, 300
         p Переменные находятся в файле styles/helpers/_variables.scss
         p Шрифты подключены в styles/helpers/_fonts.scss
         p Контентная зона: blocks/content-zone
-        p Стили всех текстов лежат в файле styles/helpers/_text-styles.scss и должны импортироваться из него через директиву @extend и задаваться через "временные" классы %className
+        p Стили всех текстов лежат в файле styles/helpers/_text-styles.scss
       +ui-section-content()
         +ui-description .content-zone
         +ui-special()
@@ -312,12 +311,22 @@ block content
     //- Скроллбар
     +ui-section
       +ui-section-head
-        h2 Кастомный скроллбар
+        h2 Кастомный скроллбары
         p Блок: blocks/scrollbar/scrollbar
       +ui-section-content()
-        +ui-description .js-scrollbar
-        +e.scrolldemo.js-scrollbar
-          +e.scrolldemo-block
+        +grid
+          +col(4)
+            +ui-description .js-scrollbar
+            +e.scrolldemo.js-scrollbar
+              +e.scrolldemo-block
+          +col(4)
+            +ui-description .js-scrollbar-dark
+            +e.scrolldemo.js-scrollbar-dark
+              +e.scrolldemo-block
+          +col(4)
+            +ui-description .js-scrollbar-light
+            +e.scrolldemo.js-scrollbar-light
+              +e.scrolldemo-block
 
     //- Слайдер
     +ui-section
@@ -473,6 +482,68 @@ block content
             p(style="font-size: 12px; color: #999;")
               | +put-block-into-slot('slotId', 'xs')
             +put-block-into-slot('slotId', 'xs')
+
+    //- Avatar
+    +ui-section
+      +ui-section-head
+        h2 Аватар
+        p Блок: blocks/avatar
+      +ui-section-content
+        +ui-description .avatar
+        +avatar('assets/images/ava.jpg')
+
+    //- Short profile
+    +ui-section
+      +ui-section-head
+        h2 Профиль в хэдере
+        p Блок: blocks/short-profile
+      +ui-section-content
+        +ui-description .short-provile
+        +short-profile
+
+    //- User link
+    +ui-section
+      +ui-section-head
+        h2 Ссылка в профиле в хэдере
+        p Блок: blocks/user-link
+      +ui-section-content
+        +ui-description .user-link
+        +user-link('message', '_message')
+        +ui-description .user-link.is-new - с активным маркером
+        +user-link('message', '_message', true)
+
+    //- Social
+    +ui-section
+      +ui-section-head
+        h2 Социальные сети
+        p Блок: blocks/socials и Блок blocks/social
+      +ui-section-content
+        +ui-description .social - ссылка на соцсеть
+        +social('sc-fb')._fb(href="#" title="facebook")
+        +ui-description .social._big - увеличенная ссылка на соцсеть
+        +social('sc-fb')._big._fb(href="#" title="facebook")
+        +ui-description .socials
+        +socials
+        +ui-description .socials._big
+        +socials-big
+
+    //- Close
+    +ui-section
+      +ui-section-head
+        h2 Кнопка закрыть
+        p Блок: blocks/close
+      +ui-section-content
+        +ui-description .close
+        +close
+
+    //- Nav list
+    +ui-section
+      +ui-section-head
+        h2 Список в навигации
+        p Блок: blocks/nav-list
+      +ui-section-content
+        +ui-description .nav-list
+        +nav-list(getData('main-menu-top.json'))
 
   script
     |

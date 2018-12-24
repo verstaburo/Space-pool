@@ -1,11 +1,12 @@
 .button {
   $b: &;
 
+  position: relative;
   display: inline-block;
   vertical-align: middle;
   box-sizing: border-box;
   color: $color-white;
-  background: linear-gradient(to left, $color-gradient-one 0%, $color-gradient-two 100%);
+  background-image: linear-gradient(to left, $color-gradient-one 0%, $color-gradient-two 100%);
   transition: opacity $ease-main;
   cursor: pointer;
   border-radius: 21px;
@@ -14,6 +15,20 @@
 
   @include text-mid;
 
+  &::before {
+    @include pseudo;
+
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    background-color: #fff;
+    border-radius: 21px;
+    transition: opacity $ease-main;
+    z-index: 3;
+  }
+
   &:disabled,
   &.is-disabled {
     opacity: .5;
@@ -21,16 +36,16 @@
     pointer-events: none;
   }
 
-  &:hover,
-  &.is-active {
-    opacity: .5;
+  &:hover::before,
+  &.is-active::before {
+    opacity: .07;
   }
 
   &__text {
     position: relative;
     display: block;
     box-sizing: border-box;
-    padding: 8px 55px;
+    padding: 8px 57px;
     z-index: 1;
     border-radius: 21px;
   }
@@ -44,7 +59,7 @@
     color: $color-basic;
 
     #{$b}__text {
-      padding: 5px 52px;
+      padding: 5px 54px;
       background: $color-bg;
       transition: background $ease-main;
     }
@@ -57,9 +72,12 @@
     }
 
     &:hover,
-    .is-active {
+    &.is-active {
       color: $color-white;
-      opacity: 1;
+
+      &::before {
+        opacity: .19;
+      }
 
       #{$b}__text {
         background: transparent;
