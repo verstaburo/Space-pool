@@ -1,0 +1,14 @@
+mixin space(data)
+  +b.A.space&attributes(attributes)
+    +e.DIV.media(data-slider-buttons-orientir)
+      +e.IMG.image(src=data.img)
+      +button-heart.js-heart.__heart
+    +e.DIV.describe
+      if data.seats
+        +e.seats!= data.seats
+      if data.boxes
+        +boxes.__boxes
+          each item in data.boxes
+            +box(class=item.class)
+      +e.title!= data.title
+      +e.location!= data.location

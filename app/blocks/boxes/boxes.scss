@@ -1,0 +1,43 @@
+.boxes {
+  $b: &;
+
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  overflow: hidden;
+  font-size: 0;
+  line-height: 0;
+
+  &__box {
+    display: block;
+    width: 9px;
+    height: 9px;
+    background-color: $color-hot-desk;
+
+    @include screen('sm') {
+      width: 6px;
+      height: 6px;
+    }
+
+    #{$b}_big & {
+      width: 19px;
+      height: 19px;
+    }
+
+    &_orange {
+      background-color: $color-hot-desk;
+    }
+
+    &_red {
+      background-color: $color-dedicated-desk;
+    }
+
+    &_blue {
+      background-color: $color-meeting-room;
+    }
+
+    &_green {
+      background-color: $color-office-space;
+    }
+  }
+}

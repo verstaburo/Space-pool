@@ -4,6 +4,10 @@ block head
   - var pageTitle = 'SpacePool - Main'
 
 block content
+  - var spaces = getData('spaces.json')
+  - var spacesNew = getData('spaces-new.json')
+  - var rooms = getData('rooms.json')
+  - var news = getData('news.json')
   +section._bg._lead
     .container
       +section-wrapper
@@ -20,17 +24,25 @@ block content
       .container
         +section-title('h2') Featured Spaces
     +section-content
-  +section
+      +slider(true, false).js-slider-spaces
+        each item in spaces
+          +slide
+            +space(item)
+  +section._mid-mg
     .container
       +section-header
         +section-title('h2') Locations
       +section-content
         +map()._big#mapTwo
-  +section
+  +section._sm-mg
     +section-header
       .container
         +section-title('h2') Meeting Rooms
     +section-content
+      +slider(true, false).js-slider-rooms
+        each item in rooms
+          +slide
+            +space(item)
   +section._bg._promo
     .container
       +section-wrapper
@@ -46,8 +58,16 @@ block content
       .container
         +section-title('h2') New Places
     +section-content
+      +slider(true, false).js-slider-spaces
+        each item in spacesNew
+          +slide
+            +space(item)
   +section
     +section-header
       .container
         +section-title('h2') Articles
     +section-content
+      +slider(true, false).js-slider-news
+        each item in news
+          +slide
+            +news(item)

@@ -1,74 +1,37 @@
-mixin slider(pagination, buttons)
-  +b.slider.slider&attributes(attributes).swiper-container.js-slider
-    .swiper-wrapper
-      block
+mixin slider(buttons, pagination)
+  +b.slider__&attributes(attributes)
+    .container
+      +e.container.swiper-container.js-slider-container
+        .swiper-wrapper
+          block
     if pagination
       +e.dots
         +e.dot
     if buttons
-      +e.button._prev.slider__button-one_prev
-        +icon('arrow2')
-      +e.button._next.slider__button-one_next
-        +icon('arrow2') 
-      +e.A(href="#").__search
-        +icon('search').__search-img
+      +e.buttons(data-slider-buttons)
+        +e.buttons-rooms_prev
+          +e.button._prev.js-slider-button-prev
+            +icon('slider-arrow').__button-icon
+        +e.buttons-divider
+        +e.buttons-rooms_next
+          +e.button._next.js-slider-button-next
+            +icon('slider-arrow').__button-icon
 
-mixin slide(href)
-  a(href=href).swiper-slide
-    +e.slide&attributes(attributes)
-      block
-
-mixin slide-two()
-  a(href="#").swiper-slide
-    +e.slide&attributes(attributes)
-      +icon('heart').__heart
-      block
-
-mixin slider-two(pagination, buttons)
-  +b.slider._two&attributes(attributes).swiper-container.js-slider-two
+mixin slider-gallery(buttons, loupe)
+  +b.slider__.swiper-container&attributes(attributes)
     .swiper-wrapper
       block
-    if pagination
-      +e.dots
-        +e.dot
-  .slider__button-two.slider__button-two_prev.js-two-slider_prev
-    +icon('arrow2')
-  .slider__button-two.slider__button-two_next.js-two-slider_next
-    +icon('arrow2')
+    if buttons
+      +e.buttons_simple
+        +e.button._prev.js-slider-button-prev
+          +icon('slider-arrow')
+        +e.button._next.js-slider-button-next
+          +icon('slider-arrow')
+    if loupe
+      +e.loupe
+        +icon('loupe').__loupe-icon
 
 
-mixin slider-three(pagination, buttons)
-  +b.slider._three&attributes(attributes).swiper-container.js-slider-three
-    .swiper-wrapper
-      block
-    if pagination
-      +e.dots
-        +e.dot
-  .slider__button-two.slider__button-two_prev.js-three-slider_prev
-    +icon('arrow2')
-  .slider__button-two.slider__button-two_next.js-three-slider_next
-    +icon('arrow2')
-
-mixin slider-for(pagination, buttons)
-  +b.slider._for&attributes(attributes).swiper-container.js-slider-for
-    .swiper-wrapper
-      block
-    if pagination
-      +e.dots
-        +e.dot
-  .slider__button-two.slider__button-two_prev.js-for-slider_prev
-    +icon('arrow2')
-  .slider__button-two.slider__button-two_next.js-for-slider_next
-    +icon('arrow2')
-
-mixin slider-five(pagination, buttons)
-  +b.slider._for&attributes(attributes).swiper-container.js-slider-five
-    .swiper-wrapper
-      block
-    if pagination
-      +e.dots
-        +e.dot
-  .slider__button-two.slider__button-two_prev.js-five-slider_prev
-    +icon('arrow2')
-  .slider__button-two.slider__button-two_next.js-five-slider_next
-    +icon('arrow2')
+mixin slide
+  +e.slide.swiper-slide&attributes(attributes)
+    block

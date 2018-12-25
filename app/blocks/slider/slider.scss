@@ -1,60 +1,13 @@
 @import '../../node_modules/swiper/dist/css/swiper.css';
 
 .slider {
+  $b: &;
+
   position: relative;
   height: 100%;
 
   &__slide {
-    height: 100%;
-    text-align: center;
-    position: relative;
-    cursor: pointer;
-    &:hover {
-      .slider-title__slide {
-
-        color: $color-basic-dark;
-      }
-
-      .slider__heart {
-        opacity: 1;
-        fill: #ffffff;
-        stroke: #ffffff;
-      }
-    }
-  }
-
-  &__heart {
-    position: absolute;
-    right: 20px;
-    top: 20px;
-    opacity: 0;
-    transition: .3s;
-    width: 27px;
-    height: 27px;
-    fill: #ffffff;
-    stroke: #ffffff;
-    transition: .3s;
-  }
-
-  &__search {
-    z-index: 10;
-    cursor: pointer;
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    height: 42px;
-    width: 42px;
-    background-color:rgba($color: $color-grey-dark, $alpha: .2);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition: .3s;
-    &:hover { background-color:rgba($color: $color-grey-dark, $alpha: .8); }
-    &-img {
-      height: 21px;
-      width: 21px;
-      fill: $color-white;
-    }
+    height: auto !important;
   }
 
   &__dots {
@@ -85,153 +38,105 @@
     }
   }
 
-  &__button {
+  &__buttons {
+    width: 100%;
     position: absolute;
     display: flex;
-    align-items: center;
-    justify-content: center;
+    height: 100%;
     top: 0;
-    bottom: 0;
-    margin: auto;
-    width: 20px;
-    height: 40px;
-    transition: opacity $ease-main;
+    left: 0;
+    pointer-events: none;
     z-index: 2;
-    transition: .3s;
-    padding:20px 14px;
-    background-color:rgba($color: $color-grey-dark, $alpha: .2);
+
+    &-rooms {
+      flex: 1;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      pointer-events: auto;
+
+      @include screen('xl') {
+        flex: none;
+        width: 40px;
+        min-width: 40px;
+      }
+
+      @include screen('sm') {
+        width: 27px;
+        min-width: 27px;
+      }
+
+      &_prev {
+        padding-right: 56px;
+
+        @media only screen and (max-width: 1789px) {
+          padding-right: 0;
+        }
+      }
+
+      &_next {
+        justify-content: flex-start;
+        padding-left: 56px;
+
+        @media only screen and (max-width: 1789px) {
+          padding-left: 0;
+        }
+      }
+    }
+
+    &-divider {
+      width: 100%;
+      max-width: 1620px;
+
+      @include screen('xl') {
+        flex: 1;
+      }
+    }
+  }
+
+  &__button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 80px;
+    transition: all $ease-main;
+    z-index: 2;
+    background-color: rgba($color-white, 0);
     cursor: pointer;
+    pointer-events: auto;
+    box-sizing: border-box;
 
-
-    // &::before {
-    //   content: '';
-    //   width: 30px;
-    //   height: 30px;
-    //   border-style: solid;
-    //   border-color: $color-white;
-    //   border-width: 0;
-    //   position: absolute;
-    //   transform: rotate(45deg);
-    //   transform-origin: center;
-    //   top: 0;
-    //   bottom: 0;
-    //   left: 0;
-    //   right: 0;
-    //   margin: auto;
-    // }
-
-    svg {
-      height: 50px;
-      width: 30px;
-      fill: $color-white;
-      stroke: $color-white;
+    @include screen('sm') {
+      width: 27px;
+      height: 38px;
+      padding-left: 7px;
     }
-    &:hover { background-color:rgba($color: $color-grey-dark, $alpha: .8); }
 
-    &_next {
-      right: 0;
+    &-icon {
+      width: 17px;
+      height: 43px;
+      fill: $color-arrow;
+
+      @include screen('sm') {
+        width: 8px;
+        height: 21px;
+      }
     }
+
+    &:hover {
+      background-color: rgba($color-white, 1);
+    }
+
+    &_next {}
 
     &_prev {
-      left: 0;
       transform: rotate(180deg);
     }
-  }
 
-  &-cube__text {
-    font-size: 16px;
-    font-weight: 700;
-    color: $color-basic-dark;
-    text-align: left;
-    margin-top: 8px;
-  }
-  &-cube__text {
-    font-size: 16px;
-    font-weight: 700;
-    color: $color-basic-dark;
-    text-align: left;
-    margin-top: 13px;
-  }
-  &-cube__text + .slider-title__slide {
-    margin: 14px 0 10px;
-  }
-  &-text {
-    color: $color-basic-light;
-    font-size: 16px;
-    font-weight: 400;
-    text-align: left;
-  }
-  img {
-    height: 100%;
-  }
-}
-
-.slider-title{
-  font-size: 24px;
-  font-weight: 700;
-  span {
-    color: $color-blue;
-  }
-  margin-bottom: 61px;
-}
-
-.slider-title__slide {
-  @include ellipsis(100%);
-  text-align: left;
-  font-size: 19px;
-  font-weight: 700;
-  margin: 12px 0 8px;
-  transition: .3s;
-  color: $color-basic;
-}
-
-.slider-plach {
-  text-align: left;
-  font-size: 15px;
-  letter-spacing: 0;
-  color: $color-basic-light;
-  font-weight: 400;
-  transition: .3s;
-}
-
-
-
-.slider__button-two {
-  position: absolute;
-  width: 17px;
-  height: 43px;
-  top: 50%;
-  cursor: pointer;
-  svg {
-    fill: $color-arrow;
-    stroke: $color-arrow;
-    width: 17px;
-    height: 43px;
-  }
-  &_next {
-    right: -4.5%;
-    &::before {
-      border: 0 solid #000;
-      border-top-width: 2px;
-      border-right-width: 2px;
+    &.swiper-button-disabled {
+      opacity: 0;
+      pointer-events: none;
     }
-  }
-  &_prev {
-    left:  -4.5%;
-    transform: rotate(180deg);
-    &::before {
-      border: 0 solid #000;
-      border-bottom-width: 2px;
-      border-left-width: 2px;
-    }
-  }
-}
-
-.js-slider_one {
-  .swiper-slide-next {
-    width: 47% !important;
-  }
-  .swiper-slide-active {
-    width: 27.5% !important;
   }
 }

@@ -1,0 +1,120 @@
+.space {
+  $b: &;
+
+  display: block;
+  width: 100%;
+  color: $color-basic;
+  text-transform: none;
+  text-decoration: none;
+
+  &__media {
+    position: relative;
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    padding-top: 63.3%;
+    overflow: hidden;
+
+    @include screen('sm') {
+      padding-top: 63%;
+    }
+
+    &:not(:last-child) {
+      margin-bottom: 10px;
+    }
+  }
+
+  &__image {
+    @include fill-img;
+  }
+
+  &__heart {
+    position: absolute;
+    top: 16px;
+    right: 19px;
+    transition: opacity $ease-main;
+    opacity: 0;
+
+    @include screen('xl') {
+      top: 15px;
+    }
+
+    @include screen('lg') {
+      top: 18px;
+      opacity: 1;
+    }
+
+    @include screen('sm') {
+      top: 8px;
+      right: 9px;
+    }
+
+    #{$b}:hover & {
+      @include screen('lg', min) {
+        opacity: 1;
+      }
+    }
+  }
+
+  &__boxes {
+    width: 100%;
+    margin-top: -6px;
+
+    &:not(:last-child) {
+      margin-bottom: 8px;
+    }
+  }
+
+  &__seats {
+    @include text16;
+
+    color: $color-gray-darkest;
+    font-weight: 700;
+    width: 100%;
+
+    @include screen('sm') {
+      @include text13;
+    }
+
+    &:not(:last-child) {
+      margin-bottom: 9px;
+    }
+  }
+
+  &__title {
+    @include heading-4;
+
+    font-weight: 700;
+    transition: color $ease-main;
+
+    @include screen('sm', min) {
+      @include ellipsis(100%);
+    }
+
+    @include screen('sm') {
+      @include text15;
+
+      line-height: 1.2;
+    }
+
+    #{$b}:hover & {
+      color: $color-basic-dark;
+    }
+
+    &:not(:last-child) {
+      margin-bottom: 2px;
+    }
+  }
+
+  &__location {
+    @include text16;
+
+    font-weight: 400;
+    color: $color-basic-light;
+    width: 100%;
+
+    @include screen('sm') {
+      @include text12;
+    }
+  }
+}

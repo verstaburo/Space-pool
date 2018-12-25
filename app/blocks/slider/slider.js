@@ -5,123 +5,153 @@ import * as Swiper from 'swiper/dist/js/swiper';
 const $ = window.$;
 
 export default function slider() {
-  const mySlider = new Swiper('.js-slider', {
-    loop: false,
-    speed: 700,
-    slidesPerView: 3,
-    navigation: {
-      nextEl: '.slider__button-one_next',
-      prevEl: '.slider__button-one_prev',
-    },
-    pagination: {
-      el: '.slider__dots',
-      clickable: true,
-      paginationClickableClass: 'slider__dots_clickable',
-      bulletClass: 'slider__dot',
-      bulletActiveClass: 'active',
-    },
-    roundLengths: true,
-    breakpoints: {
-      320: {
-        slidesPerView: 1,
-      },
-    },
-  });
+  const newsSliders = $('.js-slider-news');
+  const spacesSliders = $('.js-slider-spaces');
+  const roomsSliders = $('.js-slider-rooms');
+  const bp = window.globalOptions.sizes;
 
-  const mySliderTwo = new Swiper('.js-slider-two', {
-    loop: true,
-    speed: 700,
-    spaceBetween: 50,
-    slidesPerView: 4,
-    navigation: {
-      nextEl: '.js-two-slider_next',
-      prevEl: '.js-two-slider_prev',
-    },
-    pagination: {
-      el: '.slider__dots',
-      clickable: true,
-      paginationClickableClass: 'slider__dots_clickable',
-      bulletClass: 'slider__dot',
-      bulletActiveClass: 'active',
-    },
-    roundLengths: true,
-    breakpoints: {
-      320: {
-        slidesPerView: 1,
-      },
-    },
-  });
+  if (spacesSliders.length > 0) {
+    $(spacesSliders).each((i, el) => {
+      const btnPrev = $(el).find('.js-slider-button-prev')[0];
+      const btnNext = $(el).find('.js-slider-button-next')[0];
+      const sliderContainer = $(el).find('.js-slider-container');
+      const newslider = new Swiper(sliderContainer, {
+        loop: true,
+        speed: 500,
+        spaceBetween: 50,
+        slidesPerView: 4,
+        slidesPerGroup: 1,
+        roundLengths: true,
+        navigation: {
+          nextEl: btnNext,
+          prevEl: btnPrev,
+        },
+        breakpoints: {
+          1699: {
+            slidesPerView: 3,
+          },
+          1279: {
+            slidesPerView: 2,
+            spaceBetween: 30,
+          },
+          767: {
+            slidesPerView: 2,
+            spaceBetween: 10,
+          },
+        },
+      });
 
-  const mySliderThree = new Swiper('.js-slider-three', {
-    loop: true,
-    speed: 700,
-    spaceBetween: 55,
-    slidesPerView: 3,
-    navigation: {
-      nextEl: '.js-three-slider_next',
-      prevEl: '.js-three-slider_prev',
-    },
-    pagination: {
-      el: '.slider__dots',
-      clickable: true,
-      paginationClickableClass: 'slider__dots_clickable',
-      bulletClass: 'slider__dot',
-      bulletActiveClass: 'active',
-    },
-    roundLengths: true,
-    breakpoints: {
-      320: {
-        slidesPerView: 1,
-      },
-    },
-  });
+      function setBtnContainerHeight() {
+        const btnContainer = $(el).find('[data-slider-buttons]');
+        $(btnContainer).css({
+          height: '',
+        });
+        const elementsImage = $(el).find('[data-slider-buttons-orientir]');
+        const orientirHeight = $(elementsImage).first().outerHeight();
+        $(btnContainer).css({
+          height: `${orientirHeight}px`,
+        });
+      }
+      setBtnContainerHeight();
+      $(window).on('resize', setBtnContainerHeight);
+    });
+  }
 
-  const mySliderFor = new Swiper('.js-slider-for', {
-    loop: true,
-    speed: 700,
-    spaceBetween: 55,
-    slidesPerView: 3,
-    navigation: {
-      nextEl: '.js-for-slider_next',
-      prevEl: '.js-for-slider_prev',
-    },
-    pagination: {
-      el: '.slider__dots',
-      clickable: true,
-      paginationClickableClass: 'slider__dots_clickable',
-      bulletClass: 'slider__dot',
-      bulletActiveClass: 'active',
-    },
-    roundLengths: true,
-    breakpoints: {
-      320: {
-        slidesPerView: 1,
-      },
-    },
-  });
+  if (roomsSliders.length > 0) {
+    $(roomsSliders).each((i, el) => {
+      const btnPrev = $(el).find('.js-slider-button-prev')[0];
+      const btnNext = $(el).find('.js-slider-button-next')[0];
+      const sliderContainer = $(el).find('.js-slider-container');
+      const newslider = new Swiper(sliderContainer, {
+        loop: true,
+        speed: 500,
+        spaceBetween: 50,
+        slidesPerView: 3,
+        slidesPerGroup: 1,
+        roundLengths: true,
+        navigation: {
+          nextEl: btnNext,
+          prevEl: btnPrev,
+        },
+        breakpoints: {
+          1699: {
+            slidesPerView: 2,
+            spaceBetween: 42,
+          },
+          1279: {
+            slidesPerView: 2,
+            spaceBetween: 30,
+          },
+          767: {
+            slidesPerView: 1,
+            spaceBetween: 10,
+          },
+        },
+      });
 
-  const mySliderFive = new Swiper('.js-slider-five', {
-    loop: true,
-    speed: 700,
-    spaceBetween: 50,
-    slidesPerView: 4,
-    navigation: {
-      nextEl: '.js-five-slider_next',
-      prevEl: '.js-five-slider_prev',
-    },
-    pagination: {
-      el: '.slider__dots',
-      clickable: true,
-      paginationClickableClass: 'slider__dots_clickable',
-      bulletClass: 'slider__dot',
-      bulletActiveClass: 'active',
-    },
-    roundLengths: true,
-    breakpoints: {
-      320: {
-        slidesPerView: 1,
-      },
-    },
-  });
+      function setBtnContainerHeight() {
+        const btnContainer = $(el).find('[data-slider-buttons]');
+        $(btnContainer).css({
+          height: '',
+        });
+        const elementsImage = $(el).find('[data-slider-buttons-orientir]');
+        const orientirHeight = $(elementsImage).first().outerHeight();
+        $(btnContainer).css({
+          height: `${orientirHeight}px`,
+        });
+      }
+      setBtnContainerHeight();
+      $(window).on('resize', setBtnContainerHeight);
+    });
+  }
+
+  if (newsSliders.length > 0) {
+    $(newsSliders).each((i, el) => {
+      const btnPrev = $(el).find('.js-slider-button-prev')[0];
+      const btnNext = $(el).find('.js-slider-button-next')[0];
+      const sliderContainer = $(el).find('.js-slider-container');
+      const newslider = new Swiper(sliderContainer, {
+        loop: false,
+        speed: 500,
+        spaceBetween: 50,
+        slidesPerView: 3,
+        slidesPerGroup: 1,
+        roundLengths: true,
+        watchOverflow: true,
+        navigation: {
+          nextEl: btnNext,
+          prevEl: btnPrev,
+        },
+        breakpoints: {
+          1699: {
+            slidesPerView: 2,
+            spaceBetween: 42,
+          },
+          1279: {
+            slidesPerView: 1,
+            spaceBetween: 30,
+          },
+          1024: {
+            slidesPerView: 1,
+            spaceBetween: 10,
+          },
+        },
+      });
+
+      function setBtnContainerHeight() {
+        const btnContainer = $(el).find('[data-slider-buttons]');
+        $(btnContainer).css({
+          height: '',
+        });
+        const elementsImage = $(el).find('[data-slider-buttons-orientir]');
+        const orientirHeight = $(elementsImage).first().outerHeight();
+        $(btnContainer).css({
+          height: `${orientirHeight}px`,
+        });
+      }
+      setBtnContainerHeight();
+      $(window).on('resize', setBtnContainerHeight);
+    });
+  }
 }
 /* eslint-enable no-unused-vars */
