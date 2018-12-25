@@ -128,10 +128,14 @@ export default function slider() {
             spaceBetween: 42,
           },
           1279: {
-            slidesPerView: 1,
+            slidesPerView: 2,
             spaceBetween: 30,
           },
           1024: {
+            slidesPerView: 1,
+            spaceBetween: 30,
+          },
+          768: {
             slidesPerView: 1,
             spaceBetween: 10,
           },

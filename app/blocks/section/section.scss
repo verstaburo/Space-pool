@@ -5,21 +5,61 @@
   width: 100%;
   margin-bottom: 126px;
 
+  @include screen('lg') {
+    margin-bottom: 65px;
+  }
+
   &_bg {
     color: $color-white;
     margin-bottom: 95px;
+
+    @include screen('lg') {
+      margin-bottom: 68px;
+    }
   }
 
   &_mid-mg {
     margin-bottom: 118px;
+
+    @include screen('lg') {
+      margin-bottom: 72px;
+    }
   }
 
   &_sm-mg {
     margin-bottom: 100px;
+
+    @include screen('xl') {
+      margin-bottom: 85px;
+    }
+
+    @include screen('lg') {
+      margin-bottom: 68px;
+    }
+  }
+
+  &_ltl-mg {
+    margin-bottom: 108px;
+
+    @include screen('lg') {
+      margin-bottom: 66px;
+    }
+  }
+
+  &_mg {
+    margin-bottom: 95px;
+
+    @include screen('lg') {
+      margin-bottom: 88px;
+    }
   }
 
   &_promo {
     margin-bottom: 89px;
+
+    @include screen('lg') {
+      margin-bottom: 63px;
+    }
   }
 
   &__wrapper {
@@ -47,6 +87,10 @@
     width: 100%;
     margin-bottom: 56px;
 
+    @include screen('lg') {
+      margin-bottom: 26px;
+    }
+
     #{$b}_bg & {
       margin-bottom: 62px;
 
@@ -66,6 +110,38 @@
       @include screen('lg') {
         margin-bottom: 60px;
         flex-wrap: wrap;
+      }
+    }
+
+    &_subscribe {
+
+      .container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        @include screen('sm') {
+          display: block;
+        }
+      }
+
+      @include screen('lg') {
+        margin-bottom: 44px;
+      }
+
+      #{$b}__title {
+        min-width: 160px;
+        margin-right: 20px;
+
+        @include screen('sm') {
+          margin-right: 0;
+        }
+      }
+    }
+
+    &_tab-smmg {
+      @include screen('lg') {
+        margin-bottom: 36px;
       }
     }
   }
@@ -161,7 +237,7 @@
       }
 
       @include screen('lg') {
-        padding: 50px 54px 42px;
+        padding: 50px 54px 60px;
       }
 
       @include screen('sm') {
@@ -215,9 +291,33 @@
     }
 
     &_mb15 {
-      @include text15;
+      @include screen('sm') {
+        @include text15;
 
-      line-height: 1.34;
+        line-height: 1.34;
+      }
+    }
+
+    &_bold {
+      font-weight: 700;
+    }
+  }
+
+  &__socials {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+
+    @include screen('sm') {
+      display: block;
+    }
+
+    #{$b}__note {
+      margin-right: 37px;
+
+      @include screen('sm') {
+        margin-right: 0;
+      }
     }
   }
 }
