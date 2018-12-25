@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimal-ui">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Space pool</title>
+    <title>SpacePool - Ui-kit</title>
     <meta name="description" content="">
     <meta name="keywords" content="">
     <link href="favicon.ico" rel="shortcut icon">
@@ -14,459 +14,440 @@
 </head>
 
 <body>
-    <div class="ui-kit">
-        <div class="ui-kit__navigation">
-            <div class="ui-kit__navigation-burger"></div>
-            <ul class="ui-kit__navigation__list"></ul>
-        </div>
-        <section class="ui-kit__head">
-            <div class="container">
-                <div class="ui-kit__logo">
-                    <img src="./assets/images/logo.png">
-                </div>
-                <div class="ui-kit__name">space pool</div>
+    <header class="header">
+        <div class="container">
+            <div class="header__logo">
+                <a class="logo" href="/">
+                    <svg class="logo__icon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 171.5 53.7">
+                        <defs>
+                            <linearGradient id="logo-grad1" x1="28.97" x2="42.59" y1="23.48" y2="43.67" gradientUnits="userSpaceOnUse">
+                                <stop offset="0.25" stop-color="#008199"></stop>
+                                <stop offset="1" stop-color="#0de1aa"></stop>
+                            </linearGradient>
+                            <linearGradient id="logo-grad2" x1="16.86" x2="5.5" y1="21.43" y2="45.8" xlink:href="#logo-grad1"></linearGradient>
+                            <linearGradient id="logo-grad3" x1="23.03" x2="23.61" y1="0.02" y2="16.82" xlink:href="#logo-grad1"></linearGradient>
+                        </defs>
+                        <g class="logo__image">
+                            <path fill="url(#logo-grad1)" d="M42.5,16.16v22L29.13,45.9v-6l11.11-6.51V17.3L24.63,26.41V53.69L47,40.7V13.57ZM29.13,29l6.61-3.9v5.7l-6.61,3.9Z"></path>
+                            <path fill="url(#logo-grad2)" d="M0,13.57V40.7l22.37,13V37.31L11.26,30.8V25.11l11.11,6.5v-5.2L6.76,17.3V33.38l11.11,6.51v6L4.49,38.11V16.16Z"></path>
+                            <polygon fill="url(#logo-grad3)" points="0 13.57 4.5 16.16 23.5 5.19 42.51 16.16 47 13.57 23.5 0 0 13.57"></polygon>
+                        </g>
+                        <g class="logo__text">
+                            <path d="M58.5,31.36l1.87-2.63a7.18,7.18,0,0,0,5.17,2.19c1.89,0,2.82-.88,2.82-1.8,0-2.87-9.35-.9-9.35-7,0-2.71,2.34-4.95,6.16-4.95a9,9,0,0,1,6.33,2.27L69.58,22a7,7,0,0,0-4.73-1.78c-1.48,0-2.31.66-2.31,1.63,0,2.59,9.33.86,9.33,6.92,0,3-2.12,5.21-6.5,5.21A9.29,9.29,0,0,1,58.5,31.36Z"></path>
+                            <path d="M76.61,32.14v6H73.52V21.89h3.09v1.48a4.56,4.56,0,0,1,3.63-1.77c3,0,5.21,2.24,5.21,6.16s-2.19,6.18-5.21,6.18A4.5,4.5,0,0,1,76.61,32.14Zm5.63-4.38c0-2-1.2-3.41-3-3.41a3.47,3.47,0,0,0-2.66,1.34v4.16a3.55,3.55,0,0,0,2.66,1.34C81,31.19,82.24,29.8,82.24,27.76Z"></path>
+                            <path d="M94.16,33.65V32.43a4.83,4.83,0,0,1-3.72,1.51,3.93,3.93,0,0,1-4.09-3.75V30c0-2.75,2.22-3.79,4.09-3.79a4.84,4.84,0,0,1,3.72,1.43V26.1c0-1.19-1-2-2.58-2a4.94,4.94,0,0,0-3.43,1.39l-1.15-2a7.74,7.74,0,0,1,5.14-1.85c2.68,0,5.14,1.07,5.14,4.45v7.6Zm0-2.83V29.36a3.09,3.09,0,0,0-2.48-1c-1.22,0-2.21.63-2.21,1.78s1,1.73,2.21,1.73A3.09,3.09,0,0,0,94.16,30.82Z"></path>
+                            <path d="M99,27.76a6,6,0,0,1,5.83-6.16,2.67,2.67,0,0,1,.4,0,5.47,5.47,0,0,1,4.65,2.11l-2,1.9a2.85,2.85,0,0,0-2.48-1.26,3.14,3.14,0,0,0-3.2,3.08c0,.11,0,.22,0,.33a3.16,3.16,0,0,0,2.88,3.42h.31a3,3,0,0,0,2.48-1.27l2,1.88a5.44,5.44,0,0,1-4.65,2.14A6,6,0,0,1,99,28.18Z"></path>
+                            <path d="M110.5,27.76a6,6,0,0,1,5.84-6.16h.25c3.5,0,5.89,2.63,5.89,6.47v.68h-8.74a3.16,3.16,0,0,0,3.38,2.73,5,5,0,0,0,3.14-1.17l1.37,2a7.31,7.31,0,0,1-4.85,1.63,6,6,0,0,1-6.28-5.71Zm6.09-3.71a2.81,2.81,0,0,0-2.9,2.61h5.79a2.72,2.72,0,0,0-2.82-2.61Z"></path>
+                            <path d="M131.19,32.14v6h-3.1V21.89h3.1v1.48a4.53,4.53,0,0,1,3.62-1.77c3,0,5.21,2.24,5.21,6.16s-2.19,6.18-5.21,6.18A4.53,4.53,0,0,1,131.19,32.14Zm5.62-4.38c0-2-1.19-3.41-3-3.41a3.45,3.45,0,0,0-2.65,1.34v4.16a3.55,3.55,0,0,0,2.65,1.34C135.62,31.19,136.81,29.8,136.81,27.76Z"></path>
+                            <path d="M140.92,27.76A6.22,6.22,0,1,1,147.14,34,6.21,6.21,0,0,1,140.92,27.76Zm9.23,0c0-1.83-1.09-3.41-3-3.41s-3,1.58-3,3.41,1.07,3.43,3,3.43S150.15,29.61,150.15,27.76Z"></path>
+                            <path d="M154.29,27.76A6.22,6.22,0,1,1,160.51,34,6.21,6.21,0,0,1,154.29,27.76Zm9.23,0c0-1.83-1.1-3.41-3-3.41s-3,1.58-3,3.41,1.07,3.43,3,3.43,3-1.58,3-3.43Z"></path>
+                            <path d="M168.41,33.65V17.41h3.09V33.65Z"></path>
+                        </g>
+                    </svg>
+                </a>
             </div>
-        </section>
-        <section class="ui-kit__section ui-kit__section_grid">
-            <div class="ui-kit__section-head">
-                <div class="container">
-                    <h2>Сетка</h2>
-                    <p>Отступы слева и справа от экрана: 20px ($container-padding)</p>
-                    <p>Ширина контейнера: 960px ($container-width)</p>
-                    <p>Ширина контейнера сетки: 100% ($grid-container-width)</p>
-                    <p>Колонок: 12 ($grid-cols)</p>
-                    <p>Горизонтальное расстояние между колонками: 20px ($grid-gap)</p>
-                    <p>Вертикальное расстояние между колонками: 20px ($grid-gap-vertical)</p>
-                    <p>Переменные: styles/helpers/_variables.scss</p>
-                    <p>Блок: blocks/grid/</p>
+            <nav class="header__navigation hide-sm">
+                <div class="header__main">
+                    <ul class="header-menu">
+                        <li class="header-menu__item header-menu__item_bmg hide-lg">
+                            <a class="link" href="#">
+                                <span class="link__text">Become a host</span>
+                            </a>
+                        </li>
+                        <li class="header-menu__item hide-lg">
+                            <a class="link" href="#">
+                                <span class="link__text">Support</span>
+                            </a>
+                        </li>
+                        <li class="header-menu__item">
+                            <a class="link" href="#">
+                                <span class="link__text">Sign Up</span>
+                            </a>
+                        </li>
+                        <li class="header-menu__item">
+                            <a class="link" href="#">
+                                <span class="link__text">Sign In</span>
+                            </a>
+                        </li>
+                    </ul>
                 </div>
-            </div>
-            <div class="ui-kit__section-content">
-                <div class="container">
-                    <div class="ui-kit__special" style="margin-bottom: 20px;">
-                        <div class="content-zone">
-                            <H4>Возможные варианты использования</H4>
-                            <p>+col(12) агалогично +col({ xl: 12 })</p>
-                            <p>+col({ xl: 8, lg: 6: md: 5, sm: 7, xs: 12 })</p>
-                            <p>
-                                <span>Промежуточные брейкпоинты указывать не обязательно</span>
-                                <br>
-                                <span>При следующей записи - блок будет занимать 6 колонок на всех разрешениях, а на самом маленьком
-                                    <i>(xs)</i> 12</span>
-                            </p>
-                            <p>+col({ xl: 6, xs: 12 })</p>
+                <div class="header__user">
+                    <div class="header-user">
+                        <div class="header-user__user">
+                            <a class="short-profile" href="#">
+                                <span class="avatar short-profile__avatar">
+                                    <img class="avatar__image" src="/assets/images/ava.jpg" alt="" role="presentation" />
+                                </span>
+                                <span class="short-profile__name">Spencer Macenthire</span>
+                            </a>
                         </div>
-                    </div>
-                    <div class="grid">
-                        <div class="grid__col grid__col_xl_1"></div>
-                        <div class="grid__col grid__col_xl_1"></div>
-                        <div class="grid__col grid__col_xl_1"></div>
-                        <div class="grid__col grid__col_xl_1"></div>
-                        <div class="grid__col grid__col_xl_1"></div>
-                        <div class="grid__col grid__col_xl_1"></div>
-                        <div class="grid__col grid__col_xl_1"></div>
-                        <div class="grid__col grid__col_xl_1"></div>
-                        <div class="grid__col grid__col_xl_1"></div>
-                        <div class="grid__col grid__col_xl_1"></div>
-                        <div class="grid__col grid__col_xl_1"></div>
-                        <div class="grid__col grid__col_xl_1"></div>
-                        <div class="grid__col grid__col_xl_4"></div>
-                        <div class="grid__col grid__col_xl_4"></div>
-                        <div class="grid__col grid__col_xl_4"></div>
-                        <div class="grid__col grid__col_xl_6"></div>
-                        <div class="grid__col grid__col_xl_6"></div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <section class="ui-kit__section">
-            <div class="ui-kit__section-head">
-                <div class="container">
-                    <h2>Цвета сайта</h2>
-                    <p>Переменные находятся в файле styles/helpers/_variables.scss</p>
-                </div>
-            </div>
-            <div class="ui-kit__section-content">
-                <div class="container">
-                    <div class="ui-kit__elements-list">
-                        <div class="ui-kit__color ui-kit__color_bg_dark" style="background-color: #525a65">#525a65
-                            <br>$color-basic</div>
-                        <div class="ui-kit__color ui-kit__color_bg_dark" style="background-color: #86919e">#86919e
-                            <br>$color-basic-light</div>
-                        <div class="ui-kit__color ui-kit__color_bg_dark" style="background-color: #121615">#121615
-                            <br>$color-basic-dark</div>
-                        <div class="ui-kit__color ui-kit__color_bg_dark" style="background-color: #858c99">#858c99
-                            <br>$color-form-light</div>
-                        <div class="ui-kit__color ui-kit__color_bg_dark" style="background-color: #a0a7ab">#a0a7ab
-                            <br>$color-arrow</div>
-                        <div class="ui-kit__color ui-kit__color_bg_dark" style="background-color: #f2f6f6">#f2f6f6
-                            <br>$color-bg</div>
-                        <div class="ui-kit__color ui-kit__color_bg_dark" style="background-color: #151b25">#151b25
-                            <br>$color-grey-dark</div>
-                        <div class="ui-kit__color ui-kit__color_bg_dark" style="background-color: #2ee0c9">#2ee0c9
-                            <br>$color-text-green</div>
-                        <div class="ui-kit__color ui-kit__color_bg_dark" style="background-color: #0caecc">#0caecc
-                            <br>$color-gradient-one</div>
-                        <div class="ui-kit__color ui-kit__color_bg_dark" style="background-color: #30e3c9">#30e3c9
-                            <br>$color-gradient-two</div>
-                        <div class="ui-kit__color ui-kit__color_bg_dark" style="background-color: #ff9600">#ff9600
-                            <br>$color-yellow</div>
-                        <div class="ui-kit__color ui-kit__color_bg_dark" style="background-color: #eb4433">#eb4433
-                            <br>$color-red</div>
-                        <div class="ui-kit__color ui-kit__color_bg_dark" style="background-color: #1dd5f0">#1dd5f0
-                            <br>$color-blue</div>
-                        <div class="ui-kit__color ui-kit__color_bg_dark" style="background-color: #29f785">#29f785
-                            <br>$color-green</div>
-                        <div class="ui-kit__color ui-kit__color_bg_dark" style="background-color: #ffffff">#ffffff
-                            <br>$color-wite</div>
-                        <div class="ui-kit__color ui-kit__color_bg_dark" style="background-color: #acb5c0">#acb5c0
-                            <br>$color-bc-light</div>
-                        <div class="ui-kit__color ui-kit__color_bg_dark" style="background-color: #303333">#303333
-                            <br>$color-bc-dark</div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <section class="ui-kit__section">
-            <div class="ui-kit__section-head">
-                <div class="container">
-                    <h2>Градиенты</h2>
-                    <p>Цвета для градиентов находятся в файле styles/helpers/_variables.scss</p>
-                    <p>Сами градиенты в styles/helpers/_gradients.scss</p>
-                </div>
-            </div>
-            <div class="ui-kit__section-content">
-                <div class="container">
-                    <div class="ui-kit__elements-list">
-                        <div class="ui-kit__color ui-kit__color_bg_dark ui-kit__color_gradient_main" style="background: undefined">gradient-main</div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <section class="ui-kit__section">
-            <div class="ui-kit__section-head">
-                <div class="container">
-                    <h2>Шрифты и контентная зона</h2>
-                    <p>Основной шрифт: Arial ($font-main), font-weight: 400, 600</p>
-                    <p>Дополнительный шрифт: Times New Roman ($font-second), font-weight: 400, 600</p>
-                    <p>Переменные находятся в файле styles/helpers/_variables.scss</p>
-                    <p>Шрифты подключены в styles/helpers/_fonts.scss</p>
-                    <p>Контентная зона: blocks/content-zone</p>
-                    <p>Стили всех текстов лежат в файле styles/helpers/_text-styles.scss и должны импортироваться из него через директиву @extend и задаваться через "временные" классы %className</p>
-                </div>
-            </div>
-            <div class="ui-kit__section-content">
-                <div class="container">
-                    <p class="ui-kit__description">.content-zone</p>
-                    <div class="ui-kit__special">
-                        <div class="content-zone">
-                            <h1>Заголовок H1 (heading-1)</h1>
-                            <h2>Заголовок H2 (heading-2)</h2>
-                            <h3>Заголовок H3 (heading-3)</h3>
-                            <h4>Заголовок H4 (heading-4)</h4>
-                            <h5>Заголовок H5 (heading-5)</h5>
-                            <h6>Заголовок H6 (heading-6)</h6>
-                            <p>Текст p (text)
-                                <br> Цитата внутри текста p:
-                                <q>Цитата q</q>
-                            </p>
-                            <p>
-                                <small>Тег small внутри p (text-small)</small>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <section class="ui-kit__section">
-            <div class="ui-kit__section-head">
-                <div class="container">
-                    <h2>header</h2>
-                    <p>Блок: components/header</p>
-                </div>
-            </div>
-            <div class="ui-kit__section-content">
-                <div class="container">
-                    <div class="grid">
-                        <div class="grid__col grid__col_xl_12">
-                            <header class="header">
-                                <div class="container container_flex">
-                                    <a class="header__logo" href="./">
-                                        <!-- ?xml version="1.0" encoding="utf-8"?-->
-                                        <!-- Generator: Adobe Illustrator 22.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)-->
-                                        <svg id="header-cube" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 261.4 298.7" style="enable-background:new 0 0 261.4 298.7;" xml:space="preserve">
-                                            <lineargradient id="SVGID_1_" gradientUnits="userSpaceOnUse" x1="161.1675" y1="130.628" x2="236.9237" y2="242.9412">
-                                                <stop offset="0.25"></stop>
-                                                <stop offset="1"></stop>
-                                            </lineargradient>
-                                            <path class="up" d="M236.4,89.9V212L162,255.3v-33.4l61.8-36.2V96.2L137,146.9v151.8l124.4-72.3V75.5L236.4,89.9z M162,161.3          l36.8-21.7v31.7L162,193V161.3z"></path>
-                                            <style type="text/css">
-                                                .up {
-                                                    fill: #0caecc;
-                                                    stroke: #30e3c9;
-                                                }
-                                            </style>
-                                            <lineargradient id="SVGID_2_" gradientUnits="userSpaceOnUse" x1="93.8103" y1="119.2071" x2="30.6019" y2="254.758">
-                                                <stop offset="0.25"></stop>
-                                                <stop offset="1"></stop>
-                                            </lineargradient>
-                                            <path class="center" d="M0,75.5v150.9l124.4,72.1V217v-9.4l-61.8-36.2v-31.7l61.8,36.2v-28.9L37.6,96.2v89.5l61.8,36.2v33.3L25,212          V89.9L0,75.5z"></path>
-                                            <style type="text/css">
-                                                .center {
-                                                    fill: #30e3c9;
-                                                    stroke: #0caecc;
-                                                }
-                                            </style>
-                                            <lineargradient id="SVGID_3_" gradientUnits="userSpaceOnUse" x1="128.0955" y1="9.191469e-02" x2="131.36" y2="93.5756">
-                                                <stop offset="0.25"></stop>
-                                                <stop offset="1"></stop>
-                                            </lineargradient>
-                                            <polygon class="top" points="0,75.5 25,89.9 130.7,28.9 236.4,89.9 261.4,75.5 130.7,0 ">
-                                                <style type="text/css">
-                                                    .top {
-                                                        fill: #0caecc;
-                                                        stroke: #30e3c9;
-                                                    }
-                                                </style>
-                                            </polygon>
-                                        </svg>
-                                        <!-- ?xml version="1.0" encoding="utf-8"?-->
-                                        <!-- Generator: Adobe Illustrator 22.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)-->
-                                        <svg id="header-text" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 552.4 102.5" style="enable-background:new 0 0 552.4 102.5;" xml:space="preserve">
-                                            <g>
-                                                <path d="M0,69.4l9.2-12.9c5.6,5.8,14.3,10.7,25.2,10.7c9.3,0,13.8-4.3,13.8-8.8c0-14-45.7-4.4-45.7-34.3C2.5,10.9,13.9,0,32.6,0            c12.6,0,23.1,3.8,30.9,11.1l-9.4,12.4c-6.4-6-15-8.7-23.1-8.7c-7.3,0-11.3,3.2-11.3,8c0,12.6,45.6,4.2,45.6,33.8            C65.3,71,55,82,33.6,82C18.3,82,7.4,76.9,0,69.4z"></path>
-                                                <path d="M88.5,73.2v29.3H73.4V23.1h15.1v7.3c4.4-5.6,10.7-8.7,17.7-8.7c14.8,0,25.5,10.9,25.5,30.1S121,82,106.3,82            C99.5,82,93.2,79.1,88.5,73.2z M116,51.8c0-9.9-5.8-16.7-14.5-16.7c-4.9,0-10.5,2.9-13,6.5V62c2.5,3.6,8.1,6.5,13,6.5            C110.2,68.5,116,61.8,116,51.8z"></path>
-                                                <path d="M174.3,80.6v-6c-3.9,4.6-10.7,7.4-18.2,7.4c-9.2,0-20-6.2-20-19c0-13.4,10.8-18.6,20-18.6c7.6,0,14.4,2.5,18.2,7v-7.7            c0-5.8-5-9.6-12.6-9.6c-6.2,0-11.9,2.3-16.8,6.8l-5.7-10.1c7-6.2,16.1-9,25.1-9c13.1,0,25.1,5.2,25.1,21.8v37.1H174.3z M174.3,66.8            v-7.1c-2.5-3.3-7.3-5-12.1-5c-6,0-10.8,3.1-10.8,8.7c0,5.4,4.9,8.4,10.8,8.4C167.1,71.8,171.8,70.1,174.3,66.8z"></path>
-                                                <path d="M197.8,51.8c0-17.6,12.7-30.1,30.5-30.1c11.8,0,18.9,5.1,22.7,10.4l-9.9,9.3c-2.7-4-6.9-6.2-12.1-6.2            c-9.2,0-15.6,6.7-15.6,16.7s6.4,16.8,15.6,16.8c5.2,0,9.4-2.4,12.1-6.2l9.9,9.2C247.2,76.9,240,82,228.2,82            C210.5,82,197.8,69.5,197.8,51.8z"></path>
-                                                <path d="M254.2,51.8c0-16.7,12.3-30.1,29.8-30.1c17.1,0,28.8,12.9,28.8,31.7v3.3H270c1,7.3,6.8,13.3,16.5,13.3            c4.9,0,11.7-2.1,15.4-5.7l6.7,9.8c-5.7,5.2-14.8,8-23.7,8C267.4,82,254.2,70.2,254.2,51.8z M283.9,33.7c-9.4,0-13.4,7-14.2,12.7            h28.3C297.7,40.9,293.9,33.7,283.9,33.7z"></path>
-                                                <path d="M355.3,73.2v29.3h-15.1V23.1h15.1v7.3c4.4-5.6,10.7-8.7,17.7-8.7c14.8,0,25.5,10.9,25.5,30.1S387.8,82,373,82            C366.3,82,359.9,79.1,355.3,73.2z M382.8,51.8c0-9.9-5.8-16.7-14.5-16.7c-4.9,0-10.5,2.9-13,6.5V62c2.5,3.6,8.1,6.5,13,6.5            C377,68.5,382.8,61.8,382.8,51.8z"></path>
-                                                <path d="M402.9,51.8c0-16.3,11.4-30.1,30.3-30.1c19,0,30.5,13.8,30.5,30.1c0,16.4-11.4,30.2-30.5,30.2            C414.3,82,402.9,68.2,402.9,51.8z M448,51.8c0-8.9-5.4-16.7-14.8-16.7s-14.6,7.7-14.6,16.7c0,9,5.2,16.8,14.6,16.8            S448,60.8,448,51.8z"></path>
-                                                <path d="M468.2,51.8c0-16.3,11.4-30.1,30.3-30.1c19,0,30.5,13.8,30.5,30.1c0,16.4-11.4,30.2-30.5,30.2            C479.7,82,468.2,68.2,468.2,51.8z M513.3,51.8c0-8.9-5.4-16.7-14.8-16.7s-14.6,7.7-14.6,16.7c0,9,5.2,16.8,14.6,16.8            S513.3,60.8,513.3,51.8z"></path>
-                                                <path d="M537.2,80.6V1.2h15.1v79.4H537.2z"></path>
-                                            </g>
-                                        </svg>
-                                    </a>
-                                    <ul class="header-menu">
-                                        <li class="header-menu__item">
-                                            <a class="header-menu__link" href="#">Become a host</a>
-                                        </li>
-                                        <li class="header-menu__item">
-                                            <a class="header-menu__link" href="#">Support</a>
-                                        </li>
-                                        <li class="header-menu__item">
-                                            <a class="header-menu__link" href="#">Sign Up</a>
-                                        </li>
-                                        <li class="header-menu__item">
-                                            <a class="header-menu__link" href="#">Sign In</a>
-                                        </li>
-                                    </ul>
-                                    <div class="burger">
-                                        <svg><use xlink:href="assets/images/icon.svg#icon_burger"></use></svg>
-                                    </div>
-                                </div>
-                            </header>
-                        </div>
-                        <div class="grid__col grid__col_xl_12">
-                            <div class="header">
-                                <div class="container container_flex">
-                                    <a class="header__logo" href="./">
-                                        <!-- ?xml version="1.0" encoding="utf-8"?-->
-                                        <!-- Generator: Adobe Illustrator 22.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)-->
-                                        <svg id="header-cube" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 261.4 298.7" style="enable-background:new 0 0 261.4 298.7;" xml:space="preserve">
-                                            <lineargradient id="SVGID_1_" gradientUnits="userSpaceOnUse" x1="161.1675" y1="130.628" x2="236.9237" y2="242.9412">
-                                                <stop offset="0.25"></stop>
-                                                <stop offset="1"></stop>
-                                            </lineargradient>
-                                            <path class="up" d="M236.4,89.9V212L162,255.3v-33.4l61.8-36.2V96.2L137,146.9v151.8l124.4-72.3V75.5L236.4,89.9z M162,161.3          l36.8-21.7v31.7L162,193V161.3z"></path>
-                                            <style type="text/css">
-                                                .up {
-                                                    fill: #0caecc;
-                                                    stroke: #30e3c9;
-                                                }
-                                            </style>
-                                            <lineargradient id="SVGID_2_" gradientUnits="userSpaceOnUse" x1="93.8103" y1="119.2071" x2="30.6019" y2="254.758">
-                                                <stop offset="0.25"></stop>
-                                                <stop offset="1"></stop>
-                                            </lineargradient>
-                                            <path class="center" d="M0,75.5v150.9l124.4,72.1V217v-9.4l-61.8-36.2v-31.7l61.8,36.2v-28.9L37.6,96.2v89.5l61.8,36.2v33.3L25,212          V89.9L0,75.5z"></path>
-                                            <style type="text/css">
-                                                .center {
-                                                    fill: #30e3c9;
-                                                    stroke: #0caecc;
-                                                }
-                                            </style>
-                                            <lineargradient id="SVGID_3_" gradientUnits="userSpaceOnUse" x1="128.0955" y1="9.191469e-02" x2="131.36" y2="93.5756">
-                                                <stop offset="0.25"></stop>
-                                                <stop offset="1"></stop>
-                                            </lineargradient>
-                                            <polygon class="top" points="0,75.5 25,89.9 130.7,28.9 236.4,89.9 261.4,75.5 130.7,0 ">
-                                                <style type="text/css">
-                                                    .top {
-                                                        fill: #0caecc;
-                                                        stroke: #30e3c9;
-                                                    }
-                                                </style>
-                                            </polygon>
-                                        </svg>
-                                        <!-- ?xml version="1.0" encoding="utf-8"?-->
-                                        <!-- Generator: Adobe Illustrator 22.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)-->
-                                        <svg id="header-text" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 552.4 102.5" style="enable-background:new 0 0 552.4 102.5;" xml:space="preserve">
-                                            <g>
-                                                <path d="M0,69.4l9.2-12.9c5.6,5.8,14.3,10.7,25.2,10.7c9.3,0,13.8-4.3,13.8-8.8c0-14-45.7-4.4-45.7-34.3C2.5,10.9,13.9,0,32.6,0            c12.6,0,23.1,3.8,30.9,11.1l-9.4,12.4c-6.4-6-15-8.7-23.1-8.7c-7.3,0-11.3,3.2-11.3,8c0,12.6,45.6,4.2,45.6,33.8            C65.3,71,55,82,33.6,82C18.3,82,7.4,76.9,0,69.4z"></path>
-                                                <path d="M88.5,73.2v29.3H73.4V23.1h15.1v7.3c4.4-5.6,10.7-8.7,17.7-8.7c14.8,0,25.5,10.9,25.5,30.1S121,82,106.3,82            C99.5,82,93.2,79.1,88.5,73.2z M116,51.8c0-9.9-5.8-16.7-14.5-16.7c-4.9,0-10.5,2.9-13,6.5V62c2.5,3.6,8.1,6.5,13,6.5            C110.2,68.5,116,61.8,116,51.8z"></path>
-                                                <path d="M174.3,80.6v-6c-3.9,4.6-10.7,7.4-18.2,7.4c-9.2,0-20-6.2-20-19c0-13.4,10.8-18.6,20-18.6c7.6,0,14.4,2.5,18.2,7v-7.7            c0-5.8-5-9.6-12.6-9.6c-6.2,0-11.9,2.3-16.8,6.8l-5.7-10.1c7-6.2,16.1-9,25.1-9c13.1,0,25.1,5.2,25.1,21.8v37.1H174.3z M174.3,66.8            v-7.1c-2.5-3.3-7.3-5-12.1-5c-6,0-10.8,3.1-10.8,8.7c0,5.4,4.9,8.4,10.8,8.4C167.1,71.8,171.8,70.1,174.3,66.8z"></path>
-                                                <path d="M197.8,51.8c0-17.6,12.7-30.1,30.5-30.1c11.8,0,18.9,5.1,22.7,10.4l-9.9,9.3c-2.7-4-6.9-6.2-12.1-6.2            c-9.2,0-15.6,6.7-15.6,16.7s6.4,16.8,15.6,16.8c5.2,0,9.4-2.4,12.1-6.2l9.9,9.2C247.2,76.9,240,82,228.2,82            C210.5,82,197.8,69.5,197.8,51.8z"></path>
-                                                <path d="M254.2,51.8c0-16.7,12.3-30.1,29.8-30.1c17.1,0,28.8,12.9,28.8,31.7v3.3H270c1,7.3,6.8,13.3,16.5,13.3            c4.9,0,11.7-2.1,15.4-5.7l6.7,9.8c-5.7,5.2-14.8,8-23.7,8C267.4,82,254.2,70.2,254.2,51.8z M283.9,33.7c-9.4,0-13.4,7-14.2,12.7            h28.3C297.7,40.9,293.9,33.7,283.9,33.7z"></path>
-                                                <path d="M355.3,73.2v29.3h-15.1V23.1h15.1v7.3c4.4-5.6,10.7-8.7,17.7-8.7c14.8,0,25.5,10.9,25.5,30.1S387.8,82,373,82            C366.3,82,359.9,79.1,355.3,73.2z M382.8,51.8c0-9.9-5.8-16.7-14.5-16.7c-4.9,0-10.5,2.9-13,6.5V62c2.5,3.6,8.1,6.5,13,6.5            C377,68.5,382.8,61.8,382.8,51.8z"></path>
-                                                <path d="M402.9,51.8c0-16.3,11.4-30.1,30.3-30.1c19,0,30.5,13.8,30.5,30.1c0,16.4-11.4,30.2-30.5,30.2            C414.3,82,402.9,68.2,402.9,51.8z M448,51.8c0-8.9-5.4-16.7-14.8-16.7s-14.6,7.7-14.6,16.7c0,9,5.2,16.8,14.6,16.8            S448,60.8,448,51.8z"></path>
-                                                <path d="M468.2,51.8c0-16.3,11.4-30.1,30.3-30.1c19,0,30.5,13.8,30.5,30.1c0,16.4-11.4,30.2-30.5,30.2            C479.7,82,468.2,68.2,468.2,51.8z M513.3,51.8c0-8.9-5.4-16.7-14.8-16.7s-14.6,7.7-14.6,16.7c0,9,5.2,16.8,14.6,16.8            S513.3,60.8,513.3,51.8z"></path>
-                                                <path d="M537.2,80.6V1.2h15.1v79.4H537.2z"></path>
-                                            </g>
-                                        </svg>
-                                    </a>
-                                    <div class="header-user">
-                                        <div class="header-user__user">
-                                            <img class="header-user__user-photo" src="./assets/images/user.png" alt="" role="presentation" />
-                                            <div class="header-user__name">Spencer Macenthire</div>
-                                        </div>
-                                        <ul class="header-user__list">
-                                            <li class="header-user__item">
-                                                <img class="header-user__item-IMG" src="./assets/images/calendar.png" alt="" role="presentation" />
-                                                <div class="header-user__span header-user__item-circle"></div>
-                                            </li>
-                                            <li class="header-user__item">
-                                                <img class="header-user__item-IMG" src="./assets/images/messenge.png" alt="" role="presentation" />
-                                                <div class="header-user__span header-user__item-circle"></div>
-                                            </li>
-                                            <li class="header-user__item">
-                                                <img class="header-user__item-IMG" src="./assets/images/heart.png" alt="" role="presentation" />
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    <div class="burger">
-                                        <svg><use xlink:href="assets/images/icon.svg#icon_burger"></use></svg>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <section class="ui-kit__section">
-            <div class="ui-kit__section-head">
-                <div class="container">
-                    <h2>scrollform</h2>
-                    <p>Блок: components/header</p>
-                </div>
-            </div>
-            <div class="ui-kit__section-content">
-                <div class="container">
-                    <div class="grid">
-                        <div class="grid__col grid__col_xl_3"></div>
-                        <div class="grid__col grid__col_xl_3">
-                            <div class="scroll-form">
-                                <h3 class="scroll-form__title">Reservation form</h3>
-                                <select class="select js-select form-select">
-                                    <option value="&lt;div class='option-top'&gt; &lt;span class='cube cube_yellow'&gt;&lt;/span&gt;dedicated desk&lt;/div&gt; &lt;div class='option-down'&gt; £300 per month &lt;/div&gt;"></option>
-                                    <option value="&lt;div class='option-top'&gt; &lt;span class='cube cube_red'&gt;&lt;/span&gt;hot desk&lt;/div&gt; &lt;div class='option-down'&gt; £300 per month &lt;/div&gt;"></option>
-                                    <option value="&lt;div class='option-top'&gt; &lt;span class='cube cube_red'&gt;&lt;/span&gt;dedicated desk&lt;/div&gt; &lt;div class='option-down'&gt; £300 per month &lt;/div&gt;"></option>
-                                    <option value="&lt;div class='option-top'&gt; &lt;span class='cube cube_blue'&gt;&lt;/span&gt;office space&lt;/div&gt; &lt;div class='option-down'&gt; £300 per month &lt;/div&gt;"></option>
-                                </select>
-                                <p class="scroll-form__text">Including VAT and Service Fee</p>
-                                <div class="input-numberbox">
-                                    <span class="input-numberbox__text">amount:</span>
-                                    <input class="input input-numberbox__input js-numberbox-input" />
-                                    <span class="input-numberbox__button js-numberbox-minus"></span>
-                                    <span class="input-numberbox__button js-numberbox-plus"></span>
-                                </div>
-                                <a class="button button_gradient">Request Reservation</a>
-                                <a class="button">
-                                    <span class="button__text">Arrange a Viewing</span>
+                        <ul class="header-user__list">
+                            <li class="header-user__item">
+                                <a class="user-link is-new">
+                                    <svg class="user-link__icon user-link__icon_calendar"><use xlink:href="assets/images/icon.svg#icon_calendar"></use></svg>
+                                    <span class="user-link__marker"></span>
                                 </a>
-                                <p class="scroll-form__text-min"> * Utility bills and other services are paid separately</p>
-                            </div>
-                        </div>
+                            </li>
+                            <li class="header-user__item">
+                                <a class="user-link is-new">
+                                    <svg class="user-link__icon user-link__icon_message"><use xlink:href="assets/images/icon.svg#icon_message"></use></svg>
+                                    <span class="user-link__marker"></span>
+                                </a>
+                            </li>
+                            <li class="header-user__item">
+                                <a class="user-link">
+                                    <svg class="user-link__icon user-link__icon_heart"><use xlink:href="assets/images/icon.svg#icon_heart"></use></svg>
+                                    <span class="user-link__marker"></span>
+                                </a>
+                            </li>
+                        </ul>
                     </div>
                 </div>
-            </div>
-        </section>
-        <section class="ui-kit__section"></section>
-        <div class="ui-kit__section-content">
-            <div class="container">
-                <div class="grid">
-                    <div class="grid__col grid__col_xl_12">
-                        <div class="container">
-                            <div class="info">
-                                <div class="info__content">
-                                    <div class="info__content-left">
-                                        <h1 class="info__title banner__title banner__title_info">The place where you can find your dream workspace.</h1>
-                                    </div>
-                                    <div class="info__content-right">
-                                        <div class="info__links">
-                                            <p class="info__links-text">What are you searching for?</p>
-                                            <a class="link-top" href="#">Hot Desk</a>
-                                            <a class="link-top link-top_red" href="#">Dedicated Desk</a>
-                                            <a class="link-top link-top_blue" href="#">Meeting Room</a>
-                                            <a class="link-top link-top_green" href="#">Office Space</a>
-                                        </div>
-                                        <div class="info__selects">
-                                            <select class="select js-select footer-select">
-                                                <option value="London"></option>
-                                                <option value="London"></option>
-                                                <option value="London"></option>
-                                                <option value="London"> </option>
-                                            </select>
-                                            <select class="select js-select footer-select">
-                                                <option value="Select area"></option>
-                                                <option value="Select area"></option>
-                                                <option value="Select area"></option>
-                                                <option value="Select area"></option>
-                                            </select>
-                                            <a class="button button_gradient">Find</a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <p class="info__bottom">Between 2 960 offices, 380 conversation rooms and over 15 000 free co-working desks</p>
-                            </div>
-                        </div>
+            </nav>
+            <div class="header__burger">
+                <button class="burger js-open-navigation">
+                    <div class="burger__image">
+                        <div class="burger__line"></div>
                     </div>
-                </div>
+                </button>
             </div>
         </div>
-        <section class="ui-kit__section">
-            <div class="ui-kit__section-head">
-                <div class="container">
-                    <h2>Кнопки</h2>
-                    <p>Блок: blocks/button</p>
-                </div>
+    </header>
+    <main class="page" role="main">
+        <div class="ui-kit">
+            <div class="ui-kit__navigation">
+                <div class="ui-kit__navigation-burger"></div>
+                <ul class="ui-kit__navigation__list"></ul>
             </div>
+            <section class="ui-kit__head">
+                <div class="container">
+                    <p>Logo in header .logo</p>
+                    <br>
+                    <a class="logo">
+                        <svg class="logo__icon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 171.5 53.7">
+                            <defs>
+                                <linearGradient id="logo-grad1" x1="28.97" x2="42.59" y1="23.48" y2="43.67" gradientUnits="userSpaceOnUse">
+                                    <stop offset="0.25" stop-color="#008199"></stop>
+                                    <stop offset="1" stop-color="#0de1aa"></stop>
+                                </linearGradient>
+                                <linearGradient id="logo-grad2" x1="16.86" x2="5.5" y1="21.43" y2="45.8" xlink:href="#logo-grad1"></linearGradient>
+                                <linearGradient id="logo-grad3" x1="23.03" x2="23.61" y1="0.02" y2="16.82" xlink:href="#logo-grad1"></linearGradient>
+                            </defs>
+                            <g class="logo__image">
+                                <path fill="url(#logo-grad1)" d="M42.5,16.16v22L29.13,45.9v-6l11.11-6.51V17.3L24.63,26.41V53.69L47,40.7V13.57ZM29.13,29l6.61-3.9v5.7l-6.61,3.9Z"></path>
+                                <path fill="url(#logo-grad2)" d="M0,13.57V40.7l22.37,13V37.31L11.26,30.8V25.11l11.11,6.5v-5.2L6.76,17.3V33.38l11.11,6.51v6L4.49,38.11V16.16Z"></path>
+                                <polygon fill="url(#logo-grad3)" points="0 13.57 4.5 16.16 23.5 5.19 42.51 16.16 47 13.57 23.5 0 0 13.57"></polygon>
+                            </g>
+                            <g class="logo__text">
+                                <path d="M58.5,31.36l1.87-2.63a7.18,7.18,0,0,0,5.17,2.19c1.89,0,2.82-.88,2.82-1.8,0-2.87-9.35-.9-9.35-7,0-2.71,2.34-4.95,6.16-4.95a9,9,0,0,1,6.33,2.27L69.58,22a7,7,0,0,0-4.73-1.78c-1.48,0-2.31.66-2.31,1.63,0,2.59,9.33.86,9.33,6.92,0,3-2.12,5.21-6.5,5.21A9.29,9.29,0,0,1,58.5,31.36Z"></path>
+                                <path d="M76.61,32.14v6H73.52V21.89h3.09v1.48a4.56,4.56,0,0,1,3.63-1.77c3,0,5.21,2.24,5.21,6.16s-2.19,6.18-5.21,6.18A4.5,4.5,0,0,1,76.61,32.14Zm5.63-4.38c0-2-1.2-3.41-3-3.41a3.47,3.47,0,0,0-2.66,1.34v4.16a3.55,3.55,0,0,0,2.66,1.34C81,31.19,82.24,29.8,82.24,27.76Z"></path>
+                                <path d="M94.16,33.65V32.43a4.83,4.83,0,0,1-3.72,1.51,3.93,3.93,0,0,1-4.09-3.75V30c0-2.75,2.22-3.79,4.09-3.79a4.84,4.84,0,0,1,3.72,1.43V26.1c0-1.19-1-2-2.58-2a4.94,4.94,0,0,0-3.43,1.39l-1.15-2a7.74,7.74,0,0,1,5.14-1.85c2.68,0,5.14,1.07,5.14,4.45v7.6Zm0-2.83V29.36a3.09,3.09,0,0,0-2.48-1c-1.22,0-2.21.63-2.21,1.78s1,1.73,2.21,1.73A3.09,3.09,0,0,0,94.16,30.82Z"></path>
+                                <path d="M99,27.76a6,6,0,0,1,5.83-6.16,2.67,2.67,0,0,1,.4,0,5.47,5.47,0,0,1,4.65,2.11l-2,1.9a2.85,2.85,0,0,0-2.48-1.26,3.14,3.14,0,0,0-3.2,3.08c0,.11,0,.22,0,.33a3.16,3.16,0,0,0,2.88,3.42h.31a3,3,0,0,0,2.48-1.27l2,1.88a5.44,5.44,0,0,1-4.65,2.14A6,6,0,0,1,99,28.18Z"></path>
+                                <path d="M110.5,27.76a6,6,0,0,1,5.84-6.16h.25c3.5,0,5.89,2.63,5.89,6.47v.68h-8.74a3.16,3.16,0,0,0,3.38,2.73,5,5,0,0,0,3.14-1.17l1.37,2a7.31,7.31,0,0,1-4.85,1.63,6,6,0,0,1-6.28-5.71Zm6.09-3.71a2.81,2.81,0,0,0-2.9,2.61h5.79a2.72,2.72,0,0,0-2.82-2.61Z"></path>
+                                <path d="M131.19,32.14v6h-3.1V21.89h3.1v1.48a4.53,4.53,0,0,1,3.62-1.77c3,0,5.21,2.24,5.21,6.16s-2.19,6.18-5.21,6.18A4.53,4.53,0,0,1,131.19,32.14Zm5.62-4.38c0-2-1.19-3.41-3-3.41a3.45,3.45,0,0,0-2.65,1.34v4.16a3.55,3.55,0,0,0,2.65,1.34C135.62,31.19,136.81,29.8,136.81,27.76Z"></path>
+                                <path d="M140.92,27.76A6.22,6.22,0,1,1,147.14,34,6.21,6.21,0,0,1,140.92,27.76Zm9.23,0c0-1.83-1.09-3.41-3-3.41s-3,1.58-3,3.41,1.07,3.43,3,3.43S150.15,29.61,150.15,27.76Z"></path>
+                                <path d="M154.29,27.76A6.22,6.22,0,1,1,160.51,34,6.21,6.21,0,0,1,154.29,27.76Zm9.23,0c0-1.83-1.1-3.41-3-3.41s-3,1.58-3,3.41,1.07,3.43,3,3.43,3-1.58,3-3.43Z"></path>
+                                <path d="M168.41,33.65V17.41h3.09V33.65Z"></path>
+                            </g>
+                        </svg>
+                    </a>
+                    <br>
+                    <p>Logo in footer .logo_footer</p>
+                    <br>
+                    <a class="logo logo_footer">
+                        <img class="logo__icon" src="assets/images/logo.svg" alt="" role="presentation" />
+                    </a>
+                    <br>
+                    <div class="ui-kit__name">SpacePool</div>
+                </div>
+            </section>
+            <section class="ui-kit__section">
+                <div class="ui-kit__section-head">
+                    <div class="container">
+                        <h2>Хэдер (Header)</h2>
+                        <p>Блок: components/header</p>
+                        <p>Состояние при логине хэдеру добавляется класс is-login</p>
+                        <a class="button" onclick="$('.header').toggleClass('is-login')">
+                            <span class="button__text">Log In</span>
+                        </a>
+                    </div>
+                </div>
+            </section>
+            <section class="ui-kit__section ui-kit__section_grid">
+                <div class="ui-kit__section-head">
+                    <div class="container">
+                        <h2>Сетка</h2>
+                        <p>Отступы слева и справа от экрана: 40px ($container-padding)</p>
+                        <p>Отступы слева и справа от экрана на мобильныx: 20px ($container-padding-mobile)</p>
+                        <p>Максимальная ширина контейнера с учетом паддингов: 1700px ($container-width)</p>
+                        <p>Ширина контейнера сетки: 100% ($grid-container-width)</p>
+                        <p>Колонок: 12 ($grid-cols)</p>
+                        <p>Горизонтальное расстояние между колонками: 50px ($grid-gap)</p>
+                        <p>Вертикальное расстояние между колонками: 50px ($grid-gap-vertical)</p>
+                        <p>Переменные: styles/helpers/_variables.scss</p>
+                        <p>Блок: blocks/grid/</p>
+                    </div>
+                </div>
+                <div class="ui-kit__section-content">
+                    <div class="container">
+                        <div class="ui-kit__special" style="margin-bottom: 20px;">
+                            <div class="content-zone">
+                                <H4>Возможные варианты использования</H4>
+                                <p>+col(12) агалогично +col({ xl: 12 })</p>
+                                <p>+col({ xl: 8, lg: 6: md: 5, sm: 7, xs: 12 })</p>
+                                <p>
+                                    <span>Промежуточные брейкпоинты указывать не обязательно</span>
+                                    <br>
+                                    <span>При следующей записи - блок будет занимать 6 колонок на всех разрешениях, а на самом маленьком
+                                        <i>(xs)</i> 12</span>
+                                </p>
+                                <p>+col({ xl: 6, xs: 12 })</p>
+                            </div>
+                        </div>
+                        <div class="grid">
+                            <div class="grid__col grid__col_xl_1"></div>
+                            <div class="grid__col grid__col_xl_1"></div>
+                            <div class="grid__col grid__col_xl_1"></div>
+                            <div class="grid__col grid__col_xl_1"></div>
+                            <div class="grid__col grid__col_xl_1"></div>
+                            <div class="grid__col grid__col_xl_1"></div>
+                            <div class="grid__col grid__col_xl_1"></div>
+                            <div class="grid__col grid__col_xl_1"></div>
+                            <div class="grid__col grid__col_xl_1"></div>
+                            <div class="grid__col grid__col_xl_1"></div>
+                            <div class="grid__col grid__col_xl_1"></div>
+                            <div class="grid__col grid__col_xl_1"></div>
+                            <div class="grid__col grid__col_xl_4"></div>
+                            <div class="grid__col grid__col_xl_4"></div>
+                            <div class="grid__col grid__col_xl_4"></div>
+                            <div class="grid__col grid__col_xl_6"></div>
+                            <div class="grid__col grid__col_xl_6"></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="ui-kit__section">
+                <div class="ui-kit__section-head">
+                    <div class="container">
+                        <h2>Цвета сайта</h2>
+                        <p>Переменные находятся в файле styles/helpers/_variables.scss</p>
+                    </div>
+                </div>
+                <div class="ui-kit__section-content">
+                    <div class="container">
+                        <div class="ui-kit__elements-list">
+                            <div class="ui-kit__color ui-kit__color_bg_dark" style="background-color: #525a65">#525a65
+                                <br>$color-basic</div>
+                            <div class="ui-kit__color ui-kit__color_bg_dark" style="background-color: #86919e">#86919e
+                                <br>$color-basic-light</div>
+                            <div class="ui-kit__color ui-kit__color_bg_dark" style="background-color: #121615">#121615
+                                <br>$color-basic-dark</div>
+                            <div class="ui-kit__color ui-kit__color_bg_dark" style="background-color: #858c99">#858c99
+                                <br>$color-form-light</div>
+                            <div class="ui-kit__color ui-kit__color_bg_dark" style="background-color: #a0a7ab">#a0a7ab
+                                <br>$color-arrow</div>
+                            <div class="ui-kit__color ui-kit__color_bg_dark" style="background-color: #f2f6f6">#f2f6f6
+                                <br>$color-bg</div>
+                            <div class="ui-kit__color ui-kit__color_bg_dark" style="background-color: #151b25">#151b25
+                                <br>$color-grey-dark</div>
+                            <div class="ui-kit__color ui-kit__color_bg_dark" style="background-color: #2ee0c9">#2ee0c9
+                                <br>$color-text-green</div>
+                            <div class="ui-kit__color ui-kit__color_bg_dark" style="background-color: #0caecc">#0caecc
+                                <br>$color-gradient-one</div>
+                            <div class="ui-kit__color ui-kit__color_bg_dark" style="background-color: #30e3c9">#30e3c9
+                                <br>$color-gradient-two</div>
+                            <div class="ui-kit__color ui-kit__color_bg_dark" style="background-color: #ff9600">#ff9600
+                                <br>$color-yellow</div>
+                            <div class="ui-kit__color ui-kit__color_bg_dark" style="background-color: #eb4433">#eb4433
+                                <br>$color-red</div>
+                            <div class="ui-kit__color ui-kit__color_bg_dark" style="background-color: #1dd5f0">#1dd5f0
+                                <br>$color-blue</div>
+                            <div class="ui-kit__color ui-kit__color_bg_dark" style="background-color: #29f785">#29f785
+                                <br>$color-green</div>
+                            <div class="ui-kit__color ui-kit__color_bg_dark" style="background-color: #ffffff">#ffffff
+                                <br>$color-white</div>
+                            <div class="ui-kit__color ui-kit__color_bg_dark" style="background-color: #acb5c0">#acb5c0
+                                <br>$color-bc-light</div>
+                            <div class="ui-kit__color ui-kit__color_bg_dark" style="background-color: #303333">#303333
+                                <br>$color-bc-dark</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="ui-kit__section">
+                <div class="ui-kit__section-head">
+                    <div class="container">
+                        <h2>Градиенты</h2>
+                        <p>Цвета для градиентов находятся в файле styles/helpers/_variables.scss</p>
+                        <p>Сами градиенты в styles/helpers/_gradients.scss</p>
+                    </div>
+                </div>
+                <div class="ui-kit__section-content">
+                    <div class="container">
+                        <div class="ui-kit__elements-list">
+                            <div class="ui-kit__color ui-kit__color_bg_dark ui-kit__color_gradient_main" style="background: undefined">gradient-main</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="ui-kit__section">
+                <div class="ui-kit__section-head">
+                    <div class="container">
+                        <h2>Шрифты и контентная зона</h2>
+                        <p>Основной шрифт: ProximaNova ($font-main), font-weight: 400, 700, 300</p>
+                        <p>Переменные находятся в файле styles/helpers/_variables.scss</p>
+                        <p>Шрифты подключены в styles/helpers/_fonts.scss</p>
+                        <p>Контентная зона: blocks/content-zone</p>
+                        <p>Стили всех текстов лежат в файле styles/helpers/_text-styles.scss</p>
+                    </div>
+                </div>
+                <div class="ui-kit__section-content">
+                    <div class="container">
+                        <p class="ui-kit__description">.content-zone</p>
+                        <div class="ui-kit__special">
+                            <div class="content-zone">
+                                <h1>Заголовок H1 (heading-1)</h1>
+                                <h2>Заголовок H2 (heading-2)</h2>
+                                <h3>Заголовок H3 (heading-3)</h3>
+                                <h4>Заголовок H4 (heading-4)</h4>
+                                <h5>Заголовок H5 (heading-5)</h5>
+                                <h6>Заголовок H6 (heading-6)</h6>
+                                <p>Текст p (text)
+                                    <br> Цитата внутри текста p:
+                                    <q>Цитата q</q>
+                                </p>
+                                <p>
+                                    <small>Тег small внутри p (text-small)</small>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="ui-kit__section">
+                <div class="ui-kit__section-head">
+                    <div class="container">
+                        <h2>scrollform</h2>
+                        <p>Блок: components/header</p>
+                    </div>
+                </div>
+                <div class="ui-kit__section-content">
+                    <div class="container">
+                        <div class="grid">
+                            <div class="grid__col grid__col_xl_3"></div>
+                            <div class="grid__col grid__col_xl_3">
+                                <div class="scroll-form">
+                                    <h3 class="scroll-form__title">Reservation form</h3>
+                                    <select class="select js-select form-select">
+                                        <option value="&lt;div class='option-top'&gt; &lt;span class='cube cube_yellow'&gt;&lt;/span&gt;dedicated desk&lt;/div&gt; &lt;div class='option-down'&gt; £300 per month &lt;/div&gt;"></option>
+                                        <option value="&lt;div class='option-top'&gt; &lt;span class='cube cube_red'&gt;&lt;/span&gt;hot desk&lt;/div&gt; &lt;div class='option-down'&gt; £300 per month &lt;/div&gt;"></option>
+                                        <option value="&lt;div class='option-top'&gt; &lt;span class='cube cube_red'&gt;&lt;/span&gt;dedicated desk&lt;/div&gt; &lt;div class='option-down'&gt; £300 per month &lt;/div&gt;"></option>
+                                        <option value="&lt;div class='option-top'&gt; &lt;span class='cube cube_blue'&gt;&lt;/span&gt;office space&lt;/div&gt; &lt;div class='option-down'&gt; £300 per month &lt;/div&gt;"></option>
+                                    </select>
+                                    <p class="scroll-form__text">Including VAT and Service Fee</p>
+                                    <div class="input-numberbox">
+                                        <span class="input-numberbox__text">amount:</span>
+                                        <input class="input input-numberbox__input js-numberbox-input" />
+                                        <span class="input-numberbox__button js-numberbox-minus"></span>
+                                        <span class="input-numberbox__button js-numberbox-plus"></span>
+                                    </div>
+                                    <a class="button">
+                                        <span class="button__text">Request Reservation</span>
+                                    </a>
+                                    <a class="button">
+                                        <span class="button__text">Arrange a Viewing</span>
+                                    </a>
+                                    <p class="scroll-form__text-min"> * Utility bills and other services are paid separately</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="ui-kit__section"></section>
             <div class="ui-kit__section-content">
                 <div class="container">
-                    <div class="ui-kit__elements-list">
-                        <a class="button" href="#">
-                            <span class="button__text">.button</span>
-                        </a>
-                        <a class="button button_gradient" href="#">.button</a>
-                        <button class="button" href="#" disabled="disabled">
-                            <div class="button__text">.button:disabled</div>
-                        </button>
-                    </div>
-                    <p class="ui-kit__description">При клике на .js-anchor происходит скролл к элементу из атрибута href. Блок: blocks/js-functions/anchor.js</p>
-                    <a class="button js-anchor" href="#section0">
-                        <span class="button__text">.js-anchor</span>
-                    </a>
-                    <p class="ui-kit__description">При клике на .js-freeze скролл страницы блокируется, на .js-unfreeze разблокируется. Блок: blocks/js-functions/freeze.js. Функции freeze() и unfreeze() можно импортировать и использовать в модалках, бургере или где-то еще</p>
-                    <div class="ui-kit__elements-list">
-                        <a class="button js-freeze" href="#">
-                            <span class="button__text">.js-freeze</span>
-                        </a>
-                        <a class="button js-unfreeze" href="#">
-                            <span class="button__text">.js-unfreeze</span>
-                        </a>
+                    <div class="grid">
+                        <div class="grid__col grid__col_xl_12">
+                            <div class="container">
+                                <div class="info">
+                                    <div class="info__content">
+                                        <div class="info__content-left">
+                                            <h1 class="info__title banner__title banner__title_info">The place where you can find your dream workspace.</h1>
+                                        </div>
+                                        <div class="info__content-right">
+                                            <div class="info__links">
+                                                <p class="info__links-text">What are you searching for?</p>
+                                                <a class="link-top" href="#">Hot Desk</a>
+                                                <a class="link-top link-top_red" href="#">Dedicated Desk</a>
+                                                <a class="link-top link-top_blue" href="#">Meeting Room</a>
+                                                <a class="link-top link-top_green" href="#">Office Space</a>
+                                            </div>
+                                            <div class="info__selects">
+                                                <select class="select js-select footer-select">
+                                                    <option value="London"></option>
+                                                    <option value="London"></option>
+                                                    <option value="London"></option>
+                                                    <option value="London"></option>
+                                                </select>
+                                                <select class="select js-select footer-select">
+                                                    <option value="Select area"></option>
+                                                    <option value="Select area"></option>
+                                                    <option value="Select area"></option>
+                                                    <option value="Select area"></option>
+                                                </select>
+                                                <a class="button">
+                                                    <span class="button__text">Find</span>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <p class="info__bottom">Between 2 960 offices, 380 conversation rooms and over 15 000 free co-working desks</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
+            <section class="ui-kit__section">
+                <div class="ui-kit__section-head">
+                    <div class="container">
+                        <h2>Кнопки</h2>
+                        <p>Блок: blocks/button</p>
+                    </div>
+                </div>
+                <div class="ui-kit__section-content">
+                    <div class="container">
+                        <div class="ui-kit__elements-list">
+                            <a class="button" href="#">
+                                <span class="button__text">.button</span>
+                            </a>
+                            <a class="button button_border" href="#">
+                                <span class="button__text">.button_border</span>
+                            </a>
+                            <a class="button button_border button_border_bg-white" href="#">
+                                <span class="button__text">.button_border._border_bg-white</span>
+                            </a>
+                            <button class="button" href="#" disabled="disabled">
+                                <span class="button__text">.button:disabled</span>
+                            </button>
+                        </div>
+                        <p class="ui-kit__description">При клике на .js-anchor происходит скролл к элементу из атрибута href. Блок: blocks/js-functions/anchor.js</p>
+                        <a class="button js-anchor" href="#section0">
+                            <span class="button__text">.js-anchor</span>
+                        </a>
+                        <p class="ui-kit__description">При клике на .js-freeze скролл страницы блокируется, на .js-unfreeze разблокируется. Блок: blocks/js-functions/freeze.js. Функции freeze() и unfreeze() можно импортировать и использовать в модалках, бургере или где-то еще</p>
+                        <div
+                            class="ui-kit__elements-list">
+                            <a class="button js-freeze" href="#">
+                                <span class="button__text">.js-freeze</span>
+                            </a>
+                            <a class="button js-unfreeze" href="#">
+                                <span class="button__text">.js-unfreeze</span>
+                            </a>
+                    </div>
+                </div>
+        </div>
         </section>
         <section class="ui-kit__section">
             <div class="ui-kit__section-head">
@@ -649,9 +630,9 @@
                     <a class="link" href="#">
                         <span class="link__text">Обычная ссылка</span>
                     </a>
-                    <p class="ui-kit__description">.link._dashed</p>
-                    <a class="link link_dashed" href="#">
-                        <span class="link__text">Пунктирная ссылка</span>
+                    <p class="ui-kit__description">.link._bordered</p>
+                    <a class="link link_bordered" href="#">
+                        <span class="link__text">Подчеркнутая ссылка</span>
                     </a>
                     <p class="ui-kit__description">.link._icon</p>
                     <a class="link link_icon" href="#">
@@ -673,15 +654,31 @@
         <section class="ui-kit__section">
             <div class="ui-kit__section-head">
                 <div class="container">
-                    <h2>Кастомный скроллбар</h2>
+                    <h2>Кастомный скроллбары</h2>
                     <p>Блок: blocks/scrollbar/scrollbar</p>
                 </div>
             </div>
             <div class="ui-kit__section-content">
                 <div class="container">
-                    <p class="ui-kit__description">.js-scrollbar</p>
-                    <div class="ui-kit__scrolldemo js-scrollbar">
-                        <div class="ui-kit__scrolldemo-block"></div>
+                    <div class="grid">
+                        <div class="grid__col grid__col_xl_4">
+                            <p class="ui-kit__description">.js-scrollbar</p>
+                            <div class="ui-kit__scrolldemo js-scrollbar">
+                                <div class="ui-kit__scrolldemo-block"></div>
+                            </div>
+                        </div>
+                        <div class="grid__col grid__col_xl_4">
+                            <p class="ui-kit__description">.js-scrollbar-dark</p>
+                            <div class="ui-kit__scrolldemo js-scrollbar-dark">
+                                <div class="ui-kit__scrolldemo-block"></div>
+                            </div>
+                        </div>
+                        <div class="grid__col grid__col_xl_4">
+                            <p class="ui-kit__description">.js-scrollbar-light</p>
+                            <div class="ui-kit__scrolldemo js-scrollbar-light">
+                                <div class="ui-kit__scrolldemo-block"></div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -966,21 +963,418 @@
                 </div>
             </div>
         </section>
+        <section class="ui-kit__section">
+            <div class="ui-kit__section-head">
+                <div class="container">
+                    <h2>Аватар</h2>
+                    <p>Блок: blocks/avatar</p>
+                </div>
+            </div>
+            <div class="ui-kit__section-content">
+                <div class="container">
+                    <p class="ui-kit__description">.avatar</p>
+                    <div class="avatar">
+                        <img class="avatar__image" src="assets/images/ava.jpg" alt="" role="presentation" />
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="ui-kit__section">
+            <div class="ui-kit__section-head">
+                <div class="container">
+                    <h2>Профиль в хэдере</h2>
+                    <p>Блок: blocks/short-profile</p>
+                </div>
+            </div>
+            <div class="ui-kit__section-content">
+                <div class="container">
+                    <p class="ui-kit__description">.short-provile</p>
+                    <a class="short-profile">
+                        <span class="avatar short-profile__avatar">
+                            <img class="avatar__image" src="/assets/images/ava.jpg" alt="" role="presentation" />
+                        </span>
+                        <span class="short-profile__name">Spencer Macenthire</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+        <section class="ui-kit__section">
+            <div class="ui-kit__section-head">
+                <div class="container">
+                    <h2>Ссылка в профиле в хэдере</h2>
+                    <p>Блок: blocks/user-link</p>
+                </div>
+            </div>
+            <div class="ui-kit__section-content">
+                <div class="container">
+                    <p class="ui-kit__description">.user-link</p>
+                    <a class="user-link">
+                        <svg class="user-link__icon user-link__icon_message"><use xlink:href="assets/images/icon.svg#icon_message"></use></svg>
+                        <span class="user-link__marker"></span>
+                    </a>
+                    <p class="ui-kit__description">.user-link.is-new - с активным маркером</p>
+                    <a class="user-link is-new">
+                        <svg class="user-link__icon user-link__icon_message"><use xlink:href="assets/images/icon.svg#icon_message"></use></svg>
+                        <span class="user-link__marker"></span>
+                    </a>
+                </div>
+            </div>
+        </section>
+        <section class="ui-kit__section">
+            <div class="ui-kit__section-head">
+                <div class="container">
+                    <h2>Социальные сети</h2>
+                    <p>Блок: blocks/socials и Блок blocks/social</p>
+                </div>
+            </div>
+            <div class="ui-kit__section-content">
+                <div class="container">
+                    <p class="ui-kit__description">.social - ссылка на соцсеть</p>
+                    <a class="social social_fb" target="_blank" href="#" title="facebook">
+                        <svg class="social__icon"><use xlink:href="assets/images/icon.svg#icon_sc-fb"></use></svg>
+                    </a>
+                    <p class="ui-kit__description">.social._big - увеличенная ссылка на соцсеть</p>
+                    <a class="social social_big social_fb" target="_blank" href="#" title="facebook">
+                        <svg class="social__icon"><use xlink:href="assets/images/icon.svg#icon_sc-fb"></use></svg>
+                    </a>
+                    <p class="ui-kit__description">.socials</p>
+                    <ul class="socials">
+                        <li class="socials__item">
+                            <a class="social social_fb" target="_blank" href="#" title="facebook">
+                                <svg class="social__icon"><use xlink:href="assets/images/icon.svg#icon_sc-fb"></use></svg>
+                            </a>
+                        </li>
+                        <li class="socials__item">
+                            <a class="social social_ln" target="_blank" href="#" title="linkedIn">
+                                <svg class="social__icon"><use xlink:href="assets/images/icon.svg#icon_sc-ln"></use></svg>
+                            </a>
+                        </li>
+                        <li class="socials__item">
+                            <a class="social social_tw" target="_blank" href="#" title="twitter">
+                                <svg class="social__icon"><use xlink:href="assets/images/icon.svg#icon_sc-tw"></use></svg>
+                            </a>
+                        </li>
+                        <li class="socials__item">
+                            <a class="social social_inst" target="_blank" href="#" title="instagram">
+                                <svg class="social__icon"><use xlink:href="assets/images/icon.svg#icon_sc-inst"></use></svg>
+                            </a>
+                        </li>
+                    </ul>
+                    <p class="ui-kit__description">.socials._big</p>
+                    <ul class="socials socials_big">
+                        <li class="socials__item">
+                            <a class="social social_big social_fb" target="_blank" href="#" title="facebook">
+                                <svg class="social__icon"><use xlink:href="assets/images/icon.svg#icon_sc-fb"></use></svg>
+                            </a>
+                        </li>
+                        <li class="socials__item">
+                            <a class="social social_big social_ln" target="_blank" href="#" title="linkedIn">
+                                <svg class="social__icon"><use xlink:href="assets/images/icon.svg#icon_sc-ln"></use></svg>
+                            </a>
+                        </li>
+                        <li class="socials__item">
+                            <a class="social social_big social_tw" target="_blank" href="#" title="twitter">
+                                <svg class="social__icon"><use xlink:href="assets/images/icon.svg#icon_sc-tw"></use></svg>
+                            </a>
+                        </li>
+                        <li class="socials__item">
+                            <a class="social social_big social_inst" target="_blank" href="#" title="instagram">
+                                <svg class="social__icon"><use xlink:href="assets/images/icon.svg#icon_sc-inst"></use></svg>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        <section class="ui-kit__section">
+            <div class="ui-kit__section-head">
+                <div class="container">
+                    <h2>Кнопка закрыть</h2>
+                    <p>Блок: blocks/close</p>
+                </div>
+            </div>
+            <div class="ui-kit__section-content">
+                <div class="container">
+                    <p class="ui-kit__description">.close</p>
+                    <div class="close">
+                        <span class="close__base"></span>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="ui-kit__section">
+            <div class="ui-kit__section-head">
+                <div class="container">
+                    <h2>Список в навигации</h2>
+                    <p>Блок: blocks/nav-list</p>
+                </div>
+            </div>
+            <div class="ui-kit__section-content">
+                <div class="container">
+                    <p class="ui-kit__description">.nav-list</p>
+                    <div class="nav-list">
+                        <ul>
+                            <li class="nav-list__item">
+                                <a class="link" href="#">
+                                    <span class="link__text">About the project</span>
+                                </a>
+                            </li>
+                            <li class="nav-list__item">
+                                <a class="link" href="#">
+                                    <span class="link__text">Become a host</span>
+                                </a>
+                            </li>
+                            <li class="nav-list__item">
+                                <a class="link" href="#">
+                                    <span class="link__text">Help &amp; Support</span>
+                                </a>
+                            </li>
+                            <li class="nav-list__item">
+                                <a class="link" href="#">
+                                    <span class="link__text">News</span>
+                                </a>
+                            </li>
+                            <li class="nav-list__item">
+                                <a class="link" href="#">
+                                    <span class="link__text">Terms and Policies</span>
+                                </a>
+                            </li>
+                            <li class="nav-list__item">
+                                <a class="link" href="#">
+                                    <span class="link__text">Contacts</span>
+                                </a>
+                            </li>
+                    </div>
+                </div>
+            </div>
+        </section>
+        </div>
+        <script>
+            $('.ui-kit__section').each(function(i) {
+                var id = 'section' + i;
+                var name = $(this).find('.ui-kit__section-head h2').text();
+                var li = $('<li></li>');
+                var a = $('<a></a>');
+
+                a.attr('href', '#' + id).text(name).addClass('js-anchor');
+                li.append(a);
+
+                $('.ui-kit__navigation__list').append(li);
+                $(this).attr('id', id);
+            });
+        </script>
+    </main>
+    <div class="popups"></div>
+    <div class="overlay"></div>
+    <div class="main-menu">
+        <div class="main-menu__wrapper">
+            <div class="main-menu__block">
+                <div class="main-menu__top">
+                    <div class="close js-open-navigation">
+                        <span class="close__base"></span>
+                    </div>
+                </div>
+                <div class="main-menu__scrollblock js-scrollbar-light">
+                    <div class="main-menu__content">
+                        <div class="main-menu__top-menu">
+                            <div class="nav-list">
+                                <ul>
+                                    <li class="nav-list__item">
+                                        <a class="link" href="#">
+                                            <span class="link__text">About the project</span>
+                                        </a>
+                                    </li>
+                                    <li class="nav-list__item">
+                                        <a class="link" href="#">
+                                            <span class="link__text">Become a host</span>
+                                        </a>
+                                    </li>
+                                    <li class="nav-list__item">
+                                        <a class="link" href="#">
+                                            <span class="link__text">Help &amp; Support</span>
+                                        </a>
+                                    </li>
+                                    <li class="nav-list__item">
+                                        <a class="link" href="#">
+                                            <span class="link__text">News</span>
+                                        </a>
+                                    </li>
+                                    <li class="nav-list__item">
+                                        <a class="link" href="#">
+                                            <span class="link__text">Terms and Policies</span>
+                                        </a>
+                                    </li>
+                                    <li class="nav-list__item">
+                                        <a class="link" href="#">
+                                            <span class="link__text">Contacts</span>
+                                        </a>
+                                    </li>
+                            </div>
+                        </div>
+                        <div class="divider"></div>
+                        <div class="main-menu__bottom-menu">
+                            <div class="nav-list">
+                                <ul>
+                                    <li class="nav-list__item">
+                                        <a class="link" href="#">
+                                            <span class="link__text">Sign Up</span>
+                                        </a>
+                                    </li>
+                                    <li class="nav-list__item">
+                                        <a class="link" href="#">
+                                            <span class="link__text">Sign in</span>
+                                        </a>
+                                    </li>
+                            </div>
+                            <ul class="socials">
+                                <li class="socials__item">
+                                    <a class="social social_fb" target="_blank" href="#" title="facebook">
+                                        <svg class="social__icon"><use xlink:href="assets/images/icon.svg#icon_sc-fb"></use></svg>
+                                    </a>
+                                </li>
+                                <li class="socials__item">
+                                    <a class="social social_ln" target="_blank" href="#" title="linkedIn">
+                                        <svg class="social__icon"><use xlink:href="assets/images/icon.svg#icon_sc-ln"></use></svg>
+                                    </a>
+                                </li>
+                                <li class="socials__item">
+                                    <a class="social social_tw" target="_blank" href="#" title="twitter">
+                                        <svg class="social__icon"><use xlink:href="assets/images/icon.svg#icon_sc-tw"></use></svg>
+                                    </a>
+                                </li>
+                                <li class="socials__item">
+                                    <a class="social social_inst" target="_blank" href="#" title="instagram">
+                                        <svg class="social__icon"><use xlink:href="assets/images/icon.svg#icon_sc-inst"></use></svg>
+                                    </a>
+                                </li>
+                            </ul>
+                            <div class="main-menu__links">
+                                <a class="link" href="mailto:info@spacepool.com">
+                                    <span class="link__text">info@spacepool.com</span>
+                                </a>
+                                <a class="link" href="tel:+4471478129419">
+                                    <span class="link__text">+44 714 781 294 19</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-    <script>
-        $('.ui-kit__section').each(function(i) {
-            var id = 'section' + i;
-            var name = $(this).find('.ui-kit__section-head h2').text();
-            var li = $('<li></li>');
-            var a = $('<a></a>');
-
-            a.attr('href', '#' + id).text(name).addClass('js-anchor');
-            li.append(a);
-
-            $('.ui-kit__navigation__list').append(li);
-            $(this).attr('id', id);
-        });
-    </script>
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__top">
+                <div class="footer__col">
+                    <div class="footer__logo">
+                        <a class="logo logo_footer" href="/">
+                            <img class="logo__icon" src="assets/images/logo.svg" alt="" role="presentation" />
+                        </a>
+                    </div>
+                    <ul class="footer__list">
+                        <li class="footer__item">
+                            <ul class="footer__vertical-list">
+                                <li class="footer__vertical-item">
+                                    <a class="footer__link" href="#">About the Project</a>
+                                </li>
+                                <li class="footer__vertical-item">
+                                    <a class="footer__link" href="#">Help and Support</a>
+                                </li>
+                                <li class="footer__vertical-item">
+                                    <a class="footer__link" href="#">Become a host</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="footer__item">
+                            <ul class="footer__vertical-list">
+                                <li class="footer__vertical-item">
+                                    <a class="footer__link" href="#">Search for spaces</a>
+                                </li>
+                                <li class="footer__vertical-item">
+                                    <a class="footer__link" href="#">Term and policies</a>
+                                </li>
+                                <li class="footer__vertical-item">
+                                    <a class="footer__link" href="#">Careers</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="footer__item">
+                            <ul class="footer__vertical-list">
+                                <li class="footer__vertical-item">
+                                    <a class="footer__link" href="#">Blog</a>
+                                </li>
+                                <li class="footer__vertical-item">
+                                    <a class="footer__link" href="#">Press</a>
+                                </li>
+                                <li class="footer__vertical-item">
+                                    <a class="footer__link" href="#">Advertise</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                <div class="footer__col">
+                    <ul class="footer__list">
+                        <li class="footer__item footer__item_left">
+                            <select class="select js-select footer-select">
+                                <option value="English"></option>
+                                <option value="English"></option>
+                                <option value="English"></option>
+                                <option value="English"></option>
+                            </select>
+                        </li>
+                        <li class="footer__item footer__item_left">
+                            <select class="select js-select footer-select">
+                                <option value="GBR"></option>
+                                <option value="GBR"></option>
+                                <option value="GBR"></option>
+                                <option value="GBR"></option>
+                            </select>
+                        </li>
+                        <li class="footer__item footer__item_left">
+                            <a class="footer__link" href="mailto:info@spacepool.com">info@spacepool.com</a>
+                        </li>
+                        <li class="footer__item footer__item_left">
+                            <ul class="footer__vertical-list">
+                                <li class="footer__vertical-item">
+                                    <div class="footer__vertical-link">© Space Pool ltd. 2019</div>
+                                </li>
+                                <li class="footer__vertical-item">
+                                    <ul class="socials">
+                                        <li class="socials__item">
+                                            <a class="social social_fb" target="_blank" href="#" title="facebook">
+                                                <svg class="social__icon"><use xlink:href="assets/images/icon.svg#icon_sc-fb"></use></svg>
+                                            </a>
+                                        </li>
+                                        <li class="socials__item">
+                                            <a class="social social_ln" target="_blank" href="#" title="linkedIn">
+                                                <svg class="social__icon"><use xlink:href="assets/images/icon.svg#icon_sc-ln"></use></svg>
+                                            </a>
+                                        </li>
+                                        <li class="socials__item">
+                                            <a class="social social_tw" target="_blank" href="#" title="twitter">
+                                                <svg class="social__icon"><use xlink:href="assets/images/icon.svg#icon_sc-tw"></use></svg>
+                                            </a>
+                                        </li>
+                                        <li class="socials__item">
+                                            <a class="social social_inst" target="_blank" href="#" title="instagram">
+                                                <svg class="social__icon"><use xlink:href="assets/images/icon.svg#icon_sc-inst"></use></svg>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer__down">
+                <div class="container">
+                    <p class="footer__text">The Space Pool Service operates under the United Kingdom Urisdiction. This text have no any sense it’s just some sort of dummie to show the place where we can put an information usually writen with small letters.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
     <script src="assets/scripts/app.min.js"></script>
     <script src="assets/scripts/main.js"></script>
 </body>
