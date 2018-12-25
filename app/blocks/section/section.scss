@@ -36,6 +36,14 @@
 
     #{$b}_bg & {
       margin-bottom: 62px;
+
+      @include screen('lg') {
+        margin-bottom: 60px;
+      }
+
+      @include screen('sm') {
+        margin-bottom: 35px;
+      }
     }
 
     #{$b}_lead & {
@@ -43,6 +51,7 @@
       margin-bottom: 120px;
 
       @include screen('lg') {
+        margin-bottom: 60px;
         flex-wrap: wrap;
       }
     }
@@ -80,15 +89,25 @@
       }
     }
 
+    #{$b}_lead & {
+      @include screen('lg') {
+        max-width: 460px;
+      }
+    }
+
     #{$b}_promo & {
       max-width: 670px;
 
-      @include screen('lg') {
-        max-width: none;
-      }
-
       &:not(:last-child) {
         margin-bottom: 37px;
+
+        @include screen('lg') {
+          margin-bottom: 60px;
+        }
+
+        @include screen('sm') {
+          margin-bottom: 42px;
+        }
       }
     }
   }
@@ -109,15 +128,15 @@
       padding: 105px 136px 28px;
 
       @include screen('xl') {
-        padding: 113px 60px 30px;
+        padding: 105px 56px 28px;
       }
 
       @include screen('lg') {
-        padding: 74px 56px 46px;
+        padding: 72px 42px 42px 54px;
       }
 
       @include screen('sm') {
-        padding: 40px 20px 46px;
+        padding: 40px 20px 42px;
       }
     }
 
@@ -125,31 +144,34 @@
       padding: 124px 136px 28px;
 
       @include screen('xl') {
-        padding: 113px 60px 30px;
+        padding: 124px 56px 28px 65px;
       }
 
       @include screen('lg') {
-        padding: 74px 56px 46px;
+        padding: 50px 54px 42px;
       }
 
       @include screen('sm') {
-        padding: 40px 20px 46px;
+        padding: 36px 20px 42px;
       }
     }
   }
 
   &__lead {
     display: block;
+    box-sizing: border-box;
 
     &_left {
       width: 41.4%;
+      padding-right: 50px;
 
       @include screen('xl') {
-        width: 40.3%;
+        width: 50%;
       }
 
       @include screen('lg') {
         width: 100%;
+        padding-right: 0;
       }
     }
 
@@ -157,7 +179,7 @@
       width: 58.6%;
 
       @include screen('xl') {
-        width: 59.7%;
+        width: 50%;
       }
 
       @include screen('lg') {
@@ -177,6 +199,12 @@
 
     @include screen('sm') {
       @include text;
+    }
+
+    &_mb15 {
+      @include text15;
+
+      line-height: 1.34;
     }
   }
 }

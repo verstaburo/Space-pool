@@ -48,6 +48,10 @@
     padding: 8px 57px;
     z-index: 1;
     border-radius: 21px;
+
+    @include screen('sm') {
+      padding: 8px 22px;
+    }
   }
 
   &_border {
@@ -62,6 +66,10 @@
       padding: 5px 54px;
       background: $color-bg;
       transition: background $ease-main;
+
+      @include screen('sm') {
+        padding: 5px 19px;
+      }
     }
 
     &_bg-white {
@@ -82,6 +90,16 @@
       #{$b}__text {
         background: transparent;
       }
+    }
+  }
+
+  &_wide {
+    width: 100%;
+  }
+
+  &_mob-wide {
+    @include screen('sm') {
+      width: 100%;
     }
   }
 }
