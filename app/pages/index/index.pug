@@ -27,7 +27,7 @@ block content
       +slider(true, false).js-slider-spaces
         each item in spaces
           +slide
-            +space(item)
+            +space(item)(href="#")
   +section._mid-mg
     .container
       +section-header
@@ -42,7 +42,7 @@ block content
       +slider(true, false).js-slider-rooms
         each item in rooms
           +slide
-            +space(item)
+            +space(item)(href="#")
   +section._bg._promo
     .container
       +section-wrapper
@@ -61,16 +61,17 @@ block content
       +slider(true, false).js-slider-spaces
         each item in spacesNew
           +slide
-            +space(item)
+            +space(item)(href="#")
   +section._mg
     +section-header._subscribe
       .container
-        +section-title('h2') Articles
-        +e.socials
-          +e.note._mb15._bold Subscribe to our Social Media channels:
-          +socials-big
+        +e.header-content
+          +section-title('h2') Articles
+          +e.socials
+            +e.note._mb15._bold Subscribe to our Social Media channels:
+            +socials-big
     +section-content
       +slider(true, false).js-slider-news
         each item in news
           +slide
-            +news(item)
+            +news(item)(href="#")

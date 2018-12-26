@@ -9,12 +9,20 @@
     margin-bottom: 65px;
   }
 
+  @include screen('sm') {
+    margin-bottom: 28px;
+  }
+
   &_bg {
     color: $color-white;
     margin-bottom: 95px;
 
     @include screen('lg') {
       margin-bottom: 68px;
+    }
+
+    @include screen('sm') {
+      margin-bottom: 30px;
     }
   }
 
@@ -23,6 +31,10 @@
 
     @include screen('lg') {
       margin-bottom: 72px;
+    }
+
+    @include screen('sm') {
+      margin-bottom: 36px;
     }
   }
 
@@ -36,6 +48,10 @@
     @include screen('lg') {
       margin-bottom: 68px;
     }
+
+    @include screen('sm') {
+      margin-bottom: 35px;
+    }
   }
 
   &_ltl-mg {
@@ -43,6 +59,10 @@
 
     @include screen('lg') {
       margin-bottom: 66px;
+    }
+
+    @include screen('sm') {
+      margin-bottom: 33px;
     }
   }
 
@@ -52,6 +72,10 @@
     @include screen('lg') {
       margin-bottom: 88px;
     }
+
+    @include screen('sm') {
+      margin-bottom: 50px;
+    }
   }
 
   &_promo {
@@ -59,6 +83,10 @@
 
     @include screen('lg') {
       margin-bottom: 63px;
+    }
+
+    @include screen('sm') {
+      margin-bottom: 44px;
     }
   }
 
@@ -91,6 +119,10 @@
       margin-bottom: 26px;
     }
 
+    @include screen('sm') {
+      margin-bottom: 18px;
+    }
+
     #{$b}_bg & {
       margin-bottom: 62px;
 
@@ -114,8 +146,15 @@
     }
 
     &_subscribe {
+      @include screen('lg') {
+        margin-bottom: 44px;
+      }
 
-      .container {
+      @include screen('sm') {
+        margin-bottom: 23px;
+      }
+
+      #{$b}__header-content {
         display: flex;
         justify-content: space-between;
         align-items: center;
@@ -123,10 +162,6 @@
         @include screen('sm') {
           display: block;
         }
-      }
-
-      @include screen('lg') {
-        margin-bottom: 44px;
       }
 
       #{$b}__title {
@@ -143,6 +178,14 @@
       @include screen('lg') {
         margin-bottom: 36px;
       }
+
+      @include screen('sm') {
+        margin-bottom: 16px;
+      }
+    }
+
+    &-content {
+      width: 100%;
     }
   }
 
@@ -159,9 +202,12 @@
     @include heading-3;
 
     font-weight: 700;
+    user-select: none;
 
     @include screen('sm') {
       @include heading-4;
+
+      margin-left: -2px;
     }
 
     &_big {
@@ -241,7 +287,7 @@
       }
 
       @include screen('sm') {
-        padding: 36px 20px 42px;
+        padding: 36px 20px 37px;
       }
     }
   }
@@ -288,6 +334,8 @@
 
     @include screen('sm') {
       @include text;
+
+      line-height: 1.43;
     }
 
     &_mb15 {
@@ -305,18 +353,22 @@
 
   &__socials {
     display: flex;
-    justify-content: flex-end;
+    flex-direction: row;
     align-items: center;
 
     @include screen('sm') {
+      flex: none;
       display: block;
+      width: 100%;
+      margin-top: 14px;
     }
 
-    #{$b}__note {
-      margin-right: 37px;
+    .socials {
+      margin-left: 37px;
 
       @include screen('sm') {
-        margin-right: 0;
+        margin-left: 0;
+        margin-top: 6px;
       }
     }
   }

@@ -11,10 +11,6 @@ $new-breakpoints: map_remove($breakpoints, $default-breakpoit-name);
   margin-right: -$grid-gap/2;
   margin-top: -$grid-gap-vertical;
 
-  .grid {
-    margin-top: 0;
-  }
-
   &__col {
     display: inline-block; // fallback для старых браузеров
     box-sizing: border-box;
@@ -28,7 +24,8 @@ $new-breakpoints: map_remove($breakpoints, $default-breakpoit-name);
       }
     }
 
-    @each $key, $val in $new-breakpoints {
+    @each $key,
+    $val in $new-breakpoints {
       @for $i from 1 through 15 {
         @include screen($key) {
           &_#{$key}_#{$i} {

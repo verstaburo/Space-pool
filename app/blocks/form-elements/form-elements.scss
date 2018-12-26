@@ -42,8 +42,10 @@
 
     &:checked {
 
-      & + .checkradio__box {
-        &::before { opacity: 1; }
+      &+.checkradio__box {
+        &::before {
+          opacity: 1;
+        }
       }
     }
   }
@@ -113,13 +115,23 @@
     align-items: center;
     border-left: 1px solid $color-border;
 
-    &:hover::before, &:hover::after { opacity: .5; }
+    &:hover::before,
+    &:hover::after {
+      opacity: .5;
+    }
 
-    &::before, &::after { transition: opacity $ease-main; }
+    &::before,
+    &::after {
+      transition: opacity $ease-main;
+    }
 
-    &.js-numberbox-minus::before { content: '-'; }
+    &.js-numberbox-minus::before {
+      content: '-';
+    }
 
-    &:last-child::before { content: '+'; }
+    &:last-child::before {
+      content: '+';
+    }
   }
 
   &__input {
@@ -135,6 +147,7 @@
     font-size: 20px;
 
   }
+
   &__text {
     flex: 1;
     text-align: right;
@@ -144,6 +157,7 @@
     text-transform: uppercase;
     color: $color-text-light;
   }
+
   border: 1px solid $color-border !important;
 }
 
@@ -154,49 +168,43 @@
 @import '../../../node_modules/choices.js/assets/styles/scss/choices.scss';
 
 .select {
+  -webkit-appearance: none;
   appearance: none;
-
-  @extend .input;
+  padding: 0;
+  min-height: 0;
 }
 
 .choices {
+  display: inline-block;
+  z-index: 1;
+  margin-bottom: 0;
 
-  &__inner, &[data-type*='select-one'] &__inner {
+  &__inner,
+  &[data-type*='select-one'] &__inner {
     @extend .select;
+    @include text16;
 
-    transition: border-color $ease-main;
+    line-height: (28/16);
+    font-weight: 700;
+    color: $color-basic;
+    transition: all $ease-main;
+    border: none;
   }
 
   &[data-type*='select-one'] {
 
-    .choices__inner { padding-bottom: 0;
+    .choices__inner {
+      padding-bottom: 0;
       background-color: rgba(0, 0, 0, 0);
-    }
-
-    &::after {
-      content: '';
-      top: 0;
-      bottom: 0;
-      right: 20px;
-      margin: auto;
-      transform: rotate(0) translate3d(0, 0, 0);
-      height: 7px;
-      width: 12px;
-      background-image: url('../images/arrow.svg');
-      background-repeat: no-repeat;
-      border: 0 !important;
-      transition: .5s;
-    }
-
-    &.is-open::after {
-      transform: rotate(180deg) translate3d(0, 0, 0);
-      border-color: #333 transparent transparent;
-      margin: auto;
     }
   }
 
+  &::after {
+    display: none;
+  }
+
   &__list {
-    border-color: $color-border;
+    border: none;
 
     &--single {
       display: table;
@@ -204,38 +212,87 @@
       height: 100%;
       padding: 0;
       padding-right: 20px;
-
+      max-width: 290px;
 
       .choices__item {
         display: table-cell;
         vertical-align: middle;
+        padding: 0;
       }
     }
 
     &--dropdown {
       box-sizing: border-box;
+      background-color: $color-bg;
+      border-top: 1px solid $color-basic;
+      border-bottom: 1px solid $color-basic;
+      width: 290px;
+      max-height: 100px;
+      transition: all $ease-main;
 
       .choices__item {
-        padding: 10px;
+        @include text16;
+
+        line-height: (28/16);
+        font-weight: 700;
+        color: $color-basic;
+        padding: 0 10px;
 
         &--selectable {
-          transition: opacity $ease-main;
+          transition: all $ease-main;
 
           &.is-highlighted {
-            opacity: .5;
-            background-color: white;
+            background-color: $color-basic;
+            color: $color-white;
           }
         }
       }
     }
   }
 
+  &__toggle {
+    position: absolute;
+    display: block;
+    font-size: 0;
+    line-height: 0;
+    top: 50%;
+    right: 0;
+    z-index: 3;
+    transform-origin: 50% 50% 0;
+    transform: translate3d(0, -50%, 0);
+    transition: all $ease-main;
+
+    svg {
+      width: 12px;
+      height: 7px;
+      fill: $color-basic;
+    }
+
+    .is-open & {
+      transform: translate3d(0, -50%, 0) rotate(180deg);
+    }
+  }
+
   &.is-open & {
 
-    &__inner { border-color: $color-border; }
+    &__inner {
+      border-color: $color-basic;
+      border-radius: 0;
+    }
 
     &__list {
-      &--dropdown { border-color: $color-border; }
+      &--dropdown {
+        border-color: $color-basic;
+        border-radius: 0;
+      }
+    }
+  }
+
+  &:hover & {
+
+    &__inner,
+    &[data-type*='select-one'] &__inner {
+      color: $color-basic-dark;
     }
   }
 }
@@ -276,7 +333,9 @@
     transition: border-color $ease-main;
     cursor: pointer;
 
-    &:hover { border-color: $color-main; }
+    &:hover {
+      border-color: $color-main;
+    }
   }
 
   &-origin {
@@ -292,7 +351,9 @@
 
 @import '../../node_modules/air-datepicker/dist/css/datepicker.css';
 
-.js-datepicker { cursor: pointer; }
+.js-datepicker {
+  cursor: pointer;
+}
 
 .datepicker {
   color: $color-basic;
@@ -336,7 +397,9 @@
   transition: color $ease-main, background-color $ease-main;
 
   // Цвет стрелок
-  path { stroke: $color-basic; }
+  path {
+    stroke: $color-basic;
+  }
 }
 
 // Шапка календаря
@@ -352,13 +415,17 @@
 
     // Цвет года в шапке
 
-    i { color: rgba($color-basic, .5); }
+    i {
+      color: rgba($color-basic, .5);
+    }
   }
 }
 
 // Цвет ховера по ячейкам в календаре, шапке
 
-.datepicker--cell.-focus-, .datepicker--nav-action:hover, .datepicker--nav-title:hover {
+.datepicker--cell.-focus-,
+.datepicker--nav-action:hover,
+.datepicker--nav-title:hover {
   background: rgba($color-border, .3);
 }
 
@@ -389,22 +456,27 @@
 
   // Цвет фона активного месяца/дня
 
-  &.-selected-, &.-selected-.-current- {
+  &.-selected-,
+  &.-selected-.-current- {
     background: $color-main;
   }
 }
 
 // Цвет даты другого месяца/года
 
-.datepicker--cell-day.-other-month-, .datepicker--cell-year.-other-decade- {
+.datepicker--cell-day.-other-month-,
+.datepicker--cell-year.-other-decade- {
   color: rgba($color-basic, .2);
 
-  &:hover { color: rgba($color-basic, .5); }
+  &:hover {
+    color: rgba($color-basic, .5);
+  }
 }
 
 // Стили при выборе диапазона дат
 
-.datepicker--cell.-range-to-, .datepicker--cell.-range-from- {
+.datepicker--cell.-range-to-,
+.datepicker--cell.-range-from- {
   border: 0;
   background-color: rgba($color-main, .3);
 
@@ -423,7 +495,8 @@
 
 // Стили ячеек другого месяца, находящихся в диапазоне
 
-.-in-range-.datepicker--cell-day.-other-month-, .-in-range-.datepicker--cell-year.-other-decade- {
+.-in-range-.datepicker--cell-day.-other-month-,
+.-in-range-.datepicker--cell-year.-other-decade- {
   background-color: rgba($color-main, .1);
   color: rgba($color-main, .3);
 
@@ -446,8 +519,4 @@
   &.-focus- {
     background: rgba($color-main, .3);
   }
-}
-
-.choices__list--single {
-  padding-right: 5px;
 }

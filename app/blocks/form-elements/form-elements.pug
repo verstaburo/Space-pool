@@ -11,13 +11,13 @@ mixin input-number()
     input.input.input-numberbox__input.js-numberbox-input&attributes(attributes)
     span.input-numberbox__button.js-numberbox-minus
     span.input-numberbox__button.js-numberbox-plus
-   
+
 mixin textarea()
   textarea.textarea&attributes(attributes)
     block
 
 mixin select()
-  select.select&attributes(attributes).js-select
+  select.select&attributes(attributes)
     block
 
 mixin checkbox(name, value, checked)
@@ -27,7 +27,7 @@ mixin checkbox(name, value, checked)
     +e.SPAN.box
     +e.SPAN.content
       block
-      
+
 mixin radio(name, value, checked)
   +b.LABEL.checkradio&attributes(attributes)
     +e.INPUT.input(name=name, value=value, checked=checked, type="radio")

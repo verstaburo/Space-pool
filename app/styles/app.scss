@@ -17,7 +17,6 @@
   margin: 0 auto;
   padding: 0 $container-padding;
   box-sizing: border-box;
-  overflow: hidden;
 
   @include screen('lg') {
     padding: 0 $container-padding-tablet;
@@ -43,7 +42,7 @@
   visibility: hidden;
 }
 
-// спрятать на десктопе
+// спрятать на малом десктопе и ниже
 
 .hide-xl {
   @include screen('xl') {
@@ -51,7 +50,7 @@
   }
 }
 
-// cпрятать на планшете
+// cпрятать на планшете и мобиле
 
 .hide-lg {
   @include screen('lg') {
@@ -63,6 +62,30 @@
 
 .hide-sm {
   @include screen('sm') {
+    display: none;
+  }
+}
+
+// спрятать начиная с планшета и выше
+
+.hide-from-sm {
+  @include screen('sm', min) {
+    display: none;
+  }
+}
+
+// cпрятать начиная с маленьких десктопов и выше
+
+.hide-from-lg {
+  @include screen('lg', min) {
+    display: none;
+  }
+}
+
+// спрятать на больших десктопах
+
+.hide-from-xl {
+  @include screen('xl', min) {
     display: none;
   }
 }

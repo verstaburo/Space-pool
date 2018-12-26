@@ -1,57 +1,33 @@
 mixin footer()
   +b.FOOTER.footer&attributes(attributes)
     .container
-      +e.__top
-        +e.__col
-          +e.logo
-            +logo-image._footer(href="/")
-          +e.UL.__list
-            +e.LI.__item
-              +e.UL.__vertical-list
-                +e.LI.__vertical-item
-                  +e.A(href="#").__link About the Project
-                +e.LI.__vertical-item
-                  +e.A(href="#").__link Help and Support
-                +e.LI.__vertical-item
-                  +e.A(href="#").__link Become a host
-            +e.LI.__item
-              +e.UL.__vertical-list
-                +e.LI.__vertical-item
-                  +e.A(href="#").__link Search for spaces
-                +e.LI.__vertical-item
-                  +e.A(href="#").__link Term and policies
-                +e.LI.__vertical-item
-                  +e.A(href="#").__link Careers
-            +e.LI.__item
-              +e.UL.__vertical-list
-                +e.LI.__vertical-item
-                  +e.A(href="#").__link Blog
-                +e.LI.__vertical-item
-                  +e.A(href="#").__link Press
-                +e.LI.__vertical-item
-                  +e.A(href="#").__link Advertise
-        +e.__col
-          +e.UL.__list
-            +e.LI.__item._left
-              +select.footer-select
-                option(value="English")
-                option(value="English")
-                option(value="English")
-                option(value="English")
-            +e.LI.__item._left
-              +select.footer-select
-                option(value="GBR")
-                option(value="GBR")
-                option(value="GBR")
-                option(value="GBR")
-            +e.LI.__item._left
-              +e.A(href="mailto:info@spacepool.com").__link info@spacepool.com
-            +e.LI.__item._left
-              +e.UL.__vertical-list
-                +e.LI.__vertical-item
-                  +e.__vertical-link © Space Pool ltd. 2019
-                +e.LI.__vertical-item
-                  +socials
-      +e.__down
-        .container
-          +e.P.__text The Space Pool Service operates under the United Kingdom Urisdiction. This text have no any sense it’s just some sort of dummie to show the place where we can put an information usually writen with small letters.
+      +e.top
+        +e.logo
+          +logo-image._footer
+          +e.info(data-slot-id="footer-contacts" data-slot-res="lg")
+        +e.navigation
+          +nav-list(getData('footer-menu-1.json'))._small.__list
+          +nav-list(getData('footer-menu-2.json'))._small.__list
+          +nav-list(getData('footer-menu-3.json'))._small.__list
+        +e.information
+          +e.controls.hide-lg(data-slot-id="footer-contacts" data-slot-res="xl")
+            +e.selects.hide-xl
+              +select.js-select
+                option(value="EN" selected) English
+                option(value="FR") France
+                option(value="RU") Russian
+              +select.js-select
+                option(value="GBP" selected) GBP
+                option(value="2") item2
+                option(value="3") item3
+                option(value="4") item4
+                option(value="5") item5
+                option(value="6") item6
+                option(value="7") item7
+            +e.contacts(data-target-slot="footer-contacts")
+              +link()(href="mailto:info@spacepool.com")._bold info@spacepool.com
+              +e.copyright.hide-sm &copy; Space Pool ltd. 2019
+          +socials.__socials
+      +e.bottom
+        +e.copyright.hide-from-sm &copy; Space Pool ltd. 2019
+        +e.text The Space Pool Service operates under the United Kingdom Urisdiction. This text have no&nbsp;any sense it&rsquo;s just some sort of&nbsp;dummie to&nbsp;show the place where we&nbsp;can put an&nbsp;information usually writen with small letters.

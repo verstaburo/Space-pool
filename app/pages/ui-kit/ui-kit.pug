@@ -187,7 +187,7 @@ block content
     //-           li Элемент списка
     //-       li Элемент списка
 
-    //- Табы
+    //- Элементы форм
     +ui-section
       +ui-section-head
         h2 Элементы форм
@@ -237,14 +237,28 @@ block content
             +ui-description .range.js-range<br> Все параметры задаются дата-атрибутами
             +inputbox()
               +range()(data-start='40', data-connect='[true, false]', data-min='0', data-max='100')
-          +col(12).col_dark
-            +ui-description select-top
-              +inputbox
-              +select
-                option(value="Опция 1") Опция 1
-                option(value="Опция 2") Опция 2
-                option(value="Опция 3") Опция 3
-
+          +col(12)
+            +ui-description Селектбоксы
+            +grid
+              +col(3)
+                +ui-description .js-select
+                +select.js-select
+                  option(value="Опция 1") Опция 1
+                  option(value="Опция 2") Опция 2
+                  option(value="Опция 3") Опция 3
+              +col(3)
+                +ui-description .js-select-light
+                +select.js-select-light
+                  option(value="Опция 1") Опция 1
+                  option(value="Опция 2") Опция 2
+                  option(value="Опция 3") Опция 3
+              +col(3)
+                +ui-description .js-select-dark
+                +select.js-select-dark
+                  option(value="Опция 1") Опция 1
+                  option(value="Опция 2") Опция 2
+                  option(value="Опция 3") Опция 3
+              +col(3)
 
     //-Табы
     +ui-section
@@ -323,17 +337,36 @@ block content
               +e.scrolldemo-block
 
     //- Слайдер
+    - var spaces = getData('spaces.json')
+    - var rooms = getData('rooms.json')
+    - var news = getData('news.json')
     +ui-section
       +ui-section-head
-        h2 Слайдер
+        h2 Слайдеры
         p Блок: blocks/slider/slider
       +ui-section-content()
-        +ui-description .js-slider
-        //- +slider(true, true)
-        //-   +slide Привет
-        //-   +slide Привет
-        //-   +slide Привет
-        //-   +slide Привет
+        +ui-description .js-slider-spaces
+        br
+      +slider(true, false).js-slider-spaces
+        each item in spaces
+          +slide
+            +space(item)(href="#")
+      br
+      +ui-section-content()
+        +ui-description .js-slider-rooms
+        br
+      +slider(true, false).js-slider-rooms
+        each item in rooms
+          +slide
+            +space(item)(href="#")
+      br
+      +ui-section-content()
+        +ui-description .js-slider-news
+        br
+      +slider(true, false).js-slider-news
+        each item in news
+          +slide
+            +news(item)(href="#")
 
     //- Подсказки
     +ui-section
