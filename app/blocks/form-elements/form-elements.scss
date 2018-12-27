@@ -603,6 +603,21 @@
 
       line-height: (26/20);
       border-radius: 3px;
+      transition: box-shadow $ease-main;
+
+      &::before {
+        @include pseudo;
+
+        width: 100%;
+        height: 5px;
+        bottom: 1px;
+        left: 0;
+        background-color: $color-select-bg-light;
+        opacity: 0;
+        border-bottom: 1px solid $color-bg;
+        z-index: 5;
+        transition: opacity $ease-main, border $ease-main;
+      }
     }
 
     #{$k}__list {
@@ -614,6 +629,8 @@
         padding-right: 30px;
         background-color: rgba($color-select-bg-light, 0);
         border-bottom: 2px solid transparent;
+        transition: border $ease-main,
+          background $ease-main;
 
         @include screen('lg') {
           padding-right: 34px;
@@ -626,9 +643,10 @@
         border-top-width: 0;
         border-bottom-width: 0;
         background-color: $color-select-bg-light;
-        border-radius: 0 0 3px 3px;
+        border-radius: 0 3px 3px 3px;
         box-shadow: 1px 1px 8px rgba(34, 42, 46, .06);
         max-height: 201px;
+        transition: box-shadow $ease-main, opacity $ease-main;
 
         #{$k}__item {
           @include text16;
@@ -686,6 +704,10 @@
     &.is-open #{$k}__inner {
       box-shadow: 1px 1px 8px rgba(34, 42, 46, .06);
       border-radius: 3px 3px 0 0;
+
+      &::before {
+        opacity: 1;
+      }
     }
 
     &.is-open #{$k}__list {
@@ -693,11 +715,10 @@
       &--single {
         box-shadow: 1px 1px 8px rgba(34, 42, 46, .06);
         background-color: $color-select-bg-light;
-        border-bottom-color: $color-bg;
       }
 
       &--dropdown {
-        border-radius: 0 0 3px 3px;
+        border-radius: 0 3px 3px 3px;
       }
     }
   }
