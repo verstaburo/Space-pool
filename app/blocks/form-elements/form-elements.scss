@@ -602,24 +602,103 @@
       @include heading-4;
 
       line-height: (26/20);
+      border-radius: 3px;
     }
 
     #{$k}__list {
 
       &--single {
+        padding-top: 5px;
+        padding-bottom: 3px;
+        padding-left: 9px;
+        padding-right: 30px;
         background-color: rgba($color-select-bg-light, 0);
+        border-bottom: 2px solid transparent;
+
+        @include screen('lg') {
+          padding-right: 34px;
+        }
       }
 
       &--dropdown {
+        padding-top: 15px;
+        padding-bottom: 6px;
         border-top-width: 0;
         border-bottom-width: 0;
         background-color: $color-select-bg-light;
+        border-radius: 0 0 3px 3px;
+        box-shadow: 1px 1px 8px rgba(34, 42, 46, .06);
+        max-height: 201px;
+
+        #{$k}__item {
+          @include text16;
+
+          line-height: (30/16);
+          color: $color-basic;
+          font-weight: 700;
+          padding: 0 18px;
+
+          &--selectable {
+            &.is-highlighted {
+              background-color: $color-basic;
+              color: $color-select-bg-light;
+            }
+          }
+        }
+      }
+    }
+
+    #{$k}__toggle {
+      right: 8px;
+
+      svg {
+        fill: $color-basic;
       }
     }
 
     &:hover #{$k}__inner,
-    &.is-focused #{$k}__inner {
+    &.is-open #{$k}__inner {
       color: $color-basic;
+    }
+
+    &.is-item-select #{$k}__inner {
+      color: $color-selected-dark;
+    }
+
+    &.is-item-select #{$k}__list {
+      &--single {
+        background-color: $color-select-bg-light;
+      }
+    }
+
+    &:hover #{$k}__inner {
+      background-color: var(--color-select-bg-light);
+      box-shadow: 1px 1px 8px rgba(34, 42, 46, .06);
+    }
+
+    &:hover #{$k}__list {
+
+      &--single {
+        background-color: $color-select-bg-light;
+      }
+    }
+
+    &.is-open #{$k}__inner {
+      box-shadow: 1px 1px 8px rgba(34, 42, 46, .06);
+      border-radius: 3px 3px 0 0;
+    }
+
+    &.is-open #{$k}__list {
+
+      &--single {
+        box-shadow: 1px 1px 8px rgba(34, 42, 46, .06);
+        background-color: $color-select-bg-light;
+        border-bottom-color: $color-bg;
+      }
+
+      &--dropdown {
+        border-radius: 0 0 3px 3px;
+      }
     }
   }
 }

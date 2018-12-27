@@ -3,7 +3,7 @@
 
   display: block;
   width: 100%;
-  margin-bottom: 126px;
+  margin-bottom: 124px;
 
   @include screen('lg') {
     margin-bottom: 65px;
@@ -27,10 +27,10 @@
   }
 
   &_mid-mg {
-    margin-bottom: 118px;
+    margin-bottom: 116px;
 
     @include screen('lg') {
-      margin-bottom: 72px;
+      margin-bottom: 74px;
     }
 
     @include screen('sm') {
@@ -82,7 +82,7 @@
     margin-bottom: 89px;
 
     @include screen('lg') {
-      margin-bottom: 63px;
+      margin-bottom: 66px;
     }
 
     @include screen('sm') {
@@ -156,6 +156,13 @@
 
     &_location {
       z-index: 2;
+
+      #{$b}__header-content {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        flex-wrap: wrap;
+      }
     }
 
     &_subscribe {
@@ -385,6 +392,31 @@
       @include screen('sm') {
         margin-left: 0;
         margin-top: 6px;
+      }
+    }
+  }
+
+  &__location {
+
+    &-top {
+      margin-right: 50px;
+
+      @include screen('lg') {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-right: 0;
+        margin-bottom: 28px;
+      }
+    }
+
+    &-bottom {
+      flex: 1;
+
+      @include screen('lg') {
+        flex: none;
+        width: 100%;
       }
     }
   }

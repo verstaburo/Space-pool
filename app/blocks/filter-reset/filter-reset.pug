@@ -1,3 +1,6 @@
-mixin filter-reset()
-  +b.filter-reset&attributes(attributes)
-    block
+mixin filter-reset(short)
+  +b.BUTTON.filter-reset&attributes(attributes)
+    +e.image
+      +icon('round-cross').__icon
+    if !short
+      +e.text Clear map settings

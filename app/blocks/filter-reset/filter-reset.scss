@@ -1,3 +1,38 @@
 .filter-reset {
   $b: &;
+
+  position: relative;
+  color: $color-basic;
+  box-sizing: border-box;
+  padding-left: 26px;
+  cursor: pointer;
+  transition: color $ease-main;
+
+  &:hover {
+    color: $color-basic-dark;
+  }
+
+  &__image {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translate3d(0, -50%, 0);
+    font-size: 0;
+    line-height: 0;
+  }
+
+  &__icon {
+    font-size: 0;
+    line-height: 0;
+    fill: currentColor;
+    width: 15px;
+    height: 15px;
+  }
+
+  &__text {
+    @include heading-4;
+
+    line-height: (26/20);
+    font-weight: 700;
+  }
 }
