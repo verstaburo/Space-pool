@@ -111,6 +111,7 @@
   }
 
   &__header {
+    position: relative;
     display: block;
     width: 100%;
     margin-bottom: 56px;
@@ -139,10 +140,22 @@
       display: flex;
       margin-bottom: 120px;
 
+      @include screen('xl') {
+        margin-bottom: 118px;
+      }
+
       @include screen('lg') {
-        margin-bottom: 60px;
+        margin-bottom: 110px;
         flex-wrap: wrap;
       }
+
+      @include screen('sm') {
+        margin-bottom: 30px;
+      }
+    }
+
+    &_location {
+      z-index: 2;
     }
 
     &_subscribe {
@@ -249,7 +262,6 @@
     position: relative;
     display: block;
     width: 100%;
-    z-index: 2;
     box-sizing: border-box;
 
     #{$b}_bg & {
@@ -259,6 +271,7 @@
       align-items: flex-start;
       min-height: 470px;
       padding: 105px 136px 28px;
+      z-index: 2;
 
       @include screen('xl') {
         padding: 105px 56px 28px;
@@ -281,7 +294,7 @@
       }
 
       @include screen('lg') {
-        padding: 50px 54px 60px;
+        padding: 50px 56px 60px;
       }
 
       @include screen('sm') {
@@ -295,24 +308,29 @@
     box-sizing: border-box;
 
     &_left {
-      width: 41.4%;
-      padding-right: 50px;
+      width: 41%;
+      padding-right: 45px;
 
       @include screen('xl') {
-        width: 50%;
+        width: 49.3%;
       }
 
       @include screen('lg') {
         width: 100%;
         padding-right: 0;
+        margin-bottom: 51px;
+      }
+
+      @include screen('sm') {
+        margin-bottom: 14px;
       }
     }
 
     &_right {
-      width: 58.6%;
+      width: 59%;
 
       @include screen('xl') {
-        width: 50%;
+        width: 50.7%;
       }
 
       @include screen('lg') {

@@ -1,3 +1,37 @@
 mixin filter()
   +b.filter&attributes(attributes)
-    block
+    +e.FORM.form(data-filter="location-filter-big")
+      +e.wrapper
+        +select.js-select-dark(name="city")
+          option(value="placeholder" placeholder) City
+          option(value="London" selected) London
+          option(value="Paris") Paris
+          option(value="Moscow") Moscow
+      +e.wrapper
+        +select.js-select-dark(name="area")
+          option(value="placeholder" placeholder) Areas
+          option(value="Central London") Central London
+          option(value="Stratford Area") Stratford Area
+          option(value="Canary Warf") Canary Warf
+          option(value="Ilford") Ilford
+          option(value="Brixton") Brixton
+          option(value="Richmond") Richmond
+      +e.wrapper
+        +select.js-select-dark(name="tube-station")
+          option(value="placeholder" placeholder) Tube Stations
+          option(value="Canary Warf") Canary Warf
+          option(value="dddsk") Victoria Station
+          option(value="Victoria Station") Campden town
+          option(value="Bank") Bank
+          option(value="Barking") Barking
+          option(value="Barbikan") Barbikan
+          option(value="Stratford") Stratford
+          option(value="Richmond") Richmond
+      +e.wrapper
+        +select.js-select-dark(name="workplace-type")
+          option(value="placeholder" placeholder) Workplace type
+          option(value="htdsk") Hot Desk
+          option(value="dddsk") Dedicated Desk
+          option(value="room") Meeting Room
+          option(value="space") Office Space
+    +filter-reset(data-target-slot="location-clear" data-target-filter="location-filter-big")

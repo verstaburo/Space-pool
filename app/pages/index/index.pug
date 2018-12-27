@@ -17,6 +17,7 @@ block content
             +e.lead_left
               +section-title('h2')._big The place where you can find your dream workspace.
             +e.lead_right
+              +condition-search
           +section-footer
             +e.note Between 2&nbsp;960&nbsp;offices, 380 conversation rooms and over 15&nbsp;000 free co-working desks
   +section
@@ -30,8 +31,13 @@ block content
             +space(item)(href="#")
   +section._mid-mg
     .container
-      +section-header
-        +section-title('h2') Locations
+      +section-header._location
+        +e.header-content
+          +e.location-top(data-slot-id="location-clear" data-slot-res="lg")
+            +section-title('h2') Locations
+          //- +e.location-bottom
+            +filter.hide-sm(data-slot-id="location-clear" data-slot-res="xl")
+            +compact-filter.hide-from-sm
       +section-content
         +map()._big#mapTwo
   +section._sm-mg

@@ -1,3 +1,36 @@
 mixin condition-search()
   +b.condition-search&attributes(attributes)
-    block
+    +e.head
+      +e.title What are you searching for?
+    +e.FORM.form
+      +e.top.hide-sm
+        +color-radio('workplacetype', 'htdsk')._orange.__radio Hot Desk
+        +color-radio('workplacetype', 'dddsk')._red.__radio Dedicated Desk
+        +color-radio('workplacetype', 'room')._blue.__radio Meeting Room
+        +color-radio('workplacetype', 'space')._green.__radio Office Space
+      +e.bottom
+        +e.selects
+          +e.select.hide-from-sm
+            +select.js-select-color(name="workplace-type")
+              option(value="placeholder" placeholder) Workplace type
+              option(value="htdsk") Hot Desk
+              option(value="dddsk") Dedicated Desk
+              option(value="room") Meeting Room
+              option(value="space") Office Space
+          +e.select
+            +select.js-select-light(name="city")
+              option(value="placeholder" placeholder) City
+              option(value="London" selected) London
+              option(value="Paris") Paris
+              option(value="Moscow") Moscow
+          +e.select_wide
+            +select.js-select-light(name="area")
+              option(value="placeholder" placeholder) Select area
+              option(value="Central London") Central London
+              option(value="Stratford Area") Stratford Area
+              option(value="Canary Warf") Canary Warf
+              option(value="Ilford") Ilford
+              option(value="Brixton") Brixton
+              option(value="Richmond") Richmond
+        +e.buttons
+          +button('button')(type="submit")._mob-wide.__button Find
