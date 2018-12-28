@@ -1,3 +1,60 @@
 .filter-list {
   $b: &;
+
+  display: block;
+  background-color: $color-white;
+  width: 100%;
+
+  &__title {
+    @include text15;
+
+    display: block;
+    line-height: (26/15);
+    font-weight: 700;
+    color: $color-white;
+    box-sizing: border-box;
+    padding: 5px 16px;
+    background-color: $color-basic;
+  }
+
+  &__list {
+    padding-top: 10px;
+    padding-bottom: 5px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  &__item {
+    display: block;
+    width: 100%;
+    padding: 0 16px;
+    box-sizing: border-box;
+  }
+
+  &__radio {
+    width: 100%;
+  }
+
+  &__checkbox {
+    width: 100%;
+    box-sizing: border-box;
+
+    .checkbox {
+
+      &__content {
+        display: inline-flex;
+        align-items: center;
+      }
+    }
+
+    .box {
+      margin-right: 9px;
+    }
+  }
+
+  &_workplaces {
+    #{$b}__item {
+      padding: 0 15px 0 13px;
+    }
+  }
 }

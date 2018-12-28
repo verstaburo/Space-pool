@@ -106,6 +106,27 @@
     color: $color-basic;
   }
 
+  &_small {
+    padding-left: 28px;
+
+    #{$radio}__box {
+      width: 13px;
+      height: 13px;
+
+      &::before {
+        width: 6px;
+        height: 6px;
+      }
+    }
+
+    #{$radio}__content {
+      @include text12;
+
+      line-height: (30/12);
+      letter-spacing: -.011em;
+    }
+  }
+
   &_nobox {
     padding-left: 0;
 
@@ -221,21 +242,22 @@
     padding-left: 28px;
 
     #{$check}__box {
-      width: 15px;
-      height: 15px;
+      width: 13px;
+      height: 13px;
     }
 
     #{$check}__icon {
       width: 12px;
       height: 10px;
       top: 1px;
-      left: 2px;
+      left: 1px;
     }
 
     #{$check}__content {
       @include text12;
 
       line-height: (30/12);
+      letter-spacing: -.011em;
     }
   }
 

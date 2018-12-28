@@ -1,10 +1,11 @@
 mixin filter-list(name, data)
   +b.filter-list&attributes(attributes)
     +e.title!= name
-    +e.UL.list
-      each item in data
-        +e.LI.item
-          +radio(item.name, item.value, item.checked)._nobox.__radio!= item.value
+    +e.scrollblock.js-scrollbar
+      +e.UL.list
+        each item in data
+          +e.LI.item
+            +radio(item.name, item.value, item.checked)._nobox._small.__radio!= item.value
 
 mixin filter-list-workplaces()
   +b.filter-list_workplaces&attributes(attributes)

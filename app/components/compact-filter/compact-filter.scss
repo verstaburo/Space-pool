@@ -1,3 +1,114 @@
 .compact-filter {
   $b: &;
+
+  display: block;
+  width: 100%;
+  position: relative;
+  background-color: $color-select-bg-light;
+  border-radius: 3px;
+  transition: all $ease-main;
+  box-sizing: border-box;
+  border: 1px solid transparent;
+  z-index: 1;
+
+  &:hover {
+    border-color: $color-text-light;
+    box-shadow: 1px 1px 4px rgba(34, 42, 46, .18);
+  }
+
+  &.is-opened {
+    border-color: $color-text-light;
+    background-color: $color-white;
+    box-shadow: 1px 1px 4px rgba(34, 42, 46, .18);
+
+    &.is-opened:hover {
+      box-shadow: 1px 1px 4px rgba(34, 42, 46, 0);
+    }
+  }
+
+  &__top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__head {
+    display: block;
+    position: relative;
+    box-sizing: border-box;
+    padding: 5px 30px 5px 13px;
+    flex: 1;
+    border-right: 1px solid $color-form-border-light;
+  }
+
+  &__name {
+    &:not(:last-child) {
+      border-bottom: 1px solid $color-form-border-light;
+    }
+  }
+
+  &__filter-name {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 5px 30px 5px 13px;
+  }
+
+  &__title {
+    @include text15;
+
+    line-height: (26/15);
+    font-weight: 700;
+    letter-spacing: -.01em;
+  }
+
+  &__toggle {
+    position: absolute;
+    top: 50%;
+    right: 16px;
+    display: block;
+    font-size: 0;
+    line-height: 0;
+    transform-origin: 50% 50% 0;
+    transform: rotate(0);
+  }
+
+  &__icon {
+    width: 12px;
+    height: 7px;
+    fill: currentColor;
+  }
+
+  &__buttons {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0 14px;
+  }
+
+  &__bottom {
+    position: absolute;
+    display: block;
+    width: 100%;
+    top: 100%;
+    left: -1px;
+    margin-top: -1px;
+    z-index: 2;
+    background-color: $color-white;
+    border-radius: 0 0 3px 3px;
+    border: 1px solid $color-text-light;
+    border-top-color: $color-form-border-light;
+    transition: opacity $ease-main;
+
+    &::before {
+      @include pseudo;
+
+      width: 100%;
+      height: calc(100% + 36px);
+      top: -36px;
+      left: 0;
+      box-shadow: 1px 1px 4px rgba(34, 42, 46, .18);
+      pointer-events: none;
+    }
+  }
 }

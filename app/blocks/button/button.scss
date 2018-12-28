@@ -80,6 +80,32 @@
       }
     }
 
+
+
+    &_narrow {
+      padding: 2px;
+
+      #{$b}__text {
+        padding: 6px 55px;
+
+        @include screen('sm') {
+          padding: 6px 20px;
+        }
+      }
+    }
+
+    &_small {
+      #{$b}__text {
+        padding: 2px 19px;
+      }
+    }
+
+    &_narrow-small {
+      #{$b}__text {
+        padding: 3px 20px;
+      }
+    }
+
     &:hover,
     &.is-active {
       color: $color-white;
@@ -101,6 +127,17 @@
   &_mob-wide {
     @include screen('sm') {
       width: 100%;
+    }
+  }
+
+  &_small {
+    @include text15;
+
+    line-height: (26/15);
+    letter-spacing: -.01em;
+
+    #{$b}__text {
+      padding: 5px 22px;
     }
   }
 }

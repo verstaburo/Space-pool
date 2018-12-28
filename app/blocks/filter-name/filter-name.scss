@@ -1,3 +1,61 @@
 .filter-name {
   $b: &;
+
+  display: inline-block;
+  width: 100%;
+  position: relative;
+  box-sizing: border-box;
+  padding: 5px 30px 5px 13px;
+
+  &__placeholder {
+    @include text9;
+
+    line-height: (26/9);
+    font-weight: 700;
+    letter-spacing: -.01em;
+    color: $color-basic-light;
+    width: 100%;
+    display: inline-block;
+    position: absolute;
+    top: -6px;
+    left: 0;
+    opacity: 0;
+    transition: opacity $ease-main;
+    padding: 0 30px 0 13px;
+    box-sizing: border-box;
+
+    #{$b}.is-active & {
+      opacity: 1;
+    }
+  }
+
+  &__title {
+    @include text15;
+
+    line-height: (26/15);
+    font-weight: 700;
+    letter-spacing: -.01em;
+  }
+
+  &__toggle {
+    position: absolute;
+    top: 50%;
+    right: 16px;
+    display: block;
+    font-size: 0;
+    line-height: 0;
+    transform-origin: 50% 50% 0;
+    transform: rotate(-90deg);
+
+    #{$b}.is-disabled & {
+      color: $color-gray-light;
+      transform: rotate(0deg);
+    }
+  }
+
+  &__icon {
+    width: 12px;
+    height: 7px;
+    fill: currentColor;
+  }
 }
