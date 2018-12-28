@@ -34,7 +34,6 @@
 .leaflet-touch .leaflet-control-layers {
   border: none;
   box-shadow: 0 2px 4px rgba($color-basic, .2);
-  display: none;
 }
 
 .leaflet-bar a {
@@ -49,6 +48,12 @@
   &:hover {
     background-color: $color-main;
     color: white;
+  }
+}
+
+.leaflet-control-zoom {
+  @include screen('lg', min) {
+    display: none;
   }
 }
 
