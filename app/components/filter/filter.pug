@@ -1,6 +1,6 @@
 mixin filter()
   +b.filter&attributes(attributes)
-    +e.FORM.form(data-filter="location-filter-big")
+    +e.FORM.form(data-form="location-filter-big")
       +e.wrapper
         +select.js-select-dark(name="city")
           option(value="placeholder" placeholder) City
@@ -34,4 +34,4 @@ mixin filter()
           option(value="dddsk") Dedicated Desk
           option(value="room") Meeting Room
           option(value="space") Office Space
-    +filter-reset.__reset.hide-sm(data-target-slot="location-clear" data-target-filter="location-filter-big")
+    +filter-reset.__reset.js-simple-reset.hide-sm(data-target-slot="location-clear" data-target-form="location-filter-big")

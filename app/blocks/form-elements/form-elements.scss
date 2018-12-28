@@ -285,7 +285,7 @@
 // Кастомные селекты
 // #####
 
-@import '../../../node_modules/choices.js/assets/styles/scss/choices.scss';
+@import '../../../node_modules/choices.js/src/styles/choices.scss';
 
 .select {
   -webkit-appearance: none;
@@ -311,7 +311,7 @@
     border: none;
   }
 
-  &[data-type*='select-one'] {
+  &[data-type*="select-one"] {
 
     .choices__inner {
       padding-bottom: 0;
@@ -371,6 +371,10 @@
 
       #{$k}__placeholder {
         display: none;
+      }
+
+      #{$k}.is-open-right & {
+        right: 0;
       }
     }
   }

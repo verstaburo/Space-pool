@@ -78,26 +78,32 @@ export function selects() {
   }
 
   if ($('.js-select-dark').length) {
-    const choices = new Choices('.js-select-dark', {
-      searchEnabled: false,
-      itemSelectText: '',
-      classNames: {
-        containerOuter: 'choices choices_dark',
-      },
-      callbackOnCreateTemplates(template) {
-        const classNames = this.config.classNames;
-        return {
-          containerInner: () => template(`
+    $('.js-select-dark').each((i, el) => {
+      const self = el;
+      const choices = new Choices(self, {
+        searchEnabled: false,
+        itemSelectText: '',
+        classNames: {
+          containerOuter: 'choices choices_dark',
+        },
+        callbackOnCreateTemplates(template) {
+          const classNames = this.config.classNames;
+          return {
+            containerInner: () => template(`
             <div class="${classNames.containerInner}"><div class="choices__toggle"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16.31 9.16"><line x1="15.31" y1="1" x2="8.16" y2="8.16"/><path d="M8.16,9.16a1,1,0,0,1-.71-.3,1,1,0,0,1,0-1.41L14.61.29A1,1,0,0,1,16,.29a1,1,0,0,1,0,1.42L8.86,8.86A1,1,0,0,1,8.16,9.16Z"/><line x1="8.16" y1="8.16" x2="1" y2="1"/><path d="M8.16,9.16a1,1,0,0,1-.71-.3L.29,1.71A1,1,0,0,1,1.71.29L8.86,7.45a1,1,0,0,1,0,1.41A1,1,0,0,1,8.16,9.16Z"/></svg></div></div>
           `),
-          dropdown: () => template(`
+            dropdown: () => template(`
             <div class="${classNames.list} ${classNames.listDropdown} js-scrollbar-light" aria-expanded="false"></div>
           `),
-        };
-      },
+          };
+        },
+      });
+
+      self.choices = choices;
     });
   }
 
+  // добавляем состояние сделанного выбора у списков
   if ($('select').length) {
     $('select').each((i, el) => {
       const value = el.value;
@@ -120,6 +126,26 @@ export function selects() {
       }
     });
   }
+
+  // следим чтобы не вылезали за правую границу страницы
+  function sideOpen() {
+    $('.choices').each((i, el) => {
+      const self = el;
+      const dropdown = $(el).find('.choices__list--dropdown');
+      const dropdownWidth = $(dropdown).width();
+      const pageWidth = $(window).width();
+      const selfLeft = $(self).offset().left;
+      const diff = pageWidth - selfLeft;
+      if (diff < dropdownWidth) {
+        $(self).addClass('is-open-right');
+      } else {
+        $(self).removeClass('is-open-right');
+      }
+    });
+  }
+
+  sideOpen();
+  $(window).on('resize', sideOpen);
   /* eslint-enable no-unused-vars */
 }
 

@@ -30,6 +30,8 @@ import '../blocks/accordion/accordion';
 import '../blocks/dropdown/dropdown';
 import '../blocks/put-block-into-slot/put-block-into-slot';
 import heartActivation from '../blocks/button-heart/button-heart';
+import desktopFilter from '../components/filter/filter';
+import mobileFilter from '../components/compact-filter/compact-filter';
 
 const $ = window.$;
 
@@ -55,4 +57,6 @@ $(() => {
   scrollanimation();
   scrollCont();
   heartActivation();
+  desktopFilter();
+  mobileFilter();
 });
