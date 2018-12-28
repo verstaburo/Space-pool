@@ -1,0 +1,44 @@
+.box {
+  $b: &;
+
+  display: block;
+  width: 10px;
+  height: 10px;
+  background-color: transparent;
+
+  &_smaller {
+    width: 7px;
+    height: 7px;
+  }
+
+  &_small {
+    width: 9px;
+    height: 9px;
+
+    @include screen('sm') {
+      width: 6px;
+      height: 6px;
+    }
+  }
+
+  &_big {
+    width: 19px;
+    height: 19px;
+  }
+
+  &_orange {
+    background-color: $color-hot-desk;
+  }
+
+  &_red {
+    background-color: $color-dedicated-desk;
+  }
+
+  &_blue {
+    background-color: $color-meeting-room;
+  }
+
+  &_green {
+    background-color: $color-office-space;
+  }
+}

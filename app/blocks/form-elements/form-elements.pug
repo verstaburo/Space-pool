@@ -21,16 +21,24 @@ mixin select()
     block
 
 mixin checkbox(name, value, checked)
-  +b.LABEL.checkradio._checkbox&attributes(attributes)
-    - var check = checked || '';
-    +e.INPUT.input(name=name, value=value, check, type="checkbox")
+  +b.LABEL.checkbox&attributes(attributes)
+    - if (checked) {
+      +e.INPUT.input(name=name, value=value, checked, type="checkbox")
+    - } else {
+      +e.INPUT.input(name=name, value=value, type="checkbox")
+    - }
     +e.SPAN.box
+      +icon('check').__icon
     +e.SPAN.content
       block
 
 mixin radio(name, value, checked)
   +b.LABEL.checkradio&attributes(attributes)
-    +e.INPUT.input(name=name, value=value, checked=checked, type="radio")
+    - if (checked) {
+      +e.INPUT.input(name=name, value=value, checked, type="radio")
+    - } else {
+      +e.INPUT.input(name=name, value=value, type="radio")
+    -}
     +e.SPAN.box
     +e.SPAN.content
       block

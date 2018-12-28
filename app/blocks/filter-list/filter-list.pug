@@ -1,0 +1,27 @@
+mixin filter-list(name, data)
+  +b.filter-list&attributes(attributes)
+    +e.title!= name
+    +e.UL.list
+      each item in data
+        +e.LI.item
+          +radio(item.name, item.value, item.checked)._nobox.__radio!= item.value
+
+mixin filter-list-workplaces()
+  +b.filter-list_workplaces&attributes(attributes)
+    +e.UL.list
+      +e.LI.item
+        +checkbox('workplace-type', 'htdsk', true)._small._inverse.__checkbox
+          +box._smaller._orange
+          +e.text Hot desk
+      +e.LI.item
+        +checkbox('workplace-type', 'dddsk', true)._small._inverse.__checkbox
+          +box._smaller._red
+          +e.text Dedicated desk
+      +e.LI.item
+        +checkbox('workplace-type', 'room', true)._small._inverse.__checkbox
+          +box._smaller._blue
+          +e.text Meeting Room
+      +e.LI.item
+        +checkbox('workplace-type', 'space', true)._small._inverse.__checkbox
+          +box._smaller._green
+          +e.text Office space

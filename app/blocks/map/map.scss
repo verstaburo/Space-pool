@@ -33,11 +33,19 @@
 .leaflet-touch .leaflet-bar,
 .leaflet-touch .leaflet-control-layers {
   border: none;
-  box-shadow: 0 2px 4px rgba($color-basic, .2);
+  box-shadow: 0 2px 4px rgba($color-basic, 0);
 }
 
 .leaflet-bar a {
-  border-bottom: 1px solid $color-border;
+  font-family: $font-main;
+  background-color: $color-white;
+  width: 29px;
+  height: 27px;
+  font-size: 20px;
+  line-height: 27px;
+  letter-spacing: -.02em;
+  font-weight: 700;
+  border-bottom: 1px solid $color-white;
   transition: background-color $ease-main, color $ease-main;
   color: $color-basic;
 
@@ -46,15 +54,33 @@
   }
 
   &:hover {
-    background-color: $color-main;
-    color: white;
+    background-color: $color-white;
+    color: $color-basic-dark;
   }
+}
+
+.leaflet-touch .leaflet-bar a {
+  width: 29px;
+  height: 27px;
+  line-height: 27px;
 }
 
 .leaflet-control-zoom {
   @include screen('lg', min) {
     display: none;
   }
+}
+
+.leaflet-right .leaflet-control {
+  margin-right: 15px;
+
+  @include screen('sm') {
+    margin-right: 20px;
+  }
+}
+
+.leaflet-bottom .leaflet-control {
+  margin-bottom: 20px;
 }
 
 .leaflet-popup-content-wrapper {

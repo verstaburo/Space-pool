@@ -1,3 +1,22 @@
 mixin compact-filter()
   +b.compact-filter&attributes(attributes)
-    block
+    +e.top
+      +e.head
+        +e.title Filter
+        +e.count(data-filter-count)
+        +e.toggle
+          +icon('select-arrow').__icon
+      +e.reset
+        +filter-reset(true)._short.js-reset-compact-filter(data-target-form="compact-filter")
+    +e.FORM.bottom
+      +filter-name('City', 'London').__name.is-active.is-disabled.js-open-filter-list(data-filter-list="city")
+      +filter-name('Area', 'Area').__name.js-open-filter-list(data-filter-list="area")
+      +filter-name('Tube stations', 'Tube stations').__name.js-open-filter-list(data-filter-list="tube-stations")
+      +e.filter
+        +e.title Workplace type:
+        +filter-list-workplaces
+      +e.buttons
+        +button('button')(type="submit")._border._border_bg-white._wide._big Apply filter
+      +filter-list('Select area:', getData('filter-list-area.json'))
+      +filter-list('Select tube stations:', getData('filter-list-tubes.json'))
+      +filter-list('Select city:', getData('filter-list-city.json'))
