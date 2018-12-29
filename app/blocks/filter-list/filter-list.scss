@@ -1,7 +1,8 @@
 .filter-list {
   $b: &;
 
-  display: block;
+  display: flex;
+  flex-direction: column;
   background-color: $color-white;
   width: 100%;
 
@@ -15,6 +16,10 @@
     box-sizing: border-box;
     padding: 5px 16px;
     background-color: $color-basic;
+  }
+
+  &__scrollblock {
+    flex: 1;
   }
 
   &__list {
@@ -33,6 +38,8 @@
 
   &__radio {
     width: 100%;
+
+    @include ellipsis(100%);
   }
 
   &__checkbox {
@@ -53,8 +60,12 @@
   }
 
   &_workplaces {
+    #{$b}__list {
+      padding-top: 8px;
+    }
+
     #{$b}__item {
-      padding: 0 15px 0 13px;
+      padding: 0 14px 0 13px;
     }
   }
 }

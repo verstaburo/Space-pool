@@ -19,6 +19,8 @@
     transform: translate3d(0, -50%, 0);
     font-size: 0;
     line-height: 0;
+    z-index: 2;
+    pointer-events: none;
   }
 
   &__icon {
@@ -27,6 +29,7 @@
     fill: currentColor;
     width: 15px;
     height: 15px;
+    fill-opacity: 1;
   }
 
   &__text {
@@ -34,5 +37,13 @@
 
     line-height: (26/20);
     font-weight: 700;
+  }
+
+  &_short {
+
+    #{$b}__image {
+      left: 50%;
+      transform: translate3d(-50%, -50%, 0);
+    }
   }
 }

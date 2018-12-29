@@ -1,28 +1,28 @@
 mixin filter-list(name, data)
   +b.filter-list&attributes(attributes)
     +e.title!= name
-    +e.scrollblock.js-scrollbar
+    +e.scrollblock.js-scrollbar-thin
       +e.UL.list
         each item in data
           +e.LI.item
-            +radio(item.name, item.value, item.checked)._nobox._small.__radio!= item.value
+            +radio(item.name, item.value, item.checked)(data-filter-radio)._nobox._small.__radio!= item.value
 
 mixin filter-list-workplaces()
   +b.filter-list_workplaces&attributes(attributes)
     +e.UL.list
       +e.LI.item
-        +checkbox('workplace-type', 'htdsk', true)._small._inverse.__checkbox
+        +checkbox('workplace-type', 'htdsk', true)(data-filter-weight-element="1" data-filter-checkbox)._small._inverse.__checkbox
           +box._smaller._orange
           +e.text Hot desk
       +e.LI.item
-        +checkbox('workplace-type', 'dddsk', true)._small._inverse.__checkbox
+        +checkbox('workplace-type', 'dddsk', true)(data-filter-weight-element="1" data-filter-checkbox)._small._inverse.__checkbox
           +box._smaller._red
           +e.text Dedicated desk
       +e.LI.item
-        +checkbox('workplace-type', 'room', true)._small._inverse.__checkbox
+        +checkbox('workplace-type', 'room', true)(data-filter-weight-element="1" data-filter-checkbox)._small._inverse.__checkbox
           +box._smaller._blue
           +e.text Meeting Room
       +e.LI.item
-        +checkbox('workplace-type', 'space', true)._small._inverse.__checkbox
+        +checkbox('workplace-type', 'space', true)(data-filter-weight-element="1" data-filter-checkbox)._small._inverse.__checkbox
           +box._smaller._green
           +e.text Office space

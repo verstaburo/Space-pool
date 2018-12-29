@@ -6,6 +6,23 @@
   position: relative;
   box-sizing: border-box;
   padding: 5px 30px 5px 13px;
+  cursor: pointer;
+  pointer-events: auto;
+  transition: color $ease-main, padding $ease-main;
+
+  &.is-disabled {
+    cursor: default;
+    pointer-events: none;
+  }
+
+  &.is-active {
+    padding-top: 10px;
+    padding-bottom: 0;
+  }
+
+  &:hover {
+    color: $color-basic-dark;
+  }
 
   &__placeholder {
     @include text9;
@@ -17,7 +34,7 @@
     width: 100%;
     display: inline-block;
     position: absolute;
-    top: -6px;
+    top: -2px;
     left: 0;
     opacity: 0;
     transition: opacity $ease-main;
@@ -31,6 +48,7 @@
 
   &__title {
     @include text15;
+    @include ellipsis(100%);
 
     line-height: (26/15);
     font-weight: 700;
@@ -40,14 +58,17 @@
   &__toggle {
     position: absolute;
     top: 50%;
-    right: 16px;
+    right: 14px;
     display: block;
     font-size: 0;
     line-height: 0;
     transform-origin: 50% 50% 0;
     transform: rotate(-90deg);
+    transition: transform $ease-main;
+    margin-top: -2px;
 
     #{$b}.is-disabled & {
+      right: 16px;
       color: $color-gray-light;
       transform: rotate(0deg);
     }

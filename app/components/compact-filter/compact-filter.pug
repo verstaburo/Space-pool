@@ -1,23 +1,26 @@
 mixin compact-filter()
   +b.compact-filter&attributes(attributes)
     +e.top
-      +e.head
+      +e.head.js-filter-open
         +e.title
           +e.text Filter
-        +e.count(data-filter-count)
+        +e.count(data-filter-count) 1
         +e.toggle
           +icon('select-arrow').__icon
-      +filter-reset(true)._short.__reset.js-reset-compact-filter(data-target-form="compact-filter")
+      +filter-reset(true)._short.__reset.js-reset-dialog-open(type="reset")
     +e.FORM.bottom
-      +filter-name('City', 'London').__name.is-active.is-disabled.js-open-filter-list(data-filter-list="city")
-      +filter-name('Area', 'Area').__name.js-open-filter-list(data-filter-list="area")
-      +filter-name('Tube stations', 'Tube stations').__name.js-open-filter-list(data-filter-list="tube-stations")
+      +filter-name('City', 'London').__name.is-active.is-disabled.js-filter-list-open(data-target-filter-list="city")
+      +filter-name('Area', 'Area').__name.js-filter-list-open(data-target-filter-list="area")
+      +filter-name('Tube stations', 'Tube stations').__name.js-filter-list-open(data-target-filter-list="tube-stations")
       +e.filter
         +e.filter-name
           +e.title Workplace type:
         +filter-list-workplaces
       +e.buttons
-        +button('button')(type="submit")._border._border_bg-white._wide._border_narrow._border_narrow-small Apply filter
-      +filter-list('Select area:', getData('filter-list-area.json'))
-      +filter-list('Select tube stations:', getData('filter-list-tubes.json'))
-      +filter-list('Select city:', getData('filter-list-city.json'))
+        +button('button')(type="submit")._border._border_bg-white._wide._border_narrow._border_narrow-small._small.js-filter-apply Apply filter
+      +e.popup
+        +filter-list('Select area:', getData('filter-list-area.json')).__list(data-filter-list="area" data-filter-weight-element="0")
+        +filter-list('Select tube stations:', getData('filter-list-tubes.json')).__list(data-filter-list="tube-stations" data-filter-weight-element="0")
+        +filter-list('Select city:', getData('filter-list-city.json')).__list(data-filter-list="city")
+    +e.dialog
+      +filter-dialog

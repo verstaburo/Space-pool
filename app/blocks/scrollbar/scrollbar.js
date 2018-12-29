@@ -10,6 +10,12 @@ export default function scrollbar() {
     });
   });
 
+  $('.js-scrollbar-thin').each((i, el) => {
+    OverlayScrollbars(el, {
+      className: 'os-theme-custom-thin',
+    });
+  });
+
   $('.js-scrollbar-dark').each((i, el) => {
     OverlayScrollbars(el, {
       className: 'os-theme-custom-dark',
