@@ -10,7 +10,9 @@ export function maps() {
     return;
   }
 
-  const map = L.map('map').setView([59.934, 30.335], 13);
+  const map = L.map('map', {
+    scrollWheelZoom: false,
+  }).setView([59.934, 30.335], 13);
 
   L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
     maxZoom: 18,
@@ -29,7 +31,9 @@ export function mapsTwo() {
   if (!$('#mapTwo').length) {
     return;
   }
-  const mapTwo = L.map('mapTwo').setView([59.934, 30.335], 13);
+  const mapTwo = L.map('mapTwo', {
+    scrollWheelZoom: false,
+  }).setView([59.934, 30.335], 13);
   const myMarker = L.icon({
     iconUrl: 'assets/images/map/marker-two.png',
     iconSize: [38, 95],
