@@ -623,12 +623,17 @@
 
         line-height: (26/14);
       }
-    }
 
-    &[data-type*='select-one'] {
+      &::before {
+        @include pseudo;
 
-      #{$k}__inner {
-        padding-bottom: 2px;
+        bottom: 0;
+        left: 7px;
+        width: calc(100% - 14px);
+        height: 2px;
+        background-color: $color-white;
+        transition: all $ease-main;
+        z-index: 3;
       }
     }
 
@@ -657,20 +662,9 @@
         background-color: rgba($color-select-bg, 0);
         border-radius: 3px 3px 0 0;
         border: 2px solid transparent;
+        overflow: hidden;
         transition: border $ease-main, background $ease-main;
         z-index: 2;
-
-        &::before {
-          @include pseudo;
-
-          top: 100%;
-          left: 5px;
-          width: calc(100% - 12px);
-          height: 2px;
-          background-color: $color-white;
-          transition: all $ease-main;
-          z-index: 4;
-        }
       }
 
       &--dropdown {
@@ -678,9 +672,10 @@
         max-width: none;
         background-color: rgba($color-select-bg, .32);
         border: 2px solid $color-white;
-        border-top-width: 1px;
+        border-top-width: 0;
+        border-top-color: transparent;
         border-radius: 0 0 3px 3px;
-        margin-top: -1px;
+        margin-top: -2px;
         max-height: 118px;
         box-sizing: border-box;
         padding-top: 7px;
@@ -712,19 +707,30 @@
       color: $color-white;
     }
 
+    &:hover #{$k}__inner::before {
+      z-index: 5;
+    }
+
     &:hover #{$k}__list {
       &--single {
         border-color: $color-white;
         border-radius: 3px;
-
-        &::before {
-          opacity: 0;
-        }
       }
 
       &--dropdown {
         border-color: $color-white;
-        border-top-color: $color-inner-border;
+        border-top-color: transparent;
+      }
+    }
+
+    &.is-open #{$k}__inner {
+      &::before {
+        bottom: 1px;
+        left: 2px;
+        width: calc(100% - 4px);
+        height: 1px;
+        background-color: $color-inner-border;
+        z-index: 5;
       }
     }
 
@@ -738,19 +744,11 @@
         @include screen('sm') {
           background-color: $color-select-bg;
         }
-
-        &::before {
-          opacity: 0;
-          left: 0;
-          width: 100%;
-          height: 1px;
-          background-color: $color-inner-border;
-        }
       }
 
       &--dropdown {
         border-color: $color-white;
-        border-top-color: $color-inner-border;
+        border-top-color: transparent;
         border-radius: 0 0 3px 3px;
       }
     }
@@ -758,33 +756,23 @@
 
   &_color {
 
-    #{$k}__list {
-
-      &--single {
-
-        &::before {
-          background-image: linear-gradient(to right, $color-hot-desk 25%, $color-dedicated-desk 25%, $color-dedicated-desk 50%, $color-meeting-room 50%, $color-meeting-room 75%, $color-office-space 75%);
-        }
+    #{$k}__inner {
+      &::before {
+        background-image: linear-gradient(to right, $color-hot-desk 25%, $color-dedicated-desk 25%, $color-dedicated-desk 50%, $color-meeting-room 50%, $color-meeting-room 75%, $color-office-space 75%);
       }
     }
 
-    &:hover #{$k}__list {
+    &:hover #{$k}__inner {
 
-      &--single {
-
-        &::before {
-          background-image: linear-gradient(to right, $color-hot-desk 25%, $color-dedicated-desk 25%, $color-dedicated-desk 50%, $color-meeting-room 50%, $color-meeting-room 75%, $color-office-space 75%);
-        }
+      &::before {
+        background-image: none;
       }
     }
 
-    &.is-open #{$k}__list {
+    &.is-open #{$k}__inner {
 
-      &--single {
-
-        &::before {
-          background-image: linear-gradient(to right, $color-hot-desk 25%, $color-dedicated-desk 25%, $color-dedicated-desk 50%, $color-meeting-room 50%, $color-meeting-room 75%, $color-office-space 75%);
-        }
+      &::before {
+        background-image: none;
       }
     }
   }
