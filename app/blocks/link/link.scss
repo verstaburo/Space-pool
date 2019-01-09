@@ -5,21 +5,29 @@
 
   &_icon {
     position: relative;
-    padding-left: 25px;
+    padding-left: 37px;
   }
 
   &_bold {
     font-weight: 700;
   }
 
+  &_white {
+    color: $color-white;
+
+    &:hover {
+      color: rgba($color-white, .6);
+    }
+  }
+
   &__icon {
     position: absolute;
     left: 0;
-    top: 0;
-    width: 16px;
-    height: 16px;
+    top: 50%;
+    width: 25px;
+    height: 25px;
     display: inline-block;
-    vertical-align: middle;
+    transform: translate3d(0, -50%, 0);
     font-size: 0;
   }
 
@@ -27,12 +35,16 @@
     transition: border $ease-main;
 
     #{$b}_bordered & {
-      border-bottom: 1px solid $color-bc-light;
+      border-bottom: 1px solid transparent;
     }
 
     #{$b}_bordered:hover & {
-      border-bottom: 1px solid $color-basic-dark;
+      border-bottom: 1px solid $color-link-border;
     }
+  }
+
+  &_bordered {
+    @include link-bordered;
   }
 
   &.is-disabled {
@@ -40,47 +52,5 @@
     fill: $color-border;
 
     @include link-disabled;
-  }
-}
-
-.link-top {
-  padding: 0;
-  cursor: pointer;
-  color: $color-white;
-  border-bottom: 2px solid $color-yellow;
-  border-top: 2px solid rgba(0, 0, 0, 0);
-  border-left: 2px solid rgba(0, 0, 0, 0);
-  border-right: 2px solid rgba(0, 0, 0, 0);
-  transition: border-color $ease-main;
-  font-weight: 700;
-  padding: 3px;
-
-
-  &:hover {
-    border: 2px solid $color-yellow;
-  }
-
-  &_red {
-    border-bottom: 2px solid $color-red;
-
-    &:hover {
-      border: 2px solid $color-red;
-    }
-  }
-
-  &_blue {
-    border-bottom: 2px solid $color-blue;
-
-    &:hover {
-      border: 2px solid $color-blue;
-    }
-  }
-
-  &_green {
-    border-bottom: 2px solid $color-green;
-
-    &:hover {
-      border: 2px solid $color-green;
-    }
   }
 }

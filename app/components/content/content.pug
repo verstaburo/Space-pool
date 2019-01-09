@@ -1,6 +1,39 @@
 mixin content()
-  +b.MAIN.content&attributes(attributes)
+  +b.content&attributes(attributes)
     .container.container_content
-      +content-left
-      +e.__right
+      +e.column_left
+        +section._inner
+          +section-header
+            +section-title('h3') Description
+          +section-content
+            +content-zone
+              p One Neal Street offers a&nbsp;modern, self-contained office solution, which is&nbsp;located just off of&nbsp;Covent Garden&rsquo;s Long Acre. Unbranded and fully furnished, this renovated boutique office space is&nbsp;flooded with natural light. One Neal Street offers some twelve-thousand square foot of&nbsp;open-plan office space across the third floor, which can accommodate up&nbsp;to&nbsp;two hundred people. It&nbsp;also benefits from 24/7&nbsp;access, a&nbsp;manned reception and large kitchen and breakout area.
+        +section._inner
+          +section-header
+            +section-title('h3') Location
+            +e.subtitle 8-10 New Fetter Ln, London EC4A 1AZ
+          +section-content
+            +map#map
+        +section._inner
+          +section-header
+            +section-title('h3') Building rules
+          +section-content
+            +content-zone
+              p One Neal Street offers some twelve-thousand square foot of&nbsp;open-plan office space across the third floor, which can accommodate up&nbsp;to&nbsp;two hundred people. It&nbsp;also benefits from 24/7&nbsp;access, a&nbsp;manned reception and large kitchen and breakout area.
+              ul
+                li 24 hours access
+                li Pets allowed
+                li Entrance only with electronic card
+                li Silent time from 10pm till 8am
+                li First and last months for offices are paid before letting start
+        +section._inner
+          +section-header
+            +section-title('h3') Facilities
+          +section-content
+        +section._inner
+          +section-header
+            +section-title('h3') Offers
+          +section-content
+        +content-left
+      +e.column_right.hide-lg(data-sticky-parent)
         +scroll-form

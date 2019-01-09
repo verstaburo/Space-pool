@@ -6,7 +6,7 @@ function putBlockIntoSlot() {
     const vw = $(window).width();
 
     // получаем слот, в который нужно поместить блок
-    const slots = $(`[data-slot-id="${block.data('target-slot')}"]`);
+    const slots = $(`[data-slot-id*="${block.data('target-slot')}"]`);
 
     const slot = slots.filter(function () {
       const self = $(this);

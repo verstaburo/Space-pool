@@ -130,6 +130,23 @@ block content
             h6 Заголовок H6 (heading-6)
             p Текст p (text)<br> Цитата внутри текста p: <q>Цитата q</q>
             p <small>Тег small внутри p (text-small)</small>
+            p ссылка внутри текста
+              a(href="#") ссылка
+            blockquote Цитата blocquoute
+        +ui-description .content-zone._small
+        +ui-special()
+          +content-zone.content-zone_small
+            h1 Заголовок H1 (heading-1)
+            h2 Заголовок H2 (heading-2)
+            h3 Заголовок H3 (heading-3)
+            h4 Заголовок H4 (heading-4)
+            h5 Заголовок H5 (heading-5)
+            h6 Заголовок H6 (heading-6)
+            p Текст p (text)<br> Цитата внутри текста p: <q>Цитата q</q>
+            p <small>Тег small внутри p (text-small)</small>
+            p ссылка внутри текста
+              a(href="#") ссылка
+            blockquote Цитата blocquoute
 
     +ui-section
       +ui-section-head
@@ -161,31 +178,31 @@ block content
 
 
 
-    //- //- Списки
-    //- +ui-section
-    //-   +ui-section-head
-    //-     h2 Списки
-    //-     p Блок: blocks/lists
-    //-     p По желанию можно доработать (для каких-то сложных списков). Добавить миксин +list-item и вписать туда шаблон для li
-    //-   +ui-section-content()
-    //-     +ui-description ul.list
-    //-     +ul-list
-    //-       li Элемент списка
-    //-         +ul-list
-    //-           li Элемент списка
-    //-           li Элемент списка
-    //-           li Элемент списка
-    //-       li Элемент списка
-    //-       li Элемент списка
-    //-     +ui-description ol.list
-    //-     +ol-list(ol)
-    //-       li Элемент списка
-    //-       li Элемент списка
-    //-         +ol-list(ol)
-    //-           li Элемент списка
-    //-           li Элемент списка
-    //-           li Элемент списка
-    //-       li Элемент списка
+    //- Списки
+    +ui-section
+      +ui-section-head
+        h2 Списки
+        p Блок: blocks/lists
+        p По желанию можно доработать (для каких-то сложных списков). Добавить миксин +list-item и вписать туда шаблон для li
+      +ui-section-content()
+        +ui-description ul.list
+        +ul-list
+          li Элемент списка
+            +ul-list
+              li Элемент списка
+              li Элемент списка
+              li Элемент списка
+          li Элемент списка
+          li Элемент списка
+        +ui-description ol.list
+        +ol-list(ol)
+          li Элемент списка
+          li Элемент списка
+            +ol-list(ol)
+              li Элемент списка
+              li Элемент списка
+              li Элемент списка
+          li Элемент списка
 
     //- Элементы форм
     +ui-section
@@ -362,7 +379,7 @@ block content
         +ui-description .link
         +link()(href="#") Обычная ссылка
         +ui-description .link._bordered
-        +link()(href="#")._bordered Подчеркнутая ссылка
+        +link()(href="#")._bordered Подчеркнутая при наведении ссылка
         +ui-description .link._icon
         +link-icon('refresh')(href="#") Ссылка с иконкой
         +ui-description .link.is-disabled
@@ -423,6 +440,14 @@ block content
         each item in news
           +slide
             +news(item)(href="#")
+      br
+      +ui-section-content()
+        +ui-description .js-slider-spaces-inner
+        br
+      +slider(true, false)._sm-btn-hide.js-slider-spaces-inner
+        each item in spaces
+          +slide
+            +space(item)(href="#")
 
     //- Подсказки
     +ui-section
@@ -461,8 +486,12 @@ block content
       +ui-section-head
         h2 Хлебные крошки
         p Блок: blocks/breadcrumbs/breadcrumbs
+        p Блок: components/breadcrumbs-box/breadcrumbs-box
       +ui-section-content()
+        +ui-description .breadcrumbs
         +breadcrumbs(['London', 'Kensington', 'Boutique Workplace - 1 Neal Street'])
+        +ui-description .breadcrumbs-box
+      +breadcrumbs-box
 
     //- Рейтинг
     +ui-section
@@ -717,9 +746,12 @@ block content
         +button-heart
         +ui-description .button-heart.is-active - активное состояние
         +button-heart.is-active
-
         +ui-description .button-heart.js-heart - переключает состояние
         +button-heart.js-heart
+        +ui-description .button-heart._white - сердечко с белой заливкой
+        +button-heart._white.js-heart
+        +ui-description .button-heart._gray - сердечко с серой границей
+        +button-heart._gray.js-heart
 
     //- Spaces
     - var space = {img: "assets/images/space1.jpg", boxes: {box1: {class: "_orange"}, box2: {class: "_red"}, box3: {class: "_blue"}, box4: {class: "_green"}},title: "TOG - Henry Wood House",location: "W1W, London"};
@@ -760,6 +792,35 @@ block content
           +col(3)
             +news(news)
 
+    //- Add favorite button
+    +ui-section
+      +ui-section-head
+        h2 Кнопка добавить в избранное
+        p Блок: blocks/add-button
+      +ui-section-content
+        +ui-description .add-button
+        +add-button
+
+    //- Address list
+    +ui-section
+      +ui-section-head
+        h2 Стилизованный адрес
+        p Блок: blocks/address-list
+      +ui-section-content
+        +ui-description .address-list
+        +address-list
+          +e.LI.item London
+          +e.LI.item Kensington
+          +e.LI.item EC2A, London
+
+    //- Info price
+    +ui-section
+      +ui-section-head
+        h2 Ценник
+        p Блок: blocks/info-price
+      +ui-section-content
+        +ui-description .info-price
+        +info-price('Starting at Just') £300 per month
 
   script
     |

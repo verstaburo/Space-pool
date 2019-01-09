@@ -1,13 +1,13 @@
 @mixin list {
-  @include text;
 
-  ul, ol {
+  ul,
+  ol {
     padding-top: 5px;
     padding-bottom: 5px;
   }
 
   li {
-    padding-left: 20px;
+    padding-left: 16px;
     position: relative;
   }
 }
@@ -15,10 +15,14 @@
 @mixin ullist {
 
   li::before {
-    position: absolute;
+    @include pseudo;
+
     left: 0;
-    top: 0;
-    content: '•';
+    top: 14px;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: currentColor;
   }
 }
 

@@ -1,6 +1,32 @@
 .content {
-  display: flex;
-  &__right {
-    height: 100%;
+  $b: &;
+
+  display: block;
+  width: 100%;
+  margin-bottom: 130px;
+
+  .container {
+    display: flex;
+    align-items: stretch;
+  }
+
+  &__column {
+
+    &_left {
+      flex: 1;
+      box-sizing: border-box;
+      padding-right: 50px;
+      padding-top: 30px;
+
+      @include screen('lg') {
+        width: 100%;
+        padding-right: 0;
+      }
+    }
+
+    &_right {
+      width: 368px;
+      min-width: 368px;
+    }
   }
 }

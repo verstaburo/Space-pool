@@ -1,5 +1,6 @@
 // https://kingsora.github.io/OverlayScrollbars
 import OverlayScrollbars from 'overlayscrollbars';
+import 'os-scroll-chain';
 
 const $ = window.$;
 

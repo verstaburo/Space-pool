@@ -1,4 +1,5 @@
 .content-zone {
+  @include text-big;
 
   h1 {
 
@@ -63,10 +64,8 @@
     small {
       display: block;
 
-      @include text-small;
+      @include text;
     }
-
-    @include text;
   }
 
   blockquote {
@@ -96,18 +95,49 @@
     }
   }
 
-  > ul, > ol {
+  >ul,
+  >ol {
 
     &:not(:last-child) {
       margin-bottom: 10px;
     }
   }
 
-  ul, ol { @include list; }
+  ul,
+  ol {
+    @include list;
+  }
 
-  ul { @include ullist; }
+  ul {
+    @include ullist;
 
-  ol { @include ollist; }
+    line-height: (34/18);
+  }
 
-  a { @include link; }
+  ol {
+    @include ollist;
+  }
+
+  a {
+    @include link;
+  }
+
+  &_small {
+    @include text15;
+
+    line-height: (19/15);
+
+    p {
+
+      small {
+        @include text-small;
+
+        line-height: (19/11);
+      }
+    }
+
+    ul {
+      line-height: (34/15);
+    }
+  }
 }

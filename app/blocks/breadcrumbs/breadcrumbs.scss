@@ -1,55 +1,46 @@
-$breadpadding: 35px;
-
 .breadcrumbs {
-  display: block;
+  $b: &;
+
+  display: flex;
+  align-items: center;
   padding: 18px 0;
 
   &__item {
     display: inline-block;
     position: relative;
 
+    @include text;
+
+    line-height: (26/14);
+
     &:not(:last-child) {
-      padding-right: 24px;
-      letter-spacing: -.2px;
+      padding-right: 30px;
 
       &::after {
-        content: '-';
-        position: absolute;
-        top: 0;
+        @include pseudo;
+
+        top: 50%;
         margin: auto;
-        right: 6px;
-        width: 5px;
-        height: 5px;
+        right: 13px;
+        width: 4px;
+        height: 1px;
+        background-color: $color-basic;
+        transform: translate3d(0, -50%, 0);
       }
     }
+
     &:last-child {
 
-      letter-spacing: -.3px;
-    }
+      #{$b}__link {
+        @include link-disabled;
 
-    .link {
-      font-size: 14px;
-      color: $color-basic;
-      
-      span {
-        transition: border-bottom $ease-main, opacity $ease-main;
-        border-bottom: 0px solid #fff;
-      }
-      &:hover {
-        span {
-          border-bottom: 1px solid $line-bc;
+        pointer-events: none;
+        cursor: default;
+
+        &:hover .link__text {
+          border-color: transparent;
         }
       }
     }
-
-    &:last-child .link {
-      pointer-events: none;
-
-      &__text {
-        font-size: 14px;
-        @include link-disabled;
-      }
-    }
   }
-  
 }

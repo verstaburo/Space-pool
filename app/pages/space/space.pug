@@ -4,10 +4,18 @@ block head
   - var pageTitle = 'Space Pool - Space'
 
 block content
-  //- +banner
-  //- +breadcrumbs-box
-  //- +content
-  //- .slider-indexBox
-  //-   .container.container_slider
-  //-     h3.slider-title You may also like spaces around
-  //-       span.slider-title_span Kensington
+  - var spaces = getData('spaces-around.json')
+  +lead
+  +banner
+  +breadcrumbs-box.hide-sm
+  +content
+  +section
+    +section-header
+      .container
+        +section-title('h3') You may also like spaces around
+          +e.EM Kensington
+    +section-content
+      +slider(true, false)._sm-btn-hide.js-slider-spaces-inner
+          each item in spaces
+            +slide
+              +space(item)(href="#")
