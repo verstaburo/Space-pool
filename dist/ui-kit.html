@@ -1,0 +1,2540 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimal-ui">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>SpacePool - Ui-kit</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <link href="favicon.ico" rel="shortcut icon">
+    <link href="assets/styles/app.min.css" rel="stylesheet">
+    <script src="assets/scripts/libs/jquery.min.js"></script>
+</head>
+
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header__logo">
+                <a class="logo" href="/">
+                    <svg class="logo__icon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 171.5 53.7">
+                        <defs>
+                            <linearGradient id="logo-grad1" x1="28.97" x2="42.59" y1="23.48" y2="43.67" gradientUnits="userSpaceOnUse">
+                                <stop offset="0.25" stop-color="#008199"></stop>
+                                <stop offset="1" stop-color="#0de1aa"></stop>
+                            </linearGradient>
+                            <linearGradient id="logo-grad2" x1="16.86" x2="5.5" y1="21.43" y2="45.8" xlink:href="#logo-grad1"></linearGradient>
+                            <linearGradient id="logo-grad3" x1="23.03" x2="23.61" y1="0.02" y2="16.82" xlink:href="#logo-grad1"></linearGradient>
+                        </defs>
+                        <g class="logo__image">
+                            <path fill="url(#logo-grad1)" d="M42.5,16.16v22L29.13,45.9v-6l11.11-6.51V17.3L24.63,26.41V53.69L47,40.7V13.57ZM29.13,29l6.61-3.9v5.7l-6.61,3.9Z"></path>
+                            <path fill="url(#logo-grad2)" d="M0,13.57V40.7l22.37,13V37.31L11.26,30.8V25.11l11.11,6.5v-5.2L6.76,17.3V33.38l11.11,6.51v6L4.49,38.11V16.16Z"></path>
+                            <polygon fill="url(#logo-grad3)" points="0 13.57 4.5 16.16 23.5 5.19 42.51 16.16 47 13.57 23.5 0 0 13.57"></polygon>
+                        </g>
+                        <g class="logo__text">
+                            <path d="M58.5,31.36l1.87-2.63a7.18,7.18,0,0,0,5.17,2.19c1.89,0,2.82-.88,2.82-1.8,0-2.87-9.35-.9-9.35-7,0-2.71,2.34-4.95,6.16-4.95a9,9,0,0,1,6.33,2.27L69.58,22a7,7,0,0,0-4.73-1.78c-1.48,0-2.31.66-2.31,1.63,0,2.59,9.33.86,9.33,6.92,0,3-2.12,5.21-6.5,5.21A9.29,9.29,0,0,1,58.5,31.36Z"></path>
+                            <path d="M76.61,32.14v6H73.52V21.89h3.09v1.48a4.56,4.56,0,0,1,3.63-1.77c3,0,5.21,2.24,5.21,6.16s-2.19,6.18-5.21,6.18A4.5,4.5,0,0,1,76.61,32.14Zm5.63-4.38c0-2-1.2-3.41-3-3.41a3.47,3.47,0,0,0-2.66,1.34v4.16a3.55,3.55,0,0,0,2.66,1.34C81,31.19,82.24,29.8,82.24,27.76Z"></path>
+                            <path d="M94.16,33.65V32.43a4.83,4.83,0,0,1-3.72,1.51,3.93,3.93,0,0,1-4.09-3.75V30c0-2.75,2.22-3.79,4.09-3.79a4.84,4.84,0,0,1,3.72,1.43V26.1c0-1.19-1-2-2.58-2a4.94,4.94,0,0,0-3.43,1.39l-1.15-2a7.74,7.74,0,0,1,5.14-1.85c2.68,0,5.14,1.07,5.14,4.45v7.6Zm0-2.83V29.36a3.09,3.09,0,0,0-2.48-1c-1.22,0-2.21.63-2.21,1.78s1,1.73,2.21,1.73A3.09,3.09,0,0,0,94.16,30.82Z"></path>
+                            <path d="M99,27.76a6,6,0,0,1,5.83-6.16,2.67,2.67,0,0,1,.4,0,5.47,5.47,0,0,1,4.65,2.11l-2,1.9a2.85,2.85,0,0,0-2.48-1.26,3.14,3.14,0,0,0-3.2,3.08c0,.11,0,.22,0,.33a3.16,3.16,0,0,0,2.88,3.42h.31a3,3,0,0,0,2.48-1.27l2,1.88a5.44,5.44,0,0,1-4.65,2.14A6,6,0,0,1,99,28.18Z"></path>
+                            <path d="M110.5,27.76a6,6,0,0,1,5.84-6.16h.25c3.5,0,5.89,2.63,5.89,6.47v.68h-8.74a3.16,3.16,0,0,0,3.38,2.73,5,5,0,0,0,3.14-1.17l1.37,2a7.31,7.31,0,0,1-4.85,1.63,6,6,0,0,1-6.28-5.71Zm6.09-3.71a2.81,2.81,0,0,0-2.9,2.61h5.79a2.72,2.72,0,0,0-2.82-2.61Z"></path>
+                            <path d="M131.19,32.14v6h-3.1V21.89h3.1v1.48a4.53,4.53,0,0,1,3.62-1.77c3,0,5.21,2.24,5.21,6.16s-2.19,6.18-5.21,6.18A4.53,4.53,0,0,1,131.19,32.14Zm5.62-4.38c0-2-1.19-3.41-3-3.41a3.45,3.45,0,0,0-2.65,1.34v4.16a3.55,3.55,0,0,0,2.65,1.34C135.62,31.19,136.81,29.8,136.81,27.76Z"></path>
+                            <path d="M140.92,27.76A6.22,6.22,0,1,1,147.14,34,6.21,6.21,0,0,1,140.92,27.76Zm9.23,0c0-1.83-1.09-3.41-3-3.41s-3,1.58-3,3.41,1.07,3.43,3,3.43S150.15,29.61,150.15,27.76Z"></path>
+                            <path d="M154.29,27.76A6.22,6.22,0,1,1,160.51,34,6.21,6.21,0,0,1,154.29,27.76Zm9.23,0c0-1.83-1.1-3.41-3-3.41s-3,1.58-3,3.41,1.07,3.43,3,3.43,3-1.58,3-3.43Z"></path>
+                            <path d="M168.41,33.65V17.41h3.09V33.65Z"></path>
+                        </g>
+                    </svg>
+                </a>
+            </div>
+            <nav class="header__navigation hide-sm">
+                <div class="header__main">
+                    <ul class="header-menu">
+                        <li class="header-menu__item header-menu__item_bmg hide-lg">
+                            <a class="link" href="#">
+                                <span class="link__text">Become a host</span>
+                            </a>
+                        </li>
+                        <li class="header-menu__item hide-lg">
+                            <a class="link" href="#">
+                                <span class="link__text">Support</span>
+                            </a>
+                        </li>
+                        <li class="header-menu__item">
+                            <a class="link" href="#">
+                                <span class="link__text">Sign Up</span>
+                            </a>
+                        </li>
+                        <li class="header-menu__item">
+                            <a class="link" href="#">
+                                <span class="link__text">Sign In</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="header__user">
+                    <div class="header-user">
+                        <div class="header-user__user">
+                            <a class="short-profile" href="#">
+                                <span class="avatar short-profile__avatar">
+                                    <img class="avatar__image" src="assets/images/ava.jpg" alt="" role="presentation" />
+                                </span>
+                                <span class="short-profile__name">Spencer Macenthire</span>
+                            </a>
+                        </div>
+                        <ul class="header-user__list">
+                            <li class="header-user__item">
+                                <a class="user-link is-new">
+                                    <svg class="user-link__icon user-link__icon_calendar"><use xlink:href="assets/images/icon.svg#icon_calendar"></use></svg>
+                                    <span class="user-link__marker"></span>
+                                </a>
+                            </li>
+                            <li class="header-user__item">
+                                <a class="user-link is-new">
+                                    <svg class="user-link__icon user-link__icon_message"><use xlink:href="assets/images/icon.svg#icon_message"></use></svg>
+                                    <span class="user-link__marker"></span>
+                                </a>
+                            </li>
+                            <li class="header-user__item">
+                                <a class="user-link">
+                                    <svg class="user-link__icon user-link__icon_heart"><use xlink:href="assets/images/icon.svg#icon_heart"></use></svg>
+                                    <span class="user-link__marker"></span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            <div class="header__burger">
+                <button class="burger js-open-navigation">
+                    <div class="burger__image">
+                        <div class="burger__line"></div>
+                    </div>
+                </button>
+            </div>
+        </div>
+    </header>
+    <main class="page" role="main">
+        <div class="ui-kit">
+            <div class="ui-kit__navigation js-scrollbar-light">
+                <div class="ui-kit__navigation-burger"></div>
+                <ul class="ui-kit__navigation__list"></ul>
+            </div>
+            <section class="ui-kit__head">
+                <div class="container">
+                    <p>Logo in header .logo</p>
+                    <br>
+                    <a class="logo">
+                        <svg class="logo__icon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 171.5 53.7">
+                            <defs>
+                                <linearGradient id="logo-grad1" x1="28.97" x2="42.59" y1="23.48" y2="43.67" gradientUnits="userSpaceOnUse">
+                                    <stop offset="0.25" stop-color="#008199"></stop>
+                                    <stop offset="1" stop-color="#0de1aa"></stop>
+                                </linearGradient>
+                                <linearGradient id="logo-grad2" x1="16.86" x2="5.5" y1="21.43" y2="45.8" xlink:href="#logo-grad1"></linearGradient>
+                                <linearGradient id="logo-grad3" x1="23.03" x2="23.61" y1="0.02" y2="16.82" xlink:href="#logo-grad1"></linearGradient>
+                            </defs>
+                            <g class="logo__image">
+                                <path fill="url(#logo-grad1)" d="M42.5,16.16v22L29.13,45.9v-6l11.11-6.51V17.3L24.63,26.41V53.69L47,40.7V13.57ZM29.13,29l6.61-3.9v5.7l-6.61,3.9Z"></path>
+                                <path fill="url(#logo-grad2)" d="M0,13.57V40.7l22.37,13V37.31L11.26,30.8V25.11l11.11,6.5v-5.2L6.76,17.3V33.38l11.11,6.51v6L4.49,38.11V16.16Z"></path>
+                                <polygon fill="url(#logo-grad3)" points="0 13.57 4.5 16.16 23.5 5.19 42.51 16.16 47 13.57 23.5 0 0 13.57"></polygon>
+                            </g>
+                            <g class="logo__text">
+                                <path d="M58.5,31.36l1.87-2.63a7.18,7.18,0,0,0,5.17,2.19c1.89,0,2.82-.88,2.82-1.8,0-2.87-9.35-.9-9.35-7,0-2.71,2.34-4.95,6.16-4.95a9,9,0,0,1,6.33,2.27L69.58,22a7,7,0,0,0-4.73-1.78c-1.48,0-2.31.66-2.31,1.63,0,2.59,9.33.86,9.33,6.92,0,3-2.12,5.21-6.5,5.21A9.29,9.29,0,0,1,58.5,31.36Z"></path>
+                                <path d="M76.61,32.14v6H73.52V21.89h3.09v1.48a4.56,4.56,0,0,1,3.63-1.77c3,0,5.21,2.24,5.21,6.16s-2.19,6.18-5.21,6.18A4.5,4.5,0,0,1,76.61,32.14Zm5.63-4.38c0-2-1.2-3.41-3-3.41a3.47,3.47,0,0,0-2.66,1.34v4.16a3.55,3.55,0,0,0,2.66,1.34C81,31.19,82.24,29.8,82.24,27.76Z"></path>
+                                <path d="M94.16,33.65V32.43a4.83,4.83,0,0,1-3.72,1.51,3.93,3.93,0,0,1-4.09-3.75V30c0-2.75,2.22-3.79,4.09-3.79a4.84,4.84,0,0,1,3.72,1.43V26.1c0-1.19-1-2-2.58-2a4.94,4.94,0,0,0-3.43,1.39l-1.15-2a7.74,7.74,0,0,1,5.14-1.85c2.68,0,5.14,1.07,5.14,4.45v7.6Zm0-2.83V29.36a3.09,3.09,0,0,0-2.48-1c-1.22,0-2.21.63-2.21,1.78s1,1.73,2.21,1.73A3.09,3.09,0,0,0,94.16,30.82Z"></path>
+                                <path d="M99,27.76a6,6,0,0,1,5.83-6.16,2.67,2.67,0,0,1,.4,0,5.47,5.47,0,0,1,4.65,2.11l-2,1.9a2.85,2.85,0,0,0-2.48-1.26,3.14,3.14,0,0,0-3.2,3.08c0,.11,0,.22,0,.33a3.16,3.16,0,0,0,2.88,3.42h.31a3,3,0,0,0,2.48-1.27l2,1.88a5.44,5.44,0,0,1-4.65,2.14A6,6,0,0,1,99,28.18Z"></path>
+                                <path d="M110.5,27.76a6,6,0,0,1,5.84-6.16h.25c3.5,0,5.89,2.63,5.89,6.47v.68h-8.74a3.16,3.16,0,0,0,3.38,2.73,5,5,0,0,0,3.14-1.17l1.37,2a7.31,7.31,0,0,1-4.85,1.63,6,6,0,0,1-6.28-5.71Zm6.09-3.71a2.81,2.81,0,0,0-2.9,2.61h5.79a2.72,2.72,0,0,0-2.82-2.61Z"></path>
+                                <path d="M131.19,32.14v6h-3.1V21.89h3.1v1.48a4.53,4.53,0,0,1,3.62-1.77c3,0,5.21,2.24,5.21,6.16s-2.19,6.18-5.21,6.18A4.53,4.53,0,0,1,131.19,32.14Zm5.62-4.38c0-2-1.19-3.41-3-3.41a3.45,3.45,0,0,0-2.65,1.34v4.16a3.55,3.55,0,0,0,2.65,1.34C135.62,31.19,136.81,29.8,136.81,27.76Z"></path>
+                                <path d="M140.92,27.76A6.22,6.22,0,1,1,147.14,34,6.21,6.21,0,0,1,140.92,27.76Zm9.23,0c0-1.83-1.09-3.41-3-3.41s-3,1.58-3,3.41,1.07,3.43,3,3.43S150.15,29.61,150.15,27.76Z"></path>
+                                <path d="M154.29,27.76A6.22,6.22,0,1,1,160.51,34,6.21,6.21,0,0,1,154.29,27.76Zm9.23,0c0-1.83-1.1-3.41-3-3.41s-3,1.58-3,3.41,1.07,3.43,3,3.43,3-1.58,3-3.43Z"></path>
+                                <path d="M168.41,33.65V17.41h3.09V33.65Z"></path>
+                            </g>
+                        </svg>
+                    </a>
+                    <br>
+                    <p>Logo in footer .logo_footer</p>
+                    <br>
+                    <a class="logo logo_footer">
+                        <img class="logo__icon" src="assets/images/logo.svg" alt="" role="presentation" />
+                    </a>
+                    <br>
+                    <div class="ui-kit__name">SpacePool</div>
+                </div>
+            </section>
+            <section class="ui-kit__section">
+                <div class="ui-kit__section-head">
+                    <div class="container">
+                        <h2>Хэдер (Header)</h2>
+                        <p>Блок: components/header</p>
+                        <p>Состояние при логине хэдеру добавляется класс is-login</p>
+                        <a class="button" onclick="$('.header').toggleClass('is-login')">
+                            <span class="button__text">Log In</span>
+                        </a>
+                    </div>
+                </div>
+            </section>
+            <section class="ui-kit__section ui-kit__section_grid">
+                <div class="ui-kit__section-head">
+                    <div class="container">
+                        <h2>Сетка</h2>
+                        <p>Отступы слева и справа от экрана: 40px ($container-padding)</p>
+                        <p>Отступы слева и справа от экрана на мобильныx: 20px ($container-padding-mobile)</p>
+                        <p>Максимальная ширина контейнера с учетом паддингов: 1700px ($container-width)</p>
+                        <p>Ширина контейнера сетки: 100% ($grid-container-width)</p>
+                        <p>Колонок: 12 ($grid-cols)</p>
+                        <p>Горизонтальное расстояние между колонками: 50px ($grid-gap)</p>
+                        <p>Вертикальное расстояние между колонками: 50px ($grid-gap-vertical)</p>
+                        <p>Переменные: styles/helpers/_variables.scss</p>
+                        <p>Блок: blocks/grid/</p>
+                    </div>
+                </div>
+                <div class="ui-kit__section-content">
+                    <div class="container">
+                        <div class="ui-kit__special" style="margin-bottom: 20px;">
+                            <div class="content-zone">
+                                <H4>Возможные варианты использования</H4>
+                                <p>+col(12) агалогично +col({ xl: 12 })</p>
+                                <p>+col({ xl: 8, lg: 6: md: 5, sm: 7, xs: 12 })</p>
+                                <p>
+                                    <span>Промежуточные брейкпоинты указывать не обязательно</span>
+                                    <br>
+                                    <span>При следующей записи - блок будет занимать 6 колонок на всех разрешениях, а на самом маленьком
+                                        <i>(xs)</i> 12</span>
+                                </p>
+                                <p>+col({ xl: 6, xs: 12 })</p>
+                            </div>
+                        </div>
+                        <div class="grid">
+                            <div class="grid__col grid__col_xl_1"></div>
+                            <div class="grid__col grid__col_xl_1"></div>
+                            <div class="grid__col grid__col_xl_1"></div>
+                            <div class="grid__col grid__col_xl_1"></div>
+                            <div class="grid__col grid__col_xl_1"></div>
+                            <div class="grid__col grid__col_xl_1"></div>
+                            <div class="grid__col grid__col_xl_1"></div>
+                            <div class="grid__col grid__col_xl_1"></div>
+                            <div class="grid__col grid__col_xl_1"></div>
+                            <div class="grid__col grid__col_xl_1"></div>
+                            <div class="grid__col grid__col_xl_1"></div>
+                            <div class="grid__col grid__col_xl_1"></div>
+                            <div class="grid__col grid__col_xl_4"></div>
+                            <div class="grid__col grid__col_xl_4"></div>
+                            <div class="grid__col grid__col_xl_4"></div>
+                            <div class="grid__col grid__col_xl_6"></div>
+                            <div class="grid__col grid__col_xl_6"></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="ui-kit__section">
+                <div class="ui-kit__section-head">
+                    <div class="container">
+                        <h2>Цвета сайта</h2>
+                        <p>Переменные находятся в файле styles/helpers/_variables.scss</p>
+                    </div>
+                </div>
+                <div class="ui-kit__section-content">
+                    <div class="container">
+                        <div class="ui-kit__elements-list">
+                            <div class="ui-kit__color ui-kit__color_bg_dark" style="background-color: #525a65">#525a65
+                                <br>$color-basic</div>
+                            <div class="ui-kit__color ui-kit__color_bg_dark" style="background-color: #86919e">#86919e
+                                <br>$color-basic-light</div>
+                            <div class="ui-kit__color ui-kit__color_bg_dark" style="background-color: #121615">#121615
+                                <br>$color-basic-dark</div>
+                            <div class="ui-kit__color ui-kit__color_bg_dark" style="background-color: #858c99">#858c99
+                                <br>$color-form-light</div>
+                            <div class="ui-kit__color ui-kit__color_bg_dark" style="background-color: #a0a7ab">#a0a7ab
+                                <br>$color-arrow</div>
+                            <div class="ui-kit__color ui-kit__color_bg_dark" style="background-color: #f2f6f6">#f2f6f6
+                                <br>$color-bg</div>
+                            <div class="ui-kit__color ui-kit__color_bg_dark" style="background-color: #151b25">#151b25
+                                <br>$color-grey-dark</div>
+                            <div class="ui-kit__color ui-kit__color_bg_dark" style="background-color: #2ee0c9">#2ee0c9
+                                <br>$color-text-green</div>
+                            <div class="ui-kit__color ui-kit__color_bg_dark" style="background-color: #0caecc">#0caecc
+                                <br>$color-gradient-one</div>
+                            <div class="ui-kit__color ui-kit__color_bg_dark" style="background-color: #30e3c9">#30e3c9
+                                <br>$color-gradient-two</div>
+                            <div class="ui-kit__color ui-kit__color_bg_dark" style="background-color: #ff9600">#ff9600
+                                <br>$color-yellow</div>
+                            <div class="ui-kit__color ui-kit__color_bg_dark" style="background-color: #eb4433">#eb4433
+                                <br>$color-red</div>
+                            <div class="ui-kit__color ui-kit__color_bg_dark" style="background-color: #1dd5f0">#1dd5f0
+                                <br>$color-blue</div>
+                            <div class="ui-kit__color ui-kit__color_bg_dark" style="background-color: #29f785">#29f785
+                                <br>$color-green</div>
+                            <div class="ui-kit__color ui-kit__color_bg_dark" style="background-color: #ffffff">#ffffff
+                                <br>$color-white</div>
+                            <div class="ui-kit__color ui-kit__color_bg_dark" style="background-color: #acb5c0">#acb5c0
+                                <br>$color-bc-light</div>
+                            <div class="ui-kit__color ui-kit__color_bg_dark" style="background-color: #303333">#303333
+                                <br>$color-bc-dark</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="ui-kit__section">
+                <div class="ui-kit__section-head">
+                    <div class="container">
+                        <h2>Градиенты</h2>
+                        <p>Цвета для градиентов находятся в файле styles/helpers/_variables.scss</p>
+                        <p>Сами градиенты в styles/helpers/_gradients.scss</p>
+                    </div>
+                </div>
+                <div class="ui-kit__section-content">
+                    <div class="container">
+                        <div class="ui-kit__elements-list">
+                            <div class="ui-kit__color ui-kit__color_bg_dark ui-kit__color_gradient_main" style="background: undefined">gradient-main</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="ui-kit__section">
+                <div class="ui-kit__section-head">
+                    <div class="container">
+                        <h2>Шрифты и контентная зона</h2>
+                        <p>Основной шрифт: ProximaNova ($font-main), font-weight: 400, 700, 300</p>
+                        <p>Переменные находятся в файле styles/helpers/_variables.scss</p>
+                        <p>Шрифты подключены в styles/helpers/_fonts.scss</p>
+                        <p>Контентная зона: blocks/content-zone</p>
+                        <p>Стили всех текстов лежат в файле styles/helpers/_text-styles.scss</p>
+                    </div>
+                </div>
+                <div class="ui-kit__section-content">
+                    <div class="container">
+                        <p class="ui-kit__description">.content-zone</p>
+                        <div class="ui-kit__special">
+                            <div class="content-zone">
+                                <h1>Заголовок H1 (heading-1)</h1>
+                                <h2>Заголовок H2 (heading-2)</h2>
+                                <h3>Заголовок H3 (heading-3)</h3>
+                                <h4>Заголовок H4 (heading-4)</h4>
+                                <h5>Заголовок H5 (heading-5)</h5>
+                                <h6>Заголовок H6 (heading-6)</h6>
+                                <p>Текст p (text)
+                                    <br> Цитата внутри текста p:
+                                    <q>Цитата q</q>
+                                </p>
+                                <p>
+                                    <small>Тег small внутри p (text-small)</small>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="ui-kit__section">
+                <div class="ui-kit__section-head">
+                    <div class="container">
+                        <h2>scrollform</h2>
+                        <p>Блок: components/header</p>
+                    </div>
+                </div>
+                <div class="ui-kit__section-content">
+                    <div class="container">
+                        <div class="grid">
+                            <div class="grid__col grid__col_xl_3"></div>
+                            <div class="grid__col grid__col_xl_3">
+                                <div class="scroll-form">
+                                    <h3 class="scroll-form__title">Reservation form</h3>
+                                    <select class="select form-select">
+                                        <option value="&lt;div class='option-top'&gt; &lt;span class='cube cube_yellow'&gt;&lt;/span&gt;dedicated desk&lt;/div&gt; &lt;div class='option-down'&gt; £300 per month &lt;/div&gt;"></option>
+                                        <option value="&lt;div class='option-top'&gt; &lt;span class='cube cube_red'&gt;&lt;/span&gt;hot desk&lt;/div&gt; &lt;div class='option-down'&gt; £300 per month &lt;/div&gt;"></option>
+                                        <option value="&lt;div class='option-top'&gt; &lt;span class='cube cube_red'&gt;&lt;/span&gt;dedicated desk&lt;/div&gt; &lt;div class='option-down'&gt; £300 per month &lt;/div&gt;"></option>
+                                        <option value="&lt;div class='option-top'&gt; &lt;span class='cube cube_blue'&gt;&lt;/span&gt;office space&lt;/div&gt; &lt;div class='option-down'&gt; £300 per month &lt;/div&gt;"></option>
+                                    </select>
+                                    <p class="scroll-form__text">Including VAT and Service Fee</p>
+                                    <div class="input-numberbox">
+                                        <span class="input-numberbox__text">amount:</span>
+                                        <input class="input input-numberbox__input js-numberbox-input" />
+                                        <span class="input-numberbox__button js-numberbox-minus"></span>
+                                        <span class="input-numberbox__button js-numberbox-plus"></span>
+                                    </div>
+                                    <a class="button">
+                                        <span class="button__text">Request Reservation</span>
+                                    </a>
+                                    <a class="button">
+                                        <span class="button__text">Arrange a Viewing</span>
+                                    </a>
+                                    <p class="scroll-form__text-min"> * Utility bills and other services are paid separately</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="ui-kit__section">
+                <div class="ui-kit__section-head">
+                    <div class="container">
+                        <h2>Кнопки</h2>
+                        <p>Блок: blocks/button</p>
+                    </div>
+                </div>
+                <div class="ui-kit__section-content">
+                    <div class="container">
+                        <div class="ui-kit__elements-list">
+                            <a class="button" href="#">
+                                <span class="button__text">.button</span>
+                            </a>
+                            <a class="button button_border" href="#">
+                                <span class="button__text">.button_border</span>
+                            </a>
+                            <a class="button button_border button_border_bg-white" href="#">
+                                <span class="button__text">.button_border._border_bg-white</span>
+                            </a>
+                            <button class="button" href="#" disabled="disabled">
+                                <span class="button__text">.button:disabled</span>
+                            </button>
+                        </div>
+                        <p class="ui-kit__description">При клике на .js-anchor происходит скролл к элементу из атрибута href. Блок: blocks/js-functions/anchor.js</p>
+                        <a class="button js-anchor" href="#section0">
+                            <span class="button__text">.js-anchor</span>
+                        </a>
+                        <p class="ui-kit__description">При клике на .js-freeze скролл страницы блокируется, на .js-unfreeze разблокируется. Блок: blocks/js-functions/freeze.js. Функции freeze() и unfreeze() можно импортировать и использовать в модалках, бургере или где-то еще</p>
+                        <div
+                            class="ui-kit__elements-list">
+                            <a class="button js-freeze" href="#">
+                                <span class="button__text">.js-freeze</span>
+                            </a>
+                            <a class="button js-unfreeze" href="#">
+                                <span class="button__text">.js-unfreeze</span>
+                            </a>
+                    </div>
+                </div>
+        </div>
+        </section>
+        <section class="ui-kit__section">
+            <div class="ui-kit__section-head">
+                <div class="container">
+                    <h2>Элементы форм</h2>
+                    <p>Блок: blocks/form-elements</p>
+                </div>
+            </div>
+            <div class="ui-kit__section-content">
+                <div class="container">
+                    <div class="grid">
+                        <div class="grid__col grid__col_xl_6">
+                            <p class="ui-kit__description">.input</p>
+                            <div class="inputbox">
+                                <input class="input" placeholder="Плейсхолдер" />
+                            </div>
+                        </div>
+                        <div class="grid__col grid__col_xl_6">
+                            <p class="ui-kit__description">.select.js-select</p>
+                            <div class="inputbox">
+                                <select class="select">
+                                    <option value="Опция 1">Опция 1</option>
+                                    <option value="Опция 2">Опция 2</option>
+                                    <option value="Опция 3">Опция 3</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="grid__col grid__col_xl_6">
+                            <p class="ui-kit__description">.js-datepicker
+                                <br> Параметры задаются через дата-атрибуты</p>
+                            <div class="inputbox">
+                                <input class="input js-datepicker" placeholder="Выберите дату" readonly="readonly" />
+                            </div>
+                        </div>
+                        <div class="grid__col grid__col_xl_6">
+                            <p class="ui-kit__description">Поле ввода номера телефона.
+                                <br> Маска определяется через атрибут data-type="tel"</p>
+                            <div class="inputbox">
+                                <input class="input" placeholder="+7 (___) ___-__-__" data-type="tel" />
+                            </div>
+                        </div>
+                        <div class="grid__col grid__col_xl_6">
+                            <p class="ui-kit__description">Поле ввода e-mail.
+                                <br> Маска определяется через атрибут data-type="email"</p>
+                            <div class="inputbox">
+                                <input class="input" placeholder="E-mail" data-type="email" />
+                            </div>
+                        </div>
+                        <div class="grid__col grid__col_xl_6">
+                            <p class="ui-kit__description">.js-number-input
+                                <br> Поле изменения количества</p>
+                            <div class="inputbox">
+                                <div class="input-numberbox">
+                                    <span class="input-numberbox__text">amount:</span>
+                                    <input class="input input-numberbox__input js-numberbox-input" placeholder="Количество товара" />
+                                    <span class="input-numberbox__button js-numberbox-minus"></span>
+                                    <span class="input-numberbox__button js-numberbox-plus"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="grid__col grid__col_xl_12">
+                            <textarea class="textarea" placeholder="Текстовое поле"></textarea>
+                        </div>
+                        <div class="grid__col grid__col_xl_6">
+                            <p class="ui-kit__description">.checkbox</p>
+                            <div class="inputbox">
+                                <label class="checkbox">
+                                    <input class="checkbox__input" name="ui-checkbox" value="test" checked="checked" type="checkbox" />
+                                    <span class="checkbox__box">
+                                        <svg class="checkbox__icon"><use xlink:href="assets/images/icon.svg#icon_check"></use></svg>
+                                    </span>
+                                    <span class="checkbox__content">Чекбокс</span>
+                                </label>
+                            </div>
+                            <p class="ui-kit__description">.checkbox._big</p>
+                            <div class="inputbox">
+                                <label class="checkbox checkbox_small">
+                                    <input class="checkbox__input" name="ui-checkbox" value="test" checked="checked" type="checkbox" />
+                                    <span class="checkbox__box">
+                                        <svg class="checkbox__icon"><use xlink:href="assets/images/icon.svg#icon_check"></use></svg>
+                                    </span>
+                                    <span class="checkbox__content">Чекбокс маленький</span>
+                                </label>
+                            </div>
+                            <p class="ui-kit__description">.checkbox._inverse</p>
+                            <div class="inputbox">
+                                <label class="checkbox checkbox_inverse">
+                                    <input class="checkbox__input" name="ui-checkbox" value="test" checked="checked" type="checkbox" />
+                                    <span class="checkbox__box">
+                                        <svg class="checkbox__icon"><use xlink:href="assets/images/icon.svg#icon_check"></use></svg>
+                                    </span>
+                                    <span class="checkbox__content">Чекбокс обратный</span>
+                                </label>
+                            </div>
+                            <p class="ui-kit__description">.checkbox:disabled или .checkbox.is-disabled</p>
+                            <div class="inputbox">
+                                <label class="checkbox is-disabled">
+                                    <input class="checkbox__input" name="ui-checkbox" value="test" checked="checked" type="checkbox" />
+                                    <span class="checkbox__box">
+                                        <svg class="checkbox__icon"><use xlink:href="assets/images/icon.svg#icon_check"></use></svg>
+                                    </span>
+                                    <span class="checkbox__content">Чекбокс отключеный</span>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="grid__col grid__col_xl_6">
+                            <p class="ui-kit__description">.checkradio</p>
+                            <div class="inputbox">
+                                <div class="ui-kit__elements-list">
+                                    <label class="checkradio">
+                                        <input class="checkradio__input" name="ui-radio" value="test" checked="checked" type="radio" />
+                                        <span class="checkradio__box"></span>
+                                        <span class="checkradio__content">Радиокнопка</span>
+                                    </label>
+                                    <label class="checkradio">
+                                        <input class="checkradio__input" name="ui-radio" value="test-2" type="radio" />
+                                        <span class="checkradio__box"></span>
+                                        <span class="checkradio__content">Радиокнопка</span>
+                                    </label>
+                                </div>
+                            </div>
+                            <p class="ui-kit__description">.checkradio._nobox</p>
+                            <div class="inputbox">
+                                <div class="ui-kit__elements-list">
+                                    <label class="checkradio checkradio_nobox">
+                                        <input class="checkradio__input" name="ui-radio2" value="test" checked="checked" type="radio" />
+                                        <span class="checkradio__box"></span>
+                                        <span class="checkradio__content">Радиокнопка</span>
+                                    </label>
+                                    <label class="checkradio checkradio_nobox">
+                                        <input class="checkradio__input" name="ui-radio2" value="test-2" type="radio" />
+                                        <span class="checkradio__box"></span>
+                                        <span class="checkradio__content">Радиокнопка</span>
+                                    </label>
+                                </div>
+                            </div>
+                            <p class="ui-kit__description">.checkradio:disabled или .checkradio.is-disabled</p>
+                            <div class="inputbox">
+                                <div class="ui-kit__elements-list">
+                                    <label class="checkradio is-disabled">
+                                        <input class="checkradio__input" name="ui-radio2" value="test" checked="checked" type="radio" />
+                                        <span class="checkradio__box"></span>
+                                        <span class="checkradio__content">Радиокнопка</span>
+                                    </label>
+                                    <label class="checkradio is-disabled">
+                                        <input class="checkradio__input" name="ui-radio2" value="test-2" type="radio" />
+                                        <span class="checkradio__box"></span>
+                                        <span class="checkradio__content">Радиокнопка</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="grid__col grid__col_xl_6">
+                            <p class="ui-kit__description">.range.js-range
+                                <br> Все параметры задаются дата-атрибутами</p>
+                            <div class="inputbox">
+                                <div class="range js-range" data-start="40" data-connect="[true, false]" data-min="0" data-max="100"></div>
+                            </div>
+                        </div>
+                        <div class="grid__col grid__col_xl_12">
+                            <p class="ui-kit__description">Селектбоксы</p>
+                            <div class="grid">
+                                <div class="grid__col grid__col_xl_3">
+                                    <p class="ui-kit__description">.js-select</p>
+                                    <select class="select js-select">
+                                        <option value="Опция 1">Опция 1</option>
+                                        <option value="Опция 2">Опция 2</option>
+                                        <option value="Опция 3">Опция 3</option>
+                                    </select>
+                                </div>
+                                <div class="grid__col grid__col_xl_3 is-dark">
+                                    <p class="ui-kit__description">.js-select-light</p>
+                                    <select class="select js-select-light">
+                                        <option value="placeholder" placeholder>Placeholder</option>
+                                        <option value="Опция 1">Опция 1</option>
+                                        <option value="Опция 2">Опция 2</option>
+                                        <option value="Опция 3">Опция 3</option>
+                                    </select>
+                                </div>
+                                <div class="grid__col grid__col_xl_3">
+                                    <p class="ui-kit__description">.js-select-dark</p>
+                                    <select class="select js-select-dark">
+                                        <option value="placeholder" placeholder>Placeholder</option>
+                                        <option value="Опция 1">Опция 1</option>
+                                        <option value="Опция 2">Опция 2</option>
+                                        <option value="Опция 3">Опция 3</option>
+                                    </select>
+                                </div>
+                                <div class="grid__col grid__col_xl_3 is-dark">
+                                    <p class="ui-kit__description">.js-select-color</p>
+                                    <select class="select js-select-color">
+                                        <option value="placeholder" placeholder>Placeholder</option>
+                                        <option value="Опция 1">Опция 1</option>
+                                        <option value="Опция 2">Опция 2</option>
+                                        <option value="Опция 3">Опция 3</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="grid__col grid__col_xl_12 is-dark">
+                            <p class="ui-kit__description">Цветные радиокнопки</p>
+                            <div class="grid">
+                                <div class="grid__col grid__col_xl_3">
+                                    <p class="ui-kit__description">.color-radio._orange</p>
+                                    <label class="color-radio color-radio_orange">
+                                        <input class="color-radio__input" name="test-color" value="1" type="radio" />
+                                        <span class="color-radio__content">Hot Desk</span>
+                                    </label>
+                                </div>
+                                <div class="grid__col grid__col_xl_3">
+                                    <p class="ui-kit__description">.color-radio._red</p>
+                                    <label class="color-radio color-radio_red">
+                                        <input class="color-radio__input" name="test-color" value="2" type="radio" />
+                                        <span class="color-radio__content">Dedicated Desk</span>
+                                    </label>
+                                </div>
+                                <div class="grid__col grid__col_xl_3">
+                                    <p class="ui-kit__description">.color-radio._blue</p>
+                                    <label class="color-radio color-radio_blue">
+                                        <input class="color-radio__input" name="test-color" value="3" type="radio" />
+                                        <span class="color-radio__content">Meeting Room</span>
+                                    </label>
+                                </div>
+                                <div class="grid__col grid__col_xl_3">
+                                    <p class="ui-kit__description">.color-radio._green</p>
+                                    <label class="color-radio color-radio_green">
+                                        <input class="color-radio__input" name="test-color" value="4" type="radio" />
+                                        <span class="color-radio__content">Office Space</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="grid__col grid__col_xl_12">
+                            <p class="ui-kit__description">Цветные радиокнопки темные</p>
+                            <div class="grid">
+                                <div class="grid__col grid__col_xl_3">
+                                    <p class="ui-kit__description">.color-radio._orange._dark</p>
+                                    <label class="color-radio color-radio_orange color-radio_dark">
+                                        <input class="color-radio__input" name="test-color" value="1" type="radio" />
+                                        <span class="color-radio__content">Hot Desk</span>
+                                    </label>
+                                </div>
+                                <div class="grid__col grid__col_xl_3">
+                                    <p class="ui-kit__description">.color-radio._red._dark</p>
+                                    <label class="color-radio color-radio_red color-radio_dark">
+                                        <input class="color-radio__input" name="test-color" value="2" type="radio" />
+                                        <span class="color-radio__content">Dedicated Desk</span>
+                                    </label>
+                                </div>
+                                <div class="grid__col grid__col_xl_3">
+                                    <p class="ui-kit__description">.color-radio._blue._dark</p>
+                                    <label class="color-radio color-radio_blue color-radio_dark">
+                                        <input class="color-radio__input" name="test-color" value="3" type="radio" />
+                                        <span class="color-radio__content">Meeting Room</span>
+                                    </label>
+                                </div>
+                                <div class="grid__col grid__col_xl_3">
+                                    <p class="ui-kit__description">.color-radio._green._dark</p>
+                                    <label class="color-radio color-radio_green color-radio_dark">
+                                        <input class="color-radio__input" name="test-color" value="4" type="radio" />
+                                        <span class="color-radio__content">Office Space</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="ui-kit__section">
+            <div class="ui-kit__section-head">
+                <div class="container">
+                    <h2>Табы</h2>
+                    <p>Блок: blocks/tabs</p>
+                </div>
+            </div>
+            <div class="ui-kit__section-content">
+                <div class="container">
+                    <ul class="tabs">
+                        <li class="tabs__tab tabs tabs_yellow active" data-tab-target="tab1">Информация</li>
+                        <li class="tabs__tab tabs tabs_red" data-tab-target="tab2">Информация</li>
+                        <li class="tabs__tab tabs tabs_blue" data-tab-target="tab3">Информация</li>
+                        <li class="tabs__tab tabs tabs_green" data-tab-target="tab3">Информация</li>
+                    </ul>
+                    <div class="tabs-content">
+                        <div class="tabs-content__wrapper active" data-tab="tab1" data-tab-group="testtabs">
+                            <p>Это таб 1</p>
+                        </div>
+                        <div class="tabs-content__wrapper" data-tab="tab2" data-tab-group="testtabs">
+                            <p>Это таб 2</p>
+                        </div>
+                        <div class="tabs-content__wrapper" data-tab="tab3" data-tab-group="testtabs">
+                            <p>Это таб 3</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="ui-kit__section">
+            <div class="ui-kit__section-head">
+                <div class="container">
+                    <h2>Попапы</h2>
+                    <p>Блок: blocks/popups</p>
+                </div>
+            </div>
+            <div class="ui-kit__section-content">
+                <div class="container">
+                    <p class="ui-kit__description">.js-fancybox</p>
+                    <a class="link js-fancybox" href="#testpopup">
+                        <span class="link__text">Открыть попап</span>
+                    </a>
+                    <p class="ui-kit__description">Верстка попапов:</p>
+                    <a class="link" onclick="$('.popups').toggle()">
+                        <span class="link__text">Показать попапы</span>
+                    </a>
+                    <div class="popups ui-kit__ui-popups">
+                        <div class="popup" id="testpopup">
+                            <div class="content-zone">
+                                <h2>Тестовый попап</h2>
+                                <p>С тестовым контентом</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="ui-kit__section">
+            <div class="ui-kit__section-head">
+                <div class="container">
+                    <h2>Ссылки</h2>
+                    <p>Блок: blocks/link</p>
+                    <p>Стили ссылок: helpers/_link-styles.scss</p>
+                </div>
+            </div>
+            <div class="ui-kit__section-content">
+                <div class="container">
+                    <p class="ui-kit__description">.link</p>
+                    <a class="link" href="#">
+                        <span class="link__text">Обычная ссылка</span>
+                    </a>
+                    <p class="ui-kit__description">.link._bordered</p>
+                    <a class="link link_bordered" href="#">
+                        <span class="link__text">Подчеркнутая ссылка</span>
+                    </a>
+                    <p class="ui-kit__description">.link._icon</p>
+                    <a class="link link_icon" href="#">
+                        <svg class="link__icon"><use xlink:href="assets/images/icon.svg#icon_refresh"></use></svg>
+                        <span class="link__text">Ссылка с иконкой</span>
+                    </a>
+                    <p class="ui-kit__description">.link.is-disabled</p>
+                    <a class="link is-disabled" href="#">
+                        <span class="link__text">Отключенная ссылка</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+        <section class="ui-kit__section">
+            <div class="ui-kit__section-head">
+                <div class="container">
+                    <h2>Кастомный скроллбары</h2>
+                    <p>Блок: blocks/scrollbar/scrollbar</p>
+                </div>
+            </div>
+            <div class="ui-kit__section-content">
+                <div class="container">
+                    <div class="grid">
+                        <div class="grid__col grid__col_xl_3">
+                            <p class="ui-kit__description">.js-scrollbar</p>
+                            <div class="ui-kit__scrolldemo js-scrollbar">
+                                <div class="ui-kit__scrolldemo-block"></div>
+                            </div>
+                        </div>
+                        <div class="grid__col grid__col_xl_3">
+                            <p class="ui-kit__description">.js-scrollbar-thin</p>
+                            <div class="ui-kit__scrolldemo js-scrollbar-thin">
+                                <div class="ui-kit__scrolldemo-block"></div>
+                            </div>
+                        </div>
+                        <div class="grid__col grid__col_xl_3">
+                            <p class="ui-kit__description">.js-scrollbar-dark</p>
+                            <div class="ui-kit__scrolldemo js-scrollbar-dark">
+                                <div class="ui-kit__scrolldemo-block"></div>
+                            </div>
+                        </div>
+                        <div class="grid__col grid__col_xl_3">
+                            <p class="ui-kit__description">.js-scrollbar-light</p>
+                            <div class="ui-kit__scrolldemo js-scrollbar-light">
+                                <div class="ui-kit__scrolldemo-block"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="ui-kit__section">
+            <div class="ui-kit__section-head">
+                <div class="container">
+                    <h2>Слайдеры</h2>
+                    <p>Блок: blocks/slider/slider</p>
+                </div>
+            </div>
+            <div class="ui-kit__section-content">
+                <div class="container">
+                    <p class="ui-kit__description">.js-slider-spaces</p>
+                    <br>
+                </div>
+            </div>
+            <div class="slider js-slider-spaces">
+                <div class="container">
+                    <div class="slider__container swiper-container js-slider-container">
+                        <div class="swiper-wrapper">
+                            <div class="slider__slide swiper-slide">
+                                <a class="space" href="#">
+                                    <div class="space__media" data-slider-buttons-orientir="data-slider-buttons-orientir">
+                                        <img class="space__image" src="assets/images/space1.jpg" alt="" role="presentation" />
+                                        <div class="button-heart js-heart space__heart">
+                                            <div class="button-heart__top">
+                                                <svg class="button-heart__icon button-heart__icon_empty"><use xlink:href="assets/images/icon.svg#icon_heart"></use></svg>
+                                            </div>
+                                            <div class="button-heart__bottom">
+                                                <svg class="button-heart__icon button-heart__icon_full"><use xlink:href="assets/images/icon.svg#icon_full-heart"></use></svg>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="space__describe">
+                                        <ul class="boxes space__boxes">
+                                            <li class="box box_small box_orange"></li>
+                                            <li class="box box_small box_red"></li>
+                                            <li class="box box_small box_blue"></li>
+                                            <li class="box box_small box_green"></li>
+                                        </ul>
+                                        <div class="space__title">TOG - Henry Wood House</div>
+                                        <div class="space__location">W1W, London</div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="slider__slide swiper-slide">
+                                <a class="space" href="#">
+                                    <div class="space__media" data-slider-buttons-orientir="data-slider-buttons-orientir">
+                                        <img class="space__image" src="assets/images/space2.jpg" alt="" role="presentation" />
+                                        <div class="button-heart js-heart space__heart">
+                                            <div class="button-heart__top">
+                                                <svg class="button-heart__icon button-heart__icon_empty"><use xlink:href="assets/images/icon.svg#icon_heart"></use></svg>
+                                            </div>
+                                            <div class="button-heart__bottom">
+                                                <svg class="button-heart__icon button-heart__icon_full"><use xlink:href="assets/images/icon.svg#icon_full-heart"></use></svg>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="space__describe">
+                                        <ul class="boxes space__boxes">
+                                            <li class="box box_small box_orange"></li>
+                                            <li class="box box_small box_red"></li>
+                                            <li class="box box_small box_blue"></li>
+                                        </ul>
+                                        <div class="space__title">Blooming Founders (Former Blooms London)</div>
+                                        <div class="space__location">EC2A, London</div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="slider__slide swiper-slide">
+                                <a class="space" href="#">
+                                    <div class="space__media" data-slider-buttons-orientir="data-slider-buttons-orientir">
+                                        <img class="space__image" src="assets/images/space3.jpg" alt="" role="presentation" />
+                                        <div class="button-heart js-heart space__heart">
+                                            <div class="button-heart__top">
+                                                <svg class="button-heart__icon button-heart__icon_empty"><use xlink:href="assets/images/icon.svg#icon_heart"></use></svg>
+                                            </div>
+                                            <div class="button-heart__bottom">
+                                                <svg class="button-heart__icon button-heart__icon_full"><use xlink:href="assets/images/icon.svg#icon_full-heart"></use></svg>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="space__describe">
+                                        <ul class="boxes space__boxes">
+                                            <li class="box box_small box_orange"></li>
+                                            <li class="box box_small box_red"></li>
+                                            <li class="box box_small box_blue"></li>
+                                        </ul>
+                                        <div class="space__title">Blooming Founders (Former Blooms London)</div>
+                                        <div class="space__location">EC2A, London</div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="slider__slide swiper-slide">
+                                <a class="space" href="#">
+                                    <div class="space__media" data-slider-buttons-orientir="data-slider-buttons-orientir">
+                                        <img class="space__image" src="assets/images/space4.jpg" alt="" role="presentation" />
+                                        <div class="button-heart js-heart space__heart">
+                                            <div class="button-heart__top">
+                                                <svg class="button-heart__icon button-heart__icon_empty"><use xlink:href="assets/images/icon.svg#icon_heart"></use></svg>
+                                            </div>
+                                            <div class="button-heart__bottom">
+                                                <svg class="button-heart__icon button-heart__icon_full"><use xlink:href="assets/images/icon.svg#icon_full-heart"></use></svg>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="space__describe">
+                                        <ul class="boxes space__boxes">
+                                            <li class="box box_small box_orange"></li>
+                                        </ul>
+                                        <div class="space__title">Blooming Founders (Former Blooms London)</div>
+                                        <div class="space__location">EC2A, London</div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="slider__slide swiper-slide">
+                                <a class="space" href="#">
+                                    <div class="space__media" data-slider-buttons-orientir="data-slider-buttons-orientir">
+                                        <img class="space__image" src="assets/images/space5.jpg" alt="" role="presentation" />
+                                        <div class="button-heart js-heart space__heart">
+                                            <div class="button-heart__top">
+                                                <svg class="button-heart__icon button-heart__icon_empty"><use xlink:href="assets/images/icon.svg#icon_heart"></use></svg>
+                                            </div>
+                                            <div class="button-heart__bottom">
+                                                <svg class="button-heart__icon button-heart__icon_full"><use xlink:href="assets/images/icon.svg#icon_full-heart"></use></svg>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="space__describe">
+                                        <ul class="boxes space__boxes">
+                                            <li class="box box_small box_orange"></li>
+                                            <li class="box box_small box_red"></li>
+                                            <li class="box box_small box_blue"></li>
+                                            <li class="box box_small box_green"></li>
+                                        </ul>
+                                        <div class="space__title">TOG - Henry Wood House</div>
+                                        <div class="space__location">W1W, London</div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="slider__slide swiper-slide">
+                                <a class="space" href="#">
+                                    <div class="space__media" data-slider-buttons-orientir="data-slider-buttons-orientir">
+                                        <img class="space__image" src="assets/images/space6.jpg" alt="" role="presentation" />
+                                        <div class="button-heart js-heart space__heart">
+                                            <div class="button-heart__top">
+                                                <svg class="button-heart__icon button-heart__icon_empty"><use xlink:href="assets/images/icon.svg#icon_heart"></use></svg>
+                                            </div>
+                                            <div class="button-heart__bottom">
+                                                <svg class="button-heart__icon button-heart__icon_full"><use xlink:href="assets/images/icon.svg#icon_full-heart"></use></svg>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="space__describe">
+                                        <ul class="boxes space__boxes">
+                                            <li class="box box_small box_orange"></li>
+                                            <li class="box box_small box_red"></li>
+                                            <li class="box box_small box_blue"></li>
+                                        </ul>
+                                        <div class="space__title">Great Eastern Street</div>
+                                        <div class="space__location">EC2A, London</div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="slider__slide swiper-slide">
+                                <a class="space" href="#">
+                                    <div class="space__media" data-slider-buttons-orientir="data-slider-buttons-orientir">
+                                        <img class="space__image" src="assets/images/space7.jpg" alt="" role="presentation" />
+                                        <div class="button-heart js-heart space__heart">
+                                            <div class="button-heart__top">
+                                                <svg class="button-heart__icon button-heart__icon_empty"><use xlink:href="assets/images/icon.svg#icon_heart"></use></svg>
+                                            </div>
+                                            <div class="button-heart__bottom">
+                                                <svg class="button-heart__icon button-heart__icon_full"><use xlink:href="assets/images/icon.svg#icon_full-heart"></use></svg>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="space__describe">
+                                        <ul class="boxes space__boxes">
+                                            <li class="box box_small box_orange"></li>
+                                            <li class="box box_small box_red"></li>
+                                            <li class="box box_small box_blue"></li>
+                                        </ul>
+                                        <div class="space__title">TOG - Henry Wood House</div>
+                                        <div class="space__location">EC2A, London</div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="slider__slide swiper-slide">
+                                <a class="space" href="#">
+                                    <div class="space__media" data-slider-buttons-orientir="data-slider-buttons-orientir">
+                                        <img class="space__image" src="assets/images/space8.jpg" alt="" role="presentation" />
+                                        <div class="button-heart js-heart space__heart">
+                                            <div class="button-heart__top">
+                                                <svg class="button-heart__icon button-heart__icon_empty"><use xlink:href="assets/images/icon.svg#icon_heart"></use></svg>
+                                            </div>
+                                            <div class="button-heart__bottom">
+                                                <svg class="button-heart__icon button-heart__icon_full"><use xlink:href="assets/images/icon.svg#icon_full-heart"></use></svg>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="space__describe">
+                                        <ul class="boxes space__boxes">
+                                            <li class="box box_small box_orange"></li>
+                                        </ul>
+                                        <div class="space__title">Mayfair - Oxford St. Corner Of Duke St</div>
+                                        <div class="space__location">EC2A, London</div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slider__buttons" data-slider-buttons="data-slider-buttons">
+                    <div class="slider__buttons-rooms slider__buttons-rooms_prev">
+                        <div class="slider__button slider__button_prev js-slider-button-prev">
+                            <svg class="slider__button-icon"><use xlink:href="assets/images/icon.svg#icon_slider-arrow"></use></svg>
+                        </div>
+                    </div>
+                    <div class="slider__buttons-divider"></div>
+                    <div class="slider__buttons-rooms slider__buttons-rooms_next">
+                        <div class="slider__button slider__button_next js-slider-button-next">
+                            <svg class="slider__button-icon"><use xlink:href="assets/images/icon.svg#icon_slider-arrow"></use></svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <div class="ui-kit__section-content">
+                <div class="container">
+                    <p class="ui-kit__description">.js-slider-rooms</p>
+                    <br>
+                </div>
+            </div>
+            <div class="slider js-slider-rooms">
+                <div class="container">
+                    <div class="slider__container swiper-container js-slider-container">
+                        <div class="swiper-wrapper">
+                            <div class="slider__slide swiper-slide">
+                                <a class="space" href="#">
+                                    <div class="space__media" data-slider-buttons-orientir="data-slider-buttons-orientir">
+                                        <img class="space__image" src="assets/images/room1.jpg" alt="" role="presentation" />
+                                        <div class="button-heart js-heart space__heart">
+                                            <div class="button-heart__top">
+                                                <svg class="button-heart__icon button-heart__icon_empty"><use xlink:href="assets/images/icon.svg#icon_heart"></use></svg>
+                                            </div>
+                                            <div class="button-heart__bottom">
+                                                <svg class="button-heart__icon button-heart__icon_full"><use xlink:href="assets/images/icon.svg#icon_full-heart"></use></svg>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="space__describe">
+                                        <div class="space__seats">18 seats</div>
+                                        <div class="space__title">TOG - Henry Wood House</div>
+                                        <div class="space__location">W1W, London</div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="slider__slide swiper-slide">
+                                <a class="space" href="#">
+                                    <div class="space__media" data-slider-buttons-orientir="data-slider-buttons-orientir">
+                                        <img class="space__image" src="assets/images/room2.jpg" alt="" role="presentation" />
+                                        <div class="button-heart js-heart space__heart">
+                                            <div class="button-heart__top">
+                                                <svg class="button-heart__icon button-heart__icon_empty"><use xlink:href="assets/images/icon.svg#icon_heart"></use></svg>
+                                            </div>
+                                            <div class="button-heart__bottom">
+                                                <svg class="button-heart__icon button-heart__icon_full"><use xlink:href="assets/images/icon.svg#icon_full-heart"></use></svg>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="space__describe">
+                                        <div class="space__seats">18 seats</div>
+                                        <div class="space__title">TOG - Henry Wood House</div>
+                                        <div class="space__location">W1W, London</div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="slider__slide swiper-slide">
+                                <a class="space" href="#">
+                                    <div class="space__media" data-slider-buttons-orientir="data-slider-buttons-orientir">
+                                        <img class="space__image" src="assets/images/room3.jpg" alt="" role="presentation" />
+                                        <div class="button-heart js-heart space__heart">
+                                            <div class="button-heart__top">
+                                                <svg class="button-heart__icon button-heart__icon_empty"><use xlink:href="assets/images/icon.svg#icon_heart"></use></svg>
+                                            </div>
+                                            <div class="button-heart__bottom">
+                                                <svg class="button-heart__icon button-heart__icon_full"><use xlink:href="assets/images/icon.svg#icon_full-heart"></use></svg>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="space__describe">
+                                        <div class="space__seats">18 seats</div>
+                                        <div class="space__title">TOG - Henry Wood House</div>
+                                        <div class="space__location">W1W, London</div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="slider__slide swiper-slide">
+                                <a class="space" href="#">
+                                    <div class="space__media" data-slider-buttons-orientir="data-slider-buttons-orientir">
+                                        <img class="space__image" src="assets/images/room1.jpg" alt="" role="presentation" />
+                                        <div class="button-heart js-heart space__heart">
+                                            <div class="button-heart__top">
+                                                <svg class="button-heart__icon button-heart__icon_empty"><use xlink:href="assets/images/icon.svg#icon_heart"></use></svg>
+                                            </div>
+                                            <div class="button-heart__bottom">
+                                                <svg class="button-heart__icon button-heart__icon_full"><use xlink:href="assets/images/icon.svg#icon_full-heart"></use></svg>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="space__describe">
+                                        <div class="space__seats">18 seats</div>
+                                        <div class="space__title">TOG - Henry Wood House</div>
+                                        <div class="space__location">W1W, London</div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="slider__slide swiper-slide">
+                                <a class="space" href="#">
+                                    <div class="space__media" data-slider-buttons-orientir="data-slider-buttons-orientir">
+                                        <img class="space__image" src="assets/images/room2.jpg" alt="" role="presentation" />
+                                        <div class="button-heart js-heart space__heart">
+                                            <div class="button-heart__top">
+                                                <svg class="button-heart__icon button-heart__icon_empty"><use xlink:href="assets/images/icon.svg#icon_heart"></use></svg>
+                                            </div>
+                                            <div class="button-heart__bottom">
+                                                <svg class="button-heart__icon button-heart__icon_full"><use xlink:href="assets/images/icon.svg#icon_full-heart"></use></svg>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="space__describe">
+                                        <div class="space__seats">18 seats</div>
+                                        <div class="space__title">TOG - Henry Wood House</div>
+                                        <div class="space__location">W1W, London</div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="slider__slide swiper-slide">
+                                <a class="space" href="#">
+                                    <div class="space__media" data-slider-buttons-orientir="data-slider-buttons-orientir">
+                                        <img class="space__image" src="assets/images/room3.jpg" alt="" role="presentation" />
+                                        <div class="button-heart js-heart space__heart">
+                                            <div class="button-heart__top">
+                                                <svg class="button-heart__icon button-heart__icon_empty"><use xlink:href="assets/images/icon.svg#icon_heart"></use></svg>
+                                            </div>
+                                            <div class="button-heart__bottom">
+                                                <svg class="button-heart__icon button-heart__icon_full"><use xlink:href="assets/images/icon.svg#icon_full-heart"></use></svg>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="space__describe">
+                                        <div class="space__seats">18 seats</div>
+                                        <div class="space__title">TOG - Henry Wood House</div>
+                                        <div class="space__location">W1W, London</div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slider__buttons" data-slider-buttons="data-slider-buttons">
+                    <div class="slider__buttons-rooms slider__buttons-rooms_prev">
+                        <div class="slider__button slider__button_prev js-slider-button-prev">
+                            <svg class="slider__button-icon"><use xlink:href="assets/images/icon.svg#icon_slider-arrow"></use></svg>
+                        </div>
+                    </div>
+                    <div class="slider__buttons-divider"></div>
+                    <div class="slider__buttons-rooms slider__buttons-rooms_next">
+                        <div class="slider__button slider__button_next js-slider-button-next">
+                            <svg class="slider__button-icon"><use xlink:href="assets/images/icon.svg#icon_slider-arrow"></use></svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <div class="ui-kit__section-content">
+                <div class="container">
+                    <p class="ui-kit__description">.js-slider-news</p>
+                    <br>
+                </div>
+            </div>
+            <div class="slider js-slider-news">
+                <div class="container">
+                    <div class="slider__container swiper-container js-slider-container">
+                        <div class="swiper-wrapper">
+                            <div class="slider__slide swiper-slide">
+                                <a class="news" href="#">
+                                    <div class="news__media" data-slider-buttons-orientir="data-slider-buttons-orientir">
+                                        <img class="news__image" src="assets/images/news1.jpg" alt="" role="presentation" />
+                                    </div>
+                                    <div class="news__describe">
+                                        <time class="news__date">September 9</time>
+                                        <div class="news__title">The perfect Workplace Do&nbsp;exist.&nbsp;5&nbsp;simple steps to&nbsp;make the office of&nbsp;your drem.</div>
+                                        <div class="news__info">For many employers, career success is&nbsp;desired. Establishing a&nbsp;profitable company, we&rsquo;re looking for the best candidates only, whose knowledge and experience can help to&nbsp;achieve career goals.</div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="slider__slide swiper-slide">
+                                <a class="news" href="#">
+                                    <div class="news__media" data-slider-buttons-orientir="data-slider-buttons-orientir">
+                                        <img class="news__image" src="assets/images/news2.jpg" alt="" role="presentation" />
+                                    </div>
+                                    <div class="news__describe">
+                                        <time class="news__date">September 8</time>
+                                        <div class="news__title">Pet Friendly workspaces. Do&nbsp;not leave your friend home alone!</div>
+                                        <div class="news__info">For many employers, career success is&nbsp;desired. Establishing a&nbsp;profitable company, we&rsquo;re looking for the best candidates only, whose knowledge and experience can help to&nbsp;achieve career goals.</div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="slider__slide swiper-slide">
+                                <a class="news" href="#">
+                                    <div class="news__media" data-slider-buttons-orientir="data-slider-buttons-orientir">
+                                        <img class="news__image" src="assets/images/news3.jpg" alt="" role="presentation" />
+                                    </div>
+                                    <div class="news__describe">
+                                        <time class="news__date">September 8</time>
+                                        <div class="news__title">10&nbsp;must have Furniture Trends of&nbsp;2018</div>
+                                        <div class="news__info">For many employers, career success is&nbsp;desired. Establishing a&nbsp;profitable company, we&rsquo;re looking for the best candidates only, whose knowledge and experience can help to&nbsp;achieve career goals.</div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="slider__slide swiper-slide">
+                                <a class="news" href="#">
+                                    <div class="news__media" data-slider-buttons-orientir="data-slider-buttons-orientir">
+                                        <img class="news__image" src="assets/images/news1.jpg" alt="" role="presentation" />
+                                    </div>
+                                    <div class="news__describe">
+                                        <time class="news__date">September 9</time>
+                                        <div class="news__title">The perfect Workplace Do&nbsp;exist.&nbsp;5&nbsp;simple steps to&nbsp;make the office of&nbsp;your drem.</div>
+                                        <div class="news__info">For many employers, career success is&nbsp;desired. Establishing a&nbsp;profitable company, we&rsquo;re looking for the best candidates only, whose knowledge and experience can help to&nbsp;achieve career goals.</div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slider__buttons" data-slider-buttons="data-slider-buttons">
+                    <div class="slider__buttons-rooms slider__buttons-rooms_prev">
+                        <div class="slider__button slider__button_prev js-slider-button-prev">
+                            <svg class="slider__button-icon"><use xlink:href="assets/images/icon.svg#icon_slider-arrow"></use></svg>
+                        </div>
+                    </div>
+                    <div class="slider__buttons-divider"></div>
+                    <div class="slider__buttons-rooms slider__buttons-rooms_next">
+                        <div class="slider__button slider__button_next js-slider-button-next">
+                            <svg class="slider__button-icon"><use xlink:href="assets/images/icon.svg#icon_slider-arrow"></use></svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="ui-kit__section">
+            <div class="ui-kit__section-head">
+                <div class="container">
+                    <h2>Подсказки</h2>
+                    <p>Блок: blocks/tooltip/tooltip</p>
+                </div>
+            </div>
+            <div class="ui-kit__section-content">
+                <div class="container">
+                    <p class="ui-kit__description">.js-tooltip</p>
+                    <a class="button js-tooltip" href="#" title="Пример подсказки">
+                        <span class="button__text">Пример подсказки</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+        <section class="ui-kit__section">
+            <div class="ui-kit__section-head">
+                <div class="container">
+                    <h2>Карты</h2>
+                    <p>Блок: blocks/map/map</p>
+                </div>
+            </div>
+            <div class="ui-kit__section-content">
+                <div class="container">
+                    <p class="ui-kit__description">.map#map</p>
+                    <div class="map" id="map"></div>
+                </div>
+            </div>
+            <div class="ui-kit__section-content">
+                <div class="container">
+                    <p class="ui-kit__description">.map._big#mapTwo</p>
+                    <div class="map map_big" id="mapTwo"></div>
+                </div>
+            </div>
+        </section>
+        <section class="ui-kit__section">
+            <div class="ui-kit__section-head">
+                <div class="container">
+                    <h2>Анимации при скролле</h2>
+                    <p>Блок: blocks/js-functions/scrollanimation</p>
+                </div>
+            </div>
+            <div class="ui-kit__section-content">
+                <div class="container">
+                    <p class="ui-kit__description">.js-sr — общий класс для анимируемых элементов</p>
+                    <div class="content-zone">
+                        <h3 class="js-sr js-sr_1">.js-sr_1</h3>
+                        <h4 class="js-sr js-sr_2">.js-sr_2</h4>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="ui-kit__section">
+            <div class="ui-kit__section-head">
+                <div class="container">
+                    <h2>Хлебные крошки</h2>
+                    <p>Блок: blocks/breadcrumbs/breadcrumbs</p>
+                </div>
+            </div>
+            <div class="ui-kit__section-content">
+                <div class="container">
+                    <ul class="breadcrumbs">
+                        <li class="breadcrumbs__item">
+                            <a class="link" href="#">
+                                <span class="link__text">London</span>
+                            </a>
+                        </li>
+                        <li class="breadcrumbs__item">
+                            <a class="link" href="#">
+                                <span class="link__text">Kensington</span>
+                            </a>
+                        </li>
+                        <li class="breadcrumbs__item">
+                            <a class="link" href="#">
+                                <span class="link__text">Boutique Workplace - 1 Neal Street</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        <section class="ui-kit__section">
+            <div class="ui-kit__section-head">
+                <div class="container">
+                    <h2>Рейтинг</h2>
+                    <p>Блок: blocks/rating/rating</p>
+                </div>
+            </div>
+            <div class="ui-kit__section-content">
+                <div class="container">
+                    <p class="ui-kit__description">Интерактивный</p>
+                    <div class="rating rating_interactive">
+                        <label class="rating__box">
+                            <input class="rating__control js-rating-control" type="radio" name="name" value="4" />
+                            <svg class="rating__icon"><use xlink:href="assets/images/icon.svg#icon_star"></use></svg>
+                        </label>
+                        <label class="rating__box">
+                            <input class="rating__control js-rating-control" type="radio" name="name" value="3" />
+                            <svg class="rating__icon"><use xlink:href="assets/images/icon.svg#icon_star"></use></svg>
+                        </label>
+                        <label class="rating__box">
+                            <input class="rating__control js-rating-control" type="radio" name="name" value="2" />
+                            <svg class="rating__icon"><use xlink:href="assets/images/icon.svg#icon_star"></use></svg>
+                        </label>
+                        <label class="rating__box">
+                            <input class="rating__control js-rating-control" type="radio" name="name" value="1" />
+                            <svg class="rating__icon"><use xlink:href="assets/images/icon.svg#icon_star"></use></svg>
+                        </label>
+                        <label class="rating__box">
+                            <input class="rating__control js-rating-control" type="radio" name="name" value="0" />
+                            <svg class="rating__icon"><use xlink:href="assets/images/icon.svg#icon_star"></use></svg>
+                        </label>
+                    </div>
+                    <p class="ui-kit__description">Статичный</p>
+                    <div class="rating">
+                        <div class="rating__box">
+                            <svg class="rating__icon"><use xlink:href="assets/images/icon.svg#icon_star"></use></svg>
+                        </div>
+                        <div class="rating__box">
+                            <svg class="rating__icon"><use xlink:href="assets/images/icon.svg#icon_star"></use></svg>
+                        </div>
+                        <div class="rating__box is-active">
+                            <svg class="rating__icon"><use xlink:href="assets/images/icon.svg#icon_star"></use></svg>
+                        </div>
+                        <div class="rating__box">
+                            <svg class="rating__icon"><use xlink:href="assets/images/icon.svg#icon_star"></use></svg>
+                        </div>
+                        <div class="rating__box">
+                            <svg class="rating__icon"><use xlink:href="assets/images/icon.svg#icon_star"></use></svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="ui-kit__section">
+            <div class="ui-kit__section-head">
+                <div class="container">
+                    <h2>Аккордион</h2>
+                    <p>Блок: blocks/accordion/accordion</p>
+                </div>
+            </div>
+            <div class="ui-kit__section-content">
+                <div class="container">
+                    <p class="ui-kit__description">Multiple true</p>
+                    <div class="accordions" data-accordion-multiple="false">
+                        <div class="accordion is-active">
+                            <div class="accordion__header">
+                                <div class="accordion__button js-accordion-button">+</div>
+                            </div>
+                            <div class="accordion__body">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Obcaecati aliquam perferendis velit ex numquam, consequatur doloribus magnam accusantium expedita eveniet, quisquam voluptate quos maiores impedit quibusdam. Quod sit
+                                molestias sapiente.</div>
+                        </div>
+                        <div class="accordion">
+                            <div class="accordion__header">
+                                <div class="accordion__button js-accordion-button">+</div>
+                            </div>
+                            <div class="accordion__body">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Obcaecati aliquam perferendis velit ex numquam, consequatur doloribus magnam accusantium expedita eveniet, quisquam voluptate quos maiores impedit quibusdam. Quod sit
+                                molestias sapiente.</div>
+                        </div>
+                    </div>
+                    <p class="ui-kit__description">Multiple false</p>
+                    <div class="accordions" data-accordion-multiple="false">
+                        <div class="accordion is-active">
+                            <div class="accordion__header">
+                                <div class="accordion__button js-accordion-button">+</div>
+                            </div>
+                            <div class="accordion__body">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Obcaecati aliquam perferendis velit ex numquam, consequatur doloribus magnam accusantium expedita eveniet, quisquam voluptate quos maiores impedit quibusdam. Quod sit
+                                molestias sapiente.</div>
+                        </div>
+                        <div class="accordion">
+                            <div class="accordion__header">
+                                <div class="accordion__button js-accordion-button">+</div>
+                            </div>
+                            <div class="accordion__body">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Obcaecati aliquam perferendis velit ex numquam, consequatur doloribus magnam accusantium expedita eveniet, quisquam voluptate quos maiores impedit quibusdam. Quod sit
+                                molestias sapiente.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="ui-kit__section">
+            <div class="ui-kit__section-head">
+                <div class="container">
+                    <h2>Dropdown</h2>
+                    <p>Блок: blocks/dropdown/dropdown</p>
+                </div>
+            </div>
+            <div class="ui-kit__section-content">
+                <div class="container">
+                    <p class="ui-kit__description">Для использования, нужно "кнопке" добавить класс .js-dropdown-toggle</p>
+                    <div style="display: inline-block; position: relative; margin-bottom: 24px;">
+                        <a class="button js-dropdown-toggle">
+                            <span class="button__text">top</span>
+                        </a>
+                        <div class="js-dropdown dropdown dropdown_position_top">content</div>
+                    </div>
+                    <div style="display: inline-block; position: relative; margin-bottom: 24px;">
+                        <a class="button js-dropdown-toggle">
+                            <span class="button__text">bottom</span>
+                        </a>
+                        <div class="js-dropdown dropdown">content</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="ui-kit__section">
+            <div class="ui-kit__section-head">
+                <div class="container">
+                    <h2>Перемещение блока по слотам</h2>
+                    <p>Блок: blocks/put-block-into-slot/put-block-into-slot</p>
+                </div>
+            </div>
+            <div class="ui-kit__section-content">
+                <div class="container">
+                    <p class="ui-kit__description">При смене брейкпоинта app/scripts/globalOptions.js блоки будут перемещены в соответствующий слот</p>
+                    <div class="grid">
+                        <div class="grid__col grid__col_xl_12">
+                            <p style="font-size: 12px; color: #999;">+put-block-into-slot('slotId', 'xl')</p>
+                            <div data-slot-id="slotId" data-slot-res="xl">
+                                <div data-target-slot="slotId">
+                                    <div style="width: 100%; padding: 15px; margin-top: 15px; border: 1px black dashed; text-align: center;">Этот блок будет перемещаться в зависимости от брейпоинта</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="grid__col grid__col_xl_3">
+                            <p style="font-size: 12px; color: #999;">+put-block-into-slot('slotId', 'lg')</p>
+                            <div data-slot-id="slotId" data-slot-res="lg"></div>
+                        </div>
+                        <div class="grid__col grid__col_xl_3">
+                            <p style="font-size: 12px; color: #999;">+put-block-into-slot('slotId', 'md')</p>
+                            <div data-slot-id="slotId" data-slot-res="md"></div>
+                        </div>
+                        <div class="grid__col grid__col_xl_3">
+                            <p style="font-size: 12px; color: #999;">+put-block-into-slot('slotId', 'sm')</p>
+                            <div data-slot-id="slotId" data-slot-res="sm"></div>
+                        </div>
+                        <div class="grid__col grid__col_xl_3">
+                            <p style="font-size: 12px; color: #999;">+put-block-into-slot('slotId', 'xs')</p>
+                            <div data-slot-id="slotId" data-slot-res="xs"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="ui-kit__section">
+            <div class="ui-kit__section-head">
+                <div class="container">
+                    <h2>Аватар</h2>
+                    <p>Блок: blocks/avatar</p>
+                </div>
+            </div>
+            <div class="ui-kit__section-content">
+                <div class="container">
+                    <p class="ui-kit__description">.avatar</p>
+                    <div class="avatar">
+                        <img class="avatar__image" src="assets/images/ava.jpg" alt="" role="presentation" />
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="ui-kit__section">
+            <div class="ui-kit__section-head">
+                <div class="container">
+                    <h2>Профиль в хэдере</h2>
+                    <p>Блок: blocks/short-profile</p>
+                </div>
+            </div>
+            <div class="ui-kit__section-content">
+                <div class="container">
+                    <p class="ui-kit__description">.short-provile</p>
+                    <a class="short-profile">
+                        <span class="avatar short-profile__avatar">
+                            <img class="avatar__image" src="assets/images/ava.jpg" alt="" role="presentation" />
+                        </span>
+                        <span class="short-profile__name">Spencer Macenthire</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+        <section class="ui-kit__section">
+            <div class="ui-kit__section-head">
+                <div class="container">
+                    <h2>Ссылка в профиле в хэдере</h2>
+                    <p>Блок: blocks/user-link</p>
+                </div>
+            </div>
+            <div class="ui-kit__section-content">
+                <div class="container">
+                    <p class="ui-kit__description">.user-link</p>
+                    <a class="user-link">
+                        <svg class="user-link__icon user-link__icon_message"><use xlink:href="assets/images/icon.svg#icon_message"></use></svg>
+                        <span class="user-link__marker"></span>
+                    </a>
+                    <p class="ui-kit__description">.user-link.is-new - с активным маркером</p>
+                    <a class="user-link is-new">
+                        <svg class="user-link__icon user-link__icon_message"><use xlink:href="assets/images/icon.svg#icon_message"></use></svg>
+                        <span class="user-link__marker"></span>
+                    </a>
+                </div>
+            </div>
+        </section>
+        <section class="ui-kit__section">
+            <div class="ui-kit__section-head">
+                <div class="container">
+                    <h2>Социальные сети</h2>
+                    <p>Блок: blocks/socials и Блок blocks/social</p>
+                </div>
+            </div>
+            <div class="ui-kit__section-content">
+                <div class="container">
+                    <p class="ui-kit__description">.social - ссылка на соцсеть</p>
+                    <a class="social social_fb" target="_blank" href="#" title="facebook">
+                        <svg class="social__icon"><use xlink:href="assets/images/icon.svg#icon_sc-fb"></use></svg>
+                    </a>
+                    <p class="ui-kit__description">.social._big - увеличенная ссылка на соцсеть</p>
+                    <a class="social social_big social_fb" target="_blank" href="#" title="facebook">
+                        <svg class="social__icon"><use xlink:href="assets/images/icon.svg#icon_sc-fb"></use></svg>
+                    </a>
+                    <p class="ui-kit__description">.socials</p>
+                    <ul class="socials">
+                        <li class="socials__item">
+                            <a class="social social_fb" target="_blank" href="#" title="facebook">
+                                <svg class="social__icon"><use xlink:href="assets/images/icon.svg#icon_sc-fb"></use></svg>
+                            </a>
+                        </li>
+                        <li class="socials__item">
+                            <a class="social social_ln" target="_blank" href="#" title="linkedIn">
+                                <svg class="social__icon"><use xlink:href="assets/images/icon.svg#icon_sc-ln"></use></svg>
+                            </a>
+                        </li>
+                        <li class="socials__item">
+                            <a class="social social_tw" target="_blank" href="#" title="twitter">
+                                <svg class="social__icon"><use xlink:href="assets/images/icon.svg#icon_sc-tw"></use></svg>
+                            </a>
+                        </li>
+                        <li class="socials__item">
+                            <a class="social social_inst" target="_blank" href="#" title="instagram">
+                                <svg class="social__icon"><use xlink:href="assets/images/icon.svg#icon_sc-inst"></use></svg>
+                            </a>
+                        </li>
+                    </ul>
+                    <p class="ui-kit__description">.socials._big</p>
+                    <ul class="socials socials_big">
+                        <li class="socials__item">
+                            <a class="social social_big social_fb" target="_blank" href="#" title="facebook">
+                                <svg class="social__icon"><use xlink:href="assets/images/icon.svg#icon_sc-fb"></use></svg>
+                            </a>
+                        </li>
+                        <li class="socials__item">
+                            <a class="social social_big social_ln" target="_blank" href="#" title="linkedIn">
+                                <svg class="social__icon"><use xlink:href="assets/images/icon.svg#icon_sc-ln"></use></svg>
+                            </a>
+                        </li>
+                        <li class="socials__item">
+                            <a class="social social_big social_tw" target="_blank" href="#" title="twitter">
+                                <svg class="social__icon"><use xlink:href="assets/images/icon.svg#icon_sc-tw"></use></svg>
+                            </a>
+                        </li>
+                        <li class="socials__item">
+                            <a class="social social_big social_inst" target="_blank" href="#" title="instagram">
+                                <svg class="social__icon"><use xlink:href="assets/images/icon.svg#icon_sc-inst"></use></svg>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        <section class="ui-kit__section">
+            <div class="ui-kit__section-head">
+                <div class="container">
+                    <h2>Кнопка закрыть</h2>
+                    <p>Блок: blocks/close</p>
+                </div>
+            </div>
+            <div class="ui-kit__section-content">
+                <div class="container">
+                    <p class="ui-kit__description">.close</p>
+                    <div class="close">
+                        <span class="close__base"></span>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="ui-kit__section">
+            <div class="ui-kit__section-head">
+                <div class="container">
+                    <h2>Список в навигации</h2>
+                    <p>Блок: blocks/nav-list</p>
+                </div>
+            </div>
+            <div class="ui-kit__section-content">
+                <div class="container">
+                    <p class="ui-kit__description">.nav-list</p>
+                    <div class="nav-list">
+                        <ul>
+                            <li class="nav-list__item">
+                                <a class="link" href="#">
+                                    <span class="link__text">About the project</span>
+                                </a>
+                            </li>
+                            <li class="nav-list__item">
+                                <a class="link" href="#">
+                                    <span class="link__text">Become a host</span>
+                                </a>
+                            </li>
+                            <li class="nav-list__item">
+                                <a class="link" href="#">
+                                    <span class="link__text">Help &amp; Support</span>
+                                </a>
+                            </li>
+                            <li class="nav-list__item">
+                                <a class="link" href="#">
+                                    <span class="link__text">News</span>
+                                </a>
+                            </li>
+                            <li class="nav-list__item">
+                                <a class="link" href="#">
+                                    <span class="link__text">Terms and Policies</span>
+                                </a>
+                            </li>
+                            <li class="nav-list__item">
+                                <a class="link" href="#">
+                                    <span class="link__text">Contacts</span>
+                                </a>
+                            </li>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="ui-kit__section">
+            <div class="ui-kit__section-head">
+                <div class="container">
+                    <h2>Разделительная полоса</h2>
+                    <p>Блок: blocks/divider</p>
+                </div>
+            </div>
+            <div class="ui-kit__section-content">
+                <div class="container">
+                    <p class="ui-kit__description">.divider</p>
+                    <hr class="divider" />
+                </div>
+            </div>
+        </section>
+        <section class="ui-kit__section">
+            <div class="ui-kit__section-head">
+                <div class="container">
+                    <h2>Секции</h2>
+                    <p>Блок: blocks/section</p>
+                </div>
+            </div>
+            <div class="ui-kit__section-content">
+                <div class="container">
+                    <p class="ui-kit__description">.section_bg._promo</p>
+                </div>
+            </div>
+        </section>
+        <section class="section section_bg section_promo">
+            <div class="container">
+                <div class="section__wrapper">
+                    <div class="section__bg">
+                        <img class="section__bg-image" src="assets/images/section-bg.jpg" alt="" role="presentation" />
+                    </div>
+                    <div class="section__content">
+                        <div class="section__header">
+                            <h2 class="section__title section__title_big">Thousands of&nbsp;professionals prefer to&nbsp;search for perfect workplace on&nbsp;Space Pool</h2>
+                            <a class="button" href="#">
+                                <span class="button__text">Find out why</span>
+                            </a>
+                        </div>
+                        <div class="section__footer">
+                            <div class="section__note section__note_mb15">Today Space Pool is&nbsp;about searching for greatest and most amazing workplaces around London. It&rsquo;s like visiting hundreds of&nbsp;places whithout even leaving your room.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="ui-kit__section">
+            <div class="ui-kit__section-content">
+                <div class="container">
+                    <p class="ui-kit__description">.section_bg._lead</p>
+                </div>
+            </div>
+        </section>
+        <section class="section section_bg section_lead">
+            <div class="container">
+                <div class="section__wrapper">
+                    <div class="section__bg">
+                        <img class="section__bg-image" src="assets/images/main-lead.jpg" alt="" role="presentation" />
+                    </div>
+                    <div class="section__content">
+                        <div class="section__header">
+                            <div class="section__lead section__lead_left">
+                                <h2 class="section__title section__title_big">The place where you can find your dream workspace.</h2>
+                            </div>
+                            <div class="section__lead section__lead_right">Additional Content</div>
+                        </div>
+                        <div class="section__footer">
+                            <div class="section__note">Between 2&nbsp;960&nbsp;offices, 380 conversation rooms and over 15&nbsp;000 free co-working desks</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="ui-kit__section">
+            <div class="ui-kit__section-head">
+                <div class="container">
+                    <h2>Маркеры помещений (цветные квадраты)</h2>
+                    <p>Блок: blocks/boxes</p>
+                </div>
+            </div>
+            <div class="ui-kit__section-content">
+                <div class="container">
+                    <p class="ui-kit__description">.box (по дефолту .box - бесцветный, поэтому для демонстраци окрашен)
+                        <span class="box box_orange"></span>
+                    </p>
+                    <p class="ui-kit__description">.box._small
+                        <span class="box box_orange box_small"></span>
+                    </p>
+                    <p class="ui-kit__description">.box._smaller
+                        <span class="box box_orange box_smaller"></span>
+                    </p>
+                    <p class="ui-kit__description">.box._big
+                        <span class="box box_orange box_big"></span>
+                    </p>
+                    <p class="ui-kit__description">.box._orange
+                        <span class="box box_orange"></span>
+                    </p>
+                    <p class="ui-kit__description">.box._red
+                        <span class="box box_red"></span>
+                    </p>
+                    <p class="ui-kit__description">.box._blue
+                        <span class="box box_blue"></span>
+                    </p>
+                    <p class="ui-kit__description">.box._green
+                        <span class="box box_green"></span>
+                    </p>
+                    <p class="ui-kit__description">.boxes</p>
+                    <ul class="boxes">
+                        <li class="box box_orange"></li>
+                        <li class="box box_red"></li>
+                        <li class="box box_blue"></li>
+                        <li class="box box_green"></li>
+                    </ul>
+                    <p class="ui-kit__description">.boxes._big</p>
+                    <ul class="boxes boxes_big">
+                        <li class="box box_big box_orange"></li>
+                        <li class="box box_big box_red"></li>
+                        <li class="box box_big box_blue"></li>
+                        <li class="box box_big box_green"></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        <section class="ui-kit__section">
+            <div class="ui-kit__section-head">
+                <div class="container">
+                    <h2>Кнопка сердечко</h2>
+                    <p>Блок: blocks/button-heart</p>
+                </div>
+            </div>
+            <div class="ui-kit__section-content">
+                <div class="container">
+                    <p class="ui-kit__description">.button-heart</p>
+                    <div class="button-heart">
+                        <div class="button-heart__top">
+                            <svg class="button-heart__icon button-heart__icon_empty"><use xlink:href="assets/images/icon.svg#icon_heart"></use></svg>
+                        </div>
+                        <div class="button-heart__bottom">
+                            <svg class="button-heart__icon button-heart__icon_full"><use xlink:href="assets/images/icon.svg#icon_full-heart"></use></svg>
+                        </div>
+                    </div>
+                    <p class="ui-kit__description">.button-heart.is-active - активное состояние</p>
+                    <div class="button-heart is-active">
+                        <div class="button-heart__top">
+                            <svg class="button-heart__icon button-heart__icon_empty"><use xlink:href="assets/images/icon.svg#icon_heart"></use></svg>
+                        </div>
+                        <div class="button-heart__bottom">
+                            <svg class="button-heart__icon button-heart__icon_full"><use xlink:href="assets/images/icon.svg#icon_full-heart"></use></svg>
+                        </div>
+                    </div>
+                    <p class="ui-kit__description">.button-heart.js-heart - переключает состояние</p>
+                    <div class="button-heart js-heart">
+                        <div class="button-heart__top">
+                            <svg class="button-heart__icon button-heart__icon_empty"><use xlink:href="assets/images/icon.svg#icon_heart"></use></svg>
+                        </div>
+                        <div class="button-heart__bottom">
+                            <svg class="button-heart__icon button-heart__icon_full"><use xlink:href="assets/images/icon.svg#icon_full-heart"></use></svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="ui-kit__section">
+            <div class="ui-kit__section-head">
+                <div class="container">
+                    <h2>Spaces</h2>
+                    <p>Блок: blocks/space</p>
+                </div>
+            </div>
+            <div class="ui-kit__section-content">
+                <div class="container">
+                    <p class="ui-kit__description">.space</p>
+                    <div class="grid">
+                        <div class="grid__col grid__col_xl_3">
+                            <a class="space">
+                                <div class="space__media" data-slider-buttons-orientir="data-slider-buttons-orientir">
+                                    <img class="space__image" src="assets/images/space1.jpg" alt="" role="presentation" />
+                                    <div class="button-heart js-heart space__heart">
+                                        <div class="button-heart__top">
+                                            <svg class="button-heart__icon button-heart__icon_empty"><use xlink:href="assets/images/icon.svg#icon_heart"></use></svg>
+                                        </div>
+                                        <div class="button-heart__bottom">
+                                            <svg class="button-heart__icon button-heart__icon_full"><use xlink:href="assets/images/icon.svg#icon_full-heart"></use></svg>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="space__describe">
+                                    <ul class="boxes space__boxes">
+                                        <li class="box box_small box_orange"></li>
+                                        <li class="box box_small box_red"></li>
+                                        <li class="box box_small box_blue"></li>
+                                        <li class="box box_small box_green"></li>
+                                    </ul>
+                                    <div class="space__title">TOG - Henry Wood House</div>
+                                    <div class="space__location">W1W, London</div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="grid__col grid__col_xl_3">
+                            <a class="space">
+                                <div class="space__media" data-slider-buttons-orientir="data-slider-buttons-orientir">
+                                    <img class="space__image" src="assets/images/room1.jpg" alt="" role="presentation" />
+                                    <div class="button-heart js-heart space__heart">
+                                        <div class="button-heart__top">
+                                            <svg class="button-heart__icon button-heart__icon_empty"><use xlink:href="assets/images/icon.svg#icon_heart"></use></svg>
+                                        </div>
+                                        <div class="button-heart__bottom">
+                                            <svg class="button-heart__icon button-heart__icon_full"><use xlink:href="assets/images/icon.svg#icon_full-heart"></use></svg>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="space__describe">
+                                    <div class="space__seats">18 seats</div>
+                                    <div class="space__title">TOG - Henry Wood House</div>
+                                    <div class="space__location">W1W, London</div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="ui-kit__section">
+            <div class="ui-kit__section-head">
+                <div class="container">
+                    <h2>Filter for location on mobile</h2>
+                    <p>Блок: blocks/compact-filter</p>
+                </div>
+            </div>
+            <div class="ui-kit__section-content">
+                <div class="container">
+                    <p class="ui-kit__description">.compact-filter</p>
+                    <div class="grid">
+                        <div class="grid__col grid__col_xl_3">
+                            <div class="compact-filter" style="width: 282px;">
+                                <div class="compact-filter__top">
+                                    <div class="compact-filter__head js-filter-open">
+                                        <div class="compact-filter__title">
+                                            <div class="compact-filter__text">Filter</div>
+                                        </div>
+                                        <div class="compact-filter__count" data-filter-count="data-filter-count">1</div>
+                                        <div class="compact-filter__toggle">
+                                            <svg class="compact-filter__icon"><use xlink:href="assets/images/icon.svg#icon_select-arrow"></use></svg>
+                                        </div>
+                                    </div>
+                                    <button class="filter-reset filter-reset_short compact-filter__reset js-reset-dialog-open" type="reset">
+                                        <div class="filter-reset__image">
+                                            <svg class="filter-reset__icon"><use xlink:href="assets/images/icon.svg#icon_round-cross"></use></svg>
+                                        </div>
+                                    </button>
+                                </div>
+                                <form class="compact-filter__bottom">
+                                    <div class="filter-name compact-filter__name is-active is-disabled js-filter-list-open" data-target-filter-list="city">
+                                        <div class="filter-name__placeholder" data-filter-placeholder="data-filter-placeholder">City</div>
+                                        <div class="filter-name__title" data-filter-name="data-filter-name">London</div>
+                                        <div class="filter-name__toggle">
+                                            <svg class="filter-name__icon"><use xlink:href="assets/images/icon.svg#icon_select-arrow"></use></svg>
+                                        </div>
+                                    </div>
+                                    <div class="filter-name compact-filter__name js-filter-list-open" data-target-filter-list="area">
+                                        <div class="filter-name__placeholder" data-filter-placeholder="data-filter-placeholder">Area</div>
+                                        <div class="filter-name__title" data-filter-name="data-filter-name">Area</div>
+                                        <div class="filter-name__toggle">
+                                            <svg class="filter-name__icon"><use xlink:href="assets/images/icon.svg#icon_select-arrow"></use></svg>
+                                        </div>
+                                    </div>
+                                    <div class="filter-name compact-filter__name js-filter-list-open" data-target-filter-list="tube-stations">
+                                        <div class="filter-name__placeholder" data-filter-placeholder="data-filter-placeholder">Tube stations</div>
+                                        <div class="filter-name__title" data-filter-name="data-filter-name">Tube stations</div>
+                                        <div class="filter-name__toggle">
+                                            <svg class="filter-name__icon"><use xlink:href="assets/images/icon.svg#icon_select-arrow"></use></svg>
+                                        </div>
+                                    </div>
+                                    <div class="compact-filter__filter">
+                                        <div class="compact-filter__filter-name">
+                                            <div class="compact-filter__title">Workplace type:</div>
+                                        </div>
+                                        <div class="filter-list filter-list_workplaces">
+                                            <ul class="filter-list__list">
+                                                <li class="filter-list__item">
+                                                    <label class="checkbox checkbox_small checkbox_inverse filter-list__checkbox" data-filter-weight-element="1" data-filter-checkbox="data-filter-checkbox">
+                                                        <input class="checkbox__input" name="workplace-type" value="htdsk" checked="checked" type="checkbox" />
+                                                        <span class="checkbox__box">
+                                                            <svg class="checkbox__icon"><use xlink:href="assets/images/icon.svg#icon_check"></use></svg>
+                                                        </span>
+                                                        <span class="checkbox__content">
+                                                            <span class="box box_smaller box_orange"></span>
+                                                            <span class="checkbox__text">Hot desk</span>
+                                                        </span>
+                                                    </label>
+                                                </li>
+                                                <li class="filter-list__item">
+                                                    <label class="checkbox checkbox_small checkbox_inverse filter-list__checkbox" data-filter-weight-element="1" data-filter-checkbox="data-filter-checkbox">
+                                                        <input class="checkbox__input" name="workplace-type" value="dddsk" checked="checked" type="checkbox" />
+                                                        <span class="checkbox__box">
+                                                            <svg class="checkbox__icon"><use xlink:href="assets/images/icon.svg#icon_check"></use></svg>
+                                                        </span>
+                                                        <span class="checkbox__content">
+                                                            <span class="box box_smaller box_red"></span>
+                                                            <span class="checkbox__text">Dedicated desk</span>
+                                                        </span>
+                                                    </label>
+                                                </li>
+                                                <li class="filter-list__item">
+                                                    <label class="checkbox checkbox_small checkbox_inverse filter-list__checkbox" data-filter-weight-element="1" data-filter-checkbox="data-filter-checkbox">
+                                                        <input class="checkbox__input" name="workplace-type" value="room" checked="checked" type="checkbox" />
+                                                        <span class="checkbox__box">
+                                                            <svg class="checkbox__icon"><use xlink:href="assets/images/icon.svg#icon_check"></use></svg>
+                                                        </span>
+                                                        <span class="checkbox__content">
+                                                            <span class="box box_smaller box_blue"></span>
+                                                            <span class="checkbox__text">Meeting Room</span>
+                                                        </span>
+                                                    </label>
+                                                </li>
+                                                <li class="filter-list__item">
+                                                    <label class="checkbox checkbox_small checkbox_inverse filter-list__checkbox" data-filter-weight-element="1" data-filter-checkbox="data-filter-checkbox">
+                                                        <input class="checkbox__input" name="workplace-type" value="space" checked="checked" type="checkbox" />
+                                                        <span class="checkbox__box">
+                                                            <svg class="checkbox__icon"><use xlink:href="assets/images/icon.svg#icon_check"></use></svg>
+                                                        </span>
+                                                        <span class="checkbox__content">
+                                                            <span class="box box_smaller box_green"></span>
+                                                            <span class="checkbox__text">Office space</span>
+                                                        </span>
+                                                    </label>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="compact-filter__buttons">
+                                        <button class="button button_border button_border_bg-white button_wide button_border_narrow button_border_narrow-small button_small js-filter-apply" type="submit">
+                                            <span class="button__text">Apply filter</span>
+                                        </button>
+                                    </div>
+                                    <div class="compact-filter__popup">
+                                        <div class="filter-list compact-filter__list" data-filter-list="area" data-filter-weight-element="0">
+                                            <div class="filter-list__title">Select area:</div>
+                                            <div class="filter-list__scrollblock js-scrollbar-thin">
+                                                <ul class="filter-list__list">
+                                                    <li class="filter-list__item">
+                                                        <label class="checkradio checkradio_nobox checkradio_small filter-list__radio" data-filter-radio="data-filter-radio">
+                                                            <input class="checkradio__input" name="area" value="Greenwich" type="radio" />
+                                                            <span class="checkradio__box"></span>
+                                                            <span class="checkradio__content">Greenwich</span>
+                                                        </label>
+                                                    </li>
+                                                    <li class="filter-list__item">
+                                                        <label class="checkradio checkradio_nobox checkradio_small filter-list__radio" data-filter-radio="data-filter-radio">
+                                                            <input class="checkradio__input" name="area" value="Ealing, Hammersmith and Fulham" type="radio" />
+                                                            <span class="checkradio__box"></span>
+                                                            <span class="checkradio__content">Ealing, Hammersmith and Fulham</span>
+                                                        </label>
+                                                    </li>
+                                                    <li class="filter-list__item">
+                                                        <label class="checkradio checkradio_nobox checkradio_small filter-list__radio" data-filter-radio="data-filter-radio">
+                                                            <input class="checkradio__input" name="area" value="Croydon" type="radio" />
+                                                            <span class="checkradio__box"></span>
+                                                            <span class="checkradio__content">Croydon</span>
+                                                        </label>
+                                                    </li>
+                                                    <li class="filter-list__item">
+                                                        <label class="checkradio checkradio_nobox checkradio_small filter-list__radio" data-filter-radio="data-filter-radio">
+                                                            <input class="checkradio__input" name="area" value="Bexley" type="radio" />
+                                                            <span class="checkradio__box"></span>
+                                                            <span class="checkradio__content">Bexley</span>
+                                                        </label>
+                                                    </li>
+                                                    <li class="filter-list__item">
+                                                        <label class="checkradio checkradio_nobox checkradio_small filter-list__radio" data-filter-radio="data-filter-radio">
+                                                            <input class="checkradio__input" name="area" value="Redbridge" type="radio" />
+                                                            <span class="checkradio__box"></span>
+                                                            <span class="checkradio__content">Redbridge</span>
+                                                        </label>
+                                                    </li>
+                                                    <li class="filter-list__item">
+                                                        <label class="checkradio checkradio_nobox checkradio_small filter-list__radio" data-filter-radio="data-filter-radio">
+                                                            <input class="checkradio__input" name="area" value="City" type="radio" />
+                                                            <span class="checkradio__box"></span>
+                                                            <span class="checkradio__content">City</span>
+                                                        </label>
+                                                    </li>
+                                                    <li class="filter-list__item">
+                                                        <label class="checkradio checkradio_nobox checkradio_small filter-list__radio" data-filter-radio="data-filter-radio">
+                                                            <input class="checkradio__input" name="area" value="Westminster" type="radio" />
+                                                            <span class="checkradio__box"></span>
+                                                            <span class="checkradio__content">Westminster</span>
+                                                        </label>
+                                                    </li>
+                                                    <li class="filter-list__item">
+                                                        <label class="checkradio checkradio_nobox checkradio_small filter-list__radio" data-filter-radio="data-filter-radio">
+                                                            <input class="checkradio__input" name="area" value="Brent" type="radio" />
+                                                            <span class="checkradio__box"></span>
+                                                            <span class="checkradio__content">Brent</span>
+                                                        </label>
+                                                    </li>
+                                                    <li class="filter-list__item">
+                                                        <label class="checkradio checkradio_nobox checkradio_small filter-list__radio" data-filter-radio="data-filter-radio">
+                                                            <input class="checkradio__input" name="area" value="Bromley" type="radio" />
+                                                            <span class="checkradio__box"></span>
+                                                            <span class="checkradio__content">Bromley</span>
+                                                        </label>
+                                                    </li>
+                                                    <li class="filter-list__item">
+                                                        <label class="checkradio checkradio_nobox checkradio_small filter-list__radio" data-filter-radio="data-filter-radio">
+                                                            <input class="checkradio__input" name="area" value="Islington[2]" type="radio" />
+                                                            <span class="checkradio__box"></span>
+                                                            <span class="checkradio__content">Islington[2]</span>
+                                                        </label>
+                                                    </li>
+                                                    <li class="filter-list__item">
+                                                        <label class="checkradio checkradio_nobox checkradio_small filter-list__radio" data-filter-radio="data-filter-radio">
+                                                            <input class="checkradio__input" name="area" value="Bromley[5]" type="radio" />
+                                                            <span class="checkradio__box"></span>
+                                                            <span class="checkradio__content">Bromley[5]</span>
+                                                        </label>
+                                                    </li>
+                                                    <li class="filter-list__item">
+                                                        <label class="checkradio checkradio_nobox checkradio_small filter-list__radio" data-filter-radio="data-filter-radio">
+                                                            <input class="checkradio__input" name="area" value="Islington[6]" type="radio" />
+                                                            <span class="checkradio__box"></span>
+                                                            <span class="checkradio__content">Islington[6]</span>
+                                                        </label>
+                                                    </li>
+                                                    <li class="filter-list__item">
+                                                        <label class="checkradio checkradio_nobox checkradio_small filter-list__radio" data-filter-radio="data-filter-radio">
+                                                            <input class="checkradio__input" name="area" value="Havering[6]" type="radio" />
+                                                            <span class="checkradio__box"></span>
+                                                            <span class="checkradio__content">Havering[6]</span>
+                                                        </label>
+                                                    </li>
+                                                    <li class="filter-list__item">
+                                                        <label class="checkradio checkradio_nobox checkradio_small filter-list__radio" data-filter-radio="data-filter-radio">
+                                                            <input class="checkradio__input" name="area" value="Barnet[6]" type="radio" />
+                                                            <span class="checkradio__box"></span>
+                                                            <span class="checkradio__content">Barnet[6]</span>
+                                                        </label>
+                                                    </li>
+                                                    <li class="filter-list__item">
+                                                        <label class="checkradio checkradio_nobox checkradio_small filter-list__radio" data-filter-radio="data-filter-radio">
+                                                            <input class="checkradio__input" name="area" value="Enfield[6]" type="radio" />
+                                                            <span class="checkradio__box"></span>
+                                                            <span class="checkradio__content">Enfield[6]</span>
+                                                        </label>
+                                                    </li>
+                                                    <li class="filter-list__item">
+                                                        <label class="checkradio checkradio_nobox checkradio_small filter-list__radio" data-filter-radio="data-filter-radio">
+                                                            <input class="checkradio__input" name="area" value="Wandsworth[7]" type="radio" />
+                                                            <span class="checkradio__box"></span>
+                                                            <span class="checkradio__content">Wandsworth[7]</span>
+                                                        </label>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div class="filter-list compact-filter__list" data-filter-list="tube-stations" data-filter-weight-element="0">
+                                            <div class="filter-list__title">Select tube stations:</div>
+                                            <div class="filter-list__scrollblock js-scrollbar-thin">
+                                                <ul class="filter-list__list">
+                                                    <li class="filter-list__item">
+                                                        <label class="checkradio checkradio_nobox checkradio_small filter-list__radio" data-filter-radio="data-filter-radio">
+                                                            <input class="checkradio__input" name="tubes" value="Greenwich" type="radio" />
+                                                            <span class="checkradio__box"></span>
+                                                            <span class="checkradio__content">Greenwich</span>
+                                                        </label>
+                                                    </li>
+                                                    <li class="filter-list__item">
+                                                        <label class="checkradio checkradio_nobox checkradio_small filter-list__radio" data-filter-radio="data-filter-radio">
+                                                            <input class="checkradio__input" name="tubes" value="Ealing, Hammersmith and Fulham" type="radio" />
+                                                            <span class="checkradio__box"></span>
+                                                            <span class="checkradio__content">Ealing, Hammersmith and Fulham</span>
+                                                        </label>
+                                                    </li>
+                                                    <li class="filter-list__item">
+                                                        <label class="checkradio checkradio_nobox checkradio_small filter-list__radio" data-filter-radio="data-filter-radio">
+                                                            <input class="checkradio__input" name="tubes" value="Croydon" type="radio" />
+                                                            <span class="checkradio__box"></span>
+                                                            <span class="checkradio__content">Croydon</span>
+                                                        </label>
+                                                    </li>
+                                                    <li class="filter-list__item">
+                                                        <label class="checkradio checkradio_nobox checkradio_small filter-list__radio" data-filter-radio="data-filter-radio">
+                                                            <input class="checkradio__input" name="tubes" value="Bexley" type="radio" />
+                                                            <span class="checkradio__box"></span>
+                                                            <span class="checkradio__content">Bexley</span>
+                                                        </label>
+                                                    </li>
+                                                    <li class="filter-list__item">
+                                                        <label class="checkradio checkradio_nobox checkradio_small filter-list__radio" data-filter-radio="data-filter-radio">
+                                                            <input class="checkradio__input" name="tubes" value="Redbridge" type="radio" />
+                                                            <span class="checkradio__box"></span>
+                                                            <span class="checkradio__content">Redbridge</span>
+                                                        </label>
+                                                    </li>
+                                                    <li class="filter-list__item">
+                                                        <label class="checkradio checkradio_nobox checkradio_small filter-list__radio" data-filter-radio="data-filter-radio">
+                                                            <input class="checkradio__input" name="tubes" value="City" type="radio" />
+                                                            <span class="checkradio__box"></span>
+                                                            <span class="checkradio__content">City</span>
+                                                        </label>
+                                                    </li>
+                                                    <li class="filter-list__item">
+                                                        <label class="checkradio checkradio_nobox checkradio_small filter-list__radio" data-filter-radio="data-filter-radio">
+                                                            <input class="checkradio__input" name="tubes" value="Westminster" type="radio" />
+                                                            <span class="checkradio__box"></span>
+                                                            <span class="checkradio__content">Westminster</span>
+                                                        </label>
+                                                    </li>
+                                                    <li class="filter-list__item">
+                                                        <label class="checkradio checkradio_nobox checkradio_small filter-list__radio" data-filter-radio="data-filter-radio">
+                                                            <input class="checkradio__input" name="tubes" value="Brent" type="radio" />
+                                                            <span class="checkradio__box"></span>
+                                                            <span class="checkradio__content">Brent</span>
+                                                        </label>
+                                                    </li>
+                                                    <li class="filter-list__item">
+                                                        <label class="checkradio checkradio_nobox checkradio_small filter-list__radio" data-filter-radio="data-filter-radio">
+                                                            <input class="checkradio__input" name="tubes" value="Bromley" type="radio" />
+                                                            <span class="checkradio__box"></span>
+                                                            <span class="checkradio__content">Bromley</span>
+                                                        </label>
+                                                    </li>
+                                                    <li class="filter-list__item">
+                                                        <label class="checkradio checkradio_nobox checkradio_small filter-list__radio" data-filter-radio="data-filter-radio">
+                                                            <input class="checkradio__input" name="tubes" value="Islington[2]" type="radio" />
+                                                            <span class="checkradio__box"></span>
+                                                            <span class="checkradio__content">Islington[2]</span>
+                                                        </label>
+                                                    </li>
+                                                    <li class="filter-list__item">
+                                                        <label class="checkradio checkradio_nobox checkradio_small filter-list__radio" data-filter-radio="data-filter-radio">
+                                                            <input class="checkradio__input" name="tubes" value="Bromley[5]" type="radio" />
+                                                            <span class="checkradio__box"></span>
+                                                            <span class="checkradio__content">Bromley[5]</span>
+                                                        </label>
+                                                    </li>
+                                                    <li class="filter-list__item">
+                                                        <label class="checkradio checkradio_nobox checkradio_small filter-list__radio" data-filter-radio="data-filter-radio">
+                                                            <input class="checkradio__input" name="tubes" value="Islington[6]" type="radio" />
+                                                            <span class="checkradio__box"></span>
+                                                            <span class="checkradio__content">Islington[6]</span>
+                                                        </label>
+                                                    </li>
+                                                    <li class="filter-list__item">
+                                                        <label class="checkradio checkradio_nobox checkradio_small filter-list__radio" data-filter-radio="data-filter-radio">
+                                                            <input class="checkradio__input" name="tubes" value="Havering[6]" type="radio" />
+                                                            <span class="checkradio__box"></span>
+                                                            <span class="checkradio__content">Havering[6]</span>
+                                                        </label>
+                                                    </li>
+                                                    <li class="filter-list__item">
+                                                        <label class="checkradio checkradio_nobox checkradio_small filter-list__radio" data-filter-radio="data-filter-radio">
+                                                            <input class="checkradio__input" name="tubes" value="Barnet[6]" type="radio" />
+                                                            <span class="checkradio__box"></span>
+                                                            <span class="checkradio__content">Barnet[6]</span>
+                                                        </label>
+                                                    </li>
+                                                    <li class="filter-list__item">
+                                                        <label class="checkradio checkradio_nobox checkradio_small filter-list__radio" data-filter-radio="data-filter-radio">
+                                                            <input class="checkradio__input" name="tubes" value="Enfield[6]" type="radio" />
+                                                            <span class="checkradio__box"></span>
+                                                            <span class="checkradio__content">Enfield[6]</span>
+                                                        </label>
+                                                    </li>
+                                                    <li class="filter-list__item">
+                                                        <label class="checkradio checkradio_nobox checkradio_small filter-list__radio" data-filter-radio="data-filter-radio">
+                                                            <input class="checkradio__input" name="tubes" value="Wandsworth[7]" type="radio" />
+                                                            <span class="checkradio__box"></span>
+                                                            <span class="checkradio__content">Wandsworth[7]</span>
+                                                        </label>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div class="filter-list compact-filter__list" data-filter-list="city">
+                                            <div class="filter-list__title">Select city:</div>
+                                            <div class="filter-list__scrollblock js-scrollbar-thin">
+                                                <ul class="filter-list__list">
+                                                    <li class="filter-list__item">
+                                                        <label class="checkradio checkradio_nobox checkradio_small filter-list__radio" data-filter-radio="data-filter-radio">
+                                                            <input class="checkradio__input" name="city" value="London" checked="checked" type="radio" />
+                                                            <span class="checkradio__box"></span>
+                                                            <span class="checkradio__content">London</span>
+                                                        </label>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                                <div class="compact-filter__dialog">
+                                    <div class="filter-dialog">
+                                        <div class="filter-dialog__text">Do you really want to clear map filter?</div>
+                                        <div class="filter-dialog__buttons">
+                                            <button class="button button_border button_border_bg-white button_border_narrow button_border_narrow-small button_small filter-dialog__button js-filter-reset-no" type="button">
+                                                <span class="button__text">No</span>
+                                            </button>
+                                            <button class="button button_border button_border_bg-white button_border_narrow button_border_narrow-small button_small filter-dialog__button js-filter-reset-yes" type="reset">
+                                                <span class="button__text">Yes</span>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="ui-kit__section">
+            <div class="ui-kit__section-head">
+                <div class="container">
+                    <h2>News</h2>
+                    <p>Блок: blocks/news</p>
+                </div>
+            </div>
+            <div class="ui-kit__section-content">
+                <div class="container">
+                    <p class="ui-kit__description">.news</p>
+                    <div class="grid">
+                        <div class="grid__col grid__col_xl_3">
+                            <a class="news">
+                                <div class="news__media" data-slider-buttons-orientir="data-slider-buttons-orientir">
+                                    <img class="news__image" src="assets/images/news1.jpg" alt="" role="presentation" />
+                                </div>
+                                <div class="news__describe">
+                                    <time class="news__date">September 9</time>
+                                    <div class="news__title">The perfect Workplace Do&nbsp;exist.&nbsp;5&nbsp;simple steps to&nbsp;make the office of&nbsp;your drem.</div>
+                                    <div class="news__info">For many employers, career success is&nbsp;desired. Establishing a&nbsp;profitable company, we&rsquo;re looking for the best candidates only, whose knowledge and experience can help to&nbsp;achieve career goals.</div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        </div>
+        <script>
+            $('.ui-kit__section').each(function(i) {
+                var id = 'section' + i;
+                var name = $(this).find('.ui-kit__section-head h2').text();
+                var li = $('<li></li>');
+                var a = $('<a></a>');
+
+                a.attr('href', '#' + id).text(name).addClass('js-anchor');
+                li.append(a);
+
+                $('.ui-kit__navigation__list').append(li);
+                $(this).attr('id', id);
+            });
+        </script>
+    </main>
+    <div class="popups"></div>
+    <div class="overlay"></div>
+    <div class="main-menu">
+        <div class="main-menu__wrapper">
+            <div class="main-menu__block">
+                <div class="main-menu__top">
+                    <div class="close js-open-navigation">
+                        <span class="close__base"></span>
+                    </div>
+                </div>
+                <div class="main-menu__scrollblock js-scrollbar-light">
+                    <div class="main-menu__content">
+                        <div class="main-menu__top-menu">
+                            <div class="nav-list">
+                                <ul>
+                                    <li class="nav-list__item">
+                                        <a class="link" href="#">
+                                            <span class="link__text">About the project</span>
+                                        </a>
+                                    </li>
+                                    <li class="nav-list__item">
+                                        <a class="link" href="#">
+                                            <span class="link__text">Become a host</span>
+                                        </a>
+                                    </li>
+                                    <li class="nav-list__item">
+                                        <a class="link" href="#">
+                                            <span class="link__text">Help &amp; Support</span>
+                                        </a>
+                                    </li>
+                                    <li class="nav-list__item">
+                                        <a class="link" href="#">
+                                            <span class="link__text">News</span>
+                                        </a>
+                                    </li>
+                                    <li class="nav-list__item">
+                                        <a class="link" href="#">
+                                            <span class="link__text">Terms and Policies</span>
+                                        </a>
+                                    </li>
+                                    <li class="nav-list__item">
+                                        <a class="link" href="#">
+                                            <span class="link__text">Contacts</span>
+                                        </a>
+                                    </li>
+                            </div>
+                        </div>
+                        <hr class="divider" />
+                        <div class="main-menu__bottom-menu">
+                            <div class="nav-list">
+                                <ul>
+                                    <li class="nav-list__item">
+                                        <a class="link" href="#">
+                                            <span class="link__text">Sign Up</span>
+                                        </a>
+                                    </li>
+                                    <li class="nav-list__item">
+                                        <a class="link" href="#">
+                                            <span class="link__text">Sign in</span>
+                                        </a>
+                                    </li>
+                            </div>
+                            <ul class="socials">
+                                <li class="socials__item">
+                                    <a class="social social_fb" target="_blank" href="#" title="facebook">
+                                        <svg class="social__icon"><use xlink:href="assets/images/icon.svg#icon_sc-fb"></use></svg>
+                                    </a>
+                                </li>
+                                <li class="socials__item">
+                                    <a class="social social_ln" target="_blank" href="#" title="linkedIn">
+                                        <svg class="social__icon"><use xlink:href="assets/images/icon.svg#icon_sc-ln"></use></svg>
+                                    </a>
+                                </li>
+                                <li class="socials__item">
+                                    <a class="social social_tw" target="_blank" href="#" title="twitter">
+                                        <svg class="social__icon"><use xlink:href="assets/images/icon.svg#icon_sc-tw"></use></svg>
+                                    </a>
+                                </li>
+                                <li class="socials__item">
+                                    <a class="social social_inst" target="_blank" href="#" title="instagram">
+                                        <svg class="social__icon"><use xlink:href="assets/images/icon.svg#icon_sc-inst"></use></svg>
+                                    </a>
+                                </li>
+                            </ul>
+                            <div class="main-menu__links">
+                                <a class="link" href="mailto:info@spacepool.com">
+                                    <span class="link__text">info@spacepool.com</span>
+                                </a>
+                                <a class="link" href="tel:+4471478129419">
+                                    <span class="link__text">+44 714 781 294 19</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__top">
+                <div class="footer__logo">
+                    <a class="logo logo_footer">
+                        <img class="logo__icon" src="assets/images/logo.svg" alt="" role="presentation" />
+                    </a>
+                    <div class="footer__info" data-slot-id="footer-contacts" data-slot-res="lg"></div>
+                </div>
+                <div class="footer__navigation">
+                    <div class="nav-list nav-list_small footer__list">
+                        <ul>
+                            <li class="nav-list__item">
+                                <a class="link" href="#">
+                                    <span class="link__text">About the Project</span>
+                                </a>
+                            </li>
+                            <li class="nav-list__item">
+                                <a class="link" href="#">
+                                    <span class="link__text">Help and Support</span>
+                                </a>
+                            </li>
+                            <li class="nav-list__item">
+                                <a class="link" href="#">
+                                    <span class="link__text">Become a host</span>
+                                </a>
+                            </li>
+                    </div>
+                    <div class="nav-list nav-list_small footer__list">
+                        <ul>
+                            <li class="nav-list__item">
+                                <a class="link" href="#">
+                                    <span class="link__text">Search for spaces</span>
+                                </a>
+                            </li>
+                            <li class="nav-list__item">
+                                <a class="link" href="#">
+                                    <span class="link__text">Term and policies</span>
+                                </a>
+                            </li>
+                            <li class="nav-list__item">
+                                <a class="link" href="#">
+                                    <span class="link__text">Careers</span>
+                                </a>
+                            </li>
+                    </div>
+                    <div class="nav-list nav-list_small footer__list">
+                        <ul>
+                            <li class="nav-list__item">
+                                <a class="link" href="#">
+                                    <span class="link__text">Blog</span>
+                                </a>
+                            </li>
+                            <li class="nav-list__item">
+                                <a class="link" href="#">
+                                    <span class="link__text">Press</span>
+                                </a>
+                            </li>
+                            <li class="nav-list__item">
+                                <a class="link" href="#">
+                                    <span class="link__text">Advertise</span>
+                                </a>
+                            </li>
+                    </div>
+                </div>
+                <div class="footer__information">
+                    <div class="footer__controls hide-lg" data-slot-id="footer-contacts" data-slot-res="xl">
+                        <div class="footer__contacts" data-target-slot="footer-contacts">
+                            <a class="link link_bold" href="mailto:info@spacepool.com">
+                                <span class="link__text">info@spacepool.com</span>
+                            </a>
+                            <div class="footer__copyright hide-sm">&copy; Space Pool ltd. 2019</div>
+                        </div>
+                    </div>
+                    <ul class="socials footer__socials">
+                        <li class="socials__item">
+                            <a class="social social_fb" target="_blank" href="#" title="facebook">
+                                <svg class="social__icon"><use xlink:href="assets/images/icon.svg#icon_sc-fb"></use></svg>
+                            </a>
+                        </li>
+                        <li class="socials__item">
+                            <a class="social social_ln" target="_blank" href="#" title="linkedIn">
+                                <svg class="social__icon"><use xlink:href="assets/images/icon.svg#icon_sc-ln"></use></svg>
+                            </a>
+                        </li>
+                        <li class="socials__item">
+                            <a class="social social_tw" target="_blank" href="#" title="twitter">
+                                <svg class="social__icon"><use xlink:href="assets/images/icon.svg#icon_sc-tw"></use></svg>
+                            </a>
+                        </li>
+                        <li class="socials__item">
+                            <a class="social social_inst" target="_blank" href="#" title="instagram">
+                                <svg class="social__icon"><use xlink:href="assets/images/icon.svg#icon_sc-inst"></use></svg>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer__bottom">
+                <div class="footer__copyright hide-from-sm">&copy; Space Pool ltd. 2019</div>
+                <div class="footer__text">The Space Pool Service operates under the United Kingdom Urisdiction. This text have no&nbsp;any sense it&rsquo;s just some sort of&nbsp;dummie to&nbsp;show the place where we&nbsp;can put an&nbsp;information usually writen with small
+                    letters.</div>
+            </div>
+        </div>
+    </footer>
+    <script src="assets/scripts/libs/object-assign-auto.min.js"></script>
+    <script src="assets/scripts/app.min.js"></script>
+    <script src="assets/scripts/main.js"></script>
+</body>
+
+</html>
