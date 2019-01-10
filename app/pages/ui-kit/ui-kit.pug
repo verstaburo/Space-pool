@@ -382,6 +382,10 @@ block content
         +link()(href="#")._bordered Подчеркнутая при наведении ссылка
         +ui-description .link._icon
         +link-icon('refresh')(href="#") Ссылка с иконкой
+        +ui-description .link._white
+        +link._white(href="#") Ссылка белая
+        +ui-description .link._blue
+        +link._blue(href="#") Ссылка синяя
         +ui-description .link.is-disabled
         +link()(href="#").is-disabled Отключенная ссылка
 
@@ -448,6 +452,14 @@ block content
         each item in spaces
           +slide
             +space(item)(href="#")
+      br
+      +ui-section-content()
+        +ui-description .js-slider-gallery
+        +slider-gallery(true, true).js-slider-gallery
+          +e.IMG.slide.swiper-slide(src="assets/images/space-lead1.jpg")
+          +e.IMG.slide.swiper-slide(src="assets/images/space-lead2.jpg")
+          +e.IMG.slide.swiper-slide(src="assets/images/space-lead3.jpg")
+          +e.IMG.slide.swiper-slide(src="assets/images/space-lead4.jpg")
 
     //- Подсказки
     +ui-section
@@ -821,6 +833,15 @@ block content
       +ui-section-content
         +ui-description .info-price
         +info-price('Starting at Just') £300 per month
+
+    //- page-title
+    +ui-section
+      +ui-section-head
+        h2 Page Title
+        p Блок: blocks/page-title
+      +ui-section-content
+        +ui-description .page-title
+        +page-title Page title
 
   script
     |

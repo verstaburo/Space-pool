@@ -6,9 +6,12 @@ mixin lead()
           +e.top(data-target-slot='leadtop')
             +e.info
               +address-list.__address
-                +e.LI.item London
-                +e.LI.item Kensington
-                +e.LI.item EC2A, London
+                +e.LI.item
+                  +link._white(href="#") London
+                +e.LI.item
+                  +link._white(href="#") Kensington
+                +e.LI.item
+                  +link._white(href="#") EC2A, London
               +boxes._big.__markers
                 +box._big._orange
                 +box._big._red
@@ -24,7 +27,7 @@ mixin lead()
         +e.main(data-slot-id='leadtop leadbottom' data-slot-res='sm')
           +e.slider
             +slider-gallery(true, true).js-slider-gallery.__gallery
-              +e.IMG.slide.swiper-slide(src="assets/images/space-lead1.jpg")
-              +e.IMG.slide.swiper-slide(src="assets/images/space-lead2.jpg")
-              +e.IMG.slide.swiper-slide(src="assets/images/space-lead3.jpg")
-              +e.IMG.slide.swiper-slide(src="assets/images/space-lead4.jpg")
+              +e.IMG.slide.swiper-slide(src="assets/images/space-lead1.jpg" data-target="gallery")
+              +e.IMG.slide.swiper-slide(src="assets/images/space-lead2.jpg" data-target="gallery")
+              +e.IMG.slide.swiper-slide(src="assets/images/space-lead3.jpg" data-target="gallery")
+              +e.IMG.slide.swiper-slide(src="assets/images/space-lead4.jpg" data-target="gallery")
