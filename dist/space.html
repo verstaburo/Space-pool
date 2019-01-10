@@ -114,19 +114,17 @@
         </div>
     </header>
     <main class="page" role="main">
-        <div class="lead">
+        <section class="lead">
             <div class="container">
                 <div class="lead__content">
                     <div class="lead__side hide-sm" data-slot-id="leadtop leadbottom" data-slot-res="xl">
                         <div class="lead__top" data-target-slot="leadtop">
                             <div class="lead__info">
-                                <div class="lead__address">
-                                    <ul class="address-list">
-                                        <li class="address-list__item">London</li>
-                                        <li class="address-list__item">Kensington</li>
-                                        <li class="address-list__item">EC2A, London</li>
-                                    </ul>
-                                </div>
+                                <ul class="address-list lead__address">
+                                    <li class="address-list__item">London</li>
+                                    <li class="address-list__item">Kensington</li>
+                                    <li class="address-list__item">EC2A, London</li>
+                                </ul>
                                 <ul class="boxes boxes_big lead__markers">
                                     <li class="box box_big box_orange"></li>
                                     <li class="box box_big box_red"></li>
@@ -134,12 +132,12 @@
                                     <li class="box box_big box_green"></li>
                                 </ul>
                             </div>
-                            <div class="page-title">Boutique Workplace - 1 Neal Street</div>
+                            <h1 class="page-title">Boutique Workplace - 1 Neal Street</h1>
                         </div>
                         <div class="lead__bottom" data-target-slot="leadbottom">
                             <div class="lead__links">
-                                <a class="add-button js-add-favorite" href="#" data-active-name="Added to Favorites" data-name="Add to Favorites">
-                                    <span class="button-heart button-heart_white add-button__heart">
+                                <a class="add-button js-add-favorite lead__link" href="#" data-active-name="Added to Favorites" data-name="Add to Favorites">
+                                    <span class="button-heart button-heart_white button-heart_big add-button__heart">
                                         <span class="button-heart__top">
                                             <svg class="button-heart__icon button-heart__icon_empty"><use xlink:href="assets/images/icon.svg#icon_heart"></use></svg>
                                         </span>
@@ -147,9 +145,9 @@
                                             <svg class="button-heart__icon button-heart__icon_full"><use xlink:href="assets/images/icon.svg#icon_full-heart"></use></svg>
                                         </span>
                                     </span>
-                                    <span class="add-button__text">Add to Favorites</span>
+                                    <span class="add-button__text" data-button-text="data-button-text">Add to Favorites</span>
                                 </a>
-                                <a class="link link_icon link_white" href="#">
+                                <a class="link link_icon link_white lead__link" href="#">
                                     <svg class="link__icon link__icon_download"><use xlink:href="assets/images/icon.svg#icon_download"></use></svg>
                                     <span class="link__text">Download as PDF</span>
                                 </a>
@@ -163,73 +161,28 @@
                         </div>
                     </div>
                     <div class="lead__main" data-slot-id="leadtop leadbottom" data-slot-res="sm">
-                        <div class="lead__slider"></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <section class="banner">
-            <div class="container container_banner">
-                <div class="banner__left">
-                    <ul class="banner__top-list">
-                        <li class="banner__top-item">
-                            <a class="banner__top-link" href="#">London</a>
-                        </li>
-                        <li class="banner__top-item">
-                            <a class="banner__top-link" href="#">Kensington</a>
-                        </li>
-                        <li class="banner__top-item">
-                            <a class="banner__top-link" href="#">EC2A,London</a>
-                        </li>
-                    </ul>
-                    <ul class="banner__sqad-list">
-                        <li class="banner__sqad-item"></li>
-                        <li class="banner__sqad-item banner__sqad-item_red"></li>
-                        <li class="banner__sqad-item banner__sqad-item_blue"></li>
-                        <li class="banner__sqad-item banner__sqad-item_green"></li>
-                    </ul>
-                    <h1 class="banner__title">Boutique Workplace - 1 Neal Street</h1>
-                    <ul class="banner__down-list">
-                        <li class="banner__down-item">
-                            <a class="banner__link-item" href="#">
-                                <svg class="banner__svg"><use xlink:href="assets/images/icon.svg#icon_heart"></use></svg>
-                                <p class="banner__text">Add to Favorites</p>
-                            </a>
-                        </li>
-                        <li class="banner__down-item">
-                            <a class="banner__link-item" href="#">
-                                <svg class="banner__svg"><use xlink:href="assets/images/icon.svg#icon_arrow3"></use></svg>
-                                <p class="banner__text">Download as PDF</p>
-                            </a>
-                        </li>
-                    </ul>
-                    <div class="banner__down-block">
-                        <p class="banner__start">Starting at Just</p>
-                        <p class="banner__start-price">£300 per month</p>
-                    </div>
-                </div>
-                <div class="banner__right">
-                    <div class="slider slider_one">
-                        <div class="container">
-                            <div class="slider__container swiper-container js-slider-container">
-                                <div class="swiper-wrapper">
-                                    <div class="slider__slide swiper-slide">
-                                        <img class="slide-img" rel="group" src="./assets/images/slide.jpg" />
-                                    </div>
-                                    <div class="slider__slide swiper-slide">
-                                        <img class="slide-img" rel="group" src="./assets/images/slide-two.jpg" />
-                                    </div>
-                                    <div class="slider__slide swiper-slide">
-                                        <img class="slide-img" rel="group" src="./assets/images/slide-three.jpg" />
-                                    </div>
-                                    <div class="slider__slide swiper-slide">
-                                        <img class="slide-img" rel="group" src="./assets/images/slide-one.jpg" />
+                        <div class="lead__slider">
+                            <div class="slider slider_gallery slider_dark js-slider-gallery lead__gallery">
+                                <div class="slider__container swiper-container js-slider-container">
+                                    <div class="swiper-wrapper">
+                                        <img class="slider__slide swiper-slide" src="assets/images/space-lead1.jpg" alt="" role="presentation" />
+                                        <img class="slider__slide swiper-slide" src="assets/images/space-lead2.jpg" alt="" role="presentation" />
+                                        <img class="slider__slide swiper-slide" src="assets/images/space-lead3.jpg" alt="" role="presentation" />
+                                        <img class="slider__slide swiper-slide" src="assets/images/space-lead4.jpg" alt="" role="presentation" />
                                     </div>
                                 </div>
+                                <div class="slider__buttons slider__buttons_simple">
+                                    <div class="slider__button slider__button_prev js-slider-button-prev">
+                                        <svg class="slider__button-icon"><use xlink:href="assets/images/icon.svg#icon_slider-arrow"></use></svg>
+                                    </div>
+                                    <div class="slider__button slider__button_next js-slider-button-next">
+                                        <svg class="slider__button-icon"><use xlink:href="assets/images/icon.svg#icon_slider-arrow"></use></svg>
+                                    </div>
+                                </div>
+                                <a class="slider__loupe">
+                                    <svg class="slider__loupe-icon"><use xlink:href="assets/images/icon.svg#icon_loupe"></use></svg>
+                                </a>
                             </div>
-                        </div>
-                        <div class="slider__dots">
-                            <div class="slider__dot"></div>
                         </div>
                     </div>
                 </div>
@@ -256,7 +209,7 @@
                 </ul>
             </div>
         </nav>
-        <div class="content">
+        <section class="content">
             <div class="container container_content">
                 <div class="content__column content__column_left">
                     <section class="section section_inner">
@@ -592,12 +545,14 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </section>
         <section class="section">
             <div class="section__header">
                 <div class="container">
                     <h3 class="section__title">You may also like spaces around
-                        <em>Kensington</em>
+                        <a class="link link_blue" href="#">
+                            <span class="link__text">Kensington</span>
+                        </a>
                     </h3>
                 </div>
             </div>

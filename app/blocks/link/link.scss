@@ -5,7 +5,15 @@
 
   &_icon {
     position: relative;
-    padding-left: 37px;
+    padding-left: 38px;
+
+    @include screen('xl') {
+      padding-left: 34px;
+    }
+
+    @include screen('sm') {
+      padding-left: 35px;
+    }
   }
 
   &_bold {
@@ -15,9 +23,17 @@
   &_white {
     color: $color-white;
 
-    &:hover {
+    &:not(.link_icon):hover {
       color: rgba($color-white, .6);
     }
+
+    &.link_icon:hover {
+      color: $color-white;
+    }
+  }
+
+  &_blue {
+    color: $color-accent;
   }
 
   &__icon {
@@ -29,6 +45,12 @@
     display: inline-block;
     transform: translate3d(0, -50%, 0);
     font-size: 0;
+    filter: drop-shadow(1px 1px 0 rgba(34, 42, 46, .2));
+    transition: transform $ease-main;
+
+    #{$b}:hover &_download {
+      transform: translate3d(0, -40%, 0);
+    }
   }
 
   &__text {
@@ -49,7 +71,6 @@
 
   &.is-disabled {
     pointer-events: none;
-    fill: $color-border;
 
     @include link-disabled;
   }

@@ -1,15 +1,14 @@
 mixin lead()
-  +b.lead&attributes(attributes)
+  +b.SECTION.lead&attributes(attributes)
     .container
       +e.content
         +e.side.hide-sm(data-slot-id='leadtop leadbottom' data-slot-res='xl')
           +e.top(data-target-slot='leadtop')
             +e.info
-              +e.address
-                +address-list
-                  +e.LI.item London
-                  +e.LI.item Kensington
-                  +e.LI.item EC2A, London
+              +address-list.__address
+                +e.LI.item London
+                +e.LI.item Kensington
+                +e.LI.item EC2A, London
               +boxes._big.__markers
                 +box._big._orange
                 +box._big._red
@@ -18,9 +17,14 @@ mixin lead()
             +page-title('h1') Boutique Workplace - 1 Neal Street
           +e.bottom(data-target-slot='leadbottom')
             +e.links
-              +add-button(href="#" data-active-name="Added to Favorites" data-name="Add to Favorites") Add to Favorites
-              +link-icon('download')(href="#")._white Download as PDF
+              +add-button.__link(href="#" data-active-name="Added to Favorites" data-name="Add to Favorites") Add to Favorites
+              +link-icon('download')(href="#")._white.__link Download as PDF
             +e.price
               +info-price('Starting at Just') £300 per month
         +e.main(data-slot-id='leadtop leadbottom' data-slot-res='sm')
           +e.slider
+            +slider-gallery(true, true).js-slider-gallery.__gallery
+              +e.IMG.slide.swiper-slide(src="assets/images/space-lead1.jpg")
+              +e.IMG.slide.swiper-slide(src="assets/images/space-lead2.jpg")
+              +e.IMG.slide.swiper-slide(src="assets/images/space-lead3.jpg")
+              +e.IMG.slide.swiper-slide(src="assets/images/space-lead4.jpg")

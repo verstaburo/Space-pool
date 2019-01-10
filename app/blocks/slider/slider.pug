@@ -18,17 +18,18 @@ mixin slider(buttons, pagination)
             +icon('slider-arrow').__button-icon
 
 mixin slider-gallery(buttons, loupe)
-  +b.slider__.swiper-container&attributes(attributes)
-    .swiper-wrapper
-      block
+  +b.slider__._gallery._dark&attributes(attributes)
+    +e.container.swiper-container.js-slider-container
+      .swiper-wrapper
+        block
     if buttons
       +e.buttons_simple
         +e.button._prev.js-slider-button-prev
-          +icon('slider-arrow')
+          +icon('slider-arrow').__button-icon
         +e.button._next.js-slider-button-next
-          +icon('slider-arrow')
+          +icon('slider-arrow').__button-icon
     if loupe
-      +e.loupe
+      +e.A.loupe
         +icon('loupe').__loupe-icon
 
 

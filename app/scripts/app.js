@@ -32,6 +32,7 @@ import '../blocks/put-block-into-slot/put-block-into-slot';
 import heartActivation from '../blocks/button-heart/button-heart';
 import desktopFilter from '../components/filter/filter';
 import mobileFilter from '../components/compact-filter/compact-filter';
+import addToFavorite from '../blocks/add-button/add-button';
 
 const $ = window.$;
 
@@ -59,4 +60,5 @@ $(() => {
   heartActivation();
   desktopFilter();
   mobileFilter();
+  addToFavorite();
 });
