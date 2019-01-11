@@ -9,6 +9,14 @@
   &_big {
     height: 470px;
   }
+
+  &_inner {
+    @include screen('sm') {
+      margin-top: 14px;
+      margin-left: -20px;
+      margin-right: -20px;
+    }
+  }
 }
 
 .leaflet-control-layers-toggle {
@@ -20,14 +28,6 @@
 .leaflet-retina .leaflet-control-layers-toggle {
   background-image: url('../images/map/layers-2x.png');
   background-size: 26px 26px;
-}
-
-.leaflet-default-icon-path {
-  background-image: url('../images/map/marker-icon.png');
-
-  .map_big & {
-    background-image: url('../images/map/marker-two.png');
-  }
 }
 
 .leaflet-touch .leaflet-bar,
@@ -100,9 +100,4 @@
 
 .leaflet-shadow-pane {
   display: none;
-}
-
-.leaflet-interactive {
-  width: 44px !important;
-  height: 50px !important;
 }

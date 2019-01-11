@@ -12,7 +12,7 @@ export function maps() {
 
   const map = L.map('map', {
     scrollWheelZoom: false,
-  }).setView([59.934, 30.335], 13);
+  }).setView([51.513443, -0.102139], 13);
 
   L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
     maxZoom: 18,
@@ -22,9 +22,14 @@ export function maps() {
 
   map.zoomControl.setPosition('bottomright');
 
-  const marker = L.marker([59.934, 30.335]).addTo(map);
-
-  marker.bindPopup('Кастомный HTML-попап');
+  const myMarker = L.icon({
+    iconUrl: 'assets/images/map/map-marker.png',
+    iconSize: [43, 46],
+    iconAnchor: [13, 46],
+  });
+  const marker = L.marker([51.513443, -0.102139], {
+    icon: myMarker,
+  }).addTo(map);
 }
 
 export function mapsTwo() {
@@ -36,7 +41,8 @@ export function mapsTwo() {
   }).setView([59.934, 30.335], 13);
   const myMarker = L.icon({
     iconUrl: 'assets/images/map/marker-two.png',
-    iconSize: [38, 95],
+    iconSize: [34, 42],
+    iconAnchor: [10, 42],
   });
 
   L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
@@ -101,8 +107,5 @@ export function mapsTwo() {
   const markerX = L.marker([59.977, 30.73735], {
     icon: myMarker,
   }).addTo(mapTwo);
-
-
-  marker.bindPopup('Кастомный попап');
 }
 /* eslint-enable no-unused-vars */

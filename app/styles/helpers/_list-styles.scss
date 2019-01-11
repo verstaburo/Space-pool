@@ -9,6 +9,14 @@
   li {
     padding-left: 16px;
     position: relative;
+
+    &:not(:last-child) {
+      margin-bottom: 8px;
+
+      @include screen('sm') {
+        margin-bottom: 16px;
+      }
+    }
   }
 }
 
@@ -18,11 +26,15 @@
     @include pseudo;
 
     left: 0;
-    top: 14px;
+    top: 10px;
     width: 6px;
     height: 6px;
     border-radius: 50%;
     background-color: currentColor;
+
+    @include screen('sm') {
+      top: 6px;
+    }
   }
 }
 

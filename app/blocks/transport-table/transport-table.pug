@@ -1,0 +1,39 @@
+mixin transport-table()
+  +b.TABLE.table.transport-table__&attributes(attributes)
+    tbody
+      +e.TR.row
+        +e.TD.cell_head
+          +transport-type('Chancery Lane')
+            +e.icons
+              +icon('metro').__icon_metro(style="fill: #e24d25")
+        +e.TD.cell_content
+          +travel-time('5 min', 'man', '_man')
+      +e.TR.row
+        +e.TD.cell_head
+          +transport-type('Great Portland Street')
+            +e.icons
+              +icon('metro').__icon_metro(style="fill: #9b0158")
+              +icon('metro').__icon_metro(style="fill: #fed201")
+              +icon('metro').__icon_metro(style="fill: #f087a3")
+        +e.TD.cell_content
+          +travel-time('25 min', 'man', '_man')
+      +e.TR.row
+        +e.TD.cell_head
+          +transport-type('Haymarket / Jermyn Street')._bus
+            +e.icons
+              +icon('bus').__icon_bus
+            +e.UL.numbers
+              li 6
+              li 20
+              li N53
+              li N15
+              li N113
+        +e.TD.cell_content
+          +travel-time('25 min', 'man', '_man')
+      +e.TR.row
+        +e.TD.cell_head
+          +transport-type('Heathrow airport')._airplane
+            +e.icons
+              +icon('airplane').__icon_airplane
+        +e.TD.cell_content
+          +travel-time('44 - 80 min', 'car', '_car')

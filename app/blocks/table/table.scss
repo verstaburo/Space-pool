@@ -1,13 +1,26 @@
 .table {
   display: table;
+  border-collapse: collapse;
 
-  @include text;
+  @include text-big;
+
+  @include screen('sm') {
+    @include text15;
+
+    line-height: (20/15);
+  }
+
+  tbody {
+    display: block;
+    padding: 0;
+    margin: 0;
+  }
 
   tr {
     padding: 0;
     margin: 0;
     display: block;
-    border-bottom: 1px solid $color-border;
+    border-bottom: 1px solid $color-border-light;
   }
 
   thead tr {
@@ -15,9 +28,10 @@
   }
 
   td {
-    padding: $grid-gap/2 $grid-gap $grid-gap/2 0;
     vertical-align: top;
 
-    &:last-child { padding-right: 0; }
+    &:last-child {
+      padding-right: 0;
+    }
   }
 }
