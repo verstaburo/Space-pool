@@ -340,11 +340,12 @@ block content
         h2 Табы
         p Блок: blocks/tabs
       +ui-section-content()
+        +ui-description табы цветные
         +tabs
-          +tab()(data-tab-target="tab1" class="tabs_yellow").active Информация
-          +tab()(data-tab-target="tab2" class="tabs_red") Информация
-          +tab()(data-tab-target="tab3" class="tabs_blue") Информация
-          +tab()(data-tab-target="tab3" class="tabs_green") Информация
+          +tab()(data-tab-target="tab1")._orange.active Информация
+          +tab()(data-tab-target="tab2")._red Информация
+          +tab()(data-tab-target="tab3")._blue Информация
+          +tab()(data-tab-target="tab4")._green Информация
         +tabs-content
           +tab-wrapper()(data-tab="tab1" data-tab-group="testtabs").active
             p Это таб 1
@@ -352,6 +353,23 @@ block content
             p Это таб 2
           +tab-wrapper()(data-tab="tab3" data-tab-group="testtabs")
             p Это таб 3
+          +tab-wrapper()(data-tab="tab4" data-tab-group="testtabs")
+            p Это таб 4
+        +ui-description табы бесцветные
+        +tabs
+          +tab()(data-tab-target="tabе1").active Информация
+          +tab()(data-tab-target="tabе2") Информация
+          +tab()(data-tab-target="tabе3") Информация
+          +tab()(data-tab-target="tabе4") Информация
+        +tabs-content
+          +tab-wrapper()(data-tab="tabе1" data-tab-group="testtabs").active
+            p Это таб 1
+          +tab-wrapper()(data-tab="tabе2" data-tab-group="testtabs")
+            p Это таб 2
+          +tab-wrapper()(data-tab="tabе3" data-tab-group="testtabs")
+            p Это таб 3
+          +tab-wrapper()(data-tab="tabе4" data-tab-group="testtabs")
+            p Это таб 4
 
     //- Попапы
     +ui-section
@@ -850,7 +868,7 @@ block content
         p Блок: components/lead
       +ui-section-content
         +ui-description .lead
-        +lead
+      +lead
 
     //- Transport table
     +ui-section
@@ -860,6 +878,53 @@ block content
       +ui-section-content
         +ui-description .transport-table
         +transport-table
+
+    //- Transport type
+    +ui-section
+      +ui-section-head
+        h2 Transport type
+        p Блок: blocks/transport-type
+      +ui-section-content
+        +ui-description .transport-type
+        +transport-type('Chancery Lane')
+          +e.icons
+            +icon('metro').__icon_metro(style="fill: #e24d25")
+        +ui-description .transport-type._bus
+        +transport-type('Haymarket / Jermyn Street')._bus
+          +e.icons
+            +icon('bus').__icon_bus
+          +e.UL.numbers
+            li 6
+            li 20
+            li N53
+            li N15
+            li N113
+        +ui-description .transport-type._airplane
+        +transport-type('Heathrow airport')._airplane
+          +e.icons
+            +icon('airplane').__icon_airplane
+
+    //- Travel time
+    +ui-section
+      +ui-section-head
+        h2 Travel time
+        p Блок: blocks/travel-time
+      +ui-section-content
+        +ui-description .travel-time on foot
+        +travel-time('25 min', 'man', '_man')
+        +ui-description .travel-time on car
+        +travel-time('44 - 80 min', 'car', '_car')
+
+    //- Facility
+    +ui-section
+      +ui-section-head
+        h2 Facility
+        p Блок: blocks/facility
+      +ui-section-content
+        +ui-description .facility
+        +grid
+          +col(1)
+            +facility('shower', '_shower') Showers
 
   script
     |

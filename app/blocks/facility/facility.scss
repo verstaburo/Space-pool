@@ -1,0 +1,135 @@
+.facility {
+  $b: &;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 100%;
+  height: 170px;
+  border: 1px solid $color-border-light;
+  box-sizing: border-box;
+  padding: 13px 16px 16px;
+  color: $color-basic;
+  border-radius: 3px;
+
+  @include screen('sm') {
+    padding: 4px 11px 13px 8px;
+    height: 125px;
+  }
+
+  &__name {
+    @include text-big;
+
+    font-weight: 700;
+
+    @include screen('sm') {
+      @include text15;
+    }
+
+    &:not(:last-child) {
+      margin-bottom: 15px;
+
+      @include screen('sm') {
+        margin-bottom: 10px;
+      }
+    }
+  }
+
+  &__image {
+    align-self: flex-end;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+  }
+
+  &__icon {
+    font-size: 0;
+    line-height: 0;
+    fill: currentColor;
+
+    &_shower {
+      width: 56px;
+      height: 54px;
+
+      @include screen('sm') {
+        width: 50px;
+        height: 48px;
+      }
+    }
+
+    &_bike {
+      width: 57px;
+      height: 36px;
+
+      @include screen('sm') {
+        width: 51px;
+        height: 32px;
+      }
+    }
+
+    &_stand {
+      width: 46px;
+      height: 46px;
+
+      @include screen('sm') {
+        width: 41px;
+        height: 41px;
+      }
+    }
+
+    &_lock {
+      width: 31px;
+      height: 46px;
+      margin-right: 5px;
+
+      @include screen('sm') {
+        width: 28px;
+        height: 41px;
+      }
+    }
+
+    &_coffe {
+      width: 46px;
+      height: 46px;
+
+      @include screen('sm') {
+        width: 41px;
+        height: 41px;
+      }
+    }
+
+    &_kitchen {
+      width: 46px;
+      height: 46px;
+
+      @include screen('sm') {
+        width: 41px;
+        height: 41px;
+      }
+    }
+
+    &_childcare {
+      width: 32px;
+      height: 51px;
+      margin-right: 6px;
+
+      @include screen('sm') {
+        width: 29px;
+        height: 45px;
+        margin-right: 0;
+      }
+    }
+
+    &_gym {
+      width: 54px;
+      height: 31px;
+      margin-right: 4px;
+
+      @include screen('sm') {
+        width: 48px;
+        height: 28px;
+      }
+    }
+  }
+}

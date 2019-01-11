@@ -34,14 +34,42 @@ block content
             li Entrance only with electronic card
             li Silent time from 10pm till 8am
             li First and last months for offices are paid before letting start
-    +section._inner
+    +section._inner._inner_head-gmg._inner_smg
       +section-header
         +section-title('h3') Facilities
       +section-content
-    +section._inner
+        +facilities
+          +grid
+            +col({ sm: 6, xl: 3 })
+              +facility('gym', '_gym') Gym
+            +col({ sm: 6, xl: 3 })
+              +facility('childcare', '_childcare') Childcare
+            +col({ sm: 6, xl: 3 })
+              +facility('kitchen', '_kitchen') Kitchen
+            +col({ sm: 6, xl: 3 })
+              +facility('coffe', '_coffe') Tea/Coffee
+            +col({ sm: 6, xl: 3 })
+              +facility('lock', '_lock') Lockers
+            +col({ sm: 6, xl: 3 })
+              +facility('stand', '_stand') Event Space
+            +col({ sm: 6, xl: 3 })
+              +facility('bike', '_bike') Bike Storage
+            +col({ sm: 6, xl: 3 })
+              +facility('shower', '_shower') Showers
+    +section._inner._inner_head-gmg
       +section-header
         +section-title('h3') Offers
       +section-content
+        +tabs
+          +tab()(data-tab-target="tab1")._orange.active Hot Desk
+          +tab()(data-tab-target="tab2")._red Dedicated desk
+          +tab()(data-tab-target="tab3")._blue Meeting room
+          +tab()(data-tab-target="tab4")._green Office space
+        +tabs-content
+          +tab-wrapper()(data-tab="tab1" data-tab-group="offer").active
+          +tab-wrapper()(data-tab="tab2" data-tab-group="offer")
+          +tab-wrapper()(data-tab="tab3" data-tab-group="offer")
+          +tab-wrapper()(data-tab="tab4" data-tab-group="offer")
   +section
     +section-header
       .container
