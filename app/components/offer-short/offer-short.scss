@@ -1,0 +1,168 @@
+.offer-short {
+  $b: &;
+
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+
+  &__info {
+    @include screen('sm') {
+      width: 100%;
+    }
+
+    &:not(:last-child) {
+      margin-right: 5px;
+
+      @include screen('sm') {
+        margin-right: 0;
+      }
+    }
+  }
+
+  &__status {
+    position: relative;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    text-align: right;
+    margin-left: auto;
+
+    @include screen('sm') {
+      justify-content: flex-start;
+      align-items: flex-start;
+      align-content: flex-start;
+      flex-wrap: wrap;
+      margin-left: 0;
+      width: 100%;
+      order: 2;
+      margin-top: 25px;
+    }
+  }
+
+  &__buttons {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    transition: opacity $ease-main;
+    pointer-events: none;
+    opacity: 0;
+
+    @include screen('sm') {
+      justify-content: flex-start;
+      align-items: flex-start;
+      align-content: flex-start;
+      flex-wrap: wrap;
+      width: 100%;
+      order: 2;
+      margin-top: 15px;
+    }
+
+    #{$b}:not(.is-not-available):hover & {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .is-active #{$b}:not(.is-not-available) & {
+      @include screen('lg') {
+        opacity: 1;
+        pointer-events: auto;
+      }
+    }
+
+    #{$b}.is-not-available & {
+      @include screen('sm') {
+        display: none;
+      }
+    }
+  }
+
+  &__button {
+    @include screen('sm') {
+      width: 100%;
+    }
+
+    &:not(:last-child) {
+      margin-right: 5px;
+
+      @include screen('sm') {
+        margin-right: 0;
+        margin-bottom: 15px;
+      }
+    }
+
+    &_heart {
+      @include screen('sm') {
+        display: none;
+      }
+
+      &:not(:last-child) {
+        margin-right: 10px;
+      }
+    }
+  }
+
+  &__available {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    opacity: 1;
+    pointer-events: none;
+    transition: opacity $ease-main;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: $color-available;
+    padding-right: 15px;
+
+    @include text15;
+
+    @include screen('sm') {
+      position: static;
+      top: auto;
+      right: auto;
+      width: 100%;
+      height: auto;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+
+    #{$b}:not(.is-not-available):hover & {
+      opacity: 0;
+    }
+
+    .is-active #{$b}:not(.is-not-available) &,
+    .is-active #{$b}:hover:not(.is-not-available) & {
+      @include screen('lg') {
+        opacity: 1;
+      }
+    }
+
+    #{$b}.is-not-available & {
+      color: $color-basic-light;
+    }
+  }
+
+  &__content {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    padding-right: 12px;
+
+    @include screen('sm') {
+      padding-right: 0;
+    }
+
+    &:not(:first-child) {
+      margin-top: 12px;
+
+      @include screen('sm') {
+        margin-top: 15px;
+      }
+    }
+  }
+}

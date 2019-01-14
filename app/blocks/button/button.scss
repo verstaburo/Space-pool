@@ -80,8 +80,6 @@
       }
     }
 
-
-
     &_narrow {
       padding: 2px;
 
@@ -91,6 +89,44 @@
         @include screen('sm') {
           padding: 6px 20px;
         }
+      }
+    }
+
+    &:hover,
+    &.is-active {
+      color: $color-white;
+
+      &::before {
+        opacity: .19;
+      }
+
+      #{$b}__text {
+        background: transparent;
+      }
+    }
+  }
+
+  &_thin-border {
+    position: relative;
+    padding: 2px;
+    transition: opacity $ease-main,
+      color $ease-main;
+    color: $color-basic;
+
+    #{$b}__text {
+      padding: 6px 55px;
+      background: $color-bg;
+      transition: background $ease-main;
+
+      @include screen('sm') {
+        padding: 6px 20px;
+      }
+    }
+
+    &_bg-white {
+
+      #{$b}__text {
+        background: $color-white;
       }
     }
 
@@ -129,6 +165,17 @@
     }
   }
 
+  &_smaller {
+    @include text15;
+
+    line-height: (26/15);
+    border-radius: 15px;
+
+    #{$b}__text {
+      padding: 2px 10px 3px;
+    }
+  }
+
   &_border {
     &_small {
       #{$b}__text {
@@ -139,6 +186,21 @@
     &_narrow-small {
       #{$b}__text {
         padding: 3px 20px;
+      }
+    }
+
+    &_smaller {
+      #{$b}__text {
+        padding: 2px 19px;
+      }
+    }
+  }
+
+  &_thin-border {
+
+    &_smaller {
+      #{$b}__text {
+        padding: 0 8px 1px;
       }
     }
   }

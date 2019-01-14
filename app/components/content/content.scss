@@ -3,7 +3,18 @@
 
   display: block;
   width: 100%;
-  margin-bottom: 130px;
+
+  &:not(:last-child) {
+    margin-bottom: 125px;
+
+    @include screen('lg') {
+      margin-bottom: 80px;
+    }
+
+    @include screen('sm') {
+      margin-bottom: 36px;
+    }
+  }
 
   .container {
     display: flex;

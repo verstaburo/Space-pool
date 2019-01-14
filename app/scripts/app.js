@@ -25,13 +25,14 @@ import {
   mapsTwo,
 } from '../blocks/map/map';
 import '../blocks/rating/rating';
-import '../blocks/accordion/accordion';
+import accordions from '../blocks/accordion/accordion';
 import '../blocks/dropdown/dropdown';
 import '../blocks/put-block-into-slot/put-block-into-slot';
 import heartActivation from '../blocks/button-heart/button-heart';
 import desktopFilter from '../components/filter/filter';
 import mobileFilter from '../components/compact-filter/compact-filter';
 import addToFavorite from '../blocks/add-button/add-button';
+import '../components/offer-short/offer-short';
 
 const $ = window.$;
 
@@ -59,4 +60,5 @@ $(() => {
   desktopFilter();
   mobileFilter();
   addToFavorite();
+  accordions();
 });

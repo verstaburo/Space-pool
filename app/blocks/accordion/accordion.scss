@@ -1,10 +1,38 @@
 .accordion {
   $b: &;
-  @include text;
 
-  .accordions & {
-    margin-top: -1px;
-    margin-bottom: 23px;
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 127px;
+  border-bottom: 1px solid $color-border-light;
+  overflow: hidden;
+  transition: height $ease-main;
+  will-change: height;
+
+  @include screen('sm') {
+    height: 157px;
+  }
+
+  &::after {
+    @include pseudo;
+
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 50px;
+    background-image: linear-gradient(to top, $color-bg 40%, rgba($color-bg, 0) 100%);
+    opacity: 1;
+    transition: opacity $ease-main;
+
+    @include screen('sm') {
+      height: 95px;
+    }
+  }
+
+  &.is-active::after {
+    opacity: 0;
+    pointer-events: none;
   }
 
   &__header {
@@ -13,119 +41,90 @@
     width: 100%;
     box-sizing: border-box;
     align-items: center;
-
-  }
-
-  &__heart {
-    height: 20px;
-    width: 20px;
-    fill: $color-text-light;
-    margin-left: auto;
-  }
-
-  &__hot-desc {
-    color: $color-text-light;
-    font-size: 15px;
-    text-transform: uppercase;
-    letter-spacing: -0.3px;
-    font-weight: 700;
-    margin-left: 14px;
-  }
-
-  &__price {
-    letter-spacing: -0.4px;
-    font-weight: 700;
-    font-size: 20px;
-    margin-left: 14px;
-    border-left: 1px solid $color-basic;
-    padding-left: 14px;
-  }
-
-  img {
-    margin-left: 51px;
   }
 
   &__button {
+    position: absolute;
     cursor: pointer;
+    box-sizing: border-box;
     width: 21px;
     height: 21px;
+    top: 20px;
+    left: 0;
     border-radius: 3px;
-    font-size: 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border: 1px solid $color-border;
+    border: 1px solid $color-text-light;
+    transition: border $ease-main;
+    z-index: 2;
+
+    @include screen('sm') {
+      top: auto;
+      left: 50%;
+      bottom: 10px;
+      transform: translate3d(-50%, 0, 0);
+      border-color: $color-basic;
+    }
+
+    #{$b}:hover &,
+    #{$b}.is-active & {
+      border-color: $color-basic;
+    }
+
+    #{$b}.is-active & {
+      border-color: $color-basic;
+      bottom: 15px;
+    }
+
+    &::before,
     &::after {
-      content: '+';
-    }
-  }
+      @include pseudo;
 
-  &__text-acr {
-    margin-left: auto;
-    color: $color-blue;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: -0.3px;
-    font-size: 15px;
-  }
+      width: 9px;
+      height: 1px;
+      background-color: $color-text-light;
+      transition: background $ease-main, transform $ease-main;
+      top: 9px;
+      left: 5px;
+      transform-origin: 50% 50%;
+      font-size: 0;
+      line-height: 0;
 
-  .button {
-    margin-left: 6px;
-    padding: 3px 3px;
-    font-size: 16px;
-    font-weight: 700;
-    letter-spacing: -.8px;
-    &_gradient {
-      padding: 3px 11px;
+      @include screen('sm') {
+        background-color: $color-accordion-button;
+      }
+
+      #{$b}:hover &,
+      #{$b}.is-active & {
+        background-color: $color-accordion-button;
+      }
     }
-    &__text {
-      padding: 0px 9px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
+
+    &::after {
+      transform: rotate(90deg);
+
+      #{$b}.is-active & {
+        transform: rotate(0);
+      }
     }
   }
 
   &__body {
-    padding: 0px 0px 10px 37px;
-    border-bottom: 1px solid $color-border;
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 18px 0 30px 34px;
     width: 100%;
     box-sizing: border-box;
-    position: relative;
-    max-height: 80px;
-    transition: max-height 0.3s ease-in;
-    overflow: hidden;
-    &::after {
-      content: '';
-      display: block;
-      width: 100%;
-      height: 80px;
-      transition: max-height 0.15s ease-out;
-      background: linear-gradient(to bottom,rgba($color: $color-bg, $alpha: .3),rgba($color: $color-bg, $alpha: .8), rgba($color: $color-bg, $alpha: 1));
-      position: absolute;
-      bottom: 0;
-      left: 0;
-    }
-    #{$b}.is-active-body & {
-      max-height: 1000px;
-      &::after {
-        content: '';
-        height: 10px;
-      }
+
+    @include screen('xl') {
+      padding: 16px 0 29px 34px;
     }
 
-  }
-  .text-list {
-    margin-bottom: 31px;
-  }
-}
+    @include screen('lg') {
+      padding: 18px 0 29px 34px;
+    }
 
-.accordions {
-  padding-top: 1px;
-}
-
-.is-active-button {
-  &::after {
-    content: '-';
+    @include screen('sm') {
+      padding: 16px 0 60px;
+    }
   }
 }

@@ -12,3 +12,19 @@ mixin space(data)
             +box(class='_small ' + item.class)
       +e.title!= data.title
       +e.location!= data.location
+
+
+mixin space-around(data)
+  +b.A.space._around&attributes(attributes)
+    +e.DIV.media(data-slider-buttons-orientir)
+      +e.IMG.image(src=data.img)
+      +button-heart.js-heart.__heart
+    +e.DIV.describe
+      if data.seats
+        +e.seats!= data.seats
+      if data.boxes
+        +boxes.__boxes
+          each item in data.boxes
+            +box(class='_small ' + item.class)
+      +e.title!= data.title
+      +e.location!= data.location

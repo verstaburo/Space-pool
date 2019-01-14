@@ -1,3 +1,90 @@
 .offer-info {
   $b: &;
+
+  display: block;
+
+  &__head {
+    display: inline-flex;
+    align-items: center;
+  }
+
+  &__title {
+    @include text;
+
+    font-weight: 700;
+    text-transform: uppercase;
+    line-height: (26/14);
+    color: $color-text-light;
+  }
+
+  &__price {
+    @include heading-4;
+
+    font-weight: 700;
+
+    @include screen('sm') {
+      @include text15;
+    }
+  }
+
+  &_line {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+
+    @include screen('sm') {
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+
+    #{$b}__head {
+      position: relative;
+
+      &:not(:last-child) {
+        margin-right: 30px;
+
+        @include screen('sm') {
+          margin-right: 15px;
+        }
+
+        &::after {
+          @include pseudo;
+
+          width: 1px;
+          height: 17px;
+          background-color: $color-border-light;
+          top: 50%;
+          right: -16px;
+          transform: translate3d(0, -50%, 0);
+
+          @include screen('sm') {
+            display: none;
+          }
+        }
+      }
+    }
+
+    .box {
+      @include screen('sm') {
+        margin-right: 8px;
+      }
+    }
+
+    #{$b}__title {
+      @include text15;
+
+      &:not(:last-child) {
+        @include screen('sm') {
+          margin-right: 10px;
+        }
+      }
+    }
+
+    #{$b}__price {
+      @include screen('sm') {
+        margin-top: 4px;
+        margin-left: auto;
+      }
+    }
+  }
 }
