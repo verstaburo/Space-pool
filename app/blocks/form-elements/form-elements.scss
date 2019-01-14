@@ -401,64 +401,92 @@
 
 .input-numberbox {
   display: flex;
-  align-items: center;
   width: 100%;
+  border: 1px solid $color-border-light;
+  border-radius: 3px;
+  transition: box-shadow $ease-main;
+
+  &:hover {
+    box-shadow: 1px 1px 8px rgba(34, 42, 46, .18);
+  }
+
+  &__field {
+    display: inline-flex;
+    align-items: center;
+    flex: 1;
+    box-sizing: border-box;
+    padding: 0 15px;
+    max-width: calc(100% - 130px);
+  }
 
   &__button {
-    width: 40px;
-    height: 100%;
-    display: flex;
-    font-size: 18px;
-    font-family: monospace;
+    position: relative;
+    width: 64px;
+    min-width: 64px;
+    margin-top: -1px;
+    margin-bottom: -1px;
+    height: 41px;
+    border: 1px solid $color-border-light;
+    border-right-color: transparent;
     cursor: pointer;
-    justify-content: center;
-    align-items: center;
-    border-left: 1px solid $color-border;
+    transition: border $ease-main;
 
-    &:hover::before,
-    &:hover::after {
-      opacity: .5;
+    &:not(:last-child) {
+      margin-right: -1px;
+      z-index: 1;
+    }
+
+    &:hover {
+      border-color: $color-text-light;
     }
 
     &::before,
     &::after {
-      transition: opacity $ease-main;
+      @include pseudo;
+
+      top: 50%;
+      left: 50%;
+      transform-origin: 50% 50%;
+      width: 14px;
+      height: 2px;
+      background-color: $color-basic;
+      transform: translate3d(-50%, -50%, 0);
     }
 
-    &.js-numberbox-minus::before {
-      content: '-';
+    &.js-numberbox-minus {
+      &::after {
+        display: none;
+      }
     }
 
-    &:last-child::before {
-      content: '+';
+    &.js-numberbox-plus {
+      &::before {}
+
+      &::after {
+        transform: translate3d(-50%, -50%, 0) rotate(90deg);
+      }
     }
   }
 
   &__input {
-    flex: 1;
-    border-left: 0;
-    border-right: 0;
-    text-align: left;
-    display: flex;
-    font-size: 14px;
-    color: $color-basic;
-    font-weight: 700;
-    text-transform: uppercase;
-    font-size: 20px;
+    @include heading-4;
 
+    font-weight: 700;
+    line-height: (26/20);
+    color: $color-basic;
+    width: auto;
+    min-width: 0;
   }
 
-  &__text {
-    flex: 1;
-    text-align: right;
-    margin-right: 6px;
-    font-size: 14px;
+  &__label {
+    @include text;
+
+    line-height: (26/14);
     font-weight: 700;
     text-transform: uppercase;
     color: $color-text-light;
+    margin-right: 5px;
   }
-
-  border: 1px solid $color-border !important;
 }
 
 // #####

@@ -1,13 +1,16 @@
 mixin scroll-form()
-  +b.DIV.scroll-form.js-sticky-block&attributes(attributes)
-    +e.H3.__title Reservation form
-    +select.form-select
-      option(value="<div class='option-top'> <span class='cube cube_yellow'></span>dedicated desk</div> <div class='option-down'> £300 per month </div>")
-      option(value="<div class='option-top'> <span class='cube cube_red'></span>hot desk</div> <div class='option-down'> £300 per month </div>")
-      option(value="<div class='option-top'> <span class='cube cube_red'></span>dedicated desk</div> <div class='option-down'> £300 per month </div>")
-      option(value="<div class='option-top'> <span class='cube cube_blue'></span>office space</div> <div class='option-down'> £300 per month </div>")
-    +e.P.__text Including VAT and Service Fee
-    +input-number
-    +button Request Reservation
-    +button Arrange a Viewing
-    +e.P.__text-min  * Utility bills and other services are paid separately
+  +sidebar
+    +b.FORM.scroll-form&attributes(attributes)
+      +e.H3.title Reservation form
+      +offer-select.__select
+        +select.form-select
+          option(value="<div class='option-top'> <span class='cube cube_yellow'></span>dedicated desk</div> <div class='option-down'> £300 per month </div>")
+          option(value="<div class='option-top'> <span class='cube cube_red'></span>hot desk</div> <div class='option-down'> £300 per month </div>")
+          option(value="<div class='option-top'> <span class='cube cube_red'></span>dedicated desk</div> <div class='option-down'> £300 per month </div>")
+          option(value="<div class='option-top'> <span class='cube cube_blue'></span>office space</div> <div class='option-down'> £300 per month </div>")
+      +e.P.text Including VAT and Service Fee
+      +input-number('count').__counter
+      +e.buttons
+        +button('button')(type="button")._wide.__button Request Reservation
+        +button('button')(type="button")._border._border_bg-white._wide.__button Arrange a Viewing
+      +e.P.note <i>* </i> Utility bills and other services are paid separately

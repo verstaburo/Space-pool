@@ -5,12 +5,13 @@ mixin inputbox()
 mixin input()
   input.input&attributes(attributes)
 
-mixin input-number()
-  .input-numberbox
-    span.input-numberbox__text amount:
-    input.input.input-numberbox__input.js-numberbox-input&attributes(attributes)
-    span.input-numberbox__button.js-numberbox-minus
-    span.input-numberbox__button.js-numberbox-plus
+mixin input-number(name)
+  +b.LABEL.input-numberbox&attributes(attributes)
+    +e.field
+      +e.label amount:
+      +e.INPUT.input.js-numberbox-input(type=name value="0")
+    +e.button.js-numberbox-minus
+    +e.button.js-numberbox-plus
 
 mixin textarea()
   textarea.textarea&attributes(attributes)

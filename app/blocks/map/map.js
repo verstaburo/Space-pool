@@ -12,6 +12,7 @@ export function maps() {
 
   const map = L.map('map', {
     scrollWheelZoom: false,
+    zoomControl: false,
   }).setView([51.513443, -0.102139], 13);
 
   L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
@@ -19,8 +20,6 @@ export function maps() {
     id: 'mapbox.streets',
     accessToken: 'pk.eyJ1IjoidGhldmVydmVyeTEiLCJhIjoiY2lzZXdzaXZ4MDBjaTJudm93dDI4MGVrMCJ9.Z8KKk0M_lpDTPB6_JtJBxg',
   }).addTo(map);
-
-  map.zoomControl.setPosition('bottomright');
 
   const myMarker = L.icon({
     iconUrl: 'assets/images/map/map-marker.png',

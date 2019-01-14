@@ -901,6 +901,77 @@ block content
           +col(1)
             +facility('shower', '_shower') Showers
 
+    //- Offer info
+    +ui-section
+      +ui-section-head
+        h2 Offer info
+        p Блок: blocks/offer-info
+      +ui-section-content
+        +ui-description .offer-info
+        +offer-info('', '&pound;185 per month')
+          +e.title office space
+        +ui-description .offer-info with box
+        +offer-info('', '&pound;185 per month')
+          +box._size10._green
+          +e.title office space
+        +ui-description .offer-info with heart
+        +offer-info('', '&pound;185 per month')
+          +box._size10._green
+          +e.title office space
+          +button-heart._gray._small.js-heart
+        +ui-description .offer-info._line
+        +offer-info('', '&pound;185 per month')._line
+          +box._size17._green.hide-from-sm
+          +e.title office space
+          +button-heart._gray._small.js-heart.hide-from-sm
+
+    //- Offer short
+    +ui-section
+      +ui-section-head
+        h2 Offer short
+        p Блок: components/offer-short
+      +ui-section-content
+        +ui-description .offer-short
+        +offer-short
+          +offer-info('', '&pound;211 per month')._line.__info
+            +box._size17._blue.hide-from-sm
+            +e.title meetin room
+            +button-heart._gray._small.js-heart.hide-from-sm
+          +e.status
+            +e.buttons
+              +button-heart._gray._small.__button._heart.js-heart.hide-sm
+              +button('a')._thin-border._thin-border_smaller._smaller.__button Arrange a viewing
+              +button('a')._smaller.__button Request Reservation
+            +e.available AVIALABLE NOW
+          +content-zone._small.__content
+            p This text is some part of every offer for every building. This text is meant to be some textual lead for all additional information you can put inside every offer. So it can be long and that’s why we should put the limit for it.
+            ul
+              li 24 hours access
+              li Pets allowed
+              li Entrance only with electronic card
+              li Silent time from 10pm till 8am
+              li First and last months for offices are paid before letting start
+        +ui-description .offer.is-not-available
+        +offer-short.is-not-available
+          +offer-info('', '&pound;185 per month')._line.__info
+            +box._size17._green.hide-from-sm
+            +e.title office space
+            +button-heart._gray._small.js-heart.hide-from-sm
+          +e.status
+            +e.buttons
+              +button-heart._gray._small.__button._heart.js-heart.hide-sm
+              +button('a')._thin-border._thin-border_smaller._smaller.__button Arrange a viewing
+              +button('a')._smaller.__button Request Reservation
+            +e.available NOT AVAILABLE
+          +content-zone._small.__content
+            p This text is some part of every offer for every building. This text is meant to be some textual lead for all additional information you can put inside every offer. So it can be long and that’s why we should put the limit for it.
+            ul
+              li 24 hours access
+              li Pets allowed
+              li Entrance only with electronic card
+              li Silent time from 10pm till 8am
+              li First and last months for offices are paid before letting start
+
   script
     |
     | $('.ui-kit__section').each(function (i) {

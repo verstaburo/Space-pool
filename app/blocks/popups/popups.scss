@@ -4,6 +4,21 @@
   display: none;
 }
 
-.fancybox-close-small:focus::after { outline: none; }
+.fancybox {
 
-.fancybox-enabled { overflow: initial; }
+  &-bg {
+    background-color: rgba($color-overlay, .2);
+
+    &_dark {
+      background-color: rgba($color-overlay, .6);
+    }
+  }
+
+  &-close-small:focus::after {
+    outline: none;
+  }
+
+  &-enabled {
+    overflow: initial;
+  }
+}

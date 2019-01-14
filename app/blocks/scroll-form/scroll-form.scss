@@ -1,24 +1,15 @@
 .scroll-form {
-  width: 289px;
   display: block;
-  padding: 30px 39px;
-  background: $color-white;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 29px 39px 20px;
 
   &__title {
+    @include heading-3;
+
     font-weight: 700;
-    font-size: 24px;
+    line-height: (26/25);
     margin-bottom: 28px;
-  }
-
-  .input-numberbox {
-    margin-bottom: 21px;
-    border: 1px solid $color-basic;
-    height: 41px;
-  }
-
-  .input-numberbox__button {
-    width: 63px;
-    font-size: 30px;
   }
 
   .form-select {
@@ -28,51 +19,56 @@
     height: 80px;
   }
 
-  option {
-    &:after {
-      content: 'dedicated desk';
-    }
-
-    &:before {
-      content: '£300 per month';
+  &__select {
+    &:not(:last-child) {
+      margin-bottom: 10px;
     }
   }
 
   &__text {
+    @include text13;
+
     color: $color-text-light;
     text-align: center;
-    font-size: 13px;
-    letter-spacing: -0.26px;
-    margin: 0 0 22px;
+    font-weight: 400;
 
-    &-min {
-      color: $color-text-light;
-      text-align: center;
-      font-size: 12px;
-      letter-spacing: -.3px;
+    &:not(:last-child) {
+      margin-bottom: 15px;
     }
   }
 
-  .button {
-    display: flex;
-    margin-bottom: 34px;
-    font-size: 18px;
-    letter-spacing: -.5px;
+  &__counter {
 
-    &_gradient {
-      padding: 6px 0;
+    &:not(:last-child) {
+      margin-bottom: 23px;
+    }
+  }
+
+  &__buttons {
+
+    &:not(:last-child) {
+      margin-bottom: 24px;
+    }
+  }
+
+  &__button {
+
+    &:not(:last-child) {
       margin-bottom: 22px;
     }
-
-    span {
-      width: 100%;
-      display: flex;
-      justify-content: center;
-      padding: 3px;
-    }
   }
 
-  .input-numberbox__input {
-    border-bottom: 0px solid red;
+  &__note {
+    @include text12;
+
+    color: $color-note;
+    text-align: center;
+    font-weight: 400;
+
+    i {
+      font-style: normal;
+      font-size: 21px;
+      line-height: (26/21);
+    }
   }
 }

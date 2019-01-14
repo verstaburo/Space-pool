@@ -16,7 +16,7 @@ import {
 import popups from '../blocks/popups/popups';
 import scrollbar from '../blocks/scrollbar/scrollbar';
 import header from '../components/header/header';
-import scrollCont from '../blocks/scroll-form/scroll-form';
+import scrollCont from '../blocks/sidebar/sidebar';
 import slider from '../blocks/slider/slider';
 import tooltips from '../blocks/tooltip/tooltip';
 import tabs from '../blocks/tabs/tabs';

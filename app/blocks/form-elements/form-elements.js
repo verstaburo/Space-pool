@@ -190,7 +190,7 @@ export function numberinput() {
     const input = $(this).parent().find('.js-numberbox-input');
     let val = +input.val();
 
-    const minus = $(this).attr('class').includes('minus') || false;
+    const minus = $(this).is('[class*="minus"]') || false;
 
     if (!val.length) {
       input.val(1);
