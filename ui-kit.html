@@ -362,28 +362,37 @@
                         <div class="grid">
                             <div class="grid__col grid__col_xl_3"></div>
                             <div class="grid__col grid__col_xl_3">
-                                <div class="scroll-form js-sticky-block">
-                                    <h3 class="scroll-form__title">Reservation form</h3>
-                                    <select class="select form-select">
-                                        <option value="&lt;div class='option-top'&gt; &lt;span class='cube cube_yellow'&gt;&lt;/span&gt;dedicated desk&lt;/div&gt; &lt;div class='option-down'&gt; £300 per month &lt;/div&gt;"></option>
-                                        <option value="&lt;div class='option-top'&gt; &lt;span class='cube cube_red'&gt;&lt;/span&gt;hot desk&lt;/div&gt; &lt;div class='option-down'&gt; £300 per month &lt;/div&gt;"></option>
-                                        <option value="&lt;div class='option-top'&gt; &lt;span class='cube cube_red'&gt;&lt;/span&gt;dedicated desk&lt;/div&gt; &lt;div class='option-down'&gt; £300 per month &lt;/div&gt;"></option>
-                                        <option value="&lt;div class='option-top'&gt; &lt;span class='cube cube_blue'&gt;&lt;/span&gt;office space&lt;/div&gt; &lt;div class='option-down'&gt; £300 per month &lt;/div&gt;"></option>
-                                    </select>
-                                    <p class="scroll-form__text">Including VAT and Service Fee</p>
-                                    <div class="input-numberbox">
-                                        <span class="input-numberbox__text">amount:</span>
-                                        <input class="input input-numberbox__input js-numberbox-input" />
-                                        <span class="input-numberbox__button js-numberbox-minus"></span>
-                                        <span class="input-numberbox__button js-numberbox-plus"></span>
-                                    </div>
-                                    <a class="button">
-                                        <span class="button__text">Request Reservation</span>
-                                    </a>
-                                    <a class="button">
-                                        <span class="button__text">Arrange a Viewing</span>
-                                    </a>
-                                    <p class="scroll-form__text-min"> * Utility bills and other services are paid separately</p>
+                                <div class="sidebar js-sticky-block">
+                                    <form class="scroll-form">
+                                        <h3 class="scroll-form__title">Reservation form</h3>
+                                        <div class="offer-select scroll-form__select">
+                                            <select class="select form-select">
+                                                <option value="&lt;div class='option-top'&gt; &lt;span class='cube cube_yellow'&gt;&lt;/span&gt;dedicated desk&lt;/div&gt; &lt;div class='option-down'&gt; £300 per month &lt;/div&gt;"></option>
+                                                <option value="&lt;div class='option-top'&gt; &lt;span class='cube cube_red'&gt;&lt;/span&gt;hot desk&lt;/div&gt; &lt;div class='option-down'&gt; £300 per month &lt;/div&gt;"></option>
+                                                <option value="&lt;div class='option-top'&gt; &lt;span class='cube cube_red'&gt;&lt;/span&gt;dedicated desk&lt;/div&gt; &lt;div class='option-down'&gt; £300 per month &lt;/div&gt;"></option>
+                                                <option value="&lt;div class='option-top'&gt; &lt;span class='cube cube_blue'&gt;&lt;/span&gt;office space&lt;/div&gt; &lt;div class='option-down'&gt; £300 per month &lt;/div&gt;"></option>
+                                            </select>
+                                        </div>
+                                        <p class="scroll-form__text">Including VAT and Service Fee</p>
+                                        <label class="input-numberbox scroll-form__counter">
+                                            <span class="input-numberbox__field">
+                                                <span class="input-numberbox__label">amount:</span>
+                                                <input class="input-numberbox__input js-numberbox-input" type="count" value="0" />
+                                            </span>
+                                            <span class="input-numberbox__button js-numberbox-minus"></span>
+                                            <span class="input-numberbox__button js-numberbox-plus"></span>
+                                        </label>
+                                        <div class="scroll-form__buttons">
+                                            <button class="button button_wide scroll-form__button" type="button">
+                                                <span class="button__text">Request Reservation</span>
+                                            </button>
+                                            <button class="button button_border button_border_bg-white button_wide scroll-form__button" type="button">
+                                                <span class="button__text">Arrange a Viewing</span>
+                                            </button>
+                                        </div>
+                                        <p class="scroll-form__note">
+                                            <i>* </i> Utility bills and other services are paid separately</p>
+                                    </form>
                                 </div>
                             </div>
                         </div>
@@ -539,12 +548,14 @@
                             <p class="ui-kit__description">.js-number-input
                                 <br> Поле изменения количества</p>
                             <div class="inputbox">
-                                <div class="input-numberbox">
-                                    <span class="input-numberbox__text">amount:</span>
-                                    <input class="input input-numberbox__input js-numberbox-input" placeholder="Количество товара" />
+                                <label class="input-numberbox" placeholder="Количество товара">
+                                    <span class="input-numberbox__field">
+                                        <span class="input-numberbox__label">amount:</span>
+                                        <input class="input-numberbox__input js-numberbox-input" type="text" value="0" />
+                                    </span>
                                     <span class="input-numberbox__button js-numberbox-minus"></span>
                                     <span class="input-numberbox__button js-numberbox-plus"></span>
-                                </div>
+                                </label>
                             </div>
                         </div>
                         <div class="grid__col grid__col_xl_12">
@@ -3091,6 +3102,173 @@
                                     <svg class="facility__icon facility__icon_shower"><use xlink:href="assets/images/icon.svg#icon_shower"></use></svg>
                                 </div>
                             </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="ui-kit__section">
+            <div class="ui-kit__section-head">
+                <div class="container">
+                    <h2>Offer info</h2>
+                    <p>Блок: blocks/offer-info</p>
+                </div>
+            </div>
+            <div class="ui-kit__section-content">
+                <div class="container">
+                    <p class="ui-kit__description">.offer-info</p>
+                    <div class="offer-info">
+                        <div class="offer-info__head">
+                            <div class="offer-info__title">office space</div>
+                        </div>
+                        <div class="offer-info__price">&pound;185 per month</div>
+                    </div>
+                    <p class="ui-kit__description">.offer-info with box</p>
+                    <div class="offer-info">
+                        <div class="offer-info__head">
+                            <div class="box box_size10 box_green"></div>
+                            <div class="offer-info__title">office space</div>
+                        </div>
+                        <div class="offer-info__price">&pound;185 per month</div>
+                    </div>
+                    <p class="ui-kit__description">.offer-info with heart</p>
+                    <div class="offer-info">
+                        <div class="offer-info__head">
+                            <div class="box box_size10 box_green"></div>
+                            <div class="offer-info__title">office space</div>
+                            <div class="button-heart button-heart_gray button-heart_small js-heart">
+                                <div class="button-heart__top">
+                                    <svg class="button-heart__icon button-heart__icon_empty"><use xlink:href="assets/images/icon.svg#icon_heart"></use></svg>
+                                </div>
+                                <div class="button-heart__bottom">
+                                    <svg class="button-heart__icon button-heart__icon_full"><use xlink:href="assets/images/icon.svg#icon_full-heart"></use></svg>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="offer-info__price">&pound;185 per month</div>
+                    </div>
+                    <p class="ui-kit__description">.offer-info._line</p>
+                    <div class="offer-info offer-info_line">
+                        <div class="offer-info__head">
+                            <div class="box box_size17 box_green hide-from-sm"></div>
+                            <div class="offer-info__title">office space</div>
+                            <div class="button-heart button-heart_gray button-heart_small js-heart hide-from-sm">
+                                <div class="button-heart__top">
+                                    <svg class="button-heart__icon button-heart__icon_empty"><use xlink:href="assets/images/icon.svg#icon_heart"></use></svg>
+                                </div>
+                                <div class="button-heart__bottom">
+                                    <svg class="button-heart__icon button-heart__icon_full"><use xlink:href="assets/images/icon.svg#icon_full-heart"></use></svg>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="offer-info__price">&pound;185 per month</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="ui-kit__section">
+            <div class="ui-kit__section-head">
+                <div class="container">
+                    <h2>Offer short</h2>
+                    <p>Блок: components/offer-short</p>
+                </div>
+            </div>
+            <div class="ui-kit__section-content">
+                <div class="container">
+                    <p class="ui-kit__description">.offer-short</p>
+                    <div class="offer-short">
+                        <div class="offer-info offer-info_line offer-short__info">
+                            <div class="offer-info__head">
+                                <div class="box box_size17 box_blue hide-from-sm"></div>
+                                <div class="offer-info__title">meetin room</div>
+                                <div class="button-heart button-heart_gray button-heart_small js-heart hide-from-sm">
+                                    <div class="button-heart__top">
+                                        <svg class="button-heart__icon button-heart__icon_empty"><use xlink:href="assets/images/icon.svg#icon_heart"></use></svg>
+                                    </div>
+                                    <div class="button-heart__bottom">
+                                        <svg class="button-heart__icon button-heart__icon_full"><use xlink:href="assets/images/icon.svg#icon_full-heart"></use></svg>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="offer-info__price">&pound;211 per month</div>
+                        </div>
+                        <div class="offer-short__status">
+                            <div class="offer-short__buttons">
+                                <div class="button-heart button-heart_gray button-heart_small offer-short__button offer-short__button_heart js-heart hide-sm">
+                                    <div class="button-heart__top">
+                                        <svg class="button-heart__icon button-heart__icon_empty"><use xlink:href="assets/images/icon.svg#icon_heart"></use></svg>
+                                    </div>
+                                    <div class="button-heart__bottom">
+                                        <svg class="button-heart__icon button-heart__icon_full"><use xlink:href="assets/images/icon.svg#icon_full-heart"></use></svg>
+                                    </div>
+                                </div>
+                                <a class="button button_thin-border button_thin-border_smaller button_smaller offer-short__button">
+                                    <span class="button__text">Arrange a viewing</span>
+                                </a>
+                                <a class="button button_smaller offer-short__button">
+                                    <span class="button__text">Request Reservation</span>
+                                </a>
+                            </div>
+                            <div class="offer-short__available">AVIALABLE NOW</div>
+                        </div>
+                        <div class="content-zone content-zone_small offer-short__content">
+                            <p>This text is some part of every offer for every building. This text is meant to be some textual lead for all additional information you can put inside every offer. So it can be long and that’s why we should put the limit for
+                                it.</p>
+                            <ul>
+                                <li>24 hours access</li>
+                                <li>Pets allowed</li>
+                                <li>Entrance only with electronic card</li>
+                                <li>Silent time from 10pm till 8am</li>
+                                <li>First and last months for offices are paid before letting start</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <p class="ui-kit__description">.offer.is-not-available</p>
+                    <div class="offer-short is-not-available">
+                        <div class="offer-info offer-info_line offer-short__info">
+                            <div class="offer-info__head">
+                                <div class="box box_size17 box_green hide-from-sm"></div>
+                                <div class="offer-info__title">office space</div>
+                                <div class="button-heart button-heart_gray button-heart_small js-heart hide-from-sm">
+                                    <div class="button-heart__top">
+                                        <svg class="button-heart__icon button-heart__icon_empty"><use xlink:href="assets/images/icon.svg#icon_heart"></use></svg>
+                                    </div>
+                                    <div class="button-heart__bottom">
+                                        <svg class="button-heart__icon button-heart__icon_full"><use xlink:href="assets/images/icon.svg#icon_full-heart"></use></svg>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="offer-info__price">&pound;185 per month</div>
+                        </div>
+                        <div class="offer-short__status">
+                            <div class="offer-short__buttons">
+                                <div class="button-heart button-heart_gray button-heart_small offer-short__button offer-short__button_heart js-heart hide-sm">
+                                    <div class="button-heart__top">
+                                        <svg class="button-heart__icon button-heart__icon_empty"><use xlink:href="assets/images/icon.svg#icon_heart"></use></svg>
+                                    </div>
+                                    <div class="button-heart__bottom">
+                                        <svg class="button-heart__icon button-heart__icon_full"><use xlink:href="assets/images/icon.svg#icon_full-heart"></use></svg>
+                                    </div>
+                                </div>
+                                <a class="button button_thin-border button_thin-border_smaller button_smaller offer-short__button">
+                                    <span class="button__text">Arrange a viewing</span>
+                                </a>
+                                <a class="button button_smaller offer-short__button">
+                                    <span class="button__text">Request Reservation</span>
+                                </a>
+                            </div>
+                            <div class="offer-short__available">NOT AVAILABLE</div>
+                        </div>
+                        <div class="content-zone content-zone_small offer-short__content">
+                            <p>This text is some part of every offer for every building. This text is meant to be some textual lead for all additional information you can put inside every offer. So it can be long and that’s why we should put the limit for
+                                it.</p>
+                            <ul>
+                                <li>24 hours access</li>
+                                <li>Pets allowed</li>
+                                <li>Entrance only with electronic card</li>
+                                <li>Silent time from 10pm till 8am</li>
+                                <li>First and last months for offices are paid before letting start</li>
+                            </ul>
                         </div>
                     </div>
                 </div>
