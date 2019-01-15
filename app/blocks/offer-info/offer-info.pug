@@ -3,3 +3,13 @@ mixin offer-info(tag, price)
     +e.head
       block
     +e.price!= price
+
+mixin offer-info-radio(name, value, price, checked)
+  +b.LABEL.offer-info-radio&attributes(attributes)
+    - if (checked) {
+      +input(type="radio" name=name value=value checked="checked" data-offer-input="true")
+    - } else {
+      +input(type="radio" name=name value=value data-offer-input="true")
+    - }
+    +offer-info('', price)(data-select-value)
+      block

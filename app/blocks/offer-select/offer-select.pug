@@ -1,3 +1,17 @@
-mixin offer-select()
-  +b.offer-select&attributes(attributes)
-    block
+mixin offer-select(star)
+  +b.offer-select__.js-offer-select&attributes(attributes)
+    +e.head(data-head)
+      +e.label(data-label)
+      +e.toggle
+        +icon('select-arrow').__icon
+      if star
+        +e.star *
+    +e.dropdown.js-scrollbar
+      +e.UL.list
+        block
+
+mixin offer-select-item(data)
+  +e.LI.item
+    +offer-info-radio('offers', data.value, data.price, data.check)(data-select-item)
+      +box(class=data.boxclass)
+      +e.title!= data.title

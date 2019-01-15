@@ -33,6 +33,7 @@ import desktopFilter from '../components/filter/filter';
 import mobileFilter from '../components/compact-filter/compact-filter';
 import addToFavorite from '../blocks/add-button/add-button';
 import '../components/offer-short/offer-short';
+import offerSelect from '../blocks/offer-select/offer-select';
 
 const $ = window.$;
 
@@ -61,4 +62,5 @@ $(() => {
   mobileFilter();
   addToFavorite();
   accordions();
+  offerSelect();
 });

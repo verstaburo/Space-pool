@@ -8,6 +8,10 @@
     align-items: center;
   }
 
+  .box {
+    margin-right: 8px;
+  }
+
   &__title {
     @include text;
 
@@ -21,6 +25,7 @@
     @include heading-4;
 
     font-weight: 700;
+    margin-top: -4px;
 
     @include screen('sm') {
       @include text15;
@@ -65,6 +70,8 @@
     }
 
     .box {
+      margin-right: 0;
+
       @include screen('sm') {
         margin-right: 8px;
       }
@@ -81,10 +88,27 @@
     }
 
     #{$b}__price {
+      margin-top: 0;
+
       @include screen('sm') {
         margin-top: 4px;
         margin-left: auto;
       }
     }
+  }
+}
+
+.offer-info-radio {
+  cursor: pointer;
+  display: block;
+  width: 100%;
+
+  input {
+    display: none;
+  }
+
+  input:checked~.offer-info,
+  &:hover .offer-info {
+    background-color: $color-bg;
   }
 }

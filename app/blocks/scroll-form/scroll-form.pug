@@ -1,13 +1,11 @@
 mixin scroll-form()
+  - var offers = getData('offer-select.json')
   +sidebar
     +b.FORM.scroll-form&attributes(attributes)
       +e.H3.title Reservation form
-      +offer-select.__select
-        +select.form-select
-          option(value="<div class='option-top'> <span class='cube cube_yellow'></span>dedicated desk</div> <div class='option-down'> £300 per month </div>")
-          option(value="<div class='option-top'> <span class='cube cube_red'></span>hot desk</div> <div class='option-down'> £300 per month </div>")
-          option(value="<div class='option-top'> <span class='cube cube_red'></span>dedicated desk</div> <div class='option-down'> £300 per month </div>")
-          option(value="<div class='option-top'> <span class='cube cube_blue'></span>office space</div> <div class='option-down'> £300 per month </div>")
+      +offer-select(true).__select
+        each item in offers
+          +offer-select-item(item)
       +e.P.text Including VAT and Service Fee
       +input-number('count').__counter
       +e.buttons
