@@ -6,6 +6,10 @@
   &__head {
     display: inline-flex;
     align-items: center;
+
+    .button-heart {
+      margin-right: auto;
+    }
   }
 
   .box {
@@ -19,6 +23,10 @@
     text-transform: uppercase;
     line-height: (26/14);
     color: $color-text-light;
+
+    &:not(:last-child) {
+      margin-right: 10px;
+    }
   }
 
   &__price {
@@ -81,6 +89,8 @@
       @include text15;
 
       &:not(:last-child) {
+        margin-right: 0;
+
         @include screen('sm') {
           margin-right: 10px;
         }
@@ -94,6 +104,38 @@
         margin-top: 4px;
         margin-left: auto;
       }
+    }
+  }
+
+  &_small {
+
+    .box {
+      margin-right: 5px;
+    }
+
+    #{$b}__head {
+      &:not(:last-child) {
+        margin-bottom: 6px;
+      }
+    }
+
+    #{$b}__title {
+      @include text15;
+
+      font-weight: 700;
+      text-transform: uppercase;
+      line-height: 1;
+      color: $color-text-light;
+
+      &:not(:last-child) {
+        margin-right: 10px;
+      }
+    }
+
+    #{$b}__price {
+      @include text15;
+
+      line-height: 1;
     }
   }
 }

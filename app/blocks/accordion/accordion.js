@@ -1,5 +1,7 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable prefer-rest-params */
+import isTouchDevice from 'is-touch-device';
+
 const $ = window.$;
 
 export default function accordions() {
@@ -26,47 +28,39 @@ export default function accordions() {
 
   $(window).on('resize', updateOpenElements);
 
-  $(document).on('click', '.js-accordion-open', (evt) => {
-    const self = $(evt.target).is('.js-accordion-open') ? $(evt.target) : $(evt.target).closest('.js-accordion-open');
-    evt.preventDefault();
-    console.log('click');
-    console.log(self);
-    const container = $(self).closest('.accordions');
+  function openAccordion(btn) {
+    const container = $(btn).closest('.accordions');
     const siblings = $(container).find('.accordion');
-    console.log(siblings);
-    if (!$(self).is('.is-active')) {
-      console.log('click is-active');
+    if (!$(btn).is('.is-active')) {
       $(siblings).removeClass('is-active');
       $(siblings).css({
         height: '',
       });
-      setHeight(self);
-      $(self).addClass('is-active');
+      setHeight(btn);
+      $(btn).addClass('is-active');
     } else {
       $(siblings).removeClass('is-active');
       $(siblings).css({
         height: '',
       });
     }
+  }
+
+  $(document).on('click', '.js-accordion-open', (evt) => {
+    const self = $(evt.target).is('.js-accordion-open') ? $(evt.target) : $(evt.target).closest('.js-accordion-open');
+    evt.preventDefault();
+    if (!isTouchDevice()) {
+      openAccordion(self);
+    }
+  });
+
+  $(document).on('touchstart', '.js-accordion-open', (evt) => {
+    const self = $(evt.target).is('.js-accordion-open') ? $(evt.target) : $(evt.target).closest('.js-accordion-open');
+    if (isTouchDevice()) {
+      openAccordion(self);
+    }
   });
 }
 
 /* eslint-disable prefer-rest-params */
 /* eslint-enable no-unused-vars */
-
-// $(document).on('click', '.js-accordion-open', (e) => {
-//   e.preventDefault();
-//   const block = e.target.parentElement.parentElement;
-//   const acc = $('.accordion');
-//   const accBtn = $('.accordion__button');
-
-//   if (block.classList.contains('is-active-body')) {
-//     acc.removeClass('is-active-body');
-//     accBtn.removeClass('is-active-button');
-//   } else {
-//     acc.removeClass('is-active-body');
-//     accBtn.removeClass('is-active-button');
-//     block.classList.add('is-active-body');
-//     e.target.classList.add('is-active-button');
-//   }
-// });

@@ -34,6 +34,9 @@ import mobileFilter from '../components/compact-filter/compact-filter';
 import addToFavorite from '../blocks/add-button/add-button';
 import '../components/offer-short/offer-short';
 import offerSelect from '../blocks/offer-select/offer-select';
+import openPanel from '../blocks/panel/panel';
+import spoilers from '../blocks/spoiler/spoiler';
+import offerItemOpen from '../blocks/offer-item/offer-item';
 
 const $ = window.$;
 
@@ -63,4 +66,7 @@ $(() => {
   addToFavorite();
   accordions();
   offerSelect();
+  openPanel();
+  spoilers();
+  offerItemOpen();
 });

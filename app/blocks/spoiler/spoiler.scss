@@ -1,0 +1,52 @@
+.spoiler {
+  $b: &;
+
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-start;
+  height: 63px;
+  transition: height $ease-main;
+  will-change: height;
+  overflow: hidden;
+
+  &::before {
+    @include pseudo;
+
+    height: 60px;
+    width: 100%;
+    z-index: 2;
+    bottom: 0;
+    left: 0;
+    background-image: linear-gradient(to top, $color-bg 40%, rgba($color-bg, 0));
+    transition: opacity $ease-main;
+  }
+
+  &.is-active::before {
+    opacity: 0;
+  }
+
+  &__content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    flex: 1;
+    width: 100%;
+    z-index: 1;
+    padding-bottom: 20px;
+  }
+
+  &__toggle {
+    position: relative;
+    z-index: 3;
+    display: block;
+    width: 100%;
+
+    @include text15;
+
+    line-height: 1;
+    font-weight: 700;
+  }
+}

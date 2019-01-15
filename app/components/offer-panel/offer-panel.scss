@@ -1,3 +1,28 @@
 .offer-panel {
   $b: &;
+
+  &__boxes {
+    position: absolute;
+    top: 0;
+    left: $container-padding-tablet;
+    min-height: 7px;
+
+    @include screen('sm') {
+      left: $container-padding-mobile;
+    }
+  }
+
+  &__list {
+    display: block;
+    width: 100%;
+  }
+
+  &__item {
+    display: block;
+    width: 100%;
+
+    &:not(:last-child) {
+      border-bottom: 1px solid $color-border-lighter;
+    }
+  }
 }

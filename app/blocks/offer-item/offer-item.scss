@@ -1,0 +1,62 @@
+.offer-item {
+  $b: &;
+
+  display: block;
+  width: 100%;
+  background-color: $color-white;
+  transition: background $ease-main;
+  box-sizing: border-box;
+  padding: 0 $container-padding-tablet;
+
+  @include screen('sm') {
+    padding: 0 $container-padding-mobile;
+  }
+
+  &.is-open {
+    background-color: $color-bg;
+    padding-bottom: 15px;
+  }
+
+  &__head {
+    display: block;
+    padding: 13px 0 16px;
+
+    .offer-info {
+      width: 100%;
+
+      &__title {
+        width: 100%;
+      }
+
+      &__head {
+        width: 100%;
+      }
+    }
+  }
+
+  &__content {
+    display: none;
+    width: 100%;
+  }
+
+  &__spoiler {
+    margin-top: -2px;
+
+    &:not(:last-child) {
+      margin-bottom: 24px;
+    }
+  }
+
+  &__buttons {
+    display: block;
+    width: 100%;
+  }
+
+  &__button {
+    width: 100%;
+
+    &:not(:last-child) {
+      margin-bottom: 15px;
+    }
+  }
+}

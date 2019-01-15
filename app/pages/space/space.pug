@@ -1,4 +1,4 @@
-extends ../../layouts/default
+extends ../../layouts/default-with-mobile-panel
 
 block head
   - var pageTitle = 'Space Pool - Space'
@@ -214,3 +214,6 @@ block content
           each item in spaces
             +slide
               +space-around(item)(href="#")
+
+block panels
+  +offer-panel.hide-from-lg
