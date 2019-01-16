@@ -9,6 +9,11 @@
   overflow: hidden;
   transition: height $ease-main;
   will-change: height;
+  touch-action: manipulation;
+
+  @include screen('lg') {
+    cursor: pointer;
+  }
 
   @include screen('sm') {
     height: 157px;
@@ -114,6 +119,7 @@
     padding: 18px 0 30px 34px;
     width: 100%;
     box-sizing: border-box;
+    touch-action: manipulation;
 
     @include screen('xl') {
       padding: 16px 0 29px 34px;
