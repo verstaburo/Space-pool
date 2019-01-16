@@ -14,7 +14,7 @@
 </head>
 
 <body>
-    <header class="header">
+    <header class="header is-login">
         <div class="container">
             <div class="header__logo">
                 <a class="logo" href="/">
@@ -116,105 +116,258 @@
     <main class="page" role="main">
         <section class="content content_reverse">
             <div class="container">
-                <div class="content__column content__column_main"></div>
-                <div class="content__column content__column_aside hide-lg" data-sticky-parent="data-sticky-parent">
-                    <aside class="sidebar js-sticky-block">
-                        <form class="scroll-form">
-                            <h3 class="scroll-form__title">Reservation form</h3>
-                            <div class="offer-select js-offer-select scroll-form__select">
-                                <div class="offer-select__head" data-head="data-head">
-                                    <div class="offer-select__label" data-label="data-label"></div>
-                                    <div class="offer-select__toggle">
-                                        <svg class="offer-select__icon"><use xlink:href="assets/images/icon.svg#icon_select-arrow"></use></svg>
-                                    </div>
-                                    <div class="offer-select__star">*</div>
+                <div class="content__column content__column_aside content__column_ptop hide-lg" data-sticky-parent="data-sticky-parent">
+                    <aside class="js-sticky-block sidebar sidebar_dark">
+                        <div class="side-navigation">
+                            <ul class="nav-list nav-list_sidebar side-navigation__navigation">
+                                <li class="nav-list__item">
+                                    <a class="link link_white" href="#">
+                                        <span class="link__text">My reservations</span>
+                                    </a>
+                                    <div class="nav-list__marker">1</div>
+                                </li>
+                                <li class="nav-list__item">
+                                    <a class="link link_white" href="#">
+                                        <span class="link__text">History of booking</span>
+                                    </a>
+                                </li>
+                                <li class="nav-list__item">
+                                    <a class="link link_white" href="#">
+                                        <span class="link__text">Messages</span>
+                                    </a>
+                                    <div class="nav-list__marker">3</div>
+                                </li>
+                                <li class="nav-list__item">
+                                    <a class="link link_white" href="#">
+                                        <span class="link__text">Favourites</span>
+                                    </a>
+                                </li>
+                                <li class="nav-list__item">
+                                    <a class="link link_white is-active" href="#">
+                                        <span class="link__text">Profile & Settings</span>
+                                    </a>
+                                </li>
+                            </ul>
+                            <div class="note">
+                                <div class="note__mark">
+                                    <svg class="note__icon"><use xlink:href="assets/images/icon.svg#icon_info"></use></svg>
                                 </div>
-                                <div class="offer-select__dropdown js-scrollbar">
-                                    <ul class="offer-select__list">
-                                        <li class="offer-select__item">
-                                            <label class="offer-info-radio" data-select-item="data-select-item">
-                                                <input class="input" type="radio" name="offers" value="1" data-offer-input="true" />
-                                                <div class="offer-info" data-select-value="data-select-value">
-                                                    <div class="offer-info__head">
-                                                        <div class="box box_size10 box_orange"></div>
-                                                        <div class="offer-info__title">HOT DESK</div>
-                                                    </div>
-                                                    <div class="offer-info__price">£300 per month</div>
-                                                </div>
-                                            </label>
-                                        </li>
-                                        <li class="offer-select__item">
-                                            <label class="offer-info-radio" data-select-item="data-select-item">
-                                                <input class="input" type="radio" name="offers" value="2" checked="checked" data-offer-input="true" />
-                                                <div class="offer-info" data-select-value="data-select-value">
-                                                    <div class="offer-info__head">
-                                                        <div class="box box_size10 box_red"></div>
-                                                        <div class="offer-info__title">DEDICATED DESK</div>
-                                                    </div>
-                                                    <div class="offer-info__price">£300 per month</div>
-                                                </div>
-                                            </label>
-                                        </li>
-                                        <li class="offer-select__item">
-                                            <label class="offer-info-radio" data-select-item="data-select-item">
-                                                <input class="input" type="radio" name="offers" value="3" data-offer-input="true" />
-                                                <div class="offer-info" data-select-value="data-select-value">
-                                                    <div class="offer-info__head">
-                                                        <div class="box box_size10 box_red"></div>
-                                                        <div class="offer-info__title">DEDICATED DESK</div>
-                                                    </div>
-                                                    <div class="offer-info__price">£300 per month</div>
-                                                </div>
-                                            </label>
-                                        </li>
-                                        <li class="offer-select__item">
-                                            <label class="offer-info-radio" data-select-item="data-select-item">
-                                                <input class="input" type="radio" name="offers" value="4" data-offer-input="true" />
-                                                <div class="offer-info" data-select-value="data-select-value">
-                                                    <div class="offer-info__head">
-                                                        <div class="box box_size10 box_green"></div>
-                                                        <div class="offer-info__title">OFFICE SPACE</div>
-                                                    </div>
-                                                    <div class="offer-info__price">£3000 per month</div>
-                                                </div>
-                                            </label>
-                                        </li>
-                                        <li class="offer-select__item">
-                                            <label class="offer-info-radio" data-select-item="data-select-item">
-                                                <input class="input" type="radio" name="offers" value="5" data-offer-input="true" />
-                                                <div class="offer-info" data-select-value="data-select-value">
-                                                    <div class="offer-info__head">
-                                                        <div class="box box_size10 box_green"></div>
-                                                        <div class="offer-info__title">OFFICE SPACE</div>
-                                                    </div>
-                                                    <div class="offer-info__price">£3000 per month</div>
-                                                </div>
-                                            </label>
-                                        </li>
-                                    </ul>
-                                </div>
+                                <div class="note__text">Change your personal info, password and notification options here</div>
                             </div>
-                            <p class="scroll-form__text">Including VAT and Service Fee</p>
-                            <label class="input-numberbox scroll-form__counter">
-                                <span class="input-numberbox__field">
-                                    <span class="input-numberbox__label">amount:</span>
-                                    <input class="input-numberbox__input js-numberbox-input" type="count" value="0" />
-                                </span>
-                                <span class="input-numberbox__button js-numberbox-minus"></span>
-                                <span class="input-numberbox__button js-numberbox-plus"></span>
-                            </label>
-                            <div class="scroll-form__buttons">
-                                <button class="button button_wide scroll-form__button" type="button">
-                                    <span class="button__text">Request Reservation</span>
-                                </button>
-                                <button class="button button_border button_border_bg-white button_wide scroll-form__button" type="button">
-                                    <span class="button__text">Arrange a Viewing</span>
-                                </button>
-                            </div>
-                            <p class="scroll-form__note">
-                                <i>* </i> Utility bills and other services are paid separately</p>
-                        </form>
+                        </div>
                     </aside>
+                </div>
+                <div class="content__column content__column_main">
+                    <form class="form">
+                        <fieldset class="form__section">
+                            <div class="form__header">
+                                <h3 class="form__title">Basic account information</h3>
+                            </div>
+                            <div class="grid grid_big">
+                                <div class="grid__col grid__col_xl_6 grid__col_sm_12">
+                                    <div class="form__wrapper">
+                                        <label class="form-box">
+                                            <input class="input" type="text" name="firsName" value="Eugene" placeholder="First name" />
+                                            <span class="form-box__label">First name</span>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="grid__col grid__col_xl_6 grid__col_sm_12">
+                                    <div class="form__wrapper">
+                                        <label class="form-box">
+                                            <input class="input" type="text" name="lastName" value="Sheeleen" placeholder="Last name" />
+                                            <span class="form-box__label">Last name</span>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="grid__col grid__col_xl_6 grid__col_sm_12">
+                                    <div class="form__wrapper">
+                                        <label class="form-box">
+                                            <select class="select js-select-input" name="country">
+                                                <option value="placeholder">Choose the option below:</option>
+                                                <option value="uk" selected>United-Kingdom</option>
+                                                <option value="ru">Russia</option>
+                                                <option value="de">Germany</option>
+                                                <option value="fr">France</option>
+                                            </select>
+                                            <span class="form-box__label">Country</span>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="grid__col grid__col_xl_6 grid__col_sm_12 grid__col_mob-order2">
+                                    <div class="form__wrapper">
+                                        <label class="form-box form-box_phone">
+                                            <input class="input" type="tel" name="phone" value="+44       768 968 98983" placeholder="Phone number" />
+                                            <span class="form-box__label">Phone number</span>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="grid__col grid__col_xl_6 grid__col_sm_12">
+                                    <div class="form__wrapper">
+                                        <label class="form-box">
+                                            <input class="input" type="email" name="email" value="es@bsagency.design" placeholder="E-mail adress" />
+                                            <span class="form-box__label">E-mail adress</span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </fieldset>
+                        <fieldset class="form__section form__section_bmg">
+                            <div class="form__header form__header_smg">
+                                <h3 class="form__title">Password change</h3>
+                                <div class="form__text">In case you want to change your password just fill the form below:</div>
+                            </div>
+                            <div class="grid grid_big">
+                                <div class="grid__col grid__col_xl_6 grid__col_sm_12">
+                                    <div class="form__wrapper">
+                                        <label class="form-box">
+                                            <input class="input" type="password" name="oldPassword" value="EugeneEugene" placeholder="Old password" readonly="readonly" />
+                                            <span class="form-box__label">Old password</span>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="grid__col grid__col_xl_6 grid__col_sm_12">
+                                    <div class="form__wrapper">
+                                        <label class="form-box">
+                                            <input class="input" type="password" name="newPassword" />
+                                            <span class="form-box__label">New password</span>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="grid__col grid__col_xl_6 grid__col_sm_12 grid__col_mob-order3">
+                                    <div class="form__wrapper">
+                                        <div class="form__text form__text_compensate">
+                                            <a class="link link_gray" href="#">
+                                                <span class="link__text">Forgot your existing password?</span>
+                                            </a>
+                                            <p>Recover the password VIA E-mail adress</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="grid__col grid__col_xl_6 grid__col_sm_12 grid__col_mob-order2">
+                                    <div class="form__wrapper">
+                                        <label class="form-box">
+                                            <input class="input" type="password" name="newPasswordConfirm" />
+                                            <span class="form-box__label">New password one more time</span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </fieldset>
+                        <fieldset class="form__section form__section_bmg">
+                            <div class="form__header">
+                                <h3 class="form__title">Profile Data</h3>
+                            </div>
+                            <div class="grid grid_big">
+                                <div class="grid__col grid__col_xl_6 grid__col_sm_12">
+                                    <div class="form__wrapper">
+                                        <label class="form-box">
+                                            <input class="input js-datepicker" type="text" name="birthday" value="31 August 1986" placeholder="Birthday" />
+                                            <span class="form-box__label">Birthday</span>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="grid__col grid__col_xl_6 grid__col_sm_12">
+                                    <div class="form__wrapper">
+                                        <label class="form-box">
+                                            <select class="select js-select-input" name="residencyCountry">
+                                                <option value="placeholder">Choose the option below:</option>
+                                                <option value="lv" selected>Latvia</option>
+                                                <option value="ru">Russia</option>
+                                                <option value="de">Germany</option>
+                                                <option value="fr">France</option>
+                                            </select>
+                                            <span class="form-box__label">Residency country</span>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="grid__col grid__col_xl_6 grid__col_sm_12">
+                                    <div class="form__wrapper">
+                                        <label class="form-box">
+                                            <select class="select js-select-input" name="educationGrade">
+                                                <option value="placeholder">Choose the option below:</option>
+                                                <option value="bachelor" selected>Bachelor</option>
+                                                <option value="doctor">Doctor</option>
+                                                <option value="master">Master</option>
+                                                <option value="basic">Basic</option>
+                                            </select>
+                                            <span class="form-box__label">Education grade</span>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="grid__col grid__col_xl_6 grid__col_sm_12 grid__col_mob-order2">
+                                    <div class="form__wrapper">
+                                        <label class="form-box">
+                                            <input class="input" type="text" name="companyName" value="SIA Dezi BS" placeholder="Company name" />
+                                            <span class="form-box__label">Company name</span>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="grid__col grid__col_xl_6 grid__col_sm_12">
+                                    <div class="form__wrapper">
+                                        <label class="form-box">
+                                            <input class="input" type="text" name="employeePosition" value="Art-director" placeholder="Employee position" />
+                                            <span class="form-box__label">Employee position</span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </fieldset>
+                        <fieldset class="form__section form__section_bmg">
+                            <div class="form__header">
+                                <h3 class="form__title">Service settings and notifications</h3>
+                            </div>
+                            <div class="grid grid_big">
+                                <div class="grid__col grid__col_xl_6 grid__col_sm_12">
+                                    <div class="form__wrapper">
+                                        <label class="checkbox">
+                                            <input class="checkbox__input" name="settings" value="1" checked="checked" type="checkbox" />
+                                            <span class="checkbox__box">
+                                                <svg class="checkbox__icon"><use xlink:href="assets/images/icon.svg#icon_check"></use></svg>
+                                            </span>
+                                            <span class="checkbox__content">Notify me Via E-mail about new messages</span>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="grid__col grid__col_xl_6 grid__col_sm_12 hide-sm"></div>
+                                <div class="grid__col grid__col_xl_6 grid__col_sm_12">
+                                    <div class="form__wrapper">
+                                        <label class="checkbox">
+                                            <input class="checkbox__input" name="settings" value="2" type="checkbox" />
+                                            <span class="checkbox__box">
+                                                <svg class="checkbox__icon"><use xlink:href="assets/images/icon.svg#icon_check"></use></svg>
+                                            </span>
+                                            <span class="checkbox__content">Notify me about News and Benefits on Space Pool Service</span>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="grid__col grid__col_xl_6 grid__col_sm_12 hide-sm"></div>
+                                <div class="grid__col grid__col_xl_6 grid__col_sm_12">
+                                    <div class="form__wrapper">
+                                        <label class="checkbox">
+                                            <input class="checkbox__input" name="settings" value="3" type="checkbox" />
+                                            <span class="checkbox__box">
+                                                <svg class="checkbox__icon"><use xlink:href="assets/images/icon.svg#icon_check"></use></svg>
+                                            </span>
+                                            <span class="checkbox__content">Send Me information about new offers via E-mail</span>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="grid__col grid__col_xl_6 grid__col_sm_12 hide-sm"></div>
+                                <div class="grid__col grid__col_xl_6 grid__col_sm_12">
+                                    <div class="form__wrapper">
+                                        <label class="checkbox">
+                                            <input class="checkbox__input" name="settings" value="4" type="checkbox" />
+                                            <span class="checkbox__box">
+                                                <svg class="checkbox__icon"><use xlink:href="assets/images/icon.svg#icon_check"></use></svg>
+                                            </span>
+                                            <span class="checkbox__content">Send Me information about new offers via E-mail</span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </fieldset>
+                    </form>
                 </div>
             </div>
         </section>
@@ -232,55 +385,53 @@
                 <div class="main-menu__scrollblock js-scrollbar-light">
                     <div class="main-menu__content">
                         <div class="main-menu__top-menu">
-                            <div class="nav-list">
-                                <ul>
-                                    <li class="nav-list__item">
-                                        <a class="link" href="#">
-                                            <span class="link__text">About the project</span>
-                                        </a>
-                                    </li>
-                                    <li class="nav-list__item">
-                                        <a class="link" href="#">
-                                            <span class="link__text">Become a host</span>
-                                        </a>
-                                    </li>
-                                    <li class="nav-list__item">
-                                        <a class="link" href="#">
-                                            <span class="link__text">Help &amp; Support</span>
-                                        </a>
-                                    </li>
-                                    <li class="nav-list__item">
-                                        <a class="link" href="#">
-                                            <span class="link__text">News</span>
-                                        </a>
-                                    </li>
-                                    <li class="nav-list__item">
-                                        <a class="link" href="#">
-                                            <span class="link__text">Terms and Policies</span>
-                                        </a>
-                                    </li>
-                                    <li class="nav-list__item">
-                                        <a class="link" href="#">
-                                            <span class="link__text">Contacts</span>
-                                        </a>
-                                    </li>
-                            </div>
+                            <ul class="nav-list">
+                                <li class="nav-list__item">
+                                    <a class="link" href="#">
+                                        <span class="link__text">About the project</span>
+                                    </a>
+                                </li>
+                                <li class="nav-list__item">
+                                    <a class="link" href="#">
+                                        <span class="link__text">Become a host</span>
+                                    </a>
+                                </li>
+                                <li class="nav-list__item">
+                                    <a class="link" href="#">
+                                        <span class="link__text">Help &amp; Support</span>
+                                    </a>
+                                </li>
+                                <li class="nav-list__item">
+                                    <a class="link" href="#">
+                                        <span class="link__text">News</span>
+                                    </a>
+                                </li>
+                                <li class="nav-list__item">
+                                    <a class="link" href="#">
+                                        <span class="link__text">Terms and Policies</span>
+                                    </a>
+                                </li>
+                                <li class="nav-list__item">
+                                    <a class="link" href="#">
+                                        <span class="link__text">Contacts</span>
+                                    </a>
+                                </li>
+                            </ul>
                         </div>
                         <hr class="divider" />
                         <div class="main-menu__bottom-menu">
-                            <div class="nav-list">
-                                <ul>
-                                    <li class="nav-list__item">
-                                        <a class="link" href="#">
-                                            <span class="link__text">Sign Up</span>
-                                        </a>
-                                    </li>
-                                    <li class="nav-list__item">
-                                        <a class="link" href="#">
-                                            <span class="link__text">Sign in</span>
-                                        </a>
-                                    </li>
-                            </div>
+                            <ul class="nav-list">
+                                <li class="nav-list__item">
+                                    <a class="link" href="#">
+                                        <span class="link__text">Sign Up</span>
+                                    </a>
+                                </li>
+                                <li class="nav-list__item">
+                                    <a class="link" href="#">
+                                        <span class="link__text">Sign in</span>
+                                    </a>
+                                </li>
+                            </ul>
                             <ul class="socials">
                                 <li class="socials__item">
                                     <a class="social social_fb" target="_blank" href="#" title="facebook">
@@ -317,7 +468,7 @@
             </div>
         </div>
     </div>
-    <footer class="footer">
+    <footer class="footer footer_panel-padding">
         <div class="container">
             <div class="footer__top">
                 <div class="footer__logo">
@@ -327,60 +478,57 @@
                     <div class="footer__info" data-slot-id="footer-contacts" data-slot-res="lg"></div>
                 </div>
                 <div class="footer__navigation">
-                    <div class="nav-list nav-list_small footer__list">
-                        <ul>
-                            <li class="nav-list__item">
-                                <a class="link" href="#">
-                                    <span class="link__text">About the Project</span>
-                                </a>
-                            </li>
-                            <li class="nav-list__item">
-                                <a class="link" href="#">
-                                    <span class="link__text">Help and Support</span>
-                                </a>
-                            </li>
-                            <li class="nav-list__item">
-                                <a class="link" href="#">
-                                    <span class="link__text">Become a host</span>
-                                </a>
-                            </li>
-                    </div>
-                    <div class="nav-list nav-list_small footer__list">
-                        <ul>
-                            <li class="nav-list__item">
-                                <a class="link" href="#">
-                                    <span class="link__text">Search for spaces</span>
-                                </a>
-                            </li>
-                            <li class="nav-list__item">
-                                <a class="link" href="#">
-                                    <span class="link__text">Term and policies</span>
-                                </a>
-                            </li>
-                            <li class="nav-list__item">
-                                <a class="link" href="#">
-                                    <span class="link__text">Careers</span>
-                                </a>
-                            </li>
-                    </div>
-                    <div class="nav-list nav-list_small footer__list">
-                        <ul>
-                            <li class="nav-list__item">
-                                <a class="link" href="#">
-                                    <span class="link__text">Blog</span>
-                                </a>
-                            </li>
-                            <li class="nav-list__item">
-                                <a class="link" href="#">
-                                    <span class="link__text">Press</span>
-                                </a>
-                            </li>
-                            <li class="nav-list__item">
-                                <a class="link" href="#">
-                                    <span class="link__text">Advertise</span>
-                                </a>
-                            </li>
-                    </div>
+                    <ul class="nav-list nav-list_small footer__list">
+                        <li class="nav-list__item">
+                            <a class="link" href="#">
+                                <span class="link__text">About the Project</span>
+                            </a>
+                        </li>
+                        <li class="nav-list__item">
+                            <a class="link" href="#">
+                                <span class="link__text">Help and Support</span>
+                            </a>
+                        </li>
+                        <li class="nav-list__item">
+                            <a class="link" href="#">
+                                <span class="link__text">Become a host</span>
+                            </a>
+                        </li>
+                    </ul>
+                    <ul class="nav-list nav-list_small footer__list">
+                        <li class="nav-list__item">
+                            <a class="link" href="#">
+                                <span class="link__text">Search for spaces</span>
+                            </a>
+                        </li>
+                        <li class="nav-list__item">
+                            <a class="link" href="#">
+                                <span class="link__text">Term and policies</span>
+                            </a>
+                        </li>
+                        <li class="nav-list__item">
+                            <a class="link" href="#">
+                                <span class="link__text">Careers</span>
+                            </a>
+                        </li>
+                    </ul>
+                    <ul class="nav-list nav-list_small footer__list">
+                        <li class="nav-list__item">
+                            <a class="link" href="#">
+                                <span class="link__text">Blog</span>
+                            </a>
+                        </li>
+                        <li class="nav-list__item">
+                            <a class="link" href="#">
+                                <span class="link__text">Press</span>
+                            </a>
+                        </li>
+                        <li class="nav-list__item">
+                            <a class="link" href="#">
+                                <span class="link__text">Advertise</span>
+                            </a>
+                        </li>
+                    </ul>
                 </div>
                 <div class="footer__information">
                     <div class="footer__controls hide-lg" data-slot-id="footer-contacts" data-slot-res="xl">
