@@ -3,6 +3,8 @@ $default-breakpoint-value: map_has_key($breakpoints, $default-breakpoit-name);
 $new-breakpoints: map_remove($breakpoints, $default-breakpoit-name);
 
 .grid {
+  $b: &;
+
   font-size: 0;
   display: block; // fallback для старых браузеров
   display: flex;
@@ -11,11 +13,18 @@ $new-breakpoints: map_remove($breakpoints, $default-breakpoit-name);
   margin-right: -$grid-gap/2;
   margin-top: -$grid-gap-vertical;
 
+  &_big {
+    margin-left: -$grid-gap-big/2;
+    margin-right: -$grid-gap-big/2;
+    margin-top: -$grid-gap-vertical-big;
+  }
+
   &__col {
     display: inline-block; // fallback для старых браузеров
     box-sizing: border-box;
     padding: $grid-gap-vertical $grid-gap/2 0;
     margin: 0;
+
     @include text;
 
     @for $i from 1 through 15 {
@@ -33,6 +42,22 @@ $new-breakpoints: map_remove($breakpoints, $default-breakpoit-name);
           }
         }
       }
+    }
+
+    &_mob-order2 {
+      @include screen('sm') {
+        order: 2;
+      }
+    }
+
+    &_mob-order3 {
+      @include screen('sm') {
+        order: 3;
+      }
+    }
+
+    #{$b}_big & {
+      padding: $grid-gap-vertical-big $grid-gap-big/2 0;
     }
   }
 }

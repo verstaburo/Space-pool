@@ -37,6 +37,7 @@ import offerSelect from '../blocks/offer-select/offer-select';
 import openPanel from '../blocks/panel/panel';
 import spoilers from '../blocks/spoiler/spoiler';
 import offerItemOpen from '../blocks/offer-item/offer-item';
+import floatingLabels from '../blocks/form-box/form-box';
 
 const $ = window.$;
 
@@ -69,4 +70,5 @@ $(() => {
   openPanel();
   spoilers();
   offerItemOpen();
+  floatingLabels();
 });

@@ -1,0 +1,38 @@
+.form-box {
+  $b: &;
+
+  display: block;
+  width: 100%;
+  position: relative;
+
+  &__label {
+    @include text-big;
+
+    font-weight: 400;
+    line-height: (26/18);
+    position: absolute;
+    display: block;
+    bottom: 9px;
+    left: 0;
+    color: $color-placeholder;
+    transition: transform $ease-main, color $ease-main, font $ease-main;
+
+    input:hover~&,
+    input:focus~&,
+    textarea:hover~&,
+    textarea:focus~& {
+      color: $color-basic;
+    }
+
+    #{$b}.is-top &,
+    .choices.is-item-select~&,
+    .choices.is-open~& {
+      @include text;
+
+      font-weight: 700;
+      color: $color-basic;
+      line-height: (26/14);
+      transform: translate3d(0, -27px, 0);
+    }
+  }
+}

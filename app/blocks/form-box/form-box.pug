@@ -1,0 +1,7 @@
+mixin form-box(label, icon, tag)
+  +b(tag || 'label').form-box&attributes(attributes)
+    block
+    if label
+      +e.label!= label
+    if icon
+      +icon(icon).__icon
