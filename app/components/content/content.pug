@@ -1,7 +1,15 @@
 mixin content()
   +b.SECTION.content&attributes(attributes)
     .container.container_content
-      +e.column_left
+      +e.column_main
         block
-      +e.column_right.hide-lg(data-sticky-parent)
+      +e.column_aside.hide-lg(data-sticky-parent)
+        +scroll-form
+
+mixin content-reverse()
+  +b.SECTION.content_reverse&attributes(attributes)
+    .container
+      +e.column_main
+        block
+      +e.column_aside.hide-lg(data-sticky-parent)
         +scroll-form
