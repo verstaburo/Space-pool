@@ -8,6 +8,21 @@
     font-weight: 700;
   }
 
+  &__marker {
+    display: inline-block;
+
+    @include text;
+
+    font-weight: 700;
+    line-height: 18px;
+    min-width: 18px;
+    height: 18px;
+    background-color: $color-red;
+    color: $color-white;
+    text-align: center;
+    margin-left: 9px;
+  }
+
   &_small {
 
     .link {
@@ -22,6 +37,25 @@
 
         line-height: (39/20);
         max-width: 100%;
+      }
+    }
+  }
+
+  &_sidebar {
+
+    #{$b}__item {
+      display: flex;
+      align-items: center;
+    }
+
+    .link {
+      @include heading-3;
+
+      line-height: (55/25);
+
+      &.is-active {
+        color: $color-active-menu;
+        pointer-events: none;
       }
     }
   }

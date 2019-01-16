@@ -16,6 +16,18 @@
     }
   }
 
+  &:last-child {
+    margin-bottom: 104px;
+
+    @include screen('lg') {
+      margin-bottom: 72px;
+    }
+
+    @include screen('sm') {
+      margin-bottom: 44px;
+    }
+  }
+
   .container {
     display: flex;
     align-items: stretch;
@@ -37,11 +49,24 @@
       @include screen('sm') {
         padding-top: 24px;
       }
+
+      #{$b}_reverse & {
+        padding-left: 50px;
+        padding-right: 0;
+
+        @include screen('lg') {
+          padding-left: 0;
+        }
+      }
     }
 
     &_aside {
       width: 368px;
       min-width: 368px;
+    }
+
+    &_ptop {
+      padding-top: 110px;
     }
   }
 }

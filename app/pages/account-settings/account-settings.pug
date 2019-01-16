@@ -1,7 +1,12 @@
-extends ../../layouts/default
+extends ../../layouts/default-with-mobile-panel-login
 
 block head
   - var pageTitle = 'SpacePool - Account settings'
 
 block content
-  +content-reverse
+  +content-origin._reverse
+    .container
+      +content-column-aside._ptop.hide-lg
+        +side-navigation('Change your personal info, password and notification options here')
+          +nav-list-sidebar(getData('side-menu-user.json'), 'Profile & Settings').__navigation
+      +content-column-main

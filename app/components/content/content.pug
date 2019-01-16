@@ -6,10 +6,14 @@ mixin content()
       +e.column_aside.hide-lg(data-sticky-parent)
         +scroll-form
 
-mixin content-reverse()
-  +b.SECTION.content_reverse&attributes(attributes)
-    .container
-      +e.column_main
-        block
-      +e.column_aside.hide-lg(data-sticky-parent)
-        +scroll-form
+mixin content-origin()
+  +b.SECTION.content&attributes(attributes)
+    block
+
+mixin content-column-main()
+  +e.column_main&attributes(attributes)
+    block
+
+mixin content-column-aside()
+  +e.column_aside&attributes(attributes)(data-sticky-parent)
+    block

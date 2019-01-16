@@ -14,7 +14,7 @@
 </head>
 
 <body>
-    <header class="header">
+    <header class="header is-login">
         <div class="container">
             <div class="header__logo">
                 <a class="logo" href="/">
@@ -116,106 +116,48 @@
     <main class="page" role="main">
         <section class="content content_reverse">
             <div class="container">
-                <div class="content__column content__column_main"></div>
-                <div class="content__column content__column_aside hide-lg" data-sticky-parent="data-sticky-parent">
-                    <aside class="sidebar js-sticky-block">
-                        <form class="scroll-form">
-                            <h3 class="scroll-form__title">Reservation form</h3>
-                            <div class="offer-select js-offer-select scroll-form__select">
-                                <div class="offer-select__head" data-head="data-head">
-                                    <div class="offer-select__label" data-label="data-label"></div>
-                                    <div class="offer-select__toggle">
-                                        <svg class="offer-select__icon"><use xlink:href="assets/images/icon.svg#icon_select-arrow"></use></svg>
-                                    </div>
-                                    <div class="offer-select__star">*</div>
+                <div class="content__column content__column_aside content__column_ptop hide-lg" data-sticky-parent="data-sticky-parent">
+                    <aside class="js-sticky-block sidebar sidebar_dark">
+                        <div class="side-navigation">
+                            <ul class="nav-list nav-list_sidebar side-navigation__navigation">
+                                <li class="nav-list__item">
+                                    <a class="link link_white" href="#">
+                                        <span class="link__text">My reservations</span>
+                                    </a>
+                                    <div class="nav-list__marker">1</div>
+                                </li>
+                                <li class="nav-list__item">
+                                    <a class="link link_white" href="#">
+                                        <span class="link__text">History of booking</span>
+                                    </a>
+                                </li>
+                                <li class="nav-list__item">
+                                    <a class="link link_white" href="#">
+                                        <span class="link__text">Messages</span>
+                                    </a>
+                                    <div class="nav-list__marker">3</div>
+                                </li>
+                                <li class="nav-list__item">
+                                    <a class="link link_white" href="#">
+                                        <span class="link__text">Favourites</span>
+                                    </a>
+                                </li>
+                                <li class="nav-list__item">
+                                    <a class="link link_white is-active" href="#">
+                                        <span class="link__text">Profile & Settings</span>
+                                    </a>
+                                </li>
+                            </ul>
+                            <div class="note">
+                                <div class="note__mark">
+                                    <svg class="note__icon"><use xlink:href="assets/images/icon.svg#icon_info"></use></svg>
                                 </div>
-                                <div class="offer-select__dropdown js-scrollbar">
-                                    <ul class="offer-select__list">
-                                        <li class="offer-select__item">
-                                            <label class="offer-info-radio" data-select-item="data-select-item">
-                                                <input class="input" type="radio" name="offers" value="1" data-offer-input="true" />
-                                                <div class="offer-info" data-select-value="data-select-value">
-                                                    <div class="offer-info__head">
-                                                        <div class="box box_size10 box_orange"></div>
-                                                        <div class="offer-info__title">HOT DESK</div>
-                                                    </div>
-                                                    <div class="offer-info__price">£300 per month</div>
-                                                </div>
-                                            </label>
-                                        </li>
-                                        <li class="offer-select__item">
-                                            <label class="offer-info-radio" data-select-item="data-select-item">
-                                                <input class="input" type="radio" name="offers" value="2" checked="checked" data-offer-input="true" />
-                                                <div class="offer-info" data-select-value="data-select-value">
-                                                    <div class="offer-info__head">
-                                                        <div class="box box_size10 box_red"></div>
-                                                        <div class="offer-info__title">DEDICATED DESK</div>
-                                                    </div>
-                                                    <div class="offer-info__price">£300 per month</div>
-                                                </div>
-                                            </label>
-                                        </li>
-                                        <li class="offer-select__item">
-                                            <label class="offer-info-radio" data-select-item="data-select-item">
-                                                <input class="input" type="radio" name="offers" value="3" data-offer-input="true" />
-                                                <div class="offer-info" data-select-value="data-select-value">
-                                                    <div class="offer-info__head">
-                                                        <div class="box box_size10 box_red"></div>
-                                                        <div class="offer-info__title">DEDICATED DESK</div>
-                                                    </div>
-                                                    <div class="offer-info__price">£300 per month</div>
-                                                </div>
-                                            </label>
-                                        </li>
-                                        <li class="offer-select__item">
-                                            <label class="offer-info-radio" data-select-item="data-select-item">
-                                                <input class="input" type="radio" name="offers" value="4" data-offer-input="true" />
-                                                <div class="offer-info" data-select-value="data-select-value">
-                                                    <div class="offer-info__head">
-                                                        <div class="box box_size10 box_green"></div>
-                                                        <div class="offer-info__title">OFFICE SPACE</div>
-                                                    </div>
-                                                    <div class="offer-info__price">£3000 per month</div>
-                                                </div>
-                                            </label>
-                                        </li>
-                                        <li class="offer-select__item">
-                                            <label class="offer-info-radio" data-select-item="data-select-item">
-                                                <input class="input" type="radio" name="offers" value="5" data-offer-input="true" />
-                                                <div class="offer-info" data-select-value="data-select-value">
-                                                    <div class="offer-info__head">
-                                                        <div class="box box_size10 box_green"></div>
-                                                        <div class="offer-info__title">OFFICE SPACE</div>
-                                                    </div>
-                                                    <div class="offer-info__price">£3000 per month</div>
-                                                </div>
-                                            </label>
-                                        </li>
-                                    </ul>
-                                </div>
+                                <div class="note__text">Change your personal info, password and notification options here</div>
                             </div>
-                            <p class="scroll-form__text">Including VAT and Service Fee</p>
-                            <label class="input-numberbox scroll-form__counter">
-                                <span class="input-numberbox__field">
-                                    <span class="input-numberbox__label">amount:</span>
-                                    <input class="input-numberbox__input js-numberbox-input" type="count" value="0" />
-                                </span>
-                                <span class="input-numberbox__button js-numberbox-minus"></span>
-                                <span class="input-numberbox__button js-numberbox-plus"></span>
-                            </label>
-                            <div class="scroll-form__buttons">
-                                <button class="button button_wide scroll-form__button" type="button">
-                                    <span class="button__text">Request Reservation</span>
-                                </button>
-                                <button class="button button_border button_border_bg-white button_wide scroll-form__button" type="button">
-                                    <span class="button__text">Arrange a Viewing</span>
-                                </button>
-                            </div>
-                            <p class="scroll-form__note">
-                                <i>* </i> Utility bills and other services are paid separately</p>
-                        </form>
+                        </div>
                     </aside>
                 </div>
+                <div class="content__column content__column_main"></div>
             </div>
         </section>
     </main>
@@ -232,55 +174,53 @@
                 <div class="main-menu__scrollblock js-scrollbar-light">
                     <div class="main-menu__content">
                         <div class="main-menu__top-menu">
-                            <div class="nav-list">
-                                <ul>
-                                    <li class="nav-list__item">
-                                        <a class="link" href="#">
-                                            <span class="link__text">About the project</span>
-                                        </a>
-                                    </li>
-                                    <li class="nav-list__item">
-                                        <a class="link" href="#">
-                                            <span class="link__text">Become a host</span>
-                                        </a>
-                                    </li>
-                                    <li class="nav-list__item">
-                                        <a class="link" href="#">
-                                            <span class="link__text">Help &amp; Support</span>
-                                        </a>
-                                    </li>
-                                    <li class="nav-list__item">
-                                        <a class="link" href="#">
-                                            <span class="link__text">News</span>
-                                        </a>
-                                    </li>
-                                    <li class="nav-list__item">
-                                        <a class="link" href="#">
-                                            <span class="link__text">Terms and Policies</span>
-                                        </a>
-                                    </li>
-                                    <li class="nav-list__item">
-                                        <a class="link" href="#">
-                                            <span class="link__text">Contacts</span>
-                                        </a>
-                                    </li>
-                            </div>
+                            <ul class="nav-list">
+                                <li class="nav-list__item">
+                                    <a class="link" href="#">
+                                        <span class="link__text">About the project</span>
+                                    </a>
+                                </li>
+                                <li class="nav-list__item">
+                                    <a class="link" href="#">
+                                        <span class="link__text">Become a host</span>
+                                    </a>
+                                </li>
+                                <li class="nav-list__item">
+                                    <a class="link" href="#">
+                                        <span class="link__text">Help &amp; Support</span>
+                                    </a>
+                                </li>
+                                <li class="nav-list__item">
+                                    <a class="link" href="#">
+                                        <span class="link__text">News</span>
+                                    </a>
+                                </li>
+                                <li class="nav-list__item">
+                                    <a class="link" href="#">
+                                        <span class="link__text">Terms and Policies</span>
+                                    </a>
+                                </li>
+                                <li class="nav-list__item">
+                                    <a class="link" href="#">
+                                        <span class="link__text">Contacts</span>
+                                    </a>
+                                </li>
+                            </ul>
                         </div>
                         <hr class="divider" />
                         <div class="main-menu__bottom-menu">
-                            <div class="nav-list">
-                                <ul>
-                                    <li class="nav-list__item">
-                                        <a class="link" href="#">
-                                            <span class="link__text">Sign Up</span>
-                                        </a>
-                                    </li>
-                                    <li class="nav-list__item">
-                                        <a class="link" href="#">
-                                            <span class="link__text">Sign in</span>
-                                        </a>
-                                    </li>
-                            </div>
+                            <ul class="nav-list">
+                                <li class="nav-list__item">
+                                    <a class="link" href="#">
+                                        <span class="link__text">Sign Up</span>
+                                    </a>
+                                </li>
+                                <li class="nav-list__item">
+                                    <a class="link" href="#">
+                                        <span class="link__text">Sign in</span>
+                                    </a>
+                                </li>
+                            </ul>
                             <ul class="socials">
                                 <li class="socials__item">
                                     <a class="social social_fb" target="_blank" href="#" title="facebook">
@@ -317,7 +257,7 @@
             </div>
         </div>
     </div>
-    <footer class="footer">
+    <footer class="footer footer_panel-padding">
         <div class="container">
             <div class="footer__top">
                 <div class="footer__logo">
@@ -327,60 +267,57 @@
                     <div class="footer__info" data-slot-id="footer-contacts" data-slot-res="lg"></div>
                 </div>
                 <div class="footer__navigation">
-                    <div class="nav-list nav-list_small footer__list">
-                        <ul>
-                            <li class="nav-list__item">
-                                <a class="link" href="#">
-                                    <span class="link__text">About the Project</span>
-                                </a>
-                            </li>
-                            <li class="nav-list__item">
-                                <a class="link" href="#">
-                                    <span class="link__text">Help and Support</span>
-                                </a>
-                            </li>
-                            <li class="nav-list__item">
-                                <a class="link" href="#">
-                                    <span class="link__text">Become a host</span>
-                                </a>
-                            </li>
-                    </div>
-                    <div class="nav-list nav-list_small footer__list">
-                        <ul>
-                            <li class="nav-list__item">
-                                <a class="link" href="#">
-                                    <span class="link__text">Search for spaces</span>
-                                </a>
-                            </li>
-                            <li class="nav-list__item">
-                                <a class="link" href="#">
-                                    <span class="link__text">Term and policies</span>
-                                </a>
-                            </li>
-                            <li class="nav-list__item">
-                                <a class="link" href="#">
-                                    <span class="link__text">Careers</span>
-                                </a>
-                            </li>
-                    </div>
-                    <div class="nav-list nav-list_small footer__list">
-                        <ul>
-                            <li class="nav-list__item">
-                                <a class="link" href="#">
-                                    <span class="link__text">Blog</span>
-                                </a>
-                            </li>
-                            <li class="nav-list__item">
-                                <a class="link" href="#">
-                                    <span class="link__text">Press</span>
-                                </a>
-                            </li>
-                            <li class="nav-list__item">
-                                <a class="link" href="#">
-                                    <span class="link__text">Advertise</span>
-                                </a>
-                            </li>
-                    </div>
+                    <ul class="nav-list nav-list_small footer__list">
+                        <li class="nav-list__item">
+                            <a class="link" href="#">
+                                <span class="link__text">About the Project</span>
+                            </a>
+                        </li>
+                        <li class="nav-list__item">
+                            <a class="link" href="#">
+                                <span class="link__text">Help and Support</span>
+                            </a>
+                        </li>
+                        <li class="nav-list__item">
+                            <a class="link" href="#">
+                                <span class="link__text">Become a host</span>
+                            </a>
+                        </li>
+                    </ul>
+                    <ul class="nav-list nav-list_small footer__list">
+                        <li class="nav-list__item">
+                            <a class="link" href="#">
+                                <span class="link__text">Search for spaces</span>
+                            </a>
+                        </li>
+                        <li class="nav-list__item">
+                            <a class="link" href="#">
+                                <span class="link__text">Term and policies</span>
+                            </a>
+                        </li>
+                        <li class="nav-list__item">
+                            <a class="link" href="#">
+                                <span class="link__text">Careers</span>
+                            </a>
+                        </li>
+                    </ul>
+                    <ul class="nav-list nav-list_small footer__list">
+                        <li class="nav-list__item">
+                            <a class="link" href="#">
+                                <span class="link__text">Blog</span>
+                            </a>
+                        </li>
+                        <li class="nav-list__item">
+                            <a class="link" href="#">
+                                <span class="link__text">Press</span>
+                            </a>
+                        </li>
+                        <li class="nav-list__item">
+                            <a class="link" href="#">
+                                <span class="link__text">Advertise</span>
+                            </a>
+                        </li>
+                    </ul>
                 </div>
                 <div class="footer__information">
                     <div class="footer__controls hide-lg" data-slot-id="footer-contacts" data-slot-res="xl">

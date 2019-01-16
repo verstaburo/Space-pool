@@ -1,5 +1,16 @@
 mixin nav-list(data)
-  +b.nav-list&attributes(attributes)
+  +b.UL.nav-list&attributes(attributes)
     each item in data
       +e.LI.item
         +link()(href=item.href)!= item.name
+
+
+mixin nav-list-sidebar(data, active)
+  - var addClass = "";
+  +b.UL.nav-list_sidebar&attributes(attributes)
+    each item in data
+      - if (item.name === active) { addClass = " is-active"; }
+      +e.LI.item
+        +link()(href=item.href class='_white' + addClass)!= item.name
+        if item.marker
+          +e.marker!= item.marker
