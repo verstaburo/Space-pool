@@ -1,7 +1,5 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable prefer-rest-params */
-import isTouchDevice from 'is-touch-device';
-
 const $ = window.$;
 
 export default function spoilers() {
@@ -43,16 +41,7 @@ export default function spoilers() {
   $(document).on('click', '.js-spoiler-open', (evt) => {
     const self = $(evt.target).is('.js-spoiler-open') ? $(evt.target) : $(evt.target).closest('.js-spoiler-open');
     evt.preventDefault();
-    if (!isTouchDevice()) {
-      openSpoiler(self);
-    }
-  });
-
-  $(document).on('touchstart', '.js-spoiler-open', (evt) => {
-    const self = $(evt.target).is('.js-spoiler-open') ? $(evt.target) : $(evt.target).closest('.js-spoiler-open');
-    if (isTouchDevice()) {
-      openSpoiler(self);
-    }
+    openSpoiler(self);
   });
 }
 

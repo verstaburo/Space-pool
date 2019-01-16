@@ -1,7 +1,5 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable prefer-rest-params */
-import isTouchDevice from 'is-touch-device';
-
 const $ = window.$;
 
 export default function accordions() {
@@ -49,16 +47,7 @@ export default function accordions() {
   $(document).on('click', '.js-accordion-open', (evt) => {
     const self = $(evt.target).is('.js-accordion-open') ? $(evt.target) : $(evt.target).closest('.js-accordion-open');
     evt.preventDefault();
-    if (!isTouchDevice()) {
-      openAccordion(self);
-    }
-  });
-
-  $(document).on('touchstart', '.js-accordion-open', (evt) => {
-    const self = $(evt.target).is('.js-accordion-open') ? $(evt.target) : $(evt.target).closest('.js-accordion-open');
-    if (isTouchDevice()) {
-      openAccordion(self);
-    }
+    openAccordion(self);
   });
 }
 

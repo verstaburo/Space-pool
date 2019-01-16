@@ -1,4 +1,7 @@
-import isTouchDevice from 'is-touch-device';
+import {
+  freeze,
+  unfreeze,
+} from '../js-functions/freeze';
 
 const $ = window.$;
 
@@ -11,6 +14,7 @@ export default function openPanel() {
       const openedName = $(toggle).attr('data-opened-name');
       $(panelEl).addClass('is-open');
       $(toggle).find('.button__text').text(openedName);
+      freeze();
     },
     close() {
       const panelEl = $('.panel');
@@ -19,6 +23,7 @@ export default function openPanel() {
       $(panelEl).removeClass('is-open');
       $(toggle).find('.button__text').text(closedName);
       window.closeOfferItems();
+      unfreeze();
     },
     isOpen() {
       return $('.panel').is('.is-open');
@@ -33,22 +38,10 @@ export default function openPanel() {
 
   $(document).on('click', '.js-open-panel', (evt) => {
     evt.preventDefault();
-    if (!isTouchDevice()) {
-      if (panel.isOpen()) {
-        panel.close();
-      } else {
-        panel.open();
-      }
-    }
-  });
-
-  $(document).on('touchstart', '.js-open-panel', () => {
-    if (isTouchDevice()) {
-      if (panel.isOpen()) {
-        panel.close();
-      } else {
-        panel.open();
-      }
+    if (panel.isOpen()) {
+      panel.close();
+    } else {
+      panel.open();
     }
   });
 }

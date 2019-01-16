@@ -1,5 +1,3 @@
-import isTouchDevice from 'is-touch-device';
-
 const $ = window.$;
 
 export default function offerItemOpen() {
@@ -32,15 +30,6 @@ export default function offerItemOpen() {
   $(document).on('click', '.js-show-offer', (evt) => {
     evt.preventDefault();
     const self = $(evt.target).is('.js-show-offer') ? $(evt.target) : $(evt.target).closest('.js-show-offer');
-    if (!isTouchDevice()) {
-      openOffer(self);
-    }
-  });
-
-  $(document).on('touchstart', '.js-show-offer', (evt) => {
-    const self = $(evt.target).is('.js-show-offer') ? $(evt.target) : $(evt.target).closest('.js-show-offer');
-    if (isTouchDevice()) {
-      openOffer(self);
-    }
+    openOffer(self);
   });
 }
