@@ -7,8 +7,8 @@ import noUiSlider from 'nouislider';
 // https://github.com/t1m0n/air-datepicker
 import 'air-datepicker';
 
-// https://github.com/RobinHerbots/Inputmask
-import Inputmask from 'inputmask';
+// https://www.jacklmoore.com/autosize/
+import autosize from 'autosize';
 
 const $ = window.$;
 
@@ -215,16 +215,6 @@ export function datepicker() {
   });
 }
 
-export function inputmask() {
-  Inputmask({
-    mask: '+7 (999) 999-99-99',
-  }).mask('input[data-type="tel"]');
-
-  Inputmask({
-    alias: 'email',
-  }).mask('input[data-type="email"]');
-}
-
 export function numberinput() {
   $(document).on('click', '.js-numberbox-minus, .js-numberbox-plus', function (e) {
     e.preventDefault();
@@ -249,4 +239,9 @@ export function numberinput() {
     this.value = this.value.replace(/[^\d]/, '');
     if ($(this).val() < 0) $(this).val(0);
   });
+}
+
+// автосайз для textarea
+export function textareaAutosize() {
+  autosize($('.textarea'));
 }

@@ -27,7 +27,7 @@ block content
                 +form-section-wrapper
                   +form-box('Country')
                     +select.js-select-input(name="country")
-                      option(value="placeholder") Choose the option below:
+                      option(value="placeholder") Country
                       option(value="uk" selected) United-Kingdom
                       option(value="ru") Russia
                       option(value="de") Germany
@@ -35,7 +35,8 @@ block content
               +col({xl: 6, sm: 12 }).grid__col_mob-order2
                 +form-section-wrapper
                   +form-box('Phone number')._phone
-                    +input(type="tel" name="phone" value="+44       768 968 98983" placeholder="Phone number")
+                    +input(type="tel" name="phone-code" value="+44" placeholder="Phone code").form-box__phone_code
+                    +input(type="tel" name="phone-number" value="768 968 98983" placeholder="Phone number").form-box__phone_number
               +col({xl: 6, sm: 12 })
                 +form-section-wrapper
                   +form-box('E-mail adress')
@@ -47,20 +48,20 @@ block content
             +grid.grid_big
               +col({xl: 6, sm: 12 })
                 +form-section-wrapper
-                  +form-box('Old password')
+                  +form-box('Old password')._password
                     +input(type="password" name="oldPassword" value="EugeneEugene" placeholder="Old password" readonly)
-              +col({xl: 6, sm: 12 })
-                +form-section-wrapper
-                  +form-box('New password')
-                    +input(type="password" name="newPassword")
-              +col({xl: 6, sm: 12 }).grid__col_mob-order3
-                +form-section-wrapper
-                  +form-section-text._compensate
-                    +link(href="#")._gray Forgot your existing password?
-                    p Recover the password VIA E-mail adress
               +col({xl: 6, sm: 12 }).grid__col_mob-order2
                 +form-section-wrapper
-                  +form-box('New password one more time')
+                  +form-box('New password')._password
+                    +input(type="password" name="newPassword")
+              +col({xl: 6, sm: 12 })
+                +form-section-wrapper
+                  +form-section-text._compensate
+                    p Forgot your existing password?
+                    +link(href="#")._gray._underline Recover the password VIA E-mail adress
+              +col({xl: 6, sm: 12 }).grid__col_mob-order2
+                +form-section-wrapper
+                  +form-box('New password one more time')._password
                     +input(type="password" name="newPasswordConfirm")
           +form-section._bmg
             +form-section-header
@@ -68,13 +69,13 @@ block content
             +grid.grid_big
               +col({xl: 6, sm: 12 })
                 +form-section-wrapper
-                  +form-box('Birthday', '')
+                  +form-box('Birthday', 'calendar2')
                     +input.js-datepicker(type="text" name="birthday" value="31 August 1986" placeholder="Birthday")
               +col({xl: 6, sm: 12 })
                 +form-section-wrapper
                   +form-box('Residency country')
                     +select.js-select-input(name="residencyCountry")
-                      option(value="placeholder") Choose the option below:
+                      option(value="placeholder") Residency country
                       option(value="lv" selected) Latvia
                       option(value="ru") Russia
                       option(value="de") Germany
@@ -83,12 +84,12 @@ block content
                 +form-section-wrapper
                   +form-box('Education grade')
                     +select.js-select-input(name="educationGrade")
-                      option(value="placeholder") Choose the option below:
+                      option(value="placeholder") Education grade
                       option(value="bachelor" selected) Bachelor
                       option(value="doctor") Doctor
                       option(value="master") Master
                       option(value="basic") Basic
-              +col({xl: 6, sm: 12 }).grid__col_mob-order2
+              +col({xl: 6, sm: 12 })
                 +form-section-wrapper
                   +form-box('Company name')
                     +input(type="text" name="companyName" value="SIA Dezi BS" placeholder="Company name")
@@ -96,22 +97,16 @@ block content
                 +form-section-wrapper
                   +form-box('Employee position')
                     +input(type="text" name="employeePosition" value="Art-director" placeholder="Employee position")
-          +form-section._bmg
-            +form-section-header
+          +form-section
+            +form-section-header._bmg
               +form-section-title Service settings and notifications
             +grid.grid_big
               +col({xl: 6, sm: 12 })
-                +form-section-wrapper
-                  +checkbox('settings', '1', true) Notify me Via E-mail about new messages
-              +col({xl: 6, sm: 12 }).hide-sm
-              +col({xl: 6, sm: 12 })
-                +form-section-wrapper
-                  +checkbox('settings', '2') Notify me about News and Benefits on Space Pool Service
-              +col({xl: 6, sm: 12 }).hide-sm
-              +col({xl: 6, sm: 12 })
-                +form-section-wrapper
-                  +checkbox('settings', '3') Send Me information about new offers via E-mail
-              +col({xl: 6, sm: 12 }).hide-sm
-              +col({xl: 6, sm: 12 })
-                +form-section-wrapper
-                  +checkbox('settings', '4') Send Me information about new offers via E-mail
+                +form-section-wrapper._noflex
+                  +checkbox('settings', '1', true)._border Notify me Via E-mail about new messages
+                +form-section-wrapper._noflex
+                  +checkbox('settings', '2')._border Notify me about News and Benefits on Space Pool Service
+                +form-section-wrapper._noflex
+                  +checkbox('settings', '3')._border Send Me information about new offers via E-mail
+                +form-section-wrapper._noflex
+                  +checkbox('settings', '4')._border Send Me information about new offers via E-mail

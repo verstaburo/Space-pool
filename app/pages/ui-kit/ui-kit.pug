@@ -72,6 +72,25 @@ block content
           +col(4)
           +col(6)
           +col(6)
+        br
+        +grid.grid_big
+          +col(1)
+          +col(1)
+          +col(1)
+          +col(1)
+          +col(1)
+          +col(1)
+          +col(1)
+          +col(1)
+          +col(1)
+          +col(1)
+          +col(1)
+          +col(1)
+          +col(4)
+          +col(4)
+          +col(4)
+          +col(6)
+          +col(6)
 
     //- Цвета
     +ui-section
@@ -214,43 +233,52 @@ block content
     +ui-section
       +ui-section-head
         h2 Элементы форм
-        p Блок: blocks/form-elements
+        p Блоки: blocks/form-elements и blocks/form-box
       +ui-section-content()
-        +grid
+        +grid.grid_big
           +col(6)
             +ui-description .input
-            +inputbox
+            br
+            +form-box('Плейсхолдер')
               +input(placeholder="Плейсхолдер")
           +col(6)
             +ui-description .select.js-select
-            +inputbox
-              +select
+            br
+            +form-box('Плейсхолдер')
+              +select.js-select-input
                 option(value="Опция 1") Опция 1
                 option(value="Опция 2") Опция 2
                 option(value="Опция 3") Опция 3
           +col(6)
             +ui-description .js-datepicker<br> Параметры задаются через дата-атрибуты
-            +inputbox()
-              +input()(placeholder="Выберите дату" readonly).js-datepicker
+            br
+            +form-box('Выберите дату', 'calendar2')
+              +input(placeholder="Выберите дату" readonly).js-datepicker
           +col(6)
             +ui-description Поле ввода номера телефона.<br> Маска определяется через атрибут data-type="tel"
-            +inputbox()
+            br
+            +form-box('Phone')._phone
               +input()(placeholder="+7 (___) ___-__-__" data-type="tel")
           +col(6)
             +ui-description Поле ввода e-mail.<br> Маска определяется через атрибут data-type="email"
-            +inputbox()
+            br
+            +form-box('E-mail')
               +input()(placeholder="E-mail" data-type="email")
           +col(6)
             +ui-description .js-number-input<br> Поле изменения количества
-            +inputbox()
+            br
+            +form-box()
               +input-number()(placeholder="Количество товара")
           +col(12)
-            +textarea(placeholder="Текстовое поле")
+            +ui-description .textarea
+            br
+            +form-box('Текстовое поле')
+              +textarea(placeholder="Текстовое поле" rows="1")
           +col(6)
             +ui-description .checkbox
             +inputbox()
               +checkbox('ui-checkbox', 'test', true) Чекбокс
-            +ui-description .checkbox._big
+            +ui-description .checkbox._small
             +inputbox()
               +checkbox('ui-checkbox', 'test', true)._small Чекбокс маленький
             +ui-description .checkbox._inverse

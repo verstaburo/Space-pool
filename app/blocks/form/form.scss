@@ -28,15 +28,35 @@
     margin-bottom: 55px;
 
     @include screen('lg') {
-      margin-bottom: 26px;
+      margin-bottom: 40px;
     }
 
     @include screen('sm') {
-      margin-bottom: 18px;
+      margin-bottom: 30px;
     }
 
     &_smg {
       margin-bottom: 50px;
+
+      @include screen('lg') {
+        margin-bottom: 40px;
+      }
+
+      @include screen('sm') {
+        margin-bottom: 30px;
+      }
+    }
+
+    &_bmg {
+      margin-bottom: 60px;
+
+      @include screen('lg') {
+        margin-bottom: 40px;
+      }
+
+      @include screen('sm') {
+        margin-bottom: 30px;
+      }
     }
   }
 
@@ -67,6 +87,7 @@
 
       p:not(:first-child),
       .link:not(:first-child) {
+        display: inline-block;
         margin-top: 12px;
       }
     }
@@ -78,5 +99,24 @@
     width: 100%;
     align-items: flex-end;
     height: 100%;
+
+    &_noflex {
+      display: block;
+      height: auto;
+    }
+
+    &:not(:last-child) {
+      margin-bottom: 42px;
+    }
+
+    .checkbox,
+    .checkradio {
+      width: 100%;
+
+      &__content {
+        display: inline-block;
+        width: 100%;
+      }
+    }
   }
 }

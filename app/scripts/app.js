@@ -10,9 +10,10 @@ import {
   selects,
   sliders,
   datepicker,
-  inputmask,
   numberinput,
+  textareaAutosize,
 } from '../blocks/form-elements/form-elements';
+import maskForm from '../blocks/form-elements/form-elements-masking';
 import popups from '../blocks/popups/popups';
 import scrollbar from '../blocks/scrollbar/scrollbar';
 import header from '../components/header/header';
@@ -55,7 +56,6 @@ $(() => {
   tooltips();
   tabs();
   datepicker();
-  inputmask();
   numberinput();
   maps();
   mapsTwo();
@@ -71,4 +71,6 @@ $(() => {
   spoilers();
   offerItemOpen();
   floatingLabels();
+  textareaAutosize();
+  maskForm();
 });
