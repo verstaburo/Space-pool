@@ -7,11 +7,24 @@
   box-sizing: border-box;
   padding-right: 18px;
 
+  @include screen('lg') {
+    padding-right: 0;
+    margin-right: -5px;
+  }
+
+  @include screen('sm') {
+    margin-right: 0;
+  }
+
   &__user {
     display: inline-block;
 
     &:not(:last-child) {
       margin-right: 80px;
+
+      @include screen('lg') {
+        margin-right: 0;
+      }
     }
   }
 
@@ -19,6 +32,39 @@
     display: flex;
     align-items: center;
     justify-content: flex-end;
+
+    @include screen('lg') {
+      display: none;
+    }
+
+    body:not(.is-panel) & {
+      @include screen('lg') {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        display: flex;
+        width: 100%;
+        height: 71px;
+        background-color: #fff;
+        box-sizing: border-box;
+        padding: 5px 115px;
+        justify-content: space-between;
+        border-top: 1px solid $color-border-light;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity $ease-main;
+      }
+
+      @include screen('sm') {
+        padding: 5px 40px;
+        height: 50px;
+      }
+    }
+
+    body:not(.is-panel) .header.is-short & {
+      opacity: 1;
+      pointer-events: auto;
+    }
   }
 
   &__item {

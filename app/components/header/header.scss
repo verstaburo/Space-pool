@@ -25,7 +25,7 @@
     padding: 7px 0;
 
     @include screen('sm') {
-      padding: 14px 0;
+      padding: 4px 0;
     }
   }
 
@@ -35,12 +35,22 @@
     @include screen('sm') {
       justify-content: space-between;
     }
+
+    #{$b}.is-login & {
+      @include screen('sm') {
+        justify-content: flex-start;
+      }
+    }
   }
 
   &__logo {
     font-size: 0;
     line-height: 0;
     margin-right: 50px;
+
+    @include screen('sm') {
+      margin-right: 10px;
+    }
   }
 
   &__navigation {
@@ -48,6 +58,16 @@
     justify-content: flex-end;
     align-items: center;
     flex: 1;
+
+    @include screen('sm') {
+      display: none;
+    }
+
+    #{$b}.is-login & {
+      @include screen('sm') {
+        display: flex;
+      }
+    }
   }
 
   &__main {
@@ -70,6 +90,10 @@
 
     @include screen('lg') {
       margin-left: 58px;
+    }
+
+    @include screen('sm') {
+      margin-left: 20px;
     }
   }
 

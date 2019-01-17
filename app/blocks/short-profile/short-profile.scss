@@ -6,6 +6,14 @@
 
   &__avatar {
     margin-right: 10px;
+
+    @include screen('lg') {
+      margin-right: 15px;
+    }
+
+    @include screen('sm') {
+      margin-right: 0;
+    }
   }
 
   &__name {
@@ -14,6 +22,10 @@
     font-weight: 700;
     color: $color-basic;
     transition: color $ease-main;
+
+    @include screen('sm') {
+      display: none;
+    }
   }
 
   &:hover {
