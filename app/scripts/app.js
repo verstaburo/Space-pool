@@ -12,6 +12,7 @@ import {
   datepicker,
   numberinput,
   textareaAutosize,
+  passwordMask,
 } from '../blocks/form-elements/form-elements';
 import maskForm from '../blocks/form-elements/form-elements-masking';
 import popups from '../blocks/popups/popups';
@@ -73,4 +74,5 @@ $(() => {
   floatingLabels();
   textareaAutosize();
   maskForm();
+  passwordMask();
 });

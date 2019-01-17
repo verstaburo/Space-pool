@@ -245,3 +245,27 @@ export function numberinput() {
 export function textareaAutosize() {
   autosize($('.textarea'));
 }
+
+// маска паролей
+export function passwordMask() {
+  $(document).on('input change', '.js-password-field input', (evt) => {
+    const self = evt.target;
+    console.log('input password');
+    const parent = $(self).closest('.js-password-field');
+    const value = self.value.length;
+    console.log(value);
+    const mask = $(parent).find('[data-password-mask]');
+    const spans = $(mask).find('span');
+    console.log($(spans).length);
+    if (value !== $(spans).length && value !== 0) {
+      let result = '';
+      for (let i = 0; i <= value; i += 1) {
+        result += '<span></span>';
+      }
+      $(mask).empty();
+      $(mask).append(result);
+    } else if (value === 0) {
+      $(mask).empty();
+    }
+  });
+}

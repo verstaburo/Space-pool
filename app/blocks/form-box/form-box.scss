@@ -7,6 +7,7 @@
 
   &__label {
     @include text-big;
+    @include ellipsis(100%);
 
     font-weight: 400;
     line-height: (26/18);
@@ -45,6 +46,25 @@
     fill: currentColor;
   }
 
+  &__password-mask {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    width: 100%;
+
+    span {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background-color: $color-basic;
+
+      &:not(:last-child) {
+        margin-right: 8px;
+      }
+    }
+  }
+
   &__phone {
 
     &_code {
@@ -65,10 +85,10 @@
     &::before {
       @include pseudo;
 
-      bottom: 10px;
+      bottom: 12px;
       left: 42px;
       width: 1px;
-      height: 20px;
+      height: 18px;
       background-color: $color-form-border;
       opacity: 0;
       transition: opacity $ease-main;

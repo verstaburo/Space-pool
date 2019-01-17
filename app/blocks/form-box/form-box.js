@@ -13,6 +13,10 @@ export default function floatingLabel() {
 
   $(document).on('input focus foucsin blur', '.form-box input, .form-box textarea', (evt) => {
     const self = evt.target;
-    $(self).closest('.form-box').toggleClass('is-top', (evt.type === 'focus' || self.value.length > 0));
+    if ($(self).siblings('input').length === 0) {
+      $(self).closest('.form-box').toggleClass('is-top', (evt.type === 'focus' || self.value.length > 0));
+    } else if ($(self).siblings('input')[0].value.length === 0) {
+      $(self).closest('.form-box').toggleClass('is-top', (evt.type === 'focus' || self.value.length > 0));
+    }
   });
 }
