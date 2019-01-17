@@ -223,6 +223,26 @@
                             <div class="grid__col grid__col_xl_6"></div>
                             <div class="grid__col grid__col_xl_6"></div>
                         </div>
+                        <br>
+                        <div class="grid grid_big">
+                            <div class="grid__col grid__col_xl_1"></div>
+                            <div class="grid__col grid__col_xl_1"></div>
+                            <div class="grid__col grid__col_xl_1"></div>
+                            <div class="grid__col grid__col_xl_1"></div>
+                            <div class="grid__col grid__col_xl_1"></div>
+                            <div class="grid__col grid__col_xl_1"></div>
+                            <div class="grid__col grid__col_xl_1"></div>
+                            <div class="grid__col grid__col_xl_1"></div>
+                            <div class="grid__col grid__col_xl_1"></div>
+                            <div class="grid__col grid__col_xl_1"></div>
+                            <div class="grid__col grid__col_xl_1"></div>
+                            <div class="grid__col grid__col_xl_1"></div>
+                            <div class="grid__col grid__col_xl_4"></div>
+                            <div class="grid__col grid__col_xl_4"></div>
+                            <div class="grid__col grid__col_xl_4"></div>
+                            <div class="grid__col grid__col_xl_6"></div>
+                            <div class="grid__col grid__col_xl_6"></div>
+                        </div>
                     </div>
                 </div>
             </section>
@@ -565,53 +585,65 @@
             <div class="ui-kit__section-head">
                 <div class="container">
                     <h2>Элементы форм</h2>
-                    <p>Блок: blocks/form-elements</p>
+                    <p>Блоки: blocks/form-elements и blocks/form-box</p>
                 </div>
             </div>
             <div class="ui-kit__section-content">
                 <div class="container">
-                    <div class="grid">
+                    <div class="grid grid_big">
                         <div class="grid__col grid__col_xl_6">
                             <p class="ui-kit__description">.input</p>
-                            <div class="inputbox">
+                            <br>
+                            <label class="form-box">
                                 <input class="input" placeholder="Плейсхолдер" />
-                            </div>
+                                <span class="form-box__label">Плейсхолдер</span>
+                            </label>
                         </div>
                         <div class="grid__col grid__col_xl_6">
                             <p class="ui-kit__description">.select.js-select</p>
-                            <div class="inputbox">
-                                <select class="select">
+                            <br>
+                            <label class="form-box">
+                                <select class="select js-select-input">
                                     <option value="Опция 1">Опция 1</option>
                                     <option value="Опция 2">Опция 2</option>
                                     <option value="Опция 3">Опция 3</option>
                                 </select>
-                            </div>
+                                <span class="form-box__label">Плейсхолдер</span>
+                            </label>
                         </div>
                         <div class="grid__col grid__col_xl_6">
                             <p class="ui-kit__description">.js-datepicker
                                 <br> Параметры задаются через дата-атрибуты</p>
-                            <div class="inputbox">
+                            <br>
+                            <label class="form-box">
                                 <input class="input js-datepicker" placeholder="Выберите дату" readonly="readonly" />
-                            </div>
+                                <span class="form-box__label">Выберите дату</span>
+                                <svg class="form-box__icon"><use xlink:href="assets/images/icon.svg#icon_calendar2"></use></svg>
+                            </label>
                         </div>
                         <div class="grid__col grid__col_xl_6">
                             <p class="ui-kit__description">Поле ввода номера телефона.
                                 <br> Маска определяется через атрибут data-type="tel"</p>
-                            <div class="inputbox">
+                            <br>
+                            <label class="form-box form-box_phone">
                                 <input class="input" placeholder="+7 (___) ___-__-__" data-type="tel" />
-                            </div>
+                                <span class="form-box__label">Phone</span>
+                            </label>
                         </div>
                         <div class="grid__col grid__col_xl_6">
                             <p class="ui-kit__description">Поле ввода e-mail.
                                 <br> Маска определяется через атрибут data-type="email"</p>
-                            <div class="inputbox">
+                            <br>
+                            <label class="form-box">
                                 <input class="input" placeholder="E-mail" data-type="email" />
-                            </div>
+                                <span class="form-box__label">E-mail</span>
+                            </label>
                         </div>
                         <div class="grid__col grid__col_xl_6">
                             <p class="ui-kit__description">.js-number-input
                                 <br> Поле изменения количества</p>
-                            <div class="inputbox">
+                            <br>
+                            <label class="form-box">
                                 <label class="input-numberbox" placeholder="Количество товара">
                                     <span class="input-numberbox__field">
                                         <span class="input-numberbox__label">amount:</span>
@@ -620,10 +652,15 @@
                                     <span class="input-numberbox__button js-numberbox-minus"></span>
                                     <span class="input-numberbox__button js-numberbox-plus"></span>
                                 </label>
-                            </div>
+                            </label>
                         </div>
                         <div class="grid__col grid__col_xl_12">
-                            <textarea class="textarea" placeholder="Текстовое поле"></textarea>
+                            <p class="ui-kit__description">.textarea</p>
+                            <br>
+                            <label class="form-box">
+                                <textarea class="textarea" placeholder="Текстовое поле" rows="1"></textarea>
+                                <span class="form-box__label">Текстовое поле</span>
+                            </label>
                         </div>
                         <div class="grid__col grid__col_xl_6">
                             <p class="ui-kit__description">.checkbox</p>
@@ -636,7 +673,7 @@
                                     <span class="checkbox__content">Чекбокс</span>
                                 </label>
                             </div>
-                            <p class="ui-kit__description">.checkbox._big</p>
+                            <p class="ui-kit__description">.checkbox._small</p>
                             <div class="inputbox">
                                 <label class="checkbox checkbox_small">
                                     <input class="checkbox__input" name="ui-checkbox" value="test" checked="checked" type="checkbox" />
