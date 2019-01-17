@@ -29,12 +29,14 @@ export default function spoilers() {
       setHeight(container);
       $(container).addClass('is-active');
       $(toggleText).text(toggleOpenedName);
+      $(container).trigger('openedSpoiler');
     } else {
       $(container).removeClass('is-active');
       $(container).css({
         height: '',
       });
       $(toggleText).text(toggleClosedName);
+      $(container).trigger('closedSpoiler');
     }
   }
 

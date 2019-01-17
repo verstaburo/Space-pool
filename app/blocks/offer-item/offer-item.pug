@@ -5,16 +5,17 @@ mixin offer-item(data)
         +box(class="_size10 " + data.boxclass)
         +e.title!= data.title
         +button-heart._gray._small.js-heart
-    +e.content(data-offer-item-content)
-      +spoiler.__spoiler
-        +content-zone._smaller
-          p This text is some part of every offer for every building. This text is meant to be some textual lead for all additional information you can put inside every offer. So it can be long and that’s why we should put the limit for it.
-          ul
-            li 24 hours access
-            li Pets allowed
-            li Entrance only with electronic card
-            li Silent time from 10pm till 8am
-            li First and last months for offices are paid before letting start
-      +e.buttons
-        +button('a')._thin-border._thin-border_smaller._smaller._wide.__button Arrange a viewing
-        +button('a')._smaller._wide.__button Request Reservation
+    +e.body(data-offer-item-body)
+      +e.content(data-offer-item-content)
+        +spoiler.__spoiler
+          +content-zone._smaller
+            p This text is some part of every offer for every building. This text is meant to be some textual lead for all additional information you can put inside every offer. So it can be long and that’s why we should put the limit for it.
+            ul
+              li 24 hours access
+              li Pets allowed
+              li Entrance only with electronic card
+              li Silent time from 10pm till 8am
+              li First and last months for offices are paid before letting start
+        +e.buttons
+          +button('a')._thin-border._thin-border_smaller._smaller._wide.__button Arrange a viewing
+          +button('a')._smaller._wide.__button Request Reservation

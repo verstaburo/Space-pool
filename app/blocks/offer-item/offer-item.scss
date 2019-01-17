@@ -14,7 +14,6 @@
 
   &.is-open {
     background-color: $color-bg;
-    padding-bottom: 15px;
   }
 
   &__head {
@@ -36,9 +35,25 @@
     }
   }
 
-  &__content {
-    display: none;
+  &__body {
+    display: block;
     width: 100%;
+    position: relative;
+    height: 0;
+    overflow: hidden;
+    // transition: height $ease-main;
+    will-change: height;
+
+    #{$b}.is-open & {
+      height: auto;
+    }
+  }
+
+  &__content {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    padding-bottom: 15px;
   }
 
   &__spoiler {
