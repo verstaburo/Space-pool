@@ -3414,20 +3414,6 @@
             </div>
         </section>
         </div>
-        <script>
-            $('.ui-kit__section').each(function(i) {
-                var id = 'section' + i;
-                var name = $(this).find('.ui-kit__section-head h2').text();
-                var li = $('<li></li>');
-                var a = $('<a></a>');
-
-                a.attr('href', '#' + id).text(name).addClass('js-anchor');
-                li.append(a);
-
-                $('.ui-kit__navigation__list').append(li);
-                $(this).attr('id', id);
-            });
-        </script>
     </main>
     <div class="popups"></div>
     <div class="overlay"></div>
@@ -3525,6 +3511,20 @@
             </div>
         </div>
     </div>
+    <script>
+        $('.ui-kit__section').each(function(i) {
+            var id = 'section' + i;
+            var name = $(this).find('.ui-kit__section-head h2').text();
+            var li = $('<li></li>');
+            var a = $('<a></a>');
+
+            a.attr('href', '#' + id).text(name).addClass('js-anchor');
+            li.append(a);
+
+            $('.ui-kit__navigation__list').append(li);
+            $(this).attr('id', id);
+        });
+    </script>
     <footer class="footer">
         <div class="container">
             <div class="footer__top">
