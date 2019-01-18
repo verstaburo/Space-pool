@@ -25,7 +25,7 @@ export default function formManipulations() {
         $(el).trigger('change');
       }
     });
-    window.setPasswordMask();
+    // window.setPasswordMask();
     window.setLabelPosition();
   }
 

@@ -250,40 +250,40 @@ export function textareaAutosize() {
 
 // маска паролей
 export function passwordMask() {
-  function presetMask() {
-    const passwordFields = $('.js-password-field input');
-    $(passwordFields).each((i, el) => {
-      const parent = $(el).closest('.js-password-field');
-      const value = el.value.length;
-      const mask = $(parent).find('[data-password-mask]');
-      let result = '';
-      for (let j = 0; j < value; j += 1) {
-        result += '<span></span>';
-      }
-      $(mask).empty();
-      $(mask).append(result);
-    });
-  }
+  // function presetMask() {
+  //   const passwordFields = $('.js-password-field input');
+  //   $(passwordFields).each((i, el) => {
+  //     const parent = $(el).closest('.js-password-field');
+  //     const value = el.value.length;
+  //     const mask = $(parent).find('[data-password-mask]');
+  //     let result = '';
+  //     for (let j = 0; j < value; j += 1) {
+  //       result += '<span></span>';
+  //     }
+  //     $(mask).empty();
+  //     $(mask).append(result);
+  //   });
+  // }
 
-  window.setPasswordMask = presetMask;
+  // window.setPasswordMask = presetMask;
 
-  presetMask();
+  // presetMask();
 
-  $(document).on('input change', '.js-password-field input', (evt) => {
-    const self = evt.target;
-    const parent = $(self).closest('.js-password-field');
-    const value = self.value.length;
-    const mask = $(parent).find('[data-password-mask]');
-    const spans = $(mask).find('span');
-    if (value !== $(spans).length && value !== 0) {
-      let result = '';
-      for (let i = 0; i < value; i += 1) {
-        result += '<span></span>';
-      }
-      $(mask).empty();
-      $(mask).append(result);
-    } else if (value === 0) {
-      $(mask).empty();
-    }
-  });
+  // $(document).on('input change', '.js-password-field input', (evt) => {
+  //   const self = evt.target;
+  //   const parent = $(self).closest('.js-password-field');
+  //   const value = self.value.length;
+  //   const mask = $(parent).find('[data-password-mask]');
+  //   const spans = $(mask).find('span');
+  //   if (value !== $(spans).length && value !== 0) {
+  //     let result = '';
+  //     for (let i = 0; i < value; i += 1) {
+  //       result += '<span></span>';
+  //     }
+  //     $(mask).empty();
+  //     $(mask).append(result);
+  //   } else if (value === 0) {
+  //     $(mask).empty();
+  //   }
+  // });
 }

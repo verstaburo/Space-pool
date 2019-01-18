@@ -48,14 +48,16 @@ block content
             +grid.grid_big
               +col({xl: 6, lg: 12 })
                 +form-section-wrapper
-                  +form-box('Old password')._password.js-password-field
+                  +form-box('Old password')._password
                     +input(type="password" name="oldPassword" value="EugeneEugene" placeholder="Old password" readonly)
                     +e.SPAN.password-mask(data-password-mask)
+                      - for (var i = 0; i < 12; i++) {
+                        span
+                      - }
               +col({xl: 6, lg: 12 })
                 +form-section-wrapper
-                  +form-box('New password')._password.js-password-field
+                  +form-box('New password')
                     +input(type="password" name="newPassword")
-                    +e.SPAN.password-mask(data-password-mask)
               +col({xl: 6, lg: 12 }).grid__col_lg-order2
                 +form-section-wrapper
                   +form-section-text._compensate
@@ -63,9 +65,8 @@ block content
                     +link(href="#")._gray._underline Recover the password VIA E-mail adress
               +col({xl: 6, lg: 12 })
                 +form-section-wrapper
-                  +form-box('New password one more time')._password.js-password-field
+                  +form-box('New password one more time')
                     +input(type="password" name="newPasswordConfirm")
-                    +e.SPAN.password-mask(data-password-mask)
           +form-section._bmg._bmg_ext
             +form-section-header._lg-mmg
               +form-section-title Profile Data
