@@ -12,6 +12,10 @@
   padding-bottom: 8px;
   transition: border $ease-main, color $ease-main;
 
+  @include screen('sm') {
+    @include text16;
+  }
+
   &::placeholder {
     color: transparent;
   }
@@ -174,7 +178,12 @@
     padding-left: 0;
 
     #{$radio}__box {
-      margin-top: -5px;
+      top: 3px;
+      transform: translate3d(0, 0, 0);
+
+      @include screen('sm') {
+        top: 0;
+      }
     }
 
     #{$radio}__content {
@@ -183,6 +192,13 @@
       transition: border $ease-main;
       padding-bottom: 10px;
       box-sizing: border-box;
+
+      @include screen('sm') {
+        @include text;
+
+        line-height: 1.2;
+        padding-bottom: 12px;
+      }
     }
 
     &:hover #{$radio}__content {
@@ -316,7 +332,12 @@
     padding-left: 0;
 
     #{$check}__box {
-      margin-top: -5px;
+      top: 3px;
+      transform: translate3d(0, 0, 0);
+
+      @include screen('sm') {
+        top: 0;
+      }
     }
 
     #{$check}__content {
@@ -325,6 +346,13 @@
       transition: border $ease-main;
       padding-bottom: 10px;
       box-sizing: border-box;
+
+      @include screen('sm') {
+        @include text;
+
+        line-height: 1.2;
+        padding-bottom: 12px;
+      }
     }
 
     &:hover #{$check}__content {
@@ -1016,6 +1044,14 @@
 
     #{$k}__toggle {
       right: 6px;
+
+      @include screen('lg') {
+        right: 12px;
+      }
+
+      @include screen('sm') {
+        right: 9px;
+      }
 
       svg {
         fill: $color-basic;

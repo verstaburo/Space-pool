@@ -12,11 +12,35 @@
 
     &:not(:last-child) {
       margin-bottom: 85px;
+
+      @include screen('lg') {
+        margin-bottom: 70px;
+      }
+
+      @include screen('sm') {
+        margin-bottom: 69px;
+      }
     }
 
     &_bmg {
       &:not(:last-child) {
         margin-bottom: 95px;
+
+        @include screen('lg') {
+          margin-bottom: 84px;
+        }
+      }
+
+      &_ext {
+        &:not(:last-child) {
+          @include screen('lg') {
+            margin-bottom: 90px;
+          }
+
+          @include screen('sm') {
+            margin-bottom: 96px;
+          }
+        }
       }
     }
   }
@@ -28,34 +52,36 @@
     margin-bottom: 55px;
 
     @include screen('lg') {
-      margin-bottom: 40px;
+      margin-bottom: 57px;
     }
 
     @include screen('sm') {
-      margin-bottom: 30px;
+      margin-bottom: 59px;
     }
 
     &_smg {
       margin-bottom: 50px;
 
-      @include screen('lg') {
-        margin-bottom: 40px;
-      }
-
       @include screen('sm') {
-        margin-bottom: 30px;
+        margin-bottom: 41px;
       }
     }
 
     &_bmg {
       margin-bottom: 60px;
 
+      @include screen('sm') {
+        margin-bottom: 42px;
+      }
+    }
+
+    &_lg-mmg {
       @include screen('lg') {
-        margin-bottom: 40px;
+        margin-bottom: 53px;
       }
 
       @include screen('sm') {
-        margin-bottom: 30px;
+        margin-bottom: 56px;
       }
     }
   }
@@ -72,6 +98,10 @@
 
     &:not(:last-child) {
       margin-bottom: 8px;
+
+      @include screen('sm') {
+        margin-bottom: 14px;
+      }
     }
   }
 
@@ -82,8 +112,16 @@
     line-height: (26/14);
     color: $color-basic-light;
 
+    @include screen('sm') {
+      line-height: 1.2;
+    }
+
     &_compensate {
       line-height: 1;
+
+      @include screen('lg') {
+        margin-top: -12px;
+      }
 
       p:not(:first-child),
       .link:not(:first-child) {
@@ -108,8 +146,8 @@
     &:not(:last-child) {
       margin-bottom: 42px;
 
-      @include screen('lg') {
-        margin-bottom: 30px;
+      @include screen('sm') {
+        margin-bottom: 33px;
       }
     }
 

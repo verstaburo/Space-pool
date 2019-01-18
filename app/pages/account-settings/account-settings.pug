@@ -1,4 +1,4 @@
-extends ../../layouts/default-with-mobile-panel-login
+extends ../../layouts/default-login
 
 block head
   - var pageTitle = 'SpacePool - Account settings'
@@ -6,24 +6,24 @@ block head
 block content
   +content-origin._reverse
     .container
-      +content-column-aside._ptop.hide-lg
+      +content-column-aside._ptop.hide-xl
         +side-navigation('Change your personal info, password and notification options here')
           +nav-list-sidebar(getData('side-menu-user.json'), 'Profile & Settings').__navigation
-      +content-column-main
+      +content-column-main._main_wide-xl
         +form
           +form-section
             +form-section-header
               +form-section-title Basic account information
             +grid.grid_big
-              +col({xl: 6, sm: 12 })
+              +col({xl: 6, lg: 12 })
                 +form-section-wrapper
                   +form-box('First name')
                     +input(type="text" name="firsName" value="Eugene" placeholder="First name")
-              +col({xl: 6, sm: 12 })
+              +col({xl: 6, lg: 12 })
                 +form-section-wrapper
                   +form-box('Last name')
                     +input(type="text" name="lastName" value="Sheeleen" placeholder="Last name")
-              +col({xl: 6, sm: 12 })
+              +col({xl: 6, lg: 12 })
                 +form-section-wrapper
                   +form-box('Country')
                     +select.js-select-input(name="country")
@@ -32,12 +32,12 @@ block content
                       option(value="ru") Russia
                       option(value="de") Germany
                       option(value="fr") France
-              +col({xl: 6, sm: 12 }).grid__col_mob-order2
+              +col({xl: 6, lg: 12 }).grid__col_lg-order2
                 +form-section-wrapper
                   +form-box('Phone number')._phone
                     +input(type="tel" name="phone-code" value="+44" placeholder="Phone code" data-tel-code).form-box__phone_code
                     +input(type="tel" name="phone-number" value="768 968 98983" placeholder="Phone number" data-tel-number).form-box__phone_number
-              +col({xl: 6, sm: 12 })
+              +col({xl: 6, lg: 12 })
                 +form-section-wrapper
                   +form-box('E-mail adress')
                     +input(type="email" name="email" value="es@bsagency.design" placeholder="E-mail adress")
@@ -46,35 +46,35 @@ block content
               +form-section-title Password change
               +form-section-text In case you want to change your password just fill  the form below:
             +grid.grid_big
-              +col({xl: 6, sm: 12 })
+              +col({xl: 6, lg: 12 })
                 +form-section-wrapper
                   +form-box('Old password')._password.js-password-field
                     +input(type="password" name="oldPassword" value="EugeneEugene" placeholder="Old password" readonly)
                     +e.SPAN.password-mask(data-password-mask)
-              +col({xl: 6, sm: 12 }).grid__col_mob-order2
+              +col({xl: 6, lg: 12 })
                 +form-section-wrapper
                   +form-box('New password')._password.js-password-field
                     +input(type="password" name="newPassword")
                     +e.SPAN.password-mask(data-password-mask)
-              +col({xl: 6, sm: 12 })
+              +col({xl: 6, lg: 12 }).grid__col_lg-order2
                 +form-section-wrapper
                   +form-section-text._compensate
                     p Forgot your existing password?
                     +link(href="#")._gray._underline Recover the password VIA E-mail adress
-              +col({xl: 6, sm: 12 }).grid__col_mob-order2
+              +col({xl: 6, lg: 12 })
                 +form-section-wrapper
                   +form-box('New password one more time')._password.js-password-field
                     +input(type="password" name="newPasswordConfirm")
                     +e.SPAN.password-mask(data-password-mask)
-          +form-section._bmg
-            +form-section-header
+          +form-section._bmg._bmg_ext
+            +form-section-header._lg-mmg
               +form-section-title Profile Data
             +grid.grid_big
-              +col({xl: 6, sm: 12 })
+              +col({xl: 6, lg: 12 })
                 +form-section-wrapper
-                  +form-box('Birthday', 'calendar2')
+                  +form-box('Birthday', 'calendar2')._icon
                     +input.js-datepicker(type="text" name="birthday" value="31 August 1986" placeholder="Birthday")
-              +col({xl: 6, sm: 12 })
+              +col({xl: 6, lg: 12 })
                 +form-section-wrapper
                   +form-box('Residency country')
                     +select.js-select-input(name="residencyCountry")
@@ -83,7 +83,7 @@ block content
                       option(value="ru") Russia
                       option(value="de") Germany
                       option(value="fr") France
-              +col({xl: 6, sm: 12 })
+              +col({xl: 6, lg: 12 })
                 +form-section-wrapper
                   +form-box('Education grade')
                     +select.js-select-input(name="educationGrade")
@@ -92,11 +92,11 @@ block content
                       option(value="doctor") Doctor
                       option(value="master") Master
                       option(value="basic") Basic
-              +col({xl: 6, sm: 12 })
+              +col({xl: 6, lg: 12 })
                 +form-section-wrapper
                   +form-box('Company name')
                     +input(type="text" name="companyName" value="SIA Dezi BS" placeholder="Company name")
-              +col({xl: 6, sm: 12 })
+              +col({xl: 6, lg: 12 })
                 +form-section-wrapper
                   +form-box('Employee position')
                     +input(type="text" name="employeePosition" value="Art-director" placeholder="Employee position")
@@ -104,7 +104,7 @@ block content
             +form-section-header._bmg
               +form-section-title Service settings and notifications
             +grid.grid_big
-              +col({xl: 6, sm: 12 })
+              +col({xl: 6, lg: 12 })
                 +form-section-wrapper._noflex
                   +checkbox('settings', '1', true)._border Notify me Via E-mail about new messages
                 +form-section-wrapper._noflex

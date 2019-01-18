@@ -17,12 +17,6 @@ $new-breakpoints: map_remove($breakpoints, $default-breakpoit-name);
     margin-left: -$grid-gap-big/2;
     margin-right: -$grid-gap-big/2;
     margin-top: -$grid-gap-vertical-big;
-
-    @include screen('lg') {
-      margin-left: -(30px/2);
-      margin-right: -(30px/2);
-      margin-top: -40px;
-    }
   }
 
   &__col {
@@ -50,13 +44,25 @@ $new-breakpoints: map_remove($breakpoints, $default-breakpoit-name);
       }
     }
 
-    &_mob-order2 {
+    &_lg-order2 {
+      @include screen('lg') {
+        order: 2;
+      }
+    }
+
+    &_lg-order3 {
+      @include screen('lg') {
+        order: 3;
+      }
+    }
+
+    &_sm-order2 {
       @include screen('sm') {
         order: 2;
       }
     }
 
-    &_mob-order3 {
+    &_sm-order3 {
       @include screen('sm') {
         order: 3;
       }
@@ -64,10 +70,6 @@ $new-breakpoints: map_remove($breakpoints, $default-breakpoit-name);
 
     #{$b}_big & {
       padding: $grid-gap-vertical-big $grid-gap-big/2 0;
-
-      @include screen('lg') {
-        padding: 40px (30px/2) 0;
-      }
     }
   }
 }

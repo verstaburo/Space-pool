@@ -19,12 +19,16 @@
   &:last-child {
     margin-bottom: 104px;
 
+    @include screen('xl') {
+      margin-bottom: 88px;
+    }
+
     @include screen('lg') {
-      margin-bottom: 72px;
+      margin-bottom: 102px;
     }
 
     @include screen('sm') {
-      margin-bottom: 60px;
+      margin-bottom: 70px;
     }
   }
 
@@ -57,6 +61,24 @@
 
         @include screen('lg') {
           padding-left: 0;
+        }
+
+        @include screen('sm') {
+          padding-top: 32px;
+        }
+
+        &_wide-xl {
+          @include screen('xl') {
+            width: 100%;
+            padding-left: 0;
+          }
+        }
+      }
+
+      &_wide-xl {
+        @include screen('xl') {
+          width: 100%;
+          padding-right: 0;
         }
       }
     }

@@ -17,6 +17,11 @@
     left: 0;
     color: $color-placeholder;
     transition: transform $ease-main, color $ease-main, font $ease-main;
+    z-index: 2;
+
+    @include screen('sm') {
+      @include text16;
+    }
 
     input:hover~&,
     input:focus~&,
@@ -34,6 +39,12 @@
       color: $color-basic;
       line-height: (26/14);
       transform: translate3d(0, -27px, 0);
+
+      @include screen('sm') {
+        @include text;
+
+        line-height: (26/14);
+      }
     }
   }
 
@@ -44,14 +55,28 @@
     bottom: 16px;
     right: 3px;
     fill: currentColor;
+
+    @include screen('lg') {
+      right: 12px;
+    }
+
+    @include screen('sm') {
+      right: 9px;
+    }
   }
 
   &__password-mask {
     position: absolute;
     top: 0;
     left: 0;
-    display: flex;
-    width: 100%;
+    display: inline-flex;
+    align-items: center;
+    width: auto;
+    height: calc(100% - 1px);
+    max-width: 100%;
+    overflow: hidden;
+    padding-right: 2px;
+    background-color: $color-bg;
 
     span {
       width: 10px;
@@ -60,8 +85,21 @@
       background-color: $color-basic;
 
       &:not(:last-child) {
-        margin-right: 8px;
+        margin-right: 9px;
       }
+    }
+
+    &::before {
+      @include pseudo;
+
+      top: 50%;
+      right: 0;
+      width: 1px;
+      height: 26px;
+      background-color: $color-basic;
+      opacity: 0;
+      margin-top: -3px;
+      transform: translate3d(0, -50%, 0);
     }
   }
 
@@ -97,6 +135,28 @@
 
     &.is-top::before {
       opacity: 1;
+    }
+  }
+
+  &_password {
+
+    .input {
+      color: transparent;
+      user-select: none;
+    }
+
+    .input:not([readonly]):focus~#{$b}__password-mask {
+
+      &::before {
+        animation: cursor 1s ease infinite;
+      }
+    }
+  }
+
+  &_icon {
+
+    .input {
+      padding-right: 30px;
     }
   }
 }

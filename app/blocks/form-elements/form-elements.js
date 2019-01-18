@@ -248,18 +248,32 @@ export function textareaAutosize() {
 
 // маска паролей
 export function passwordMask() {
+  function presetMask() {
+    const passwordFields = $('.js-password-field input');
+    $(passwordFields).each((i, el) => {
+      const parent = $(el).closest('.js-password-field');
+      const value = el.value.length;
+      const mask = $(parent).find('[data-password-mask]');
+      let result = '';
+      for (let j = 0; j < value; j += 1) {
+        result += '<span></span>';
+      }
+      $(mask).empty();
+      $(mask).append(result);
+    });
+  }
+
+  presetMask();
+
   $(document).on('input change', '.js-password-field input', (evt) => {
     const self = evt.target;
-    console.log('input password');
     const parent = $(self).closest('.js-password-field');
     const value = self.value.length;
-    console.log(value);
     const mask = $(parent).find('[data-password-mask]');
     const spans = $(mask).find('span');
-    console.log($(spans).length);
     if (value !== $(spans).length && value !== 0) {
       let result = '';
-      for (let i = 0; i <= value; i += 1) {
+      for (let i = 0; i < value; i += 1) {
         result += '<span></span>';
       }
       $(mask).empty();
