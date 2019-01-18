@@ -1,0 +1,32 @@
+.form-panel {
+  $b: &;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 80px;
+  width: 100%;
+  background-color: $color-white;
+  box-sizing: border-box;
+  padding: 0 50px;
+
+  @include screen('sm') {
+    height: 70px;
+  }
+
+  .link {
+    @include text-mid;
+  }
+
+
+  &__button {
+
+    &_wide {
+      min-width: 298px;
+
+      @include screen('sm') {
+        min-width: 0;
+      }
+    }
+  }
+}

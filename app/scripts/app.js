@@ -40,6 +40,7 @@ import openPanel from '../blocks/panel/panel';
 import spoilers from '../blocks/spoiler/spoiler';
 import offerItemOpen from '../blocks/offer-item/offer-item';
 import floatingLabels from '../blocks/form-box/form-box';
+import formManipulations from '../blocks/form/form';
 
 const $ = window.$;
 
@@ -75,4 +76,5 @@ $(() => {
   textareaAutosize();
   maskForm();
   passwordMask();
+  formManipulations();
 });

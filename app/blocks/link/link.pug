@@ -1,10 +1,10 @@
-mixin link()
-  +b.A.link&attributes(attributes)
+mixin link(tag)
+  +b(tag || 'a').link&attributes(attributes)
     +e.SPAN.text
       block
 
-mixin link-icon(iconname)
-  +b.A.link&attributes(attributes)._icon
+mixin link-icon(iconname, tag)
+  +b(tag || 'a').link&attributes(attributes)._icon
     +icon(iconname)(class="__icon _" + iconname)
     +e.SPAN.text
       block

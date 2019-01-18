@@ -10,7 +10,7 @@ block content
         +side-navigation('Change your personal info, password and notification options here')
           +nav-list-sidebar(getData('side-menu-user.json'), 'Profile & Settings').__navigation
       +content-column-main._main_wide-xl
-        +form
+        +form._pb.js-form-with-hidden-panel
           +form-section
             +form-section-header
               +form-section-title Basic account information
@@ -18,7 +18,7 @@ block content
               +col({xl: 6, lg: 12 })
                 +form-section-wrapper
                   +form-box('First name')
-                    +input(type="text" name="firsName" value="Eugene" placeholder="First name")
+                    +input(type="text" name="firstName" value="Eugene" placeholder="First name")
               +col({xl: 6, lg: 12 })
                 +form-section-wrapper
                   +form-box('Last name')
@@ -113,3 +113,10 @@ block content
                   +checkbox('settings', '3')._border Send Me information about new offers via E-mail
                 +form-section-wrapper._noflex
                   +checkbox('settings', '4')._border Send Me information about new offers via E-mail
+          +form-panel()(data-hidden-panel).__panel_fixed
+            +link-icon('select-arrow', 'button')(type="reset")._back._bold.__button.js-form-reset.js-hide-form-panel Discard <span class="hide-sm">changes</span>
+            +button('button')(type="submit").__button_wide.js-form-submit.js-hide-form-panel Save changes
+
+block panels
+  +main-menu-inner
+    +nav-list(getData('main-menu-user.json'))

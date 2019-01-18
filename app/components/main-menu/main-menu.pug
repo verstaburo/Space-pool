@@ -17,3 +17,22 @@ mixin main-menu()
               +e.links
                 +link(href="mailto:info@spacepool.com") info@spacepool.com
                 +link(href="tel:+4471478129419") +44 714 781 294 19
+
+mixin main-menu-inner()
+  - var menuDown = getData('main-menu-inner.json')
+  +b.main-menu_inner&attributes(attributes)
+    +e.wrapper
+      +e.block
+        +e.top
+          +close.js-open-navigation
+        +e.scrollblock.js-scrollbar-light
+          +e.content
+            +e.top-menu
+              block
+            +divider
+            +e.bottom-menu
+              +nav-list(menuDown)
+              +socials
+              +e.links
+                +link(href="mailto:info@spacepool.com") info@spacepool.com
+                +link(href="tel:+4471478129419") +44 714 781 294 19

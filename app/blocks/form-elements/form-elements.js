@@ -125,7 +125,9 @@ export function selects() {
         },
       });
 
+      const defaultValue = el.value;
       self.choices = choices;
+      self.defaultSelectedValue = defaultValue;
     });
   }
 
@@ -262,6 +264,8 @@ export function passwordMask() {
       $(mask).append(result);
     });
   }
+
+  window.setPasswordMask = presetMask;
 
   presetMask();
 

@@ -44,6 +44,10 @@
       pointer-events: auto;
     }
 
+    @include screen('xl') {
+      width: 448px;
+    }
+
     @include screen('sm') {
       max-width: 320px;
       width: 100%;
@@ -106,12 +110,20 @@
     box-sizing: border-box;
     padding-bottom: 22px;
 
+    @include screen('xl') {
+      max-width: 320px;
+    }
+
     @include screen('sm') {
       max-width: 280px;
     }
 
     .nav-list {
       margin-top: -17px;
+
+      @include screen('xl') {
+        margin-top: -20px;
+      }
     }
   }
 
@@ -124,12 +136,20 @@
     padding-top: 26px;
     padding-bottom: 20px;
 
+    @include screen('xl') {
+      max-width: 320px;
+    }
+
     @include screen('sm') {
       max-width: 280px;
     }
 
     .nav-list:not(:last-child) {
       margin-bottom: 29px;
+
+      @include screen('xl') {
+        margin-bottom: 20px;
+      }
     }
 
     .socials:not(:last-child) {
@@ -151,6 +171,10 @@
       &:not(:last-child) {
         margin-right: 35px;
       }
+    }
+
+    #{$b}_inner & {
+      display: none;
     }
   }
 }

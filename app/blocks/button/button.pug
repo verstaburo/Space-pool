@@ -2,3 +2,10 @@ mixin button(newtag)
   +b(newtag || 'a').button&attributes(attributes)
     +e.SPAN.text
       block
+
+mixin button-icon(newtag, icon)
+  +b(newtag || 'a').button&attributes(attributes)
+    +e.SPAN.text
+      block
+    +e.icon
+      +icon(icon).icon
