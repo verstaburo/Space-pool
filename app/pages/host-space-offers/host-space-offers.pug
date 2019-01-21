@@ -1,0 +1,14 @@
+extends ../../layouts/default-login
+
+block head
+  - var pageTitle = 'SpacePool - My rental offers - One Space (HOST)'
+
+block content
+  +content-origin._reverse
+    .container
+      +content-column-aside
+      +content-column-main._main_wide-xl
+
+block panels
+  +main-menu-inner
+    +nav-list(getData('main-menu-user.json'))

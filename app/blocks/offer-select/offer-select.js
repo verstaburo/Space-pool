@@ -28,7 +28,6 @@ export default function offerSelect() {
       });
     };
     this.getSelectedElem = function () {
-      console.log('init');
       const t = this;
       const activeEl = $(t.el).find('[data-offer-input]:checked');
       const parent = $(activeEl).closest('[data-select-item]');
@@ -36,7 +35,6 @@ export default function offerSelect() {
       return elem;
     };
     this.preset = function () {
-      console.log('preset');
       const t = this;
       const currEl = t.getSelectedElem();
       $(t.label).empty();

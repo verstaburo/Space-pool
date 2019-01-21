@@ -1,0 +1,16 @@
+extends ../../layouts/default-login
+
+block head
+  - var pageTitle = 'SpacePool - My rental offers (HOST)'
+
+block content
+  +content-origin._reverse
+    .container
+      +content-column-aside._ptop.hide-xl
+        +side-navigation('This page displays a list of your available Spaces. Click on space to manage it’s rental offers')
+          +nav-list-sidebar(getData('side-menu-user.json'), 'My offers').__navigation
+      +content-column-main._main_wide-xl
+
+block panels
+  +main-menu-inner
+    +nav-list(getData('main-menu-user.json'))

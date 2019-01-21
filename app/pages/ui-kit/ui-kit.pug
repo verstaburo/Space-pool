@@ -246,6 +246,7 @@ block content
             br
             +form-box('Плейсхолдер')
               +select.js-select-input
+                option(value="placeholder" placeholder) Плейсхолдер
                 option(value="Опция 1") Опция 1
                 option(value="Опция 2") Опция 2
                 option(value="Опция 3") Опция 3
@@ -255,15 +256,16 @@ block content
             +form-box('Выберите дату', 'calendar2')
               +input(placeholder="Выберите дату" readonly).js-datepicker
           +col(6)
-            +ui-description Поле ввода номера телефона.<br> Маска определяется через атрибут data-type="tel"
+            +ui-description Поле ввода номера телефона.<br> Маска привязана через атрибут data-tel-code и data-tel-number
             br
-            +form-box('Phone')._phone
-              +input()(placeholder="+7 (___) ___-__-__" data-type="tel")
+            +form-box('Phone number')._phone
+              +input(type="tel" name="phone-code" placeholder="Phone code" data-tel-code).form-box__phone_code
+              +input(type="tel" name="phone-number" placeholder="Phone number" data-tel-number).form-box__phone_number
           +col(6)
-            +ui-description Поле ввода e-mail.<br> Маска определяется через атрибут data-type="email"
+            +ui-description Поле ввода e-mail.<br>
             br
             +form-box('E-mail')
-              +input()(placeholder="E-mail" data-type="email")
+              +input()(placeholder="E-mail")
           +col(6)
             +ui-description .js-number-input<br> Поле изменения количества
             br
