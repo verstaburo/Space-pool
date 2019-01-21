@@ -9,7 +9,7 @@ mixin nav-list-sidebar(data, active)
   - var addClass = "";
   +b.UL.nav-list_sidebar&attributes(attributes)
     each item in data
-      - if (item.name === active) { addClass = " is-active"; }
+      - if (item.name === active) { addClass = " is-active"; } else { addClass=""; }
       +e.LI.item
         +link()(href=item.href class='_white' + addClass)!= item.name
         if item.marker

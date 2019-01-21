@@ -4,8 +4,13 @@ mixin button(newtag)
       block
 
 mixin button-icon(newtag, icon)
-  +b(newtag || 'a').button&attributes(attributes)
+  +b(newtag || 'a').button_icon&attributes(attributes)
     +e.SPAN.text
       block
-    +e.icon
-      +icon(icon).icon
+    +icon(icon)(class="__icon_" + icon)
+
+mixin button-plus(newtag)
+  +b(newtag || 'a').button_icon._plus&attributes(attributes)
+    +e.SPAN.text
+      block
+    +e.icon_plus

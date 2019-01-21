@@ -1,0 +1,14 @@
+mixin switch(name, value, checked, comment)
+  +b.switch&attributes(attributes)
+    if comment
+      +e.describe
+        block
+    +e.LABEL.content
+      - if (checked) {
+        +input(type="checkbox" name=name value=value checked="checked").switch__input
+      - } else {
+        +input(type="checkbox" name=name value=value).switch__input
+      - }
+      +e.toggle
+      +e.status_disabled NOT AVAILABLE
+      +e.status_active AVIALABLE NOW

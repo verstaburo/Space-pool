@@ -4,10 +4,10 @@ include _internalIncludes
 doctype html
 html(lang='en')
   include head
-  body.is-panel
+  body.is-panel.is-login
     block header
     - var addClass = headerClass || ''
-    +header()(class=addClass)
+    +header(true)(class=addClass + ' is-login')
 
     +b.MAIN.page
       block content

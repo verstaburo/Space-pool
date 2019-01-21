@@ -1,16 +1,27 @@
-extends ../../layouts/default-login
+extends ../../layouts/default-login-host
 
 block head
   - var pageTitle = 'SpacePool - My rental offers (HOST)'
 
+block header
+  -var headerClass = '_border'
+
 block content
+  +page-header._wide-xl
+    .container
+      +page-header-side
+      +page-header-main
+        +page-title('h1')._small.__title List of Spaces
+        +e.info <b>18</b> rental offers within <b>3</b> spaces
+        +button-plus('a')(href="#").__button Add new Space
   +content-origin._reverse
     .container
-      +content-column-aside._ptop.hide-xl
+      +content-column-aside.hide-xl
         +side-navigation('This page displays a list of your available Spaces. Click on space to manage it’s rental offers')
-          +nav-list-sidebar(getData('side-menu-user.json'), 'My offers').__navigation
-      +content-column-main._main_wide-xl
+          +nav-list-sidebar(getData('side-menu-host.json'), 'My offers').__navigation
+      +content-column-main._main_wide-xl._no-ptop
+        +tip One rental space may contain more than one Rental Offer. <b>First you need to create an rental space, than you will be able to add rental offer such as Dedicated Desks, Meeting Rooms, Office spaces and Hot desks.</b>
 
 block panels
   +main-menu-inner
-    +nav-list(getData('main-menu-user.json'))
+    +nav-list(getData('main-menu-host.json'))

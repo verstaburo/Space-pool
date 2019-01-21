@@ -5,7 +5,9 @@ doctype html
 html(lang='en')
   include head
   body
-    +header
+    block header
+    - var addClass = headerClass || ''
+    +header()(class=addClass)
 
     +b.MAIN.page
       block content

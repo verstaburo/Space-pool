@@ -1,7 +1,11 @@
-mixin header-user()
+mixin header-user(host)
   +b.header-user&attributes(attributes)
     +e.user
-      +short-profile(href="#")
+      - if (host) {
+        +short-profile-host(href="#")
+      - } else {
+        +short-profile(href="#")
+      - }
     +e.UL.list
       +e.LI.item
         +user-link('calendar', '_calendar', true)(href="#")

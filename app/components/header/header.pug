@@ -1,4 +1,4 @@
-mixin header(authorized)
+mixin header(host)
   - var isAuthorized = authorized ? 'is-login' : '';
   +b.HEADER.header&attributes(attributes)(class=isAuthorized)
     .container
@@ -8,6 +8,6 @@ mixin header(authorized)
         +e.main
           +header-menu
         +e.user
-          +header-user
+          +header-user(host)
       +e.burger
         +burger

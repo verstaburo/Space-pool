@@ -9,7 +9,7 @@
   background-image: linear-gradient(to left, $color-gradient-one 0%, $color-gradient-two 100%);
   transition: opacity $ease-main;
   cursor: pointer;
-  border-radius: 21px;
+  border-radius: 20px;
   text-align: center;
   font-weight: 700;
   user-select: none;
@@ -52,6 +52,74 @@
 
     @include screen('sm') {
       padding: 8px 22px;
+    }
+  }
+
+  &__icon {
+    position: absolute;
+    display: inline-block;
+    top: 50%;
+    right: 21px;
+    transform: translate3d(0, -50%, 0);
+    font-size: 0;
+    line-height: 0;
+    z-index: 3;
+    fill: currentColor;
+
+    &_plus {
+      right: auto;
+      left: 21px;
+      width: 13px;
+      height: 13px;
+
+      &::before,
+      &::after {
+        @include pseudo;
+
+        top: 50%;
+        left: 50%;
+        width: 13px;
+        height: 2px;
+        background-color: currentColor;
+        transform-origin: 50% 50%;
+        transition: transform $ease-main;
+      }
+
+      &::before {
+        transform: translate3d(-50%, -50%, 0);
+      }
+
+      &::after {
+        transform: translate3d(-50%, -50%, 0) rotate(90deg);
+      }
+    }
+
+    &_select-arrow {
+      right: 16px;
+      transform-origin: 50% 50%;
+      transform: translate3d(0, -50%, 0) rotate(-90deg);
+      width: 12px;
+      height: 7px;
+      transition: transform $ease-main;
+
+      #{$b}:hover & {
+        transform: translate3d(5px, -50%, 0) rotate(-90deg);
+      }
+    }
+  }
+
+  &_icon {
+
+    #{$b}__text {
+      padding-left: 38px;
+      padding-right: 55px;
+    }
+  }
+
+  &_plus {
+    #{$b}__text {
+      padding-left: 55px;
+      padding-right: 38px;
     }
   }
 
