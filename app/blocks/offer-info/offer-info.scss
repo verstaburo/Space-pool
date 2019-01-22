@@ -29,6 +29,10 @@
     }
   }
 
+  &__count {
+    text-transform: none;
+  }
+
   &__price {
     @include heading-4;
 
@@ -136,6 +140,28 @@
       @include text15;
 
       line-height: 1;
+    }
+  }
+
+  &_light {
+
+    #{$b}__title {
+      color: $color-white;
+    }
+
+    #{$b}__count {
+      color: $color-white;
+    }
+
+    &.is-empty {
+
+      #{$b}__title {
+        color: $color-offer-disable;
+      }
+
+      #{$b}__count {
+        color: $color-bg;
+      }
     }
   }
 }

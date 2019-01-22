@@ -7,6 +7,7 @@ block header
   -var headerClass = '_border'
 
 block content
+  - var spaces = getData('space-offers.json')
   +page-header._wide-xl
     .container
       +page-header-side
@@ -21,6 +22,33 @@ block content
           +nav-list-sidebar(getData('side-menu-host.json'), 'My offers').__navigation
       +content-column-main._main_wide-xl._no-ptop
         +tip One rental space may contain more than one Rental Offer. <b>First you need to create an rental space, than you will be able to add rental offer such as Dedicated Desks, Meeting Rooms, Office spaces and Hot desks.</b>
+        each item in spaces
+          +space-offer(class=item.status)
+            +space-offer-side.hide-lg(data-slot-id=item.id data-slot-res="xl")
+            +space-offer-content
+              +e.media-wrapper_lg.hide-from-lg.hide-sm(data-slot-id=item.id data-slot-res="lg")
+              +e.describe
+                +space-offer-info
+                  if item.offerBoxes
+                    +boxes.__boxes
+                      each box in item.offerBoxes
+                        +box(class="_size9 " + box)
+                  - if (item.status === "is-empty") {
+                    +status.__status NOT LISTED
+                  - }
+                  +e.address!= item.address
+                +space-offer-switch(item.switch.name, item.switch.value, item.switch.checked)
+                +space-offer-title!= item.title
+                +e.media-wrapper_sm.hide-from-sm(data-slot-id=item.id data-slot-res="sm")
+                  +space-offer-media(item.status)(data-target-slot=item.id)
+                    +slider-gallery(true, false)._dark2._gallery_inner.js-slider-gallery.__gallery
+                      each slider in item.slider
+                        +e.IMG.slide.swiper-slide(src=slider)
+                +space-offer-text!= item.describe
+              +e.controls
+                +space-offer-buttons
+                +space-offer-bottom(item.offers)
+
 
 block panels
   +main-menu-inner

@@ -1,3 +1,303 @@
 .space-offer {
   $b: &;
+
+  position: relative;
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+
+  &:not(:last-child) {
+    margin-bottom: 104px;
+
+    @include screen('lg') {
+      margin-bottom: 80px;
+    }
+
+    @include screen('sm') {
+      margin-bottom: 50px;
+    }
+  }
+
+  &::before {
+    @include pseudo;
+
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    transform: translate3d(-50%, -50%, 0);
+    background-color: $color-white;
+    box-shadow: 1px 1px 8px rgba(9, 52, 73, 0.06);
+    opacity: 0;
+    pointer-events: none;
+    z-index: 1;
+    transition: width $ease-main, height $ease-main, opacity, $ease-main;
+    border-radius: 3px;
+  }
+
+  &:hover {
+
+    &::before {
+      opacity: 1;
+      width: calc(100% + 50px);
+      height: calc(100% + 60px);
+    }
+  }
+
+  &__side {
+    position: relative;
+    display: block;
+    width: 30.67%;
+    box-sizing: border-box;
+    z-index: 2;
+
+    @include screen('lg') {
+      display: none;
+      width: 50%;
+      padding-right: 15px;
+    }
+
+    @include screen('sm') {
+      width: 100%;
+      padding-right: 0;
+    }
+  }
+
+  &__content {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+    align-content: space-between;
+    flex-wrap: wrap;
+    width: 69.33%;
+    z-index: 2;
+
+    @include screen('lg') {
+      width: 100%;
+      padding-left: 0;
+    }
+  }
+
+  &__describe {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    width: 100%;
+    box-sizing: border-box;
+    padding-left: 50px;
+    margin-bottom: auto;
+    flex: 1;
+    margin-top: -8px;
+
+    @include screen('lg') {
+      width: 50%;
+      padding-left: 15px;
+      margin-bottom: 0;
+      flex: none;
+    }
+
+    @include screen('sm') {
+      width: 100%;
+      padding-left: 0;
+    }
+  }
+
+  &__controls {
+    display: block;
+    width: 100%;
+  }
+
+  &__media-wrapper {
+    display: none;
+
+    @include screen('lg') {
+      display: block;
+      box-sizing: border-box;
+      width: 50%;
+      padding-right: 15px;
+    }
+
+    @include screen('sm') {
+      width: 100%;
+      padding-right: 0;
+      order: 3;
+    }
+  }
+
+  &__info {
+    display: inline-flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex: 1;
+    margin-right: 30px;
+
+    @include screen('lg') {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    @include screen('sm') {
+      margin-right: 0;
+      width: 100%;
+      flex: none;
+      order: 4;
+    }
+  }
+
+  &__boxes {
+
+    &:not(:last-child) {
+      margin-right: 10px;
+
+      @include screen('lg') {
+        margin-right: 0;
+        margin-bottom: 13px;
+      }
+    }
+  }
+
+  &__address {
+    @include text16;
+
+    font-weight: 400;
+    color: $color-basic-light;
+  }
+
+  &__title {
+    @include heading-4;
+
+    font-weight: 700;
+    width: 100%;
+    margin-top: 16px;
+
+    @include screen('sm') {
+      order: 1;
+    }
+  }
+
+  &__switch {
+    white-space: nowrap;
+    padding-right: 4px;
+
+    @include screen('sm') {
+      padding-right: 0;
+      width: 100%;
+      order: 2;
+    }
+  }
+
+  &__text {
+    @include text16;
+
+    line-height: (23/16);
+    width: 100%;
+    margin-top: 14px;
+
+    @include screen('sm') {
+      @include text15;
+
+      line-height: (20/15);
+      order: 5;
+    }
+  }
+
+  &__media {
+    position: relative;
+    display: block;
+    width: 100%;
+    padding-top: 63%;
+    box-sizing: border-box;
+    height: 100%;
+    background-color: $color-hint-bg;
+
+    @include screen('lg') {
+      height: auto;
+    }
+  }
+
+  &__gallery {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  &__buttons {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    box-sizing: border-box;
+    padding: 0 30px 16px 50px;
+    width: 100%;
+    flex: none;
+    align-self: flex-end;
+
+    @include screen('lg') {
+      padding: 0 40px 16px 35px;
+    }
+
+    @include screen('sm') {
+      padding: 0 0 16px;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
+
+  &__button {
+    @include text-mid;
+
+    line-height: 1.2;
+    margin-top: 16px;
+
+    &:not(:last-child) {
+      margin-right: 41px;
+
+      @include screen('sm') {
+        margin-right: 0;
+      }
+    }
+  }
+
+  &__bottom {
+    display: flex;
+    justify-content: flex-start;
+    background-color: $color-hint-bg;
+    flex-wrap: wrap;
+    width: 100%;
+    flex: none;
+    align-self: flex-end;
+
+    .button {
+      margin-left: auto;
+      min-width: 140px;
+
+      @include screen('lg') {
+        margin-left: 0;
+        width: 100%;
+      }
+    }
+  }
+
+  &__list {
+    width: auto;
+    flex: 1;
+    box-sizing: border-box;
+    padding: 8px 30px 7px 50px;
+    min-height: 40px;
+
+    @include screen('lg') {
+      width: 100%;
+      flex: none;
+      padding: 8px 40px 7px 35px;
+    }
+
+    @include screen('sm') {
+      padding: 8px 16px 7px;
+    }
+  }
 }

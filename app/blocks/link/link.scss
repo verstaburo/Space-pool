@@ -18,6 +18,18 @@
     &_small {
       padding-left: 25px;
     }
+
+    &_mid-small {
+      padding-left: 23px;
+    }
+
+    &_smaller {
+      padding-left: 20px;
+    }
+
+    &_dark {
+      fill: $color-basic;
+    }
   }
 
   &_back {
@@ -52,6 +64,14 @@
     color: $color-accent;
   }
 
+  &_gray-light {
+    color: $color-gray-lighter;
+
+    #{$b}__icon {
+      fill: $color-basic-light;
+    }
+  }
+
   &__icon {
     position: absolute;
     left: 0;
@@ -74,6 +94,30 @@
       transform-origin: 50% 50%;
       transform: translate3d(0, -50%, 0) rotate(90deg);
     }
+
+    &_cross {
+      width: 8px;
+      height: 8px;
+    }
+
+    &_round-cross {
+      width: 15px;
+      height: 15px;
+    }
+
+    &_document {
+      width: 13px;
+      height: 17px;
+    }
+
+    &_pan {
+      width: 14px;
+      height: 14px;
+    }
+
+    #{$b}_no-shadow & {
+      filter: none;
+    }
   }
 
   &__text {
@@ -90,6 +134,16 @@
     #{$b}_underline & {
       display: inline-block;
       border-bottom: 1px solid currentColor;
+    }
+
+    #{$b}_light-underline & {
+      display: inline-block;
+      border-bottom: 1px solid $color-border-light;
+    }
+
+    #{$b}_light-underline:hover & {
+      display: inline-block;
+      border-bottom: 1px solid $color-basic;
     }
   }
 

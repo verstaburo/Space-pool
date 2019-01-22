@@ -2,7 +2,137 @@
   $b: &;
 
   position: relative;
-  display: block;
+  display: flex;
+  justify-content: flex-start;
   width: 100%;
   background-color: $color-white;
+
+  &:not(:last-child) {
+    margin-bottom: 58px;
+
+    @include screen('sm') {
+      margin-bottom: 50px;
+    }
+  }
+
+  &__icon {
+    position: absolute;
+    top: 24px;
+    left: 19px;
+    width: 16px;
+    height: 16px;
+    fill: $color-basic;
+
+    @include screen('lg') {
+      top: 27px;
+      left: 21px;
+    }
+
+    @include screen('sm') {
+      top: 18px;
+      left: 19px;
+    }
+  }
+
+  &__content {
+    @include text-big;
+
+    font-weight: 400;
+    line-height: (22/18);
+    display: block;
+    flex: 1;
+    box-sizing: border-box;
+    padding: 23px 11px 23px 56px;
+    color: $color-tip;
+
+    @include screen('lg') {
+      padding: 25px 40px 25px 56px;
+      line-height: 1.24;
+    }
+
+    @include screen('sm') {
+      @include text15;
+
+      line-height: 1.35;
+      padding: 53px 19px 31px;
+    }
+
+    b {
+      font-weight: 700;
+    }
+  }
+
+  &__side {
+    position: relative;
+    display: inline-flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 113px;
+    min-width: 113px;
+    border-left: 1px solid $color-bg;
+    box-sizing: border-box;
+    padding: 23px 14px;
+
+    @include screen('lg') {
+      width: 106px;
+      min-width: 106px;
+    }
+
+    @include screen('sm') {
+      width: auto;
+      min-width: 0;
+      position: absolute;
+      right: 7px;
+      top: 10px;
+      padding: 0;
+      border-left-color: transparent;
+    }
+  }
+
+  &__close {
+    @include text15;
+
+    line-height: (22/15);
+
+    @include screen('sm') {
+      padding: 10px;
+      font-size: 0;
+      line-height: 0;
+    }
+
+    .link {
+
+      &__icon {
+        fill: $color-basic;
+
+        @include screen('sm') {
+          position: static;
+          top: auto;
+          left: auto;
+          transform: translate3d(0, 0, 0);
+          width: 13px;
+          height: 13px;
+        }
+      }
+
+      &__text {
+        color: $color-tip;
+
+        @include screen('sm') {
+          display: none;
+        }
+      }
+    }
+
+    &:hover {
+
+      .link__icon {
+        color: $color-basic-dark;
+      }
+
+      .link__text {
+        color: $color-basic;
+      }
+    }
+  }
 }

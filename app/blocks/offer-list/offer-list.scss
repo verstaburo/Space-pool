@@ -1,0 +1,30 @@
+.offer-list {
+  $b: &;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  @include screen('sm') {
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+  }
+
+  &__item {
+    display: inline-block;
+    width: auto;
+
+    @include screen('sm') {
+      width: 100%;
+    }
+
+    &:not(:last-child) {
+      margin-right: 30px;
+
+      @include screen('sm') {
+        margin-right: 0;
+      }
+    }
+  }
+}

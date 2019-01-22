@@ -41,6 +41,7 @@ import spoilers from '../blocks/spoiler/spoiler';
 import offerItemOpen from '../blocks/offer-item/offer-item';
 import floatingLabels from '../blocks/form-box/form-box';
 import formManipulations from '../blocks/form/form';
+import tip from '../blocks/tip/tip';
 
 const $ = window.$;
 
@@ -77,4 +78,5 @@ $(() => {
   maskForm();
   passwordMask();
   formManipulations();
+  tip();
 });

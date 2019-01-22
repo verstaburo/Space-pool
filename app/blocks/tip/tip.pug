@@ -1,3 +1,7 @@
 mixin tip()
-  +b.tip&attributes(attributes)
-    block
+  +b.SECTION.tip&attributes(attributes)
+    +icon('info').icon_info
+    +e.content
+      block
+    +e.side
+      +link-icon('cross', 'button')._icon_smaller.__close.js-close-tip(type="button") Close tip

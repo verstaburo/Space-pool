@@ -2,7 +2,8 @@ mixin offer-info(tag, price)
   +b(tag || 'div').offer-info&attributes(attributes)
     +e.head
       block
-    +e.price!= price
+    if price
+      +e.price!= price
 
 mixin offer-info-radio(name, value, price, checked)
   +b.LABEL.offer-info-radio&attributes(attributes)

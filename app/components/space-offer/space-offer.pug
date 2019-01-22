@@ -1,3 +1,47 @@
 mixin space-offer()
-  +b.space-offer&attributes(attributes)
+  +b.SECTION.space-offer&attributes(attributes)
     block
+
+mixin space-offer-info()
+  +e.info&attributes(attributes)
+    block
+
+mixin space-offer-switch(name, value, checked)
+  +e.switch&attributes(attributes)
+    +switch(name, value, checked)._reverse
+
+mixin space-offer-side()
+  +e.side&attributes(attributes)
+    block
+
+mixin space-offer-content()
+  +e.content&attributes(attributes)
+    block
+
+mixin space-offer-title(tag)
+  +e(tag || 'h3').title&attributes(attributes)
+    block
+
+mixin space-offer-text()
+  +e.text&attributes(attributes)
+    block
+
+mixin space-offer-media(empty)
+  +e.media&attributes(attributes)
+    block
+    if empty
+      +hint.__hint
+
+mixin space-offer-bottom(offers)
+  +e.bottom&attributes(attributes)
+    +offer-list(offers).__list
+    +button('a')._square(href="host-space-offers.html") Manage offers
+
+mixin space-offer-buttons()
+  +e.buttons&attributes(attributes)
+    +e.button
+      +link-icon('document')._icon_mid-small._bold._light-underline._icon_dark._no-shadow View Space Statistics
+    +e.button
+      +link-icon('pan')._icon_mid-small._bold._light-underline._icon_dark._no-shadow Edit Space
+    +e.button
+      +link-icon('round-cross')._icon_mid-small._bold._light-underline._gray-light._no-shadow Delete this Space
