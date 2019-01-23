@@ -23,8 +23,8 @@
 
     top: 50%;
     left: 50%;
-    width: 100%;
-    height: 100%;
+    width: calc(100% + 50px);
+    height: calc(100% + 60px);
     transform: translate3d(-50%, -50%, 0);
     background-color: $color-white;
     box-shadow: 1px 1px 8px rgba(9, 52, 73, 0.06);
@@ -33,14 +33,17 @@
     z-index: 1;
     transition: width $ease-main, height $ease-main, opacity, $ease-main;
     border-radius: 3px;
+
+    @include screen('sm') {
+      width: calc(100% + 40px);
+      height: calc(100% + 40px);
+    }
   }
 
   &:hover {
 
     &::before {
       opacity: 1;
-      width: calc(100% + 50px);
-      height: calc(100% + 60px);
     }
   }
 
@@ -109,6 +112,15 @@
   &__controls {
     display: block;
     width: 100%;
+
+    @include screen('lg') {
+      margin-top: 20px;
+      border-top: 1px solid $color-border-light;
+    }
+
+    @include screen('sm') {
+      margin-top: 25px;
+    }
   }
 
   &__media-wrapper {
@@ -134,17 +146,21 @@
     align-items: center;
     flex: 1;
     margin-right: 30px;
+    padding-top: 4px;
 
     @include screen('lg') {
       flex-direction: column;
       align-items: flex-start;
+      padding-top: 8px;
     }
 
     @include screen('sm') {
+      padding-top: 0;
       margin-right: 0;
       width: 100%;
       flex: none;
       order: 4;
+      margin-top: 22px;
     }
   }
 
@@ -155,7 +171,19 @@
 
       @include screen('lg') {
         margin-right: 0;
-        margin-bottom: 13px;
+        margin-bottom: 14px;
+      }
+    }
+  }
+
+  &__status {
+
+    &:not(:last-child) {
+      margin-right: 7px;
+
+      @include screen('lg') {
+        margin-right: 0;
+        margin-bottom: 14px;
       }
     }
   }
@@ -163,6 +191,7 @@
   &__address {
     @include text16;
 
+    line-height: 1.2;
     font-weight: 400;
     color: $color-basic-light;
   }
@@ -174,6 +203,10 @@
     width: 100%;
     margin-top: 16px;
 
+    @include screen('lg') {
+      margin-top: 21px;
+    }
+
     @include screen('sm') {
       order: 1;
     }
@@ -181,12 +214,27 @@
 
   &__switch {
     white-space: nowrap;
-    padding-right: 4px;
 
     @include screen('sm') {
-      padding-right: 0;
       width: 100%;
       order: 2;
+      border-top: 1px solid $color-border-light;
+      margin-top: 9px;
+      box-sizing: border-box;
+      padding-top: 11px;
+    }
+
+    .switch {
+      @include screen('sm') {
+        width: 100%;
+      }
+
+      &__content {
+        @include screen('sm') {
+          justify-content: space-between;
+          width: 100%;
+        }
+      }
     }
   }
 
@@ -197,11 +245,16 @@
     width: 100%;
     margin-top: 14px;
 
+    @include screen('lg') {
+      margin-top: 20px;
+    }
+
     @include screen('sm') {
       @include text15;
 
-      line-height: (20/15);
+      line-height: 1.35;
       order: 5;
+      margin-top: 24px;
     }
   }
 
@@ -217,6 +270,10 @@
     @include screen('lg') {
       height: auto;
     }
+
+    @include screen('sm') {
+      margin-top: 11px;
+    }
   }
 
   &__gallery {
@@ -225,6 +282,49 @@
     left: 0;
     width: 100%;
     height: 100%;
+    z-index: 1;
+
+    .slider__buttons {
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity $ease-main;
+
+      @include screen('lg') {
+        opacity: 1;
+        pointer-events: auto;
+      }
+
+      #{$b}.is-empty & {
+        @include screen('lg') {
+          opacity: 0;
+          pointer-events: none;
+        }
+      }
+
+      #{$b}:not(.is-empty):hover & {
+        opacity: 1;
+        pointer-events: auto;
+      }
+    }
+  }
+
+  &__hint {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 4;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity $ease-main;
+    background-color: rgba($color-hint-bg, .71);
+    color: $color-white;
+
+    #{$b}.is-empty & {
+      opacity: 1;
+      pointer-events: auto;
+    }
   }
 
   &__buttons {
@@ -238,11 +338,12 @@
     align-self: flex-end;
 
     @include screen('lg') {
+      justify-content: space-between;
       padding: 0 40px 16px 35px;
     }
 
     @include screen('sm') {
-      padding: 0 0 16px;
+      padding: 6px 0 20px;
       flex-direction: column;
       align-items: flex-start;
     }
@@ -287,7 +388,7 @@
     width: auto;
     flex: 1;
     box-sizing: border-box;
-    padding: 8px 30px 7px 50px;
+    padding: 8px 25px 7px 50px;
     min-height: 40px;
 
     @include screen('lg') {
@@ -297,7 +398,7 @@
     }
 
     @include screen('sm') {
-      padding: 8px 16px 7px;
+      padding: 15px 16px;
     }
   }
 }

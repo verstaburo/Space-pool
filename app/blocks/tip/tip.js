@@ -5,6 +5,6 @@ export default function tip() {
   $(document).on('click', '.js-close-tip', (evt) => {
     evt.preventDefault();
     const self = $(evt.target).closest('.tip');
-    $(self).fadeOut();
+    $(self).slideUp(300);
   });
 }

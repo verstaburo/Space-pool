@@ -1,3 +1,53 @@
 .hint {
   $b: &;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  box-sizing: border-box;
+  padding: 35px 20px 10px 23px;
+
+  @include screen('lg') {
+    padding: 25px 20px 10px;
+  }
+
+  &__content {
+    width: 100%;
+  }
+
+  &__bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+
+    @include screen('lg') {
+      display: none;
+    }
+  }
+
+  &__icon {
+    width: 14px;
+    height: 16px;
+    transform: rotate(-90deg);
+    fill: $color-hot-desk;
+
+    @include screen('lg') {
+      transform: rotate(0);
+    }
+  }
+
+  &__text {
+    @include text16;
+
+    font-weight: 400;
+    margin-right: 10px;
+
+    @include screen('sm') {
+      @include text12;
+
+      line-height: (26/14);
+    }
+  }
 }

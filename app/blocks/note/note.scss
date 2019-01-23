@@ -26,5 +26,51 @@
     width: 100%;
     font-weight: 700;
     line-height: (23/17);
+
+    p {
+      font-weight: 700;
+    }
+  }
+
+  &_color {
+
+    #{$b} {
+
+      &__icon {
+        fill: $color-hot-desk;
+      }
+
+      &__text {
+        b {
+          color: $color-hot-desk;
+        }
+      }
+    }
+  }
+
+  &_big {
+
+    #{$b} {
+      &__mark {
+        margin-left: 0;
+
+        @include screen('sm') {
+          margin-bottom: 10px;
+        }
+      }
+
+      &__icon {
+        width: 21px;
+        height: 21px;
+      }
+
+      &__text {
+        @include text22;
+
+        @include screen('sm') {
+          @include text-big;
+        }
+      }
+    }
   }
 }
