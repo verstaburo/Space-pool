@@ -7,10 +7,18 @@ block header
   -var headerClass = '_border'
 
 block content
+  +page-header
+    .container
+      +e.wrapper
+        +page-header-side
+          +link-icon('select-arrow')._back._bold.__back Back to space list
+        +page-header-main.hide-lg
+          +breadcrumbs(['Home', 'My offers', 'Blooming Founders (Former Blooms London old Factory)'])
+          +button-plus('a')(href="#").__button Add new rental offer for this space
   +content-origin._reverse
     .container
       +content-column-aside
-      +content-column-main._main_wide-xl
+      +content-column-main
 
 block panels
   +main-menu-inner
