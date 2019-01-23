@@ -42,6 +42,7 @@ import offerItemOpen from '../blocks/offer-item/offer-item';
 import floatingLabels from '../blocks/form-box/form-box';
 import formManipulations from '../blocks/form/form';
 import tip from '../blocks/tip/tip';
+import deleteObject from '../blocks/js-functions/deleteObject';
 
 const $ = window.$;
 
@@ -79,4 +80,5 @@ $(() => {
   passwordMask();
   formManipulations();
   tip();
+  deleteObject();
 });

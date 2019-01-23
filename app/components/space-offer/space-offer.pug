@@ -1,5 +1,5 @@
 mixin space-offer()
-  +b.SECTION.space-offer&attributes(attributes)
+  +b.SECTION.space-offer&attributes(attributes)(data-deleted-object)
     block
 
 mixin space-offer-info()
@@ -40,8 +40,8 @@ mixin space-offer-bottom(offers)
 mixin space-offer-buttons()
   +e.buttons&attributes(attributes)
     +e.button
-      +link-icon('document')._icon_mid-small._bold._light-underline._icon_dark._no-shadow View Space Statistics
+      +link-icon('document')._icon_mid-small._bold._light-underline._icon_dark._no-shadow(href="#") View Space Statistics
     +e.button
-      +link-icon('pan')._icon_mid-small._bold._light-underline._icon_dark._no-shadow Edit Space
+      +link-icon('pan')._icon_mid-small._bold._light-underline._icon_dark._no-shadow(href="#") Edit Space
     +e.button
-      +link-icon('round-cross')._icon_mid-small._bold._light-underline._gray-light._no-shadow Delete this Space
+      +link-icon('round-cross')._icon_mid-small._bold._light-underline._gray-light._no-shadow.js-delete-object(href="#") Delete this Space

@@ -2,11 +2,11 @@ import anime from 'animejs';
 
 const $ = window.$;
 
-export default function tip() {
-  // close tip
-  $(document).on('click', '.js-close-tip', (evt) => {
+export default function deleteObject() {
+  // deleting an object with an animated content shift
+  $(document).on('click', '.js-delete-object', (evt) => {
     evt.preventDefault();
-    const self = $(evt.target).closest('.tip');
+    const self = $(evt.target).closest('[data-deleted-object]');
     const timeline = anime.timeline({
       easing: 'easeInQuad',
       duration: 300,
@@ -20,11 +20,7 @@ export default function tip() {
         targets: self[0],
         height: 0,
         complete() {
-          $(self).hide(0, () => {
-            $(self).css({
-              height: '',
-            });
-          });
+          $(self).remove();
         },
       });
   });

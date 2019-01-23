@@ -447,12 +447,32 @@ block content
         +link()(href="#") Обычная ссылка
         +ui-description .link._bordered
         +link()(href="#")._bordered Подчеркнутая при наведении ссылка
+        +ui-description .link._underline
+        +link()(href="#")._underline Подчеркнутая ссылка
+        +ui-description .link._light-underline
+        +link()(href="#")._light-underline Подчеркнутая ссылка
+        +ui-description .link._bold
+        +link()(href="#")._bold Добавить жирность ссылке
         +ui-description .link._icon
         +link-icon('refresh')(href="#") Ссылка с иконкой
+        +ui-description .link._no-shadow
+        +link-icon('refresh')(href="#")._no-shadow Ссылка с иконкой без тени
+        +ui-description .link._icon_small
+        +link-icon('document')(href="#")._icon_small Ссылка с иконкой
+        +ui-description .link._smaller
+        +link-icon('document')(href="#")._icon_smaller Ссылка с иконкой
+        +ui-description .link._mid-small
+        +link-icon('document')(href="#")._icon_mid-small Ссылка с иконкой
+        +ui-description .link._dark
+        +link-icon('document')(href="#")._icon_dark Ссылка с иконкой у который не меняется цвет при наведении
         +ui-description .link._white
         +link._white(href="#") Ссылка белая
         +ui-description .link._blue
         +link._blue(href="#") Ссылка синяя
+        +ui-description .link._gray
+        +link._gray(href="#") Ссылка
+        +ui-description .link._icon._gray-light
+        +link-icon('refresh')(href="#")._gray-light Ссылка
         +ui-description .link.is-disabled
         +link()(href="#").is-disabled Отключенная ссылка
 
@@ -521,8 +541,17 @@ block content
             +space(item)(href="#")
       br
       +ui-section-content()
-        +ui-description .js-slider-gallery
+        +ui-description Оттенок затемнения зависит от цвета бэкграунда контейнера
+        +ui-description .slider._dark._gallery.js-slider-gallery
         +slider-gallery(true, true).js-slider-gallery
+          +e.IMG.slide.swiper-slide(src="assets/images/space-lead1.jpg")
+          +e.IMG.slide.swiper-slide(src="assets/images/space-lead2.jpg")
+          +e.IMG.slide.swiper-slide(src="assets/images/space-lead3.jpg")
+          +e.IMG.slide.swiper-slide(src="assets/images/space-lead4.jpg")
+      br
+      +ui-section-content()
+        +ui-description .slider._dark2._gallery._gallery_inner.js-slider-gallery
+        +slider-gallery-bold(true, false)._dark2._gallery_inner.js-slider-gallery
           +e.IMG.slide.swiper-slide(src="assets/images/space-lead1.jpg")
           +e.IMG.slide.swiper-slide(src="assets/images/space-lead2.jpg")
           +e.IMG.slide.swiper-slide(src="assets/images/space-lead3.jpg")
@@ -708,6 +737,8 @@ block content
       +ui-section-content
         +ui-description .nav-list
         +nav-list(getData('main-menu-top.json'))
+        +ui-description .nav-list._sidebar
+        +nav-list-sidebar(getData('side-menu-host.json'), 'My offers')(style="background: black")
 
     //- Divider
     +ui-section
@@ -968,6 +999,19 @@ block content
           +box._size17._green.hide-from-sm
           +e.title office space
           +button-heart._gray._small.js-heart.hide-from-sm
+        +ui-description .offer-info._short с количеством
+        +offer-info()._short
+          +box._size10._orange
+          +e.title hot desk <span class="offer-info__count">x5</span>
+        div(style="background: black; color: white;")
+          +ui-description .offer-info._light
+          +offer-info()._light
+            +box._size10._orange
+            +e.title hot desk <span class="offer-info__count">x5</span>
+          +ui-description .offer-info._light.is-empty
+          +offer-info()._light.is-empty
+            +box._size10._orange
+            +e.title hot desk <span class="offer-info__count">x5</span>
 
     //- Offer short
     +ui-section
@@ -1039,6 +1083,10 @@ block content
         +ui-description .switch с описанием
         +switch('swtich', 'switch1', 'checked', true) from
           +e.SPAN.price <b>&pound;730</b> pm
+        +ui-description .switch._reverse - только на мобильном (переключатель и описание меняются местами)
+        +switch('swtich', 'switch1', '')._reverse
+        +ui-description .switch._big размер шрифта описания на мобильном такой же как на десктопе
+        +switch._big('swtich', 'switch1', '')
 
     //- Tip
     +ui-section
@@ -1048,6 +1096,88 @@ block content
       +ui-section-content
         +ui-description .tip
         +tip One rental space may contain more than one Rental Offer. <b>First you need to create an rental space, than you will be able to add rental offer such as Dedicated Desks, Meeting Rooms, Office spaces and Hot desks.</b>
+
+    //- Status
+    +ui-section
+      +ui-section-head
+        h2 status
+        p Блок: block/status
+      +ui-section-content
+        +ui-description .status
+        +status not listed
+
+    //- note
+    +ui-section
+      +ui-section-head
+        h2 note
+        p Блок: block/note
+      +ui-section-content
+        +ui-description .note
+        +note Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.
+        +ui-description .note._big
+        +note._big Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.
+        +ui-description .note._color
+        +note._color <b>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</b> Aenean commodo ligula eget dolor.
+
+    //- space-offer
+    - var spaceOffers = getData('space-offers.json')
+    +ui-section
+      +ui-section-head
+        h2 space-offer
+        p Блок: component/space-offer
+      +ui-section-content
+        +ui-description .space-offer
+        +space-offer(class=spaceOffers[0].status)
+          +space-offer-side.hide-lg(data-slot-id=spaceOffers[0].id data-slot-res="xl")
+          +space-offer-content
+            +e.media-wrapper_lg.hide-from-lg.hide-sm(data-slot-id=spaceOffers[0].id data-slot-res="lg")
+            +e.describe
+              +space-offer-info
+                if spaceOffers[0].offerBoxes
+                  +boxes.__boxes
+                    each box in spaceOffers[0].offerBoxes
+                      +box(class="_size9 " + box)
+                - if (spaceOffers[0].status === "is-empty") {
+                  +status.__status NOT LISTED
+                - }
+                +e.address!= spaceOffers[0].address
+              +space-offer-switch(spaceOffers[0].switch.name, spaceOffers[0].switch.value, spaceOffers[0].switch.checked)
+              +space-offer-title!= spaceOffers[0].title
+              +e.media-wrapper_sm.hide-from-sm(data-slot-id=spaceOffers[0].id data-slot-res="sm")
+                +space-offer-media(spaceOffers[0].status)(data-target-slot=spaceOffers[0].id)
+                  +slider-gallery-bold(true, false)._dark2._gallery_inner.js-slider-gallery.__gallery
+                    each slider in spaceOffers[0].slider
+                      +e.IMG.slide.swiper-slide(src=slider)
+              +space-offer-text!= spaceOffers[0].describe
+            +e.controls
+              +space-offer-buttons
+              +space-offer-bottom(spaceOffers[0].offers)
+        +ui-description .space-offer.is-empty
+        +space-offer(class=spaceOffers[3].status)
+          +space-offer-side.hide-lg(data-slot-id=spaceOffers[3].id data-slot-res="xl")
+          +space-offer-content
+            +e.media-wrapper_lg.hide-from-lg.hide-sm(data-slot-id=spaceOffers[3].id data-slot-res="lg")
+            +e.describe
+              +space-offer-info
+                if spaceOffers[3].offerBoxes
+                  +boxes.__boxes
+                    each box in spaceOffers[3].offerBoxes
+                      +box(class="_size9 " + box)
+                - if (spaceOffers[3].status === "is-empty") {
+                  +status.__status NOT LISTED
+                - }
+                +e.address!= spaceOffers[3].address
+              +space-offer-switch(spaceOffers[3].switch.name, spaceOffers[3].switch.value, spaceOffers[3].switch.checked)
+              +space-offer-title!= spaceOffers[3].title
+              +e.media-wrapper_sm.hide-from-sm(data-slot-id=spaceOffers[3].id data-slot-res="sm")
+                +space-offer-media(spaceOffers[3].status)(data-target-slot=spaceOffers[3].id)
+                  +slider-gallery-bold(true, false)._dark2._gallery_inner.js-slider-gallery.__gallery
+                    each slider in spaceOffers[3].slider
+                      +e.IMG.slide.swiper-slide(src=slider)
+              +space-offer-text!= spaceOffers[3].describe
+            +e.controls
+              +space-offer-buttons
+              +space-offer-bottom(spaceOffers[3].offers)
 
 block panels
   +main-menu
