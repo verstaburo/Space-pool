@@ -1,12 +1,11 @@
+/* eslint-disable max-len */
 const $ = window.$;
 
 function putBlockIntoSlot() {
   $('[data-target-slot]').each(function () {
     const block = $(this);
-    // const vw = $(window).width();
-    const vw = window.innerWidth ||
-      document.documentElement.clientWidth ||
-      document.body.clientWidth;
+    const vw = $(window).width();
+    // const vw = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
 
     // получаем слот, в который нужно поместить блок
     const slots = $(`[data-slot-id*="${block.data('target-slot')}"]`);
@@ -42,3 +41,4 @@ function putBlockIntoSlot() {
 putBlockIntoSlot();
 
 $(window).on('resize', putBlockIntoSlot);
+/* eslint-enable max-len */
