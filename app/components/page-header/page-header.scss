@@ -13,6 +13,16 @@
     padding: 32px 0 28px;
   }
 
+  &_spad {
+    @include screen('lg') {
+      padding: 36px 0 30px;
+    }
+
+    @include screen('sm') {
+      padding: 19px 0;
+    }
+  }
+
   .container {
     display: block;
   }
@@ -158,6 +168,29 @@
       margin-left: 0;
       width: 100%;
       margin-top: 20px;
+    }
+
+    &_big {
+      min-width: 358px;
+    }
+  }
+
+  &__back {
+    @include heading-3;
+
+    line-height: (26/25);
+    padding-left: 25px;
+
+    @include screen('sm') {
+      @include heading-6;
+
+      line-height: (26/15);
+    }
+  }
+
+  .breadcrumbs {
+    &:not(:last-child) {
+      margin-right: 30px;
     }
   }
 }

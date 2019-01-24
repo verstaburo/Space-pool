@@ -7,18 +7,47 @@ block header
   -var headerClass = '_border'
 
 block content
-  +page-header
+  +page-header._wide-lg._spad
     .container
       +e.wrapper
         +page-header-side
           +link-icon('select-arrow')._back._bold.__back Back to space list
         +page-header-main.hide-lg
           +breadcrumbs(['Home', 'My offers', 'Blooming Founders (Former Blooms London old Factory)'])
-          +button-plus('a')(href="#").__button Add new rental offer for this space
-  +content-origin._reverse
+          +button-plus('a')(href="#")._plus_big.__button_big Add new rental offer for this space
+  +table-head.hide-lg
     .container
-      +content-column-aside
-      +content-column-main
+      +grid.grid_layout.grid_no-top.table-head__wrapper
+        +col({lg: 12, xl: 3}).table-head__cell
+          +e.name Space basic information
+        +col({lg: 12, xl: 9}).table-head__cell
+          +e.name Rental offers
+          +boxes
+            +box._size9._orange
+            +box._size9._red
+            +box._size9._green
+      +divider
+  +content-origin._reverse._wide-lg._top-mg
+    .container
+      +e.wrapper
+        +content-column-aside
+          +sidebar._no-bg
+            +space-info
+              +grid.grid_layout.grid_no-top
+                +col({sm: 12, lg: 6, xl: 12})
+                  +space-info-title() Blooming Founders Office Space (Former Blooms London old Factory)
+                  +space-info-media.hide-only-lg(data-slot-id="media" data-slot-res="sm xl")
+                    +space-info-image(data-target-slot="media")(src="assets/images/room3.jpg")
+                  +space-info-address
+                    p 2 Riding House St, Marylebone, London
+                    p EC2A, London
+                  +space-info-buttons.hide-only-lg(data-slot-id="button" data-slot-res="sm xl")
+                    +space-info-button(data-target-slot="button") Add rental offers for this space
+                  +space-info-controls
+                +col({sm: 12, lg: 6, xl: 12}).hide-sm.hide-from-lg
+                  +space-info-media(data-slot-id="media" data-slot-res="lg")
+                  +space-info-buttons(data-slot-id="button" data-slot-res="lg")
+        +content-column-main
 
 block panels
   +main-menu-inner

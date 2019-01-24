@@ -19,6 +19,28 @@ $new-breakpoints: map_remove($breakpoints, $default-breakpoit-name);
     margin-top: -$grid-gap-vertical-big;
   }
 
+  &_layout {
+    margin-top: -50px;
+    margin-left: -25px;
+    margin-right: -25px;
+
+    @include screen('lg') {
+      margin-left: -15px;
+      margin-right: -15px;
+      margin-top: -30px;
+    }
+
+    @include screen('sm') {
+      margin-left: -5px;
+      margin-right: -5px;
+      margin-top: -10px;
+    }
+  }
+
+  &_no-top {
+    margin-top: 0;
+  }
+
   &__col {
     display: inline-block; // fallback для старых браузеров
     box-sizing: border-box;
@@ -70,6 +92,22 @@ $new-breakpoints: map_remove($breakpoints, $default-breakpoit-name);
 
     #{$b}_big & {
       padding: $grid-gap-vertical-big $grid-gap-big/2 0;
+    }
+
+    #{$b}_layout & {
+      padding: 50px 25px 0;
+
+      @include screen('lg') {
+        padding: 30px 15px 0;
+      }
+
+      @include screen('sm') {
+        padding: 10px 5px 0;
+      }
+    }
+
+    #{$b}_no-top & {
+      padding-top: 0;
     }
   }
 }

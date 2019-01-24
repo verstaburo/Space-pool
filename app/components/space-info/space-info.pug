@@ -1,0 +1,35 @@
+mixin space-info()
+  +b.ARTICLE.space-info&attributes(attributes)
+    block
+
+mixin space-info-title(tag)
+  +e(tag || 'h1').title&attributes(attributes)
+    block
+
+mixin space-info-address()
+  +e.address&attributes(attributes)
+    block
+
+mixin space-info-buttons()
+  +e.buttons&attributes(attributes)
+    block
+
+mixin space-info-button()
+  +button-plus('a')(href="#")._mob-small._border._plus.__button&attributes(attributes)
+    block
+
+mixin space-info-media()
+  +e.media&attributes(attributes)
+    block
+
+mixin space-info-image()
+  +e.IMG.image&attributes(attributes)
+
+mixin space-info-controls()
+  +e.controls&attributes(attributes)
+    +e.control
+      +link-icon('document')._icon_mid-small._bold._light-underline._icon_dark._no-shadow(href="#") View Space Statistics
+    +e.control
+      +link-icon('pan')._icon_mid-small._bold._light-underline._icon_dark._no-shadow(href="#") Edit Space
+    +e.control
+      +link-icon('round-cross')._icon_mid-small._bold._light-underline._gray-light._no-shadow(href="#") Delete this Space

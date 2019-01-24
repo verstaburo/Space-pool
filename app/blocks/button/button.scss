@@ -7,6 +7,7 @@
   box-sizing: border-box;
   color: $color-white;
   background-image: linear-gradient(to left, $color-gradient-one 0%, $color-gradient-two 100%);
+  background-clip: padding-box;
   transition: opacity $ease-main;
   cursor: pointer;
   border-radius: 20px;
@@ -53,6 +54,8 @@
     @include screen('sm') {
       padding: 8px 22px;
     }
+
+    @include ellipsis(100%);
   }
 
   &__icon {
@@ -96,6 +99,14 @@
       &::after {
         transform: translate3d(-50%, -50%, 0) rotate(90deg);
       }
+
+      #{$b}_border & {
+        left: 22px;
+
+        @include screen('lg') {
+          left: 18px;
+        }
+      }
     }
 
     &_select-arrow {
@@ -127,6 +138,12 @@
 
       @include screen('sm') {
         padding-left: 38px;
+      }
+    }
+
+    &_big {
+      #{$b}__text {
+        padding-left: 65px;
       }
     }
   }
@@ -180,6 +197,19 @@
         background: transparent;
       }
     }
+
+    &#{$b}_plus {
+
+      #{$b}__text {
+        padding-left: 50px;
+        padding-right: 30px;
+
+        @include screen('sm') {
+          padding-left: 40px;
+          padding-right: 23px;
+        }
+      }
+    }
   }
 
   &_thin-border {
@@ -227,6 +257,15 @@
   &_mob-wide {
     @include screen('sm') {
       width: 100%;
+    }
+  }
+
+  &_mob-small {
+    @include screen('sm') {
+      @include text15;
+
+      line-height: (26/15);
+      letter-spacing: -.02em;
     }
   }
 
