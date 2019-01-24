@@ -4,7 +4,7 @@ const $ = window.$;
 function putBlockIntoSlot() {
   $('[data-target-slot]').each(function () {
     const block = $(this);
-    const vw = $(window).width();
+    // const vw = $(window).width();
     // const vw = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
 
     // получаем слот, в который нужно поместить блок
@@ -15,13 +15,13 @@ function putBlockIntoSlot() {
       const res = self.data('slot-res');
 
       // получаем слот под нужное разрешение
-      if (vw < window.globalOptions.sizes.xs && slots.filter('[data-slot-res="xs"]').length) {
+      if (window.Modernizr.mq(`(max-width: ${window.globalOptions.sizes.xs - 1}px)`) && slots.filter('[data-slot-res="xs"]').length) {
         return res === 'xs';
-      } else if (vw < window.globalOptions.sizes.sm && slots.filter('[data-slot-res="sm"]').length) {
+      } else if (window.Modernizr.mq(`(max-width: ${window.globalOptions.sizes.sm - 1}px)`) && slots.filter('[data-slot-res="sm"]').length) {
         return res === 'sm';
-      } else if (vw < window.globalOptions.sizes.md && slots.filter('[data-slot-res="md"]').length) {
+      } else if (window.Modernizr.mq(`(max-width: ${window.globalOptions.sizes.md - 1}px)`) && slots.filter('[data-slot-res="md"]').length) {
         return res === 'md';
-      } else if (vw < window.globalOptions.sizes.lg && slots.filter('[data-slot-res="lg"]').length) {
+      } else if (window.Modernizr.mq(`(max-width: ${window.globalOptions.sizes.lg - 1}px)`) && slots.filter('[data-slot-res="lg"]').length) {
         return res === 'lg';
       }
 
