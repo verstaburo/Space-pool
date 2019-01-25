@@ -95,6 +95,14 @@
           width: 100%;
         }
       }
+
+      &#{$b}__column_ptop-small {
+        padding-top: 9px;
+
+        @include screen('lg') {
+          padding-top: 0;
+        }
+      }
     }
 
     &_aside {
@@ -109,6 +117,7 @@
 
         @include screen('xl') {
           width: 100%;
+          margin-bottom: 104px;
         }
 
         @include screen('lg') {
@@ -119,16 +128,23 @@
         @include screen('sm') {
           padding-left: 5px;
           padding-right: 5px;
+          margin-bottom: 12px;
         }
       }
 
       #{$b}_wide-lg & {
         @include screen('xl') {
           width: 25%;
+          margin-bottom: 0;
         }
 
         @include screen('lg') {
           width: 100%;
+          margin-bottom: 104px;
+        }
+
+        @include screen('sm') {
+          margin-bottom: 12px;
         }
       }
     }
@@ -141,6 +157,14 @@
       padding-top: 0;
 
       #{$b}_reverse & {
+        padding-top: 0;
+      }
+    }
+
+    &_ptop-small {
+      padding-top: 9px;
+
+      @include screen('lg') {
         padding-top: 0;
       }
     }

@@ -1,0 +1,80 @@
+.offer {
+  $b: &;
+
+  position: relative;
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  padding-top: 20px;
+  padding-bottom: 23px;
+
+  &:not(:last-child) {
+    border-bottom: 1px solid $color-border-light;
+  }
+
+  &::before {
+    @include pseudo;
+
+    top: -1px;
+    left: -24px;
+    right: -24px;
+    height: calc(100% + 2px);
+    box-shadow: 1px 1px 8px rgba(34, 42, 46, .06);
+    border-radius: 3px;
+    background-color: $color-white;
+    opacity: 0;
+    transition: opacity $ease-main;
+    z-index: 1;
+  }
+
+  &:hover {
+
+    &::before {
+      opacity: 1;
+    }
+  }
+
+  &__content {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    z-index: 2;
+
+    @include screen('sm') {
+      justify-content: flex-start;
+      flex-wrap: wrap;
+    }
+  }
+
+  &__column {
+
+    &_left {
+      margin-right: 50px;
+
+      @include screen('lg') {
+        margin-right: 30px;
+      }
+
+      @include screen('sm') {
+        margin-right: 0;
+        width: 100%;
+      }
+    }
+
+    &_right {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: flex-end;
+
+      @include screen('sm') {
+        width: 100%;
+      }
+    }
+  }
+
+  .switch {
+    flex-wrap: nowrap;
+  }
+}

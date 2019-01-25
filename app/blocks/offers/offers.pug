@@ -1,0 +1,24 @@
+mixin offers()
+  +b.SECTION.offers&attributes(attributes)
+    block
+
+mixin offers-header(color, name, count)
+  +e.header&attributes(attributes)
+    +e.name
+      +box()(class="_size32 _" + color + " __box")
+      +e.H3.title!= name
+    +e.info
+      +e.count(data-offers-count)!= count
+      +e.BUTTON.add-button(type="button" title="Add new offer")
+        +e.SPAN.icon
+
+mixin offers-list()
+  +e.list&attributes(attributes)
+    block
+
+mixin offers-describe()
+  +e.describe&attributes(attributes)
+    +e.column_left
+      +e.text There is now Meeting Room offers for this Space yet.
+    +e.column_right
+      +button('a')(href="#")._short._border.__button Add Meeting Room offer

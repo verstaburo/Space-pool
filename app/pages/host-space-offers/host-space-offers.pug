@@ -7,11 +7,12 @@ block header
   -var headerClass = '_border'
 
 block content
+  -var offers = getData('offers-list.json')
   +page-header._wide-lg._spad
     .container
       +e.wrapper
         +page-header-side
-          +link-icon('select-arrow')._back._bold.__back Back to space list
+          +link-icon('select-arrow')._back._bold.__back(href="#") Back to space list
         +page-header-main.hide-lg
           +breadcrumbs(['Home', 'My offers', 'Blooming Founders (Former Blooms London old Factory)'])
           +button-plus('a')(href="#")._plus_big.__button_big Add new rental offer for this space
@@ -27,7 +28,7 @@ block content
             +box._size9._red
             +box._size9._green
       +divider
-  +content-origin._reverse._wide-lg._top-mg
+  +content-origin._reverse._wide-lg._top-mg._last
     .container
       +e.wrapper
         +content-column-aside
@@ -47,7 +48,40 @@ block content
                 +col({sm: 12, lg: 6, xl: 12}).hide-sm.hide-from-lg
                   +space-info-media(data-slot-id="media" data-slot-res="lg")
                   +space-info-buttons(data-slot-id="button" data-slot-res="lg")
-        +content-column-main
+        +content-column-main._ptop-small
+          +offers
+            +offers-header('orange', 'HOT DESKS', '4 offers')
+            +offers-describe
+            +offers-list
+              each offer in offers
+                +offer(offer.name, offer.value, offer.checked)(class=offer.status)
+                  +content-zone
+                    h5!= offer.title
+                    p!= offer.text
+          +offers
+            +offers-header('red', 'DEDICATED DESKS', '2 offers')
+            +offers-describe
+            +offers-list
+              +offer('offer', 'offer5', 'checked')
+                +content-zone
+                  h5 Hot Desk on 4-th floor
+                  p This is a comment that you provide for the Hot desk offer just to keep clear the information about following retnal offer. Somehow this information can help you to fastly surf tihin your offers.
+              +offer('offer', 'offer6', 'checked')
+                +content-zone
+                  h5 Hot Desk on 4-th floor
+                  p This is a comment that you provide for the Hot desk offer just to keep clear the information about following retnal offer. Somehow this information can help you to fastly surf tihin your offers.
+          +offers.is-empty
+            +offers-header('blue', 'MEETING ROOMS', 'no offers')
+            +offers-describe
+            +offers-list
+          +offers
+            +offers-header('green', 'OFFICE SPACES', '1 offer')
+            +offers-describe
+            +offers-list
+              +offer('offer', 'offer7', 'checked')
+                +content-zone
+                  h5 Hot Desk on 4-th floor
+                  p This is a comment that you provide for the Hot desk offer just to keep clear the information about following retnal offer.
 
 block panels
   +main-menu-inner
