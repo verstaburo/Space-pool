@@ -12,6 +12,7 @@
   height: 32px;
   background-color: transparent;
   -webkit-appearance: none;
+  will-change: position;
 
   @include screen('xl') {
     min-width: 42px;
@@ -22,22 +23,23 @@
   @include screen('sm') {
     min-width: 30px;
     width: 30px;
-    height: 22px;
+    height: 23px;
   }
 
   &__image {
     position: absolute;
     top: 0;
     left: 0;
-    display: flex;
-    align-items: center;
+    // display: flex;
+    // align-items: center;
+    display: block;
     width: 42px;
     height: 32px;
     cursor: pointer;
 
     @include screen('sm') {
       width: 30px;
-      height: 22px;
+      height: 23px;
     }
 
     &::before,
@@ -101,7 +103,10 @@
   }
 
   &__line {
-    position: relative;
+    position: absolute;
+    left: 0;
+    top: 14px;
+    // position: relative;
     display: block;
     height: 4px;
     width: 23px;
@@ -112,6 +117,7 @@
     overflow: hidden;
 
     @include screen('sm') {
+      top: 10px;
       height: 3px;
       width: 16px;
     }
