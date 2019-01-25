@@ -97,9 +97,13 @@
     white-space: nowrap;
     color: $color-basic-light;
     transition: color $ease-main;
+    min-width: 116px;
+    text-align: right;
 
     @include screen('sm') {
       @include text13;
+
+      min-width: 100px;
     }
 
     #{$b}:hover & {
@@ -130,6 +134,7 @@
       @include text15;
 
       font-weight: 700;
+      min-width: 116px;
     }
   }
 
@@ -141,6 +146,12 @@
           order: 2;
           margin-left: 10px;
           margin-right: 0;
+        }
+      }
+
+      &__status {
+        @include screen('sm') {
+          text-align: left;
         }
       }
     }

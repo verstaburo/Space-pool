@@ -6,12 +6,27 @@
   font-size: 0;
   line-height: 0;
   padding-right: 3px;
+  box-sizing: border-box;
+  min-width: 45px;
+  width: 45px;
+  height: 32px;
 
   @include screen('xl') {
+    min-width: 42px;
+    width: 42px;
     padding-right: 0;
   }
 
+  @include screen('sm') {
+    min-width: 30px;
+    width: 30px;
+    height: 23px;
+  }
+
   &__image {
+    position: absolute;
+    top: 0;
+    left: 0;
     display: flex;
     align-items: center;
     width: 42px;
@@ -30,28 +45,48 @@
       height: 4px;
       left: 0;
       background-color: $color-basic;
-      transition: all $ease-main;
+      transition: background $ease-main, width $ease-main-short, transform $ease-main-short;
+      transition-delay: 0s, .15s, 0s;
 
       @include screen('sm') {
         height: 3px;
+      }
+
+      .is-navigation-open & {
+        transition-delay: 0s, 0s, .15s;
       }
     }
 
     &::before {
       top: 0;
       width: 42px;
+      transform-origin: 0 0;
 
       @include screen('sm') {
         width: 30px;
+      }
+
+      .is-navigation-open & {
+        transform: rotate(45deg);
       }
     }
 
     &::after {
       bottom: 0;
       width: 32px;
+      transform-origin: 0 100%;
 
       @include screen('sm') {
         width: 23px;
+      }
+
+      .is-navigation-open & {
+        width: 42px;
+        transform: rotate(-45deg);
+
+        @include screen('sm') {
+          width: 30px;
+        }
       }
     }
 
@@ -67,7 +102,8 @@
     height: 4px;
     width: 23px;
     background-color: $color-basic;
-    transition: background $ease-main;
+    transition: all $ease-main;
+    transform-origin: 0 50%;
 
     @include screen('sm') {
       height: 3px;
@@ -76,6 +112,11 @@
 
     #{$b}:hover & {
       background-color: $color-basic-dark;
+    }
+
+    .is-navigation-open & {
+      transform: scale(0);
+      opacity: 0;
     }
   }
 

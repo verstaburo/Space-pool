@@ -12,13 +12,13 @@
   height: 71px;
   background-color: #fff;
   box-sizing: border-box;
-  padding: 5px 115px;
+  padding: 5px 0;
   border-top: 1px solid $color-border-light;
   transition: opacity $ease-main;
   z-index: 4;
 
   @include screen('sm') {
-    padding: 5px 40px;
+    padding: 5px 0;
     height: 50px;
   }
 
@@ -37,11 +37,13 @@
   }
 
   &__item {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
     font-size: 0;
     line-height: 0;
-
-    &:not(:last-child) {
-      margin-right: 73px;
-    }
+    flex: 1;
+    box-sizing: border-box;
+    padding: 0 15px;
   }
 }

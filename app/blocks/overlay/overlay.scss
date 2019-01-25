@@ -3,7 +3,6 @@
 
   position: fixed;
   display: block;
-  background-color: rgba($color-overlay, .1);
   z-index: 20;
   top: 0;
   left: 0;
@@ -16,5 +15,16 @@
   .is-navigation-open & {
     opacity: 1;
     pointer-events: auto;
+  }
+
+  &::before {
+    @include pseudo;
+
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: calc(100% + 140px);
+    transform: translate3d(-50%, -50%, 0);
+    background-color: rgba($color-overlay, .1);
   }
 }
