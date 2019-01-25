@@ -10,6 +10,8 @@
   min-width: 45px;
   width: 45px;
   height: 32px;
+  background-color: transparent;
+  -webkit-appearance: none;
 
   @include screen('xl') {
     min-width: 42px;
@@ -20,7 +22,7 @@
   @include screen('sm') {
     min-width: 30px;
     width: 30px;
-    height: 23px;
+    height: 22px;
   }
 
   &__image {
@@ -35,7 +37,7 @@
 
     @include screen('sm') {
       width: 30px;
-      height: 23px;
+      height: 22px;
     }
 
     &::before,
@@ -47,6 +49,8 @@
       background-color: $color-basic;
       transition: background $ease-main, width $ease-main-short, transform $ease-main-short;
       transition-delay: 0s, .15s, 0s;
+      background-clip: padding-box;
+      overflow: hidden;
 
       @include screen('sm') {
         height: 3px;
@@ -104,6 +108,8 @@
     background-color: $color-basic;
     transition: all $ease-main;
     transform-origin: 0 50%;
+    background-clip: padding-box;
+    overflow: hidden;
 
     @include screen('sm') {
       height: 3px;
