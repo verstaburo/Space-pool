@@ -9,7 +9,7 @@ import {
 const $ = window.$;
 
 export default function popups() {
-  $('.js-fancybox').fancybox({
+  $('.js-popup').fancybox({
     afterLoad: freeze,
     afterClose: unfreeze,
   });

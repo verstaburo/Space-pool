@@ -15,7 +15,7 @@ block content
           +link-icon('select-arrow')._back._bold.__back(href="#") Back to space list
         +page-header-main.hide-lg
           +breadcrumbs(['Home', 'My offers', 'Blooming Founders (Former Blooms London old Factory)'])
-          +button-plus('a')(href="#")._plus_big.__button_big Add new rental offer for this space
+          +button-plus('a')(href="#popup-add-rental-offer")._plus_big.__button_big.js-popup Add new rental offer for this space
   +table-head.hide-lg
     .container
       +grid.grid_layout.grid_no-top.table-head__wrapper
@@ -82,3 +82,6 @@ block content
 block panels
   +main-menu-inner
     +nav-list(getData('main-menu-user.json'))
+
+block popups
+  +popup-add-offer#popup-add-rental-offer

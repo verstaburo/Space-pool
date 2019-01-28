@@ -9,7 +9,7 @@ mixin offers-header(color, name, count)
       +e.H3.title!= name
     +e.info
       +e.count(data-offers-count)!= count
-      +e.BUTTON.add-button(type="button" title="Add new offer")
+      +e.A.add-button(href="#popup-add-rental-offer" title="Add new offer").js-popup
         +e.SPAN.icon
 
 mixin offers-list()
@@ -21,4 +21,4 @@ mixin offers-describe()
     +e.column_left
       +e.text There is now Meeting Room offers for this Space yet.
     +e.column_right
-      +button('a')(href="#")._short._border.__button Add Meeting Room offer
+      +button('a')(href="#popup-add-rental-offer")._short._border.__button.js-popup Add Meeting Room offer

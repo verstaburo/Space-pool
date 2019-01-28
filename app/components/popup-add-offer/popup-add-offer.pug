@@ -1,0 +1,38 @@
+mixin popup-add-offer()
+  +popup.popup-add-offer__&attributes(attributes)
+    +popup-title Add rental offer
+    +tabs.__tabs
+      +tab()(data-tab-target="tab1")._orange.active Hot Desk
+      +tab()(data-tab-target="tab2")._red Dedicated desk
+      +tab()(data-tab-target="tab3")._blue Meeting room
+      +tab()(data-tab-target="tab4")._green Office space
+    +tabs-content
+      +tab-wrapper()(data-tab="tab1" data-tab-group="offer").active
+        +form
+          +form-section
+            +grid.grid_big
+              +col({xl: 12})
+                +form-section-wrapper
+                  +form-box('Offer title')
+                    +input(type="text" name="offerTitle" placeholder="Offer title")
+              +col({xl: 12})
+                +form-section-wrapper
+                  +form-box('Offer Description')
+                    +input(type="text" name="offerDescription" placeholder="Offer Description")
+              +col({xl: 6, sm: 12})
+                +form-section-wrapper
+                  +form-box('Price ')
+                    +input(type="text" name="price" placeholder="Price ")
+              +col({xl: 6, sm: 12})
+                +form-section-wrapper
+                  +form-box('Offer title')
+                    +select.js-select-input(name="Per month")
+                      option(value="placeholder" placeholder) Per month
+                      option(value="Per month") Per month
+                      option(value="per day") Per day
+                      option(value="per week") Per week
+                      option(value="per year") Per year
+          +form-section
+      +tab-wrapper()(data-tab="tab1" data-tab-group="offer")
+      +tab-wrapper()(data-tab="tab1" data-tab-group="offer")
+      +tab-wrapper()(data-tab="tab1" data-tab-group="offer")

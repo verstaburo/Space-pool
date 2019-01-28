@@ -14,6 +14,7 @@
   border-top: 1px solid transparent;
   border-bottom: 1px solid transparent;
   overflow: hidden;
+  will-change: padding;
 
   @include screen('sm') {
     padding: 16px 0;
@@ -85,19 +86,35 @@
   }
 
   &__burger {
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
+    position: relative;
+    display: block;
     font-size: 0;
     line-height: 0;
     margin-left: 75px;
+    min-width: 45px;
+    height: 40px;
+    align-self: top;
+
+    @include screen('xl') {
+      min-width: 42px;
+    }
 
     @include screen('lg') {
       margin-left: 58px;
     }
 
     @include screen('sm') {
+      min-width: 30px;
       margin-left: 20px;
+    }
+
+    .burger {
+      left: 0;
+      top: 11px;
+
+      @include screen('sm') {
+        top: 8px;
+      }
     }
   }
 
