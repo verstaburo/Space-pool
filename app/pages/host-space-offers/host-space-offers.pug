@@ -55,21 +55,18 @@ block content
             +offers-list
               each offer in offers
                 +offer(offer.name, offer.value, offer.checked)(class=offer.status)
-                  +content-zone
-                    h5!= offer.title
-                    p!= offer.text
+                  +e.H5.title!= offer.title
+                  +e.text!= offer.text
           +offers
             +offers-header('red', 'DEDICATED DESKS', '2 offers')
             +offers-describe
             +offers-list
               +offer('offer', 'offer5', 'checked')
-                +content-zone
-                  h5 Hot Desk on 4-th floor
-                  p This is a comment that you provide for the Hot desk offer just to keep clear the information about following retnal offer. Somehow this information can help you to fastly surf tihin your offers.
+                +e.H5.title Hot Desk on 4-th floor
+                +e.text This is a comment that you provide for the Hot desk offer just to keep clear the information about following retnal offer. Somehow this information can help you to fastly surf tihin your offers.
               +offer('offer', 'offer6', 'checked')
-                +content-zone
-                  h5 Hot Desk on 4-th floor
-                  p This is a comment that you provide for the Hot desk offer just to keep clear the information about following retnal offer. Somehow this information can help you to fastly surf tihin your offers.
+                +e.H5.title Hot Desk on 4-th floor
+                +e.text This is a comment that you provide for the Hot desk offer just to keep clear the information about following retnal offer. Somehow this information can help you to fastly surf tihin your offers.
           +offers.is-empty
             +offers-header('blue', 'MEETING ROOMS', 'no offers')
             +offers-describe
@@ -79,9 +76,8 @@ block content
             +offers-describe
             +offers-list
               +offer('offer', 'offer7', 'checked')
-                +content-zone
-                  h5 Hot Desk on 4-th floor
-                  p This is a comment that you provide for the Hot desk offer just to keep clear the information about following retnal offer.
+                +e.H5.title Hot Desk on 4-th floor
+                +e.text This is a comment that you provide for the Hot desk offer just to keep clear the information about following retnal offer.
 
 block panels
   +main-menu-inner

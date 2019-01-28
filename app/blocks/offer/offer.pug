@@ -1,13 +1,13 @@
 mixin offer(name, value, checked)
-  +b.offer&attributes(attributes)
+  +b.offer&attributes(attributes)(data-deleted-object)
     +e.content
       +e.column_left
         block
       +e.column_right
-        +switch(name, value, checked, true).__switch from
+        +switch(name, value, checked, true).__switch.js-switch-offer-state from
           +e.SPAN.price <b>&pound;730</b> pm
         +e.buttons
           +e.button
-            +link-icon('pan')._icon_mid-small._bold._light-underline._icon_dark._no-shadow(href="#") Edit offer
+            +link-icon('pan')._icon_small._bold._light-underline._icon_dark._no-shadow(href="#") Edit offer
           +e.button
-            +link-icon('round-cross')._icon_mid-small._bold._light-underline._gray-light._no-shadow(href="#").js-delete-object Delete offer
+            +link-icon('round-cross')._icon_small._bold._light-underline._gray-light._no-shadow(href="#").js-delete-object Delete offer

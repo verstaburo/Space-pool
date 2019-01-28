@@ -7,6 +7,7 @@ export default function deleteObject() {
   $(document).on('click', '.js-delete-object', (evt) => {
     evt.preventDefault();
     const self = $(evt.target).closest('[data-deleted-object]');
+    const offers = $(self).closest('.offers');
     const timeline = anime.timeline({
       easing: 'easeInQuad',
       duration: 300,
@@ -21,6 +22,9 @@ export default function deleteObject() {
         height: 0,
         complete() {
           $(self).remove();
+          if ($(offers).length) {
+            $(offers).trigger('changeOffer');
+          }
         },
       });
   });

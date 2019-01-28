@@ -158,23 +158,30 @@
   &__describe {
     display: none;
     justify-content: space-between;
-    align-items: flex-start;
+    align-items: center;
     box-sizing: border-box;
     padding: 30px 0;
+    padding-left: 19px;
 
     @include screen('lg') {
       padding-left: 23px;
     }
 
     @include screen('sm') {
-      padding-left: 20px;
-      padding-right: 20px;
-      padding-bottom: 33px;
+      padding: 28px 20px 33px;
       flex-wrap: wrap;
     }
 
     #{$b}.is-empty & {
       display: flex;
+    }
+  }
+
+  &__list {
+    display: block;
+
+    #{$b}.is-empty & {
+      display: none;
     }
   }
 
@@ -184,6 +191,8 @@
     font-weight: 400;
     line-height: (23/16);
     color: $color-offer-empty-text;
+    box-sizing: border-box;
+    width: 100%;
   }
 
   &__column {

@@ -44,6 +44,8 @@ import floatingLabels from '../blocks/form-box/form-box';
 import formManipulations from '../blocks/form/form';
 import tip from '../blocks/tip/tip';
 import deleteObject from '../blocks/js-functions/deleteObject';
+import switchOfferState from '../blocks/offer/offer';
+import emptyOfferState from '../blocks/offers/offers';
 
 const $ = window.$;
 
@@ -82,4 +84,6 @@ $(() => {
   formManipulations();
   tip();
   deleteObject();
+  switchOfferState();
+  emptyOfferState();
 });
