@@ -142,7 +142,7 @@
                                 </a>
                             </li>
                         </ul>
-                        <a class="button button_icon button_plus button_plus_big page-header__button page-header__button_big" href="#">
+                        <a class="button button_icon button_plus button_plus_big page-header__button page-header__button_big js-popup" href="#popup-add-rental-offer">
                             <span class="button__text">Add new rental offer for this space</span>
                             <span class="button__icon button__icon_plus"></span>
                         </a>
@@ -185,7 +185,7 @@
                                             <p>EC2A, London</p>
                                         </div>
                                         <div class="space-info__buttons hide-only-lg" data-slot-id="button" data-slot-res="sm xl">
-                                            <a class="button button_icon button_plus button_mob-small button_border button_plus space-info__button" href="#" data-target-slot="button">
+                                            <a class="button button_icon button_plus button_mob-small button_border button_plus space-info__button js-popup" href="#popup-add-rental-offer" data-target-slot="button">
                                                 <span class="button__text">Add rental offers for this space</span>
                                                 <span class="button__icon button__icon_plus"></span>
                                             </a>
@@ -228,9 +228,9 @@
                                 </div>
                                 <div class="offers__info">
                                     <div class="offers__count" data-offers-count="data-offers-count">4 offers</div>
-                                    <button class="offers__add-button" type="button" title="Add new offer">
+                                    <a class="offers__add-button js-popup" href="#popup-add-rental-offer" title="Add new offer">
                                         <span class="offers__icon"></span>
-                                    </button>
+                                    </a>
                                 </div>
                             </div>
                             <div class="offers__describe">
@@ -238,7 +238,7 @@
                                     <div class="offers__text">There is now Meeting Room offers for this Space yet.</div>
                                 </div>
                                 <div class="offers__column offers__column_right">
-                                    <a class="button button_short button_border offers__button" href="#">
+                                    <a class="button button_short button_border offers__button js-popup" href="#popup-add-rental-offer">
                                         <span class="button__text">Add Meeting Room offer</span>
                                     </a>
                                 </div>
@@ -398,9 +398,9 @@
                                 </div>
                                 <div class="offers__info">
                                     <div class="offers__count" data-offers-count="data-offers-count">2 offers</div>
-                                    <button class="offers__add-button" type="button" title="Add new offer">
+                                    <a class="offers__add-button js-popup" href="#popup-add-rental-offer" title="Add new offer">
                                         <span class="offers__icon"></span>
-                                    </button>
+                                    </a>
                                 </div>
                             </div>
                             <div class="offers__describe">
@@ -408,7 +408,7 @@
                                     <div class="offers__text">There is now Meeting Room offers for this Space yet.</div>
                                 </div>
                                 <div class="offers__column offers__column_right">
-                                    <a class="button button_short button_border offers__button" href="#">
+                                    <a class="button button_short button_border offers__button js-popup" href="#popup-add-rental-offer">
                                         <span class="button__text">Add Meeting Room offer</span>
                                     </a>
                                 </div>
@@ -496,9 +496,9 @@
                                 </div>
                                 <div class="offers__info">
                                     <div class="offers__count" data-offers-count="data-offers-count">no offers</div>
-                                    <button class="offers__add-button" type="button" title="Add new offer">
+                                    <a class="offers__add-button js-popup" href="#popup-add-rental-offer" title="Add new offer">
                                         <span class="offers__icon"></span>
-                                    </button>
+                                    </a>
                                 </div>
                             </div>
                             <div class="offers__describe">
@@ -506,7 +506,7 @@
                                     <div class="offers__text">There is now Meeting Room offers for this Space yet.</div>
                                 </div>
                                 <div class="offers__column offers__column_right">
-                                    <a class="button button_short button_border offers__button" href="#">
+                                    <a class="button button_short button_border offers__button js-popup" href="#popup-add-rental-offer">
                                         <span class="button__text">Add Meeting Room offer</span>
                                     </a>
                                 </div>
@@ -521,9 +521,9 @@
                                 </div>
                                 <div class="offers__info">
                                     <div class="offers__count" data-offers-count="data-offers-count">1 offer</div>
-                                    <button class="offers__add-button" type="button" title="Add new offer">
+                                    <a class="offers__add-button js-popup" href="#popup-add-rental-offer" title="Add new offer">
                                         <span class="offers__icon"></span>
-                                    </button>
+                                    </a>
                                 </div>
                             </div>
                             <div class="offers__describe">
@@ -531,7 +531,7 @@
                                     <div class="offers__text">There is now Meeting Room offers for this Space yet.</div>
                                 </div>
                                 <div class="offers__column offers__column_right">
-                                    <a class="button button_short button_border offers__button" href="#">
+                                    <a class="button button_short button_border offers__button js-popup" href="#popup-add-rental-offer">
                                         <span class="button__text">Add Meeting Room offer</span>
                                     </a>
                                 </div>
@@ -580,7 +580,73 @@
             </div>
         </section>
     </main>
-    <div class="popups"></div>
+    <div class="popups">
+        <div class="popup popup-add-offer" id="popup-add-rental-offer">
+            <div class="popup__wrapper js-scrollbar-light">
+                <div class="popup__content">
+                    <h3 class="popup__title">Add rental offer</h3>
+                    <ul class="tabs popup-add-offer__tabs">
+                        <li class="tabs__tab tabs__tab_orange active" data-tab-target="tab1">Hot Desk</li>
+                        <li class="tabs__tab tabs__tab_red" data-tab-target="tab2">Dedicated desk</li>
+                        <li class="tabs__tab tabs__tab_blue" data-tab-target="tab3">Meeting room</li>
+                        <li class="tabs__tab tabs__tab_green" data-tab-target="tab4">Office space</li>
+                    </ul>
+                    <div class="tabs-content">
+                        <div class="tabs-content__wrapper active" data-tab="tab1" data-tab-group="offer">
+                            <form class="form">
+                                <fieldset class="form__section">
+                                    <div class="grid grid_big">
+                                        <div class="grid__col grid__col_xl_12">
+                                            <div class="form__wrapper">
+                                                <label class="form-box">
+                                                    <input class="input" type="text" name="offerTitle" placeholder="Offer title" />
+                                                    <span class="form-box__label">Offer title</span>
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="grid__col grid__col_xl_12">
+                                            <div class="form__wrapper">
+                                                <label class="form-box">
+                                                    <input class="input" type="text" name="offerDescription" placeholder="Offer Description" />
+                                                    <span class="form-box__label">Offer Description</span>
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="grid__col grid__col_xl_6 grid__col_sm_12">
+                                            <div class="form__wrapper">
+                                                <label class="form-box">
+                                                    <input class="input" type="text" name="price" placeholder="Price " />
+                                                    <span class="form-box__label">Price </span>
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="grid__col grid__col_xl_6 grid__col_sm_12">
+                                            <div class="form__wrapper">
+                                                <label class="form-box">
+                                                    <select class="select js-select-input" name="Per month">
+                                                        <option value="placeholder" placeholder="placeholder">Per month</option>
+                                                        <option value="Per month">Per month</option>
+                                                        <option value="per day">Per day</option>
+                                                        <option value="per week">Per week</option>
+                                                        <option value="per year">Per year</option>
+                                                    </select>
+                                                    <span class="form-box__label">Offer title</span>
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </fieldset>
+                                <fieldset class="form__section"></fieldset>
+                            </form>
+                        </div>
+                        <div class="tabs-content__wrapper" data-tab="tab1" data-tab-group="offer"></div>
+                        <div class="tabs-content__wrapper" data-tab="tab1" data-tab-group="offer"></div>
+                        <div class="tabs-content__wrapper" data-tab="tab1" data-tab-group="offer"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="overlay"></div>
     <div class="user-menu-panel">
         <ul class="user-menu-panel__list">
