@@ -1,0 +1,174 @@
+.article {
+  $b: &;
+
+  margin-top: 18px;
+  display: block;
+  width: 100%;
+
+  .content-zone {
+
+    h1 {
+      @include heading-1;
+
+      font-weight: 700;
+
+      @include screen('lg') {
+        @include heading-1-lg;
+      }
+
+      @include screen('sm') {
+        @include heading-1-sm;
+      }
+
+      &:not(:first-of-type) {
+        margin-top: 70px;
+
+        @include screen('sm') {
+          margin-top: 35px;
+        }
+      }
+
+      &:not(:last-child) {
+        margin-bottom: 45px;
+
+        @include screen('sm') {
+          margin-bottom: 22px;
+        }
+      }
+    }
+
+    h2 {
+      @include heading-2;
+
+      line-height: (39/40);
+      font-weight: 700;
+
+      @include screen('xl') {
+        @include heading-1-sm;
+
+        line-height: 1.2;
+      }
+
+      @include screen('sm') {
+        @include heading-3;
+
+        line-height: 1.2;
+      }
+
+      &:not(:first-of-type) {
+        margin-top: 70px;
+
+        @include screen('sm') {
+          margin-top: 35px;
+        }
+      }
+
+      &:not(:last-child) {
+        margin-bottom: 45px;
+
+        @include screen('sm') {
+          margin-bottom: 22px;
+        }
+      }
+    }
+
+    h3 {
+      font-size: 24px;
+      line-height: (26/24);
+      letter-spacing: -.02em;
+      font-weight: 700;
+
+      @include screen('sm') {
+        @include heading-4;
+      }
+
+      &:not(:first-child) {
+        margin-top: 70px;
+
+        @include screen('sm') {
+          margin-top: 35px;
+        }
+      }
+
+      &:not(:last-child) {
+        margin-bottom: 28px;
+
+        @include screen('sm') {
+          margin-bottom: 14px;
+        }
+      }
+    }
+
+    h4 {
+      @include text-big;
+
+      font-weight: 700;
+
+      @include screen('sm') {
+        @include text15;
+
+        line-height: (26/15);
+      }
+
+      &:not(:first-child) {
+        margin-top: 70px;
+
+        @include screen('sm') {
+          margin-top: 35px;
+        }
+      }
+
+      &:not(:last-child) {
+        margin-bottom: 26px;
+
+        @include screen('sm') {
+          margin-bottom: 13px;
+        }
+      }
+    }
+
+    time {
+      @include text15;
+
+      display: inline-block;
+      width: 100%;
+      font-weight: 400;
+      color: $color-basic-light;
+
+      @include screen('sm') {
+        @include text;
+
+        line-height: (26/14);
+      }
+
+      &:not(:last-child) {
+        margin-bottom: 25px;
+
+        @include screen('sm') {
+          margin-bottom: 12px;
+        }
+      }
+    }
+
+    img {
+      display: block;
+      width: 100%;
+      font-size: 0;
+      line-height: 0;
+
+      &:not(:last-child) {
+        margin-bottom: 70px;
+
+        @include screen('sm') {
+          margin-bottom: 35px;
+        }
+      }
+    }
+
+    p {
+      &:not(:last-child) {
+        margin-bottom: 26px;
+      }
+    }
+  }
+}

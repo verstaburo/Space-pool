@@ -152,6 +152,14 @@ block content
             p ссылка внутри текста
               a(href="#") ссылка
             blockquote Цитата blocquoute
+            ul
+              li Элемент списка
+                ul
+                  li Элемент списка
+                  li Элемент списка
+                  li Элемент списка
+              li Элемент списка
+              li Элемент списка
         +ui-description .content-zone._small
         +ui-special()
           +content-zone.content-zone_small
@@ -166,6 +174,36 @@ block content
             p ссылка внутри текста
               a(href="#") ссылка
             blockquote Цитата blocquoute
+            ul
+              li Элемент списка
+                ul
+                  li Элемент списка
+                  li Элемент списка
+                  li Элемент списка
+              li Элемент списка
+              li Элемент списка
+        +ui-description .content-zone._smaller
+        +ui-special()
+          +content-zone.content-zone_smaller
+            h1 Заголовок H1 (heading-1)
+            h2 Заголовок H2 (heading-2)
+            h3 Заголовок H3 (heading-3)
+            h4 Заголовок H4 (heading-4)
+            h5 Заголовок H5 (heading-5)
+            h6 Заголовок H6 (heading-6)
+            p Текст p (text)<br> Цитата внутри текста p: <q>Цитата q</q>
+            p <small>Тег small внутри p (text-small)</small>
+            p ссылка внутри текста
+              a(href="#") ссылка
+            blockquote Цитата blocquoute
+            ul
+              li Элемент списка
+                ul
+                  li Элемент списка
+                  li Элемент списка
+                  li Элемент списка
+              li Элемент списка
+              li Элемент списка
 
     +ui-section
       +ui-section-head
@@ -429,14 +467,14 @@ block content
         h2 Попапы
         p Блок: blocks/popups
       +ui-section-content()
-        +ui-description .js-fancybox
-        +link()(href="#testpopup").js-fancybox Открыть попап
+        +ui-description .js-popup
+        +link()(href="#testpopup").js-popup Открыть попап
         +ui-description Верстка попапов:
         +link()(onclick="$('.popups').toggle()") Показать попапы
         +popups.__ui-popups
           +popup#testpopup
+            +popup-title Тестовый попап
             +content-zone
-              h2 Тестовый попап
               p С тестовым контентом
 
     //- Ссылки
@@ -486,21 +524,25 @@ block content
         p Блок: blocks/scrollbar/scrollbar
       +ui-section-content()
         +grid
-          +col(3)
+          +col(2)
             +ui-description .js-scrollbar
             +e.scrolldemo.js-scrollbar
               +e.scrolldemo-block
-          +col(3)
+          +col(2)
             +ui-description .js-scrollbar-thin
             +e.scrolldemo.js-scrollbar-thin
               +e.scrolldemo-block
-          +col(3)
+          +col(2)
             +ui-description .js-scrollbar-dark
             +e.scrolldemo.js-scrollbar-dark
               +e.scrolldemo-block
-          +col(3)
+          +col(2)
             +ui-description .js-scrollbar-light
             +e.scrolldemo.js-scrollbar-light
+              +e.scrolldemo-block
+          +col(2)
+            +ui-description .js-scrollbar-light-gray
+            +e.scrolldemo.js-scrollbar-light-gray
               +e.scrolldemo-block
 
     //- Слайдер
@@ -1198,6 +1240,69 @@ block content
       +ui-section-content
         +ui-description .indicator
         +indicator 3
+
+    //- space-info
+    +ui-section
+      +ui-section-head
+        h2 space info
+        p Блок: block/space-info
+      +ui-section-content
+        +ui-description .space-info
+        +grid.grid_no-top
+          +col({xl: 3, lg: 12})
+            +space-info
+              +grid.grid_layout.grid_no-top
+                +col({sm: 12, lg: 6, xl: 12})
+                  +space-info-title() Blooming Founders Office Space (Former Blooms London old Factory)
+                  +space-info-media.hide-only-lg(data-slot-id="media" data-slot-res="sm xl")
+                    +space-info-image()(src="assets/images/room3.jpg" data-target-slot="media")
+                  +space-info-address
+                    p 2 Riding House St, Marylebone, London
+                    p EC2A, London
+                  +space-info-buttons.hide-only-lg(data-slot-id="button" data-slot-res="sm xl")
+                    +space-info-button(data-target-slot="button") Add rental offers for this space
+                  +space-info-controls
+                +col({sm: 12, lg: 6, xl: 12}).hide-sm.hide-from-lg
+                  +space-info-media(data-slot-id="media" data-slot-res="lg")
+                  +space-info-buttons(data-slot-id="button" data-slot-res="lg")
+
+    //- offer
+    +ui-section
+      +ui-section-head
+        h2 offer
+        p Блок: block/offer
+      +ui-section-content
+        +ui-description .offer
+        +offer('offer', 'offer5', 'checked')
+          +e.H5.title Hot Desk on 4-th floor
+          +e.text This is a comment that you provide for the Hot desk offer just to keep clear the information about following retnal offer. Somehow this information can help you to fastly surf tihin your offers.
+        +ui-description .offer.is-disabled
+        +offer('offer', 'offer5').is-disabled
+          +e.H5.title Hot Desk on 4-th floor
+          +e.text This is a comment that you provide for the Hot desk offer just to keep clear the information about following retnal offer. Somehow this information can help you to fastly surf tihin your offers.
+
+    //- offers
+    +ui-section
+      +ui-section-head
+        h2 offers
+        p Блок: block/offers
+      +ui-section-content
+        +ui-description .offers
+        +offers
+          +offers-header('red', 'DEDICATED DESKS', '2 offers')
+          +offers-describe
+          +offers-list
+            +offer('offer', 'offer5', 'checked')
+              +e.H5.title Hot Desk on 4-th floor
+              +e.text This is a comment that you provide for the Hot desk offer just to keep clear the information about following retnal offer. Somehow this information can help you to fastly surf tihin your offers.
+            +offer('offer', 'offer6', 'checked')
+              +e.H5.title Hot Desk on 4-th floor
+              +e.text This is a comment that you provide for the Hot desk offer just to keep clear the information about following retnal offer. Somehow this information can help you to fastly surf tihin your offers.
+        +ui-description .offers.is-empty
+        +offers.is-empty
+          +offers-header('blue', 'MEETING ROOMS', 'no offers')
+          +offers-describe
+          +offers-list
 
 block panels
   +main-menu
