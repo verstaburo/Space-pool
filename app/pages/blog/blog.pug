@@ -4,6 +4,17 @@ block head
   - var pageTitle = 'SpacePool - Blog'
 
 block content
+  -var blogNews = getData('blog-news.json');
+  +blog
+    .container
+      +grid.grid_layout
+        +col({ xl: 1, lg: 12}).hide-lg
+        +col({ xl: 10, lg: 12})
+          +grid.grid_layout
+            each news in blogNews
+              +col({xl: 6, md: 12})
+                +blog-news(news)(href="#")
+        +col({ xl: 1, lg: 12}).hide-lg
 
 block panels
   +main-menu
