@@ -47,6 +47,18 @@
         }
       }
     }
+
+    &_sm-mg {
+      &:not(:last-of-type) {
+        margin-bottom: 60px;
+      }
+    }
+
+    &_mid-mg {
+      &:not(:last-of-type) {
+        margin-bottom: 72px;
+      }
+    }
   }
 
   &__header {
@@ -88,6 +100,10 @@
         margin-bottom: 56px;
       }
     }
+
+    &_smt-mg {
+      margin-bottom: 35px;
+    }
   }
 
   &__title {
@@ -105,6 +121,18 @@
 
       @include screen('sm') {
         margin-bottom: 14px;
+      }
+    }
+
+    &_small {
+      @include text-big;
+
+      font-weight: 700;
+
+      @include screen('sm') {
+        @include text-mid;
+
+        line-height: (20/17);
       }
     }
   }
@@ -132,6 +160,10 @@
         display: inline-block;
         margin-top: 12px;
       }
+    }
+
+    &_light {
+      color: $color-placeholder;
     }
   }
 
@@ -162,6 +194,28 @@
       &__content {
         display: inline-block;
         width: 100%;
+      }
+    }
+
+    &_no-mg {
+
+      &:not(:last-child) {
+        margin-bottom: 0;
+      }
+    }
+
+    &_sm-mg {
+
+      &:not(:last-child) {
+        margin-bottom: 13px;
+      }
+    }
+
+    &_pt {
+      padding-top: 6px;
+
+      @include screen('sm') {
+        padding-top: 0;
       }
     }
   }
@@ -205,6 +259,12 @@
     }
   }
 
+  &__buttons {
+    &:not(:first-child) {
+      margin-top: 52px;
+    }
+  }
+
   &_pb {
     padding-bottom: 104px;
 
@@ -219,5 +279,9 @@
     @include screen('sm') {
       padding-bottom: 70px;
     }
+  }
+
+  &_white {
+    background-color: $color-white;
   }
 }

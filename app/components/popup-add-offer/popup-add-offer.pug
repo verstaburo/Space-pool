@@ -8,9 +8,9 @@ mixin popup-add-offer()
       +tab()(data-tab-target="tab4")._green Office space
     +tabs-content
       +tab-wrapper()(data-tab="tab1" data-tab-group="offer").active
-        +form
-          +form-section
-            +grid.grid_big
+        +form._white
+          +form-section._sm-mg
+            +grid.grid_bigger
               +col({xl: 12})
                 +form-section-wrapper
                   +form-box('Offer title')
@@ -20,19 +20,162 @@ mixin popup-add-offer()
                   +form-box('Offer Description')
                     +input(type="text" name="offerDescription" placeholder="Offer Description")
               +col({xl: 6, sm: 12})
-                +form-section-wrapper
-                  +form-box('Price ')
+                +form-section-wrapper._pt
+                  +form-box('Price ', '', '', '&pound;')._icon
                     +input(type="text" name="price" placeholder="Price ")
               +col({xl: 6, sm: 12})
-                +form-section-wrapper
-                  +form-box('Offer title')
-                    +select.js-select-input(name="Per month")
-                      option(value="placeholder" placeholder) Per month
-                      option(value="Per month") Per month
+                +form-section-wrapper._pt
+                  +form-box('')
+                    +select.js-select-input(name="shedule")
+                      option(value="Per month" selected) Per month
                       option(value="per day") Per day
                       option(value="per week") Per week
                       option(value="per year") Per year
-          +form-section
-      +tab-wrapper()(data-tab="tab1" data-tab-group="offer")
-      +tab-wrapper()(data-tab="tab1" data-tab-group="offer")
-      +tab-wrapper()(data-tab="tab1" data-tab-group="offer")
+          +form-section._mid-mg(data-deleted-group)
+            +form-section-header._smt-mg
+              +form-section-title('h4')._small Points to know about this offer. (optional)
+            +form-section-wrapper._sm-mg(data-deleted-object)
+              +form-box-removable('')._icon
+                +input(type="text" name="points[]" placeholder="Point" value="Bike parking is allowed for you").input_points
+            +form-section-wrapper._sm-mg(data-deleted-object)
+              +form-box-removable('')._icon
+                +input(type="text" name="points[]" placeholder="Point" value="Free Coffee").input_points
+            +form-section-wrapper._sm-mg(data-deleted-object)
+              +form-box-removable('')._icon
+                +input(type="text" name="points[]" placeholder="Point").input_points
+          +form-section._sm-mg
+            +form-section-wrapper._noflex
+              +form-box('Comment (Only you can see it)')
+                +textarea(type="text" name="comment" placeholder="Comment (Only you can see it)" rows="1")
+              +form-section-text._light This comment helps you to recognize this particular offer inbetween other offers
+          +e.buttons
+            +button('button')(type="submit")._wide Add rental offer
+      +tab-wrapper()(data-tab="tab2" data-tab-group="offer")
+        +form._white
+          +form-section._sm-mg
+            +grid.grid_bigger
+              +col({xl: 12})
+                +form-section-wrapper
+                  +form-box('Offer title')
+                    +input(type="text" name="offerTitle" placeholder="Offer title")
+              +col({xl: 12})
+                +form-section-wrapper
+                  +form-box('Offer Description')
+                    +input(type="text" name="offerDescription" placeholder="Offer Description")
+              +col({xl: 6, sm: 12})
+                +form-section-wrapper._pt
+                  +form-box('Price ', '', '', '&pound;')._icon
+                    +input(type="text" name="price" placeholder="Price ")
+              +col({xl: 6, sm: 12})
+                +form-section-wrapper._pt
+                  +form-box('')
+                    +select.js-select-input(name="shedule")
+                      option(value="Per month" selected) Per month
+                      option(value="per day") Per day
+                      option(value="per week") Per week
+                      option(value="per year") Per year
+          +form-section._mid-mg(data-deleted-group)
+            +form-section-header._smt-mg
+              +form-section-title('h4')._small Points to know about this offer. (optional)
+            +form-section-wrapper._sm-mg(data-deleted-object)
+              +form-box-removable('')._icon
+                +input(type="text" name="points[]" placeholder="Point" value="Bike parking is allowed for you").input_points
+            +form-section-wrapper._sm-mg(data-deleted-object)
+              +form-box-removable('')._icon
+                +input(type="text" name="points[]" placeholder="Point" value="Free Coffee").input_points
+            +form-section-wrapper._sm-mg(data-deleted-object)
+              +form-box-removable('')._icon
+                +input(type="text" name="points[]" placeholder="Point").input_points
+          +form-section._sm-mg
+            +form-section-wrapper._noflex
+              +form-box('Comment (Only you can see it)')
+                +textarea(type="text" name="comment" placeholder="Comment (Only you can see it)" rows="1")
+              +form-section-text._light This comment helps you to recognize this particular offer inbetween other offers
+          +e.buttons
+            +button('button')(type="submit")._wide Add rental offer
+      +tab-wrapper()(data-tab="tab3" data-tab-group="offer")
+        +form._white
+          +form-section._sm-mg
+            +grid.grid_bigger
+              +col({xl: 12})
+                +form-section-wrapper
+                  +form-box('Offer title')
+                    +input(type="text" name="offerTitle" placeholder="Offer title")
+              +col({xl: 12})
+                +form-section-wrapper
+                  +form-box('Offer Description')
+                    +input(type="text" name="offerDescription" placeholder="Offer Description")
+              +col({xl: 6, sm: 12})
+                +form-section-wrapper._pt
+                  +form-box('Price ', '', '', '&pound;')._icon
+                    +input(type="text" name="price" placeholder="Price ")
+              +col({xl: 6, sm: 12})
+                +form-section-wrapper._pt
+                  +form-box('')
+                    +select.js-select-input(name="shedule")
+                      option(value="Per month" selected) Per month
+                      option(value="per day") Per day
+                      option(value="per week") Per week
+                      option(value="per year") Per year
+          +form-section._mid-mg(data-deleted-group)
+            +form-section-header._smt-mg
+              +form-section-title('h4')._small Points to know about this offer. (optional)
+            +form-section-wrapper._sm-mg(data-deleted-object)
+              +form-box-removable('')._icon
+                +input(type="text" name="points[]" placeholder="Point" value="Bike parking is allowed for you").input_points
+            +form-section-wrapper._sm-mg(data-deleted-object)
+              +form-box-removable('')._icon
+                +input(type="text" name="points[]" placeholder="Point" value="Free Coffee").input_points
+            +form-section-wrapper._sm-mg(data-deleted-object)
+              +form-box-removable('')._icon
+                +input(type="text" name="points[]" placeholder="Point").input_points
+          +form-section._sm-mg
+            +form-section-wrapper._noflex
+              +form-box('Comment (Only you can see it)')
+                +textarea(type="text" name="comment" placeholder="Comment (Only you can see it)" rows="1")
+              +form-section-text._light This comment helps you to recognize this particular offer inbetween other offers
+          +e.buttons
+            +button('button')(type="submit")._wide Add rental offer
+      +tab-wrapper()(data-tab="tab4" data-tab-group="offer")
+        +form._white
+          +form-section._sm-mg
+            +grid.grid_bigger
+              +col({xl: 12})
+                +form-section-wrapper
+                  +form-box('Offer title')
+                    +input(type="text" name="offerTitle" placeholder="Offer title")
+              +col({xl: 12})
+                +form-section-wrapper
+                  +form-box('Offer Description')
+                    +input(type="text" name="offerDescription" placeholder="Offer Description")
+              +col({xl: 6, sm: 12})
+                +form-section-wrapper._pt
+                  +form-box('Price ', '', '', '&pound;')._icon
+                    +input(type="text" name="price" placeholder="Price ")
+              +col({xl: 6, sm: 12})
+                +form-section-wrapper._pt
+                  +form-box('')
+                    +select.js-select-input(name="shedule")
+                      option(value="Per month" selected) Per month
+                      option(value="per day") Per day
+                      option(value="per week") Per week
+                      option(value="per year") Per year
+          +form-section._mid-mg(data-deleted-group)
+            +form-section-header._smt-mg
+              +form-section-title('h4')._small Points to know about this offer. (optional)
+            +form-section-wrapper._sm-mg(data-deleted-object)
+              +form-box-removable('')._icon
+                +input(type="text" name="points[0]" placeholder="Point" value="Bike parking is allowed for you").input_points
+            +form-section-wrapper._sm-mg(data-deleted-object)
+              +form-box-removable('')._icon
+                +input(type="text" name="points[1]" placeholder="Point" value="Free Coffee").input_points
+            +form-section-wrapper._sm-mg(data-deleted-object)
+              +form-box-removable('')._icon
+                +input(type="text" name="points[2]" placeholder="Point").input_points
+          +form-section._sm-mg
+            +form-section-wrapper._noflex
+              +form-box('Comment (Only you can see it)')
+                +textarea(type="text" name="comment" placeholder="Comment (Only you can see it)" rows="1")
+              +form-section-text._light This comment helps you to recognize this particular offer inbetween other offers
+          +e.buttons
+            +button('button')(type="submit")._wide Add rental offer

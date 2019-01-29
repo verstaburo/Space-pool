@@ -580,7 +580,385 @@
             </div>
         </section>
     </main>
-    <div class="popups"></div>
+    <div class="popups">
+        <div class="popup popup-add-offer" id="popup-add-rental-offer">
+            <div class="popup__content">
+                <h3 class="popup__title">Add rental offer</h3>
+                <ul class="tabs popup-add-offer__tabs">
+                    <li class="tabs__tab tabs__tab_orange active" data-tab-target="tab1">Hot Desk</li>
+                    <li class="tabs__tab tabs__tab_red" data-tab-target="tab2">Dedicated desk</li>
+                    <li class="tabs__tab tabs__tab_blue" data-tab-target="tab3">Meeting room</li>
+                    <li class="tabs__tab tabs__tab_green" data-tab-target="tab4">Office space</li>
+                </ul>
+                <div class="tabs-content">
+                    <div class="tabs-content__wrapper active" data-tab="tab1" data-tab-group="offer">
+                        <form class="form form_white">
+                            <fieldset class="form__section form__section_sm-mg">
+                                <div class="grid grid_bigger">
+                                    <div class="grid__col grid__col_xl_12">
+                                        <div class="form__wrapper">
+                                            <label class="form-box">
+                                                <input class="input" type="text" name="offerTitle" placeholder="Offer title" />
+                                                <span class="form-box__label">Offer title</span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="grid__col grid__col_xl_12">
+                                        <div class="form__wrapper">
+                                            <label class="form-box">
+                                                <input class="input" type="text" name="offerDescription" placeholder="Offer Description" />
+                                                <span class="form-box__label">Offer Description</span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="grid__col grid__col_xl_6 grid__col_sm_12">
+                                        <div class="form__wrapper form__wrapper_pt">
+                                            <label class="form-box form-box_icon">
+                                                <input class="input" type="text" name="price" placeholder="Price " />
+                                                <span class="form-box__label">Price </span>
+                                                <span class="form-box__icon form-box__icon_text">&pound;</span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="grid__col grid__col_xl_6 grid__col_sm_12">
+                                        <div class="form__wrapper form__wrapper_pt">
+                                            <label class="form-box">
+                                                <select class="select js-select-input" name="shedule">
+                                                    <option value="Per month" selected="selected">Per month</option>
+                                                    <option value="per day">Per day</option>
+                                                    <option value="per week">Per week</option>
+                                                    <option value="per year">Per year</option>
+                                                </select>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </fieldset>
+                            <fieldset class="form__section form__section_mid-mg" data-deleted-group="data-deleted-group">
+                                <div class="form__header form__header_smt-mg">
+                                    <h4 class="form__title form__title_small">Points to know about this offer. (optional)</h4>
+                                </div>
+                                <div class="form__wrapper form__wrapper_sm-mg" data-deleted-object="data-deleted-object">
+                                    <label class="form-box form-box_icon">
+                                        <input class="input input_points" type="text" name="points[]" placeholder="Point" value="Bike parking is allowed for you" />
+                                        <span class="form-box__point"></span>
+                                        <button class="form-box__delete js-delete-object-except-last" type="button">
+                                            <svg class="form-box__icon form-box__icon_cross"><use xlink:href="assets/images/icon.svg#icon_cross"></use></svg>
+                                        </button>
+                                    </label>
+                                </div>
+                                <div class="form__wrapper form__wrapper_sm-mg" data-deleted-object="data-deleted-object">
+                                    <label class="form-box form-box_icon">
+                                        <input class="input input_points" type="text" name="points[]" placeholder="Point" value="Free Coffee" />
+                                        <span class="form-box__point"></span>
+                                        <button class="form-box__delete js-delete-object-except-last" type="button">
+                                            <svg class="form-box__icon form-box__icon_cross"><use xlink:href="assets/images/icon.svg#icon_cross"></use></svg>
+                                        </button>
+                                    </label>
+                                </div>
+                                <div class="form__wrapper form__wrapper_sm-mg" data-deleted-object="data-deleted-object">
+                                    <label class="form-box form-box_icon">
+                                        <input class="input input_points" type="text" name="points[]" placeholder="Point" />
+                                        <span class="form-box__point"></span>
+                                        <button class="form-box__delete js-delete-object-except-last" type="button">
+                                            <svg class="form-box__icon form-box__icon_cross"><use xlink:href="assets/images/icon.svg#icon_cross"></use></svg>
+                                        </button>
+                                    </label>
+                                </div>
+                            </fieldset>
+                            <fieldset class="form__section form__section_sm-mg">
+                                <div class="form__wrapper form__wrapper_noflex">
+                                    <label class="form-box">
+                                        <textarea class="textarea" type="text" name="comment" placeholder="Comment (Only you can see it)" rows="1"></textarea>
+                                        <span class="form-box__label">Comment (Only you can see it)</span>
+                                    </label>
+                                    <div class="form__text form__text_light">This comment helps you to recognize this particular offer inbetween other offers</div>
+                                </div>
+                            </fieldset>
+                            <div class="form__buttons">
+                                <button class="button button_wide" type="submit">
+                                    <span class="button__text">Add rental offer</span>
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="tabs-content__wrapper" data-tab="tab2" data-tab-group="offer">
+                        <form class="form form_white">
+                            <fieldset class="form__section form__section_sm-mg">
+                                <div class="grid grid_bigger">
+                                    <div class="grid__col grid__col_xl_12">
+                                        <div class="form__wrapper">
+                                            <label class="form-box">
+                                                <input class="input" type="text" name="offerTitle" placeholder="Offer title" />
+                                                <span class="form-box__label">Offer title</span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="grid__col grid__col_xl_12">
+                                        <div class="form__wrapper">
+                                            <label class="form-box">
+                                                <input class="input" type="text" name="offerDescription" placeholder="Offer Description" />
+                                                <span class="form-box__label">Offer Description</span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="grid__col grid__col_xl_6 grid__col_sm_12">
+                                        <div class="form__wrapper form__wrapper_pt">
+                                            <label class="form-box form-box_icon">
+                                                <input class="input" type="text" name="price" placeholder="Price " />
+                                                <span class="form-box__label">Price </span>
+                                                <span class="form-box__icon form-box__icon_text">&pound;</span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="grid__col grid__col_xl_6 grid__col_sm_12">
+                                        <div class="form__wrapper form__wrapper_pt">
+                                            <label class="form-box">
+                                                <select class="select js-select-input" name="shedule">
+                                                    <option value="Per month" selected="selected">Per month</option>
+                                                    <option value="per day">Per day</option>
+                                                    <option value="per week">Per week</option>
+                                                    <option value="per year">Per year</option>
+                                                </select>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </fieldset>
+                            <fieldset class="form__section form__section_mid-mg" data-deleted-group="data-deleted-group">
+                                <div class="form__header form__header_smt-mg">
+                                    <h4 class="form__title form__title_small">Points to know about this offer. (optional)</h4>
+                                </div>
+                                <div class="form__wrapper form__wrapper_sm-mg" data-deleted-object="data-deleted-object">
+                                    <label class="form-box form-box_icon">
+                                        <input class="input input_points" type="text" name="points[]" placeholder="Point" value="Bike parking is allowed for you" />
+                                        <span class="form-box__point"></span>
+                                        <button class="form-box__delete js-delete-object-except-last" type="button">
+                                            <svg class="form-box__icon form-box__icon_cross"><use xlink:href="assets/images/icon.svg#icon_cross"></use></svg>
+                                        </button>
+                                    </label>
+                                </div>
+                                <div class="form__wrapper form__wrapper_sm-mg" data-deleted-object="data-deleted-object">
+                                    <label class="form-box form-box_icon">
+                                        <input class="input input_points" type="text" name="points[]" placeholder="Point" value="Free Coffee" />
+                                        <span class="form-box__point"></span>
+                                        <button class="form-box__delete js-delete-object-except-last" type="button">
+                                            <svg class="form-box__icon form-box__icon_cross"><use xlink:href="assets/images/icon.svg#icon_cross"></use></svg>
+                                        </button>
+                                    </label>
+                                </div>
+                                <div class="form__wrapper form__wrapper_sm-mg" data-deleted-object="data-deleted-object">
+                                    <label class="form-box form-box_icon">
+                                        <input class="input input_points" type="text" name="points[]" placeholder="Point" />
+                                        <span class="form-box__point"></span>
+                                        <button class="form-box__delete js-delete-object-except-last" type="button">
+                                            <svg class="form-box__icon form-box__icon_cross"><use xlink:href="assets/images/icon.svg#icon_cross"></use></svg>
+                                        </button>
+                                    </label>
+                                </div>
+                            </fieldset>
+                            <fieldset class="form__section form__section_sm-mg">
+                                <div class="form__wrapper form__wrapper_noflex">
+                                    <label class="form-box">
+                                        <textarea class="textarea" type="text" name="comment" placeholder="Comment (Only you can see it)" rows="1"></textarea>
+                                        <span class="form-box__label">Comment (Only you can see it)</span>
+                                    </label>
+                                    <div class="form__text form__text_light">This comment helps you to recognize this particular offer inbetween other offers</div>
+                                </div>
+                            </fieldset>
+                            <div class="form__buttons">
+                                <button class="button button_wide" type="submit">
+                                    <span class="button__text">Add rental offer</span>
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="tabs-content__wrapper" data-tab="tab3" data-tab-group="offer">
+                        <form class="form form_white">
+                            <fieldset class="form__section form__section_sm-mg">
+                                <div class="grid grid_bigger">
+                                    <div class="grid__col grid__col_xl_12">
+                                        <div class="form__wrapper">
+                                            <label class="form-box">
+                                                <input class="input" type="text" name="offerTitle" placeholder="Offer title" />
+                                                <span class="form-box__label">Offer title</span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="grid__col grid__col_xl_12">
+                                        <div class="form__wrapper">
+                                            <label class="form-box">
+                                                <input class="input" type="text" name="offerDescription" placeholder="Offer Description" />
+                                                <span class="form-box__label">Offer Description</span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="grid__col grid__col_xl_6 grid__col_sm_12">
+                                        <div class="form__wrapper form__wrapper_pt">
+                                            <label class="form-box form-box_icon">
+                                                <input class="input" type="text" name="price" placeholder="Price " />
+                                                <span class="form-box__label">Price </span>
+                                                <span class="form-box__icon form-box__icon_text">&pound;</span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="grid__col grid__col_xl_6 grid__col_sm_12">
+                                        <div class="form__wrapper form__wrapper_pt">
+                                            <label class="form-box">
+                                                <select class="select js-select-input" name="shedule">
+                                                    <option value="Per month" selected="selected">Per month</option>
+                                                    <option value="per day">Per day</option>
+                                                    <option value="per week">Per week</option>
+                                                    <option value="per year">Per year</option>
+                                                </select>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </fieldset>
+                            <fieldset class="form__section form__section_mid-mg" data-deleted-group="data-deleted-group">
+                                <div class="form__header form__header_smt-mg">
+                                    <h4 class="form__title form__title_small">Points to know about this offer. (optional)</h4>
+                                </div>
+                                <div class="form__wrapper form__wrapper_sm-mg" data-deleted-object="data-deleted-object">
+                                    <label class="form-box form-box_icon">
+                                        <input class="input input_points" type="text" name="points[]" placeholder="Point" value="Bike parking is allowed for you" />
+                                        <span class="form-box__point"></span>
+                                        <button class="form-box__delete js-delete-object-except-last" type="button">
+                                            <svg class="form-box__icon form-box__icon_cross"><use xlink:href="assets/images/icon.svg#icon_cross"></use></svg>
+                                        </button>
+                                    </label>
+                                </div>
+                                <div class="form__wrapper form__wrapper_sm-mg" data-deleted-object="data-deleted-object">
+                                    <label class="form-box form-box_icon">
+                                        <input class="input input_points" type="text" name="points[]" placeholder="Point" value="Free Coffee" />
+                                        <span class="form-box__point"></span>
+                                        <button class="form-box__delete js-delete-object-except-last" type="button">
+                                            <svg class="form-box__icon form-box__icon_cross"><use xlink:href="assets/images/icon.svg#icon_cross"></use></svg>
+                                        </button>
+                                    </label>
+                                </div>
+                                <div class="form__wrapper form__wrapper_sm-mg" data-deleted-object="data-deleted-object">
+                                    <label class="form-box form-box_icon">
+                                        <input class="input input_points" type="text" name="points[]" placeholder="Point" />
+                                        <span class="form-box__point"></span>
+                                        <button class="form-box__delete js-delete-object-except-last" type="button">
+                                            <svg class="form-box__icon form-box__icon_cross"><use xlink:href="assets/images/icon.svg#icon_cross"></use></svg>
+                                        </button>
+                                    </label>
+                                </div>
+                            </fieldset>
+                            <fieldset class="form__section form__section_sm-mg">
+                                <div class="form__wrapper form__wrapper_noflex">
+                                    <label class="form-box">
+                                        <textarea class="textarea" type="text" name="comment" placeholder="Comment (Only you can see it)" rows="1"></textarea>
+                                        <span class="form-box__label">Comment (Only you can see it)</span>
+                                    </label>
+                                    <div class="form__text form__text_light">This comment helps you to recognize this particular offer inbetween other offers</div>
+                                </div>
+                            </fieldset>
+                            <div class="form__buttons">
+                                <button class="button button_wide" type="submit">
+                                    <span class="button__text">Add rental offer</span>
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="tabs-content__wrapper" data-tab="tab4" data-tab-group="offer">
+                        <form class="form form_white">
+                            <fieldset class="form__section form__section_sm-mg">
+                                <div class="grid grid_bigger">
+                                    <div class="grid__col grid__col_xl_12">
+                                        <div class="form__wrapper">
+                                            <label class="form-box">
+                                                <input class="input" type="text" name="offerTitle" placeholder="Offer title" />
+                                                <span class="form-box__label">Offer title</span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="grid__col grid__col_xl_12">
+                                        <div class="form__wrapper">
+                                            <label class="form-box">
+                                                <input class="input" type="text" name="offerDescription" placeholder="Offer Description" />
+                                                <span class="form-box__label">Offer Description</span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="grid__col grid__col_xl_6 grid__col_sm_12">
+                                        <div class="form__wrapper form__wrapper_pt">
+                                            <label class="form-box form-box_icon">
+                                                <input class="input" type="text" name="price" placeholder="Price " />
+                                                <span class="form-box__label">Price </span>
+                                                <span class="form-box__icon form-box__icon_text">&pound;</span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="grid__col grid__col_xl_6 grid__col_sm_12">
+                                        <div class="form__wrapper form__wrapper_pt">
+                                            <label class="form-box">
+                                                <select class="select js-select-input" name="shedule">
+                                                    <option value="Per month" selected="selected">Per month</option>
+                                                    <option value="per day">Per day</option>
+                                                    <option value="per week">Per week</option>
+                                                    <option value="per year">Per year</option>
+                                                </select>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </fieldset>
+                            <fieldset class="form__section form__section_mid-mg" data-deleted-group="data-deleted-group">
+                                <div class="form__header form__header_smt-mg">
+                                    <h4 class="form__title form__title_small">Points to know about this offer. (optional)</h4>
+                                </div>
+                                <div class="form__wrapper form__wrapper_sm-mg" data-deleted-object="data-deleted-object">
+                                    <label class="form-box form-box_icon">
+                                        <input class="input input_points" type="text" name="points[0]" placeholder="Point" value="Bike parking is allowed for you" />
+                                        <span class="form-box__point"></span>
+                                        <button class="form-box__delete js-delete-object-except-last" type="button">
+                                            <svg class="form-box__icon form-box__icon_cross"><use xlink:href="assets/images/icon.svg#icon_cross"></use></svg>
+                                        </button>
+                                    </label>
+                                </div>
+                                <div class="form__wrapper form__wrapper_sm-mg" data-deleted-object="data-deleted-object">
+                                    <label class="form-box form-box_icon">
+                                        <input class="input input_points" type="text" name="points[1]" placeholder="Point" value="Free Coffee" />
+                                        <span class="form-box__point"></span>
+                                        <button class="form-box__delete js-delete-object-except-last" type="button">
+                                            <svg class="form-box__icon form-box__icon_cross"><use xlink:href="assets/images/icon.svg#icon_cross"></use></svg>
+                                        </button>
+                                    </label>
+                                </div>
+                                <div class="form__wrapper form__wrapper_sm-mg" data-deleted-object="data-deleted-object">
+                                    <label class="form-box form-box_icon">
+                                        <input class="input input_points" type="text" name="points[2]" placeholder="Point" />
+                                        <span class="form-box__point"></span>
+                                        <button class="form-box__delete js-delete-object-except-last" type="button">
+                                            <svg class="form-box__icon form-box__icon_cross"><use xlink:href="assets/images/icon.svg#icon_cross"></use></svg>
+                                        </button>
+                                    </label>
+                                </div>
+                            </fieldset>
+                            <fieldset class="form__section form__section_sm-mg">
+                                <div class="form__wrapper form__wrapper_noflex">
+                                    <label class="form-box">
+                                        <textarea class="textarea" type="text" name="comment" placeholder="Comment (Only you can see it)" rows="1"></textarea>
+                                        <span class="form-box__label">Comment (Only you can see it)</span>
+                                    </label>
+                                    <div class="form__text form__text_light">This comment helps you to recognize this particular offer inbetween other offers</div>
+                                </div>
+                            </fieldset>
+                            <div class="form__buttons">
+                                <button class="button button_wide" type="submit">
+                                    <span class="button__text">Add rental offer</span>
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="overlay"></div>
     <div class="user-menu-panel">
         <ul class="user-menu-panel__list">

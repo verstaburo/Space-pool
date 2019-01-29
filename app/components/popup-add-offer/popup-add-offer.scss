@@ -3,5 +3,28 @@
 
   display: block;
   width: 100%;
-  max-width: 800px;
+  max-width: 788px;
+
+  &__tabs {
+    position: relative;
+
+    &::after {
+      @include pseudo;
+
+      bottom: 0;
+      left: -70px;
+      right: -70px;
+      height: 1px;
+      background-color: $color-border-light;
+      z-index: 1;
+    }
+
+    .tabs__tab {
+      z-index: 2;
+    }
+
+    &+.tabs-content {
+      margin-top: 55px;
+    }
+  }
 }

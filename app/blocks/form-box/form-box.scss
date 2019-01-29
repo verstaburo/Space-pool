@@ -46,6 +46,15 @@
         line-height: (26/14);
       }
     }
+
+    textarea~& {
+      top: 4px;
+      bottom: auto;
+    }
+
+    #{$b}.is-top textarea~& {
+      transform: translate3d(0, -24px, 0);
+    }
   }
 
   &__icon {
@@ -62,6 +71,25 @@
 
     @include screen('sm') {
       right: 9px;
+    }
+
+    &_text {
+      @include text-big;
+
+      bottom: 13px;
+      right: 6px;
+      font-weight: 700;
+      line-height: 1;
+      width: auto;
+      height: auto;
+
+      @include screen('lg') {
+        right: 12px;
+      }
+
+      @include screen('sm') {
+        right: 9px;
+      }
     }
   }
 
@@ -116,6 +144,37 @@
     &_number.input {
       width: calc(100% - 44px);
       padding-left: 14px;
+    }
+  }
+
+  &__point {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: $color-basic;
+    transform: translate3d(0, -50%, 0);
+    margin-top: -4px;
+  }
+
+  &__delete {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 30px;
+    height: 40px;
+
+    #{$b}__icon {
+      width: 16px;
+      height: 16px;
+      transition: fill $ease-main;
+      fill: $color-border-light;
+    }
+
+    &:hover #{$b}__icon {
+      fill: $color-basic;
     }
   }
 

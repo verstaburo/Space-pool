@@ -28,6 +28,15 @@
   &[type="password"] {
     // color: transparent;
   }
+
+  &_points {
+    padding-left: 22px;
+    padding-bottom: 10px;
+
+    &::placeholder {
+      color: $color-placeholder;
+    }
+  }
 }
 
 .inputbox {
@@ -37,10 +46,10 @@
 .textarea {
   @extend .input;
 
-  padding-top: 13px;
-  padding-bottom: 13px;
-  min-height: 150px;
-  resize: vertical;
+  padding-top: 5px;
+  padding-bottom: 8px;
+  min-height: 40px;
+  resize: none;
 }
 
 .checkradio {
@@ -1090,6 +1099,10 @@
           &[data-value="placeholder"] {
             display: none;
           }
+        }
+
+        .form_white & {
+          background-color: $color-white;
         }
       }
     }

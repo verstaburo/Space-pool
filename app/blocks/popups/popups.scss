@@ -21,22 +21,77 @@
   &-enabled {
     overflow: initial;
   }
+
+  &-slide {
+
+    &--html {
+      padding: 0;
+    }
+  }
 }
 
 .popup {
-  display: block;
+  display: flex;
   width: 100%;
-  max-width: 800px;
+  max-width: 788px;
   padding: 0;
+  overflow: hidden;
 
   &__wrapper {
     display: block;
-    max-height: 100%;
+    width: 100%;
   }
 
   &__content {
     display: block;
-    height: auto;
-    padding: 30px 69px 62px;
+    width: 100%;
+    padding: 28px 70px 62px;
+
+    @include screen('sm') {
+      padding: 28px 20px 30px;
+    }
+  }
+
+  &__title {
+    @include heading-3;
+
+    font-weight: 700;
+    user-select: none;
+
+    @include screen('sm') {
+      @include heading-4;
+    }
+
+    &:not(:last-child) {
+      margin-bottom: 23px;
+
+      @include screen('sm') {
+        margin-bottom: 14px;
+      }
+    }
+  }
+
+  &__close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    display: block;
+    -webkit-appearance: none;
+    background-color: transparent;
+    color: $color-black;
+    fill: currentColor;
+    transition: color $ease-main;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 100000;
+
+    &:hover {
+      color: $color-basic;
+    }
+
+    &-icon {
+      width: 21px;
+      height: 21px;
+    }
   }
 }

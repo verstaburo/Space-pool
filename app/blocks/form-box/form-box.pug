@@ -1,7 +1,20 @@
-mixin form-box(label, icon, tag)
+mixin form-box(label, icon, tag, symbol)
   +b(tag || 'label').form-box&attributes(attributes)
     block
     if label
       +e.label!= label
     if icon
       +icon(icon).__icon
+    if symbol
+      +e.icon_text!=symbol
+
+
+mixin form-box-removable(label, tag, nopoint)
+  +b(tag || 'label').form-box&attributes(attributes)
+    block
+    if label
+      +e.label!= label
+    if !nopoint
+      +e.point
+    +e.BUTTON.delete.js-delete-object-except-last(type="button")
+      +icon('cross').__icon._cross
