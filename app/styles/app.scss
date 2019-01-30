@@ -19,7 +19,7 @@
   padding: 0 $container-padding;
   box-sizing: border-box;
 
-  @include screen('lg') {
+  @include screen('md') {
     padding: 0 $container-padding-tablet;
   }
 
@@ -50,16 +50,16 @@
 
 // спрятать на малом десктопе и ниже
 
-.hide-xl {
-  @include screen('xl') {
+.hide-lg {
+  @include screen('lg') {
     display: none;
   }
 }
 
 // cпрятать на планшете и мобиле
 
-.hide-lg {
-  @include screen('lg') {
+.hide-md {
+  @include screen('md') {
     display: none;
   }
 }
@@ -82,22 +82,22 @@
 
 // cпрятать начиная с маленьких десктопов и выше
 
-.hide-from-lg {
-  @include screen('lg', min) {
+.hide-from-md {
+  @include screen('md', min) {
     display: none;
   }
 }
 
 // спрятать на больших десктопах
 
-.hide-from-xl {
-  @include screen('xl', min) {
+.hide-from-lg {
+  @include screen('lg', min) {
     display: none;
   }
 }
 
 .hide-only-lg {
-  @media only screen and (min-width: 768px) and (max-width: 1279px) {
+  @media only screen and (min-width: 768px) and (max-width: 1019px) {
     display: none;
   }
 }

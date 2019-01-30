@@ -1,3 +1,18 @@
 mixin pagination()
-  +b.pagination&attributes(attributes)
-    block
+  +b.UL.pagination&attributes(attributes)
+    +e.LI.item
+      +e.A.arrow_prev.is-disabled(href="#")
+        +icon('arrow2').icon
+    +e.LI.item
+      +e.A.link.is-active(href="#") 1
+    +e.LI.item
+      +e.A.link(href="#") 2
+    +e.LI.item
+      +e.A.link(href="#") 3
+    +e.LI.item
+      +e.A.link(href="#") 4
+    +e.LI.item
+      +e.A.link(href="#") 6
+    +e.LI.item
+      +e.A.arrow_next(href="#")
+        +icon('arrow2').icon

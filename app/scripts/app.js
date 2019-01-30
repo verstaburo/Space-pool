@@ -46,6 +46,7 @@ import tip from '../blocks/tip/tip';
 import deleteObject from '../blocks/js-functions/deleteObject';
 import switchOfferState from '../blocks/offer/offer';
 import emptyOfferState from '../blocks/offers/offers';
+import setBlogNewsTitlesHeight from '../blocks/blog/blog';
 
 const $ = window.$;
 
@@ -86,4 +87,5 @@ $(() => {
   deleteObject();
   switchOfferState();
   emptyOfferState();
+  setBlogNewsTitlesHeight();
 });

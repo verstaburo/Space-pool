@@ -22,7 +22,7 @@ function putBlockIntoSlot() {
       } else if (window.Modernizr.mq(`(max-width: ${window.globalOptions.sizes.md - 1}px)`) && slots.filter('[data-slot-res*="md"]').length) {
         return res.indexOf('md') >= 0;
       } else if (window.Modernizr.mq(`(max-width: ${window.globalOptions.sizes.lg - 1}px)`) && slots.filter('[data-slot-res*="lg"]').length) {
-        return res.indexOf('lg') >= 0;
+        return res.indexOf('md') >= 0;
       }
 
       return res.indexOf('xl') >= 0;

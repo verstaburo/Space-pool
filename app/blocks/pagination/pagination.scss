@@ -1,3 +1,97 @@
 .pagination {
   $b: &;
+
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+
+  &:not(:first-child) {
+    margin-top: 92px;
+
+    @include screen('sm') {
+      margin-top: 45px;
+    }
+  }
+
+  &__item {
+    display: block;
+    box-sizing: border-box;
+    font-size: 0;
+    line-height: 0;
+
+    &:not(:last-child) {
+      margin-right: 14px;
+    }
+  }
+
+  &__link {
+    @include text-mid;
+
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 700;
+    color: $color-basic;
+    text-align: center;
+    width: 20px;
+    height: 28px;
+    transition: all $ease-main;
+    background-color: transparent;
+    box-shadow: 1px 1px 8px rgba(34, 42, 46, 0);
+    border-radius: 3px;
+    cursor: pointer;
+
+    &:hover,
+    &.is-active {
+      width: 28px;
+      background-color: $color-white;
+      box-shadow: 1px 1px 8px rgba(34, 42, 46, .06)
+    }
+  }
+
+  &__arrow {
+    position: relative;
+    color: $color-basic;
+    display: inline-block;
+    fill: currentColor;
+    transition: color $ease-main;
+    font-size: 0;
+    line-height: 0;
+    cursor: pointer;
+
+    &::before {
+      @include pseudo;
+
+      width: 28px;
+      height: 28px;
+      top: 50%;
+      left: 50%;
+      transform: translate3d(-50%, -50%, 0);
+    }
+
+    &.is-disabled {
+      cursor: default;
+      color: $color-pagination-disabled;
+    }
+
+    &_prev {
+      padding-right: 3px;
+
+      #{$b}__icon {
+        transform: rotate(180deg);
+      }
+    }
+
+    &_next {
+      padding-left: 3px;
+    }
+  }
+
+  &__icon {
+    height: 12px;
+    width: 8px;
+    transform-origin: 50% 50%;
+    font-size: 0;
+    line-height: 0;
+  }
 }

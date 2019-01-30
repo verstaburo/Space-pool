@@ -1,3 +1,29 @@
 .blog {
   $b: &;
+
+  display: block;
+  width: 100%;
+  padding-top: 58px;
+  margin-bottom: 104px;
+
+  @include screen('md') {
+    margin-bottom: 80px;
+  }
+
+  @include screen('sm') {
+    padding-top: 30px;
+    margin-bottom: 70px;
+  }
+
+  &:not(:last-child) {
+    margin-bottom: 125px;
+
+    @include screen('md') {
+      margin-bottom: 80px;
+    }
+
+    @include screen('sm') {
+      margin-bottom: 36px;
+    }
+  }
 }

@@ -8,13 +8,14 @@ block content
   +blog
     .container
       +grid.grid_layout
-        +col({ xl: 1, lg: 12}).hide-lg
-        +col({ xl: 10, lg: 12})
-          +grid.grid_layout
+        +col({ xl: 1, md:12}).hide-md
+        +col({ xl: 10, md:12})
+          +grid.grid_layout.grid_blog
             each news in blogNews
-              +col({xl: 6, md: 12})
+              +col({xl: 6, sm: 12})
                 +blog-news(news)(href="#")
-        +col({ xl: 1, lg: 12}).hide-lg
+          +pagination
+        +col({ xl: 1, md:12}).hide-md
 
 block panels
   +main-menu

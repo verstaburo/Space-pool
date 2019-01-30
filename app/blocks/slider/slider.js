@@ -29,10 +29,10 @@ export default function slider() {
           prevEl: btnPrev,
         },
         breakpoints: {
-          1699: {
+          1299: {
             slidesPerView: 3,
           },
-          1279: {
+          1019: {
             slidesPerView: 2,
             spaceBetween: 30,
           },
@@ -76,11 +76,11 @@ export default function slider() {
           prevEl: btnPrev,
         },
         breakpoints: {
-          1699: {
+          1299: {
             slidesPerView: 3,
             spaceBetween: 50,
           },
-          1279: {
+          1019: {
             slidesPerView: 2,
             spaceBetween: 30,
           },
@@ -124,11 +124,11 @@ export default function slider() {
           prevEl: btnPrev,
         },
         breakpoints: {
-          1699: {
+          1299: {
             slidesPerView: 2,
             spaceBetween: 42,
           },
-          1279: {
+          1019: {
             slidesPerView: 2,
             spaceBetween: 30,
           },
@@ -173,16 +173,12 @@ export default function slider() {
           prevEl: btnPrev,
         },
         breakpoints: {
-          1699: {
+          1299: {
             slidesPerView: 2,
             spaceBetween: 42,
           },
-          1279: {
+          1019: {
             slidesPerView: 2,
-            spaceBetween: 30,
-          },
-          1024: {
-            slidesPerView: 1,
             spaceBetween: 30,
           },
           768: {

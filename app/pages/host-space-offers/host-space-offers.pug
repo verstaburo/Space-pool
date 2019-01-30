@@ -13,15 +13,15 @@ block content
       +e.wrapper
         +page-header-side
           +link-icon('select-arrow')._back._bold.__back(href="#") Back to space list
-        +page-header-main.hide-lg
+        +page-header-main.hide-md
           +breadcrumbs(['Home', 'My offers', 'Blooming Founders (Former Blooms London old Factory)'])
           +button-plus('a')(href="#popup-add-rental-offer")._plus_big.__button_big.js-popup Add new rental offer for this space
-  +table-head.hide-lg
+  +table-head.hide-md
     .container
       +grid.grid_layout.grid_no-top.table-head__wrapper
-        +col({lg: 12, xl: 3}).table-head__cell
+        +col({md:12, xl: 3}).table-head__cell
           +e.name Space basic information
-        +col({lg: 12, xl: 9}).table-head__cell
+        +col({md:12, xl: 9}).table-head__cell
           +e.name Rental offers
           +boxes
             +box._size9._orange
@@ -35,19 +35,19 @@ block content
           +sidebar._no-bg
             +space-info
               +grid.grid_layout.grid_no-top
-                +col({sm: 12, lg: 6, xl: 12})
+                +col({sm: 12, md:6, xl: 12})
                   +space-info-title() Blooming Founders Office Space (Former Blooms London old Factory)
                   +space-info-media.hide-only-lg(data-slot-id="media" data-slot-res="sm xl")
                     +space-info-image()(src="assets/images/room3.jpg" data-target-slot="media")
                   +space-info-address
                     p 2 Riding House St, Marylebone, London
                     p EC2A, London
-                  +space-info-buttons.hide-only-lg(data-slot-id="button" data-slot-res="sm xl")
+                  +space-info-buttons.hide-only-md(data-slot-id="button" data-slot-res="sm xl")
                     +space-info-button(data-target-slot="button") Add rental offers for this space
                   +space-info-controls
-                +col({sm: 12, lg: 6, xl: 12}).hide-sm.hide-from-lg
-                  +space-info-media(data-slot-id="media" data-slot-res="lg")
-                  +space-info-buttons(data-slot-id="button" data-slot-res="lg")
+                +col({sm: 12, md:6, xl: 12}).hide-sm.hide-from-md
+                  +space-info-media(data-slot-id="media" data-slot-res="md")
+                  +space-info-buttons(data-slot-id="button" data-slot-res="md")
         +content-column-main._ptop-small
           +offers
             +offers-header('orange', 'HOT DESKS', '4 offers')

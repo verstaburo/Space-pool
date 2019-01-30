@@ -19,16 +19,16 @@ block content
   +content-origin._reverse._last
     .container
       +e.wrapper
-        +content-column-aside.hide-xl
+        +content-column-aside.hide-lg
           +side-navigation('This page displays a list of your available Spaces. Click on space to manage it’s rental offers')
             +nav-list-sidebar(getData('side-menu-host.json'), 'My offers').__navigation
         +content-column-main._no-ptop
           +tip One rental space may contain more than one Rental Offer. <b>First you need to create an rental space, than you will be able to add rental offer such as Dedicated Desks, Meeting Rooms, Office spaces and Hot desks.</b>
           each item in spaces
             +space-offer(class=item.status)
-              +space-offer-side.hide-lg(data-slot-id=item.id data-slot-res="xl")
+              +space-offer-side.hide-md(data-slot-id=item.id data-slot-res="xl")
               +space-offer-content
-                +e.media-wrapper_lg.hide-from-lg.hide-sm(data-slot-id=item.id data-slot-res="lg")
+                +e.media-wrapper_lg.hide-from-md.hide-sm(data-slot-id=item.id data-slot-res="lg")
                 +e.describe
                   +space-offer-info
                     if item.offerBoxes
