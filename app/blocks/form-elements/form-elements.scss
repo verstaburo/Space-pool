@@ -526,6 +526,10 @@
     box-sizing: border-box;
     padding: 0 15px;
     max-width: calc(100% - 130px);
+
+    @include screen('bg') {
+      max-width: calc(100% - 100px);
+    }
   }
 
   &__button {
@@ -539,6 +543,11 @@
     border-right-color: transparent;
     cursor: pointer;
     transition: border $ease-main;
+
+    @include screen('bg') {
+      min-width: 50px;
+      width: 50px;
+    }
 
     &:not(:last-child) {
       margin-right: -1px;

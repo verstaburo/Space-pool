@@ -1,7 +1,7 @@
 window.globalOptions = {
   animationDuration: 300,
   sizes: {
-    xl: 1700,
+    xl: 1600,
     lg: 1300,
     bg: 1160,
     md: 1020,
