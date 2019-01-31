@@ -21,6 +21,8 @@ function putBlockIntoSlot() {
         return res.indexOf('sm') >= 0;
       } else if (window.Modernizr.mq(`(max-width: ${window.globalOptions.sizes.md - 1}px)`) && slots.filter('[data-slot-res*="md"]').length) {
         return res.indexOf('md') >= 0;
+      } else if (window.Modernizr.mq(`(max-width: ${window.globalOptions.sizes.bg - 1}px)`) && slots.filter('[data-slot-res*="bg"]').length) {
+        return res.indexOf('bg') >= 0;
       } else if (window.Modernizr.mq(`(max-width: ${window.globalOptions.sizes.lg - 1}px)`) && slots.filter('[data-slot-res*="lg"]').length) {
         return res.indexOf('md') >= 0;
       }

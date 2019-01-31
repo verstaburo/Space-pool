@@ -2,9 +2,10 @@
   $b: &;
 
   display: flex;
-  justify-content: flex-end;
+  justify-content: flex-start;
   width: 100%;
   box-sizing: border-box;
+  flex-wrap: wrap;
   padding-top: 12px;
 
   @include screen('lg') {
@@ -15,6 +16,7 @@
   &__head {
     text-align: right;
     min-width: 244px;
+    margin-right: auto;
 
     @include screen('lg') {
       min-width: 0;
@@ -39,7 +41,12 @@
     font-weight: 700;
     display: inline-block;
     box-sizing: border-box;
-    padding-right: 37px;
+    padding-right: 34px;
+    margin-bottom: 30px;
+
+    @include screen('lg') {
+      margin-bottom: 0;
+    }
 
     @include screen('md') {
       @include heading-4;
@@ -56,10 +63,13 @@
 
   &__form {
     display: block;
+    box-sizing: border-box;
+    flex: 1;
+    max-width: 545px;
 
     @include screen('lg') {
       width: 100%;
-      max-width: 540px;
+      max-width: 550px;
     }
 
     @include screen('md') {
@@ -73,15 +83,15 @@
 
   &__top {
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
     align-items: center;
     box-sizing: border-box;
+    width: 100%;
     padding-right: 8px;
     margin-bottom: 38px;
 
     @include screen('lg') {
       padding-right: 14px;
-      justify-content: space-between;
       margin: 0 -7px 38px;
     }
 
@@ -92,12 +102,10 @@
   }
 
   &__radio {
-    &:not(:first-child) {
-      margin-left: 32px;
+    white-space: nowrap;
 
-      @include screen('lg') {
-        margin-left: 20px;
-      }
+    &:not(:first-child) {
+      margin-left: 20px;
 
       @include screen('md') {
         margin-left: 0;
@@ -156,6 +164,7 @@
     align-items: center;
     box-sizing: border-box;
     padding-right: 4px;
+    width: 100%;
 
     @include screen('lg') {
       margin: 0 -7px;
