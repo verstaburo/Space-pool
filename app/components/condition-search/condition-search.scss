@@ -2,7 +2,7 @@
   $b: &;
 
   display: flex;
-  justify-content: flex-start;
+  justify-content: space-between;
   width: 100%;
   box-sizing: border-box;
   flex-wrap: wrap;
@@ -13,10 +13,17 @@
     justify-content: flex-start;
   }
 
+  .is-IE & {
+    justify-content: flex-start;
+
+    @include screen('lg') {
+      display: block;
+    }
+  }
+
   &__head {
     text-align: right;
     min-width: 244px;
-    margin-right: auto;
 
     @include screen('lg') {
       min-width: 0;
@@ -79,6 +86,18 @@
     @include screen('sm') {
       max-width: none;
     }
+
+    .is-IE & {
+      min-width: 545px;
+
+      @include screen('lg') {
+        min-width: 550px;
+      }
+
+      @include screen('md') {
+        min-width: 0;
+      }
+    }
   }
 
   &__top {
@@ -93,6 +112,7 @@
     @include screen('lg') {
       padding-right: 14px;
       margin: 0 -7px 38px;
+      width: calc(100% + 14px);
     }
 
     @include screen('md') {
@@ -169,6 +189,7 @@
     @include screen('lg') {
       margin: 0 -7px;
       padding-right: 9px;
+      width: calc(100% + 14px);
     }
 
     @include screen('sm') {

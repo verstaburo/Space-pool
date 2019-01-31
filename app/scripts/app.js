@@ -2,6 +2,7 @@ import svg4everybody from 'svg4everybody';
 import objectFitImages from 'object-fit-images';
 import './globalOptions';
 import './modernizr';
+import '../blocks/js-functions/detectors';
 import anchor from '../blocks/js-functions/anchor';
 import {
   freezebuttons,
