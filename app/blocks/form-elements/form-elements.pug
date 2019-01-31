@@ -36,7 +36,7 @@ mixin checkbox(name, value, checked)
 mixin radio(name, value, checked)
   +b.LABEL.checkradio&attributes(attributes)
     - if (checked) {
-      +e.INPUT.input(name=name, value=value, checked, type="radio")
+      +e.INPUT.input(name=name, value=value, checked="checked", type="radio")
     - } else {
       +e.INPUT.input(name=name, value=value, type="radio")
     -}
@@ -46,7 +46,11 @@ mixin radio(name, value, checked)
 
 mixin color-radio(name, value, checked)
   +b.LABEL.color-radio&attributes(attributes)
-    +e.INPUT.input(name=name, value=value, type="radio")
+    - if (checked) {
+      +e.INPUT.input(name=name, value=value, type="radio", checked)
+    - } else {
+      +e.INPUT.input(name=name, value=value, type="radio")
+    - }
     +e.SPAN.content
       block
 

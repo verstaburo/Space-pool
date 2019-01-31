@@ -28,3 +28,18 @@ mixin space-around(data)
             +box(class='_small ' + item.class)
       +e.title!= data.title
       +e.location!= data.location
+
+mixin space-favorites(data)
+  +b.A.space&attributes(attributes)
+    +e.DIV.media
+      +e.IMG.image(src=data.img)
+      +button-heart._white.js-heart.is-active.__heart
+    +e.DIV.describe
+      if data.seats
+        +e.seats!= data.seats
+      if data.boxes
+        +boxes.__boxes
+          each item in data.boxes
+            +box(class='_small ' + item.class)
+      +e.title!= data.title
+      +e.location!= data.location

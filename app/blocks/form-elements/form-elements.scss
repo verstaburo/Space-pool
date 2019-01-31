@@ -502,6 +502,72 @@
       border-color: $color-office-space;
     }
   }
+
+  &_full {
+    #{$b}__content {
+      border-color: transparent;
+      border-radius: 0;
+
+      &::before {
+        transition: background $ease-main;
+        background-color: rgba($color-white, .8);
+      }
+    }
+
+
+    &:hover {
+      color: rgba($color-white, .8);
+
+      #{$b}__content {
+        border-color: transparent;
+
+        &::before {
+          background-color: $color-white;
+        }
+      }
+    }
+
+    #{$b}__input:checked~#{$b}__content {
+      border-color: $color-white;
+      background-color: $color-white;
+      color: $color-basic;
+
+      &::before {
+        background-color: $color-white;
+      }
+    }
+
+    &#{$b}_dark {
+
+      #{$b}__content {
+
+        &::before {
+          background-color: $color-form-border;
+        }
+      }
+
+      &:hover {
+        color: $color-radio-dark-hover;
+
+        #{$b}__content {
+
+          &::before {
+            background-color: $color-basic;
+          }
+        }
+      }
+
+      #{$b}__input:checked~#{$b}__content {
+        border-color: $color-basic;
+        background-color: $color-basic;
+        color: $color-white;
+
+        &::before {
+          background-color: $color-basic;
+        }
+      }
+    }
+  }
 }
 
 // #####

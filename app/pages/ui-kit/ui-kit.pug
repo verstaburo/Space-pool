@@ -396,33 +396,39 @@ block content
           +col(12).is-dark
             +ui-description Цветные радиокнопки
             +grid
-              +col(3)
+              +col(2)
                 +ui-description .color-radio._orange
                 +color-radio('test-color', '1')._orange Hot Desk
-              +col(3)
+              +col(2)
                 +ui-description .color-radio._red
                 +color-radio('test-color', '2')._red Dedicated Desk
-              +col(3)
+              +col(2)
                 +ui-description .color-radio._blue
                 +color-radio('test-color', '3')._blue Meeting Room
-              +col(3)
+              +col(2)
                 +ui-description .color-radio._green
                 +color-radio('test-color', '4')._green Office Space
+              +col(2)
+                +ui-description .color-radio._full
+                +color-radio('test-color', '5')._full Office Space
           +col(12)
             +ui-description Цветные радиокнопки темные
             +grid
-              +col(3)
+              +col(2)
                 +ui-description .color-radio._orange._dark
-                +color-radio('test-color', '1')._orange._dark Hot Desk
-              +col(3)
+                +color-radio('test-color2', '1')._orange._dark Hot Desk
+              +col(2)
                 +ui-description .color-radio._red._dark
-                +color-radio('test-color', '2')._red._dark Dedicated Desk
-              +col(3)
+                +color-radio('test-color2', '2')._red._dark Dedicated Desk
+              +col(2)
                 +ui-description .color-radio._blue._dark
-                +color-radio('test-color', '3')._blue._dark Meeting Room
-              +col(3)
+                +color-radio('test-color2', '3')._blue._dark Meeting Room
+              +col(2)
                 +ui-description .color-radio._green._dark
-                +color-radio('test-color', '4')._green._dark Office Space
+                +color-radio('test-color2', '4')._green._dark Office Space
+              +col(2)
+                +ui-description .color-radio._full
+                +color-radio('test-color2', '5')._full._dark Office Space
 
     //-Табы
     +ui-section
@@ -1303,6 +1309,27 @@ block content
           +offers-header('blue', 'MEETING ROOMS', 'no offers')
           +offers-describe
           +offers-list
+
+    //- pagination
+    +ui-section
+      +ui-section-head
+        h2 pagination
+        p Блок: block/pagination
+      +ui-section-content
+        +ui-description .pagination
+        +pagination
+
+    //- blog-news
+    -var blogNews = getData('blog-news.json');
+    +ui-section
+      +ui-section-head
+        h2 blog-news
+        p Блок: block/blog-news
+      +ui-section-content
+        +ui-description .blog-news
+        +grid.grid_layout
+          +col(6)
+            +blog-news(blogNews[1])(href="#")
 
 block panels
   +main-menu
