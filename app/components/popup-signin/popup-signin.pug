@@ -1,0 +1,31 @@
+mixin popup-signin()
+  +popup-origin.popup-signin__&attributes(attributes)
+    +popup-content
+      +popup-title.popup__title_big Sign in
+      +e.socials
+        +grid.grid_mid
+          +col({xl: 6, sm: 12})
+            +social-button('fb-symbol')._fb(href="#") Sign in via Facebook
+          +col({xl: 6, sm: 12})
+            +social-button('', 'assets/images/google.svg')._gg(href="#") Sign in via Google
+      +form._white.__form
+        +grid.grid_bigger
+          +col({xl: 12})
+            +form-section-wrapper
+              +form-box('E-mail')
+                +input(type="email" name="email" placeholder="E-mail")
+          +col({xl: 12})
+            +form-section-wrapper
+              +form-box('Password')
+                +input(type="password" name="password" placeholder="Password")
+        +e.bottom
+          +grid.grid_mid
+            +col({xl: 6, sm: 12}).popup-signin__remind
+              +link()(href="#")._underline Forgot the password? Use reminder
+            +col({xl: 6, sm: 12})
+              +button('button')(type="submit")._wide Sign in
+    +popup-bottom("assets/images/signin-bg.jpg")
+      +e.registration
+        +e.text Don’t have an account?
+        +e.links
+          +link()._white._underline.__link(href="#") Sign up Here

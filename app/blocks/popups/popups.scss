@@ -31,6 +31,8 @@
 }
 
 .popup {
+  $b: &;
+
   display: flex;
   width: 100%;
   max-width: 788px;
@@ -69,6 +71,33 @@
         margin-bottom: 14px;
       }
     }
+
+    &_big {
+      @include heading-2;
+
+      line-height: (39/40);
+      font-weight: 700;
+
+      @include screen('lg') {
+        @include heading-1-sm;
+
+        line-height: 1.2;
+      }
+
+      @include screen('sm') {
+        @include heading-3;
+
+        line-height: 1.2;
+      }
+
+      &:not(:last-child) {
+        margin-bottom: 45px;
+
+        @include screen('sm') {
+          margin-bottom: 22px;
+        }
+      }
+    }
   }
 
   &__close {
@@ -92,6 +121,51 @@
     &-icon {
       width: 21px;
       height: 21px;
+    }
+  }
+
+  &__bottom {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+
+    &-content {
+      position: relative;
+      box-sizing: border-box;
+      display: flex;
+      padding: 0 70px;
+      width: 100%;
+      min-height: 120px;
+      z-index: 2;
+
+      @include screen('sm') {
+        padding: 0 20px;
+      }
+    }
+  }
+
+  &__bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+    background-color: $color-grey-dark;
+    z-index: 1;
+
+    &-image {
+      @include fill-img;
+
+      font-size: 0;
+      line-height: 0;
+      opacity: .16;
+    }
+
+    &~#{$b}__bottom-content {
+      color: $color-white;
     }
   }
 }

@@ -54,6 +54,7 @@ block content
               span При следующей записи - блок будет занимать 6 колонок на всех разрешениях, а на самом маленьком #[i (xs)] 12
             p +col({ xl: 6, xs: 12 })
 
+        +ui-description .grid
         +grid
           +col(1)
           +col(1)
@@ -73,7 +74,103 @@ block content
           +col(6)
           +col(6)
         br
+        +ui-description .grid_big
         +grid.grid_big
+          +col(1)
+          +col(1)
+          +col(1)
+          +col(1)
+          +col(1)
+          +col(1)
+          +col(1)
+          +col(1)
+          +col(1)
+          +col(1)
+          +col(1)
+          +col(1)
+          +col(4)
+          +col(4)
+          +col(4)
+          +col(6)
+          +col(6)
+        +ui-description .grid_bigger
+        +grid.grid_bigger
+          +col(1)
+          +col(1)
+          +col(1)
+          +col(1)
+          +col(1)
+          +col(1)
+          +col(1)
+          +col(1)
+          +col(1)
+          +col(1)
+          +col(1)
+          +col(1)
+          +col(4)
+          +col(4)
+          +col(4)
+          +col(6)
+          +col(6)
+        +ui-description .grid_layout
+        +grid.grid_layout
+          +col(1)
+          +col(1)
+          +col(1)
+          +col(1)
+          +col(1)
+          +col(1)
+          +col(1)
+          +col(1)
+          +col(1)
+          +col(1)
+          +col(1)
+          +col(1)
+          +col(4)
+          +col(4)
+          +col(4)
+          +col(6)
+          +col(6)
+        +ui-description .grid_blog
+        +grid.grid_blog
+          +col(1)
+          +col(1)
+          +col(1)
+          +col(1)
+          +col(1)
+          +col(1)
+          +col(1)
+          +col(1)
+          +col(1)
+          +col(1)
+          +col(1)
+          +col(1)
+          +col(4)
+          +col(4)
+          +col(4)
+          +col(6)
+          +col(6)
+        +ui-description .grid_no-top
+        +grid.grid_no-top
+          +col(1)
+          +col(1)
+          +col(1)
+          +col(1)
+          +col(1)
+          +col(1)
+          +col(1)
+          +col(1)
+          +col(1)
+          +col(1)
+          +col(1)
+          +col(1)
+          +col(4)
+          +col(4)
+          +col(4)
+          +col(6)
+          +col(6)
+        +ui-description .grid_mid
+        +grid.grid_mid
           +col(1)
           +col(1)
           +col(1)
@@ -649,6 +746,8 @@ block content
       +ui-section-content()
         +ui-description .breadcrumbs
         +breadcrumbs(['London', 'Kensington', 'Boutique Workplace - 1 Neal Street'])
+        +ui-description .breadcrumbs - ну очень длинный финал
+        +breadcrumbs(['London', 'Kensington', 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu.'])
         +ui-description .breadcrumbs-box
       +breadcrumbs-box
 
@@ -895,6 +994,8 @@ block content
     //- Spaces
     - var space = {img: "assets/images/space1.jpg", boxes: {box1: {class: "_orange"}, box2: {class: "_red"}, box3: {class: "_blue"}, box4: {class: "_green"}},title: "TOG - Henry Wood House",location: "W1W, London"};
     - var room = {img: "assets/images/room1.jpg", seats: "18 seats", title: "TOG - Henry Wood House", location: "W1W, London"};
+    -var spaceAround = {img: "assets/images/space10.jpg", boxes: {box1: {class: "_orange"}, box2: { class: "_red" }, box3: { class: "_blue" }}, title: "Blooming Founders (Former Blooms )", location: "EC2A, London"};
+    -var spaceFavorite = {img: "assets/images/space17.jpg", boxes: { box1: { class: "_orange" }}, title: "Blooming Founders (Former Blooms London)", location: "EC2A, London"};
     +ui-section
       +ui-section-head
         h2 Spaces
@@ -906,6 +1007,10 @@ block content
             +space(space)
           +col(3)
             +space(room)
+          +col(3)
+            +space-around(spaceAround)
+          +col(3)
+            +space-favorites(spaceFavorite)
 
 
     //- compact-form
@@ -1330,6 +1435,26 @@ block content
         +grid.grid_layout
           +col(6)
             +blog-news(blogNews[1])(href="#")
+
+    //- category-filter
+    +ui-section
+      +ui-section-head
+        h2 category-fitler
+        p Блок: block/category-fitler
+      +ui-section-content
+        +ui-description .category-fitler
+        +category-filter
+
+    //- page-title
+    +ui-section
+      +ui-section-head
+        h2 page-title
+        p Блок: block/page-title
+      +ui-section-content
+        +ui-description .page-title
+        +page-title Title
+        +ui-description .page-title._small
+        +page-title._small Title
 
 block panels
   +main-menu

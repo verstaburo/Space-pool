@@ -10,3 +10,18 @@ mixin popup()
 mixin popup-title()
   h3.popup__title&attributes(attributes)
     block
+
+mixin popup-origin()
+  +b.popup&attributes(attributes)
+    block
+
+mixin popup-content()
+  .popup__content&attributes(attributes)
+    block
+
+mixin popup-bottom(img)
+  .popup__bottom&attributes(attributes)
+    .popup__bg
+      img.popup__bg-image(src=img)
+    .popup__bottom-content
+      block

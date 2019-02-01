@@ -1,0 +1,54 @@
+.social-button {
+  $b: &;
+
+  @include heading-4;
+
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  padding: 10px 25px 10px 40px;
+  background-color: $color-bg;
+  height: 40px;
+  text-decoration: none;
+  color: $color-basic;
+  font-weight: 700;
+  text-align: center;
+  overflow: hidden;
+  transition: color $ease-main;
+
+  @include screen('sm') {
+    @include text15;
+  }
+
+  &__icon {
+    position: absolute;
+    font-size: 0;
+    line-height: 0;
+    display: block;
+    top: 50%;
+    left: 16px;
+    transform-origin: 50% 50%;
+    transform: translate3d(0, -50%, 0);
+
+    #{$b}_fb & {
+      width: 10px;
+      height: 19px;
+      fill: $color-fb;
+    }
+
+    #{$b}_gg & {
+      width: 20px;
+      height: 21px;
+    }
+  }
+
+  &__text {
+    @include ellipsis(100%);
+  }
+
+  &:hover {
+    color: $color-basic-dark;
+  }
+}
