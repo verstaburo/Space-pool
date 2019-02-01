@@ -1,0 +1,42 @@
+extends ../../layouts/default-login
+
+block head
+  - var pageTitle = 'SpacePool - Messages'
+
+block header
+  -var headerClass = '_border'
+
+block content
+  +content-origin._reverse
+    .container
+      +e.wrapper
+        +content-column-aside._ptop.hide-lg
+          +side-navigation('Conversation available only with booked space managers')
+            +nav-list-sidebar(getData('side-menu-user.json'), 'Messages').__navigation
+        +content-column-main
+          +section._inner
+            +section-header._flex
+              +section-title('h3') Unread messages
+              +indicator 3
+            +section-content
+              +table-head._messages.hide-md
+                +e.wrapper
+                  +e.cell_sub
+                    +e.name Subject
+                  +e.cell_msgs
+                    +e.name Messages
+                  +divider
+          +section._inner
+            +section-header
+              +section-title('h3') Message history
+            +section-content
+              +table-head._messages.hide-md
+                +e.wrapper
+                  +e.cell_sub
+                    +e.name Subject
+                  +e.cell_msgs
+                    +e.name Messages
+                  +divider
+block panels
+  +main-menu-inner
+    +nav-list(getData('main-menu-user.json'))

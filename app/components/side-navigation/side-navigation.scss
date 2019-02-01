@@ -1,9 +1,12 @@
 .side-navigation {
   $b: &;
 
-  display: block;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
   width: 100%;
   padding: 50px 17% 49px;
+  min-height: 585px;
   box-sizing: border-box;
 
   @include screen('xl') {
@@ -16,5 +19,9 @@
     &:not(:last-child) {
       margin-bottom: 106px;
     }
+  }
+
+  .note {
+    margin-top: auto;
   }
 }
