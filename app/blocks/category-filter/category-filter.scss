@@ -1,3 +1,23 @@
 .category-filter {
   $b: &;
+
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+
+  @include screen('md') {
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  &__item {
+
+    &:not(:first-child) {
+      margin-left: 31px;
+
+      @include screen('md') {
+        margin-left: 10px;
+      }
+    }
+  }
 }
