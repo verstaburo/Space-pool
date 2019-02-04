@@ -1,0 +1,38 @@
+extends ../../layouts/default-login
+
+block head
+  - var pageTitle = 'SpacePool - Conversation'
+
+block header
+  -var headerClass = '_border'
+
+block content
+  +page-header._wide-lg._bpad
+    .container
+      +e.wrapper
+        +page-header-side
+          +link-icon('select-arrow')._back._bold.__back(href="#") Go back to messages
+            +indicator 3
+        +page-header-main.hide-md
+          +breadcrumbs(['Home', 'Messages', 'Boutique Workplace - 1 Neal Street'])
+  +table-head.hide-md
+    .container
+      +grid.grid_layout.grid_no-top.table-head__wrapper
+        +col({md:12, xl: 3}).table-head__cell
+          +e.name Subject:
+        +col({md:12, xl: 9}).table-head__cell
+          +e.name Manager:
+          +short-profile-origin('assets/images/ava3.jpg', 'Maria Barstaier')(href="#")
+          +conversation-info
+  +content-origin._reverse._wide-lg._top-mg._last
+    .container
+      +e.wrapper
+        +content-column-aside
+          +sidebar._no-bg
+            //- +space-reservation
+              //- +sapace-reserv('', 'div')
+        +content-column-main._ptop-small
+          //- +message-form
+block panels
+  +main-menu-inner
+    +nav-list(getData('main-menu-user.json'))

@@ -43,3 +43,20 @@ mixin space-favorites(data)
             +box(class='_small ' + item.class)
       +e.title!= data.title
       +e.location!= data.location
+
+
+mixin space-reserv(data, tag)
+  +b(tag || 'a').space&attributes(attributes)
+    if data.type
+      +e.head!= data.type
+    +e.DIV.media
+      +e.IMG.image(src=data.img)
+      if data.heart
+        +button-heart.js-heart.is-active.__heart(class=data.heart.class)
+    +e.DIV.describe
+      if data.boxes
+        +boxes.__boxes
+          each item in data.boxes
+            +box(class='_small ' + item.class)
+      +e.title!= data.title
+      +e.location!= data.location
