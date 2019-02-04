@@ -1,0 +1,9 @@
+mixin address-line(data)
+  +b.address-line&attributes(attributes)
+    +e.UL.list
+      each item in data.line
+        +e.LI.item!= item
+    if data.icons
+      +e.icons
+        each item in data.icons
+          +icon(item.ico)(class="icon_" + item.ico fill=item.color)

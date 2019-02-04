@@ -1,0 +1,33 @@
+mixin space-description()
+  +b.space-description&attributes(attributes)
+    block
+
+mixin space-description-image(img)
+  +e.media&attributes(attributes)
+    +e.IMG.image(src=img)
+
+mixin space-description-content(img)
+  +e.content&attributes(attributes)
+    block
+
+mixin space-description-address()
+  +e.address&attributes(attributes)
+    block
+
+mixin space-description-title(tag)
+  +e(tag || 'h4').title&attributes(attributes)
+    block
+
+mixin space-description-boxes()
+  +boxes.__boxes&attributes(attributes)
+    block
+
+mixin space-description-table()
+  +characteristics-table.__table&attributes(attributes)
+    body
+      +e.TR.row
+        +e.TD.cell Conversation start
+        +e.TD.cell_dark 27 October 2018
+      +e.TR.row
+        +e.TD.cell Messages
+        +e.TD.cell_dark 12&nbsp;|&nbsp;&nbsp;6 Unread

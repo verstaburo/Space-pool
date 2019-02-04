@@ -1,0 +1,17 @@
+mixin message()
+  +b.message&attributes(attributes)
+    block
+
+mixin message-header(count)
+  +e.header&attributes(attributes)
+    +e.interlocutor
+      block
+    +e.info
+      if count
+        +indicator.__counter!= count
+      +e.TIME.date(datetime="2018-10-27") 27 october 2018
+
+
+mixin message-content()
+  +e.content&attributes(attributes)
+    block

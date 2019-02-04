@@ -1,3 +1,11 @@
-mixin conversation()
-  +b.conversation&attributes(attributes)
+mixin conversation(tag)
+  +b(tag || 'a').conversation&attributes(attributes)
+    block
+
+mixin conversation-subject()
+  +e.DIV.subject&attributes(attributes)
+    block
+
+mixin conversation-message()
+  +e.DIV.message&attributes(attributes)
     block

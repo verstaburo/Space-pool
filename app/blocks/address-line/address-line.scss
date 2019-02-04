@@ -1,0 +1,62 @@
+.address-line {
+  $b: &;
+
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: wrap;
+
+  &__list {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+
+    &:not(:last-child) {
+      margin-right: 12px;
+    }
+  }
+
+  &__item {
+    @include text;
+
+    position: relative;
+    line-height: (26/14);
+    font-weight: 400;
+    color: $color-basic-light;
+
+    &:not(:last-child) {
+      padding-right: 19px;
+
+      &::after {
+        @include pseudo;
+
+        top: 50%;
+        right: 7px;
+        width: 5px;
+        height: 1px;
+        background-color: $color-basic-light;
+        transform: translate3d(0, -50%, 0);
+      }
+    }
+  }
+
+  &__icons {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+  }
+
+  &__icon {
+    width: 14px;
+    height: 14px;
+
+    &:not(:last-child) {
+      margin-right: 4px;
+    }
+
+    &_metro {
+      width: 14px;
+      height: 11px;
+    }
+  }
+}

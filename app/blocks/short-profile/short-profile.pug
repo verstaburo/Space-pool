@@ -8,3 +8,8 @@ mixin short-profile-host()
     +avatar('assets/images/ava2.jpg').__avatar
     +e.name Ann Landrodia
     +e.status host
+
+mixin short-profile-origin(img, name, tag)
+  +b(tag || 'a').short-profile_full&attributes(attributes)
+    +avatar(img).__avatar
+    +e.name!= name

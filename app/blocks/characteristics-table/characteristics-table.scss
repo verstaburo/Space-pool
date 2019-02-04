@@ -1,0 +1,38 @@
+.characteristics-table {
+  $b: &;
+
+  &.table {
+    @include text;
+
+    line-height: (26/14);
+    font-weight: 700;
+    color: $color-basic-light;
+
+    tr {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      &:last-child {
+        border-bottom: none;
+        text-align: right;
+      }
+    }
+
+    td {
+      white-space: nowrap;
+
+      &:not(:last-child) {
+        padding-right: 10px;
+        box-sizing: border-box;
+      }
+    }
+
+    #{$b}__cell {
+
+      &_dark {
+        color: $color-basic;
+      }
+    }
+  }
+}
