@@ -148,9 +148,9 @@
             </div>
         </div>
         <div class="table-head hide-md">
-            <div class="container">
-                <div class="grid grid_layout grid_no-top table-head__wrapper table-head__wrapper_sm-pb">
-                    <div class="grid__col grid__col_md_12 grid__col_xl_3 table-head__cell">
+            <div class="container" data-slot-id="table-head" data-slot-res="xl">
+                <div class="grid grid_layout grid_no-top table-head__wrapper table-head__wrapper_sm-pb" data-target-slot="table-head">
+                    <div class="grid__col grid__col_md_12 grid__col_xl_3 table-head__cell hide-md">
                         <div class="table-head__name">Subject:</div>
                     </div>
                     <div class="grid__col grid__col_md_12 grid__col_xl_9 table-head__cell">
@@ -161,7 +161,7 @@
                             </span>
                             <span class="short-profile__name">Maria Barstaier</span>
                         </a>
-                        <div class="conversation-info">
+                        <div class="conversation-info hide-sm">
                             <div class="conversation-info__item">Last activity:
                                 <time datetime="2018-10-28T14:45">28 october 14:45</time>
                             </div>
@@ -173,15 +173,77 @@
                 </div>
             </div>
         </div>
-        <section class="content content_reverse content_wide-lg content_last">
+        <section class="content content_reverse content_mid-pad content_wide-lg content_last">
             <div class="container">
                 <div class="content__wrapper">
                     <div class="content__column content__column_aside" data-sticky-parent="data-sticky-parent">
                         <aside class="js-sticky-block sidebar sidebar_no-bg">
-                            <div class="space-reservation"></div>
+                            <ARTICLE class="space-reservation space-reservation_side">
+                                <div class="grid grid_layout grid_no-top">
+                                    <div class="grid__col grid__col_sm_12 grid__col_md_6 grid__col_xl_12">
+                                        <section class="space space-reservation__info">
+                                            <div class="space__head space__head_orange">HOT DESK</div>
+                                            <div class="space__media">
+                                                <img class="space__image" src="assets/images/space16.jpg" alt="" role="presentation" />
+                                            </div>
+                                            <div class="space__describe">
+                                                <ul class="boxes space__boxes">
+                                                    <li class="box box_small box_orange"></li>
+                                                    <li class="box box_small box_red"></li>
+                                                    <li class="box box_small box_blue"></li>
+                                                    <li class="box box_small box_green"></li>
+                                                </ul>
+                                                <div class="space__title">Blooming Founders (Former Blooms London)</div>
+                                                <div class="space__location">EC2A, London</div>
+                                            </div>
+                                        </section>
+                                    </div>
+                                    <div class="grid__col grid__col_sm_12 grid__col_md_6 grid__col_xl_12">
+                                        <table class="table characteristics-table characteristics-table_big space-reservation__table">
+
+                                            <body>
+                                                <tr class="characteristics-table__row">
+                                                    <td class="characteristics-table__cell">Reservation Date:</td>
+                                                    <td class="characteristics-table__cell">
+                                                        <time datetime="2018-12-27">27 December 2018</time>
+                                                    </td>
+                                                </tr>
+                                                <tr class="characteristics-table__row">
+                                                    <td class="characteristics-table__cell">Duration:</td>
+                                                    <td class="characteristics-table__cell">Untill Cancelled</td>
+                                                </tr>
+                                                <tr class="characteristics-table__row">
+                                                    <td class="characteristics-table__cell">Status:</td>
+                                                    <td class="characteristics-table__cell characteristics-table__cell_dark">
+                                                        <svg class="characteristics-table__icon characteristics-table__icon_check"><use xlink:href="assets/images/icon.svg#icon_check2"></use></svg>Accepted</td>
+                                                </tr>
+                                                <tr class="characteristics-table__row">
+                                                    <td class="characteristics-table__cell">Current Price:</td>
+                                                    <td class="characteristics-table__cell">475&nbsp;&pound; + VAT&nbsp;/&nbsp;mo</td>
+                                                </tr>
+                                            </body>
+                                        </table>
+                                        <div class="space-reservation__controls space-reservation__controls_reverse">
+                                            <div class="space-reservation__control">
+                                                <a class="link link_icon link_icon_mid-small link_bold link_light-underline link_icon_dark link_no-shadow" href="#">
+                                                    <svg class="link__icon link__icon_document"><use xlink:href="assets/images/icon.svg#icon_document"></use></svg>
+                                                    <span class="link__text">View/Print Invoice</span>
+                                                </a>
+                                            </div>
+                                            <div class="space-reservation__control">
+                                                <a class="link link_icon link_icon_mid-small link_bold link_light-underline link_icon_gray link_no-shadow" href="#">
+                                                    <svg class="link__icon link__icon_round-cross"><use xlink:href="assets/images/icon.svg#icon_round-cross"></use></svg>
+                                                    <span class="link__text">Cancel Reservation</span>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </ARTICLE>
                         </aside>
                     </div>
                     <div class="content__column content__column_main content__column_no-ptop">
+                        <div class="content__slot table-head hide-from-md" data-slot-id="table-head" data-slot-res="md"></div>
                         <form class="message-form">
                             <div class="message-form__wrapper">
                                 <textarea class="textarea __textarea" type="text" name="message" placeholder="Message here..." rows="1"></textarea>

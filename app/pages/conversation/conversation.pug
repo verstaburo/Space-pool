@@ -7,6 +7,7 @@ block header
   -var headerClass = '_border'
 
 block content
+  - var space = {type: {name: "HOT DESK", color: "_orange"}, img: "assets/images/space16.jpg", heart: "", flag: "", boxes: [{class: "_orange"}, {class: "_red"}, {class: "_blue"}, {class: "_green"}], title: "Blooming Founders (Former Blooms London)", location: "EC2A, London"};
   +page-header._wide-lg._bpad
     .container
       +e.wrapper
@@ -16,22 +17,47 @@ block content
         +page-header-main.hide-md
           +breadcrumbs(['Home', 'Messages', 'Boutique Workplace - 1 Neal Street'])
   +table-head.hide-md
-    .container
-      +grid.grid_layout.grid_no-top.table-head__wrapper.table-head__wrapper_sm-pb
-        +col({md:12, xl: 3}).table-head__cell
+    .container(data-slot-id="table-head" data-slot-res="xl")
+      +grid.grid_layout.grid_no-top.table-head__wrapper.table-head__wrapper_sm-pb(data-target-slot="table-head")
+        +col({md:12, xl: 3}).table-head__cell.hide-md
           +e.name Subject:
         +col({md:12, xl: 9}).table-head__cell
           +e.name Manager:
           +short-profile-origin('assets/images/ava3.jpg', 'Maria Barstaier')(href="#")
-          +conversation-info
-  +content-origin._reverse._wide-lg._last
+          +conversation-info.hide-sm
+  +content-origin._reverse._mid-pad._wide-lg._last
     .container
       +e.wrapper
         +content-column-aside
           +sidebar._no-bg
-            +space-reservation
-              //- +sapace-reserv('', 'div')
+            +space-reservation()._side
+              +grid.grid_layout.grid_no-top
+                +col({sm: 12, md:6, xl: 12})
+                  +space-reservation-info(space)
+                +col({sm: 12, md:6, xl: 12})
+                  +space-reservation-table
+                    body
+                      +e.TR.row
+                        +e.TD.cell Reservation Date:
+                        +e.TD.cell <time datetime="2018-12-27">27 December 2018</time>
+                      +e.TR.row
+                        +e.TD.cell Duration:
+                        +e.TD.cell Untill Cancelled
+                      +e.TR.row
+                        +e.TD.cell Status:
+                        +e.TD.cell_dark
+                          +icon('check2').__icon_check
+                          | Accepted
+                      +e.TR.row
+                        +e.TD.cell Current Price:
+                        +e.TD.cell 475&nbsp;&pound; + VAT&nbsp;/&nbsp;mo
+                  +space-reservation-controls._reverse
+                    +e.control
+                        +link-icon('document')._icon_mid-small._bold._light-underline._icon_dark._no-shadow(href="#") View/Print Invoice
+                    +e.control
+                      +link-icon('round-cross')._icon_mid-small._bold._light-underline._icon_gray._no-shadow(href="#") Cancel Reservation
         +content-column-main._no-ptop
+          +e.slot.table-head.hide-from-md(data-slot-id="table-head" data-slot-res="md")
           +message-form
           +dialog
 block panels

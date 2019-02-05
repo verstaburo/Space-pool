@@ -1,3 +1,78 @@
 .space-reservation {
   $b: &;
+
+  display: block;
+  width: 100%;
+
+  &__info {
+    width: 100%;
+
+    &:not(:last-child) {
+      margin-bottom: 16px;
+    }
+  }
+
+  &__table {
+    width: 100%;
+
+    tr {
+      font-weight: 400;
+      flex-wrap: wrap;
+    }
+
+    .characteristics-table__cell_dark {
+      font-weight: 700;
+    }
+  }
+
+  &__controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  &__control {
+    @include text-mid;
+
+    line-height: 1.2;
+    margin-top: 17px;
+
+    &:not(:last-child) {
+      margin-right: 30px;
+
+      @include screen('md') {
+        margin-right: 20px;
+      }
+    }
+  }
+
+  &_side {
+
+    #{$b} {
+
+      &__info {
+        margin-bottom: 16px;
+
+        @include screen('md') {
+          margin-bottom: 0;
+        }
+
+        @include screen('sm') {
+          margin-bottom: 12px;
+        }
+      }
+
+      &__table {
+
+        @include screen('md') {
+          margin-top: -10px;
+        }
+
+        @include screen('sm') {
+          margin-top: 0;
+        }
+      }
+    }
+  }
 }

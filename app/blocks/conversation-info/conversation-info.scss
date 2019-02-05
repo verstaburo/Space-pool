@@ -8,6 +8,11 @@
   line-height: 0;
   color: $color-basic-light;
 
+  @include screen('sm') {
+    width: 100%;
+    justify-content: flex-start;
+  }
+
   &__item {
     @include text;
 
@@ -16,6 +21,10 @@
 
     &:not(:last-child) {
       margin-right: 45px;
+
+      @include screen('md') {
+        margin-right: 30px;
+      }
     }
   }
 }

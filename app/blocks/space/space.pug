@@ -45,14 +45,16 @@ mixin space-favorites(data)
       +e.location!= data.location
 
 
-mixin space-reserv(data, tag)
+mixin space-reserv(tag, data)
   +b(tag || 'a').space&attributes(attributes)
     if data.type
-      +e.head!= data.type
+      +e(class="head " + data.type.color)!= data.type.name
     +e.DIV.media
       +e.IMG.image(src=data.img)
       if data.heart
         +button-heart.js-heart.is-active.__heart(class=data.heart.class)
+      if data.flag
+        +e.flag!= flag
     +e.DIV.describe
       if data.boxes
         +boxes.__boxes
