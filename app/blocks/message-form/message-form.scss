@@ -1,3 +1,70 @@
 .message-form {
   $b: &;
+
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 18px 0;
+  border: 1px solid $color-border-light;
+  border-left-width: 0;
+  border-right-width: 0;
+
+  :-ms-input-placeholder {
+    color: $color-chat-placeholder;
+  }
+
+  ::placeholder {
+    color: $color-chat-placeholder;
+  }
+
+  &__wrapper {
+    display: flex;
+    justify-content: flex-start;
+    box-shadow: 1px 1px 8px rgba(34, 42, 46, 0.06);
+    border-radius: 21px;
+    width: 100%;
+  }
+
+  .textarea {
+    @include text;
+
+    font-weight: 400;
+    line-height: (26/14);
+    border-radius: 21px 0 0 21px;
+    border: 1px solid $color-border-light;
+    border-right-width: 0;
+    flex: 1;
+    background-color: $color-white;
+    box-sizing: border-box;
+    padding: 7px 17px;
+    resize: none;
+    overflow: hidden;
+  }
+
+  &__button {
+    position: relative;
+    font-size: 0;
+    line-height: 0;
+    min-width: 48px;
+    width: 48px;
+    border: 1px solid $color-border-light;
+    border-radius: 0 21px 21px 0;
+    background-color: $color-white;
+  }
+
+  &__icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform-origin: 50% 50%;
+    transform: translate3d(-50%, -50%, 0);
+    width: 15px;
+    height: 14px;
+    fill: $color-basic;
+    transition: fill $ease-main;
+
+    #{$b}__button:hover & {
+      fill: $color-basic-dark;
+    }
+  }
 }

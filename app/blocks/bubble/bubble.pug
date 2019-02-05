@@ -1,3 +1,10 @@
-mixin bubble()
-  +b.bubble&attributes(attributes)
-    block
+mixin bubble(tag, time, timeISO, angle)
+  +b(tag || 'div').bubble&attributes(attributes)
+    - if (angle) {
+      +icon('round-angle-down').angle
+    - } else {
+      +icon('round-angle').angle
+    - }
+    +e.TIME.timestamp(datetime=timeISO)!= time
+    +e.content
+      block

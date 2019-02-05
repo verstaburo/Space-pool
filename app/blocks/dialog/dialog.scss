@@ -1,0 +1,74 @@
+.dialog {
+  $b: &;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+
+  &:not(:first-child) {
+    margin-top: 29px;
+  }
+
+  &__block {
+    display: block;
+    width: 100%;
+
+    &:not(:last-child) {
+      margin-bottom: 34px;
+    }
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 100%;
+    padding-left: 4px;
+
+    &:not(:last-child) {
+      margin-bottom: 38px;
+    }
+  }
+
+  &__item {
+
+    &:not(:last-child) {
+      margin-bottom: 26px;
+    }
+  }
+
+  &__head {
+    position: relative;
+    display: block;
+    width: 100%;
+
+    &:not(:first-child) {
+      margin-top: -12px;
+    }
+
+    &::before {
+      @include pseudo;
+
+      top: 50%;
+      left: 0;
+      width: 100%;
+      height: 1px;
+      background-color: $color-border-light;
+    }
+  }
+
+  &__date {
+    @include text;
+
+    font-weight: 700;
+    line-height: (26/14);
+    position: relative;
+    display: inline-block;
+    background-color: $color-bg;
+    z-index: 1;
+    color: $color-basic-light;
+    padding-right: 10px;
+  }
+}

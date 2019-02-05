@@ -17,22 +17,23 @@ block content
           +breadcrumbs(['Home', 'Messages', 'Boutique Workplace - 1 Neal Street'])
   +table-head.hide-md
     .container
-      +grid.grid_layout.grid_no-top.table-head__wrapper
+      +grid.grid_layout.grid_no-top.table-head__wrapper.table-head__wrapper_sm-pb
         +col({md:12, xl: 3}).table-head__cell
           +e.name Subject:
         +col({md:12, xl: 9}).table-head__cell
           +e.name Manager:
           +short-profile-origin('assets/images/ava3.jpg', 'Maria Barstaier')(href="#")
           +conversation-info
-  +content-origin._reverse._wide-lg._top-mg._last
+  +content-origin._reverse._wide-lg._last
     .container
       +e.wrapper
         +content-column-aside
           +sidebar._no-bg
-            //- +space-reservation
+            +space-reservation
               //- +sapace-reserv('', 'div')
-        +content-column-main._ptop-small
-          //- +message-form
+        +content-column-main._no-ptop
+          +message-form
+          +dialog
 block panels
   +main-menu-inner
     +nav-list(getData('main-menu-user.json'))

@@ -1,3 +1,6 @@
 mixin message-form()
-  +b.message-form&attributes(attributes)
-    block
+  +b.FORM.message-form&attributes(attributes)
+    +e.wrapper
+      +textarea.__textarea(type="text" name="message" placeholder="Message here..." rows="1")
+      +e.BUTTON.button(type="submit") Отправить
+        +icon('chat-arrow').icon
