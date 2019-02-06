@@ -1,0 +1,35 @@
+mixin request()
+  +b.request&attributes(attributes)
+    block
+
+mixin request-sps()
+  +e.space&attributes(attributes)
+    block
+
+mixin request-ifo()
+  +e.info&attributes(attributes)
+    block
+
+
+mixin request-full(count1, count2, price, status)
+  +b.request&attributes(attributes)
+    +e.space
+    +e.info
+      +request-info
+        case status
+          when 'buttons'
+            +e.buttons
+              +button()(href="#")._red._short.__button Decline request
+              +button()(href="#")._short.__button Accept request
+            - break
+          when 'wait'
+            +request-status('time')._yellow.__status Waiting for Client Payment
+            - break
+          when 'decline'
+            +request-status('cross')._red.__status Declined
+            - break
+          when 'accept'
+            +request-status('check2')._green.__status Accepted
+            - break
+          default
+            - break

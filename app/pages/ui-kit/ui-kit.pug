@@ -224,6 +224,7 @@ block content
       +ui-section-content()
         +ui-elements-list()
           +ui-gradient('gradient-main', true)._gradient_main
+          +ui-gradient('gradient-second', true)._gradient_second
 
     //- Шрифты и контентная зона
     +ui-section
@@ -336,6 +337,7 @@ block content
           +button()(href="#")._wide .button_wide
           +button()(href="#")._short .button_short
           +button()(href="#")._border._short .button._border._short
+          +button()(href="#")._red .button_red
         +ui-description При клике на .js-anchor происходит скролл к элементу из атрибута href. Блок: blocks/js-functions/anchor.js
         +button()(href="#section0").js-anchor .js-anchor
         +ui-description При клике на .js-freeze скролл страницы блокируется, на .js-unfreeze разблокируется. Блок: blocks/js-functions/freeze.js. Функции freeze() и unfreeze() можно импортировать и использовать в модалках, бургере или где-то еще
@@ -617,6 +619,8 @@ block content
         +link._gray(href="#") Ссылка
         +ui-description .link._icon._gray-light
         +link-icon('refresh')(href="#")._gray-light Ссылка
+        +ui-description .link._icon._icon_gray
+        +link-icon('refresh')(href="#")._icon_gray Ссылка
         +ui-description .link.is-disabled
         +link()(href="#").is-disabled Отключенная ссылка
 
@@ -1587,7 +1591,7 @@ block content
         h2 space-reservation
         p Блок: block/space-reservation
       +ui-section-content
-        +grid
+        +grid.grid_layout
           +col({md:12, xl: 3})
             +ui-description .space-reservation._side
             +space-reservation()._side
@@ -1617,6 +1621,30 @@ block content
                         +link-icon('document')._icon_mid-small._bold._light-underline._icon_dark._no-shadow(href="#") View/Print Invoice
                     +e.control
                       +link-icon('round-cross')._icon_mid-small._bold._light-underline._icon_gray._no-shadow(href="#") Cancel Reservation
+          +col({sm: 12, md: 6, xl: 3})
+            +ui-description .space-reservation._link
+            +space-reservation()._link
+              - var spaceM = {type: {name: "HOT DESK", color: "_orange"}, img: "assets/images/space16.jpg", heart: "", flag: "", boxes: [{class: "_orange"}, {class: "_red"}, {class: "_blue"}, {class: "_green"}], title: "Blooming Founders (Former Blooms London)", location: "EC2A, London"};
+              +space-reservation-info(spaceM)
+              +space-reservation-table
+                body
+                  +e.TR.row
+                    +e.TD.cell Reservation Date:
+                    +e.TD.cell <time datetime="2018-12-27">27 December 2018</time>
+                  +e.TR.row
+                    +e.TD.cell Duration:
+                    +e.TD.cell Untill Cancelled
+                  +e.TR.row
+                    +e.TD.cell Status:
+                    +e.TD.cell_dark
+                      +icon('check2').__icon_check
+                      | Accepted
+                  +e.TR.row
+                    +e.TD.cell Current Price:
+                    +e.TD.cell 475&nbsp;&pound; + VAT&nbsp;/&nbsp;mo
+              +space-reservation-controls._reverse
+                +e.control
+                    +link-icon('document', 'div')._icon_mid-small._bold._light-underline._icon_dark._no-shadow(href="#") View/Print Invoice
 
     //- message-form
     +ui-section
@@ -1646,6 +1674,59 @@ block content
       +ui-section-content
         +ui-description .dialog
         +dialog
+
+    //- request-status
+    +ui-section
+      +ui-section-head
+        h2 request-status
+        p Блок: block/request-status
+      +ui-section-content
+        +ui-description .request-status
+        +grid.grid_layout
+          +col({xl: 4, sm: 12})
+            +ui-description .request-status_yellow
+            +request-status('time')._yellow Waiting for Client Payment
+          +col({xl: 4, sm: 12})
+            +ui-description .request-status_red
+            +request-status('cross')._red Declined
+          +col({xl: 4, sm: 12})
+            +ui-description .request-status_green
+            +request-status('check2')._green Accepted
+
+    //- long-arrow
+    +ui-section
+      +ui-section-head
+        h2 long-arrow
+        p Блок: block/long-arrow
+      +ui-section-content
+        +ui-description .long-arrow
+        +long-arrow
+
+    //- time
+    +ui-section
+      +ui-section-head
+        h2 time
+        p Блок: block/time
+      +ui-section-content
+        +ui-description .time
+        +time('30 October 2018', '2018-10-30', '30 October 2018', '2018-10-30')
+
+    //- request-info
+    +ui-section
+      +ui-section-head
+        h2 request-info
+        p Блок: block/request-info
+      +ui-section-content
+        +ui-description .request-info
+        +grid.grid_layout
+          +col(6)
+            +request-info
+              +e.buttons
+                +button()(href="#")._red._short.__button Decline request
+                +button()(href="#")._short.__button Accept request
+          +col(6)
+            +request-info
+              +request-status('time')._yellow.__status Waiting for Client Payment
 
 block panels
   +main-menu

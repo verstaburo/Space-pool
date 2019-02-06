@@ -1,0 +1,8 @@
+mixin time(start, startISO, end, endISO)
+  +b.time&attributes(attributes)
+    +e.text From:
+      +e.TIME.time(datetime=startISO)!= start
+    +long-arrow.__divider
+    +e.text Till:
+      +e.TIME.time(datetime=endISO)!= end
+    block

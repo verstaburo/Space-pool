@@ -1,0 +1,44 @@
+extends ../../layouts/default-login-host
+
+block head
+  - var pageTitle = 'SpacePool - HOST Reservations'
+
+block header
+  -var headerClass = '_border'
+
+block content
+  +content-origin._reverse._last
+    .container
+      +e.wrapper
+        +content-column-aside._ptop.hide-lg
+          +side-navigation('Change your personal info, password and notification options here')
+            +nav-list-sidebar(getData('side-menu-host.json'), 'Reservations').__navigation
+        +content-column-main
+          +section._inner._inner_ssmg
+            +section-header._flex
+              +section-title('h3') Today
+            +section-content
+              +table-head._messages.hide-md
+                +e.wrapper
+                  +e.cell_req-sub
+                    +e.name Request for
+                  +e.cell_req-info
+                    +e.name Request Details and Status
+                  +divider
+              +request-full('x4', '2', '', 'buttons')
+              +request-full('x4', '2', '', 'wait')
+          +section._inner._inner_gmg
+            +section-header._flex._smg
+              +section-title('h3') Upcoming
+            +section-content
+              +request-full('x1', '1', '', 'buttons')
+              +request-full('x3', '2', '', 'buttons')
+              +request-full('x4', '2', '', 'accept')
+              +request-full('x4', '2', '', 'decline')
+              +request-full('x2', '2', '', 'accept')
+              +request-full('x1', '2', '', 'accept')
+          +pagination._negative-mgt
+
+block panels
+  +main-menu-inner
+    +nav-list(getData('main-menu-host.json'))
