@@ -1,6 +1,8 @@
 .characteristics-table {
   $b: &;
 
+  width: 100%;
+
   &.table {
     @include text;
 
@@ -62,6 +64,17 @@
       @include text;
 
       line-height: (38/14);
+    }
+  }
+
+  &_normal.table {
+    font-weight: 400;
+
+    #{$b}__cell {
+
+      &_dark {
+        font-weight: 700;
+      }
     }
   }
 }

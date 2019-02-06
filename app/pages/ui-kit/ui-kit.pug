@@ -1456,6 +1456,197 @@ block content
         +ui-description .page-title._small
         +page-title._small Title
 
+    //- characteristics table
+    +ui-section
+      +ui-section-head
+        h2 characteristics-table
+        p Блок: block/characteristics-table
+      +ui-section-content
+        +ui-description .characteristics-table
+        +characteristics-table
+          body
+            +e.TR.row
+              +e.TD.cell Conversation start
+              +e.TD.cell_dark 27 October 2018
+            +e.TR.row
+              +e.TD.cell Messages
+              +e.TD.cell_dark 12&nbsp;|&nbsp;&nbsp;6 Unread
+        +ui-description .characteristics-table._big
+        +characteristics-table._big
+          body
+            +e.TR.row
+              +e.TD.cell Reservation Date:
+              +e.TD.cell <time datetime="2018-12-27">27 December 2018</time>
+            +e.TR.row
+              +e.TD.cell Duration:
+              +e.TD.cell Untill Cancelled
+            +e.TR.row
+              +e.TD.cell Status:
+              +e.TD.cell_dark
+                +icon('check2').__icon_check
+                | Accepted
+            +e.TR.row
+              +e.TD.cell Current Price:
+              +e.TD.cell 475&nbsp;&pound; + VAT&nbsp;/&nbsp;mo
+        +ui-description .characteristics-table._normal
+        +characteristics-table._normal
+          body
+            +e.TR.row
+              +e.TD.cell Reservation Date:
+              +e.TD.cell <time datetime="2018-12-27">27 December 2018</time>
+            +e.TR.row
+              +e.TD.cell Duration:
+              +e.TD.cell Untill Cancelled
+            +e.TR.row
+              +e.TD.cell Status:
+              +e.TD.cell_dark
+                +icon('check2').__icon_check
+                | Accepted
+            +e.TR.row
+              +e.TD.cell Current Price:
+              +e.TD.cell 475&nbsp;&pound; + VAT&nbsp;/&nbsp;mo
+
+    -var messages = getData('messages-old.json');
+
+    //- space description
+    +ui-section
+      +ui-section-head
+        h2 Space description for messages
+        p Блок: block/space-description
+      +ui-section-content
+        +ui-description .space-description
+        +space-description
+          +space-description-image(messages[0].space.image)
+          +space-description-content
+            +space-description-address
+              +address-line(messages[0].space.address)
+            +space-description-title!= messages[0].space.title
+            +space-description-boxes
+              +box._size10._orange
+              +box._size10._red
+              +box._size10._blue
+              +box._size10._green
+            +space-description-table
+
+    //- message
+    +ui-section
+      +ui-section-head
+        h2 Message for messages
+        p Блок: block/message
+      +ui-section-content
+        +ui-description .message
+        +message
+          +message-header(messages[0].count)
+            +short-profile-origin(messages[0].interlocuter.img, messages[0].interlocuter.name, 'div')
+          +message-content!= messages[0].text
+        +ui-description .message with .message__content_bold
+        +message
+          +message-header(messages[0].count)
+            +short-profile-origin(messages[0].interlocuter.img, messages[0].interlocuter.name, 'div')
+          +message-content._bold!= messages[0].text
+
+    //- conversation
+    +ui-section
+      +ui-section-head
+        h2 conversation for messages
+        p Блок: block/conversation
+      +ui-section-content
+        +ui-description .conversation
+        +conversation()(href="#")
+          +conversation-subject
+            +space-description
+              +space-description-image(messages[0].space.image)
+              +space-description-content
+                +space-description-address
+                  +address-line(messages[0].space.address)
+                +space-description-title!= messages[0].space.title
+                +space-description-boxes
+                  +box._size10._orange
+                  +box._size10._red
+                  +box._size10._blue
+                  +box._size10._green
+                +space-description-table
+          +conversation-message
+            +message
+              +message-header(messages[0].count)
+                +short-profile-origin(messages[0].interlocuter.img, messages[0].interlocuter.name, 'div')
+              +message-content._bold!= messages[0].text
+
+    //- conversation-info
+    +ui-section
+      +ui-section-head
+        h2 conversation-info
+        p Блок: block/conversation-info
+      +ui-section-content
+        +ui-description .conversation-info
+        +conversation-info
+
+    //- space-reservation
+    +ui-section
+      +ui-section-head
+        h2 space-reservation
+        p Блок: block/space-reservation
+      +ui-section-content
+        +grid
+          +col({md:12, xl: 3})
+            +ui-description .space-reservation._side
+            +space-reservation()._side
+              +grid.grid_layout.grid_no-top
+                +col({sm: 12, md:6, xl: 12})
+                  - var spaceR = {type: {name: "HOT DESK", color: "_orange"}, img: "assets/images/space16.jpg", heart: "", flag: "", boxes: [{class: "_orange"}, {class: "_red"}, {class: "_blue"}, {class: "_green"}], title: "Blooming Founders (Former Blooms London)", location: "EC2A, London"};
+                  +space-reservation-info(spaceR)
+                +col({sm: 12, md:6, xl: 12})
+                  +space-reservation-table
+                    body
+                      +e.TR.row
+                        +e.TD.cell Reservation Date:
+                        +e.TD.cell <time datetime="2018-12-27">27 December 2018</time>
+                      +e.TR.row
+                        +e.TD.cell Duration:
+                        +e.TD.cell Untill Cancelled
+                      +e.TR.row
+                        +e.TD.cell Status:
+                        +e.TD.cell_dark
+                          +icon('check2').__icon_check
+                          | Accepted
+                      +e.TR.row
+                        +e.TD.cell Current Price:
+                        +e.TD.cell 475&nbsp;&pound; + VAT&nbsp;/&nbsp;mo
+                  +space-reservation-controls._reverse
+                    +e.control
+                        +link-icon('document')._icon_mid-small._bold._light-underline._icon_dark._no-shadow(href="#") View/Print Invoice
+                    +e.control
+                      +link-icon('round-cross')._icon_mid-small._bold._light-underline._icon_gray._no-shadow(href="#") Cancel Reservation
+
+    //- message-form
+    +ui-section
+      +ui-section-head
+        h2 message-form
+        p Блок: block/message-form
+      +ui-section-content
+        +ui-description .message-form
+        +message-form
+
+    //- bubble
+    +ui-section
+      +ui-section-head
+        h2 bubble
+        p Блок: block/bubble
+      +ui-section-content
+        +ui-description .bubble
+        +bubble('li', '15:45', "2018-10-29T15:45")._bold.__item But we can discuss it. Maybe somehow charge you a little extra of you want to use the gym.
+        +ui-description .bubble._dark
+        +bubble('li', '15:45', "2018-10-27T15:45", true)._dark.__item I have ordered HOT DESK in your Building in East London. o the question is if i am able to have an access to your sports area when im ordering HOT DESK?
+
+    //- dialog
+    +ui-section
+      +ui-section-head
+        h2 dialog
+        p Блок: block/dialog
+      +ui-section-content
+        +ui-description .dialog
+        +dialog
+
 block panels
   +main-menu
 
