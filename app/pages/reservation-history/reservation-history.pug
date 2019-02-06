@@ -1,0 +1,82 @@
+extends ../../layouts/default-login
+
+block head
+  - var pageTitle = 'SpacePool - Reservation History'
+
+block header
+  -var headerClass = '_border'
+
+block content
+  - var latestSpaces = getData('space-history1.json')
+  - var oldSpaces = getData('space-history2.json')
+  +content-origin._reverse._last
+    .container
+      +e.wrapper
+        +content-column-aside._ptop.hide-lg
+          +side-navigation('The reservation history shows you all the reservation already past. Looking for current deals? Go to My Reservations')
+            +nav-list-sidebar(getData('side-menu-user.json'), 'History of booking').__navigation
+        +content-column-main
+          +section._grid
+            +section-header
+              +section-title('h3') Latest Reservations
+            +section-content
+              +grid.grid_layout.grid_reserv
+                each item in latestSpaces
+                  +col({xl: 4, md: 6, sm: 12})
+                    +space-reservation('a')._link(href="#")
+                      +space-reservation-info(item.space)
+                      +space-reservation-table
+                        body
+                          +e.TR.row
+                            +e.TD.cell Reservation Date:
+                            +e.TD.cell <time datetime="2018-12-27">27 December 2018</time>
+                          +e.TR.row
+                            +e.TD.cell Duration:
+                            +e.TD.cell Untill Cancelled
+                          +e.TR.row
+                            +e.TD.cell Status:
+                            +e.TD.cell Pending
+                          +e.TR.row
+                            +e.TD.cell Current Price:
+                            - if (item.darkcell) {
+                              +e.TD.cell_dark 475&nbsp;&pound; + VAT&nbsp;/&nbsp;mo
+                            - } else {
+                              +e.TD.cell 475&nbsp;&pound; + VAT&nbsp;/&nbsp;mo
+                            - }
+                      +space-reservation-controls
+                        +e.control
+                          +link-icon('document', 'div')._icon_mid-small._bold._light-underline._icon_dark._no-shadow View/Print Invoice
+          +section._grid
+            +section-header
+              +section-title('h3') Earlier this year
+            +section-content
+              +grid.grid_layout.grid_reserv
+                each item in oldSpaces
+                  +col({xl: 4, md: 6, sm: 12})
+                    +space-reservation('a')._link(href="#")
+                      +space-reservation-info(item.space)
+                      +space-reservation-table
+                        body
+                          +e.TR.row
+                            +e.TD.cell Reservation Date:
+                            +e.TD.cell <time datetime="2018-12-27">27 December 2018</time>
+                          +e.TR.row
+                            +e.TD.cell Duration:
+                            +e.TD.cell Untill Cancelled
+                          +e.TR.row
+                            +e.TD.cell Status:
+                            +e.TD.cell Pending
+                          +e.TR.row
+                            +e.TD.cell Current Price:
+                            - if (item.darkcell) {
+                              +e.TD.cell_dark 475&nbsp;&pound; + VAT&nbsp;/&nbsp;mo
+                            - } else {
+                              +e.TD.cell 475&nbsp;&pound; + VAT&nbsp;/&nbsp;mo
+                            - }
+                      +space-reservation-controls
+                        +e.control
+                          +link-icon('document', 'div')._icon_mid-small._bold._light-underline._icon_dark._no-shadow View/Print Invoice
+
+block panels
+  +main-menu-inner
+    +nav-list(getData('main-menu-user.json'))

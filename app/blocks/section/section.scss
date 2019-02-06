@@ -26,6 +26,18 @@
     }
   }
 
+  &_grid {
+    margin-bottom: 90px;
+
+    @include screen('sm') {
+      margin-bottom: 45px;
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
   &_inner {
     margin-bottom: 66px;
 
@@ -184,6 +196,14 @@
 
     @include screen('sm') {
       margin-bottom: 18px;
+    }
+
+    #{$b}_grid & {
+      margin-bottom: 40px;
+
+      @include screen('sm') {
+        margin-bottom: 20px;
+      }
     }
 
     #{$b}_inner & {

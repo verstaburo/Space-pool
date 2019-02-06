@@ -3,17 +3,27 @@
 
   display: block;
   width: 100%;
+  text-decoration: none;
+  color: $color-basic;
 
   &__info {
     width: 100%;
+    position: relative;
+    z-index: 2;
 
     &:not(:last-child) {
       margin-bottom: 16px;
     }
   }
 
+  .space:hover .space__title {
+    color: $color-basic;
+  }
+
   &__table {
     width: 100%;
+    position: relative;
+    z-index: 2;
 
     tr {
       font-weight: 400;
@@ -30,6 +40,8 @@
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
+    position: relative;
+    z-index: 2;
   }
 
   &__control {
@@ -73,6 +85,30 @@
           margin-top: 0;
         }
       }
+    }
+  }
+
+  &_link {
+    cursor: pointer;
+    position: relative;
+
+    &::before {
+      @include pseudo;
+
+      top: -18px;
+      left: -25px;
+      right: -25px;
+      bottom: -47px;
+      background-color: $color-white;
+      box-shadow: 1px 1px 8px rgba(34, 42, 46, 0.06);
+      border-radius: 3px;
+      opacity: 0;
+      transition: opacity $ease-main;
+      z-index: 1;
+    }
+
+    &:hover::before {
+      opacity: 1;
     }
   }
 }
