@@ -1231,8 +1231,8 @@ block content
     //- Spoiler
     +ui-section
       +ui-section-head
-        h2 Offer short
-        p Блок: components/offer-short
+        h2 Spoiler
+        p Блок: blocks/spoiler
       +ui-section-content
         +spoiler
           +content-zone
@@ -1355,6 +1355,14 @@ block content
       +ui-section-content
         +ui-description .indicator
         +indicator 3
+        +ui-description .indicator._orange
+        +indicator._orange 3
+        +ui-description .indicator._green
+        +indicator._green 3
+        +ui-description .indicator._blue
+        +indicator._blue 3
+        +ui-description .indicator._fz13
+        +indicator._fz13 3
 
     //- space-info
     +ui-section
@@ -1531,6 +1539,15 @@ block content
               +box._size10._blue
               +box._size10._green
             +space-description-table
+        +ui-description .space-description in request
+        +space-description
+          +space-description-image('assets/images/space24.jpg')
+          +space-description-content
+            +space-description-title RNR Property - Oxford Street
+            +space-description-info
+              +offer-counters(4, 2, '_orange').__name HOT DESK
+              +price(430).__price
+            +space-description-text Members will enjoy access to our world-class Cultural Programme, Member-only Be Better sessions & weekly wellness programme...
 
     //- message
     +ui-section
@@ -1727,6 +1744,33 @@ block content
           +col(6)
             +request-info
               +request-status('time')._yellow.__status Waiting for Client Payment
+
+    //- price
+    +ui-section
+      +ui-section-head
+        h2 price
+        p Блок: block/price
+      +ui-section-content
+        +ui-description .price
+        +price('324')
+
+    //- factor
+    +ui-section
+      +ui-section-head
+        h2 factor
+        p Блок: block/factor
+      +ui-section-content
+        +ui-description .factor
+        +factor 32
+
+    //- offer-counters
+    +ui-section
+      +ui-section-head
+        h2 offer-counters
+        p Блок: block/offer-counters
+      +ui-section-content
+        +ui-description .offer-counters
+        +offer-counters('3', '2', '_orange') hot space
 
 block panels
   +main-menu

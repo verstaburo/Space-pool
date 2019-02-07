@@ -14,6 +14,14 @@ mixin request-ifo()
 mixin request-full(count1, count2, price, status)
   +b.request&attributes(attributes)
     +e.space
+      +space-description._request
+        +space-description-image('assets/images/space24.jpg')
+        +space-description-content
+          +space-description-title RNR Property - Oxford Street
+          +space-description-info
+            +offer-counters(count1, count2, '_orange').__name HOT DESK
+            +price(price).__price
+          +space-description-text Members will enjoy access to our world-class Cultural Programme, Member-only Be Better sessions & weekly wellness programme...
     +e.info
       +request-info
         case status

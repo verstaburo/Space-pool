@@ -1,0 +1,32 @@
+.offer-counters {
+  $b: &;
+
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: nowrap;
+
+  &__factor {
+    &:not(:last-child) {
+      margin-right: 6px;
+    }
+  }
+
+  &__head {
+    @include text16;
+
+    font-weight: 800;
+    text-transform: uppercase;
+    line-height: 1.2;
+    color: $color-basic-light;
+    letter-spacing: .02em;
+
+    &:not(:last-child) {
+      margin-right: 6px;
+    }
+  }
+
+  &__count {
+    margin-left: 0;
+  }
+}

@@ -10,17 +10,29 @@
 
     font-weight: 400;
     display: inline-block;
+
+    @include screen('sm') {
+      @include text;
+
+      line-height: (26/14);
+    }
   }
 
   &__time {
     @include text-mid;
 
     font-weight: 700;
+    white-space: nowrap;
+
+    @include screen('sm') {
+      @include text15;
+    }
   }
 
   &__divider {
     flex: 1;
-    margin-left: 24px;
-    margin-right: 30px;
+    margin-left: 11px;
+    margin-right: 11px;
+    min-width: 15px;
   }
 }
