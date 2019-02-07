@@ -1,0 +1,44 @@
+mixin pivot-table()
+  +b.pivot-table&attributes(attributes)
+    +form
+      +form-section
+        +form-section-header
+          +form-section-title Order summary
+        +grid.grid_big
+          +col({xl: 6, md:12 })
+            +form-section-wrapper
+              +form-box('Rent start date:', 'calendar2')._icon
+                +input.js-datepicker(type="text" name="startDate" value="29 October 2018" placeholder="Rent start date:")
+          +col({xl: 6, md:12 })
+            +form-section-wrapper
+              +form-box('Rent end date:', 'calendar2')._icon
+                +input.js-datepicker(type="text" name="endDate" value="29 October 2019" placeholder="Rent end date:")
+      +characteristics-table._normal._large._dark._pivot.__table
+        body
+          +e.TR.row
+            +e.TD.cell_dark Object type
+            +e.TD.cell Dedicated Desk
+          +e.TR.row
+            +e.TD.cell_dark Office size
+            +e.TD.cell 180 sq. feet
+          +e.TR.row
+            +e.TD.cell_dark Rent Period starts at
+            +e.TD.cell 29 October 2018
+          +e.TR.row
+            +e.TD.cell_dark Rent Period ends at
+            +e.TD.cell 29 October 2019
+          +e.TR.row
+            +e.TD.cell_dark Price
+            +e.TD.cell_dark 498.00 &pound; per month
+          +e.TR.row
+            +e.TD.cell_dark Price for a whole period
+            +e.TD.cell_dark  4 498.00 &pound;
+          +e.TR.row
+            +e.TD.cell_dark First payment to start rent
+            +e.TD.cell_dark 986.00 &pound;
+      +e.bottom
+        +grid.grid_layout
+          +col({xl: 4, lg: 6, md: 12}).grid__col_flex
+            +e.text_big._dark._flex All prices includes VAT And Service Charges
+          +col({xl: 8, lg: 6, md: 12})
+            +button('button')._wide(type="button") Proceed to Checkout

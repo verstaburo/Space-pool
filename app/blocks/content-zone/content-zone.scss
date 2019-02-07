@@ -163,6 +163,43 @@
     @include link;
   }
 
+  &_mid {
+    @include text16;
+
+    line-height: (20/16);
+
+    p {
+
+      &:not(:last-child) {
+        margin-bottom: 20px;
+
+        @include screen('sm') {
+          margin-bottom: 25px;
+        }
+      }
+
+      small {
+        @include text-small;
+
+        line-height: (20/11);
+      }
+    }
+
+    ul {
+      line-height: (20/16);
+
+      li {
+        &:not(:last-child) {
+          margin-bottom: 15px;
+        }
+
+        &::before {
+          top: 7px;
+        }
+      }
+    }
+  }
+
   &_small {
     @include text15;
 

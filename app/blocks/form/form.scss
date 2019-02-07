@@ -165,6 +165,25 @@
     &_light {
       color: $color-placeholder;
     }
+
+    &_big {
+      @include text16;
+
+      @include screen('sm') {
+        @include text;
+
+        line-height: (26/14);
+      }
+    }
+
+    &_dark {
+      color: $color-basic;
+    }
+
+    &_flex {
+      display: flex;
+      align-items: center;
+    }
   }
 
   &__wrapper {
@@ -302,7 +321,25 @@
     }
   }
 
+  &_negative-mg {
+    margin-top: -8px;
+
+    @include screen('md') {
+      margin-top: 0;
+    }
+  }
+
   &_white {
     background-color: $color-white;
+  }
+
+  &__table {
+    &:not(:first-child) {
+      margin-top: 19px;
+    }
+
+    &:not(:last-child) {
+      margin-bottom: 44px;
+    }
   }
 }

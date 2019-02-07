@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimal-ui">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>SpacePool - Order summary</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <link href="favicon.ico" rel="shortcut icon">
+    <link href="assets/styles/app.min.css" rel="stylesheet">
+    <script src="assets/scripts/libs/jquery.min.js"></script>
+</head>
+
+<body class="is-login">
+    <header class="header header_border is-login">
+        <div class="container">
+            <div class="header__logo">
+                <a class="logo" href="/">
+                    <svg class="logo__icon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 171.5 53.7">
+                        <defs>
+                            <linearGradient id="logo-grad1" x1="28.97" x2="42.59" y1="23.48" y2="43.67" gradientUnits="userSpaceOnUse">
+                                <stop offset="0.25" stop-color="#008199"></stop>
+                                <stop offset="1" stop-color="#0de1aa"></stop>
+                            </linearGradient>
+                            <linearGradient id="logo-grad2" x1="16.86" x2="5.5" y1="21.43" y2="45.8" xlink:href="#logo-grad1"></linearGradient>
+                            <linearGradient id="logo-grad3" x1="23.03" x2="23.61" y1="0.02" y2="16.82" xlink:href="#logo-grad1"></linearGradient>
+                        </defs>
+                        <g class="logo__image">
+                            <path fill="url(#logo-grad1)" d="M42.5,16.16v22L29.13,45.9v-6l11.11-6.51V17.3L24.63,26.41V53.69L47,40.7V13.57ZM29.13,29l6.61-3.9v5.7l-6.61,3.9Z"></path>
+                            <path fill="url(#logo-grad2)" d="M0,13.57V40.7l22.37,13V37.31L11.26,30.8V25.11l11.11,6.5v-5.2L6.76,17.3V33.38l11.11,6.51v6L4.49,38.11V16.16Z"></path>
+                            <polygon fill="url(#logo-grad3)" points="0 13.57 4.5 16.16 23.5 5.19 42.51 16.16 47 13.57 23.5 0 0 13.57"></polygon>
+                        </g>
+                        <g class="logo__text">
+                            <path d="M58.5,31.36l1.87-2.63a7.18,7.18,0,0,0,5.17,2.19c1.89,0,2.82-.88,2.82-1.8,0-2.87-9.35-.9-9.35-7,0-2.71,2.34-4.95,6.16-4.95a9,9,0,0,1,6.33,2.27L69.58,22a7,7,0,0,0-4.73-1.78c-1.48,0-2.31.66-2.31,1.63,0,2.59,9.33.86,9.33,6.92,0,3-2.12,5.21-6.5,5.21A9.29,9.29,0,0,1,58.5,31.36Z"></path>
+                            <path d="M76.61,32.14v6H73.52V21.89h3.09v1.48a4.56,4.56,0,0,1,3.63-1.77c3,0,5.21,2.24,5.21,6.16s-2.19,6.18-5.21,6.18A4.5,4.5,0,0,1,76.61,32.14Zm5.63-4.38c0-2-1.2-3.41-3-3.41a3.47,3.47,0,0,0-2.66,1.34v4.16a3.55,3.55,0,0,0,2.66,1.34C81,31.19,82.24,29.8,82.24,27.76Z"></path>
+                            <path d="M94.16,33.65V32.43a4.83,4.83,0,0,1-3.72,1.51,3.93,3.93,0,0,1-4.09-3.75V30c0-2.75,2.22-3.79,4.09-3.79a4.84,4.84,0,0,1,3.72,1.43V26.1c0-1.19-1-2-2.58-2a4.94,4.94,0,0,0-3.43,1.39l-1.15-2a7.74,7.74,0,0,1,5.14-1.85c2.68,0,5.14,1.07,5.14,4.45v7.6Zm0-2.83V29.36a3.09,3.09,0,0,0-2.48-1c-1.22,0-2.21.63-2.21,1.78s1,1.73,2.21,1.73A3.09,3.09,0,0,0,94.16,30.82Z"></path>
+                            <path d="M99,27.76a6,6,0,0,1,5.83-6.16,2.67,2.67,0,0,1,.4,0,5.47,5.47,0,0,1,4.65,2.11l-2,1.9a2.85,2.85,0,0,0-2.48-1.26,3.14,3.14,0,0,0-3.2,3.08c0,.11,0,.22,0,.33a3.16,3.16,0,0,0,2.88,3.42h.31a3,3,0,0,0,2.48-1.27l2,1.88a5.44,5.44,0,0,1-4.65,2.14A6,6,0,0,1,99,28.18Z"></path>
+                            <path d="M110.5,27.76a6,6,0,0,1,5.84-6.16h.25c3.5,0,5.89,2.63,5.89,6.47v.68h-8.74a3.16,3.16,0,0,0,3.38,2.73,5,5,0,0,0,3.14-1.17l1.37,2a7.31,7.31,0,0,1-4.85,1.63,6,6,0,0,1-6.28-5.71Zm6.09-3.71a2.81,2.81,0,0,0-2.9,2.61h5.79a2.72,2.72,0,0,0-2.82-2.61Z"></path>
+                            <path d="M131.19,32.14v6h-3.1V21.89h3.1v1.48a4.53,4.53,0,0,1,3.62-1.77c3,0,5.21,2.24,5.21,6.16s-2.19,6.18-5.21,6.18A4.53,4.53,0,0,1,131.19,32.14Zm5.62-4.38c0-2-1.19-3.41-3-3.41a3.45,3.45,0,0,0-2.65,1.34v4.16a3.55,3.55,0,0,0,2.65,1.34C135.62,31.19,136.81,29.8,136.81,27.76Z"></path>
+                            <path d="M140.92,27.76A6.22,6.22,0,1,1,147.14,34,6.21,6.21,0,0,1,140.92,27.76Zm9.23,0c0-1.83-1.09-3.41-3-3.41s-3,1.58-3,3.41,1.07,3.43,3,3.43S150.15,29.61,150.15,27.76Z"></path>
+                            <path d="M154.29,27.76A6.22,6.22,0,1,1,160.51,34,6.21,6.21,0,0,1,154.29,27.76Zm9.23,0c0-1.83-1.1-3.41-3-3.41s-3,1.58-3,3.41,1.07,3.43,3,3.43,3-1.58,3-3.43Z"></path>
+                            <path d="M168.41,33.65V17.41h3.09V33.65Z"></path>
+                        </g>
+                    </svg>
+                </a>
+            </div>
+            <nav class="header__navigation">
+                <div class="header__main">
+                    <ul class="header-menu">
+                        <li class="header-menu__item header-menu__item_bmg hide-md">
+                            <a class="link" href="#">
+                                <span class="link__text">Become a host</span>
+                            </a>
+                        </li>
+                        <li class="header-menu__item hide-md">
+                            <a class="link" href="#">
+                                <span class="link__text">Support</span>
+                            </a>
+                        </li>
+                        <li class="header-menu__item">
+                            <a class="link" href="#">
+                                <span class="link__text">Sign Up</span>
+                            </a>
+                        </li>
+                        <li class="header-menu__item">
+                            <a class="link js-popup" href="#popup-signin">
+                                <span class="link__text">Sign In</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="header__user">
+                    <div class="header-user">
+                        <div class="header-user__user">
+                            <a class="short-profile" href="#">
+                                <span class="avatar short-profile__avatar">
+                                    <img class="avatar__image" src="assets/images/ava.jpg" alt="" role="presentation" />
+                                </span>
+                                <span class="short-profile__name">Spencer Macenthire</span>
+                            </a>
+                        </div>
+                        <ul class="header-user__list">
+                            <li class="header-user__item">
+                                <a class="user-link is-new" href="#">
+                                    <svg class="user-link__icon user-link__icon_calendar"><use xlink:href="assets/images/icon.svg#icon_calendar"></use></svg>
+                                    <span class="user-link__marker"></span>
+                                </a>
+                            </li>
+                            <li class="header-user__item">
+                                <a class="user-link is-new" href="#">
+                                    <svg class="user-link__icon user-link__icon_message"><use xlink:href="assets/images/icon.svg#icon_message"></use></svg>
+                                    <span class="user-link__marker"></span>
+                                </a>
+                            </li>
+                            <li class="header-user__item">
+                                <a class="user-link" href="#">
+                                    <svg class="user-link__icon user-link__icon_heart"><use xlink:href="assets/images/icon.svg#icon_heart"></use></svg>
+                                    <span class="user-link__marker"></span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            <div class="header__burger">
+                <button class="burger js-open-navigation">
+                    <div class="burger__image">
+                        <div class="burger__line"></div>
+                    </div>
+                </button>
+            </div>
+        </div>
+    </header>
+    <main class="page" role="main">
+        <div class="page-header page-header_wide-lg page-header_lpad">
+            <div class="container">
+                <div class="grid grid_layout">
+                    <div class="grid__col grid__col_lg_12 grid__col_xl_3">
+                        <a class="link link_icon link_back link_bold page-header__back" href="#">
+                            <svg class="link__icon link__icon_select-arrow"><use xlink:href="assets/images/icon.svg#icon_select-arrow"></use></svg>
+                            <span class="link__text">Back to Space</span>
+                        </a>
+                    </div>
+                    <div class="grid__col grid__col_lg_12 grid__col_xl_9 hide-lg">
+                        <ul class="breadcrumbs">
+                            <li class="breadcrumbs__item">
+                                <a class="link link_bordered breadcrumbs__link" href="#">
+                                    <span class="link__text">Home</span>
+                                </a>
+                            </li>
+                            <li class="breadcrumbs__item">
+                                <a class="link link_bordered breadcrumbs__link" href="#">
+                                    <span class="link__text">Search Results</span>
+                                </a>
+                            </li>
+                            <li class="breadcrumbs__item">
+                                <a class="link link_bordered breadcrumbs__link" href="#">
+                                    <span class="link__text">Blooming Founder (formre Blooms...</span>
+                                </a>
+                            </li>
+                            <li class="breadcrumbs__item">
+                                <a class="link link_bordered breadcrumbs__link" href="#">
+                                    <span class="link__text">Reservation request</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <section class="content content_reverse content_wide-lg content_last">
+            <div class="container">
+                <div class="content__wrapper">
+                    <div class="content__column content__column_aside" data-sticky-parent="data-sticky-parent">
+                        <aside class="js-sticky-block sidebar sidebar_no-bg">
+                            <ARTICLE class="space-reservation space-reservation_side">
+                                <div class="grid grid_layout grid_no-top">
+                                    <div class="grid__col grid__col_sm_12 grid__col_md_6 grid__col_xl_12">
+                                        <section class="space space-reservation__info">
+                                            <div class="space__head space__head_red">DEDICATED DESK</div>
+                                            <div class="space__media">
+                                                <img class="space__image" src="assets/images/space2.jpg" alt="" role="presentation" />
+                                            </div>
+                                            <div class="space__describe">
+                                                <ul class="boxes space__boxes">
+                                                    <li class="box box_small box_orange"></li>
+                                                    <li class="box box_small box_red"></li>
+                                                    <li class="box box_small box_blue"></li>
+                                                </ul>
+                                                <div class="space__title">Blooming Founders (Former Blooms London)</div>
+                                                <div class="space__location">EC2A, London</div>
+                                            </div>
+                                        </section>
+                                    </div>
+                                    <div class="grid__col grid__col_sm_12 grid__col_md_6 grid__col_xl_12">
+                                        <div class="space-reservation__price">
+                                            <div class="info-price info-price_small">
+                                                <div class="info-price__text">498.00 &pound; per month</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </ARTICLE>
+                        </aside>
+                    </div>
+                    <div class="content__column content__column_main content__column_no-ptop">
+                        <div class="pivot-table">
+                            <form class="form">
+                                <fieldset class="form__section">
+                                    <div class="form__header">
+                                        <h3 class="form__title">Order summary</h3>
+                                    </div>
+                                    <div class="grid grid_big">
+                                        <div class="grid__col grid__col_xl_6 grid__col_md_12">
+                                            <div class="form__wrapper">
+                                                <label class="form-box form-box_icon">
+                                                    <input class="input js-datepicker" type="text" name="startDate" value="29 October 2018" placeholder="Rent start date:" />
+                                                    <span class="form-box__label">Rent start date:</span>
+                                                    <svg class="form-box__icon"><use xlink:href="assets/images/icon.svg#icon_calendar2"></use></svg>
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="grid__col grid__col_xl_6 grid__col_md_12">
+                                            <div class="form__wrapper">
+                                                <label class="form-box form-box_icon">
+                                                    <input class="input js-datepicker" type="text" name="endDate" value="29 October 2019" placeholder="Rent end date:" />
+                                                    <span class="form-box__label">Rent end date:</span>
+                                                    <svg class="form-box__icon"><use xlink:href="assets/images/icon.svg#icon_calendar2"></use></svg>
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </fieldset>
+                                <table class="table characteristics-table characteristics-table_normal characteristics-table_large characteristics-table_dark characteristics-table_pivot form__table">
+
+                                    <body>
+                                        <tr class="characteristics-table__row">
+                                            <td class="characteristics-table__cell characteristics-table__cell_dark">Object type</td>
+                                            <td class="characteristics-table__cell">Dedicated Desk</td>
+                                        </tr>
+                                        <tr class="characteristics-table__row">
+                                            <td class="characteristics-table__cell characteristics-table__cell_dark">Office size</td>
+                                            <td class="characteristics-table__cell">180 sq. feet</td>
+                                        </tr>
+                                        <tr class="characteristics-table__row">
+                                            <td class="characteristics-table__cell characteristics-table__cell_dark">Rent Period starts at</td>
+                                            <td class="characteristics-table__cell">29 October 2018</td>
+                                        </tr>
+                                        <tr class="characteristics-table__row">
+                                            <td class="characteristics-table__cell characteristics-table__cell_dark">Rent Period ends at</td>
+                                            <td class="characteristics-table__cell">29 October 2019</td>
+                                        </tr>
+                                        <tr class="characteristics-table__row">
+                                            <td class="characteristics-table__cell characteristics-table__cell_dark">Price</td>
+                                            <td class="characteristics-table__cell characteristics-table__cell_dark">498.00 &pound; per month</td>
+                                        </tr>
+                                        <tr class="characteristics-table__row">
+                                            <td class="characteristics-table__cell characteristics-table__cell_dark">Price for a whole period</td>
+                                            <td class="characteristics-table__cell characteristics-table__cell_dark"> 4 498.00 &pound;</td>
+                                        </tr>
+                                        <tr class="characteristics-table__row">
+                                            <td class="characteristics-table__cell characteristics-table__cell_dark">First payment to start rent</td>
+                                            <td class="characteristics-table__cell characteristics-table__cell_dark">986.00 &pound;</td>
+                                        </tr>
+                                    </body>
+                                </table>
+                                <div class="form__bottom">
+                                    <div class="grid grid_layout">
+                                        <div class="grid__col grid__col_xl_4 grid__col_lg_6 grid__col_md_12 grid__col_flex">
+                                            <div class="form__text form__text_big form__text_dark form__text_flex">All prices includes VAT And Service Charges</div>
+                                        </div>
+                                        <div class="grid__col grid__col_xl_8 grid__col_lg_6 grid__col_md_12">
+                                            <button class="button button_wide" type="button">
+                                                <span class="button__text">Proceed to Checkout</span>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <section class="section section_inner">
+                            <div class="section__header section__header_flex section__header_bmg">
+                                <h3 class="section__title">Something you need to remember</h3>
+                            </div>
+                            <div class="section__content">
+                                <div class="content-zone content-zone_mid">
+                                    <p>Once you will enter apartment you will love it right away. It has a nice second level constructed inside for a sleeping accommodations thus leaving main area for recreation. There is a big bathtub in the bathroom and
+                                        nice kitchen with small bar in it</p>
+                                    <p>Once you will enter apartment you will love it right away. It has a nice second level constructed inside for a sleeping accommodations thus leaving main area for recreation. There is a big bathtub in the bathroom and
+                                        nice kitchen with small bar in itOnce you will enter apartment you will love it right away. It has a nice second level constructed inside for a sleeping accommodations thus leaving main area for recreation. There
+                                        is a big bathtub in the bathroom and nice kitchen with small bar in it</p>
+                                    <p>Once you will enter apartment you will love it right away. It has a nice second level constructed inside for a sleeping accommodations thus leaving main area for recreation. There is a big bathtub in the bathroom and
+                                        nice kitchen with small bar in it</p>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <div class="popups">
+        <div class="popup popup-signin" id="popup-signin">
+            <div class="popup__content">
+                <h3 class="popup__title popup__title_big">Sign in</h3>
+                <div class="popup-signin__socials">
+                    <div class="grid grid_mid">
+                        <div class="grid__col grid__col_xl_6 grid__col_sm_12">
+                            <a class="social-button social-button_fb" href="#">
+                                <svg class="social-button__icon"><use xlink:href="assets/images/icon.svg#icon_fb-symbol"></use></svg>
+                                <span class="social-button__text">Sign in via Facebook</span>
+                            </a>
+                        </div>
+                        <div class="grid__col grid__col_xl_6 grid__col_sm_12">
+                            <a class="social-button social-button_gg" href="#">
+                                <img class="social-button__icon" src="assets/images/google.svg" alt="" role="presentation" />
+                                <span class="social-button__text">Sign in via Google</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <form class="form form_white popup-signin__form">
+                    <div class="grid grid_bigger">
+                        <div class="grid__col grid__col_xl_12">
+                            <div class="form__wrapper">
+                                <label class="form-box">
+                                    <input class="input" type="email" name="email" placeholder="E-mail" />
+                                    <span class="form-box__label">E-mail</span>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="grid__col grid__col_xl_12">
+                            <div class="form__wrapper">
+                                <label class="form-box">
+                                    <input class="input" type="password" name="password" placeholder="Password" />
+                                    <span class="form-box__label">Password</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form__bottom">
+                        <div class="grid grid_mid">
+                            <div class="grid__col grid__col_xl_6 grid__col_sm_12 popup-signin__remind">
+                                <a class="link link_underline" href="#">
+                                    <span class="link__text">Forgot the password? Use reminder</span>
+                                </a>
+                            </div>
+                            <div class="grid__col grid__col_xl_6 grid__col_sm_12">
+                                <button class="button button_wide" type="submit">
+                                    <span class="button__text">Sign in</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="popup__bottom">
+                <div class="popup__bg">
+                    <img class="popup__bg-image" src="assets/images/signin-bg.jpg" />
+                </div>
+                <div class="popup__bottom-content">
+                    <div class="popup-signin__registration">
+                        <div class="popup-signin__text">Don’t have an account?</div>
+                        <div class="popup-signin__links">
+                            <a class="link link_white link_underline popup-signin__link" href="#">
+                                <span class="link__text">Sign up Here</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="overlay"></div>
+    <div class="user-menu-panel">
+        <ul class="user-menu-panel__list">
+            <li class="user-menu-panel__item">
+                <a class="user-link is-new" href="#">
+                    <svg class="user-link__icon user-link__icon_calendar"><use xlink:href="assets/images/icon.svg#icon_calendar"></use></svg>
+                    <span class="user-link__marker"></span>
+                </a>
+            </li>
+            <li class="user-menu-panel__item">
+                <a class="user-link is-new" href="#">
+                    <svg class="user-link__icon user-link__icon_message"><use xlink:href="assets/images/icon.svg#icon_message"></use></svg>
+                    <span class="user-link__marker"></span>
+                </a>
+            </li>
+            <li class="user-menu-panel__item">
+                <a class="user-link" href="#">
+                    <svg class="user-link__icon user-link__icon_heart"><use xlink:href="assets/images/icon.svg#icon_heart"></use></svg>
+                    <span class="user-link__marker"></span>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <div class="main-menu main-menu_inner">
+        <div class="main-menu__wrapper">
+            <div class="main-menu__block">
+                <div class="main-menu__top">
+                    <button class="burger js-open-navigation">
+                        <div class="burger__image">
+                            <div class="burger__line"></div>
+                        </div>
+                    </button>
+                </div>
+                <div class="main-menu__scrollblock js-scrollbar-light">
+                    <div class="main-menu__content">
+                        <div class="main-menu__top-menu">
+                            <ul class="nav-list">
+                                <li class="nav-list__item">
+                                    <a class="link" href="#">
+                                        <span class="link__text">My Reseravtions</span>
+                                    </a>
+                                </li>
+                                <li class="nav-list__item">
+                                    <a class="link" href="#">
+                                        <span class="link__text">History of Booking</span>
+                                    </a>
+                                </li>
+                                <li class="nav-list__item">
+                                    <a class="link" href="#">
+                                        <span class="link__text">Messages</span>
+                                    </a>
+                                </li>
+                                <li class="nav-list__item">
+                                    <a class="link" href="#">
+                                        <span class="link__text">Favourites</span>
+                                    </a>
+                                </li>
+                                <li class="nav-list__item">
+                                    <a class="link" href="#">
+                                        <span class="link__text">Profile & Settings</span>
+                                    </a>
+                                </li>
+                                <li class="nav-list__item">
+                                    <a class="link" href="#">
+                                        <span class="link__text">Sign out</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <hr class="divider" />
+                        <div class="main-menu__bottom-menu">
+                            <ul class="nav-list">
+                                <li class="nav-list__item">
+                                    <a class="link" href="#">
+                                        <span class="link__text">About the project</span>
+                                    </a>
+                                </li>
+                                <li class="nav-list__item">
+                                    <a class="link" href="#">
+                                        <span class="link__text">Become a host</span>
+                                    </a>
+                                </li>
+                                <li class="nav-list__item">
+                                    <a class="link" href="#">
+                                        <span class="link__text">Help &amp; Support</span>
+                                    </a>
+                                </li>
+                                <li class="nav-list__item">
+                                    <a class="link" href="#">
+                                        <span class="link__text">News</span>
+                                    </a>
+                                </li>
+                                <li class="nav-list__item">
+                                    <a class="link" href="#">
+                                        <span class="link__text">Terms and Policies</span>
+                                    </a>
+                                </li>
+                            </ul>
+                            <ul class="socials">
+                                <li class="socials__item">
+                                    <a class="social social_fb" target="_blank" href="#" title="facebook">
+                                        <svg class="social__icon"><use xlink:href="assets/images/icon.svg#icon_sc-fb"></use></svg>
+                                    </a>
+                                </li>
+                                <li class="socials__item">
+                                    <a class="social social_ln" target="_blank" href="#" title="linkedIn">
+                                        <svg class="social__icon"><use xlink:href="assets/images/icon.svg#icon_sc-ln"></use></svg>
+                                    </a>
+                                </li>
+                                <li class="socials__item">
+                                    <a class="social social_tw" target="_blank" href="#" title="twitter">
+                                        <svg class="social__icon"><use xlink:href="assets/images/icon.svg#icon_sc-tw"></use></svg>
+                                    </a>
+                                </li>
+                                <li class="socials__item">
+                                    <a class="social social_inst" target="_blank" href="#" title="instagram">
+                                        <svg class="social__icon"><use xlink:href="assets/images/icon.svg#icon_sc-inst"></use></svg>
+                                    </a>
+                                </li>
+                            </ul>
+                            <div class="main-menu__links">
+                                <a class="link" href="mailto:info@spacepool.com">
+                                    <span class="link__text">info@spacepool.com</span>
+                                </a>
+                                <a class="link" href="tel:+4471478129419">
+                                    <span class="link__text">+44 714 781 294 19</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__top">
+                <div class="footer__logo">
+                    <a class="logo logo_footer">
+                        <img class="logo__icon" src="assets/images/logo.svg" alt="" role="presentation" />
+                    </a>
+                    <div class="footer__info" data-slot-id="footer-contacts" data-slot-res="bg"></div>
+                </div>
+                <div class="footer__navigation">
+                    <ul class="nav-list nav-list_small footer__list">
+                        <li class="nav-list__item">
+                            <a class="link" href="#">
+                                <span class="link__text">About the Project</span>
+                            </a>
+                        </li>
+                        <li class="nav-list__item">
+                            <a class="link" href="#">
+                                <span class="link__text">Help and Support</span>
+                            </a>
+                        </li>
+                        <li class="nav-list__item">
+                            <a class="link" href="#">
+                                <span class="link__text">Become a host</span>
+                            </a>
+                        </li>
+                    </ul>
+                    <ul class="nav-list nav-list_small footer__list">
+                        <li class="nav-list__item">
+                            <a class="link" href="#">
+                                <span class="link__text">Search for spaces</span>
+                            </a>
+                        </li>
+                        <li class="nav-list__item">
+                            <a class="link" href="#">
+                                <span class="link__text">Term and policies</span>
+                            </a>
+                        </li>
+                        <li class="nav-list__item">
+                            <a class="link" href="#">
+                                <span class="link__text">Careers</span>
+                            </a>
+                        </li>
+                    </ul>
+                    <ul class="nav-list nav-list_small footer__list">
+                        <li class="nav-list__item">
+                            <a class="link" href="#">
+                                <span class="link__text">Blog</span>
+                            </a>
+                        </li>
+                        <li class="nav-list__item">
+                            <a class="link" href="#">
+                                <span class="link__text">Press</span>
+                            </a>
+                        </li>
+                        <li class="nav-list__item">
+                            <a class="link" href="#">
+                                <span class="link__text">Advertise</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="footer__information">
+                    <div class="footer__controls hide-md" data-slot-id="footer-contacts" data-slot-res="xl">
+                        <div class="footer__contacts" data-target-slot="footer-contacts">
+                            <a class="link link_bold" href="mailto:info@spacepool.com">
+                                <span class="link__text">info@spacepool.com</span>
+                            </a>
+                            <div class="footer__copyright hide-sm">&copy; Space Pool ltd. 2019</div>
+                        </div>
+                    </div>
+                    <ul class="socials footer__socials">
+                        <li class="socials__item">
+                            <a class="social social_fb" target="_blank" href="#" title="facebook">
+                                <svg class="social__icon"><use xlink:href="assets/images/icon.svg#icon_sc-fb"></use></svg>
+                            </a>
+                        </li>
+                        <li class="socials__item">
+                            <a class="social social_ln" target="_blank" href="#" title="linkedIn">
+                                <svg class="social__icon"><use xlink:href="assets/images/icon.svg#icon_sc-ln"></use></svg>
+                            </a>
+                        </li>
+                        <li class="socials__item">
+                            <a class="social social_tw" target="_blank" href="#" title="twitter">
+                                <svg class="social__icon"><use xlink:href="assets/images/icon.svg#icon_sc-tw"></use></svg>
+                            </a>
+                        </li>
+                        <li class="socials__item">
+                            <a class="social social_inst" target="_blank" href="#" title="instagram">
+                                <svg class="social__icon"><use xlink:href="assets/images/icon.svg#icon_sc-inst"></use></svg>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer__bottom">
+                <div class="footer__copyright hide-from-sm">&copy; Space Pool ltd. 2019</div>
+                <div class="footer__text">The Space Pool Service operates under the United Kingdom Urisdiction. This text have no&nbsp;any sense it&rsquo;s just some sort of&nbsp;dummie to&nbsp;show the place where we&nbsp;can put an&nbsp;information usually writen with small
+                    letters.</div>
+            </div>
+        </div>
+    </footer>
+    <script src="assets/scripts/libs/object-assign-auto.min.js"></script>
+    <script src="assets/scripts/app.min.js"></script>
+    <script src="assets/scripts/main.js"></script>
+</body>
+
+</html>

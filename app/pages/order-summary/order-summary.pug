@@ -1,0 +1,44 @@
+extends ../../layouts/default-login
+
+block head
+  - var pageTitle = 'SpacePool - Order summary'
+
+block header
+  -var headerClass = '_border'
+
+block content
+  - var space = {type: {name: "DEDICATED DESK", color: "_red"}, img: "assets/images/space2.jpg", heart: "", flag: "", boxes: [{class: "_orange"}, {class: "_red"}, {class: "_blue"}], title: "Blooming Founders (Former Blooms London)", location: "EC2A, London"};
+  +page-header._wide-lg._lpad
+    .container
+      +grid.grid_layout
+        +col({ lg:12, xl: 3})
+          +link-icon('select-arrow')._back._bold.__back(href="#") Back to Space
+        +col({ lg:12, xl: 9}).hide-lg
+          +breadcrumbs(['Home', 'Search Results', 'Blooming Founder (formre Blooms...', 'Reservation request'])
+  +content-origin._reverse._wide-lg._last
+    .container
+      +e.wrapper
+        +content-column-aside
+          +sidebar._no-bg
+            +space-reservation()._side
+              +grid.grid_layout.grid_no-top
+                +col({sm: 12, md:6, xl: 12})
+                  +space-reservation-info(space)
+                +col({sm: 12, md:6, xl: 12})
+                  +space-reservation-price
+                    +info-price()._small 498.00 &pound; per month
+        +content-column-main._no-ptop
+          +pivot-table
+          +section._inner
+            +section-header._flex._bmg
+              +section-title('h3') Something you need to remember
+            +section-content
+              +content-zone._mid
+                p Once you will enter apartment you will love it right away. It has a nice second level constructed inside for a sleeping accommodations thus leaving main area for recreation. There is a big bathtub in the bathroom and nice kitchen with small bar in it
+                p Once you will enter apartment you will love it right away. It has a nice second level constructed inside for a sleeping accommodations thus leaving main area for recreation. There is a big bathtub in the bathroom and nice kitchen with small bar in itOnce you will enter apartment you will love it right away. It has a nice second level constructed inside for a sleeping accommodations thus leaving main area for recreation. There is a big bathtub in the bathroom and nice kitchen with small bar in it
+                p Once you will enter apartment you will love it right away. It has a nice second level constructed inside for a sleeping accommodations thus leaving main area for recreation. There is a big bathtub in the bathroom and nice kitchen with small bar in it
+
+
+block panels
+  +main-menu-inner
+    +nav-list(getData('main-menu-user.json'))
