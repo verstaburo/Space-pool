@@ -6,6 +6,7 @@ $new-breakpoints: map_remove($breakpoints, $default-breakpoit-name);
   $b: &;
 
   font-size: 0;
+  line-height: 0;
   display: block; // fallback для старых браузеров
   display: flex;
   flex-wrap: wrap;
@@ -65,6 +66,10 @@ $new-breakpoints: map_remove($breakpoints, $default-breakpoit-name);
     }
   }
 
+  &_int28 {
+    margin-top: -28px;
+  }
+
   &_reserv {
     margin-top: -60px;
   }
@@ -122,6 +127,10 @@ $new-breakpoints: map_remove($breakpoints, $default-breakpoit-name);
       }
     }
 
+    &_flex {
+      display: flex;
+    }
+
     #{$b}_big & {
       padding: $grid-gap-vertical-big $grid-gap-big/2 0;
     }
@@ -152,6 +161,10 @@ $new-breakpoints: map_remove($breakpoints, $default-breakpoit-name);
 
     #{$b}_reserv & {
       padding-top: 60px;
+    }
+
+    #{$b}_int28 & {
+      padding-top: 28px;
     }
 
     #{$b}_no-top & {

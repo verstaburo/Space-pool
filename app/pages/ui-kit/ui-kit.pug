@@ -1845,6 +1845,83 @@ block content
         +ui-description .request with status
         +request-full('1', '2', '730', 'accept')
 
+    //- footnote-star
+    +ui-section
+      +ui-section-head
+        h2 footnote-star
+        p Блок: block/footnote-star
+      +ui-section-content
+        +ui-description .footnote-star
+        +footnote-star
+
+    //- footnote
+    +ui-section
+      +ui-section-head
+        h2 footnote
+        p Блок: block/footnote
+      +ui-section-content
+        +ui-description .footnote
+        +footnote Текст сноски
+
+    //- payment-card
+    +ui-section
+      +ui-section-head
+        h2 payment-card
+        p Блок: block/payment-card
+      +ui-section-content
+        +ui-description .payment-card
+        +payment-card()
+          +e.wrapper
+            +payment-card-top._centered
+              +icon('card').icon_card
+            +payment-card-bottom
+              +button._border._border_bg-white(href="#") Enter Card Details
+        +ui-description .payment-card as radio-button
+        +payment-card('label')._radio
+          +input(type="radio" name="card" value="1").__input
+          +e.wrapper
+            +payment-card-top
+              +e.name
+                +icon('card').icon_card
+                +e.text MasterCard
+              +e.box
+            +payment-card-bottom
+              +card-mask.__card 1234
+
+    //- dots
+    +ui-section
+      +ui-section-head
+        h2 dots
+        p Блок: block/dots
+      +ui-section-content
+        +ui-description .dots
+        +dots
+          +dots-dot
+          +dots-dot
+          +dots-dot
+          +dots-dot
+
+    //- card-mask
+    +ui-section
+      +ui-section-head
+        h2 card-mask
+        p Блок: block/card-mask
+      +ui-section-content
+        +ui-description .card-mask
+        +card-mask 1234
+
+    //- info
+    +ui-section
+      +ui-section-head
+        h2 info
+        p Блок: block/info
+      +ui-section-content
+        +ui-description .info
+        +info
+          +e.cell Amount to pay:
+            +footnote-star
+          +e.cell 1&nbsp;498.00 &pound;
+
 block panels
   +main-menu
 

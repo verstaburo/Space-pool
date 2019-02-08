@@ -1,0 +1,31 @@
+.card-mask {
+  $b: &;
+
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+
+  &__item {
+    display: inline-block;
+    font-size: 0;
+    line-height: 0;
+
+    &:not(:last-child) {
+      margin-right: 14px;
+
+      @include screen('sm') {
+        margin-right: 10px;
+      }
+    }
+  }
+
+  &__text {
+    @include text-big;
+
+    font-weight: 700;
+
+    @include screen('sm') {
+      @include text15;
+    }
+  }
+}

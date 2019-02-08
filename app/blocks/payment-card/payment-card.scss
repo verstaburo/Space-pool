@@ -1,0 +1,153 @@
+.payment-card {
+  $b: &;
+
+  display: flex;
+  width: 100%;
+
+  &__input {
+    display: none;
+  }
+
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+    box-sizing: border-box;
+    background-color: $color-white;
+    border-radius: 3px;
+    box-shadow: 1px 1px 8px rgba(34, 42, 46, .06);
+    transition: border $ease-main;
+    border: 1px solid transparent;
+    width: 100%;
+    padding: 22px 19px 20px;
+  }
+
+  &__icon {
+    max-width: 50px;
+    max-height: 50px;
+    font-size: 0;
+    line-height: 0;
+    fill: $color-basic;
+    transition: all $ease-main;
+
+    &_card {
+      min-width: 46px;
+      width: 46px;
+      height: 37px;
+    }
+
+    &:not(:last-child) {
+      margin-right: 14px;
+    }
+  }
+
+  &__name {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+
+    &:not(:last-child) {
+      margin-right: 30px;
+    }
+  }
+
+  &__text {
+    @include text-big;
+
+    font-weight: 400;
+
+    @include screen('sm') {
+      @include text15;
+    }
+  }
+
+  &__box {
+    position: relative;
+    display: block;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    border: 1px solid $color-form-border;
+    background-color: $color-bg;
+    transition: border $ease-main, background $ease-main;
+
+    &::before {
+      @include pseudo;
+
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      top: 50%;
+      left: 50%;
+      transform: translate3d(-50%, -50%, 0);
+      background-color: $color-white;
+      opacity: 0;
+      transition: opacity $ease-main;
+    }
+  }
+
+  &__top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+
+    &:not(:last-child) {
+      margin-bottom: 18px;
+    }
+
+    &_centered {
+      justify-content: center;
+    }
+  }
+
+  &__bottom {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-end;
+    width: 100%;
+  }
+
+  &__card {
+    width: 100%;
+    border-top: 1px solid $color-form-border;
+    padding-top: 14px;
+  }
+
+  &_radio {
+    cursor: pointer;
+
+    &:hover {
+      #{$b}__wrapper {
+        border-color: $color-form-border;
+      }
+
+      #{$b}__icon {
+        fill: url('#main-gradient');
+      }
+
+      #{$b}__box {
+        border-color: $color-form-border-dark;
+        background-color: $color-basic;
+      }
+    }
+
+    #{$b}__input:checked~#{$b}__wrapper {
+      border-color: $color-basic;
+
+      #{$b}__icon {
+        fill: url('#main-gradient');
+      }
+
+      #{$b}__box {
+        border-color: $color-form-border-dark;
+        background-color: $color-basic;
+
+        &::before {
+          opacity: 1;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,95 @@
+extends ../../layouts/default-login
+
+block head
+  - var pageTitle = 'SpacePool - Order checkout'
+
+block header
+  -var headerClass = '_border'
+
+block content
+  - var space = {type: {name: "DEDICATED DESK", color: "_red"}, img: "assets/images/space2.jpg", heart: "", flag: "", boxes: [{class: "_orange"}, {class: "_red"}, {class: "_blue"}], title: "Blooming Founders (Former Blooms London)", location: "EC2A, London"};
+  +page-header._lpad
+    .container
+      +grid.grid_layout
+        +col({ md:12, xl: 3})
+          +link-icon('select-arrow')._back._bold.__back(href="#") Back to Space
+        +col({ md:12, xl: 9}).hide-md
+          +breadcrumbs(['Home', 'Search Results', 'Blooming Founder (formre Blooms...', 'Reservation request', 'Checkout'])
+  +content-origin._reverse._wide-lg._last
+    .container
+      +e.wrapper
+        +content-column-aside
+          +sidebar._no-bg
+            +space-reservation()._side._bmg
+              +grid.grid_layout.grid_no-top
+                +col({sm: 12, md:6, xl: 12})
+                  +space-reservation-info(space)
+                +col({sm: 12, md:6, xl: 12})
+                  +space-reservation-price
+                    +info-price()._small 498.00 &pound; per month
+        +content-column-main._no-ptop
+          +form._negative-mg
+            +form-section
+              +form-section-header
+                +form-section-title Checkout
+              +grid.grid_layout.grid_int28
+                +col({xl: 8, lg: 6, sm:12 })
+                  +form-section-wrapper
+                    +form-box('Payment method')
+                      +select.js-select-input(name="payment Method")
+                        option(value="placeholder" placeholder) Payment method
+                        option(value="creditCard" selected) Credit card
+                        option(value="method2") Method2
+                        option(value="other") Other
+                +col({xl: 4, lg: 6, sm:12 })
+                  +form-section-wrapper
+                    +e.links_end
+                      +link-icon('breafcase')._underline._no-shadow.__link Manage Payment methods
+              +e.payments
+                +grid.grid_layout.grid_int28
+                  +col({xl: 4, lg: 6, sm: 12}).grid__col_flex
+                    +payment-card('label')._radio
+                      +e.INPUT(type="radio" name="card" value="1").input
+                      +e.wrapper
+                        +payment-card-top
+                          +e.name
+                            +icon('card').icon_card
+                            +e.text MasterCard
+                          +e.box
+                        +payment-card-bottom
+                          +card-mask.__card 4134
+                  +col({xl: 4, lg: 6, sm: 12}).grid__col_flex
+                    +payment-card('label')._radio
+                      +e.INPUT(type="radio" name="card" value="2").input
+                      +e.wrapper
+                        +payment-card-top
+                          +e.name
+                            +icon('card').icon_card
+                            +e.text MasterCard
+                          +e.box
+                        +payment-card-bottom
+                          +card-mask.__card 1227
+                  +col({xl: 4, lg: 6, sm: 12}).grid__col_flex
+                    +payment-card
+                      +e.wrapper
+                        +payment-card-top._centered
+                          +icon('card').icon_card
+                        +payment-card-bottom
+                          +button._border._border_bg-white._short._wide(href="#") Enter Card Details
+              +e.bottom_bmg
+                +grid.grid_layout.grid_int28
+                  +col({xl: 8, md: 12})
+                    +info
+                      +e.cell Amount to pay:
+                        +footnote-star
+                      +e.cell 1&nbsp;498.00 &pound;
+                  +col({xl: 4, md: 12})
+                    +button('button')(type="submit")._short._wide Checkout
+                  +col({xl: 8, lg: 12})
+                    +footnote
+                      p Price Icluding First and Last month payment and Safety deposit.
+                      p If there are no claims from the landlord, the security deposit will be refunded to you in full upon the completion of the rental period.
+
+block panels
+  +main-menu-inner
+    +nav-list(getData('main-menu-user.json'))

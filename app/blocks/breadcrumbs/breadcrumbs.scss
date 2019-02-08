@@ -11,6 +11,7 @@
     position: relative;
 
     @include text;
+    @include ellipsis('300px');
 
     line-height: (26/14);
 
@@ -30,7 +31,11 @@
     }
 
     &:last-child {
-      @include ellipsis(100%);
+      @include ellipsis(70%);
+
+      @include screen('lg') {
+        max-width: 50%;
+      }
 
       #{$b}__link {
         @include link-disabled;

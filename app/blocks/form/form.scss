@@ -298,6 +298,55 @@
         line-height: 1.2;
       }
     }
+
+    &_bmg {
+      &:not(:first-child) {
+        margin-top: 100px;
+
+        @include screen('md') {
+          margin-bottom: 60px;
+        }
+
+        @include screen('sm') {
+          margin-bottom: 40px;
+        }
+      }
+    }
+  }
+
+  &__links {
+    display: flex;
+    justify-content: flex-start;
+    width: 100%;
+
+    &_end {
+      justify-content: flex-end;
+
+      @include screen('sm') {
+        justify-content: flex-start;
+      }
+    }
+  }
+
+  &__link {
+    @include text-big;
+
+    line-height: 1;
+    margin-right: 20px;
+
+    @include screen('sm') {
+      @include text15;
+
+      line-height: 1;
+    }
+  }
+
+  &__payments {
+    width: 100%;
+
+    &:not(:first-child) {
+      margin-top: 40px;
+    }
   }
 
   &_pb {
