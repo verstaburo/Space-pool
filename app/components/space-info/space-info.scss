@@ -9,6 +9,18 @@
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
+
+    &.hide-from-md {
+      @include screen('md', min) {
+        display: none;
+      }
+    }
+
+    &.hide-sm {
+      @include screen('sm') {
+        display: none;
+      }
+    }
   }
 
   &__title {

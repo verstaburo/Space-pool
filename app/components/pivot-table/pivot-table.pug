@@ -5,11 +5,11 @@ mixin pivot-table()
         +form-section-header
           +form-section-title Order summary
         +grid.grid_big
-          +col({xl: 6, md:12 })
+          +col({xl: 6, sm:12 })
             +form-section-wrapper
               +form-box('Rent start date:', 'calendar2')._icon
                 +input.js-datepicker(type="text" name="startDate" value="29 October 2018" placeholder="Rent start date:")
-          +col({xl: 6, md:12 })
+          +col({xl: 6, sm:12 })
             +form-section-wrapper
               +form-box('Rent end date:', 'calendar2')._icon
                 +input.js-datepicker(type="text" name="endDate" value="29 October 2019" placeholder="Rent end date:")
@@ -37,8 +37,8 @@ mixin pivot-table()
             +e.TD.cell_dark First payment to start rent
             +e.TD.cell_dark 986.00 &pound;
       +e.bottom
-        +grid.grid_layout
-          +col({xl: 4, lg: 6, md: 12}).grid__col_flex
-            +e.text_big._dark._flex All prices includes VAT And Service Charges
+        +grid.grid_layout.grid_ac
+          +col({xl: 4, lg: 6, md: 12})
+            +e.text_big._dark All prices includes VAT And Service Charges
           +col({xl: 8, lg: 6, md: 12})
             +button('button')._wide(type="button") Proceed to Checkout
