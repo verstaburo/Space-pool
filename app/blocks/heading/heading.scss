@@ -1,0 +1,133 @@
+.heading {
+  $b: &;
+
+  position: relative;
+  display: flex;
+  width: 100%;
+  min-height: 620px;
+  color: $color-white;
+
+  @include screen('lg') {
+    margin-left: -50px;
+    margin-right: -50px;
+    width: calc(100% + 100px);
+    min-height: 360px;
+  }
+
+  @include screen('md') {
+    margin-left: -36px;
+    margin-right: -36px;
+    width: calc(100% + 72px);
+  }
+
+  @include screen('sm') {
+    margin-left: -20px;
+    margin-right: -20px;
+    width: calc(100% + 40px);
+    min-height: 280px;
+  }
+
+  .is-IE & {
+    height: 620px;
+
+    @include screen('lg') {
+      min-height: 360px;
+    }
+
+    @include screen('sm') {
+      min-height: 280px;
+    }
+  }
+
+  &__bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    overflow: hidden;
+
+    &::before,
+    &::after {
+      @include pseudo;
+
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 2;
+    }
+
+    &::before {
+      background-color: $color-mask-bg1;
+    }
+
+    &::after {
+      background-color: $color-mask-bg2;
+
+      #{$b}_mask2 & {
+        display: none;
+      }
+    }
+
+    &-image {
+      @include fill-img;
+
+      z-index: 1;
+    }
+  }
+
+  &__content {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-sizing: border-box;
+    padding: 48px 17%;
+    width: 100%;
+    z-index: 2;
+
+    @include screen('xl') {
+      padding: 48px 13%;
+    }
+
+    @include screen('lg') {
+      padding: 72px 50px 68px;
+    }
+
+    @include screen('md') {
+      padding: 72px 36px 68px;
+    }
+
+    @include screen('sm') {
+      padding: 30px 20px 26px;
+    }
+  }
+
+  &__title {
+    @include heading-1;
+
+    font-weight: 700;
+
+    @include screen('sm') {
+      @include heading-2;
+    }
+
+    &:not(:last-child) {
+      margin-bottom: 40px;
+    }
+  }
+
+  &__note {
+    max-width: 270px;
+
+    @include screen('lg') {
+      max-width: 80%;
+    }
+
+    @include screen('sm') {
+      max-width: 100%;
+    }
+  }
+}

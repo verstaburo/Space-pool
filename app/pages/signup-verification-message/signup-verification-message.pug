@@ -1,0 +1,23 @@
+extends ../../layouts/default-login
+
+block head
+  - var pageTitle = 'SpacePool - Sign Up Verification Message'
+
+block content
+  +content-origin._reverse._last._top-bmg
+    .container
+      +grid.grid_layout.grid_no-top
+        +col({ xl: 4, lg: 12})
+          +grid.grid_layout.grid_no-top
+            +col({xl: 9, lg: 12})
+              +sidebar._no-bg
+                +heading('assets/images/heading-bg1.jpg', 'assets/images/heading-bg1.jpg')
+                  +e.H1.title Sign Up
+                  +note._color._color_green._lh26.__note Almost there. Just few more things to go. Please verify your new account.
+            +col({xl: 3, lg: 12})
+        +col({ xl: 7, lg: 12})
+        +col({ xl: 1, lg: 12}).hide-lg
+
+block panels
+  +main-menu-inner
+    +nav-list(getData('main-menu-user.json'))

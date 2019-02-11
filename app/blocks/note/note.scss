@@ -8,7 +8,10 @@
     display: block;
     width: 100%;
     margin-bottom: 19px;
-    margin-left: -3px;
+
+    #{$b}_lh26 & {
+      margin-bottom: 21px;
+    }
   }
 
   &__icon {
@@ -30,6 +33,10 @@
     p {
       font-weight: 700;
     }
+
+    #{$b}_lh26 & {
+      line-height: (26/17);
+    }
   }
 
   &_color {
@@ -43,6 +50,21 @@
       &__text {
         b {
           color: $color-hot-desk;
+        }
+      }
+    }
+
+    &_green {
+      #{$b} {
+
+        &__icon {
+          fill: $color-note-green;
+        }
+
+        &__text {
+          b {
+            color: $color-note-green;
+          }
         }
       }
     }

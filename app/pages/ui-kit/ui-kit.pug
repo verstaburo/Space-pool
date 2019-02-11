@@ -579,13 +579,28 @@ block content
           +tab()(data-tab-target="tabе3") Информация
           +tab()(data-tab-target="tabе4") Информация
         +tabs-content
-          +tab-wrapper()(data-tab="tabе1" data-tab-group="testtabs").active
+          +tab-wrapper()(data-tab="tabе1" data-tab-group="testtabs2").active
             p Это таб 1
-          +tab-wrapper()(data-tab="tabе2" data-tab-group="testtabs")
+          +tab-wrapper()(data-tab="tabе2" data-tab-group="testtabs2")
             p Это таб 2
-          +tab-wrapper()(data-tab="tabе3" data-tab-group="testtabs")
+          +tab-wrapper()(data-tab="tabе3" data-tab-group="testtabs2")
             p Это таб 3
-          +tab-wrapper()(data-tab="tabе4" data-tab-group="testtabs")
+          +tab-wrapper()(data-tab="tabе4" data-tab-group="testtabs2")
+            p Это таб 4
+        +ui-description табы кнопки
+        +tabs
+          +tab-container()(data-tab-target="taber1").active Информация
+          +tab-container()(data-tab-target="taber2") Информация
+          +tab-container()(data-tab-target="taber3") Информация
+          +tab-container()(data-tab-target="taber4") Информация
+        +tabs-content
+          +tab-wrapper()(data-tab="taber1" data-tab-group="testtabs3").active
+            p Это таб 1
+          +tab-wrapper()(data-tab="taber2" data-tab-group="testtabs3")
+            p Это таб 2
+          +tab-wrapper()(data-tab="taber3" data-tab-group="testtabs3")
+            p Это таб 3
+          +tab-wrapper()(data-tab="taber4" data-tab-group="testtabs3")
             p Это таб 4
 
     //- Попапы
@@ -1921,6 +1936,26 @@ block content
           +e.cell Amount to pay:
             +footnote-star
           +e.cell 1&nbsp;498.00 &pound;
+
+    //- social-button
+    +ui-section
+      +ui-section-head
+        h2 social-button
+        p Блок: block/social-button
+      +ui-section-content
+        +ui-description .social-button
+        div(style="background: white; overflow: hidden; padding: 10px 0; width: 100%;")
+          +grid.grid_layout
+            +col(6)
+              +social-button('fb-symbol')._fb(href="#") Sign in via Facebook
+            +col(6)
+              +social-button('', 'assets/images/google.svg')._gg(href="#") Sign in via Google
+        +ui-description .social-button._white
+        +grid.grid_layout
+          +col(6)
+            +social-button('fb-symbol')._fb._white(href="#") Sign in via Facebook
+          +col(6)
+            +social-button('', 'assets/images/google.svg')._gg._white(href="#") Sign in via Google
 
 block panels
   +main-menu

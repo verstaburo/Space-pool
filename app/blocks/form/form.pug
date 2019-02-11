@@ -2,12 +2,20 @@ mixin form()
   +b.FORM.form&attributes(attributes)
     block
 
-mixin form-section()
-  +e.FIELDSET.section&attributes(attributes)
+mixin form-section(tag)
+  +e(tag || 'fieldset').section&attributes(attributes)
     block
 
 mixin form-section-header()
   +e.header&attributes(attributes)
+    block
+
+mixin form-section-checker()
+  +e.checker&attributes(attributes)
+    block
+
+mixin form-section-content()
+  +e.content&attributes(attributes)
     block
 
 mixin form-section-title(tag)
