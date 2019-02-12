@@ -1173,16 +1173,45 @@
                         <li class="tabs__tab" data-tab-target="tabе4">Информация</li>
                     </ul>
                     <div class="tabs-content">
-                        <div class="tabs-content__wrapper active" data-tab="tabе1" data-tab-group="testtabs">
+                        <div class="tabs-content__wrapper active" data-tab="tabе1" data-tab-group="testtabs2">
                             <p>Это таб 1</p>
                         </div>
-                        <div class="tabs-content__wrapper" data-tab="tabе2" data-tab-group="testtabs">
+                        <div class="tabs-content__wrapper" data-tab="tabе2" data-tab-group="testtabs2">
                             <p>Это таб 2</p>
                         </div>
-                        <div class="tabs-content__wrapper" data-tab="tabе3" data-tab-group="testtabs">
+                        <div class="tabs-content__wrapper" data-tab="tabе3" data-tab-group="testtabs2">
                             <p>Это таб 3</p>
                         </div>
-                        <div class="tabs-content__wrapper" data-tab="tabе4" data-tab-group="testtabs">
+                        <div class="tabs-content__wrapper" data-tab="tabе4" data-tab-group="testtabs2">
+                            <p>Это таб 4</p>
+                        </div>
+                    </div>
+                    <p class="ui-kit__description">табы кнопки</p>
+                    <ul class="tabs">
+                        <li class="tabs__tab tabs__tab_button active" data-tab-target="taber1">
+                            <div class="tabs__tab-content">Информация</div>
+                        </li>
+                        <li class="tabs__tab tabs__tab_button" data-tab-target="taber2">
+                            <div class="tabs__tab-content">Информация</div>
+                        </li>
+                        <li class="tabs__tab tabs__tab_button" data-tab-target="taber3">
+                            <div class="tabs__tab-content">Информация</div>
+                        </li>
+                        <li class="tabs__tab tabs__tab_button" data-tab-target="taber4">
+                            <div class="tabs__tab-content">Информация</div>
+                        </li>
+                    </ul>
+                    <div class="tabs-content">
+                        <div class="tabs-content__wrapper active" data-tab="taber1" data-tab-group="testtabs3">
+                            <p>Это таб 1</p>
+                        </div>
+                        <div class="tabs-content__wrapper" data-tab="taber2" data-tab-group="testtabs3">
+                            <p>Это таб 2</p>
+                        </div>
+                        <div class="tabs-content__wrapper" data-tab="taber3" data-tab-group="testtabs3">
+                            <p>Это таб 3</p>
+                        </div>
+                        <div class="tabs-content__wrapper" data-tab="taber4" data-tab-group="testtabs3">
                             <p>Это таб 4</p>
                         </div>
                     </div>
@@ -5857,6 +5886,50 @@
                 </div>
             </div>
         </section>
+        <section class="ui-kit__section">
+            <div class="ui-kit__section-head">
+                <div class="container">
+                    <h2>social-button</h2>
+                    <p>Блок: block/social-button</p>
+                </div>
+            </div>
+            <div class="ui-kit__section-content">
+                <div class="container">
+                    <p class="ui-kit__description">.social-button</p>
+                    <div style="background: white; overflow: hidden; padding: 10px 0; width: 100%;">
+                        <div class="grid grid_layout">
+                            <div class="grid__col grid__col_xl_6">
+                                <a class="social-button social-button_fb" href="#">
+                                    <svg class="social-button__icon"><use xlink:href="assets/images/icon.svg#icon_fb-symbol"></use></svg>
+                                    <span class="social-button__text">Sign in via Facebook</span>
+                                </a>
+                            </div>
+                            <div class="grid__col grid__col_xl_6">
+                                <a class="social-button social-button_gg" href="#">
+                                    <img class="social-button__icon" src="assets/images/google.svg" alt="" role="presentation" />
+                                    <span class="social-button__text">Sign in via Google</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="ui-kit__description">.social-button._white</p>
+                    <div class="grid grid_layout">
+                        <div class="grid__col grid__col_xl_6">
+                            <a class="social-button social-button_fb social-button_white" href="#">
+                                <svg class="social-button__icon"><use xlink:href="assets/images/icon.svg#icon_fb-symbol"></use></svg>
+                                <span class="social-button__text">Sign in via Facebook</span>
+                            </a>
+                        </div>
+                        <div class="grid__col grid__col_xl_6">
+                            <a class="social-button social-button_gg social-button_white" href="#">
+                                <img class="social-button__icon" src="assets/images/google.svg" alt="" role="presentation" />
+                                <span class="social-button__text">Sign in via Google</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
         </div>
     </main>
     <div class="popups">
@@ -5879,22 +5952,24 @@
                         </div>
                     </div>
                 </div>
-                <form class="form form_white popup-signin__form">
+                <form class="form form_white popup-signin__form" data-validated-form="data-validated-form">
                     <div class="grid grid_bigger">
                         <div class="grid__col grid__col_xl_12">
                             <div class="form__wrapper">
                                 <label class="form-box">
-                                    <input class="input" type="email" name="email" placeholder="E-mail" />
+                                    <input class="input" type="email" name="email" placeholder="E-mail" required="required" />
                                     <span class="form-box__label">E-mail</span>
                                 </label>
+                                <div class="error-message"></div>
                             </div>
                         </div>
                         <div class="grid__col grid__col_xl_12">
                             <div class="form__wrapper">
                                 <label class="form-box">
-                                    <input class="input" type="password" name="password" placeholder="Password" />
+                                    <input class="input" type="password" name="password" placeholder="Password" required="required" />
                                     <span class="form-box__label">Password</span>
                                 </label>
+                                <div class="error-message"></div>
                             </div>
                         </div>
                     </div>
