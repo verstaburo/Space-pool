@@ -364,6 +364,34 @@
       @include heading-4;
     }
 
+    &_small {
+      @include heading-4;
+
+      font-weight: 700;
+
+      @include screen('lg') {
+        @include text15;
+      }
+    }
+
+    &_mid {
+      @include heading-2;
+
+      font-weight: 700;
+
+      @include screen('lg') {
+        @include heading-1-sm;
+
+        line-height: 1.2;
+      }
+
+      @include screen('sm') {
+        @include heading-3;
+
+        line-height: 1.2;
+      }
+    }
+
     &_big {
       @include heading-1;
 
@@ -375,6 +403,16 @@
 
       @include screen('sm') {
         @include heading-1-sm;
+      }
+    }
+
+    &_bigger {
+      @include heading-1;
+
+      font-weight: 700;
+
+      @include screen('sm') {
+        @include text28;
       }
     }
 
@@ -397,6 +435,12 @@
         @include screen('sm') {
           margin-bottom: 42px;
         }
+      }
+    }
+
+    &_mg16 {
+      &:not(:last-child) {
+        margin-bottom: 16px;
       }
     }
   }
@@ -468,6 +512,17 @@
         padding: 36px 20px 37px;
       }
     }
+
+    &_bordered {
+      padding-top: 36px;
+      padding-bottom: 48px;
+      border-top: 1px solid $color-border-light;
+
+      @include screen('sm') {
+        padding-top: 20px;
+        padding-bottom: 25px;
+      }
+    }
   }
 
   &__lead {
@@ -519,6 +574,51 @@
         flex: none;
         min-width: 0;
       }
+    }
+  }
+
+  &__buttons {
+    display: block;
+    width: 100%;
+    margin-top: -50px;
+
+    @include screen('sm') {
+      margin-top: 0;
+    }
+  }
+
+  &__button {
+    min-width: 298px;
+
+    @include screen('sm') {
+      min-width: 280px;
+      max-width: 100%;
+    }
+
+    &_txta {
+      margin-top: 4px;
+    }
+  }
+
+  &__links {
+    &:not(:first-child) {
+      margin-top: 28px;
+
+      @include screen('sm') {
+        margin-top: 14px;
+      }
+    }
+  }
+
+  &__link {
+    @include text-big;
+
+    line-height: 1.2;
+
+    @include screen('sm') {
+      @include text15;
+
+      line-height: 1.2;
     }
   }
 

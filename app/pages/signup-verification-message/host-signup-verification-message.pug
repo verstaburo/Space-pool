@@ -4,16 +4,26 @@ block head
   - var pageTitle = 'SpacePool - Sign Up Verification Message (for host)'
 
 block content
-  +content-origin._reverse._last._top-bmg
+  +content-origin._reverse._last._heading
     .container
       +grid.grid_layout.grid_content
         +col({ xl: 4, lg: 12})
-          +sidebar._no-bg
-            +heading('assets/images/heading-bg2.jpg')._mask2
+          +sidebar._no-bg(data-unstick-media="lg")
+            +heading('assets/images/heading-bg2.jpg')._mask2._wide
               +e.H1.title Sign Up
               +note._color._color_green._lh26.__note Almost there. Just few more things to&nbsp;go. Please verify your new account.
-        +col({ xl: 7, lg: 12})
-        +col({ xl: 1, lg: 12}).hide-lg
+        +col({ xl: 8, lg: 12})
+          +success-message
+            +section-content._bordered
+              +section-title()._small What’s next?
+              +grid.grid_layout
+                +col({xl: 6, sm: 12})
+                  +content-zone
+                    p To finish registration process you whould add your first Space.
+                      br
+                      | Please go to our step by step guide in the next step.
+                +col({xl: 6, sm: 12})
+                  +button-icon('', 'select-arrow')._icon_big.__button_txta Go to step 2: Add Space
 
 block panels
   +main-menu-inner

@@ -1,0 +1,19 @@
+mixin success-message()
+  +b.SECTION.success-message&attributes(attributes)
+    +section
+      +section-header
+        +section-title('h2')._big._mg16 Wonderfull!
+
+        +section-title('div')._mid You have created your Space Pool account.
+      +section-content._bordered
+        +grid.grid_layout
+          +col({xl: 6, sm: 12})
+            +content-zone
+              p Please check you E-mail for further instruction. We have sent you an E-mail with Account verification link. You will be able to enter your account right after it’s verification.
+          +col({xl: 6, sm: 12})
+            +content-zone
+              p Link sent to:
+                b es********lv@gmail.com
+            +e.links
+              +link()(href="#")._light-underline.__link Resend verification mail
+      block
