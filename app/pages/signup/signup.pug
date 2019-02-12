@@ -6,10 +6,10 @@ block head
 block content
   +content-origin._reverse._last._heading
     .container
-      +grid.grid_layout.grid_reserv
+      +grid.grid_layout.grid_content
         +col({ xl: 3, lg: 12})
           +sidebar._no-bg
-            +heading('assets/images/heading-bg1.jpg', 'assets/images/heading-bg1.jpg')
+            +heading('assets/images/heading-bg1-v2.jpg')
               +e.H1.title Sign Up
               +note._color._color_green._lh26.__note Create your own Space Pool account. Get full access to letting options or become a host and create your own offers on Space pool.
         +col({ xl: 8, lg: 12})
@@ -18,7 +18,7 @@ block content
             +tab-container()(data-tab-target="tab2") Sign up as a host
           +tabs-content.tabs-content_mg
             +tab-wrapper()(data-tab="tab1" data-tab-group="signup").active
-              +form
+              +form()(data-validated-form)
                 +form-section('section')._socials
                   +form-section-header._mg14
                     +form-section-text Choose one of automatic options using social media:
@@ -36,11 +36,11 @@ block content
                     +col({xl: 6, md:12 })
                       +form-section-wrapper
                         +form-box('First name')
-                          +input(type="text" name="firstName" value="Eugene" placeholder="First name")
+                          +input(type="text" name="firstName" value="Eugene" placeholder="First name" required="required")
                     +col({xl: 6, md:12 })
                       +form-section-wrapper
                         +form-box('Last name')
-                          +input(type="text" name="lastName" value="Sheeleen" placeholder="Last name")
+                          +input(type="text" name="lastName" value="Sheeleen" placeholder="Last name" required="required")
                 +form-section._mg75
                   +form-section-checker
                     +b.LABEL.checkbox
@@ -55,11 +55,11 @@ block content
                       +col({xl: 6, md:12 })
                         +form-section-wrapper
                           +form-box('Company name')
-                            +input(type="text" name="companyName" placeholder="Company name")
+                            +input(type="text" name="companyName" placeholder="Company name" required="required")
                       +col({xl: 6, md:12 })
                         +form-section-wrapper
                           +form-box('Company Registry No.')
-                            +input(type="text" name="companyRegN" placeholder="Company Registry No.")
+                            +input(type="text" name="companyRegN" placeholder="Company Registry No." required="required")
                       +col({xl: 6, md:12 })
                         +form-section-wrapper
                           +form-box('VAT number if you have it')
@@ -67,15 +67,15 @@ block content
                       +col({xl: 6, md:12 })
                         +form-section-wrapper
                           +form-box('Legal adress city')
-                            +input(type="text" name="legalAdressCity" placeholder="Legal adress city")
+                            +input(type="text" name="legalAdressCity" placeholder="Legal adress city" required="required")
                       +col({xl: 6, md:12 })
                         +form-section-wrapper
                           +form-box('Legal adress street')
-                            +input(type="text" name="legalAdressStreet" placeholder="Legal adress street")
+                            +input(type="text" name="legalAdressStreet" placeholder="Legal adress street" required="required")
                       +col({xl: 6, md:12 })
                         +form-section-wrapper
                           +form-box('Building No.')
-                            +input(type="text" name="buildingN" placeholder="Building No.")
+                            +input(type="text" name="buildingN" placeholder="Building No." required="required")
                       +col({xl: 6, md:12 })
                         +form-section-wrapper
                           +form-box('Apartment or Office No.')
@@ -83,7 +83,7 @@ block content
                       +col({xl: 6, md:12 })
                         +form-section-wrapper
                           +form-box('ZIP/Postal Code')
-                            +input(type="text" name="ZIPcode" placeholder="ZIP/Postal Code")
+                            +input(type="text" name="ZIPcode" placeholder="ZIP/Postal Code" required="required")
                 +form-section
                   +form-section-header._mg30
                     +form-section-title Registration info:
@@ -91,26 +91,28 @@ block content
                     +col({xl: 6, md:12 })
                       +form-section-wrapper
                         +form-box('E-mail adress')
-                          +input(type="email" name="email" placeholder="E-mail adress")
+                          +input(type="email" name="email" placeholder="E-mail adress" required="required")
                     +col({xl: 6, md:12 }).grid__col_md-order2
                       +form-section-wrapper
                         +checkbox('agreement', '1')._border I agree with Terms and Conditions
                     +col({xl: 6, md:12 })
                       +form-section-wrapper
                         +form-box('Password')
-                          +input(type="password" name="password" placeholder="Password" data-password-confirm="password-confirm")
+                          +input(type="password" name="password" placeholder="Password"
+                          data-parsley-equalto="[data-password2]" data-password1="password1" required="required")
                     +col({xl: 6, md:12 }).grid__col_md-order2
                       +form-section-wrapper
                         +checkbox('subscribe', '1')._border Sign me up to Space Pool notification via E-mail
                     +col({xl: 6, md:12 })
                       +form-section-wrapper
                         +form-box('Password one more time')
-                          +input(type="password" name="password" placeholder="Password one more time" data-password-confirm="password-confirm")
+                          +input(type="password" name="password" placeholder="Password one more time" data-password2="password2"
+                          data-parsley-equalto="[data-password1]" required="required")
                     +col({xl: 6, md:12 }).grid__col_md-order2
                       +form-section-wrapper
                         +button('button')(type="submit")._wide._short Create my Space Pool account
             +tab-wrapper()(data-tab="tab2" data-tab-group="signup")
-              +form
+              +form()(data-validated-form)
                 +form-section('section')._socials
                   +form-section-header._mg14
                     +form-section-text Choose one of automatic options using social media:
@@ -128,11 +130,11 @@ block content
                     +col({xl: 6, md:12 })
                       +form-section-wrapper
                         +form-box('First name')
-                          +input(type="text" name="firstName" value="Eugene" placeholder="First name")
+                          +input(type="text" name="firstName" value="Eugene" placeholder="First name" required="required")
                     +col({xl: 6, md:12 })
                       +form-section-wrapper
                         +form-box('Last name')
-                          +input(type="text" name="lastName" value="Sheeleen" placeholder="Last name")
+                          +input(type="text" name="lastName" value="Sheeleen" placeholder="Last name" required="required")
                 +form-section._mg105
                   +form-section-header._mg30
                     +form-section-title Company details:
@@ -140,11 +142,11 @@ block content
                     +col({xl: 6, md:12 })
                       +form-section-wrapper
                         +form-box('Company name')
-                          +input(type="text" name="companyName" placeholder="Company name")
+                          +input(type="text" name="companyName" placeholder="Company name" required="required")
                     +col({xl: 6, md:12 })
                       +form-section-wrapper
                         +form-box('Company Registry No.')
-                          +input(type="text" name="companyRegN" placeholder="Company Registry No.")
+                          +input(type="text" name="companyRegN" placeholder="Company Registry No." required="required")
                     +col({xl: 6, md:12 })
                       +form-section-wrapper
                         +form-box('VAT number if you have it')
@@ -152,15 +154,15 @@ block content
                     +col({xl: 6, md:12 })
                       +form-section-wrapper
                         +form-box('Legal adress city')
-                          +input(type="text" name="legalAdressCity" placeholder="Legal adress city")
+                          +input(type="text" name="legalAdressCity" placeholder="Legal adress city" required="required")
                     +col({xl: 6, md:12 })
                       +form-section-wrapper
                         +form-box('Legal adress street')
-                          +input(type="text" name="legalAdressStreet" placeholder="Legal adress street")
+                          +input(type="text" name="legalAdressStreet" placeholder="Legal adress street" required="required")
                     +col({xl: 6, md:12 })
                       +form-section-wrapper
                         +form-box('Building No.')
-                          +input(type="text" name="buildingN" placeholder="Building No.")
+                          +input(type="text" name="buildingN" placeholder="Building No." required="required")
                     +col({xl: 6, md:12 })
                       +form-section-wrapper
                         +form-box('Apartment or Office No.')
@@ -168,7 +170,7 @@ block content
                     +col({xl: 6, md:12 })
                       +form-section-wrapper
                         +form-box('ZIP/Postal Code')
-                          +input(type="text" name="ZIPcode" placeholder="ZIP/Postal Code")
+                          +input(type="text" name="ZIPcode" placeholder="ZIP/Postal Code" required="required")
                 +form-section
                   +form-section-header._mg30
                     +form-section-title Registration info:
@@ -176,21 +178,21 @@ block content
                     +col({xl: 6, md:12 })
                       +form-section-wrapper
                         +form-box('E-mail adress')
-                          +input(type="email" name="email" placeholder="E-mail adress")
+                          +input(type="email" name="email" placeholder="E-mail adress" required="required" )
                     +col({xl: 6, md:12 }).grid__col_md-order2
                       +form-section-wrapper
                         +checkbox('agreement', '1')._border I agree with Terms and Conditions
                     +col({xl: 6, md:12 })
                       +form-section-wrapper
                         +form-box('Password')
-                          +input(type="password" name="password" placeholder="Password" data-password-confirm="password-confirm")
+                          +input(type="password" name="password" placeholder="Password" data-parsley-equalto="[data-password2]" data-password1="password1" required="required")
                     +col({xl: 6, md:12 }).grid__col_md-order2
                       +form-section-wrapper
                         +checkbox('subscribe', '1')._border Sign me up to Space Pool notification via E-mail
                     +col({xl: 6, md:12 })
                       +form-section-wrapper
                         +form-box('Password one more time')
-                          +input(type="password" name="password" placeholder="Password one more time" data-password-confirm="password-confirm")
+                          +input(type="password" name="password" placeholder="Password one more time" data-parsley-equalto="[data-password1]" data-password2="password2" required="required")
                     +col({xl: 6, md:12 }).grid__col_md-order2
                       +form-section-wrapper
                         +button('button')(type="submit")._wide._short Create my Space Pool account

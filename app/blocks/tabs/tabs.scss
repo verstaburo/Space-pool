@@ -133,10 +133,18 @@
         @include heading-4;
 
         line-height: 1.2;
+        padding: 3px 8px 2px;
+        flex: 1;
+        white-space: nowrap;
+        text-transform: none;
       }
 
       &:not(:last-child) {
         margin-right: 20px;
+
+        @include screen('sm') {
+          margin-right: 0;
+        }
       }
 
       &:nth-child(5n+1) {
@@ -186,6 +194,10 @@
 
   &+&-content_mg {
     margin-top: 46px;
+
+    @include screen('sm') {
+      margin-top: 26px;
+    }
   }
 
   &-content {

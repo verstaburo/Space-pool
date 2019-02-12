@@ -49,6 +49,7 @@ import deleteObject from '../blocks/js-functions/deleteObject';
 import switchOfferState from '../blocks/offer/offer';
 import emptyOfferState from '../blocks/offers/offers';
 import setBlogNewsTitlesHeight from '../blocks/blog/blog';
+import '../blocks/form/validate';
 
 const $ = window.$;
 

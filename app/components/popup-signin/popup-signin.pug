@@ -8,16 +8,16 @@ mixin popup-signin()
             +social-button('fb-symbol')._fb(href="#") Sign in via Facebook
           +col({xl: 6, sm: 12})
             +social-button('', 'assets/images/google.svg')._gg(href="#") Sign in via Google
-      +form._white.__form
+      +form._white.__form(data-validated-form)
         +grid.grid_bigger
           +col({xl: 12})
             +form-section-wrapper
               +form-box('E-mail')
-                +input(type="email" name="email" placeholder="E-mail")
+                +input(type="email" name="email" placeholder="E-mail" required="required")
           +col({xl: 12})
             +form-section-wrapper
               +form-box('Password')
-                +input(type="password" name="password" placeholder="Password")
+                +input(type="password" name="password" placeholder="Password" required="required")
         +e.bottom
           +grid.grid_mid
             +col({xl: 6, sm: 12}).popup-signin__remind

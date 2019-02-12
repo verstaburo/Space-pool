@@ -40,4 +40,49 @@ export default function formManipulations() {
     const panel = $(form).find('[data-hidden-panel]');
     $(panel).removeClass('is-active');
   });
+
+
+  // отключенные секции
+  const formDisabledElements = $('[data-checker]');
+
+  // изменяет состояние элементов в переданной секции
+  const stateElements = {
+    disabled(section) {
+      $(section).addClass('is-disabled');
+      const elements = $(section).find('input, select, textarea');
+      $(elements).each((i, el) => {
+        $(el).attr('disabled', 'disabled');
+      });
+    },
+    enabled(section) {
+      $(section).removeClass('is-disabled');
+      const elements = $(section).find('input, select, textarea');
+      $(elements).each((i, el) => {
+        $(el).removeAttr('disabled', 'disabled');
+      });
+    },
+  };
+
+  // смена состояния по статусу чекера
+  function changeState(el) {
+    const targetName = $(el).attr('data-checker');
+    const targetEl = $(`[data-checker-target=${targetName}]`);
+    if ($(el).prop('checked')) {
+      stateElements.enabled(targetEl);
+    } else {
+      stateElements.disabled(targetEl);
+    }
+  }
+
+  if ($(formDisabledElements).length > 0) {
+    $(formDisabledElements).each((i, el) => {
+      const checker = el;
+      changeState(checker);
+    });
+
+    $(document).on('click', '[data-checker]', (evt) => {
+      const self = evt.target;
+      changeState(self);
+    });
+  }
 }

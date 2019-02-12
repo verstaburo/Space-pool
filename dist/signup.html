@@ -124,12 +124,12 @@
     <main class="page" role="main">
         <section class="content content_reverse content_last content_heading">
             <div class="container">
-                <div class="grid grid_layout grid_reserv">
+                <div class="grid grid_layout grid_content">
                     <div class="grid__col grid__col_xl_3 grid__col_lg_12">
                         <aside class="js-sticky-block sidebar sidebar_no-bg">
                             <div class="heading">
                                 <div class="heading__bg">
-                                    <img class="heading__bg-image" src="assets/images/heading-bg1.jpg" alt="" role="presentation" />
+                                    <img class="heading__bg-image" src="assets/images/heading-bg1-v2.jpg" alt="" role="presentation" />
                                 </div>
                                 <div class="heading__content">
                                     <h1 class="heading__title">Sign Up</h1>
@@ -154,7 +154,7 @@
                         </ul>
                         <div class="tabs-content tabs-content_mg">
                             <div class="tabs-content__wrapper active" data-tab="tab1" data-tab-group="signup">
-                                <form class="form">
+                                <form class="form" data-validated-form="data-validated-form">
                                     <section class="form__section form__section_socials">
                                         <div class="form__header form__header_mg14">
                                             <div class="form__text">Choose one of automatic options using social media:</div>
@@ -185,17 +185,19 @@
                                             <div class="grid__col grid__col_xl_6 grid__col_md_12">
                                                 <div class="form__wrapper">
                                                     <label class="form-box">
-                                                        <input class="input" type="text" name="firstName" value="Eugene" placeholder="First name" />
+                                                        <input class="input" type="text" name="firstName" value="Eugene" placeholder="First name" required="required" />
                                                         <span class="form-box__label">First name</span>
                                                     </label>
+                                                    <div class="error-message"></div>
                                                 </div>
                                             </div>
                                             <div class="grid__col grid__col_xl_6 grid__col_md_12">
                                                 <div class="form__wrapper">
                                                     <label class="form-box">
-                                                        <input class="input" type="text" name="lastName" value="Sheeleen" placeholder="Last name" />
+                                                        <input class="input" type="text" name="lastName" value="Sheeleen" placeholder="Last name" required="required" />
                                                         <span class="form-box__label">Last name</span>
                                                     </label>
+                                                    <div class="error-message"></div>
                                                 </div>
                                             </div>
                                         </div>
@@ -218,17 +220,19 @@
                                                 <div class="grid__col grid__col_xl_6 grid__col_md_12">
                                                     <div class="form__wrapper">
                                                         <label class="form-box">
-                                                            <input class="input" type="text" name="companyName" placeholder="Company name" />
+                                                            <input class="input" type="text" name="companyName" placeholder="Company name" required="required" />
                                                             <span class="form-box__label">Company name</span>
                                                         </label>
+                                                        <div class="error-message"></div>
                                                     </div>
                                                 </div>
                                                 <div class="grid__col grid__col_xl_6 grid__col_md_12">
                                                     <div class="form__wrapper">
                                                         <label class="form-box">
-                                                            <input class="input" type="text" name="companyRegN" placeholder="Company Registry No." />
+                                                            <input class="input" type="text" name="companyRegN" placeholder="Company Registry No." required="required" />
                                                             <span class="form-box__label">Company Registry No.</span>
                                                         </label>
+                                                        <div class="error-message"></div>
                                                     </div>
                                                 </div>
                                                 <div class="grid__col grid__col_xl_6 grid__col_md_12">
@@ -237,30 +241,34 @@
                                                             <input class="input" type="text" name="VATnumber" placeholder="VAT number if you have it" />
                                                             <span class="form-box__label">VAT number if you have it</span>
                                                         </label>
+                                                        <div class="error-message"></div>
                                                     </div>
                                                 </div>
                                                 <div class="grid__col grid__col_xl_6 grid__col_md_12">
                                                     <div class="form__wrapper">
                                                         <label class="form-box">
-                                                            <input class="input" type="text" name="legalAdressCity" placeholder="Legal adress city" />
+                                                            <input class="input" type="text" name="legalAdressCity" placeholder="Legal adress city" required="required" />
                                                             <span class="form-box__label">Legal adress city</span>
                                                         </label>
+                                                        <div class="error-message"></div>
                                                     </div>
                                                 </div>
                                                 <div class="grid__col grid__col_xl_6 grid__col_md_12">
                                                     <div class="form__wrapper">
                                                         <label class="form-box">
-                                                            <input class="input" type="text" name="legalAdressStreet" placeholder="Legal adress street" />
+                                                            <input class="input" type="text" name="legalAdressStreet" placeholder="Legal adress street" required="required" />
                                                             <span class="form-box__label">Legal adress street</span>
                                                         </label>
+                                                        <div class="error-message"></div>
                                                     </div>
                                                 </div>
                                                 <div class="grid__col grid__col_xl_6 grid__col_md_12">
                                                     <div class="form__wrapper">
                                                         <label class="form-box">
-                                                            <input class="input" type="text" name="buildingN" placeholder="Building No." />
+                                                            <input class="input" type="text" name="buildingN" placeholder="Building No." required="required" />
                                                             <span class="form-box__label">Building No.</span>
                                                         </label>
+                                                        <div class="error-message"></div>
                                                     </div>
                                                 </div>
                                                 <div class="grid__col grid__col_xl_6 grid__col_md_12">
@@ -269,14 +277,16 @@
                                                             <input class="input" type="text" name="officeN" placeholder="Apartment or Office No." />
                                                             <span class="form-box__label">Apartment or Office No.</span>
                                                         </label>
+                                                        <div class="error-message"></div>
                                                     </div>
                                                 </div>
                                                 <div class="grid__col grid__col_xl_6 grid__col_md_12">
                                                     <div class="form__wrapper">
                                                         <label class="form-box">
-                                                            <input class="input" type="text" name="ZIPcode" placeholder="ZIP/Postal Code" />
+                                                            <input class="input" type="text" name="ZIPcode" placeholder="ZIP/Postal Code" required="required" />
                                                             <span class="form-box__label">ZIP/Postal Code</span>
                                                         </label>
+                                                        <div class="error-message"></div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -290,9 +300,10 @@
                                             <div class="grid__col grid__col_xl_6 grid__col_md_12">
                                                 <div class="form__wrapper">
                                                     <label class="form-box">
-                                                        <input class="input" type="email" name="email" placeholder="E-mail adress" />
+                                                        <input class="input" type="email" name="email" placeholder="E-mail adress" required="required" />
                                                         <span class="form-box__label">E-mail adress</span>
                                                     </label>
+                                                    <div class="error-message"></div>
                                                 </div>
                                             </div>
                                             <div class="grid__col grid__col_xl_6 grid__col_md_12 grid__col_md-order2">
@@ -304,14 +315,16 @@
                                                         </span>
                                                         <span class="checkbox__content">I agree with Terms and Conditions</span>
                                                     </label>
+                                                    <div class="error-message"></div>
                                                 </div>
                                             </div>
                                             <div class="grid__col grid__col_xl_6 grid__col_md_12">
                                                 <div class="form__wrapper">
                                                     <label class="form-box">
-                                                        <input class="input" type="password" name="password" placeholder="Password" data-password-confirm="password-confirm" />
+                                                        <input class="input" type="password" name="password" placeholder="Password" data-parsley-equalto="[data-password2]" data-password1="password1" required="required" />
                                                         <span class="form-box__label">Password</span>
                                                     </label>
+                                                    <div class="error-message"></div>
                                                 </div>
                                             </div>
                                             <div class="grid__col grid__col_xl_6 grid__col_md_12 grid__col_md-order2">
@@ -323,14 +336,16 @@
                                                         </span>
                                                         <span class="checkbox__content">Sign me up to Space Pool notification via E-mail</span>
                                                     </label>
+                                                    <div class="error-message"></div>
                                                 </div>
                                             </div>
                                             <div class="grid__col grid__col_xl_6 grid__col_md_12">
                                                 <div class="form__wrapper">
                                                     <label class="form-box">
-                                                        <input class="input" type="password" name="password" placeholder="Password one more time" data-password-confirm="password-confirm" />
+                                                        <input class="input" type="password" name="password" placeholder="Password one more time" data-password2="password2" data-parsley-equalto="[data-password1]" required="required" />
                                                         <span class="form-box__label">Password one more time</span>
                                                     </label>
+                                                    <div class="error-message"></div>
                                                 </div>
                                             </div>
                                             <div class="grid__col grid__col_xl_6 grid__col_md_12 grid__col_md-order2">
@@ -338,6 +353,7 @@
                                                     <button class="button button_wide button_short" type="submit">
                                                         <span class="button__text">Create my Space Pool account</span>
                                                     </button>
+                                                    <div class="error-message"></div>
                                                 </div>
                                             </div>
                                         </div>
@@ -345,7 +361,7 @@
                                 </form>
                             </div>
                             <div class="tabs-content__wrapper" data-tab="tab2" data-tab-group="signup">
-                                <form class="form">
+                                <form class="form" data-validated-form="data-validated-form">
                                     <section class="form__section form__section_socials">
                                         <div class="form__header form__header_mg14">
                                             <div class="form__text">Choose one of automatic options using social media:</div>
@@ -376,17 +392,19 @@
                                             <div class="grid__col grid__col_xl_6 grid__col_md_12">
                                                 <div class="form__wrapper">
                                                     <label class="form-box">
-                                                        <input class="input" type="text" name="firstName" value="Eugene" placeholder="First name" />
+                                                        <input class="input" type="text" name="firstName" value="Eugene" placeholder="First name" required="required" />
                                                         <span class="form-box__label">First name</span>
                                                     </label>
+                                                    <div class="error-message"></div>
                                                 </div>
                                             </div>
                                             <div class="grid__col grid__col_xl_6 grid__col_md_12">
                                                 <div class="form__wrapper">
                                                     <label class="form-box">
-                                                        <input class="input" type="text" name="lastName" value="Sheeleen" placeholder="Last name" />
+                                                        <input class="input" type="text" name="lastName" value="Sheeleen" placeholder="Last name" required="required" />
                                                         <span class="form-box__label">Last name</span>
                                                     </label>
+                                                    <div class="error-message"></div>
                                                 </div>
                                             </div>
                                         </div>
@@ -399,17 +417,19 @@
                                             <div class="grid__col grid__col_xl_6 grid__col_md_12">
                                                 <div class="form__wrapper">
                                                     <label class="form-box">
-                                                        <input class="input" type="text" name="companyName" placeholder="Company name" />
+                                                        <input class="input" type="text" name="companyName" placeholder="Company name" required="required" />
                                                         <span class="form-box__label">Company name</span>
                                                     </label>
+                                                    <div class="error-message"></div>
                                                 </div>
                                             </div>
                                             <div class="grid__col grid__col_xl_6 grid__col_md_12">
                                                 <div class="form__wrapper">
                                                     <label class="form-box">
-                                                        <input class="input" type="text" name="companyRegN" placeholder="Company Registry No." />
+                                                        <input class="input" type="text" name="companyRegN" placeholder="Company Registry No." required="required" />
                                                         <span class="form-box__label">Company Registry No.</span>
                                                     </label>
+                                                    <div class="error-message"></div>
                                                 </div>
                                             </div>
                                             <div class="grid__col grid__col_xl_6 grid__col_md_12">
@@ -418,30 +438,34 @@
                                                         <input class="input" type="text" name="VATnumber" placeholder="VAT number if you have it" />
                                                         <span class="form-box__label">VAT number if you have it</span>
                                                     </label>
+                                                    <div class="error-message"></div>
                                                 </div>
                                             </div>
                                             <div class="grid__col grid__col_xl_6 grid__col_md_12">
                                                 <div class="form__wrapper">
                                                     <label class="form-box">
-                                                        <input class="input" type="text" name="legalAdressCity" placeholder="Legal adress city" />
+                                                        <input class="input" type="text" name="legalAdressCity" placeholder="Legal adress city" required="required" />
                                                         <span class="form-box__label">Legal adress city</span>
                                                     </label>
+                                                    <div class="error-message"></div>
                                                 </div>
                                             </div>
                                             <div class="grid__col grid__col_xl_6 grid__col_md_12">
                                                 <div class="form__wrapper">
                                                     <label class="form-box">
-                                                        <input class="input" type="text" name="legalAdressStreet" placeholder="Legal adress street" />
+                                                        <input class="input" type="text" name="legalAdressStreet" placeholder="Legal adress street" required="required" />
                                                         <span class="form-box__label">Legal adress street</span>
                                                     </label>
+                                                    <div class="error-message"></div>
                                                 </div>
                                             </div>
                                             <div class="grid__col grid__col_xl_6 grid__col_md_12">
                                                 <div class="form__wrapper">
                                                     <label class="form-box">
-                                                        <input class="input" type="text" name="buildingN" placeholder="Building No." />
+                                                        <input class="input" type="text" name="buildingN" placeholder="Building No." required="required" />
                                                         <span class="form-box__label">Building No.</span>
                                                     </label>
+                                                    <div class="error-message"></div>
                                                 </div>
                                             </div>
                                             <div class="grid__col grid__col_xl_6 grid__col_md_12">
@@ -450,14 +474,16 @@
                                                         <input class="input" type="text" name="officeN" placeholder="Apartment or Office No." />
                                                         <span class="form-box__label">Apartment or Office No.</span>
                                                     </label>
+                                                    <div class="error-message"></div>
                                                 </div>
                                             </div>
                                             <div class="grid__col grid__col_xl_6 grid__col_md_12">
                                                 <div class="form__wrapper">
                                                     <label class="form-box">
-                                                        <input class="input" type="text" name="ZIPcode" placeholder="ZIP/Postal Code" />
+                                                        <input class="input" type="text" name="ZIPcode" placeholder="ZIP/Postal Code" required="required" />
                                                         <span class="form-box__label">ZIP/Postal Code</span>
                                                     </label>
+                                                    <div class="error-message"></div>
                                                 </div>
                                             </div>
                                         </div>
@@ -470,9 +496,10 @@
                                             <div class="grid__col grid__col_xl_6 grid__col_md_12">
                                                 <div class="form__wrapper">
                                                     <label class="form-box">
-                                                        <input class="input" type="email" name="email" placeholder="E-mail adress" />
+                                                        <input class="input" type="email" name="email" placeholder="E-mail adress" required="required" />
                                                         <span class="form-box__label">E-mail adress</span>
                                                     </label>
+                                                    <div class="error-message"></div>
                                                 </div>
                                             </div>
                                             <div class="grid__col grid__col_xl_6 grid__col_md_12 grid__col_md-order2">
@@ -484,14 +511,16 @@
                                                         </span>
                                                         <span class="checkbox__content">I agree with Terms and Conditions</span>
                                                     </label>
+                                                    <div class="error-message"></div>
                                                 </div>
                                             </div>
                                             <div class="grid__col grid__col_xl_6 grid__col_md_12">
                                                 <div class="form__wrapper">
                                                     <label class="form-box">
-                                                        <input class="input" type="password" name="password" placeholder="Password" data-password-confirm="password-confirm" />
+                                                        <input class="input" type="password" name="password" placeholder="Password" data-parsley-equalto="[data-password2]" data-password1="password1" required="required" />
                                                         <span class="form-box__label">Password</span>
                                                     </label>
+                                                    <div class="error-message"></div>
                                                 </div>
                                             </div>
                                             <div class="grid__col grid__col_xl_6 grid__col_md_12 grid__col_md-order2">
@@ -503,14 +532,16 @@
                                                         </span>
                                                         <span class="checkbox__content">Sign me up to Space Pool notification via E-mail</span>
                                                     </label>
+                                                    <div class="error-message"></div>
                                                 </div>
                                             </div>
                                             <div class="grid__col grid__col_xl_6 grid__col_md_12">
                                                 <div class="form__wrapper">
                                                     <label class="form-box">
-                                                        <input class="input" type="password" name="password" placeholder="Password one more time" data-password-confirm="password-confirm" />
+                                                        <input class="input" type="password" name="password" placeholder="Password one more time" data-parsley-equalto="[data-password1]" data-password2="password2" required="required" />
                                                         <span class="form-box__label">Password one more time</span>
                                                     </label>
+                                                    <div class="error-message"></div>
                                                 </div>
                                             </div>
                                             <div class="grid__col grid__col_xl_6 grid__col_md_12 grid__col_md-order2">
@@ -518,6 +549,7 @@
                                                     <button class="button button_wide button_short" type="submit">
                                                         <span class="button__text">Create my Space Pool account</span>
                                                     </button>
+                                                    <div class="error-message"></div>
                                                 </div>
                                             </div>
                                         </div>
@@ -551,22 +583,24 @@
                         </div>
                     </div>
                 </div>
-                <form class="form form_white popup-signin__form">
+                <form class="form form_white popup-signin__form" data-validated-form="data-validated-form">
                     <div class="grid grid_bigger">
                         <div class="grid__col grid__col_xl_12">
                             <div class="form__wrapper">
                                 <label class="form-box">
-                                    <input class="input" type="email" name="email" placeholder="E-mail" />
+                                    <input class="input" type="email" name="email" placeholder="E-mail" required="required" />
                                     <span class="form-box__label">E-mail</span>
                                 </label>
+                                <div class="error-message"></div>
                             </div>
                         </div>
                         <div class="grid__col grid__col_xl_12">
                             <div class="form__wrapper">
                                 <label class="form-box">
-                                    <input class="input" type="password" name="password" placeholder="Password" />
+                                    <input class="input" type="password" name="password" placeholder="Password" required="required" />
                                     <span class="form-box__label">Password</span>
                                 </label>
+                                <div class="error-message"></div>
                             </div>
                         </div>
                     </div>

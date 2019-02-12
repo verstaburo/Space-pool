@@ -11,6 +11,10 @@
 
     #{$b}_lh26 & {
       margin-bottom: 21px;
+
+      @include screen('sm') {
+        margin-bottom: 10px;
+      }
     }
   }
 
@@ -20,6 +24,11 @@
     font-size: 0;
     line-height: 0;
     fill: $color-basic;
+
+    @include screen('sm') {
+      width: 8px;
+      height: 8px;
+    }
   }
 
   &__text {
@@ -34,8 +43,16 @@
       font-weight: 700;
     }
 
+    @include screen('sm') {
+      @include text9;
+    }
+
     #{$b}_lh26 & {
       line-height: (26/17);
+
+      @include screen('sm') {
+        line-height: (13/9);
+      }
     }
   }
 

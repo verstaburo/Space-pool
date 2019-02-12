@@ -4,6 +4,15 @@ const $ = window.$;
 export function freeze() {
   const h = $('html');
 
+  const stickyBlocks = $('.js-sticky-block');
+
+  if (stickyBlocks.length > 0) {
+    $(stickyBlocks).each((i, el) => {
+      const attrStyle = $(el).attr('style');
+      $(el).attr('data-style', attrStyle);
+    });
+  }
+
   h.addClass('freeze');
 
   if (h.css('position') !== 'fixed') {
@@ -20,6 +29,15 @@ export function freeze() {
       top: -top,
     });
   }
+  setTimeout(() => {
+    if (stickyBlocks.length > 0) {
+      $(stickyBlocks).each((i, el) => {
+        const attrStyle = $(el).attr('data-style');
+        $(el).attr('style', attrStyle);
+        $(el).removeAttr('data-style');
+      });
+    }
+  }, 50);
 }
 
 export function unfreeze() {

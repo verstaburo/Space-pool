@@ -174,6 +174,12 @@
                     <a class="link" href="signup.html">
                         <span class="link__text">Sign Up (for tenant) (signup.html)</span>
                     </a>
+                    <a class="link" href="signup-verification-message.html">
+                        <span class="link__text">Sign Up verification message (signup-verification-message.html)</span>
+                    </a>
+                    <a class="link" href="host-signup-verification-message.html">
+                        <span class="link__text">Sign Up verification message (for host) (host-signup-verification-message.html)</span>
+                    </a>
                 </div>
                 <h2 class="page-title page-title_small">Попапы</h2>
                 <div class="sitemap__list">
@@ -207,22 +213,24 @@
                         </div>
                     </div>
                 </div>
-                <form class="form form_white popup-signin__form">
+                <form class="form form_white popup-signin__form" data-validated-form="data-validated-form">
                     <div class="grid grid_bigger">
                         <div class="grid__col grid__col_xl_12">
                             <div class="form__wrapper">
                                 <label class="form-box">
-                                    <input class="input" type="email" name="email" placeholder="E-mail" />
+                                    <input class="input" type="email" name="email" placeholder="E-mail" required="required" />
                                     <span class="form-box__label">E-mail</span>
                                 </label>
+                                <div class="error-message"></div>
                             </div>
                         </div>
                         <div class="grid__col grid__col_xl_12">
                             <div class="form__wrapper">
                                 <label class="form-box">
-                                    <input class="input" type="password" name="password" placeholder="Password" />
+                                    <input class="input" type="password" name="password" placeholder="Password" required="required" />
                                     <span class="form-box__label">Password</span>
                                 </label>
+                                <div class="error-message"></div>
                             </div>
                         </div>
                     </div>
@@ -278,6 +286,7 @@
                                                 <input class="input" type="text" name="offerTitle" placeholder="Offer title" />
                                                 <span class="form-box__label">Offer title</span>
                                             </label>
+                                            <div class="error-message"></div>
                                         </div>
                                     </div>
                                     <div class="grid__col grid__col_xl_12">
@@ -286,6 +295,7 @@
                                                 <input class="input" type="text" name="offerDescription" placeholder="Offer Description" />
                                                 <span class="form-box__label">Offer Description</span>
                                             </label>
+                                            <div class="error-message"></div>
                                         </div>
                                     </div>
                                     <div class="grid__col grid__col_xl_6 grid__col_sm_12">
@@ -295,6 +305,7 @@
                                                 <span class="form-box__label">Price </span>
                                                 <span class="form-box__icon form-box__icon_text">&pound;</span>
                                             </label>
+                                            <div class="error-message"></div>
                                         </div>
                                     </div>
                                     <div class="grid__col grid__col_xl_6 grid__col_sm_12">
@@ -307,6 +318,7 @@
                                                     <option value="per year">Per year</option>
                                                 </select>
                                             </label>
+                                            <div class="error-message"></div>
                                         </div>
                                     </div>
                                 </div>
@@ -323,6 +335,7 @@
                                             <svg class="form-box__icon form-box__icon_cross"><use xlink:href="assets/images/icon.svg#icon_cross"></use></svg>
                                         </button>
                                     </label>
+                                    <div class="error-message"></div>
                                 </div>
                                 <div class="form__wrapper form__wrapper_sm-mg" data-deleted-object="data-deleted-object">
                                     <label class="form-box form-box_icon">
@@ -332,6 +345,7 @@
                                             <svg class="form-box__icon form-box__icon_cross"><use xlink:href="assets/images/icon.svg#icon_cross"></use></svg>
                                         </button>
                                     </label>
+                                    <div class="error-message"></div>
                                 </div>
                                 <div class="form__wrapper form__wrapper_sm-mg" data-deleted-object="data-deleted-object">
                                     <label class="form-box form-box_icon">
@@ -341,6 +355,7 @@
                                             <svg class="form-box__icon form-box__icon_cross"><use xlink:href="assets/images/icon.svg#icon_cross"></use></svg>
                                         </button>
                                     </label>
+                                    <div class="error-message"></div>
                                 </div>
                             </fieldset>
                             <fieldset class="form__section form__section_sm-mg">
@@ -350,6 +365,7 @@
                                         <span class="form-box__label">Comment (Only you can see it)</span>
                                     </label>
                                     <div class="form__text form__text_light">This comment helps you to recognize this particular offer inbetween other offers</div>
+                                    <div class="error-message"></div>
                                 </div>
                             </fieldset>
                             <div class="form__buttons">
@@ -369,6 +385,7 @@
                                                 <input class="input" type="text" name="offerTitle" placeholder="Offer title" />
                                                 <span class="form-box__label">Offer title</span>
                                             </label>
+                                            <div class="error-message"></div>
                                         </div>
                                     </div>
                                     <div class="grid__col grid__col_xl_12">
@@ -377,6 +394,7 @@
                                                 <input class="input" type="text" name="offerDescription" placeholder="Offer Description" />
                                                 <span class="form-box__label">Offer Description</span>
                                             </label>
+                                            <div class="error-message"></div>
                                         </div>
                                     </div>
                                     <div class="grid__col grid__col_xl_6 grid__col_sm_12">
@@ -386,6 +404,7 @@
                                                 <span class="form-box__label">Price </span>
                                                 <span class="form-box__icon form-box__icon_text">&pound;</span>
                                             </label>
+                                            <div class="error-message"></div>
                                         </div>
                                     </div>
                                     <div class="grid__col grid__col_xl_6 grid__col_sm_12">
@@ -398,6 +417,7 @@
                                                     <option value="per year">Per year</option>
                                                 </select>
                                             </label>
+                                            <div class="error-message"></div>
                                         </div>
                                     </div>
                                 </div>
@@ -414,6 +434,7 @@
                                             <svg class="form-box__icon form-box__icon_cross"><use xlink:href="assets/images/icon.svg#icon_cross"></use></svg>
                                         </button>
                                     </label>
+                                    <div class="error-message"></div>
                                 </div>
                                 <div class="form__wrapper form__wrapper_sm-mg" data-deleted-object="data-deleted-object">
                                     <label class="form-box form-box_icon">
@@ -423,6 +444,7 @@
                                             <svg class="form-box__icon form-box__icon_cross"><use xlink:href="assets/images/icon.svg#icon_cross"></use></svg>
                                         </button>
                                     </label>
+                                    <div class="error-message"></div>
                                 </div>
                                 <div class="form__wrapper form__wrapper_sm-mg" data-deleted-object="data-deleted-object">
                                     <label class="form-box form-box_icon">
@@ -432,6 +454,7 @@
                                             <svg class="form-box__icon form-box__icon_cross"><use xlink:href="assets/images/icon.svg#icon_cross"></use></svg>
                                         </button>
                                     </label>
+                                    <div class="error-message"></div>
                                 </div>
                             </fieldset>
                             <fieldset class="form__section form__section_sm-mg">
@@ -441,6 +464,7 @@
                                         <span class="form-box__label">Comment (Only you can see it)</span>
                                     </label>
                                     <div class="form__text form__text_light">This comment helps you to recognize this particular offer inbetween other offers</div>
+                                    <div class="error-message"></div>
                                 </div>
                             </fieldset>
                             <div class="form__buttons">
@@ -460,6 +484,7 @@
                                                 <input class="input" type="text" name="offerTitle" placeholder="Offer title" />
                                                 <span class="form-box__label">Offer title</span>
                                             </label>
+                                            <div class="error-message"></div>
                                         </div>
                                     </div>
                                     <div class="grid__col grid__col_xl_12">
@@ -468,6 +493,7 @@
                                                 <input class="input" type="text" name="offerDescription" placeholder="Offer Description" />
                                                 <span class="form-box__label">Offer Description</span>
                                             </label>
+                                            <div class="error-message"></div>
                                         </div>
                                     </div>
                                     <div class="grid__col grid__col_xl_6 grid__col_sm_12">
@@ -477,6 +503,7 @@
                                                 <span class="form-box__label">Price </span>
                                                 <span class="form-box__icon form-box__icon_text">&pound;</span>
                                             </label>
+                                            <div class="error-message"></div>
                                         </div>
                                     </div>
                                     <div class="grid__col grid__col_xl_6 grid__col_sm_12">
@@ -489,6 +516,7 @@
                                                     <option value="per year">Per year</option>
                                                 </select>
                                             </label>
+                                            <div class="error-message"></div>
                                         </div>
                                     </div>
                                 </div>
@@ -505,6 +533,7 @@
                                             <svg class="form-box__icon form-box__icon_cross"><use xlink:href="assets/images/icon.svg#icon_cross"></use></svg>
                                         </button>
                                     </label>
+                                    <div class="error-message"></div>
                                 </div>
                                 <div class="form__wrapper form__wrapper_sm-mg" data-deleted-object="data-deleted-object">
                                     <label class="form-box form-box_icon">
@@ -514,6 +543,7 @@
                                             <svg class="form-box__icon form-box__icon_cross"><use xlink:href="assets/images/icon.svg#icon_cross"></use></svg>
                                         </button>
                                     </label>
+                                    <div class="error-message"></div>
                                 </div>
                                 <div class="form__wrapper form__wrapper_sm-mg" data-deleted-object="data-deleted-object">
                                     <label class="form-box form-box_icon">
@@ -523,6 +553,7 @@
                                             <svg class="form-box__icon form-box__icon_cross"><use xlink:href="assets/images/icon.svg#icon_cross"></use></svg>
                                         </button>
                                     </label>
+                                    <div class="error-message"></div>
                                 </div>
                             </fieldset>
                             <fieldset class="form__section form__section_sm-mg">
@@ -532,6 +563,7 @@
                                         <span class="form-box__label">Comment (Only you can see it)</span>
                                     </label>
                                     <div class="form__text form__text_light">This comment helps you to recognize this particular offer inbetween other offers</div>
+                                    <div class="error-message"></div>
                                 </div>
                             </fieldset>
                             <div class="form__buttons">
@@ -551,6 +583,7 @@
                                                 <input class="input" type="text" name="offerTitle" placeholder="Offer title" />
                                                 <span class="form-box__label">Offer title</span>
                                             </label>
+                                            <div class="error-message"></div>
                                         </div>
                                     </div>
                                     <div class="grid__col grid__col_xl_12">
@@ -559,6 +592,7 @@
                                                 <input class="input" type="text" name="offerDescription" placeholder="Offer Description" />
                                                 <span class="form-box__label">Offer Description</span>
                                             </label>
+                                            <div class="error-message"></div>
                                         </div>
                                     </div>
                                     <div class="grid__col grid__col_xl_6 grid__col_sm_12">
@@ -568,6 +602,7 @@
                                                 <span class="form-box__label">Price </span>
                                                 <span class="form-box__icon form-box__icon_text">&pound;</span>
                                             </label>
+                                            <div class="error-message"></div>
                                         </div>
                                     </div>
                                     <div class="grid__col grid__col_xl_6 grid__col_sm_12">
@@ -580,6 +615,7 @@
                                                     <option value="per year">Per year</option>
                                                 </select>
                                             </label>
+                                            <div class="error-message"></div>
                                         </div>
                                     </div>
                                 </div>
@@ -596,6 +632,7 @@
                                             <svg class="form-box__icon form-box__icon_cross"><use xlink:href="assets/images/icon.svg#icon_cross"></use></svg>
                                         </button>
                                     </label>
+                                    <div class="error-message"></div>
                                 </div>
                                 <div class="form__wrapper form__wrapper_sm-mg" data-deleted-object="data-deleted-object">
                                     <label class="form-box form-box_icon">
@@ -605,6 +642,7 @@
                                             <svg class="form-box__icon form-box__icon_cross"><use xlink:href="assets/images/icon.svg#icon_cross"></use></svg>
                                         </button>
                                     </label>
+                                    <div class="error-message"></div>
                                 </div>
                                 <div class="form__wrapper form__wrapper_sm-mg" data-deleted-object="data-deleted-object">
                                     <label class="form-box form-box_icon">
@@ -614,6 +652,7 @@
                                             <svg class="form-box__icon form-box__icon_cross"><use xlink:href="assets/images/icon.svg#icon_cross"></use></svg>
                                         </button>
                                     </label>
+                                    <div class="error-message"></div>
                                 </div>
                             </fieldset>
                             <fieldset class="form__section form__section_sm-mg">
@@ -623,6 +662,7 @@
                                         <span class="form-box__label">Comment (Only you can see it)</span>
                                     </label>
                                     <div class="form__text form__text_light">This comment helps you to recognize this particular offer inbetween other offers</div>
+                                    <div class="error-message"></div>
                                 </div>
                             </fieldset>
                             <div class="form__buttons">

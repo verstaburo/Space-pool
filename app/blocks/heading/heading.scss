@@ -24,18 +24,18 @@
     margin-left: -20px;
     margin-right: -20px;
     width: calc(100% + 40px);
-    min-height: 280px;
+    min-height: 180px;
   }
 
   .is-IE & {
     height: 620px;
 
     @include screen('lg') {
-      min-height: 360px;
+      height: 360px;
     }
 
     @include screen('sm') {
-      min-height: 280px;
+      height: 180px;
     }
   }
 
@@ -101,7 +101,7 @@
     }
 
     @include screen('sm') {
-      padding: 30px 20px 26px;
+      padding: 37px 20px 34px;
     }
   }
 
@@ -111,11 +111,15 @@
     font-weight: 700;
 
     @include screen('sm') {
-      @include heading-2;
+      @include text28;
     }
 
     &:not(:last-child) {
       margin-bottom: 40px;
+
+      @include screen('sm') {
+        margin-bottom: 20px;
+      }
     }
   }
 
