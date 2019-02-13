@@ -681,6 +681,75 @@
   }
 }
 
+.input-numbers {
+  position: relative;
+  display: block;
+  width: 100%;
+
+  &__input {
+    padding-right: 60px;
+  }
+
+  &__buttons {
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-start;
+    width: auto;
+    height: 100%;
+    z-index: 3;
+    padding-right: 4px;
+  }
+
+  &__button {
+    position: relative;
+    display: block;
+    width: 14px;
+    min-width: 14px;
+    height: 100%;
+    cursor: pointer;
+
+    &:not(:last-child) {
+      margin-right: 20px;
+    }
+
+    &::before,
+    &::after {
+      @include pseudo;
+
+      top: 50%;
+      left: 50%;
+      transform-origin: 50% 50%;
+      width: 14px;
+      height: 2px;
+      background-color: $color-basic;
+      transform: translate3d(-50%, -50%, 0);
+      transition: background $ease-main;
+    }
+
+    &:hover::before,
+    &:hover::after {
+      background-color: $color-basic-dark;
+    }
+
+    &.js-numberbox-minus {
+      &::after {
+        display: none;
+      }
+    }
+
+    &.js-numberbox-plus {
+      &::before {}
+
+      &::after {
+        transform: translate3d(-50%, -50%, 0) rotate(90deg);
+      }
+    }
+  }
+}
+
 // #####
 // Кастомные селекты
 // #####
@@ -1140,6 +1209,11 @@
       border-radius: 0;
       color: $color-basic;
       transition: color $ease-main;
+      overflow: hidden;
+
+      @include screen('sm') {
+        @include text16;
+      }
     }
 
     #{$k}__toggle {
@@ -1167,10 +1241,18 @@
         width: 100%;
         max-width: none;
         transition: border $ease-main;
+
+        @include ellipsis(100%);
+
+        #{$k}__item {
+          @include ellipsis(100%);
+        }
       }
 
       #{$k}__placeholder {
         color: transparent;
+
+        @include ellipsis(100%);
       }
 
       &--dropdown {

@@ -9,9 +9,24 @@ mixin input-number(name)
   +b.LABEL.input-numberbox&attributes(attributes)
     +e.field
       +e.label amount:
-      +e.INPUT.input.js-numberbox-input(type=name value="0")
+      +e.INPUT.input.js-numberbox-input(type="text" name=name value="0")
     +e.button.js-numberbox-minus
     +e.button.js-numberbox-plus
+
+mixin input-numbers(name, placeholder, min, max)
+  +b.input-numbers&attributes(attributes)
+    - if (min && max) {
+      +input.input-numbers__input.js-numberbox-input(type="text" name=name placeholder=placeholder data-min=min data-max=max)
+    - } else if (max) {
+      +input.input-numbers__input.js-numberbox-input(type="text" name=name placeholder=placeholder data-max=max)
+    - } else if (min) {
+      +input.input-numbers__input.js-numberbox-input(type="text" name=name placeholder=placeholder data-min=min)
+    - } else {
+      +input.input-numbers__input.js-numberbox-input(type="text" name=name placeholder=placeholder)
+    - }
+    +e.buttons
+      +e.button.js-numberbox-minus
+      +e.button.js-numberbox-plus
 
 mixin textarea()
   textarea.textarea&attributes(attributes)

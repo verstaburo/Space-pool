@@ -221,25 +221,39 @@ export function numberinput() {
   $(document).on('click', '.js-numberbox-minus, .js-numberbox-plus', function (e) {
     e.preventDefault();
 
-    const input = $(this).parent().find('.js-numberbox-input');
-    let val = +input.val();
+    const input = $(this).closest('.input-numberbox, .input-numbers').find('.js-numberbox-input');
+    let val;
+    const min = parseInt($(input).attr('data-min'), 10) || 0;
+    const max = parseInt($(input).attr('data-max'), 10) || false;
 
     const minus = $(this).is('[class*="minus"]') || false;
 
-    if (!val.length) {
-      input.val(1);
+    if (!input.val()) {
+      val = min;
+      input.val(min);
+    } else {
+      val = +input.val();
     }
 
     if (minus) {
-      input.val(val > 0 ? (val -= 1) : 0);
+      input.val(val > min ? (val -= 1) : min);
+    } else if (max) {
+      input.val(val < max ? (val += 1) : max);
     } else {
       input.val(val += 1);
     }
+    input.trigger('input');
+    input.trigger('change');
   });
 
   $(document).on('keyup change', '.js-numberbox-input', function () {
+    const min = parseInt($(this).attr('data-min'), 10) || 0;
+    const max = parseInt($(this).attr('data-max'), 10) || false;
     this.value = this.value.replace(/[^\d]/, '');
-    if ($(this).val() < 0) $(this).val(0);
+    if ($(this).val() < min) $(this).val(min);
+    if (max && $(this).val() > max) $(this).val(max);
+    $(this).trigger('input');
+    $(this).trigger('change');
   });
 }
 

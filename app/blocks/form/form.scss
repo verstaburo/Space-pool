@@ -72,6 +72,12 @@
       }
     }
 
+    &_mg90 {
+      &:not(:last-of-type) {
+        margin-bottom: 90px;
+      }
+    }
+
     &_mg105 {
       &:not(:last-of-type) {
         margin-bottom: 105px;
@@ -105,6 +111,10 @@
 
     &_mg14 {
       margin-bottom: 14px;
+    }
+
+    &_mg21 {
+      margin-bottom: 21px;
     }
 
     &_mg30 {
@@ -281,6 +291,45 @@
         padding-top: 0;
       }
     }
+
+    &_negative-mg {
+      margin-top: -9px;
+
+      &17 {
+        margin-top: -17px;
+      }
+
+      &13 {
+        margin-top: -13px;
+      }
+
+      &6 {
+        margin-top: -6px;
+      }
+    }
+
+    &_separator {
+      &::after {
+        @include text-big;
+
+        position: absolute;
+        content: ':';
+        display: block;
+        left: 100%;
+        top: 5px;
+        color: $color-placeholder;
+        text-align: center;
+        width: 60px;
+
+        @include screen('sm') {
+          display: none;
+        }
+      }
+
+      &#{$b}__wrapper_negative-mg::after {
+        top: -5px;
+      }
+    }
   }
 
   &__panel {
@@ -325,6 +374,12 @@
   &__buttons {
     &:not(:first-child) {
       margin-top: 52px;
+    }
+
+    &_mgt60 {
+      &:not(:first-child) {
+        margin-top: 60px;
+      }
     }
   }
 
@@ -451,6 +506,26 @@
       transform: translate3d(0, 39%, 0);
       margin-bottom: 42px;
     }
+  }
+
+  &__count {
+    flex: 2.35;
+
+    @include screen('sm') {
+      flex: 1.425;
+    }
+
+    &:not(:last-child) {
+      margin-right: 14px;
+
+      @include screen('sm') {
+        margin-right: 10px;
+      }
+    }
+  }
+
+  &__mesure {
+    flex: 1;
   }
 }
 

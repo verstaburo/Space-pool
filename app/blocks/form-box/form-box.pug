@@ -1,4 +1,4 @@
-mixin form-box(label, icon, tag, symbol)
+mixin form-box(label, icon, tag, symbol, symbol2)
   +b(tag || 'label').form-box&attributes(attributes)
     block
     if label
@@ -7,6 +7,8 @@ mixin form-box(label, icon, tag, symbol)
       +icon(icon).__icon
     if symbol
       +e.icon_text!=symbol
+    if symbol2
+      +e.icon_text._text_r0!=symbol2
 
 
 mixin form-box-removable(label, tag, nopoint)
