@@ -50,6 +50,8 @@ import switchOfferState from '../blocks/offer/offer';
 import emptyOfferState from '../blocks/offers/offers';
 import setBlogNewsTitlesHeight from '../blocks/blog/blog';
 import '../blocks/form/validate';
+import stickyMessage from '../blocks/sticky-message/sticky-message';
+import blockHeightRounding from '../blocks/js-functions/blockHeightRounding';
 
 const $ = window.$;
 
@@ -92,4 +94,6 @@ $(() => {
   switchOfferState();
   emptyOfferState();
   setBlogNewsTitlesHeight();
+  stickyMessage();
+  blockHeightRounding();
 });
