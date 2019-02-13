@@ -167,7 +167,7 @@
                         </aside>
                     </div>
                     <div class="content__column content__column_main">
-                        <form class="form form_pb js-form-with-hidden-panel">
+                        <form class="form form_pb js-form-with-hidden-panel" data-validated-form="data-validated-form">
                             <fieldset class="form__section">
                                 <div class="form__header">
                                     <h3 class="form__title">Basic account information</h3>
@@ -176,7 +176,7 @@
                                     <div class="grid__col grid__col_xl_6 grid__col_md_12">
                                         <div class="form__wrapper">
                                             <label class="form-box">
-                                                <input class="input" type="text" name="firstName" value="Eugene" placeholder="First name" />
+                                                <input class="input" type="text" name="firstName" value="Eugene" placeholder="First name" required="required" />
                                                 <span class="form-box__label">First name</span>
                                             </label>
                                             <div class="error-message"></div>
@@ -194,7 +194,7 @@
                                     <div class="grid__col grid__col_xl_6 grid__col_md_12">
                                         <div class="form__wrapper">
                                             <label class="form-box">
-                                                <select class="select js-select-input" name="country">
+                                                <select class="select js-select-input" name="country" required="required">
                                                     <option value="placeholder" placeholder>Country</option>
                                                     <option value="uk" selected>United-Kingdom</option>
                                                     <option value="ru">Russia</option>
@@ -219,8 +219,27 @@
                                     <div class="grid__col grid__col_xl_6 grid__col_md_12">
                                         <div class="form__wrapper">
                                             <label class="form-box">
-                                                <input class="input" type="email" name="email" value="es@bsagency.design" placeholder="E-mail adress" />
+                                                <input class="input" type="email" name="email" value="es@bsagency.design" placeholder="E-mail adress" required="required" />
                                                 <span class="form-box__label">E-mail adress</span>
+                                            </label>
+                                            <div class="error-message"></div>
+                                        </div>
+                                    </div>
+                                    <div class="grid__col grid__col_xl_6 grid__col_md_12 grid__col_md-order2">
+                                        <div class="form__wrapper">
+                                            <label class="avatar-uploader form__avatar-uploader" data-upload-container="data-upload-container">
+                                                <span class="avatar-uploader__preview" data-image-preview="data-image-preview">
+                                                    <span class="avatar avatar_big">
+                                                        <img class="avatar__image" src="assets/images/ava5.jpg" alt="" role="presentation" />
+                                                    </span>
+                                                </span>
+                                                <span class="avatar-uploader__content">
+                                                    <input class="avatar-uploader__input js-upload-image" type="file" name="ava" />
+                                                    <span class="link link_icon link_icon_gray-dark link_icon_mid link_light-underline link_no-shadow link_bold avatar-uploader__name">
+                                                        <svg class="link__icon link__icon_img"><use xlink:href="assets/images/icon.svg#icon_img"></use></svg>
+                                                        <span class="link__text">Change userpic</span>
+                                                    </span>
+                                                </span>
                                             </label>
                                             <div class="error-message"></div>
                                         </div>

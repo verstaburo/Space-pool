@@ -52,6 +52,7 @@ import setBlogNewsTitlesHeight from '../blocks/blog/blog';
 import '../blocks/form/validate';
 import stickyMessage from '../blocks/sticky-message/sticky-message';
 import blockHeightRounding from '../blocks/js-functions/blockHeightRounding';
+import '../blocks/avatar-uploader/avatar-uploader';
 
 const $ = window.$;
 

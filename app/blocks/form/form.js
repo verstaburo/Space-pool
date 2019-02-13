@@ -16,6 +16,7 @@ export default function formManipulations() {
   // сбрасываем форму
   function resetForm(form) {
     form[0].reset();
+    // сбрасываем селекты
     const selects = $(form).find('select');
     $(selects).each((i, el) => {
       const isChoices = $(el).closest('.choices').length;
@@ -25,7 +26,16 @@ export default function formManipulations() {
         $(el).trigger('change');
       }
     });
+    // сбрасываем превюху у изображения
+    const images = $('[data-image-preview] img');
+    if (images.length > 0) {
+      $(images).each((i, el) => {
+        const defaultPath = $(el).attr('data-default-path');
+        $(el).attr('src', defaultPath);
+      });
+    }
     // window.setPasswordMask();
+    // сбрасываем положение лейблов
     window.setLabelPosition();
   }
 

@@ -1,0 +1,8 @@
+mixin avatar-uploader()
+  +b.LABEL.avatar-uploader&attributes(attributes)(data-upload-container)
+    +e.preview(data-image-preview)
+      +avatar('assets/images/ava5.jpg')._big
+    +e.content
+      +e.INPUT(type="file" name="ava").input.js-upload-image
+      +link-icon('img', 'span')._icon_gray-dark._icon_mid._light-underline._no-shadow._bold.__name
+        block

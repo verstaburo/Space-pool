@@ -14,7 +14,7 @@ block content
           +side-navigation('Change your personal info, password and notification options here')
             +nav-list-sidebar(getData('side-menu-user.json'), 'Profile & Settings').__navigation
         +content-column-main
-          +form._pb.js-form-with-hidden-panel
+          +form._pb.js-form-with-hidden-panel(data-validated-form)
             +form-section
               +form-section-header
                 +form-section-title Basic account information
@@ -22,7 +22,7 @@ block content
                 +col({xl: 6, md:12 })
                   +form-section-wrapper
                     +form-box('First name')
-                      +input(type="text" name="firstName" value="Eugene" placeholder="First name")
+                      +input(type="text" name="firstName" value="Eugene" placeholder="First name" required)
                 +col({xl: 6, md:12 })
                   +form-section-wrapper
                     +form-box('Last name')
@@ -30,7 +30,7 @@ block content
                 +col({xl: 6, md:12 })
                   +form-section-wrapper
                     +form-box('Country')
-                      +select.js-select-input(name="country")
+                      +select.js-select-input(name="country" required)
                         option(value="placeholder" placeholder) Country
                         option(value="uk" selected) United-Kingdom
                         option(value="ru") Russia
@@ -44,7 +44,10 @@ block content
                 +col({xl: 6, md:12 })
                   +form-section-wrapper
                     +form-box('E-mail adress')
-                      +input(type="email" name="email" value="es@bsagency.design" placeholder="E-mail adress")
+                      +input(type="email" name="email" value="es@bsagency.design" placeholder="E-mail adress" required)
+                +col({xl: 6, md:12 }).grid__col_md-order2
+                  +form-section-wrapper
+                    +avatar-uploader().__avatar-uploader Change userpic
             +form-section._bmg
               +form-section-header._smg
                 +form-section-title Password change
