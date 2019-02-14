@@ -242,8 +242,9 @@ export function numberinput() {
     } else {
       input.val(val += 1);
     }
-    input.trigger('input');
-    input.trigger('change');
+    setTimeout(() => {
+      input.trigger('input');
+    }, 50);
   });
 
   $(document).on('keyup change', '.js-numberbox-input', function () {
@@ -252,8 +253,9 @@ export function numberinput() {
     this.value = this.value.replace(/[^\d]/, '');
     if ($(this).val() < min) $(this).val(min);
     if (max && $(this).val() > max) $(this).val(max);
-    $(this).trigger('input');
-    $(this).trigger('change');
+    setTimeout(() => {
+      $(this).trigger('input');
+    }, 50);
   });
 }
 
