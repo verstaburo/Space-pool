@@ -1,24 +1,29 @@
 // http://leafletjs.com
 // https: //github.com/Leaflet/Leaflet.markercluster
+// библиотека подключена в app.min.js
 
 $(document).ready(() => {
+
   // карта в спейсе
   function maps() {
     if (!$('#map').length) {
       return;
     }
 
+    // базовые  настройки карты
     var map = L.map('map', {
       scrollWheelZoom: false,
       zoomControl: false,
     }).setView([51.513443, -0.102139], 13);
 
+    // настройка доступа к mapbox картам
     L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
       maxZoom: 18,
       id: 'mapbox.streets',
       accessToken: 'pk.eyJ1IjoidGhldmVydmVyeTEiLCJhIjoiY2lzZXdzaXZ4MDBjaTJudm93dDI4MGVrMCJ9.Z8KKk0M_lpDTPB6_JtJBxg',
     }).addTo(map);
 
+    // настройка иконки маркера
     var myMarker = L.icon({
       iconUrl: 'assets/images/map/map-marker.png',
       iconSize: [43, 46],
@@ -40,22 +45,28 @@ $(document).ready(() => {
     if (!$('#mapTwo').length) {
       return;
     }
+
+    // базовые  настройки карты
     var mapTwo = L.map('mapTwo', {
       scrollWheelZoom: false,
     }).setView([59.934, 30.335], 13);
-    var myMarker = L.icon({
-      iconUrl: 'assets/images/map/marker-two.png',
-      iconSize: [34, 42],
-      iconAnchor: [10, 42],
-    });
 
+    // настройка доступа к mapbox картам
     L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
       maxZoom: 18,
       id: 'mapbox.streets',
       accessToken: 'pk.eyJ1IjoidGhldmVydmVyeTEiLCJhIjoiY2lzZXdzaXZ4MDBjaTJudm93dDI4MGVrMCJ9.Z8KKk0M_lpDTPB6_JtJBxg',
     }).addTo(mapTwo);
 
+    // настройка позиции кнопок зума
     mapTwo.zoomControl.setPosition('bottomright');
+
+    // настройка иконки маркера
+    var myMarker = L.icon({
+      iconUrl: 'assets/images/map/marker-two.png',
+      iconSize: [34, 42],
+      iconAnchor: [10, 42],
+    });
 
     // добавляем точку на карту по координатам
     var addMarker = function (coordinates) {
@@ -90,6 +101,7 @@ $(document).ready(() => {
     }
   }
 
+  // инициализация карт
   maps();
   mapsTwo();
 });
