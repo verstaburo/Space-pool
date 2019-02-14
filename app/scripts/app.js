@@ -53,6 +53,7 @@ import '../blocks/form/validate';
 import stickyMessage from '../blocks/sticky-message/sticky-message';
 import blockHeightRounding from '../blocks/js-functions/blockHeightRounding';
 import '../blocks/avatar-uploader/avatar-uploader';
+import calendar from '../blocks/calendar/calendar';
 
 const $ = window.$;
 
@@ -97,4 +98,5 @@ $(() => {
   setBlogNewsTitlesHeight();
   stickyMessage();
   blockHeightRounding();
+  calendar();
 });

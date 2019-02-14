@@ -215,6 +215,38 @@ export function datepicker() {
       dateFormat: 'dd MM yyyy',
     });
   });
+
+  $('.js-days-calendar').each(function () {
+    const el = $(this);
+    /* eslint-disable consistent-return */
+    el.datepicker({
+      classes: 'calendar__grid',
+      language: 'en',
+      dateFormat: 'dd MM yyyy',
+      inline: true,
+      navTitles: {
+        days: '<span data-month="data-month">m</span><span data-year="data-year">yyyy</span>',
+      },
+      moveToOtherYearsOnSelect: false,
+      selectOtherYears: false,
+      selectOtherMonths: false,
+      altField: '[data-calendar-output]',
+      altFieldDateFormat: 'yyyy MM dd',
+      onRenderCell(date, cellType) {
+        if (cellType === 'day') {
+          return {
+            html: `<span>${date.getDate()}</span>`,
+          };
+        }
+        if (cellType === 'year') {
+          return {
+            html: `<span>${date.getFullYear()}</span>`,
+          };
+        }
+      },
+    });
+    /* eslint-enable consistent-return */
+  });
 }
 
 export function numberinput() {

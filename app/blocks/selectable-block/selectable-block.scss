@@ -1,0 +1,40 @@
+.selectable-block {
+  $b: &;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  height: 70px;
+  position: relative;
+  box-sizing: border-box;
+  cursor: pointer;
+
+  &::before {
+    @include pseudo;
+    @include gradient-main;
+
+    width: 100%;
+    height: 5px;
+    transition: opacity $ease-main;
+    bottom: 0;
+    left: 0;
+    z-index: 2;
+    opacity: 0;
+  }
+
+  &::after {
+    @include pseudo;
+
+    width: 100%;
+    height: 1px;
+    background-color: $color-basic;
+    bottom: 0;
+    left: 0;
+    z-index: 1;
+  }
+
+  &.is-active::before {
+    opacity: 1;
+  }
+}

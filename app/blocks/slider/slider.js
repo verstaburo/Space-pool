@@ -10,6 +10,7 @@ export default function slider() {
   const roomsSliders = $('.js-slider-rooms');
   const spacesInnerSliders = $('.js-slider-spaces-inner');
   const gallerySlider = $('.js-slider-gallery');
+  const monthsSlider = $('.js-slider-calendar');
   const bp = window.globalOptions.sizes;
 
   if (spacesSliders.length > 0) {
@@ -212,6 +213,26 @@ export default function slider() {
         centeredSlides: true,
         slidesPerGroup: 1,
         roundLengths: false,
+        navigation: {
+          nextEl: btnNext,
+          prevEl: btnPrev,
+        },
+      });
+    });
+  }
+
+  if (monthsSlider.length > 0) {
+    $(monthsSlider).each((i, el) => {
+      const btnPrev = $(el).find('.js-slider-button-prev')[0];
+      const btnNext = $(el).find('.js-slider-button-next')[0];
+      const sliderContainer = $(el).find('.js-slider-container');
+      const newslider = new Swiper(sliderContainer, {
+        speed: 500,
+        slidesPerView: 4,
+        slidesPerGroup: 1,
+        roundLengths: false,
+        observer: true,
+        observeParents: true,
         navigation: {
           nextEl: btnNext,
           prevEl: btnPrev,

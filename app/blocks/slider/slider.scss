@@ -263,4 +263,71 @@
       }
     }
   }
+
+  &_calendar {
+    padding: 0 69px;
+
+    @include screen('sm') {
+      padding: 0 20px;
+    }
+
+    #{$b} {
+
+      &__container {
+        border-top: 1px solid $color-border-light;
+      }
+
+      &__buttons {
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        left: 0;
+
+        @include screen('sm') {
+          width: 100%;
+          left: 0;
+        }
+      }
+
+      &__button {
+        width: 70px;
+        height: 70px;
+        border: 1px solid $color-border-light;
+        border-right-width: 0;
+
+        @include screen('sm') {
+          width: 20px;
+          height: 70px;
+        }
+
+        &-icon {
+          width: 8px;
+          height: 13px;
+          fill: $color-basic;
+
+          #{$b}__button:hover & {
+            fill: $color-basic-dark;
+          }
+        }
+
+        &:hover {
+          background-color: transparent;
+        }
+
+        &.swiper-button-disabled {
+          opacity: 1;
+          pointer-events: none;
+          cursor: default;
+
+          #{$b}__button-icon {
+            fill: $color-calendar-disabled-arrow;
+          }
+        }
+      }
+
+      &__slide {
+        border-right: 1px solid $color-border-light;
+      }
+    }
+  }
 }

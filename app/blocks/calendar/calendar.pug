@@ -1,0 +1,25 @@
+mixin calendar(title)
+  +b.calendar&attributes(attributes)(data-calendar)
+    +e.heading
+      if title
+        +e.H3.title!=title
+      +e.year
+        //- +e.number(data-calendar-year) 2019
+        //- +icon('select-arrow').icon
+        +select.js-select(data-calendar-year)
+          - var startYear = (new Date()).getFullYear();
+          -for (var i = startYear; i <= 3000; i++) {
+            -if (i === startYear) {
+              option(value=i selected)!=i
+            -} else {
+              option(value=i)!=i
+            -}
+          -}
+    +slider-calendar(true).__months.js-slider-calendar
+      - var months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+      - for (var i = 0; i < months.length; i++) {
+        +slide
+          +selectable-block()(data-calendar-month=i)!= months[i]
+      - }
+    +e.content.js-days-calendar
+      block

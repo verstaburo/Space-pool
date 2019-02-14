@@ -47,6 +47,18 @@ mixin slider-gallery-bold(buttons, loupe)
       +e.A.loupe.js-open-gallery(data-targets="gallery")
         +icon('loupe').__loupe-icon
 
+mixin slider-calendar(buttons)
+  +b.slider__._calendar&attributes(attributes)
+    +e.container.swiper-container.js-slider-container
+      .swiper-wrapper
+        block
+    if buttons
+      +e.buttons_simple
+        +e.button._prev.js-slider-button-prev
+          +icon('arrow2').__button-icon
+        +e.button._next.js-slider-button-next
+          +icon('arrow2').__button-icon
+
 mixin slide
   +e.slide.swiper-slide&attributes(attributes)
     block
