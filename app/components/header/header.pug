@@ -11,3 +11,11 @@ mixin header(host)
           +header-user(host)
       +e.burger
         +burger
+
+
+mixin header-special()
+  +b.HEADER.header&attributes(attributes)(class=isAuthorized)
+    .container
+      +e.logo
+        +logo()(href="/")
+      +e.NAV.navigation(data-rounding-target)
