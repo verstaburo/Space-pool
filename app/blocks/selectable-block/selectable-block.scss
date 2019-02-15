@@ -1,14 +1,26 @@
 .selectable-block {
   $b: &;
 
+  @include text-mid;
+
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
-  height: 70px;
+  height: 67px;
   position: relative;
   box-sizing: border-box;
   cursor: pointer;
+  font-weight: 700;
+  line-height: (26/17);
+  padding-bottom: 4px;
+
+  @include screen('sm') {
+    @include text13;
+
+    line-height: (26/13);
+    height: 39px;
+  }
 
   &::before {
     @include pseudo;

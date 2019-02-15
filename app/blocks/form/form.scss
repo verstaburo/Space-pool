@@ -60,6 +60,12 @@
       }
     }
 
+    &_mg33 {
+      &:not(:last-of-type) {
+        margin-bottom: 33px;
+      }
+    }
+
     &_mg75 {
       &:not(:last-of-type) {
         margin-bottom: 75px;
@@ -107,6 +113,10 @@
 
     @include screen('sm') {
       margin-bottom: 59px;
+    }
+
+    &_mg9 {
+      margin-bottom: 9px;
     }
 
     &_mg14 {
@@ -182,6 +192,19 @@
       }
     }
 
+    &_mid {
+      @include heading-4;
+
+      line-height: (26/20);
+      font-weight: 700;
+
+      @include screen('sm') {
+        @include text16;
+
+        line-height: (26/16);
+      }
+    }
+
     &_small {
       @include text-big;
 
@@ -191,6 +214,19 @@
         @include text-mid;
 
         line-height: (20/17);
+      }
+    }
+
+    &_smaller {
+      @include text-mid;
+
+      line-height: (26/17);
+      font-weight: 700;
+
+      @include screen('sm') {
+        @include text15;
+
+        line-height: (26/15);
       }
     }
   }

@@ -4,6 +4,37 @@
   display: block;
   width: 100%;
 
+  &__heading {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    box-sizing: border-box;
+    padding: 28px 70px 24px;
+
+    @include screen('sm') {
+      padding: 18px 20px;
+    }
+  }
+
+  &__title {
+    @include heading-3;
+
+    font-weight: 700;
+    user-select: none;
+
+    @include screen('sm') {
+      @include heading-4;
+    }
+
+    &:not(:last-child) {
+      margin-right: 40px;
+
+      @include screen('sm') {
+        margin-right: 20px;
+      }
+    }
+  }
+
   &__content {
     display: block;
     width: 100%;
@@ -19,6 +50,11 @@
     }
 
     .datepicker {
+
+      &--nav {
+        display: none;
+      }
+
       &--days {
         &-names {
           margin-top: 32px;

@@ -10,6 +10,10 @@
   padding: 4px 0 13px;
   border-bottom: 1px solid $color-form-border;
 
+  &_light-border {
+    border-bottom-color: $color-border-light;
+  }
+
   &__cell {
     @include heading-3;
 
@@ -26,6 +30,67 @@
 
     &:not(:last-child) {
       margin-right: 30px;
+    }
+
+    &_afend {
+      align-self: flex-end;
+    }
+  }
+
+  &__input {
+    @include text-big;
+
+    font-weight: 700;
+    line-height: (26/18);
+    color: $color-basic;
+
+    @include screen('sm') {
+      @include text16;
+    }
+
+    &_big {
+      @include heading-2;
+
+      font-weight: 700;
+      line-height: 1.2;
+
+      @include screen('lg') {
+        @include heading-1-sm;
+
+        line-height: 1.2;
+      }
+
+      @include screen('sm') {
+        @include heading-3;
+
+        line-height: 1.2;
+      }
+    }
+  }
+
+  &__link {
+    @include text-mid;
+
+    font-weight: 700;
+    line-height: (34/17);
+
+    @include screen('sm') {
+      @include text15;
+
+      line-height: (34/15);
+    }
+  }
+
+  &_xs-reverse {
+    @include screen('xs') {
+      flex-wrap: wrap-reverse;
+
+      #{$b} {
+        &__cell {
+          flex: none;
+          width: 100%;
+        }
+      }
     }
   }
 }

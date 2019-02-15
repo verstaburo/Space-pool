@@ -1,6 +1,5 @@
 // http://fancyapps.com/fancybox/3/
 import '@fancyapps/fancybox';
-
 import {
   freeze,
   unfreeze,
@@ -10,8 +9,27 @@ const $ = window.$;
 
 export default function popups() {
   $('.js-popup').fancybox({
-    afterLoad: freeze,
-    afterClose: unfreeze,
+    afterLoad() {
+      freeze();
+    },
+    afterShow(i) {
+      const popup = $(i.slides[0].src);
+      $(popup).trigger('POPUP_SHOW');
+    },
+    afterClose(i) {
+      unfreeze();
+      const popup = $(i.slides[0].src);
+      if ($(popup).is('.popup-arrange-viewing')) {
+        const sections = $('[data-record-step]');
+        const sectionFirst = $('[data-record-step="1"]');
+        const slider = $(popup).find('.js-slider-container');
+        $(sections).removeClass('is-active');
+        $(sectionFirst).addClass('is-active');
+        window.setCurrentDateInPopup();
+        const currMonth = (new Date()).getMonth();
+        slider[0].swiper.slideTo(currMonth, 0);
+      }
+    },
     btnTpl: {
       smallBtn: '<button type="button" data-fancybox-close class="fancybox-button popup__close" title="{{CLOSE}}"><svg class="popup__close-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15.36 15.36"><rect x="-2.43" y="6.94" width="20.23" height="1.49" transform="translate(18.55 7.68) rotate(135)"/><rect x="-2.43" y="6.94" width="20.23" height="1.49" transform="translate(7.68 -3.18) rotate(45)"/></svg></button>',
     },

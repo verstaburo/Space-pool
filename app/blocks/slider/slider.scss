@@ -265,7 +265,7 @@
   }
 
   &_calendar {
-    padding: 0 69px;
+    padding: 0 68px;
 
     @include screen('sm') {
       padding: 0 20px;
@@ -290,28 +290,30 @@
       }
 
       &__button {
-        width: 70px;
-        height: 70px;
+        width: 69px;
+        height: 68px;
         border: 1px solid $color-border-light;
         border-right-width: 0;
 
         @include screen('sm') {
-          width: 20px;
-          height: 70px;
+          width: 21px;
+          height: 40px;
+          padding-left: 0;
         }
 
         &-icon {
           width: 8px;
           height: 13px;
           fill: $color-basic;
-
-          #{$b}__button:hover & {
-            fill: $color-basic-dark;
-          }
+          transition: fill $ease-main;
         }
 
         &:hover {
           background-color: transparent;
+
+          #{$b}__button-icon {
+            fill: $color-basic-dark;
+          }
         }
 
         &.swiper-button-disabled {
@@ -326,7 +328,20 @@
       }
 
       &__slide {
-        border-right: 1px solid $color-border-light;
+        position: relative;
+
+        &::before {
+          @include pseudo;
+
+          width: 1px;
+          top: 0;
+          left: 100%;
+          height: 100%;
+          background-color: $color-border-light;
+          z-index: 1;
+        }
+
+        // border-right: 1px solid $color-border-light;
       }
     }
   }

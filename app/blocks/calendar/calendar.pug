@@ -4,10 +4,8 @@ mixin calendar(title)
       if title
         +e.H3.title!=title
       +e.year
-        //- +e.number(data-calendar-year) 2019
-        //- +icon('select-arrow').icon
         +select.js-select(data-calendar-year)
-          - var startYear = (new Date()).getFullYear();
+          - var startYear = (new Date()).getFullYear() - 1;
           -for (var i = startYear; i <= 3000; i++) {
             -if (i === startYear) {
               option(value=i selected)!=i

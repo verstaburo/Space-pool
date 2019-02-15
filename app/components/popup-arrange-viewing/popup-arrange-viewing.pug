@@ -1,21 +1,22 @@
 mixin popup-arrange-viewing()
   +popup.popup-arrange-viewing__&attributes(attributes)
-    +e.section
+    +e.section(data-record-step="1").is-active
       +calendar('Arrange viewing')
-    +e.section
+    +e.section(data-record-step="2")
       +e.heading
         +popup-title Arrange viewing
+      +e.content
         +form._white
-          +form-section
-            +form-section-header
-              +form-section-title('h4')._small You are about to arrange viewing for
-            +info
+          +form-section._mg33
+            +form-section-header._mg9
+              +form-section-title('h4')._mid You are about to arrange viewing for
+            +info._light-border._xs-reverse
               +e.cell
                 +e.INPUT.input_big(type="text" name="date" data-calendar-output readonly="readonly")
-              +e.cell
-                +link-icon('calendar2')(href="#")._icon_smaller._icon_gray-dark._no-shadow.js-calendar-show Change date
+              +e.cell_afend
+                +link-icon('calendar2')(href="#" data-record-step-target="1")._icon_smaller._icon_gray-dark._no-shadow.__link.js-switch-record-step Change date
           +form-section
-            +form-section-header
+            +form-section-header._mg21
               +form-section-title('h4')._smaller Please set time:
             +grid.grid_bigger
               +col({xl: 6, sm: 12})

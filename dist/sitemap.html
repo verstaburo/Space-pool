@@ -189,6 +189,9 @@
                     <a class="link js-popup" href="#popup-add-rental-offer">
                         <span class="link__text">Popup Add rental offer</span>
                     </a>
+                    <a class="link js-popup" href="#popup-arrange-viewing">
+                        <span class="link__text">Popup Arrange Viewing</span>
+                    </a>
                 </div>
             </div>
         </div>
@@ -347,9 +350,9 @@
                                             <label class="form-box form__mesure">
                                                 <select class="select js-select-input" name="mesuresPeriodMin">
                                                     <option value="Days" selected="selected">Days</option>
-                                                    <option value="Week">Week</option>
-                                                    <option value="Month">Month</option>
-                                                    <option value="Year">Year</option>
+                                                    <option value="Week">Weeks</option>
+                                                    <option value="Month">Months</option>
+                                                    <option value="Year">Years</option>
                                                 </select>
                                             </label>
                                             <div class="error-message"></div>
@@ -850,13 +853,14 @@
         </div>
         <div class="popup popup-arrange-viewing" id="popup-arrange-viewing">
             <div class="popup__content">
-                <div class="popup-arrange-viewing__section">
+                <div class="popup-arrange-viewing__section is-active" data-record-step="1">
                     <div class="calendar" data-calendar="data-calendar">
                         <div class="calendar__heading">
                             <h3 class="calendar__title">Arrange viewing</h3>
                             <div class="calendar__year">
                                 <select class="select js-select" data-calendar-year="data-calendar-year">
-                                    <option value="2019" selected="selected">2019</option>
+                                    <option value="2018" selected="selected">2018</option>
+                                    <option value="2019">2019</option>
                                     <option value="2020">2020</option>
                                     <option value="2021">2021</option>
                                     <option value="2022">2022</option>
@@ -1894,20 +1898,22 @@
                         <div class="calendar__content js-days-calendar"></div>
                     </div>
                 </div>
-                <div class="popup-arrange-viewing__section">
+                <div class="popup-arrange-viewing__section" data-record-step="2">
                     <div class="popup-arrange-viewing__heading">
                         <h3 class="popup__title">Arrange viewing</h3>
+                    </div>
+                    <div class="popup-arrange-viewing__content">
                         <form class="form form_white">
-                            <fieldset class="form__section">
-                                <div class="form__header">
-                                    <h4 class="form__title form__title_small">You are about to arrange viewing for</h4>
+                            <fieldset class="form__section form__section_mg33">
+                                <div class="form__header form__header_mg9">
+                                    <h4 class="form__title form__title_mid">You are about to arrange viewing for</h4>
                                 </div>
-                                <div class="info">
+                                <div class="info info_light-border info_xs-reverse">
                                     <div class="info__cell">
                                         <input class="info__input info__input_big" type="text" name="date" data-calendar-output="data-calendar-output" readonly="readonly" />
                                     </div>
-                                    <div class="info__cell">
-                                        <a class="link link_icon link_icon_smaller link_icon_gray-dark link_no-shadow js-calendar-show" href="#">
+                                    <div class="info__cell info__cell_afend">
+                                        <a class="link link_icon link_icon_smaller link_icon_gray-dark link_no-shadow info__link js-switch-record-step" href="#" data-record-step-target="1">
                                             <svg class="link__icon link__icon_calendar2"><use xlink:href="assets/images/icon.svg#icon_calendar2"></use></svg>
                                             <span class="link__text">Change date</span>
                                         </a>
@@ -1915,7 +1921,7 @@
                                 </div>
                             </fieldset>
                             <fieldset class="form__section">
-                                <div class="form__header">
+                                <div class="form__header form__header_mg21">
                                     <h4 class="form__title form__title_smaller">Please set time:</h4>
                                 </div>
                                 <div class="grid grid_bigger">
