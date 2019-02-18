@@ -13,7 +13,6 @@ export default function scrollCont() {
     $('.js-sticky-block').each((i, el) => {
       if ($(el).attr('data-unstick-media') !== undefined) {
         const mediaStopper = window.globalOptions.sizes[$(el).attr('data-unstick-media')];
-        console.log(`${mediaStopper}px`);
         if ($(window).width() < mediaStopper) {
           $(el).trigger('sticky_kit:detach');
         } else {

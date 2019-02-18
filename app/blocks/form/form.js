@@ -54,6 +54,7 @@ export default function formManipulations() {
 
   // отключенные секции
   const formDisabledElements = $('[data-checker]');
+  const formToggleElements = $('[data-toggle-form]');
 
   // изменяет состояние элементов в переданной секции
   const stateElements = {
@@ -84,6 +85,37 @@ export default function formManipulations() {
     }
   }
 
+  function changeType(el) {
+    if ($(el).attr('data-toggle-form') !== undefined) {
+      const showElements = $(el).attr('data-show-elements') !== undefined ? $(el).attr('data-show-elements').split(',') : [];
+      const hideElements = $(el).attr('data-hide-elements') !== undefined ? $(el).attr('data-hide-elements').split(',') : [];
+      if ($(el).prop('checked')) {
+        hideElements.forEach((item) => {
+          const itemElement = $(`[data-form-element="${item}"]`);
+          $(itemElement).addClass('hide');
+          const elements = $(itemElement).find('input, select, textarea');
+          $(elements).each((i, elems) => {
+            $(elems).attr('disabled', 'disabled');
+          });
+        });
+        showElements.forEach((item) => {
+          const itemElement = $(`[data-form-element="${item}"]`);
+          $(itemElement).removeClass('hide is-disabled');
+          const elements = $(itemElement).find('input, select, textarea');
+          $(elements).each((i, elems) => {
+            $(elems).removeAttr('disabled');
+          });
+          if ($('[data-checker]').length > 0) {
+            $('[data-checker]').not('[disabled]').each((i, checkers) => {
+              const checker = checkers;
+              changeState(checker);
+            });
+          }
+        });
+      }
+    }
+  }
+
   if ($(formDisabledElements).length > 0) {
     $(formDisabledElements).each((i, el) => {
       const checker = el;
@@ -93,6 +125,18 @@ export default function formManipulations() {
     $(document).on('click', '[data-checker]', (evt) => {
       const self = evt.target;
       changeState(self);
+    });
+  }
+
+  if ($(formToggleElements).length > 0) {
+    $(formToggleElements).each((i, el) => {
+      const checker = el;
+      changeType(checker);
+    });
+
+    $(document).on('click', '[data-toggle-form]', (evt) => {
+      const self = evt.target;
+      changeType(self);
     });
   }
 }

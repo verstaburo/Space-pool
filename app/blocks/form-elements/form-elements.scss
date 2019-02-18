@@ -427,6 +427,7 @@
     padding: 0 5px;
     line-height: (26/17);
     position: relative;
+    display: inline-block;
 
     @include screen('md') {
       @include heading-4;
@@ -546,6 +547,7 @@
     }
 
     &#{$b}_dark {
+      border-color: transparent;
 
       #{$b}__content {
 
@@ -566,12 +568,56 @@
       }
 
       #{$b}__input:checked~#{$b}__content {
-        border-color: $color-basic;
+        border-color: transparent;
         background-color: $color-basic;
         color: $color-white;
 
         &::before {
           background-color: $color-basic;
+        }
+      }
+    }
+
+    &#{$b}_big {
+
+      #{$b}__content {
+
+        &::before {
+          top: auto;
+          bottom: 3px;
+
+          @include screen('sm') {
+            bottom: 1px;
+          }
+        }
+      }
+    }
+  }
+
+  &_big {
+    text-align: center;
+
+    #{$b}__content {
+      @include heading-3;
+
+      line-height: 1.2;
+      padding: 4px 10px;
+      font-weight: 700;
+
+      @include screen('sm') {
+        @include heading-4;
+
+        line-height: 1.2;
+        padding: 2px 7px;
+      }
+
+      &::before {
+        left: 10px;
+        width: calc(100% - 20px);
+
+        @include screen('sm') {
+          left: 7px;
+          width: calc(100% - 14px);
         }
       }
     }
