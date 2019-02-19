@@ -1,4 +1,6 @@
 .footer {
+  $b: &;
+
   display: block;
   width: 100%;
   box-sizing: border-box;
@@ -208,6 +210,53 @@
   body.is-panel & {
     @include screen('md') {
       padding-bottom: 70px;
+    }
+  }
+
+  &_special {
+    border-top: none;
+    padding-top: 35px;
+
+    @include screen('sm') {
+      padding-top: 20px;
+    }
+
+    #{$b} {
+
+      &__top {
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        margin-bottom: 130px;
+
+        @include screen('sm') {
+          margin-bottom: 40px;
+        }
+      }
+
+      &__logo {
+        min-width: 0;
+        width: auto;
+        font-size: 0;
+        line-height: 0;
+        margin-bottom: 20px;
+
+        @include screen('sm') {
+          margin-bottom: 6px;
+        }
+
+        .logo {
+          margin-top: 0;
+
+          @include screen('sm') {
+            margin-bottom: 0;
+          }
+        }
+      }
+
+      &__slogan {
+        padding-left: 16px;
+      }
     }
   }
 }

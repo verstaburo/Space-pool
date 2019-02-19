@@ -118,6 +118,29 @@
     }
   }
 
+  &__slogan {
+    display: inline-block;
+    width: auto;
+    flex: none;
+    white-space: nowrap;
+    align-self: center;
+    margin-top: 2px;
+    margin-left: 0;
+
+    @include screen('sm') {
+      margin-top: 0;
+      margin-left: -97px;
+    }
+
+    &:not(:last-child) {
+      margin-right: 30px;
+
+      @include screen('sm') {
+        margin-right: 20px;
+      }
+    }
+  }
+
   &.is-login {
 
     #{$b}__user {
@@ -126,6 +149,24 @@
 
     #{$b}__main {
       display: none;
+    }
+  }
+
+  &_special {
+
+    #{$b} {
+
+      &__logo {
+        margin-right: 30px;
+
+        @include screen('sm') {
+          margin-right: 15px;
+        }
+      }
+
+      &__navigation {
+        display: flex;
+      }
     }
   }
 }

@@ -14,8 +14,12 @@ mixin header(host)
 
 
 mixin header-special()
-  +b.HEADER.header&attributes(attributes)(class=isAuthorized)
+  +b.HEADER.header_special&attributes(attributes)(class=isAuthorized)
     .container
       +e.logo
         +logo()(href="/")
+      +slogan.__slogan COMING SOON...
       +e.NAV.navigation(data-rounding-target)
+        +header-menu-special.hide-md
+      +e.burger.hide-from-md
+        +burger
