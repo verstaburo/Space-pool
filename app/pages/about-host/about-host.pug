@@ -4,7 +4,42 @@ block head
   - var pageTitle = 'SpacePool - About Space Pool for Hosts'
 
 block content
-
+  +content-origin._reverse._landing
+    +promo-section
+      .container
+        +promo-section-content
+          +promo-section-column._left._white._left_wide
+            +breadcrumbs(['Home', 'About', 'About Space Pool for Hosts']).__breadcrumbs
+            +logo-image-short('div')._short.__logo
+            +promo-section-title() Spacepool <br> for Hosts
+            +promo-section-text
+              p Spacepool is a marketplace that connects workspace operators with the new generation of start-ups, scale-ups and established businesses.
+              p We provide a service that will expose your space to a thriving community who are looking for flexible offices and workspaces from which to operate.
+            +e.buttons
+              +button('a')(href="#")._border._border_bg-white._short._border_dark.__button Sign Up as a Host
+          +promo-section-column._right._media
+            +promo-section-media('assets/images/about-lead1.jpg')
+    +promo-section
+      .container
+        +promo-section-header
+          +promo-section-column._left._media
+          +promo-section-column._right
+            +slogan.__slogan GET STARTED IN 3 SIMPLE STEPS
+            +promo-section-title How Does it Work?
+        +promo-section-content
+          +promo-section-column._left._media(data-slot-id="suggestion" data-slot-res="xl")
+            +promo-section-media('assets/images/about-lead3.jpg')._mask._content
+              +e.description
+                +promo-section-text._big2._bold In modern world everything becomes faster, more convenient and common. Spacepool is breathing within the pulse of the generation bringing the simplicity and tangible advantages to the office rental industry.
+            +e.suggestion(data-target-slot="suggestion")
+              +promo-section-text._small._mg64 Spacepool is the right place to find new tenants without large investments. Just start with our Step by Step sign up form and get listed within 24 hours!
+              +e.buttons
+                +button('a')(href="#")._border._border_dark._short.__button Sign Up as a Host
+          +promo-section-column._right._white
+            +feature('assets/images/picture-signup.svg', 'Sign-up', '_signup') Complete our simple online registration form and create your first listing. Once we have reviewed your application, your listing will go live. We may contact you if we have any questions or need to arrange a site visit.
+            +feature('assets/images/picture-messages.svg', 'Receive viewing and hire requests', '_messages') Once your listing is live, Guests can request to view or hire your workspace. You can accept, reject or contact the Guest at your convenience.
+            +feature('assets/images/picture-payments.svg', 'Get paid', '_payments') The Guest makes payment as soon as you accept the hire request. We transfer the balance directly to you, less our fee.
+          +promo-section-column._left._centered.hide-from-md(data-slot-id="suggestion" data-slot-res="md")
 
 block panels
   +main-menu

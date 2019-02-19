@@ -24,7 +24,6 @@ export default function floatingLabel() {
   const targets = document.querySelectorAll('.form-box input, .form-box textarea');
   targets.forEach((item) => {
     item.addEventListener('animationstart', (evt) => {
-      console.log('animationstart');
       const self = evt.target;
       $(self).closest('.form-box').addClass('is-top');
     }, true);

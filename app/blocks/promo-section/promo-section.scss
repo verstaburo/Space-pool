@@ -1,3 +1,508 @@
 .promo-section {
   $b: &;
+
+  &__header {
+    display: flex;
+
+    @include screen('md') {
+      flex-wrap: wrap;
+    }
+
+    &:not(:last-child) {
+      margin-bottom: 104px;
+
+      @include screen('md') {
+        margin-bottom: 58px;
+      }
+
+      @include screen('sm') {
+        margin-bottom: 28px;
+      }
+    }
+
+    #{$b} {
+
+      &__title {
+        @include screen('md') {
+          text-align: center;
+        }
+      }
+
+      &__column {
+
+        &_left {
+          padding: 0 8.5%;
+
+          @include screen('lg') {
+            padding: 0 7.5%;
+          }
+
+          @include screen('md') {
+            padding: 0;
+          }
+
+          @include screen('sm') {
+            padding: 0 $container-padding-mobile;
+          }
+
+          &_wide {
+            padding: 0 8.5%;
+
+            @include screen('lg') {
+              padding: 0 7.5%;
+            }
+
+            @include screen('md') {
+              padding: 0;
+            }
+
+            @include screen('sm') {
+              padding: 0 $container-padding-mobile;
+            }
+          }
+        }
+
+        &_right {
+          padding: 0;
+
+          @include screen('lg') {
+            padding: 0 50px;
+          }
+
+          @include screen('md') {
+            padding: 0;
+          }
+
+          @include screen('sm') {
+            padding: 0 $container-padding-mobile;
+          }
+        }
+      }
+    }
+  }
+
+  &__content {
+    display: flex;
+
+    @include screen('md') {
+      flex-wrap: wrap;
+    }
+  }
+
+  .container {
+    @include screen('sm') {
+      padding: 0;
+    }
+  }
+
+  &__column {
+    position: relative;
+    display: block;
+    min-width: 57%;
+    width: 57%;
+    box-sizing: border-box;
+
+    @include screen('sm') {
+      padding: 0 $container-padding-mobile;
+    }
+
+    &_white {
+      background-color: $color-white;
+    }
+
+    &_left {
+      padding: 52px 8.5% 72px;
+
+      @include screen('lg') {
+        padding: 50px 7.5% 53px;
+      }
+
+      @include screen('md') {
+        width: 100%;
+        padding: 50px 17.2% 56px;
+      }
+
+      @include screen('sm') {
+        padding: 26px $container-padding-mobile 38px;
+      }
+
+      &_wide {
+        padding: 52px 17.3% 72px 8.5%;
+
+        @include screen('lg') {
+          min-width: 77%;
+          width: 77%;
+          padding: 50px 35% 53px 7.5%;
+        }
+
+        @include screen('md') {
+          width: 100%;
+          padding: 50px 17.2% 56px;
+        }
+
+        @include screen('sm') {
+          padding: 26px $container-padding-mobile 38px;
+        }
+      }
+
+      &#{$b}__column_media {
+        padding: 0;
+
+        @include screen('lg') {
+          left: -40px;
+        }
+
+        @include screen('md') {
+          width: 100%;
+          left: auto;
+        }
+
+        @include screen('sm') {}
+      }
+    }
+
+    &_right {
+      margin-left: -14%;
+      padding: 106px 5.5% 93px 18.5%;
+
+      @include screen('lg') {
+        width: 58%;
+        min-width: 58%;
+        margin-left: -15%;
+        padding: 106px 5% 133px 15.4%;
+      }
+
+      @include screen('md') {
+        width: 100%;
+        margin-left: 0;
+        padding: 89px 12% 100px 9.2%;
+      }
+
+      @include screen('sm') {
+        padding: 44px $container-padding-mobile 71px;
+      }
+
+      &#{$b}__column_media {
+        @include screen('lg') {
+          min-width: 57%;
+          width: 57%;
+          margin-left: -14%;
+          padding: 0;
+
+          @include screen('lg') {
+            right: -40px;
+          }
+
+          @include screen('md') {
+            width: 100%;
+            right: auto;
+            margin-left: 0;
+          }
+
+          @include screen('sm') {}
+        }
+      }
+
+      #{$b}__column_left_wide~&#{$b}__column_media {
+        padding: 0;
+
+        @include screen('lg') {
+          margin-left: -34%;
+        }
+
+        @include screen('md') {
+          margin-left: 0;
+        }
+
+        @include screen('sm') {}
+      }
+    }
+
+    &_sug {
+      @include screen('md') {
+        padding-top: 34px;
+        padding-bottom: 0;
+      }
+
+      @include screen('sm') {
+        padding-top: 36px;
+      }
+    }
+  }
+
+  &__media {
+    position: relative;
+    width: 100%;
+    z-index: 2;
+    display: flex;
+    overflow: hidden;
+    min-height: 620px;
+
+    @include screen('md') {
+      min-height: 466px;
+    }
+
+    @include screen('sm') {
+      min-height: 233px;
+    }
+
+    &:not(:last-child) {
+      margin-bottom: 94px;
+    }
+
+    &_mask {
+
+      &::before {
+        @include pseudo;
+
+        width: 100%;
+        height: 100%;
+        left: 0;
+        top: 0;
+        background-color: $color-landing-mask;
+        z-index: 2;
+      }
+
+      #{$b}__image {
+        z-index: 1;
+      }
+    }
+
+    #{$b}__description {
+      color: $color-white;
+      z-index: 3;
+    }
+  }
+
+  &__image {
+    @include fill-img;
+  }
+
+  &__description {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 60px 15.1%;
+    min-height: 620px;
+
+    @include screen('lg') {
+      padding: 60px 13.1%;
+      padding-left: calc(40px + 13.1%);
+    }
+
+    @include screen('md') {
+      padding: 40px 11.8%;
+      min-height: 466px;
+    }
+
+    @include screen('sm') {
+      padding: $container-padding-mobile;
+      min-height: 233px;
+    }
+  }
+
+  &__suggestion {
+    padding: 0 40% 0 15.1%;
+
+    @include screen('lg') {
+      padding: 0 33.6% 0 13.1%;
+      padding-left: calc(40px + 13.1%);
+    }
+
+    @include screen('md') {
+      padding: 0;
+      text-align: center;
+    }
+
+    #{$b}__text {
+      @include screen('md') {
+        padding: 0 10px;
+      }
+    }
+
+    #{$b}__buttons {
+      @include screen('md') {
+        justify-content: center;
+      }
+    }
+
+    #{$b}__button {
+      @media only screen and (max-width: 1250px) and (min-width: 1020px) {
+        min-width: 0;
+        width: 100%;
+      }
+    }
+  }
+
+  &__breadcrumbs {
+    @include screen('sm') {
+      padding-left: 23px;
+    }
+
+    &:not(:last-child) {
+      margin-bottom: 54px;
+
+      @include screen('sm') {
+        margin-bottom: 26px;
+      }
+    }
+  }
+
+  &__slogan {
+    @include screen('md') {
+      text-align: center;
+    }
+
+    &:not(:last-child) {
+      margin-bottom: 25px;
+
+      @include screen('sm') {
+        margin-bottom: 10px;
+      }
+    }
+  }
+
+  &__title {
+    @include heading-1;
+
+    font-weight: 700;
+
+    @include screen('sm') {
+      @include heading-1-sm;
+    }
+
+    &:not(:last-child) {
+      margin-bottom: 51px;
+
+      @include screen('md') {
+        margin-bottom: 44px;
+      }
+
+      @include screen('sm') {
+        margin-bottom: 24px;
+      }
+    }
+  }
+
+  &__logo {
+    &:not(:last-child) {
+      margin-bottom: 60px;
+
+      @include screen('md') {
+        margin-bottom: 46px;
+      }
+
+      @include screen('sm') {
+        margin-bottom: 20px;
+      }
+    }
+  }
+
+  &__text {
+    @include text-big;
+
+    font-weight: 300;
+    line-height: (27/18);
+
+    @include screen('sm') {
+      @include text15;
+
+      line-height: 1.35;
+    }
+
+    &:not(:last-child) {
+      margin-bottom: 86px;
+
+      @include screen('lg') {
+        margin-bottom: 54px;
+      }
+
+      @include screen('md') {
+        margin-bottom: 61px;
+      }
+
+      @include screen('sm') {
+        margin-bottom: 38px;
+      }
+    }
+
+    &_small {
+      @include text16;
+
+      @include screen('sm') {
+        @include text15;
+
+        line-height: 1.35;
+      }
+    }
+
+    &_big {
+      @include heading-1-sm;
+
+      line-height: (35/30);
+
+      @include screen('sm') {
+        @include text-big;
+
+        line-height: (23/18);
+      }
+    }
+
+    &_big2 {
+      @include heading-1-sm;
+
+      line-height: (35/30);
+
+      @include screen('sm') {
+        @include text15;
+
+        line-height: 1.35;
+      }
+    }
+
+    &_bold {
+      font-weight: 700;
+    }
+
+    &_mg64 {
+      &:not(:last-child) {
+        margin-bottom: 64px;
+
+        @include screen('lg') {
+          margin-bottom: 38px;
+        }
+
+        @include screen('md') {
+          margin-bottom: 34px;
+        }
+
+        @include screen('sm') {
+          margin-bottom: 32px;
+        }
+      }
+    }
+  }
+
+  &__buttons {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 100%;
+    margin-top: -10px;
+  }
+
+  &__button {
+    min-width: 311px;
+    max-width: 100%;
+    margin-top: 10px;
+
+    @include screen('sm') {
+      min-width: 0;
+      width: 100%;
+    }
+  }
 }

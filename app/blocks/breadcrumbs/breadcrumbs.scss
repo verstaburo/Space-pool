@@ -15,8 +15,18 @@
 
     line-height: (26/14);
 
+    @include screen('sm') {
+      @include text10;
+
+      line-height: (13/10);
+    }
+
     &:not(:last-child) {
       padding-right: 29px;
+
+      @include screen('sm') {
+        padding-right: 17px;
+      }
 
       &::after {
         @include pseudo;
@@ -27,6 +37,12 @@
         width: 4px;
         height: 1px;
         background-color: $color-basic;
+
+        @include screen('sm') {
+          top: 6px;
+          width: 2px;
+          right: 8px;
+        }
       }
     }
 

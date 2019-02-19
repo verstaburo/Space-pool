@@ -126,6 +126,7 @@
     align-self: center;
     margin-top: 2px;
     margin-left: 0;
+    transition: opacity $ease-main;
 
     @include screen('sm') {
       margin-top: 0;
@@ -138,6 +139,10 @@
       @include screen('sm') {
         margin-right: 20px;
       }
+    }
+
+    #{$b}.is-short & {
+      opacity: 0;
     }
   }
 
