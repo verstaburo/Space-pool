@@ -275,7 +275,7 @@ export default function slider() {
         pagination: {
           el: dots,
           bulletElement: 'li',
-          clickable: true,
+          clickable: false,
           bulletClass: 'slider__dot',
         },
         fadeEffect: {
