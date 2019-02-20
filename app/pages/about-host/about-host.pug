@@ -12,13 +12,50 @@ block content
             +breadcrumbs(['Home', 'About', 'About Space Pool for Hosts']).__breadcrumbs
             +logo-image-short('div')._short.__logo
             +promo-section-title() Spacepool <br> for Hosts
-            +promo-section-text
+            +promo-section-text._mg44
               p Spacepool is a marketplace that connects workspace operators with the new generation of start-ups, scale-ups and established businesses.
               p We provide a service that will expose your space to a thriving community who are looking for flexible offices and workspaces from which to operate.
             +e.buttons
               +button('a')(href="#")._border._border_bg-white._short._border_dark.__button Sign Up as a Host
           +promo-section-column._right._media
             +promo-section-media('assets/images/about-lead1.jpg')
+    +promo-section._mg10
+      .container
+        +promo-section-content
+          +promo-section-column._left._left_picture(data-slot-id="illustration" data-slot-res="xl")
+            +e.illustration_w136p-left._corr-pt._corr-mgr(data-target-slot="illustration")
+              +e.IMG.picture(src="assets/images/illustration-1.svg")
+          +promo-section-column._right._right_short
+            +e.top_mg102
+              +slogan.__slogan ON YOUR TERMS
+              +promo-section-text._big._bold As a Spacepool Host, you have the opportunity to list and hire out your workspace at your convenience. You’re in full control: availability, prices and house rules are up to you, giving you the ability to maximise your return and improve occupancy.
+            +e.middle.hide-from-md(data-slot-id="illustration" data-slot-res="md")
+            +e.bottom
+              +promo-section-text._small
+                p
+                  b Our technology is secure and fully mobile-optimised, making it simple for you and your guests to list, search and hire workspaces on the go.
+                p Spacepool will expose your brand to new businesses and help you grow your network with our dynamic marketplace.
+
+    +promo-section._mg142
+      .container
+        +promo-section-header._mg78
+          +promo-section-column._full
+            +slogan.__slogan._pl BENEFITS
+            +promo-section-title._pl Why list with Spacepool?
+        +promo-section-content
+          - var slider = getData('promo-slider-host.json');
+          +slider-promo.js-slider-promo
+            each item in slider
+              - var imgClass = item.imgClass || '';
+              - var mediaClass = item.mediaClass || '';
+              +slide
+                +info-slide
+                  +info-slide-column._left._white
+                    +info-slide-title!= item.title
+                    +info-slide-text!= item.text
+                  +info-slide-column._right
+                    +info-slide-media()(class=mediaClass)
+                      +e.IMG.image(src=item.img class=imgClass)
     +promo-section
       .container
         +promo-section-header

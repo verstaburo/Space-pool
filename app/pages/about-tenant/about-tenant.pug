@@ -17,6 +17,44 @@ block content
               +button('a')(href="#")._border._border_bg-white._short._border_dark.__button Sign Up for newsletter
           +promo-section-column._right._media
             +promo-section-media('assets/images/about-lead2.jpg')
+    +promo-section._mg112
+      .container
+        +promo-section-content
+          +promo-section-column._left._left_picture(data-slot-id="illustration" data-slot-res="xl")
+            +e.illustration_w109p-right._corr-pb(data-target-slot="illustration")
+              +e.IMG.picture(src="assets/images/illustration-3.svg")
+          +promo-section-column._right._right_short
+            +e.top
+              +slogan.__slogan_mg35 ASSURANCE
+              +promo-section-text._big._bold Transparency is our watchword. We aggregate all the workspaces listed by our Hosts so that our members can choose the right space to suit them, regardless of your capacity or period of occupation.
+            +e.middle.hide-from-md(data-slot-id="illustration" data-slot-res="md")
+            +e.bottom
+              +promo-section-text._small
+                p
+                  b As a Spacepool member, you will have access to a dynamic network that allows you to grow and develop your business, while always geared towards practicality and peace of mind. We provide you with all the information you need to compare your options and make the most educated and confident choice when looking to hire.
+                p Our technology is secure and fully mobile optimised, making it simple for you to search and hire workspaces on the go, as well sharing your options with partners, colleagues and friends.
+                p At Spacepool we require high standards of our Hosts so that all our workspaces are of the utmost quality. As part of our validation process we ensure every Host we partner with shares our values and commitment to providing an amazing and flawless experience.
+
+    +promo-section._mg142
+      .container
+        +promo-section-header._mg78
+          +promo-section-column._full
+            +slogan.__slogan_pl Take control of your search
+            +promo-section-title._pl Why hire with Spacepool?
+        +promo-section-content
+          - var slider = getData('promo-slider-guest.json');
+          +slider-promo.js-slider-promo
+            each item in slider
+              - var imgClass = item.imgClass || '';
+              - var mediaClass = item.mediaClass || '';
+              +slide
+                +info-slide
+                  +info-slide-column._left._white
+                    +info-slide-title!= item.title
+                    +info-slide-text!= item.text
+                  +info-slide-column._right
+                    +info-slide-media()(class=mediaClass)
+                      +e.IMG.image(src=item.img class=imgClass)
     +promo-section
       .container
         +promo-section-header

@@ -11,6 +11,7 @@ export default function slider() {
   const spacesInnerSliders = $('.js-slider-spaces-inner');
   const gallerySlider = $('.js-slider-gallery');
   const monthsSlider = $('.js-slider-calendar');
+  const promoSlider = $('.js-slider-promo');
   const bp = window.globalOptions.sizes;
 
   if (spacesSliders.length > 0) {
@@ -248,6 +249,37 @@ export default function slider() {
             const activeSlide = slides[activeIndex];
             $(activeSlide).find('[data-calendar-month]').trigger('click');
           },
+        },
+      });
+    });
+  }
+
+  if (promoSlider.length > 0) {
+    $(promoSlider).each((i, el) => {
+      const btnPrev = $(el).find('.js-slider-button-prev')[0];
+      const btnNext = $(el).find('.js-slider-button-next')[0];
+      const dots = $(el).find('[data-slider-dots]')[0];
+      const sliderContainer = $(el).find('.js-slider-container');
+      const newslider = new Swiper(sliderContainer, {
+        speed: 500,
+        loop: true,
+        slidesPerView: 1,
+        slidesPerGroup: 1,
+        roundLengths: false,
+        autoHeight: true,
+        effect: 'fade',
+        navigation: {
+          nextEl: btnNext,
+          prevEl: btnPrev,
+        },
+        pagination: {
+          el: dots,
+          bulletElement: 'li',
+          clickable: true,
+          bulletClass: 'slider__dot',
+        },
+        fadeEffect: {
+          crossFade: true,
         },
       });
     });

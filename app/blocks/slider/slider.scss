@@ -11,30 +11,36 @@
   }
 
   &__dots {
-    position: absolute;
-    bottom: 10px;
-    left: 20px;
-    right: 20px;
     text-align: center;
     z-index: 2;
     pointer-events: none;
+    margin: 0 22px;
+
+    @include screen('sm') {
+      margin: 0 5px;
+    }
   }
 
   &__dot {
-    margin: 5px;
-    width: 10px;
-    height: 10px;
-    border: 1px solid $color-border;
-    border-radius: 100px;
+    margin: 11px;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
     display: inline-block;
     position: relative;
-    transition: border-color $ease-main, background-color $ease-main;
+    transition: background-color $ease-main;
     pointer-events: all;
     cursor: pointer;
+    background-color: $color-black;
 
-    &.active {
-      background-color: $color-main;
-      border-color: $color-main;
+    @include screen('sm') {
+      width: 3px;
+      height: 3px;
+      margin: 5px;
+    }
+
+    &.swiper-pagination-bullet-active {
+      background-color: $color-slider-dot;
     }
   }
 
@@ -342,6 +348,73 @@
         }
 
         // border-right: 1px solid $color-border-light;
+      }
+    }
+  }
+
+  &_promo {
+    position: relative;
+    display: block;
+    width: 100%;
+
+    #{$b} {
+
+      &__container {
+        overflow: visible;
+      }
+
+      &__buttons {
+        position: absolute;
+        top: 60px;
+        left: 0;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        height: auto;
+        width: 51.5%;
+        box-sizing: border-box;
+        padding-left: 16.2%;
+
+        @include screen('lg') {
+          width: 54%;
+          padding-left: 6.3%;
+        }
+
+        @include screen('md') {
+          justify-content: center;
+          width: 100%;
+          padding-left: 16.2%;
+          padding-right: 16.2%;
+        }
+
+        @include screen('sm') {
+          top: 30px;
+          padding-left: $container-padding-mobile;
+          padding-right: $container-padding-mobile;
+        }
+      }
+
+      &__button {
+
+        &:hover {
+          background-color: transparent;
+
+          #{$b}__button-icon {
+            fill: $color-basic;
+          }
+        }
+
+        &-icon {
+          width: 8px;
+          height: 21px;
+          transition: fill $ease-main;
+          fill: $color-arrow;
+
+          @include screen('sm') {
+            width: 4px;
+            height: 11px;
+          }
+        }
       }
     }
   }
