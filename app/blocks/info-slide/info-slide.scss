@@ -21,17 +21,16 @@
     &_left {
       width: 52%;
       background-color: $color-white;
-      padding: 194px 10.4% 80px;
+      padding: 194px 10.4% 159px;
       align-self: flex-start;
-      min-height: 575px;
 
       @include screen('lg') {
-        padding: 194px 11.7% 80px 7.5%;
+        padding: 194px 11.7% 159px 7.5%;
         width: 54%;
       }
 
       @include screen('md') {
-        padding: 202px 17.2% 150px;
+        padding: 202px 17.2% 181px;
         width: 100%;
       }
 
@@ -48,14 +47,15 @@
       align-items: center;
       flex: 1;
       z-index: 2;
-      transition: transform .5s ease-in;
+      transition: transform .4s ease-in;
       transform: translate3d(40px, 0, 0);
 
       @include screen('md') {
         transform: translate3d(0, 40px, 0);
       }
 
-      .swiper-slide-active & {
+      .swiper-slide-active &,
+      .swiper-slide-duplicate-active & {
         transform: translate3d(0, 0, 0);
       }
 
