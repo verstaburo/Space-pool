@@ -1,0 +1,44 @@
+mixin popup-subscribe()
+  +popup-with-heading('Sign up for Newsletter').popup-subscribe__&attributes(attributes)
+    +form._white(data-validated-form)
+      +form-section
+        +form-section-header._mg35
+          +form-section-title('div')._mid
+            p Want to stay tuned about Spacepool? Subscribe to our newsletter!
+            p Receive by E-mail the most important news about development process.
+        +grid.grid_bigger
+          +col({xl: 12})
+            +form-section-wrapper
+              +form-box('E-mail adress')
+                +input(type="email" name="email" placeholder="E-mail adress" required)
+        +e.buttons._mgt38
+          +button('button')(type="submit")._short._wide Subscribe
+
+mixin popup-subscribe-host()
+  +popup-with-heading('Sign up for Newsletter').popup-subscribe__&attributes(attributes)
+    +form._white(data-validated-form)
+      +form-section
+        +form-section-header._mg35
+          +form-section-title('div')._mid
+            p Want to stay tuned about Spacepool? Subscribe to our newsletter!
+            p Receive by E-mail the most important news about development process.
+        +grid.grid_bigger
+          +col({xl: 12})
+            +form-section-wrapper
+              +form-box('Name')
+                +input(type="text" name="name" placeholder="Name" required)
+          +col({xl: 12})
+            +form-section-wrapper
+              +form-box('Company name')
+                +input(type="text" name="companyName" placeholder="Company name")
+          +col({xl: 12})
+            +form-section-wrapper
+              +form-box('E-mail adress')
+                +input(type="email" name="email" placeholder="E-mail adress" required)
+          +col({xl: 12})
+            +form-section-wrapper
+              +form-box('Phone number', '', 'div')._phone
+                +input(type="tel" name="phone-code" placeholder="Phone code" data-tel-code required).form-box__phone_code
+                +input(type="tel" name="phone-number" placeholder="Phone number" data-tel-number required).form-box__phone_number
+        +e.buttons._mgt60
+          +button('button')(type="submit")._short._wide Subscribe

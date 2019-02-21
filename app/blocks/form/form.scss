@@ -260,6 +260,7 @@
 
     &_compensate {
       line-height: 1;
+      margin-top: -0.2em;
 
       @include screen('md') {
         margin-top: -12px;
@@ -296,8 +297,9 @@
     display: flex;
     justify-content: flex-start;
     width: 100%;
-    align-items: flex-end;
-    height: 100%;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    // height: 100%;
 
     &_noflex {
       display: block;
@@ -305,10 +307,10 @@
     }
 
     &:not(:last-child) {
-      margin-bottom: 42px;
+      margin-bottom: 39px;
 
       @include screen('sm') {
-        margin-bottom: 33px;
+        margin-bottom: 30px;
       }
     }
 
@@ -431,6 +433,12 @@
     &_mgt60 {
       &:not(:first-child) {
         margin-top: 60px;
+      }
+    }
+
+    &_mgt38 {
+      &:not(:first-child) {
+        margin-top: 38px;
       }
     }
   }
@@ -621,9 +629,6 @@
 .error-message {
   @include text;
 
-  position: absolute;
-  top: 100%;
-  left: 0;
   display: block;
   opacity: 0;
   pointer-events: none;

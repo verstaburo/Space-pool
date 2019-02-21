@@ -7,6 +7,10 @@ mixin popup()
     div.popup__content
       block
 
+mixin popup-heading()
+  div.popup__heading&attributes(attributes)
+    block
+
 mixin popup-title()
   h3.popup__title&attributes(attributes)
     block
@@ -24,4 +28,11 @@ mixin popup-bottom(img)
     .popup__bg
       img.popup__bg-image(src=img)
     .popup__bottom-content
+      block
+
+mixin popup-with-heading(title)
+  +b.popup&attributes(attributes)
+    +popup-heading
+      +popup-title!= title
+    div.popup__content
       block
