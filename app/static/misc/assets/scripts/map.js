@@ -101,7 +101,37 @@ $(document).ready(() => {
     }
   }
 
+  // карта установки маркера нового спейса
+  function markerMap() {
+    if (!$('#marker-map').length) {
+      return;
+    }
+
+    // базовые  настройки карты
+    var map = L.map('marker-map', {
+      scrollWheelZoom: false,
+      zoomControl: true,
+    }).setView([51.513443, -0.102139], 13);
+
+    map.zoomControl.setPosition('bottomright');
+
+    // настройка доступа к mapbox картам
+    L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
+      maxZoom: 18,
+      id: 'mapbox.streets',
+      accessToken: 'pk.eyJ1IjoidGhldmVydmVyeTEiLCJhIjoiY2lzZXdzaXZ4MDBjaTJudm93dDI4MGVrMCJ9.Z8KKk0M_lpDTPB6_JtJBxg',
+    }).addTo(map);
+
+    // получаем центр карты когда пользователь перестал ее таскать
+    map.on('moveend', function (event) {
+      var self = event.target;
+      var newCoordinates = self.getCenter();
+      console.log(newCoordinates);
+    });
+  }
+
   // инициализация карт
   maps();
   mapsTwo();
+  markerMap();
 });

@@ -1,0 +1,36 @@
+extends ../../layouts/default-login-host
+
+block head
+  - var pageTitle = 'SpacePool - HOST My rental offers New Space Step 3'
+
+block header
+  -var headerClass = '_border'
+
+block content
+  +page-header._wide-lg._hpad
+    .container
+      +e.wrapper
+        +page-header-side
+          +link-icon('select-arrow')._no-shadow._back._bold.__back(href="#") Back to space list
+        +page-header-main._main_mgt
+          +breadcrumbs-form
+            +breadcrumbs(['Home', 'My offers', 'Create new Space']).__navigation.hide-md
+            +e.step <b>Step 3</b> Facilities
+          +e.links
+            +link-icon('save')(href="#")._no-shadow._icon_gray-dark._icon_pad30._bold.__link All changes saved
+      +progress(42.9)
+  +content-origin._wide-lg._reverse._last
+      +e.wrapper
+        +content-column-aside.hide-md
+          +side-navigation('Please choose your Space available facilities.')._pt46
+            +page-info.__info
+              +page-info-image
+                +icon('boxes').icon_boxes._grad3
+              +page-info-title Facilities
+              +page-info-description Step 3 <i>of 7</i>
+        +content-column-main._no-ptop
+
+
+block panels
+  +main-menu-inner
+    +nav-list(getData('main-menu-user.json'))

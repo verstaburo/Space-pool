@@ -1,0 +1,68 @@
+.location {
+  $b: &;
+
+  display: flex;
+  width: 100%;
+  box-sizing: border-box;
+  min-height: 585px;
+  flex-wrap: wrap;
+
+  @include screen('md') {
+    min-height: 0;
+  }
+
+  &__map {
+    position: relative;
+    display: block;
+    width: 69.6%;
+
+    @include screen('lg') {
+      width: 60%;
+    }
+
+    @include screen('md') {
+      width: 100%;
+      height: 270px;
+    }
+
+    .map {
+      width: 100%;
+      height: 100%;
+    }
+
+    .leaflet-control-zoom {
+      @include screen('md', min) {
+        display: block;
+      }
+    }
+  }
+
+  &__marker {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    display: block;
+    font-size: 0;
+    line-height: 0;
+    width: 44px;
+    height: 76px;
+    transform: translate3d(-50%, -50%, 0);
+    margin-top: -33px;
+    z-index: 2;
+    pointer-events: none;
+  }
+
+  &__info {
+    display: block;
+    background-color: $color-white;
+    width: 30.4%;
+
+    @include screen('lg') {
+      width: 40%;
+    }
+
+    @include screen('md') {
+      width: 100%;
+    }
+  }
+}

@@ -1,0 +1,116 @@
+.page-info {
+  $b: &;
+
+  display: block;
+  width: 100%;
+
+  &__image {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 70px;
+    height: 70px;
+    min-width: 70px;
+
+    &:not(:last-child) {
+      margin-bottom: 31px;
+    }
+  }
+
+  &__icon {
+    display: block;
+    max-width: 100%;
+    max-height: 100%;
+    font-size: 0;
+    line-height: 0;
+
+    &_location {
+      width: 41px;
+      height: 69px;
+    }
+
+    &_strings {
+      width: 62px;
+    }
+
+    &_boxes {
+      width: 54px;
+    }
+
+    &_photo {
+      width: 61px;
+    }
+
+    &_rules {
+      width: 48px;
+    }
+
+    &_check-form {
+      width: 68px;
+    }
+
+    &_grad1 {
+      fill: url('#form-gradient1');
+    }
+
+    &_grad2 {
+      fill: url('#form-gradient2');
+    }
+
+    &_grad3 {
+      fill: url('#form-gradient3');
+    }
+
+    &_grad4 {
+      fill: url('#form-gradient4');
+    }
+  }
+
+  &__title {
+    @include heading-3;
+
+    font-weight: 700;
+    line-height: (26/25);
+
+    @include screen('sm') {
+      @include heading-4;
+
+      line-height: (26/20);
+    }
+
+    &:not(:last-child) {
+      margin-bottom: 35px;
+    }
+  }
+
+  &__description {
+    @include text-big;
+
+    font-weight: 700;
+    color: $color-bg;
+    box-sizing: border-box;
+    display: block;
+    position: relative;
+    width: 100%;
+    padding-top: 23px;
+
+    @include screen('sm') {
+      @include text15;
+    }
+
+    i {
+      color: $color-basic;
+      font-style: normal;
+    }
+
+    &::before {
+      @include pseudo;
+
+      width: 20px;
+      height: 1px;
+      background-color: $color-basic;
+      top: 0;
+      left: 0;
+    }
+  }
+}

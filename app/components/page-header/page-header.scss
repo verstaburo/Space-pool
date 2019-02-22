@@ -47,6 +47,18 @@
     }
   }
 
+  &_hpad {
+    padding: 45px 0 32px;
+
+    @include screen('md') {
+      padding: 35px 0;
+    }
+
+    @include screen('sm') {
+      padding: 19px 0;
+    }
+  }
+
   .container {
     display: block;
   }
@@ -108,6 +120,12 @@
 
         @include screen('md') {
           width: 100%;
+        }
+      }
+
+      &_mgt {
+        @include screen('md') {
+          margin-top: 10px;
         }
       }
     }
@@ -246,6 +264,23 @@
       @include screen('md') {
         margin-right: 0;
       }
+    }
+  }
+
+  &__links {
+    margin-left: auto;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+  }
+
+  &__link {
+    @include text;
+
+    line-height: (26/14);
+
+    @include screen('sm') {
+      @include text12;
     }
   }
 }

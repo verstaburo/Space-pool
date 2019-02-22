@@ -1,0 +1,27 @@
+extends ../../layouts/default-login-host
+
+block head
+  - var pageTitle = 'SpacePool - HOST My rental offers New Space Step 7'
+
+block header
+  -var headerClass = '_border'
+
+block content
+  +page-header._wide-lg._hpad
+    .container
+      +e.wrapper
+        +page-header-side
+          +link-icon('select-arrow')._no-shadow._back._bold.__back(href="#") Back to space list
+        +page-header-main._main_mgt
+          +breadcrumbs-form
+            +breadcrumbs(['Home', 'My offers', 'Create new Space']).__navigation.hide-md
+            +e.step <b>Step 7</b> Publish
+          +e.links
+            +link-icon('save')(href="#")._no-shadow._icon_gray-dark._icon_pad30._bold.__link All changes saved
+      +progress(100)
+  +content-origin._wide-lg._reverse._last
+
+
+block panels
+  +main-menu-inner
+    +nav-list(getData('main-menu-user.json'))

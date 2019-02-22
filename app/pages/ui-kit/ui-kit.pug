@@ -18,6 +18,9 @@ block content
       br
       +logo-image._footer
       br
+      p Logo in footer .logo_short
+      br
+      +logo-image-short._short
       +e.name SpacePool
 
     //- Хэдер
@@ -351,7 +354,8 @@ block content
           +button()(href="#")._border._small._border_small .button._border._small._border_small
           +button()(href="#")._border._small._border_narrow-small .button._border._small._border_narrow-small
           +button()(href="#")._thin-border._smaller._thin-border_smaller .button._thin-border._smaller._thin-border_smaller
-          +button('button')(href="#" disabled) .button:disabled
+          +button('button')(disabled) .button:disabled
+          +button()._border.is-disabled(href="#") .button.is-disabled (если ссылка)
           +button-plus()(href="#") .button_icon._plus
           +button-icon('', 'select-arrow')(href="#") .button_icon
           +button()(href="#")._square .button_square
@@ -360,6 +364,14 @@ block content
           +button()(href="#")._short .button_short
           +button()(href="#")._border._short .button._border._short
           +button()(href="#")._red .button_red
+          +button()(href="#")._orange .button_orange
+          +button()(href="#")._border._orange .button._border._orange
+          +button()(href="#")._bright-red .button_bright-red
+          +button()(href="#")._bright-red._border .button_bright-red._border
+          +button()(href="#")._blue .button_blue
+          +button()(href="#")._blue._border .button_blue._border
+          +button()(href="#")._green .button_green
+          +button()(href="#")._green._border .button_green._border
         +ui-description При клике на .js-anchor происходит скролл к элементу из атрибута href. Блок: blocks/js-functions/anchor.js
         +button()(href="#section0").js-anchor .js-anchor
         +ui-description При клике на .js-freeze скролл страницы блокируется, на .js-unfreeze разблокируется. Блок: blocks/js-functions/freeze.js. Функции freeze() и unfreeze() можно импортировать и использовать в модалках, бургере или где-то еще
@@ -1967,6 +1979,26 @@ block content
             +social-button('fb-symbol')._fb._white(href="#") Sign in via Facebook
           +col(6)
             +social-button('', 'assets/images/google.svg')._gg._white(href="#") Sign in via Google
+
+    //- avatar-uploader
+    +ui-section
+      +ui-section-head
+        h2 avatar-uploader
+        p Блок: block/avatar-uploader
+      +ui-section-content
+        +ui-description .avatar-uploader
+        br
+        br
+        +avatar-uploader load image
+
+    //- progress bar
+    +ui-section
+      +ui-section-head
+        h2 progress bar
+        p Блок: block/progress
+      +ui-section-content
+        +ui-description .progress - процент указывается прямо в верстке
+        +progress(20)
 
 block panels
   +main-menu

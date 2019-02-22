@@ -1,0 +1,54 @@
+.breadcrumbs-form {
+  $b: &;
+
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+
+  &__navigation {
+    position: relative;
+
+    &:not(:last-child) {
+      margin-right: 0 !important;
+      padding-right: 29px;
+
+      @include screen('sm') {
+        padding-right: 17px;
+      }
+
+      &::after {
+        @include pseudo;
+
+        top: 12px;
+        margin: auto;
+        right: 13px;
+        width: 4px;
+        height: 1px;
+        background-color: $color-basic;
+
+        @include screen('sm') {
+          top: 6px;
+          width: 2px;
+          right: 8px;
+        }
+      }
+    }
+  }
+
+  &__step {
+    @include text;
+
+    line-height: (26/14);
+    font-weight: 400;
+
+    @include screen('sm') {
+      @include text10;
+
+      line-height: (13/10);
+    }
+
+    b {
+      font-weight: 700;
+    }
+  }
+}

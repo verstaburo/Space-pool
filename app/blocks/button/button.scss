@@ -33,14 +33,23 @@
 
   &:disabled,
   &.is-disabled {
-    opacity: .5;
     cursor: not-allowed;
     pointer-events: none;
+    background-color: $color-border-light;
+    background-image: none;
+    color: $color-white;
+
+    #{$b} {
+
+      &__text {
+        background-color: $color-border-light;
+      }
+    }
   }
 
   &:hover::before,
   &.is-active::before {
-    opacity: .07;
+    opacity: .2;
   }
 
   &__text {
@@ -384,5 +393,25 @@
 
   &_red {
     background-image: linear-gradient(to left, $color-gradient-red1 0%, $color-gradient-red2 100%);
+  }
+
+  &_orange {
+    background-image: none;
+    background-color: $color-hot-desk;
+  }
+
+  &_bright-red {
+    background-image: none;
+    background-color: $color-dedicated-desk;
+  }
+
+  &_blue {
+    background-image: none;
+    background-color: $color-meeting-room;
+  }
+
+  &_green {
+    background-image: none;
+    background-color: $color-office-space;
   }
 }
