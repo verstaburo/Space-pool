@@ -134,6 +134,20 @@
       &_r0 {
         right: 0;
       }
+
+      &_small {
+        @include text16;
+
+        font-weight: 400;
+        color: $color-placeholder;
+        right: 0;
+
+        @include screen('sm') {
+          @include text;
+
+          line-height: (26/14);
+        }
+      }
     }
   }
 
@@ -261,7 +275,8 @@
 
   &_icon {
 
-    .input {
+    .input,
+    .textarea {
       padding-right: 30px;
     }
   }

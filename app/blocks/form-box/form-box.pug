@@ -1,5 +1,6 @@
-mixin form-box(label, icon, tag, symbol, symbol2)
-  +b(tag || 'label').form-box&attributes(attributes)
+mixin form-box(label, icon, tag, symbol, symbol2, symbol3)
+  - var addClass = (symbol || symbol2 || symbol3) ? '_icon' : '';
+  +b(tag || 'label').form-box&attributes(attributes)(class=addClass)
     block
     if label
       +e.label!= label
@@ -9,6 +10,8 @@ mixin form-box(label, icon, tag, symbol, symbol2)
       +e.icon_text!=symbol
     if symbol2
       +e.icon_text._text_r0!=symbol2
+    if symbol3
+      +e.icon_text._text_small!= symbol3
 
 
 mixin form-box-removable(label, tag, nopoint)

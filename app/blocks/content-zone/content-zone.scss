@@ -200,6 +200,51 @@
     }
   }
 
+  &_mid2 {
+    @include text16;
+
+    line-height: (24/16);
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      &:not(:last-child) {
+        margin-bottom: 26px;
+      }
+    }
+
+    p {
+
+      &:not(:last-child) {
+        margin-bottom: 24px;
+      }
+
+      small {
+        @include text-small;
+
+        line-height: (24/11);
+      }
+    }
+
+    ul {
+      line-height: (24/16);
+
+      li {
+
+        &:not(:last-child) {
+          margin-bottom: 13px;
+        }
+
+        &::before {
+          top: 5px;
+        }
+      }
+    }
+  }
+
   &_small {
     @include text15;
 
@@ -271,6 +316,14 @@
           top: 4px;
         }
       }
+    }
+  }
+
+  &_pr {
+    padding-right: 20px;
+
+    @include screen('md') {
+      padding-right: 0;
     }
   }
 }
