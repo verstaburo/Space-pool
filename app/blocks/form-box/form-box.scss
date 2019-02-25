@@ -56,13 +56,33 @@
       }
     }
 
+    #{$b}_gray-label.is-top &,
+    #{$b}_gray-label .choices.is-item-select~&,
+    #{$b}_gray-label .choices.is-open~& {
+      color: $color-bc-light;
+
+      .is-error & {
+        color: $color-error;
+      }
+    }
+
     textarea~& {
       top: 4px;
       bottom: auto;
     }
 
+    .textarea_bpd~& {
+      top: 8px;
+      bottom: auto;
+    }
+
     #{$b}.is-top textarea~& {
       transform: translate3d(0, -24px, 0);
+    }
+
+
+    #{$b}.is-top .textarea_bpd~& {
+      transform: translate3d(0, -30px, 0);
     }
 
     .is-error & {

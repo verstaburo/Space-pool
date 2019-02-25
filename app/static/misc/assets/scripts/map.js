@@ -2,8 +2,7 @@
 // https: //github.com/Leaflet/Leaflet.markercluster
 // библиотека подключена в app.min.js
 
-$(document).ready(() => {
-
+$(document).ready(function () {
   // карта в спейсе
   function maps() {
     if (!$('#map').length) {
@@ -126,7 +125,12 @@ $(document).ready(() => {
     map.on('moveend', function (event) {
       var self = event.target;
       var newCoordinates = self.getCenter();
-      console.log(newCoordinates);
+      var latitudeInput = $('[data-latitude]')[0];
+      var longitudeInput = $('[data-longitude]')[0];
+      if (latitudeInput && longitudeInput) {
+        $(latitudeInput).val(newCoordinates.lat);
+        $(longitudeInput).val(newCoordinates.lng);
+      }
     });
   }
 

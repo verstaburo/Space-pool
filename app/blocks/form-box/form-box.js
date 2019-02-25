@@ -22,7 +22,8 @@ export default function floatingLabel() {
   preset();
 
   const targets = document.querySelectorAll('.form-box input, .form-box textarea');
-  targets.forEach((item) => {
+  for (let i = 0; i < targets.length; i += 1) {
+    const item = targets[i];
     item.addEventListener('animationstart', (evt) => {
       const self = evt.target;
       $(self).closest('.form-box').addClass('is-top');
@@ -51,5 +52,5 @@ export default function floatingLabel() {
         $(self).closest('.form-box').toggleClass('is-top', (evt.type === 'focus' || self.value.length > 0));
       }
     }, true);
-  });
+  }
 }
