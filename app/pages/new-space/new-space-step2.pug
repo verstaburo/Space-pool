@@ -11,7 +11,7 @@ block content
     .container
       +e.wrapper
         +page-header-side
-          +link-icon('select-arrow')._no-shadow._back._bold.__back(href="#") Back to space list
+          +link-icon('select-arrow')._no-shadow._back._bold.__back(href="#") Back to previous step
         +page-header-main._main_mgt
           +breadcrumbs-form
             +breadcrumbs(['Home', 'My offers', 'Create new Space']).__navigation.hide-md
@@ -30,27 +30,28 @@ block content
               +page-info-title Space title and description
               +page-info-description Step 2 <i>of 7</i>
         +content-column-main._no-ptop._flex
-          +form()._white._flex._pd(data-validated-form)
-            +form-section
-              +grid.grid_big.grid_t55
-                +col({ xl: 12 })
-                  +form-section-wrapper
-                    +form-box('Space Name', '', '', '', '', '50')
-                      +textarea(type="text" name="spaceName" placeholder="Space Name" rows="1" required maxlength="50")
-                +col({ xl: 12 })
-                  +form-section-wrapper
-                    +form-box('Space description', '', '', '', '', '400')
-                      +textarea(type="text" name="spaceDescription" placeholder="Space description" rows="1" required maxlength="400")
-            +form-section._mta
-              +grid.grid_big.grid_t55
-                +col({ xl: 7, lg: 8, md: 12 })
-                  +content-zone._mid2._pr
-                    h5 Example for short and catchy Description
-                    p The building comprises of private office space available to rent, studio offices, fixed desks, meeting rooms, a café, cinema room and a gym. Along with a Penthouse to sleep and plenty of terraces for the summer sun. Located close to Regents Street, just a short walk from Oxford Street and Oxford Circus tube itself.
-                    p Our space in three words: <br> Bright, Creative, Service
-                +col({ xl: 5, lg: 4, md: 12 })
-                  +form-section-wrapper._h100p._fxe
-                    +button-icon('button', 'select-arrow')._short._wide.__button._mxw300._mb8(type="submit") Next
+          +form()._white._flex(data-validated-form)
+            +e.container
+              +form-section
+                +grid.grid_big.grid_t55
+                  +col({ xl: 12 })
+                    +form-section-wrapper
+                      +form-box('Space Name', '', '', '', '', '50')
+                        +textarea(type="text" name="spaceName" placeholder="Space Name" rows="1" required maxlength="50")
+                  +col({ xl: 12 })
+                    +form-section-wrapper
+                      +form-box('Space description', '', '', '', '', '400')
+                        +textarea(type="text" name="spaceDescription" placeholder="Space description" rows="1" required maxlength="400")
+              +form-section._mta
+                +grid.grid_big.grid_t55
+                  +col({ xl: 7, lg: 8, md: 12 })
+                    +content-zone._mid2._pr
+                      h5 Example for short and catchy Description
+                      p The building comprises of private office space available to rent, studio offices, fixed desks, meeting rooms, a café, cinema room and a gym. Along with a Penthouse to sleep and plenty of terraces for the summer sun. Located close to Regents Street, just a short walk from Oxford Street and Oxford Circus tube itself.
+                      p Our space in three words: <br> Bright, Creative, Service
+                  +col({ xl: 5, lg: 4, md: 12 })
+                    +form-section-wrapper._h100p._fxe
+                      +button-icon('button', 'select-arrow')._short._wide.__button._mxw300._mb8(type="submit") Next
 
 
 block panels
