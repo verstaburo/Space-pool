@@ -1,0 +1,37 @@
+mixin photo-preview()
+  +b.photo-preview&attributes(attributes)
+    +e.INPUT(type="hidden" name='photo')
+    +e.BUTTON.delete.js-delete-file
+      +icon('cross').delete-icon
+    block
+
+mixin photo-preview-preview(isMain, img)
+  +e.LABEL.preview&attributes(attributes)
+    - if (isMain) {
+      +e.INPUT.main(type="radio" name="isMain" value="photo" checked="checked")
+    - } else {
+      +e.INPUT.main(type="radio" name="isMain" value="photo")
+    - }
+    +e.media(data-preview-image)
+      block
+    +e.caption Main photo
+    +e.croparea
+      +e.hint_fe Cropped area
+      +e.area
+      +e.hint Cropped area
+    +e.label
+      +link-icon('img', 'span')._icon_mid._underline._no-shadow Set as main Photo
+
+mixin photo-preview-error()
+  +e.error&attributes(attributes)
+    +e.error-description
+      +e.error-text(data-preview-error-text) This image is really tiny.
+      +e.error-text Please use images with following parameters:
+      +e.condition  At least 800 pixel on shortest side
+      +e.condition JPG, BMP, PNG 300 - 5000 kb
+    +button('button')(type="button")._border._wide.js-delete-file Delete this image
+
+mixin photo-preview-description()
+  +e.description&attributes(attributes)
+    +select.select_placeholder.select_white.js-select-input(name="description" required)
+      block

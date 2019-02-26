@@ -1,0 +1,18 @@
+mixin uploader-output()
+  +b.uploader-output&attributes(attributes)
+    +e.empty-area
+    +e.files
+      +grid
+        +col({xl: 4}).uploader-output__area
+        +col({xl: 4 }).hide(data-photo-output-template)
+          +photo-preview
+            +photo-preview-preview
+            +photo-preview-error
+            +photo-preview-description
+              option(placeholder value="placeholder") What’s on photo?
+              option(value="Cafe") Cafe
+              option(value="Meeting room") Meeting room
+              option(value="Parking") Parking
+              option(value="Roof terrace") Roof terrace
+              option(value="reception") Reception
+        block

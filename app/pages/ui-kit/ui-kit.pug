@@ -283,6 +283,28 @@ block content
                   li Элемент списка
               li Элемент списка
               li Элемент списка
+        +ui-description .content-zone._mid2
+        +ui-special()
+          +content-zone.content-zone_mid2
+            h1 Заголовок H1 (heading-1)
+            h2 Заголовок H2 (heading-2)
+            h3 Заголовок H3 (heading-3)
+            h4 Заголовок H4 (heading-4)
+            h5 Заголовок H5 (heading-5)
+            h6 Заголовок H6 (heading-6)
+            p Текст p (text)<br> Цитата внутри текста p: <q>Цитата q</q>
+            p <small>Тег small внутри p (text-small)</small>
+            p ссылка внутри текста
+              a(href="#") ссылка
+            blockquote Цитата blocquoute
+            ul
+              li Элемент списка
+                ul
+                  li Элемент списка
+                  li Элемент списка
+                  li Элемент списка
+              li Элемент списка
+              li Элемент списка
         +ui-description .content-zone._small
         +ui-special()
           +content-zone.content-zone_small
@@ -572,6 +594,20 @@ block content
                 +ui-description .color-radio._green._big
                 +color-radio('test-color2', '7')._green._dark._big Office Space
 
+    //-Формы
+    +ui-section
+      +ui-section-head
+        h2 Формы
+        p Блок: blocks/form
+      +ui-section-content()
+        +form
+          +form-section
+            +form-section-header
+              +form-section-title Заголовок Секции
+              +form-section-title._small Заголовок Секции маленький
+            +form-section-text Текст внутри формы
+
+
     //-Табы
     +ui-section
       +ui-section-head
@@ -813,16 +849,41 @@ block content
         +ui-description .breadcrumbs-box
       +breadcrumbs-box
 
-    //- Рейтинг
+    //- //- Рейтинг
+    //- +ui-section
+    //-   +ui-section-head
+    //-     h2 Рейтинг
+    //-     p Блок: blocks/rating/rating
+    //-   +ui-section-content()
+    //-     +ui-description Интерактивный
+    //-     +rating-interactive
+    //-     +ui-description Статичный
+    //-     +rating(3)
+
+    //- Боковая навигация
     +ui-section
       +ui-section-head
-        h2 Рейтинг
-        p Блок: blocks/rating/rating
+        h2 Боковая навигация
+        p Блок: components/side-navigation
       +ui-section-content()
-        +ui-description Интерактивный
-        +rating-interactive
-        +ui-description Статичный
-        +rating(3)
+        +ui-description C навигацией и описанием
+        +grid.grid_layout
+          +col(3)
+            +side-navigation('Conversation available only with booked space managers')
+              +nav-list-sidebar(getData('side-menu-user.json'), 'Messages').__navigation
+          +col(9)
+            div(style="display: block; width: 100%; height: 1000px; background-color: #f2f2f2")
+        +ui-description C информацией о странице и описанием
+        +grid.grid_layout
+          +col(3)
+            +side-navigation('Please choose your Space available facilities.')._pt46
+              +page-info.__info
+                +page-info-image
+                  +icon('boxes').icon_boxes._grad3
+                +page-info-title Facilities
+                +page-info-description Step 3 <i>of 7</i>
+          +col(9)
+            div(style="display: block; width: 100%; height: 1000px; background-color: #f2f2f2")
 
     //- Аккордион
     +ui-section
@@ -1207,6 +1268,12 @@ block content
         +grid
           +col(1)
             +facility('shower', '_shower') Showers
+        +ui-description .facility-checkbox
+        +grid
+          +col(1)
+            +facility-checkbox('shower', '_shower', 'facility', 1) Showers
+          +col(1)
+            +facility-checkbox('f-cafe', '_cafe', 'facility', 2, 'checked') Cafe
 
     //- Offer info
     +ui-section
@@ -1999,6 +2066,53 @@ block content
       +ui-section-content
         +ui-description .progress - процент указывается прямо в верстке
         +progress(20)
+
+    //- photo preview
+    +ui-section(style="background: #fff;")
+      +ui-section-head
+        h2 photo preview
+        p Блок: block/photo-preview
+      +ui-section-content
+        +grid.grid_layout
+          +col(3)
+            +ui-description .photo-preview
+            +photo-preview
+              +photo-preview-preview
+                +e.IMG.image(src="assets/images/photo-preview1.jpg")
+              +photo-preview-error
+              +photo-preview-description
+                option(placeholder value="placeholder") What’s on photo?
+                option(value="Cafe") Cafe
+                option(value="Meeting room") Meeting room
+                option(value="Parking") Parking
+                option(value="Roof terrace") Roof terrace
+                option(value="reception") Reception
+          +col(3)
+            +ui-description .photo-preview - главное
+            +photo-preview
+              +photo-preview-preview(true)
+                +e.IMG.image(src="assets/images/photo-preview1.jpg")
+              +photo-preview-error
+              +photo-preview-description
+                option(placeholder value="placeholder") What’s on photo?
+                option(value="Cafe") Cafe
+                option(value="Meeting room") Meeting room
+                option(value="Parking") Parking
+                option(value="Roof terrace") Roof terrace
+                option(value="reception") Reception
+          +col(3)
+            +ui-description .photo-preview.is-error
+            +photo-preview.is-error
+              +photo-preview-preview
+                +e.IMG.image(src="assets/images/photo-preview1.jpg")
+              +photo-preview-error
+              +photo-preview-description
+                option(placeholder value="placeholder") What’s on photo?
+                option(value="Cafe") Cafe
+                option(value="Meeting room") Meeting room
+                option(value="Parking") Parking
+                option(value="Roof terrace") Roof terrace
+                option(value="reception") Reception
 
 block panels
   +main-menu

@@ -1,0 +1,303 @@
+.photo-preview {
+  $b: &;
+
+  position: relative;
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+
+  &__delete {
+    position: absolute;
+    display: block;
+    top: 0;
+    right: 0;
+    width: 32px;
+    height: 32px;
+    opacity: 0;
+    background-color: rgba($color-hint-bg, .57);
+    transition: background $ease-main, opacity $ease-main;
+    z-index: 4;
+
+    &:hover {
+      background-color: $color-hint-bg;
+    }
+
+    #{$b}:hover & {
+      opacity: 1;
+    }
+
+    #{$b}.is-error & {
+      opacity: 1;
+      background-color: transparent;
+
+      &:hover {
+        background-color: rgba($color-hint-bg, .2);
+      }
+    }
+
+    &-icon {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 16px;
+      height: 16px;
+      transform: translate3d(-50%, -50%, 0);
+      fill: $color-white;
+    }
+  }
+
+  &__main {
+    display: none;
+  }
+
+  &__preview {
+    position: relative;
+    display: block;
+    width: 100%;
+    padding-top: 100%;
+    background-color: $color-bg;
+    pointer-events: none;
+    overflow: hidden;
+  }
+
+  &__media,
+  &__caption,
+  &__croparea,
+  &__label,
+  &__error {
+    position: absolute;
+    z-index: 2;
+  }
+
+  &__media {
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+  }
+
+  &__image {
+    max-width: 100%;
+    max-height: 100%;
+    display: block;
+    font-size: 0;
+    line-height: 0;
+  }
+
+  &__label {
+    @include text-big;
+
+    bottom: 0;
+    left: 0;
+    cursor: pointer;
+    display: block;
+    width: 100%;
+    padding: 10px 5px;
+    box-sizing: border-box;
+    background-color: rgba($color-hint-bg, .7);
+    text-align: center;
+    opacity: 0;
+    transition: opacity $ease-main, background $ease-main;
+    line-height: 1.2;
+    pointer-events: none;
+
+    @include screen('sm') {
+      @include text16;
+
+      line-height: 1.2;
+    }
+
+    &:hover {
+      background-color: rgba($color-hint-bg, 1);
+    }
+
+    #{$b}:hover & {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    #{$b}__main:checked~&,
+    #{$b}.is-error:hover & {
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .link {
+      color: $color-white;
+    }
+  }
+
+  &__caption {
+    @include text-big;
+
+    display: block;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 4px 5px;
+    box-sizing: border-box;
+    font-weight: 700;
+    color: $color-white;
+    text-align: center;
+    background-color: $color-main-photo;
+    opacity: 0;
+    transition: opacity $ease-main;
+    z-index: 3;
+
+    @include screen('sm') {
+      @include text16;
+    }
+
+    #{$b}__main:checked~& {
+      opacity: 1;
+    }
+
+    #{$b}.is-error {
+      opacity: 0;
+    }
+  }
+
+  &__error {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transition: opacity $ease-main;
+    z-index: 3;
+    background-color: rgba($color-yellow-mask, .9);
+    overflow: hidden;
+    pointer-events: none;
+    box-sizing: border-box;
+    color: $color-white;
+    padding: 50px 30px 30px;
+
+    @include screen('sm') {
+      padding: 30px 10px 15px;
+    }
+
+    #{$b}.is-error & {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .button {
+      background-image: none;
+      background-color: $color-white;
+      color: $color-white;
+
+      &__text {
+        background-color: $color-yellow-mask;
+      }
+
+      &:hover {
+        color: $color-basic;
+      }
+    }
+
+    &-description {
+      @include heading-4;
+
+      font-weight: 700;
+      width: 100%;
+      display: block;
+      box-sizing: border-box;
+
+      @include screen('sm') {
+        @include text16;
+      }
+    }
+  }
+
+  &__condition {
+    display: inline-block;
+    padding: 0 4px;
+    background-color: $color-selection-text;
+    box-sizing: border-box;
+
+    &:not(:first-child) {
+      margin-top: 20px;
+    }
+  }
+
+  &__croparea {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    box-sizing: border-box;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity $ease-main;
+
+    #{$b}__main:checked~& {
+      opacity: 1;
+    }
+  }
+
+  &__area {
+    position: relative;
+    display: block;
+    width: 100%;
+    padding-top: 50.3%;
+
+    &::before,
+    &::after {
+      @include pseudo;
+
+      width: 100%;
+      height: 100%;
+      left: 0;
+      background-color: rgba($color-hint-bg, .63);
+      border: 3px dotted $color-white;
+      box-shadow: 1px 1px 0 $color-shadow;
+      border-left-width: 0;
+      border-right-width: 0;
+    }
+
+    &::before {
+      top: 100%;
+    }
+
+    &::after {
+      bottom: 100%;
+    }
+  }
+
+  &__hint {
+    @include text;
+
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    box-sizing: border-box;
+    width: 100%;
+    padding: 0 5px;
+    color: $color-white;
+    line-height: (26/14);
+    z-index: 3;
+    flex: 1;
+
+    @include screen('sm') {
+      @include text10;
+
+      line-height: (26/14);
+    }
+
+    &_fe {
+      align-items: flex-end;
+    }
+  }
+}
