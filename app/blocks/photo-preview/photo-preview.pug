@@ -1,26 +1,30 @@
-mixin photo-preview()
+mixin photo-preview(name)
+  - var nm = name || 'photo'
   +b.photo-preview&attributes(attributes)
-    +e.INPUT(type="hidden" name='photo')
+    +e.INPUT(type="hidden" name=nm)
     +e.BUTTON.delete.js-delete-file
       +icon('cross').delete-icon
     block
 
-mixin photo-preview-preview(isMain, img)
+mixin photo-preview-preview(isMain, value)
+  - var val = value || 'photo';
   +e.LABEL.preview&attributes(attributes)
     - if (isMain) {
-      +e.INPUT.main(type="radio" name="isMain" value="photo" checked="checked")
+      +e.INPUT.main(type="radio" name="isMain" value=val checked="checked")
     - } else {
-      +e.INPUT.main(type="radio" name="isMain" value="photo")
+      +e.INPUT.main(type="radio" name="isMain" value=val)
     - }
     +e.media(data-preview-image)
       block
     +e.caption Main photo
     +e.croparea
-      +e.hint_fe Cropped area
+      +e.hint_pt
+        +e.hint-text Cropped area
       +e.area
-      +e.hint Cropped area
+      +e.hint
+        +e.hint-text Cropped area
     +e.label
-      +link-icon('img', 'span')._icon_mid._underline._no-shadow Set as main Photo
+      +link-icon('img', 'span')._icon_small._icon_sz._underline._no-shadow Set as main Photo
 
 mixin photo-preview-error()
   +e.error&attributes(attributes)
@@ -28,10 +32,11 @@ mixin photo-preview-error()
       +e.error-text(data-preview-error-text) This image is really tiny.
       +e.error-text Please use images with following parameters:
       +e.condition  At least 800 pixel on shortest side
-      +e.condition JPG, BMP, PNG 300 - 5000 kb
-    +button('button')(type="button")._border._wide.js-delete-file Delete this image
+      +e.condition_small JPG, BMP, PNG 300 - 5000 kb
+    +button('button')(type="button")._border._short._wide.js-delete-file Delete this image
 
-mixin photo-preview-description()
+mixin photo-preview-description(select)
+  - var name = select || 'description';
   +e.description&attributes(attributes)
-    +select.select_placeholder.select_white.js-select-input(name="description" required)
+    +select.select_placeholder.select_white.js-select-input(name=name required)
       block

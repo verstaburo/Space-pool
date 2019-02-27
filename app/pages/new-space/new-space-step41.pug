@@ -31,12 +31,29 @@ block content
               +page-info-description Step 4 <i>of 7</i>
         +content-column-main._no-ptop
           +form()._white._flex(data-validated-form)
-            +e.container
+            +e.container_pds
               +form-section._mg65
-                +form-section-header._mg21
+                +form-section-header._mg26._fx-sb
                   +form-section-title Space photos
-                  +e.counter(data-file-counter) 0 / 25
+                  +form-section-text._bold._fz18._dark(data-file-counter) 6 / 25
+                - var photo = [{name: 'photo[1]', isMain: '', img: 'assets/images/photo-preview3.jpg', mainValue: 'photo[1]', select: 'description[1]'}, {name: 'photo[2]', isMain: '', img: 'assets/images/photo-preview2.jpg', mainValue: 'photo[2]', select: 'description[2]'}, {name: 'photo[3]', isMain: '', img: 'assets/images/photo-preview1.jpg', mainValue: 'photo[3]', select: 'description[3]', isError: 'true'}, {name: 'photo[4]', isMain: '', img: 'assets/images/photo-preview4.jpg', mainValue: 'photo[4]', select: 'description[4]'}, {name: 'photo[5]', isMain: 'true', img: 'assets/images/photo-preview1.jpg', mainValue: 'photo[5]', select: 'description[5]'}, {name: 'photo[6]', isMain: '', img: 'assets/images/photo-preview5.jpg', mainValue: 'photo[6]', select: 'description[6]'},]
                 +uploader-output
+                  - for (var i = 0; i < photo.length; i++) {
+                    +col({xl: 4, lg: 6, xs: 12})
+                      - var item = photo[i];
+                      - var addClass = (item.isError) ? 'is-error' : ''
+                      +photo-preview(item.name)(class=addClass)
+                        +photo-preview-preview(item.isMain, item.mainValue)
+                          +e.IMG.image(src=item.img)
+                        +photo-preview-error
+                        +photo-preview-description(item.select)
+                          option(placeholder value="placeholder") What’s on photo?
+                          option(value="Cafe") Cafe
+                          option(value="Meeting room") Meeting room
+                          option(value="Parking") Parking
+                          option(value="Roof terrace") Roof terrace
+                          option(value="reception") Reception
+                  - }
             +form-panel.__panel_border
               +link-icon('select-arrow', 'a')(href="#")._back._bold._no-shadow.__button Back
               +button-icon('button', 'select-arrow')(type="submit").__button_wide Next

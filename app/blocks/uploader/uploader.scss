@@ -1,3 +1,183 @@
 .uploader {
   $b: &;
+
+  position: relative;
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  border-radius: 3px;
+  border: 2px dotted $color-form-border;
+  overflow: hidden;
+  cursor: pointer;
+
+  &__input {
+    display: none;
+  }
+
+  &__content {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    box-sizing: border-box;
+    z-index: 2;
+    width: 100%;
+    padding: 16.6% 40px 7.9%;
+    text-align: center;
+
+    @include screen('sm') {
+      padding: 16.6% 20px 7.9%;
+    }
+  }
+
+  &__button {
+    box-sizing: border-box;
+    min-width: 350px;
+
+    @include screen('sm') {
+      min-width: 0;
+      width: 100%;
+    }
+
+    &:not(:first-child) {
+      margin-top: 15%;
+    }
+  }
+
+  &__text {
+    @include text-big;
+
+    font-weight: 700;
+
+    @include screen('sm') {
+      @include text16;
+    }
+
+    &:not(:first-child) {
+      margin-top: 12px;
+    }
+  }
+
+  &__conditions {
+    @include text16;
+
+    font-weight: 400;
+
+    @include screen('sm') {
+      @include text;
+
+      line-height: (26/14);
+    }
+
+    &:not(:first-child) {
+      margin-top: 7%;
+    }
+  }
+
+  &__plus {
+    width: 55px;
+    height: 55px;
+    fill: $color-form-border;
+
+    @include screen('sm') {
+      width: 40px;
+      height: 40px;
+    }
+  }
+
+  &::before {
+    @include pseudo;
+
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 430px;
+    background-color: $color-bg;
+    background-image:
+      linear-gradient($color-white 25px, rgba($color-white, 0) 25px),
+      linear-gradient(90deg, $color-white 25px, rgba($color-white, 0) 25px);
+    background-size: 215px 215px;
+    background-repeat: repeat;
+
+    @media only screen and (max-width: 1700px) {
+      height: calc(2 * 0.15 * (100vw - 270px));
+      background-size: calc(0.15 * (100vw - 270px)) calc(0.15 * (100vw - 270px));
+    }
+
+    @include screen('md') {
+      height: calc(2 * 0.2 * (100vw - 200px));
+      background-size: calc(0.2 * (100vw - 200px)) calc(0.2 * (100vw - 200px));
+    }
+
+    @include screen('sm') {
+      height: calc(2 * 0.2 * (100vw - 75px));
+      background-image:
+        linear-gradient($color-white 10px, rgba($color-white, 0) 10px),
+        linear-gradient(90deg, $color-white 10px, rgba($color-white, 0) 10px);
+      background-size: calc(0.2 * (100vw - 75px)) calc(0.2 * (100vw - 75px));
+    }
+
+    @media only screen and (max-width: 480px) {
+      height: calc(3 * 0.2 * (100vw - 75px));
+    }
+
+    @media only screen and (max-width: 380px) {
+      height: calc(4 * 0.2 * (100vw - 75px));
+    }
+  }
+
+  &_small {
+    position: relative;
+    background-color: $color-bg;
+    border: none;
+    border-radius: 0;
+    padding-top: 100%;
+
+    &::before {
+      display: none;
+    }
+
+    #{$b} {
+
+      &__content {
+        position: absolute;
+        display: flex;
+        justify-content: flex-end;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        padding: 9% 35px;
+
+        @include screen('sm') {
+          padding: 9% 20px;
+        }
+      }
+
+      &__button {
+        min-width: 0;
+        width: 100%;
+      }
+
+      &__text {
+        @include text16;
+
+        line-height: 1.2;
+        width: 100%;
+        box-sizing: border-box;
+        padding: 0 20px;
+
+        @include screen('sm') {
+          @include text;
+
+          line-height: 1.2;
+        }
+
+        &:not(:first-child) {
+          margin-top: 13.2%;
+        }
+      }
+    }
+  }
 }

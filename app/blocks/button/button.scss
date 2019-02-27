@@ -136,6 +136,24 @@
         height: 9px;
       }
     }
+
+    &_arrow3 {
+      left: 15px;
+      width: 16px;
+      height: 16px;
+
+      #{$b}_huge & {
+        left: 27px;
+        width: 26px;
+        height: 26px;
+
+        @include screen('sm') {
+          left: 15px;
+          width: 16px;
+          height: 16px;
+        }
+      }
+    }
   }
 
   &_icon {
@@ -143,6 +161,66 @@
     #{$b}__text {
       padding-left: 38px;
       padding-right: 55px;
+    }
+
+    &_left {
+      #{$b}__text {
+        padding-right: 40px;
+        padding-left: 40px;
+      }
+    }
+  }
+
+  &_fz24 {
+    font-size: 24px;
+    line-height: (26/24);
+    letter-spacing: -.02em;
+
+    @include screen('sm') {
+      font-size: 17px;
+      line-height: (26/17);
+    }
+  }
+
+  &_huge {
+    border-radius: 35px;
+    line-height: 30px;
+
+    @include screen('sm') {
+      border-radius: 20px;
+    }
+
+    #{$b} {
+
+      &__text {
+        padding: 20px 40px;
+        border-radius: 35px;
+
+        @include screen('sm') {
+          padding: 5px 10px;
+          border-radius: 20px;
+        }
+      }
+    }
+
+    &#{$b}_icon #{$b}__text {
+      padding-right: 75px;
+      padding-left: 40px;
+
+      @include screen('sm') {
+        padding-right: 35px;
+        padding-left: 10px;
+      }
+    }
+
+    &#{$b}_icon_left #{$b}__text {
+      padding-right: 40px;
+      padding-left: 75px;
+
+      @include screen('sm') {
+        padding-left: 35px;
+        padding-right: 10px;
+      }
     }
   }
 

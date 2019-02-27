@@ -67,6 +67,23 @@ $new-breakpoints: map_remove($breakpoints, $default-breakpoit-name);
     }
   }
 
+  &_30x40 {
+    margin-top: -30px;
+    margin-left: -20px;
+    margin-right: -20px;
+
+    @include screen('md') {
+      margin-left: -15px;
+      margin-right: -15px;
+    }
+
+    @include screen('sm') {
+      margin-top: -10px;
+      margin-left: -5px;
+      margin-right: -5px;
+    }
+  }
+
   &_blog {
     margin-top: -100px;
 
@@ -97,23 +114,6 @@ $new-breakpoints: map_remove($breakpoints, $default-breakpoit-name);
 
   &_t55 {
     margin-top: -55px;
-  }
-
-  &_30x40 {
-    margin-top: -30px;
-    margin-left: -20px;
-    margin-right: -20px;
-
-    @include screen('md') {
-      margin-left: -15px;
-      margin-right: -15px;
-    }
-
-    @include screen('sm') {
-      margin-top: -10px;
-      margin-left: -5px;
-      margin-right: -5px;
-    }
   }
 
   &_no-top:not(.grid_inner) {
@@ -209,6 +209,18 @@ $new-breakpoints: map_remove($breakpoints, $default-breakpoit-name);
       }
     }
 
+    #{$b}_30x40 & {
+      padding: 30px 20px 0;
+
+      @include screen('md') {
+        padding: 30px 15px 0;
+      }
+
+      @include screen('sm') {
+        padding: 10px 5px 0;
+      }
+    }
+
     #{$b}_t55 & {
       padding-top: 55px;
     }
@@ -246,18 +258,6 @@ $new-breakpoints: map_remove($breakpoints, $default-breakpoit-name);
 
       @include screen('sm') {
         padding-top: 10px;
-      }
-    }
-
-    #{$b}_30x40 & {
-      padding: 30px 20px 0;
-
-      @include screen('md') {
-        padding: 30px 15px 0;
-      }
-
-      @include screen('sm') {
-        padding: 10px 5px 0;
       }
     }
 

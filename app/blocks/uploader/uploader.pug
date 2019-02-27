@@ -1,3 +1,16 @@
 mixin uploader()
-  +b.uploader&attributes(attributes)
-    block
+  +b.LABEL.uploader&attributes(attributes).js-upload-file
+    +e.INPUT(type="file").input
+    +e.content
+      +button-icon('div', 'arrow3')._icon_left._huge._fz24.__button Upload Space Photos
+      +e.text You can Drag and Drop Photos into this field
+      +e.conditions
+        block
+
+mixin uploader-small()
+  +b.LABEL.uploader_small&attributes(attributes).js-upload-file
+    +e.INPUT(type="file").input
+    +e.content
+      +icon('plus').plus
+      +button-icon('div', 'arrow3')._icon_left.__button Upload another
+      +e.text You can Drag and Drop Photos into this field

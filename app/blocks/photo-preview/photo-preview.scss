@@ -56,8 +56,15 @@
     width: 100%;
     padding-top: 100%;
     background-color: $color-bg;
+    transition: border $ease-main;
+    box-sizing: border-box;
     pointer-events: none;
     overflow: hidden;
+    border: 1px solid transparent;
+
+    #{$b}:hover & {
+      border-color: $color-form-border;
+    }
   }
 
   &__media,
@@ -177,7 +184,11 @@
     pointer-events: none;
     box-sizing: border-box;
     color: $color-white;
-    padding: 50px 30px 30px;
+    padding: 58px 30px 32px;
+
+    @include screen('lg') {
+      padding: 40px 20px 30px;
+    }
 
     @include screen('sm') {
       padding: 30px 10px 15px;
@@ -189,9 +200,17 @@
     }
 
     .button {
+      @include heading-4;
+
       background-image: none;
       background-color: $color-white;
       color: $color-white;
+      line-height: (26/20);
+      font-weight: 700;
+
+      @include screen('sm') {
+        @include text-mid;
+      }
 
       &__text {
         background-color: $color-yellow-mask;
@@ -213,17 +232,60 @@
       @include screen('sm') {
         @include text16;
       }
+
+      &:not(:last-child) {
+        margin-bottom: 10px;
+      }
+    }
+
+    &-text {
+      display: inline-block;
+      box-sizing: border-box;
+      padding: 0 8px;
+
+      @include screen('md') {
+        padding: 0 4px;
+      }
     }
   }
 
   &__condition {
     display: inline-block;
-    padding: 0 4px;
+    padding: 0 8px;
     background-color: $color-selection-text;
     box-sizing: border-box;
+    line-height: (27/20);
+
+    @include screen('md') {
+      padding: 0 4px;
+    }
 
     &:not(:first-child) {
-      margin-top: 20px;
+      margin-top: 21px;
+
+      @include screen('lg') {
+        margin-top: 15px;
+      }
+
+      @include screen('sm') {
+        margin-top: 10px;
+      }
+    }
+
+    @include screen('sm') {
+      line-height: (27/16);
+    }
+
+    &_small {
+      @include text15;
+
+      line-height: (27/15);
+
+      @include screen('sm') {
+        @include text12;
+
+        line-height: (27/12);
+      }
     }
   }
 
@@ -296,8 +358,25 @@
       line-height: (26/14);
     }
 
-    &_fe {
-      align-items: flex-end;
+    &_pt {
+
+      #{$b}__hint-text {
+        padding-top: 34px;
+      }
+    }
+
+    &-text {
+      display: inline-block;
+      text-align: center;
+      box-sizing: border-box;
+      max-width: 100%;
+      padding: 5px 0;
+    }
+  }
+
+  &__description {
+    &:not(:first-child) {
+      margin-top: 8px;
     }
   }
 }

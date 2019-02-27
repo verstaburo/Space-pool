@@ -1,3 +1,37 @@
 .uploader-output {
   $b: &;
+
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+
+  &__empty-area {
+    display: none;
+    width: 100%;
+
+    #{$b}.is-empty & {
+      display: block;
+    }
+  }
+
+  &__area {
+    @include screen('sm', min) {
+      order: 2;
+    }
+  }
+
+  &__files {
+    display: block;
+    box-sizing: border-box;
+    width: 100%;
+    padding: 22px 39px;
+
+    @media only screen and (max-width: 1400px) {
+      padding: 22px 0;
+    }
+
+    #{$b}.is-empty & {
+      display: none;
+    }
+  }
 }

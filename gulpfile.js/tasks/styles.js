@@ -4,7 +4,7 @@ const errorHandler = require('gulp-plumber-error-handler');
 const gulpIf = require('gulp-if');
 const postcss = require('gulp-postcss');
 const sass = require('gulp-sass');
-const cssnano = require('gulp-cssnano');
+// const cssnano = require('gulp-cssnano');
 const sourcemaps = require('gulp-sourcemaps');
 const bulkSass = require('gulp-sass-bulk-import');
 const rename = require('gulp-rename');
@@ -29,9 +29,9 @@ exports.build = () => (
     require('postcss-import'),
     //require('css-mqpacker'),
   ]))
-  .pipe(cssnano({
-    zIndex: false
-  }))
+  // .pipe(cssnano({
+  //   zIndex: false
+  // }))
   .pipe(gulpIf(isDebug, sourcemaps.write()))
   .pipe(rename({
     suffix: '.min'
