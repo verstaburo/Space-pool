@@ -7,8 +7,13 @@
   box-sizing: border-box;
   border-radius: 3px;
   border: 2px dotted $color-form-border;
+  transition: border $ease-main;
   overflow: hidden;
   cursor: pointer;
+
+  &.is-dragover {
+    border-color: $color-basic;
+  }
 
   &__input {
     display: none;
@@ -79,10 +84,15 @@
     width: 55px;
     height: 55px;
     fill: $color-form-border;
+    transition: fill $ease-main;
 
     @include screen('sm') {
       width: 40px;
       height: 40px;
+    }
+
+    #{$b}.is-dragover & {
+      fill: $color-basic;
     }
   }
 

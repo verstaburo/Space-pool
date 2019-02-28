@@ -54,6 +54,7 @@ import stickyMessage from '../blocks/sticky-message/sticky-message';
 import blockHeightRounding from '../blocks/js-functions/blockHeightRounding';
 import '../blocks/avatar-uploader/avatar-uploader';
 import calendar from '../blocks/calendar/calendar';
+import uploader from '../blocks/uploader/uploader';
 
 const $ = window.$;
 
@@ -61,6 +62,14 @@ $(() => {
   svg4everybody();
   picturefill();
   objectFitImages();
+  $.ajax('assets/data/templates.json', {
+    dataType: 'json',
+    async: false,
+    type: 'GET',
+    complete(answer) {
+      window.templates = answer.responseJSON;
+    },
+  });
   anchor();
   freezebuttons();
   selects();
@@ -99,4 +108,5 @@ $(() => {
   stickyMessage();
   blockHeightRounding();
   calendar();
+  uploader();
 });
