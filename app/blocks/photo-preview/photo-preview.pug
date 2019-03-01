@@ -2,7 +2,7 @@ mixin photo-preview(name)
   - var nm = name || 'photo'
   +b.photo-preview&attributes(attributes)(data-preview-item)
     +e.INPUT(type="hidden" name=nm)
-    +e.BUTTON.delete.js-delete-file
+    +e.BUTTON.delete.js-delete-file(type="button")
       +icon('cross').delete-icon
     block
 
@@ -33,7 +33,7 @@ mixin photo-preview-error()
       +e.error-text Please use images with following parameters:
       +e.condition  At least 800 pixel on shortest side
       +e.condition_small JPG, BMP, PNG 300 - 5000 kb
-    +button('button')(type="button")._border._short._wide.js-delete-file Delete this image
+    +button('button')(type="button" data-delete)._border._short._wide.js-delete-file Delete this image
 
 mixin photo-preview-description(select)
   - var name = select || 'description';

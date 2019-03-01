@@ -438,9 +438,33 @@
       }
     }
 
+    &_lh1 {
+      line-height: .98;
+    }
+
     &_mg16 {
       &:not(:last-child) {
         margin-bottom: 16px;
+      }
+    }
+
+    &_mg44 {
+      &:not(:last-child) {
+        margin-bottom: 44px;
+
+        @include screen('sm') {
+          margin-bottom: 25px;
+        }
+      }
+    }
+
+    &_mg28 {
+      &:not(:last-child) {
+        margin-bottom: 28px;
+
+        @include screen('sm') {
+          margin-bottom: 15px;
+        }
       }
     }
   }
@@ -461,6 +485,28 @@
 
       @include screen('sm') {
         margin-top: 13px;
+      }
+    }
+  }
+
+  &__subsection {
+    display: block;
+    box-sizing: border-box;
+    width: 100%;
+
+    &:not(:last-child) {
+      margin-bottom: 32px;
+    }
+
+    &_mg54 {
+      &:not(:last-child) {
+        margin-bottom: 54px;
+      }
+    }
+
+    &_pr {
+      @include screen('lg', min) {
+        padding-right: 15%;
       }
     }
   }
@@ -522,6 +568,19 @@
         padding-top: 20px;
         padding-bottom: 25px;
       }
+    }
+
+    &_form {
+      padding: 44px 57px 36px;
+
+      @include screen('sm') {
+        padding: 40px 10px;
+      }
+    }
+
+    &_flex {
+      display: flex;
+      flex-wrap: wrap;
     }
   }
 
@@ -699,5 +758,51 @@
         width: 100%;
       }
     }
+  }
+
+  &__column {
+    display: block;
+    box-sizing: border-box;
+
+    &_stretch {
+      flex: 1;
+      padding-right: 40px;
+
+      @include screen('md') {
+        padding-right: 0;
+      }
+    }
+
+    &_rborder {
+      border-right: 1px solid $color-border-lightest;
+
+      @include screen('md') {
+        border-right: none;
+      }
+    }
+
+    &_pb25 {
+      padding-bottom: 25px;
+
+      @include screen('md') {
+        padding-bottom: 0;
+      }
+    }
+
+    &_space {
+      width: 41.2%;
+      padding-left: 7.2%;
+
+      @include screen('md') {
+        padding-left: 0;
+        width: 100%;
+        margin-top: 60px;
+        margin-bottom: 30px;
+      }
+    }
+  }
+
+  &_white {
+    background-color: $color-white;
   }
 }

@@ -146,7 +146,7 @@ export default function uploader() {
     const self = evt.currentTarget;
     const preview = $(self).closest('[data-preview-item]');
     const previewParentCol = $(preview).closest('.grid__col');
-    if ($(preview).is('.is-error')) {
+    if ($(preview).is('.is-error') && !$(self).is('[data-delete]')) {
       $(preview).removeClass('is-error');
     } else {
       $(previewParentCol).remove();

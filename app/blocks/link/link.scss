@@ -60,6 +60,16 @@
     }
   }
 
+  &_forward {
+    padding-left: 0;
+    padding-right: 28px;
+
+    @include screen('sm') {
+      padding-left: 0;
+      padding-right: 20px;
+    }
+  }
+
   &_bold {
     font-weight: 700;
   }
@@ -113,6 +123,12 @@
       height: 7px;
       transform-origin: 50% 50%;
       transform: translate3d(0, -50%, 0) rotate(90deg);
+
+      #{$b}_forward & {
+        left: auto;
+        right: 0;
+        transform: translate3d(0, -50%, 0) rotate(270deg);
+      }
     }
 
     &_cross {

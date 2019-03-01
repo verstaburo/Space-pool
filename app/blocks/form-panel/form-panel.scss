@@ -4,19 +4,40 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 80px;
+  min-height: 80px;
   width: 100%;
   background-color: $color-white;
   box-sizing: border-box;
-  padding: 0 50px;
+  padding: 19px 50px;
 
   @include screen('sm') {
-    height: 70px;
-    padding: 0 10px;
+    min-height: 70px;
+    padding: 14px 10px;
   }
 
   .link {
     @include text-mid;
+  }
+
+  &__links {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex: 1;
+
+    @include screen('sm') {
+      width: 100%;
+      flex: none;
+    }
+
+    &:not(:last-child) {
+      margin-right: 40px;
+
+      @include screen('sm') {
+        margin-right: 0;
+        margin-bottom: 20px;
+      }
+    }
   }
 
 
@@ -29,5 +50,28 @@
         min-width: 0;
       }
     }
+  }
+
+  &__link {
+    &:not(:last-child) {
+      margin-right: 20px;
+    }
+  }
+
+  &_links {
+    flex-wrap: wrap;
+
+    #{$b} {
+
+      &__button {
+        @include screen('sm') {
+          width: 100%;
+        }
+      }
+    }
+  }
+
+  &_border {
+    border-top: 1px solid $color-border-lightest;
   }
 }
