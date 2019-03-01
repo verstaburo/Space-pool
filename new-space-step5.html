@@ -218,7 +218,161 @@
                             </div>
                         </aside>
                     </div>
-                    <div class="content__column content__column_main content__column_no-ptop"></div>
+                    <div class="content__column content__column_main content__column_no-ptop">
+                        <form class="form form_white form_flex" data-validated-form="data-validated-form">
+                            <div class="form__container form__container_pb120">
+                                <fieldset class="form__section form__section_sm-mg">
+                                    <div class="form__row">
+                                        <div class="form__column form__column_access">
+                                            <div class="form__wrapper">
+                                                <label class="checkbox">
+                                                    <input class="checkbox__input" name="access" value="24hours" checked="checked" type="checkbox" />
+                                                    <span class="checkbox__box">
+                                                        <svg class="checkbox__icon"><use xlink:href="assets/images/icon.svg#icon_check"></use></svg>
+                                                    </span>
+                                                    <span class="checkbox__content">24 Hour Access</span>
+                                                </label>
+                                                <div class="error-message"></div>
+                                            </div>
+                                        </div>
+                                        <div class="form__column form__column_stretch">
+                                            <div class="grid grid_bigger grid_int10">
+                                                <div class="grid__col grid__col_xl_6 grid__col_sm_12">
+                                                    <div class="form__wrapper form__wrapper_separator2">
+                                                        <label class="form-box">
+                                                            <select class="select js-select-input" name="workTimeFrom" required="required">
+                                                                <option value="placeholder" placeholder>Space work time from</option>
+                                                                <option value="1:00">1:00</option>
+                                                                <option value="2:00">2:00</option>
+                                                                <option value="3:00">3:00</option>
+                                                                <option value="4:00">4:00</option>
+                                                                <option value="5:00">5:00</option>
+                                                                <option value="6:00">6:00</option>
+                                                                <option value="7:00">7:00</option>
+                                                                <option value="8:00">8:00</option>
+                                                                <option value="9:00">9:00</option>
+                                                                <option value="10:00">10:00</option>
+                                                                <option value="11:00">11:00</option>
+                                                                <option value="12:00">12:00</option>
+                                                            </select>
+                                                            <span class="form-box__label">Space work time from</span>
+                                                        </label>
+                                                        <div class="error-message"></div>
+                                                    </div>
+                                                </div>
+                                                <div class="grid__col grid__col_xl_6 grid__col_sm_12">
+                                                    <div class="form__wrapper">
+                                                        <label class="form-box">
+                                                            <select class="select js-select-input" name="workTimeTill" required="required">
+                                                                <option value="placeholder" placeholder>Till</option>
+                                                                <option value="1:00">1:00</option>
+                                                                <option value="2:00">2:00</option>
+                                                                <option value="3:00">3:00</option>
+                                                                <option value="4:00">4:00</option>
+                                                                <option value="5:00">5:00</option>
+                                                                <option value="6:00">6:00</option>
+                                                                <option value="7:00">7:00</option>
+                                                                <option value="8:00">8:00</option>
+                                                                <option value="9:00">9:00</option>
+                                                                <option value="10:00">10:00</option>
+                                                                <option value="11:00">11:00</option>
+                                                                <option value="12:00">12:00</option>
+                                                            </select>
+                                                            <span class="form-box__label">Till</span>
+                                                        </label>
+                                                        <div class="error-message"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </fieldset>
+                                <fieldset class="form__section form__section_mid-mg">
+                                    <div class="form__wrapper">
+                                        <label class="form-box form-box_icon">
+                                            <textarea class="textarea" type="text" name="basicRules" placeholder="Basic space rules (optional)" rows="1" required="required" maxlength="400"></textarea>
+                                            <span class="form-box__label">Basic space rules (optional)</span>
+                                            <span class="form-box__icon form-box__icon_text form-box__icon_text_small">400</span>
+                                        </label>
+                                        <div class="error-message"></div>
+                                    </div>
+                                </fieldset>
+                                <fieldset class="form__section">
+                                    <div class="form__row">
+                                        <div class="form__column form__column_rules">
+                                            <div class="form__header form__header_mg24">
+                                                <h5 class="form__title form__title_small">Basic Rule points (optional)</h5>
+                                            </div>
+                                            <div class="form__content" data-deleted-group="data-deleted-group">
+                                                <div class="form__wrapper form__wrapper_mg29" data-deleted-object="data-deleted-object">
+                                                    <label class="form-box form-box_icon">
+                                                        <input class="input input_points" type="text" name="rules[0]" placeholder="Rule" value="Pets allowed" />
+                                                        <span class="form-box__point"></span>
+                                                        <button class="form-box__delete js-delete-object-except-last" type="button">
+                                                            <svg class="form-box__icon form-box__icon_cross"><use xlink:href="assets/images/icon.svg#icon_cross"></use></svg>
+                                                        </button>
+                                                    </label>
+                                                    <div class="error-message"></div>
+                                                </div>
+                                                <div class="form__wrapper form__wrapper_mg29" data-deleted-object="data-deleted-object">
+                                                    <label class="form-box form-box_icon">
+                                                        <input class="input input_points" type="text" name="rules[1]" placeholder="Rule" value="Entrance only by electornic key" />
+                                                        <span class="form-box__point"></span>
+                                                        <button class="form-box__delete js-delete-object-except-last" type="button">
+                                                            <svg class="form-box__icon form-box__icon_cross"><use xlink:href="assets/images/icon.svg#icon_cross"></use></svg>
+                                                        </button>
+                                                    </label>
+                                                    <div class="error-message"></div>
+                                                </div>
+                                                <div class="form__wrapper form__wrapper_mg29" data-deleted-object="data-deleted-object">
+                                                    <label class="form-box form-box_icon">
+                                                        <input class="input input_points" type="text" name="rules[2]" placeholder="Rule" value="Silent time from 10PM till 8 AM" />
+                                                        <span class="form-box__point"></span>
+                                                        <button class="form-box__delete js-delete-object-except-last" type="button">
+                                                            <svg class="form-box__icon form-box__icon_cross"><use xlink:href="assets/images/icon.svg#icon_cross"></use></svg>
+                                                        </button>
+                                                    </label>
+                                                    <div class="error-message"></div>
+                                                </div>
+                                                <div class="form__wrapper form__wrapper_mg29" data-deleted-object="data-deleted-object">
+                                                    <label class="form-box form-box_icon">
+                                                        <input class="input input_points" type="text" name="rules[3]" placeholder="Rule" />
+                                                        <span class="form-box__point"></span>
+                                                        <button class="form-box__delete js-delete-object-except-last" type="button">
+                                                            <svg class="form-box__icon form-box__icon_cross"><use xlink:href="assets/images/icon.svg#icon_cross"></use></svg>
+                                                        </button>
+                                                    </label>
+                                                    <div class="error-message"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form__column form__column_stretch">
+                                            <div class="content-zone content-zone_mid2 content-zone_pr">
+                                                <h5>Example for Space Rules:</h5>
+                                                <p>The building starts to work at 8:00 am, workers can come at 8:30 am. Cleaning every day starts at 9pm. Car parking available for clients within 1 hour, afterwards parking will be charged 5 pounds per hour.</p>
+                                                <ul>
+                                                    <li>No dancing</li>
+                                                    <li>No swearing</li>
+                                                    <li>Be eco friendly</li>
+                                                    <li>Leve the bikes on parking lot</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </fieldset>
+                            </div>
+                            <div class="form-panel form__panel form__panel_border">
+                                <a class="link link_icon link_back link_bold link_no-shadow form-panel__button" href="#">
+                                    <svg class="link__icon link__icon_select-arrow"><use xlink:href="assets/images/icon.svg#icon_select-arrow"></use></svg>
+                                    <span class="link__text">Back</span>
+                                </a>
+                                <button class="button button_icon form-panel__button form-panel__button_wide" type="submit">
+                                    <span class="button__text">Next</span>
+                                    <svg class="button__icon button__icon_select-arrow"><use xlink:href="assets/images/icon.svg#icon_select-arrow"></use></svg>
+                                </button>
+                            </div>
+                        </form>
+                    </div>
                 </div>
             </div>
         </section>
