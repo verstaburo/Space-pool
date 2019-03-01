@@ -4,6 +4,11 @@
   display: block;
   width: 100%;
   box-sizing: border-box;
+  padding-bottom: 8px;
+
+  @include screen('md') {
+    padding-bottom: 0;
+  }
 
   &__empty-area {
     display: none;
@@ -15,9 +20,7 @@
   }
 
   &__area {
-    @include screen('sm', min) {
-      order: 2;
-    }
+    order: 2;
   }
 
   &__files {
