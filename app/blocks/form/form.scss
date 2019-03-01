@@ -137,6 +137,10 @@
       margin-bottom: 21px;
     }
 
+    &_mg24 {
+      margin-bottom: 24px;
+    }
+
     &_mg26 {
       margin-bottom: 26px;
     }
@@ -372,6 +376,13 @@
       }
     }
 
+    &_mg29 {
+
+      &:not(:last-child) {
+        margin-bottom: 29px;
+      }
+    }
+
     &_pt {
       padding-top: 6px;
 
@@ -412,6 +423,29 @@
 
         position: absolute;
         content: ':';
+        display: block;
+        left: 100%;
+        top: 5px;
+        color: $color-placeholder;
+        text-align: center;
+        width: 60px;
+
+        @include screen('sm') {
+          display: none;
+        }
+      }
+
+      &#{$b}__wrapper_negative-mg::after {
+        top: -5px;
+      }
+    }
+
+    &_separator2 {
+      &::after {
+        @include text-big;
+
+        position: absolute;
+        content: '—';
         display: block;
         left: 100%;
         top: 5px;
@@ -707,6 +741,14 @@
         padding: 30px 10px;
       }
     }
+
+    &_pb120 {
+      padding-bottom: 120px;
+
+      @include screen('sm') {
+        padding-bottom: 60px;
+      }
+    }
   }
 
   &__button {
@@ -725,6 +767,65 @@
       @include screen('md') {
         margin-bottom: 0;
       }
+    }
+  }
+
+  &__row {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  &__column {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    box-sizing: border-box;
+
+    &_access {
+      align-items: center;
+      width: 20%;
+      margin-right: 30px;
+
+      @include screen('lg') {
+        width: 28%;
+      }
+
+      @include screen('bg') {
+        width: 100%;
+        padding-right: 0;
+        margin-right: 0;
+        margin-bottom: 25px;
+      }
+    }
+
+    &_rules {
+      flex-direction: column;
+      width: 54.1%;
+      padding-right: 12.6%;
+      margin-right: 50px;
+      border-right: 1px solid $color-form-border;
+
+      @include screen('lg') {
+        padding-right: 50px;
+      }
+
+      @include screen('md') {
+        width: 100%;
+        padding-right: 0;
+        margin-right: 0;
+        border-right: none;
+        margin-bottom: 60px;
+      }
+
+      .form__title {
+        line-height: 1.2;
+      }
+    }
+
+    &_stretch {
+      display: block;
+      width: auto;
+      flex: 1;
     }
   }
 }
