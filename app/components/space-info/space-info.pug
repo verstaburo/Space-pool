@@ -10,6 +10,10 @@ mixin space-info-address()
   +e.address&attributes(attributes)
     block
 
+mixin space-info-text()
+  +e.text&attributes(attributes)
+    block
+
 mixin space-info-buttons()
   +e.buttons&attributes(attributes)
     block
@@ -33,3 +37,18 @@ mixin space-info-controls()
       +link-icon('pan')._icon_mid-small._bold._light-underline._icon_dark._no-shadow(href="#") Edit Space
     +e.control
       +link-icon('round-cross')._icon_mid-small._bold._light-underline._gray-light._no-shadow(href="#") Delete this Space
+
+mixin space-info-controls2()
+  +e.controls&attributes(attributes)
+    +e.control_mg13
+      +link-icon('location')._icon_pad35._bold._light-underline._icon_light._no-shadow(href="#") Location
+    +e.control_mg13
+      +link-icon('strings')._icon_pad35._bold._light-underline._icon_light._no-shadow(href="#") Title and Description
+    +e.control_mg13
+      +link-icon('boxes')._icon_pad35._bold._light-underline._icon_light._no-shadow(href="#") Facilities
+    +e.control_mg13
+      +link-icon('photo')._icon_pad35._bold._light-underline._icon_light._no-shadow(href="#") Photo
+    +e.control_mg13
+      +link-icon('rules')._icon_pad35._bold._light-underline._icon_light._no-shadow(href="#") Rules
+    +e.control_mg13
+      +link-icon('check-form')._icon_pad35._bold._light-underline._icon_light._no-shadow(href="#") Rental offers
