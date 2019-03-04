@@ -12,6 +12,12 @@ mixin offers-header(color, name, count)
       +e.A.add-button(href="#popup-add-rental-offer" title="Add new offer").js-popup
         +e.SPAN.icon
 
+mixin offers-heading(color, name)
+  +e.heading&attributes(attributes)
+    +e.name
+      +box()(class="_size10 _" + color + " __box_sz10")
+      +e.H4.title_small!= name
+
 mixin offers-list()
   +e.list&attributes(attributes)
     block

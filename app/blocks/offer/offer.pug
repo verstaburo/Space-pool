@@ -11,3 +11,8 @@ mixin offer(name, value, checked)
             +link-icon('pan')._icon_small._bold._light-underline._icon_dark._no-shadow(href="#") Edit offer
           +e.button
             +link-icon('round-cross')._icon_small._bold._light-underline._gray-light._no-shadow(href="#").js-delete-object Delete offer
+
+mixin offer-simple()
+  +b.offer_simple&attributes(attributes)(data-deleted-object)
+    +e.content
+      block

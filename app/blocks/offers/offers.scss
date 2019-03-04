@@ -33,6 +33,13 @@
     }
   }
 
+  &_light-border {
+
+    &::after {
+      background-color: $color-border-lightest;
+    }
+  }
+
   &__header {
     position: relative;
     display: flex;
@@ -45,9 +52,41 @@
     z-index: 3;
   }
 
+  &__heading {
+    display: block;
+    width: 100%;
+    overflow: hidden;
+
+    #{$b}__name {
+      position: relative;
+      display: inline-flex;
+      width: auto;
+      box-sizing: border-box;
+      padding-right: 5px;
+      align-items: center;
+      align-content: center;
+
+      &::after {
+        @include pseudo;
+
+        width: 100vw;
+        height: 1px;
+        top: 50%;
+        left: 100%;
+        background-color: $color-border-lightest;
+      }
+    }
+  }
+
   &__box {
     height: auto;
     min-height: 32px;
+
+    &_sz10 {
+      height: 10px;
+      min-height: 10px;
+      margin-top: -2px;
+    }
   }
 
   &__name {
@@ -77,6 +116,21 @@
 
     @include screen('sm') {
       @include text15;
+    }
+
+    &_small {
+      @include text;
+
+      line-height: 1.2;
+      margin-left: 3px;
+      letter-spacing: .02em;
+
+      @include screen('sm') {
+        @include text12;
+
+        line-height: 1.2;
+        letter-spacing: .02em;
+      }
     }
   }
 

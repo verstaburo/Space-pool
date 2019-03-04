@@ -796,6 +796,13 @@
         margin-right: 0;
         margin-bottom: 40px;
       }
+
+      &~#{$b}__column_stretch {
+        @include screen('bg') {
+          width: 100%;
+          flex: none;
+        }
+      }
     }
 
     &_rules {
@@ -826,6 +833,11 @@
       display: block;
       width: auto;
       flex: 1;
+
+      @include screen('md') {
+        flex: none;
+        width: 100%;
+      }
     }
   }
 }
