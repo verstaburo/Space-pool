@@ -7,7 +7,14 @@
 
   @include screen('md') {
     justify-content: space-between;
+    flex-wrap: wrap;
     width: 100%;
+  }
+
+  @include screen('sm') {
+    justify-content: flex-start;
+    flex-direction: column;
+    align-items: flex-start;
   }
 
   &__item {
@@ -18,6 +25,17 @@
       @include screen('md') {
         margin-left: 10px;
       }
+
+      @include screen('sm') {
+        margin-left: 0;
+        // margin-left: -5px;
+      }
+    }
+
+    @include screen('sm') {
+      margin-top: 5px;
+      margin-bottom: 5px;
+      width: 100%;
     }
   }
 }
