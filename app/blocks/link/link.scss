@@ -3,6 +3,9 @@
 
   @include link;
 
+  display: inline-block;
+  box-sizing: border-box;
+
   &_icon {
     position: relative;
     padding-left: 38px;
@@ -58,6 +61,11 @@
     &_light {
       fill: $color-icon-gray-onemore;
     }
+
+    &_right {
+      padding-left: 0;
+      padding-right: 30px;
+    }
   }
 
   &_back {
@@ -85,12 +93,16 @@
   &_white {
     color: $color-white;
 
-    &:not(.link_icon):hover {
-      color: rgba($color-white, .6);
+    // &:not(.link_icon):hover {
+    //   color: rgba($color-white, .6);
+    // }
+
+    &:hover {
+      color: $color-white;
     }
 
-    &.link_icon:hover {
-      color: $color-white;
+    &:hover #{$b}__text {
+      opacity: .6;
     }
   }
 
@@ -214,13 +226,23 @@
       height: 14px;
     }
 
+    &_preview {
+      width: 15px;
+      height: 14px;
+    }
+
     #{$b}_no-shadow & {
       filter: none;
+    }
+
+    #{$b}_icon_right & {
+      left: auto;
+      right: 0;
     }
   }
 
   &__text {
-    transition: border $ease-main;
+    transition: border $ease-main, opacity $ease-main;
 
     #{$b}_bordered & {
       border-bottom: 1px solid transparent;
@@ -231,17 +253,18 @@
     }
 
     #{$b}_underline & {
-      display: inline-block;
       border-bottom: 1px solid currentColor;
     }
 
     #{$b}_light-underline & {
-      display: inline-block;
       border-bottom: 1px solid $color-border-light;
     }
 
+    #{$b}_white-underline & {
+      border-bottom: 1px solid rgba($color-white, .6);
+    }
+
     #{$b}_light-underline:hover & {
-      display: inline-block;
       border-bottom: 1px solid $color-basic;
     }
   }

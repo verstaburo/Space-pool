@@ -26,11 +26,30 @@
   &__info {
 
     &:not(:last-child) {
-      margin-bottom: 50px;
+      margin-bottom: 32px;
     }
   }
 
-  .note {
+  &__link {
+    @include heading-4;
+
+    font-weight: 700;
+
+    @include screen('lg') {
+      @include text15;
+    }
+
+    &:not(:last-child) {
+      margin-bottom: 20px;
+    }
+  }
+
+  &__links {
+    padding-bottom: 10px;
+  }
+
+  .note,
+  &__links {
     margin-top: auto;
   }
 }
