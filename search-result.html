@@ -149,67 +149,286 @@
         </div>
     </header>
     <main class="page" role="main">
-        <section class="filter filter_search">
+        <div class="search-filter">
             <div class="container">
-                <div class="filter__content">
-                    <form class="filter__form" data-form="location-filter-big">
-                        <div class="filter__wrapper">
-                            <select class="select js-select-dark" name="city">
-                                <option value="placeholder" placeholder="placeholder">City</option>
-                                <option value="London" selected="selected">London</option>
-                                <option value="Paris">Paris</option>
-                                <option value="Moscow">Moscow</option>
-                            </select>
+                <div class="search-filter__content">
+                    <section class="filter filter_search search-filter__filter">
+                        <div class="filter__content">
+                            <form class="filter__form" data-form="location-filter-big">
+                                <div class="filter__wrapper">
+                                    <select class="select js-select-dark2" name="city" readonly="readonly">
+                                        <option value="placeholder" placeholder="placeholder">City</option>
+                                        <option value="London" selected="selected">London</option>
+                                        <option value="Paris">Paris</option>
+                                        <option value="Moscow">Moscow</option>
+                                    </select>
+                                </div>
+                                <div class="filter__wrapper">
+                                    <select class="select js-select-dark2" name="area">
+                                        <option value="placeholder" placeholder="placeholder">Area</option>
+                                        <option value="Central London">Central London</option>
+                                        <option value="Stratford Area">Stratford Area</option>
+                                        <option value="Canary Warf">Canary Warf</option>
+                                        <option value="Ilford">Ilford</option>
+                                        <option value="Brixton">Brixton</option>
+                                        <option value="Richmond">Richmond</option>
+                                    </select>
+                                </div>
+                                <div class="filter__wrapper">
+                                    <select class="select js-select-dark2" name="workplace-type">
+                                        <option value="placeholder" placeholder="placeholder">Workplace type</option>
+                                        <option value="htdsk">Hot Desk</option>
+                                        <option value="dddsk">Dedicated Desk</option>
+                                        <option value="room">Meeting Room</option>
+                                        <option value="space">Office Space</option>
+                                    </select>
+                                </div>
+                                <div class="filter__wrapper">
+                                    <select class="select js-select-dark2" name="priceGap" disabled="disabled">
+                                        <option value="placeholder" placeholder="placeholder">Price gap</option>
+                                        <option value="1">0 - 500</option>
+                                        <option value="2">500 - 1000</option>
+                                        <option value="3">1000 - 1500</option>
+                                    </select>
+                                </div>
+                                <div class="filter__wrapper">
+                                    <select class="select js-select-dark2" name="advancedParam" disabled="disabled">
+                                        <option value="placeholder" placeholder="placeholder">Advanced parameters</option>
+                                        <option value="param1">Parametr 1</option>
+                                        <option value="param2">Parametr 2</option>
+                                        <option value="param3">Parametr 3</option>
+                                        <option value="param4">Parametr 4</option>
+                                    </select>
+                                </div>
+                            </form>
                         </div>
-                        <div class="filter__wrapper">
-                            <select class="select js-select-dark" name="area">
-                                <option value="placeholder" placeholder="placeholder">Areas</option>
-                                <option value="Central London">Central London</option>
-                                <option value="Stratford Area">Stratford Area</option>
-                                <option value="Canary Warf">Canary Warf</option>
-                                <option value="Ilford">Ilford</option>
-                                <option value="Brixton">Brixton</option>
-                                <option value="Richmond">Richmond</option>
-                            </select>
-                        </div>
-                        <div class="filter__wrapper">
-                            <select class="select js-select-dark" name="workplace-type">
-                                <option value="placeholder" placeholder="placeholder">Workplace type</option>
-                                <option value="htdsk">Hot Desk</option>
-                                <option value="dddsk">Dedicated Desk</option>
-                                <option value="room">Meeting Room</option>
-                                <option value="space">Office Space</option>
-                            </select>
-                        </div>
-                        <div class="filter__wrapper">
-                            <select class="select js-select-dark" name="priceGap" disabled="disabled">
-                                <option value="placeholder" placeholder="placeholder">Price gap</option>
-                                <option value="1">0 - 500</option>
-                                <option value="2">500 - 1000</option>
-                                <option value="3">1000 - 1500</option>
-                            </select>
-                        </div>
-                        <div class="filter__wrapper">
-                            <select class="select js-select-dark" name="advancedParam" disabled="disabled">
-                                <option value="placeholder" placeholder="placeholder">Advanced parameters</option>
-                                <option value="param1">Parametr 1</option>
-                                <option value="param2">Parametr 2</option>
-                                <option value="param3">Parametr 3</option>
-                                <option value="param4">Parametr 4</option>
-                            </select>
-                        </div>
-                    </form>
-                    <div class="filter__buttons">
-                        <button class="filter-reset filter__reset js-simple-reset" data-target-form="location-filter-big">
-                            <div class="filter-reset__image">
-                                <svg class="filter-reset__icon"><use xlink:href="assets/images/icon.svg#icon_round-cross"></use></svg>
-                            </div>
-                            <div class="filter-reset__text">Clear map settings</div>
+                    </section>
+                    <div class="search-filter__buttons">
+                        <button class="link link_icon link_icon_gray link_no-shadow link_bold link_icon_mid-small search-filter__button js-simple-reset" type="reset" data-target-form="location-filter-big">
+                            <svg class="link__icon link__icon_round-cross"><use xlink:href="assets/images/icon.svg#icon_round-cross"></use></svg>
+                            <span class="link__text">Clear filter</span>
                         </button>
-                        <a class="link link_icon link_icon_gray link_no-shadow link_bold link_small filter__button js-toggle-map">
+                        <a class="link link_icon link_icon_gray link_no-shadow link_bold link_icon_pad27 search-filter__button js-toggle-map" href="#" data-target-map="map">
                             <svg class="link__icon link__icon_map"><use xlink:href="assets/images/icon.svg#icon_map"></use></svg>
                             <span class="link__text">Hide Map</span>
                         </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <section class="content content_reverse content_last">
+            <div class="container">
+                <div class="content__wrapper">
+                    <div class="content__column content__column_stretch">
+                        <section class="space-offer" data-deleted-object="data-deleted-object">
+                            <div class="space-offer__side hide-md" data-slot-id="space1" data-slot-res="xl"></div>
+                            <div class="space-offer__content">
+                                <div class="space-offer__media-wrapper space-offer__media-wrapper_lg hide-from-md hide-sm" data-slot-id="space1" data-slot-res="lg"></div>
+                                <div class="space-offer__describe">
+                                    <div class="address-line">
+                                        <ul class="address-line__list">
+                                            <li class="address-line__item">London</li>
+                                            <li class="address-line__item">Kengsinton</li>
+                                            <li class="address-line__item">W22EBF</li>
+                                        </ul>
+                                        <div class="address-line__icons">
+                                            <svg class="address-line__icon address-line__icon_metro" fill="#9b0158"><use xlink:href="assets/images/icon.svg#icon_metro"></use></svg>
+                                            <svg class="address-line__icon address-line__icon_metro" fill="#9b0158"><use xlink:href="assets/images/icon.svg#icon_metro"></use></svg>
+                                        </div>
+                                    </div>
+                                    <div class="button-heart button-heart_small button-heart_gray space-offer__heart js-heart">
+                                        <div class="button-heart__top">
+                                            <svg class="button-heart__icon button-heart__icon_empty"><use xlink:href="assets/images/icon.svg#icon_heart"></use></svg>
+                                        </div>
+                                        <div class="button-heart__bottom">
+                                            <svg class="button-heart__icon button-heart__icon_full"><use xlink:href="assets/images/icon.svg#icon_full-heart"></use></svg>
+                                        </div>
+                                    </div>
+                                    <h3 class="space-offer__title">Blooming Founders (Former Blooms London Special Eiditon</h3>
+                                    <div class="space-offer__media-wrapper space-offer__media-wrapper_sm hide-from-sm" data-slot-id="space1" data-slot-res="sm">
+                                        <div class="space-offer__media" data-target-slot="space1">
+                                            <div class="slider slider_gallery slider_dark slider_dark2 slider_gallery_inner js-slider-gallery space-offer__gallery">
+                                                <div class="slider__container swiper-container js-slider-container">
+                                                    <div class="swiper-wrapper">
+                                                        <img class="slider__slide swiper-slide" src="assets/images/space3.jpg" alt="" role="presentation" />
+                                                        <img class="slider__slide swiper-slide" src="assets/images/space-lead2.jpg" alt="" role="presentation" />
+                                                        <img class="slider__slide swiper-slide" src="assets/images/space-lead3.jpg" alt="" role="presentation" />
+                                                        <img class="slider__slide swiper-slide" src="assets/images/space-lead4.jpg" alt="" role="presentation" />
+                                                    </div>
+                                                </div>
+                                                <div class="slider__buttons slider__buttons_simple">
+                                                    <div class="slider__button slider__button_prev js-slider-button-prev">
+                                                        <svg class="slider__button-icon"><use xlink:href="assets/images/icon.svg#icon_slider-arrow-bold"></use></svg>
+                                                    </div>
+                                                    <div class="slider__button slider__button_next js-slider-button-next">
+                                                        <svg class="slider__button-icon"><use xlink:href="assets/images/icon.svg#icon_slider-arrow-bold"></use></svg>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="space-offer__text">This is a comment that you provide for the Hot desk offer just to keep clear the information about following retnal offer. Somehow this information can help you to fastly surf tihin your offers.</div>
+                                </div>
+                            </div>
+                        </section>
+                        <section class="space-offer" data-deleted-object="data-deleted-object">
+                            <div class="space-offer__side hide-md" data-slot-id="space2" data-slot-res="xl"></div>
+                            <div class="space-offer__content">
+                                <div class="space-offer__media-wrapper space-offer__media-wrapper_lg hide-from-md hide-sm" data-slot-id="space2" data-slot-res="lg"></div>
+                                <div class="space-offer__describe">
+                                    <div class="address-line">
+                                        <ul class="address-line__list">
+                                            <li class="address-line__item">London</li>
+                                            <li class="address-line__item">Kengsinton</li>
+                                            <li class="address-line__item">W22EBF</li>
+                                        </ul>
+                                        <div class="address-line__icons">
+                                            <svg class="address-line__icon address-line__icon_metro" fill="#9b0158"><use xlink:href="assets/images/icon.svg#icon_metro"></use></svg>
+                                            <svg class="address-line__icon address-line__icon_metro" fill="#9b0158"><use xlink:href="assets/images/icon.svg#icon_metro"></use></svg>
+                                        </div>
+                                    </div>
+                                    <div class="button-heart button-heart_small button-heart_gray space-offer__heart js-heart">
+                                        <div class="button-heart__top">
+                                            <svg class="button-heart__icon button-heart__icon_empty"><use xlink:href="assets/images/icon.svg#icon_heart"></use></svg>
+                                        </div>
+                                        <div class="button-heart__bottom">
+                                            <svg class="button-heart__icon button-heart__icon_full"><use xlink:href="assets/images/icon.svg#icon_full-heart"></use></svg>
+                                        </div>
+                                    </div>
+                                    <h3 class="space-offer__title">Cuckooz</h3>
+                                    <div class="space-offer__media-wrapper space-offer__media-wrapper_sm hide-from-sm" data-slot-id="space2" data-slot-res="sm">
+                                        <div class="space-offer__media" data-target-slot="space2">
+                                            <div class="slider slider_gallery slider_dark slider_dark2 slider_gallery_inner js-slider-gallery space-offer__gallery">
+                                                <div class="slider__container swiper-container js-slider-container">
+                                                    <div class="swiper-wrapper">
+                                                        <img class="slider__slide swiper-slide" src="assets/images/space8.jpg" alt="" role="presentation" />
+                                                        <img class="slider__slide swiper-slide" src="assets/images/space-lead2.jpg" alt="" role="presentation" />
+                                                        <img class="slider__slide swiper-slide" src="assets/images/space-lead3.jpg" alt="" role="presentation" />
+                                                        <img class="slider__slide swiper-slide" src="assets/images/space-lead4.jpg" alt="" role="presentation" />
+                                                    </div>
+                                                </div>
+                                                <div class="slider__buttons slider__buttons_simple">
+                                                    <div class="slider__button slider__button_prev js-slider-button-prev">
+                                                        <svg class="slider__button-icon"><use xlink:href="assets/images/icon.svg#icon_slider-arrow-bold"></use></svg>
+                                                    </div>
+                                                    <div class="slider__button slider__button_next js-slider-button-next">
+                                                        <svg class="slider__button-icon"><use xlink:href="assets/images/icon.svg#icon_slider-arrow-bold"></use></svg>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="space-offer__text">This is a comment that you provide for the Hot desk offer just to keep clear the information about following retnal offer. Somehow this information can help you to fastly surf tihin your offers.</div>
+                                </div>
+                            </div>
+                        </section>
+                        <section class="space-offer" data-deleted-object="data-deleted-object">
+                            <div class="space-offer__side hide-md" data-slot-id="space3" data-slot-res="xl"></div>
+                            <div class="space-offer__content">
+                                <div class="space-offer__media-wrapper space-offer__media-wrapper_lg hide-from-md hide-sm" data-slot-id="space3" data-slot-res="lg"></div>
+                                <div class="space-offer__describe">
+                                    <div class="address-line">
+                                        <ul class="address-line__list">
+                                            <li class="address-line__item">London</li>
+                                            <li class="address-line__item">Kengsinton</li>
+                                            <li class="address-line__item">W22EBF</li>
+                                        </ul>
+                                        <div class="address-line__icons">
+                                            <svg class="address-line__icon address-line__icon_metro" fill="#9b0158"><use xlink:href="assets/images/icon.svg#icon_metro"></use></svg>
+                                            <svg class="address-line__icon address-line__icon_metro" fill="#9b0158"><use xlink:href="assets/images/icon.svg#icon_metro"></use></svg>
+                                        </div>
+                                    </div>
+                                    <div class="button-heart button-heart_small button-heart_gray space-offer__heart js-heart">
+                                        <div class="button-heart__top">
+                                            <svg class="button-heart__icon button-heart__icon_empty"><use xlink:href="assets/images/icon.svg#icon_heart"></use></svg>
+                                        </div>
+                                        <div class="button-heart__bottom">
+                                            <svg class="button-heart__icon button-heart__icon_full"><use xlink:href="assets/images/icon.svg#icon_full-heart"></use></svg>
+                                        </div>
+                                    </div>
+                                    <h3 class="space-offer__title">Mindspace - Shoreditch</h3>
+                                    <div class="space-offer__media-wrapper space-offer__media-wrapper_sm hide-from-sm" data-slot-id="space3" data-slot-res="sm">
+                                        <div class="space-offer__media" data-target-slot="space3">
+                                            <div class="slider slider_gallery slider_dark slider_dark2 slider_gallery_inner js-slider-gallery space-offer__gallery">
+                                                <div class="slider__container swiper-container js-slider-container">
+                                                    <div class="swiper-wrapper">
+                                                        <img class="slider__slide swiper-slide" src="assets/images/space10.jpg" alt="" role="presentation" />
+                                                        <img class="slider__slide swiper-slide" src="assets/images/space-lead2.jpg" alt="" role="presentation" />
+                                                        <img class="slider__slide swiper-slide" src="assets/images/space-lead3.jpg" alt="" role="presentation" />
+                                                        <img class="slider__slide swiper-slide" src="assets/images/space-lead4.jpg" alt="" role="presentation" />
+                                                    </div>
+                                                </div>
+                                                <div class="slider__buttons slider__buttons_simple">
+                                                    <div class="slider__button slider__button_prev js-slider-button-prev">
+                                                        <svg class="slider__button-icon"><use xlink:href="assets/images/icon.svg#icon_slider-arrow-bold"></use></svg>
+                                                    </div>
+                                                    <div class="slider__button slider__button_next js-slider-button-next">
+                                                        <svg class="slider__button-icon"><use xlink:href="assets/images/icon.svg#icon_slider-arrow-bold"></use></svg>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="space-offer__text">This is a comment that you provide for the Hot desk offer just to keep clear the information about following retnal offer. Somehow this information can help you to fastly surf tihin your offers.</div>
+                                </div>
+                            </div>
+                        </section>
+                        <section class="space-offer" data-deleted-object="data-deleted-object">
+                            <div class="space-offer__side hide-md" data-slot-id="space4" data-slot-res="xl"></div>
+                            <div class="space-offer__content">
+                                <div class="space-offer__media-wrapper space-offer__media-wrapper_lg hide-from-md hide-sm" data-slot-id="space4" data-slot-res="lg"></div>
+                                <div class="space-offer__describe">
+                                    <div class="address-line">
+                                        <ul class="address-line__list">
+                                            <li class="address-line__item">London</li>
+                                            <li class="address-line__item">Kengsinton</li>
+                                            <li class="address-line__item">W22EBF</li>
+                                        </ul>
+                                        <div class="address-line__icons">
+                                            <svg class="address-line__icon address-line__icon_metro" fill="#9b0158"><use xlink:href="assets/images/icon.svg#icon_metro"></use></svg>
+                                            <svg class="address-line__icon address-line__icon_metro" fill="#9b0158"><use xlink:href="assets/images/icon.svg#icon_metro"></use></svg>
+                                        </div>
+                                    </div>
+                                    <div class="button-heart button-heart_small button-heart_gray space-offer__heart js-heart">
+                                        <div class="button-heart__top">
+                                            <svg class="button-heart__icon button-heart__icon_empty"><use xlink:href="assets/images/icon.svg#icon_heart"></use></svg>
+                                        </div>
+                                        <div class="button-heart__bottom">
+                                            <svg class="button-heart__icon button-heart__icon_full"><use xlink:href="assets/images/icon.svg#icon_full-heart"></use></svg>
+                                        </div>
+                                    </div>
+                                    <h3 class="space-offer__title">Blooming Founders (Former Blooms London Special Eiditon</h3>
+                                    <div class="space-offer__media-wrapper space-offer__media-wrapper_sm hide-from-sm" data-slot-id="space4" data-slot-res="sm">
+                                        <div class="space-offer__media" data-target-slot="space4">
+                                            <div class="slider slider_gallery slider_dark slider_dark2 slider_gallery_inner js-slider-gallery space-offer__gallery">
+                                                <div class="slider__container swiper-container js-slider-container">
+                                                    <div class="swiper-wrapper">
+                                                        <img class="slider__slide swiper-slide" src="assets/images/space3.jpg" alt="" role="presentation" />
+                                                        <img class="slider__slide swiper-slide" src="assets/images/space-lead2.jpg" alt="" role="presentation" />
+                                                        <img class="slider__slide swiper-slide" src="assets/images/space-lead3.jpg" alt="" role="presentation" />
+                                                        <img class="slider__slide swiper-slide" src="assets/images/space-lead4.jpg" alt="" role="presentation" />
+                                                    </div>
+                                                </div>
+                                                <div class="slider__buttons slider__buttons_simple">
+                                                    <div class="slider__button slider__button_prev js-slider-button-prev">
+                                                        <svg class="slider__button-icon"><use xlink:href="assets/images/icon.svg#icon_slider-arrow-bold"></use></svg>
+                                                    </div>
+                                                    <div class="slider__button slider__button_next js-slider-button-next">
+                                                        <svg class="slider__button-icon"><use xlink:href="assets/images/icon.svg#icon_slider-arrow-bold"></use></svg>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="space-offer__text">This is a comment that you provide for the Hot desk offer just to keep clear the information about following retnal offer. Somehow this information can help you to fastly surf tihin your offers.</div>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                    <div class="content__column content__column_map" data-map="map">
+                        <aside class="js-sticky-block sidebar sidebar_no-bg">
+                            <div class="map map_side" id="mapTwo"></div>
+                        </aside>
                     </div>
                 </div>
             </div>
@@ -321,6 +540,102 @@
                     <a class="button button_border button_border_bg-white sticky-message__button js-close-message" href="#">
                         <span class="button__text">I agree</span>
                     </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="main-menu">
+        <div class="main-menu__wrapper">
+            <div class="main-menu__block">
+                <div class="main-menu__top">
+                    <button class="burger js-open-navigation">
+                        <div class="burger__image">
+                            <div class="burger__line"></div>
+                        </div>
+                    </button>
+                </div>
+                <div class="main-menu__scrollblock js-scrollbar-light">
+                    <div class="main-menu__content">
+                        <div class="main-menu__top-menu">
+                            <ul class="nav-list">
+                                <li class="nav-list__item">
+                                    <a class="link" href="#">
+                                        <span class="link__text">About the project</span>
+                                    </a>
+                                </li>
+                                <li class="nav-list__item">
+                                    <a class="link" href="#">
+                                        <span class="link__text">Become a host</span>
+                                    </a>
+                                </li>
+                                <li class="nav-list__item">
+                                    <a class="link" href="#">
+                                        <span class="link__text">Help &amp; Support</span>
+                                    </a>
+                                </li>
+                                <li class="nav-list__item">
+                                    <a class="link" href="#">
+                                        <span class="link__text">News</span>
+                                    </a>
+                                </li>
+                                <li class="nav-list__item">
+                                    <a class="link" href="#">
+                                        <span class="link__text">Terms and Policies</span>
+                                    </a>
+                                </li>
+                                <li class="nav-list__item">
+                                    <a class="link" href="#">
+                                        <span class="link__text">Contacts</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <hr class="divider" />
+                        <div class="main-menu__bottom-menu">
+                            <ul class="nav-list">
+                                <li class="nav-list__item">
+                                    <a class="link" href="#">
+                                        <span class="link__text">Sign Up</span>
+                                    </a>
+                                </li>
+                                <li class="nav-list__item">
+                                    <a class="link js-popup" href="#popup-signin">
+                                        <span class="link__text">Sign in</span>
+                                    </a>
+                                </li>
+                            </ul>
+                            <ul class="socials">
+                                <li class="socials__item">
+                                    <a class="social social_fb" target="_blank" href="#" title="facebook">
+                                        <svg class="social__icon"><use xlink:href="assets/images/icon.svg#icon_sc-fb"></use></svg>
+                                    </a>
+                                </li>
+                                <li class="socials__item">
+                                    <a class="social social_ln" target="_blank" href="#" title="linkedIn">
+                                        <svg class="social__icon"><use xlink:href="assets/images/icon.svg#icon_sc-ln"></use></svg>
+                                    </a>
+                                </li>
+                                <li class="socials__item">
+                                    <a class="social social_tw" target="_blank" href="#" title="twitter">
+                                        <svg class="social__icon"><use xlink:href="assets/images/icon.svg#icon_sc-tw"></use></svg>
+                                    </a>
+                                </li>
+                                <li class="socials__item">
+                                    <a class="social social_inst" target="_blank" href="#" title="instagram">
+                                        <svg class="social__icon"><use xlink:href="assets/images/icon.svg#icon_sc-inst"></use></svg>
+                                    </a>
+                                </li>
+                            </ul>
+                            <div class="main-menu__links">
+                                <a class="link" href="mailto:info@spacepool.com">
+                                    <span class="link__text">info@spacepool.com</span>
+                                </a>
+                                <a class="link" href="tel:+4471478129419">
+                                    <span class="link__text">+44 714 781 294 19</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
