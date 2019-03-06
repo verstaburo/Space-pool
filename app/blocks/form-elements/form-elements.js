@@ -33,6 +33,13 @@ export function selects() {
           `),
         };
       },
+      callbackOnInit() {
+        const sel = this.passedElement.element;
+        const main = this.containerOuter.element;
+        if ($(sel).attr('readonly') !== undefined) {
+          $(main).addClass('is-readonly');
+        }
+      },
     });
     const defaultValue = self.value;
     self.choices = choices;
@@ -44,7 +51,7 @@ export function selects() {
   if ($('.js-select').length) {
     $('.js-select').each((i, el) => {
       const self = el;
-      const choices = new Choices('.js-select', {
+      const choices = new Choices(self, {
         searchEnabled: false,
         itemSelectText: '',
         classNames: {
@@ -61,9 +68,18 @@ export function selects() {
           `),
           };
         },
+        callbackOnInit() {
+          const select = this.passedElement.element;
+          const main = this.containerOuter.element;
+          if ($(select).attr('readonly') !== undefined) {
+            $(main).addClass('is-readonly');
+          }
+        },
       });
 
       self.choices = choices;
+      const defaultValue = el.value;
+      self.defaultSelectedValue = defaultValue;
     });
   }
 
@@ -85,6 +101,13 @@ export function selects() {
           `),
         };
       },
+      callbackOnInit() {
+        const select = this.passedElement.element;
+        const main = this.containerOuter.element;
+        if ($(select).attr('readonly') !== undefined) {
+          $(main).addClass('is-readonly');
+        }
+      },
     });
   }
 
@@ -105,6 +128,13 @@ export function selects() {
             <div class="${classNames.list} ${classNames.listDropdown} js-scrollbar-dark" aria-expanded="false"></div>
           `),
         };
+      },
+      callbackOnInit() {
+        const select = this.passedElement.element;
+        const main = this.containerOuter.element;
+        if ($(select).attr('readonly') !== undefined) {
+          $(main).addClass('is-readonly');
+        }
       },
     });
   }
@@ -129,9 +159,53 @@ export function selects() {
           `),
           };
         },
+        callbackOnInit() {
+          const select = this.passedElement.element;
+          const main = this.containerOuter.element;
+          if ($(select).attr('readonly') !== undefined) {
+            $(main).addClass('is-readonly');
+          }
+        },
       });
 
       self.choices = choices;
+      const defaultValue = el.value;
+      self.defaultSelectedValue = defaultValue;
+    });
+  }
+
+  if ($('.js-select-dark2').length) {
+    $('.js-select-dark2').each((i, el) => {
+      const self = el;
+      const choices = new Choices(self, {
+        searchEnabled: false,
+        itemSelectText: '',
+        classNames: {
+          containerOuter: 'choices choices_dark2',
+        },
+        callbackOnCreateTemplates(template) {
+          const classNames = this.config.classNames;
+          return {
+            containerInner: () => template(`
+            <div class="${classNames.containerInner}"><div class="choices__toggle"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16.31 9.16"><line x1="15.31" y1="1" x2="8.16" y2="8.16"/><path d="M8.16,9.16a1,1,0,0,1-.71-.3,1,1,0,0,1,0-1.41L14.61.29A1,1,0,0,1,16,.29a1,1,0,0,1,0,1.42L8.86,8.86A1,1,0,0,1,8.16,9.16Z"/><line x1="8.16" y1="8.16" x2="1" y2="1"/><path d="M8.16,9.16a1,1,0,0,1-.71-.3L.29,1.71A1,1,0,0,1,1.71.29L8.86,7.45a1,1,0,0,1,0,1.41A1,1,0,0,1,8.16,9.16Z"/></svg></div></div>
+          `),
+            dropdown: () => template(`
+            <div class="${classNames.list} ${classNames.listDropdown} js-scrollbar-light" aria-expanded="false"></div>
+          `),
+          };
+        },
+        callbackOnInit() {
+          const select = this.passedElement.element;
+          const main = this.containerOuter.element;
+          if ($(select).attr('readonly') !== undefined) {
+            $(main).addClass('is-readonly');
+          }
+        },
+      });
+
+      self.choices = choices;
+      const defaultValue = el.value;
+      self.defaultSelectedValue = defaultValue;
     });
   }
 
@@ -155,10 +229,17 @@ export function selects() {
           `),
           };
         },
+        callbackOnInit() {
+          const select = this.passedElement.element;
+          const main = this.containerOuter.element;
+          if ($(select).attr('readonly') !== undefined) {
+            $(main).addClass('is-readonly');
+          }
+        },
       });
 
-      const defaultValue = el.value;
       self.choices = choices;
+      const defaultValue = el.value;
       self.defaultSelectedValue = defaultValue;
     });
   }

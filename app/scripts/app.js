@@ -55,6 +55,7 @@ import blockHeightRounding from '../blocks/js-functions/blockHeightRounding';
 import '../blocks/avatar-uploader/avatar-uploader';
 import calendar from '../blocks/calendar/calendar';
 import uploader from '../blocks/uploader/uploader';
+import toggleMap from '../components/search-filter/search-filter';
 
 const $ = window.$;
 
@@ -109,4 +110,5 @@ $(() => {
   blockHeightRounding();
   calendar();
   uploader();
+  toggleMap();
 });

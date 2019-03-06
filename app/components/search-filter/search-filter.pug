@@ -1,0 +1,8 @@
+mixin search-filter()
+  +b.search-filter&attributes(attributes)
+    .container
+      +e.content
+        +filter-search._search.__filter
+        +e.buttons
+          +link-icon('round-cross', 'button')(type="reset"  data-target-form="location-filter-big")._icon_gray._no-shadow._bold._icon_mid-small.__button.js-simple-reset Clear filter
+          +link-icon('map')._icon_gray._no-shadow._bold._icon_pad27.__button.js-toggle-map(href="#" data-target-map="map") Hide Map

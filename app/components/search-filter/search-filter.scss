@@ -1,0 +1,45 @@
+.search-filter {
+  $b: &;
+
+  display: block;
+  width: 100%;
+  padding: 21px 0;
+  border-bottom: 1px solid $color-border-light;
+
+  &__content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    box-sizing: border-box;
+  }
+
+  &__filter {
+    &:not(:last-child) {
+      margin-right: 50px;
+    }
+  }
+
+  &__buttons {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+  }
+
+  &__button {
+    @include text-mid;
+
+    line-height: (26/17);
+    font-weight: 700;
+
+    @include screen('sm') {
+      @include text;
+
+      line-height: (26/14);
+    }
+
+    &:not(:first-child) {
+      margin-left: 72px;
+    }
+  }
+}

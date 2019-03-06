@@ -98,6 +98,14 @@ $(document).ready(function () {
     for (var i = 0; i < source.length; i++) {
       addMarker(source[i]);
     }
+
+    // перерисовываем карту
+    $(document).on('isOpenMap', '#mapTwo', function () {
+      console.log('rereender map');
+      setTimeout(function () {
+        mapTwo.invalidateSize();
+      }, 300);
+    });
   }
 
   // карта установки маркера нового спейса
