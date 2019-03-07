@@ -27,6 +27,20 @@
     &:not(:last-child) {
       margin-right: 10px;
     }
+
+    &_small {
+      @include text12;
+
+      line-height: (20/12);
+    }
+
+    &_light-gray {
+      color: $color-basic-light;
+    }
+
+    #{$b}.is-empty & {
+      color: $color-text-gray2;
+    }
   }
 
   &__count {
@@ -41,6 +55,21 @@
 
     @include screen('sm') {
       @include text15;
+    }
+  }
+
+  &__cost {
+    @include text12;
+
+    font-weight: 400;
+    line-height: (20/12);
+    text-transform: uppercase;
+    display: inline-block;
+    color: $color-basic-light;
+    margin-top: -2px;
+
+    .price {
+      text-transform: none;
     }
   }
 

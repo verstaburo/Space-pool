@@ -10,9 +10,14 @@ export default function toggleMap() {
     const mapContainer = $(map).find('.map');
     if ($(map).is('.is-closed')) {
       $(map).removeClass('is-closed');
-      $(mapContainer).trigger('isOpenMap');
+      setTimeout(() => {
+        $(mapContainer).trigger('isOpenMap');
+      }, 300);
     } else {
       $(map).addClass('is-closed');
+      setTimeout(() => {
+        $(mapContainer).trigger('isCloseMap');
+      }, 300);
     }
   });
 }

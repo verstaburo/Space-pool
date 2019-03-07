@@ -214,10 +214,19 @@ export default function slider() {
         centeredSlides: true,
         slidesPerGroup: 1,
         roundLengths: false,
+        observer: true,
+        observeParents: true,
         navigation: {
           nextEl: btnNext,
           prevEl: btnPrev,
         },
+      });
+
+      $(document).on('isCloseMap', '.map', () => {
+        newslider.update();
+      });
+      $(document).on('isOpenMap', '.map', () => {
+        newslider.update();
       });
     });
   }

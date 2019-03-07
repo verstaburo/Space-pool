@@ -1,9 +1,15 @@
-mixin offer-info(tag, price)
+mixin offer-info(tag, price, price2, price2Class)
   +b(tag || 'div').offer-info&attributes(attributes)
     +e.head
       block
     if price
       +e.price!= price
+    - if (price2 === 'noprice') {
+      +e.cost N/A
+    - } else if (price2) {
+      +e.cost
+        +price(price2)(class=price2Class)
+    -}
 
 mixin offer-info-radio(name, value, price, checked)
   +b.LABEL.offer-info-radio&attributes(attributes)

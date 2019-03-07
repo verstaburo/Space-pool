@@ -101,10 +101,7 @@ $(document).ready(function () {
 
     // перерисовываем карту
     $(document).on('isOpenMap', '#mapTwo', function () {
-      console.log('rereender map');
-      setTimeout(function () {
-        mapTwo.invalidateSize();
-      }, 300);
+      mapTwo.invalidateSize();
     });
   }
 
