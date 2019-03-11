@@ -7,10 +7,11 @@ html(lang='en')
   body
     block header
     - var addClass = headerClass || ''
+    - var pageCls = pageClass || ''
     +gradients
     +header()(class=addClass)
 
-    +b.MAIN.page
+    +b.MAIN(class='page' + pageCls)
       block content
 
     +popups

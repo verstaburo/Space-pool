@@ -98,11 +98,6 @@ $(document).ready(function () {
     for (var i = 0; i < source.length; i++) {
       addMarker(source[i]);
     }
-
-    // перерисовываем карту
-    $(document).on('isOpenMap', '#mapTwo', function () {
-      mapTwo.invalidateSize();
-    });
   }
 
   // карта установки маркера нового спейса
@@ -139,8 +134,76 @@ $(document).ready(function () {
     });
   }
 
+  // карта на странице результатов поиска
+  function searchMap() {
+    if (!$('#searchMap').length) {
+      return;
+    }
+
+    // базовые  настройки карты
+    var map = L.map('searchMap', {
+      scrollWheelZoom: false,
+    }).setView([59.934, 30.335], 13);
+
+
+    // настройка доступа к mapbox картам
+    L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
+      maxZoom: 18,
+      id: 'mapbox.streets',
+      accessToken: 'pk.eyJ1IjoidGhldmVydmVyeTEiLCJhIjoiY2lzZXdzaXZ4MDBjaTJudm93dDI4MGVrMCJ9.Z8KKk0M_lpDTPB6_JtJBxg',
+    }).addTo(map);
+
+    // настройка позиции кнопок зума
+    map.zoomControl.setPosition('bottomright');
+
+    // настройка иконки маркера
+    var myMarker = L.icon({
+      iconUrl: 'assets/images/map/marker-two.png',
+      iconSize: [34, 42],
+      iconAnchor: [10, 42],
+    });
+
+    // добавляем точку на карту по координатам
+    var addMarker = function (coordinates) {
+      L.marker(coordinates, {
+        icon: myMarker,
+      }).addTo(map);
+    }
+
+    var source = [
+      [59.934, 30.315],
+      [59.9345, 30.3156],
+      [59.924, 30.335],
+      [59.924, 30.305],
+      [59.924, 30.335],
+      [59.914, 30.335],
+      [59.934, 30.325],
+      [59.900, 30.315],
+      [59.934, 30.300],
+      [59.913, 30.330],
+      [59.927, 30.338],
+      [59.948, 30.34],
+      [59.988, 30.324],
+      [59.9, 30.34476],
+      [59.939, 30.76],
+      [59.941, 30.9],
+      [59.966, 30.8],
+      [59.977, 30.73735]
+    ];
+
+    for (var i = 0; i < source.length; i++) {
+      addMarker(source[i]);
+    }
+
+    // перерисовываем карту
+    $(document).on('isOpenMap', '#searchMap', function () {
+      map.invalidateSize(true);
+    });
+  }
+
   // инициализация карт
   maps();
   mapsTwo();
   markerMap();
+  searchMap();
 });

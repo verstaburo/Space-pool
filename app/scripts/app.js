@@ -56,6 +56,7 @@ import '../blocks/avatar-uploader/avatar-uploader';
 import calendar from '../blocks/calendar/calendar';
 import uploader from '../blocks/uploader/uploader';
 import toggleMap from '../components/search-filter/search-filter';
+import truncateBlocks from '../blocks/js-functions/lineClamp';
 
 const $ = window.$;
 
@@ -111,4 +112,5 @@ $(() => {
   calendar();
   uploader();
   toggleMap();
+  truncateBlocks();
 });

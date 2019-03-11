@@ -1,10 +1,21 @@
 .search-filter {
   $b: &;
 
+  position: fixed;
+  top: 115px;
+  left: 0;
   display: block;
   width: 100%;
   padding: 21px 0;
   border-bottom: 1px solid $color-border-light;
+  background-color: $color-bg;
+  z-index: 10;
+  transition: top $ease-main;
+
+  @include screen('sm') {
+    top: 74px;
+    left: 0;
+  }
 
   &__content {
     display: flex;
@@ -40,6 +51,14 @@
 
     &:not(:first-child) {
       margin-left: 72px;
+    }
+  }
+
+  .page.is-short & {
+    top: 70px;
+
+    @include screen('sm') {
+      top: 50px;
     }
   }
 }

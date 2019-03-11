@@ -4,7 +4,6 @@
   position: relative;
   display: flex;
   justify-content: flex-start;
-  flex-wrap: wrap;
   width: 100%;
   box-sizing: border-box;
   padding: 36px 0 35px;
@@ -48,6 +47,10 @@
     line-height: 0;
     overflow: hidden;
 
+    @include screen('lg') {
+      width: 30.5%;
+    }
+
     @include screen('md') {
       display: none;
       width: 100%;
@@ -62,12 +65,13 @@
     align-items: flex-start;
     align-content: space-between;
     flex-wrap: wrap;
-    width: 75.2%;
+    flex: 1;
     z-index: 2;
     box-sizing: border-box;
     padding-left: 25px;
 
     @include screen('md') {
+      flex: none;
       width: 100%;
       padding-left: 0;
     }
@@ -93,23 +97,6 @@
     @include screen('sm') {
       width: 100%;
       padding-left: 0;
-    }
-  }
-
-  &__media-wrapper {
-    display: none;
-
-    @include screen('md') {
-      display: block;
-      box-sizing: border-box;
-      width: 50%;
-      padding-right: 15px;
-    }
-
-    @include screen('sm') {
-      width: 100%;
-      padding-right: 0;
-      order: 3;
     }
   }
 
@@ -144,12 +131,19 @@
   &__text {
     @include text;
 
+    display: block;
+    display: -webkit-box;
     line-height: (17/14);
     width: 100%;
     margin-top: 12px;
     color: $color-text-gray;
     transition: color $ease-main;
     letter-spacing: normal;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    overflow: hidden;
+
 
     @include screen('md') {
       margin-top: 20px;
@@ -220,6 +214,10 @@
     justify-content: flex-start;
     align-items: flex-start;
     width: 100%;
+
+    @include screen('lg') {
+      flex-wrap: wrap;
+    }
 
     &:not(:first-child) {
       margin-top: 8px;

@@ -18,8 +18,10 @@ export function freeze() {
   if (h.css('position') !== 'fixed') {
     const top = h.scrollTop() ? h.scrollTop() : $('body').scrollTop();
 
-    if (window.innerWidth > h.width()) {
-      h.css('overflow-y', 'scroll');
+    if (window.innerHeight < h.height()) {
+      // h.css({
+      // 'overflow-y': 'scroll',
+      // });
     }
 
     h.css({
@@ -54,7 +56,7 @@ export function unfreeze() {
       width: '',
       height: '',
       top: '',
-      'overflow-y': '',
+      // 'overflow-y': '',
     });
   }
 }
