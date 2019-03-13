@@ -143,6 +143,7 @@ $(document).ready(function () {
     // базовые  настройки карты
     var map = L.map('searchMap', {
       scrollWheelZoom: false,
+      zoomControl: false,
     }).setView([59.934, 30.335], 13);
 
 
@@ -152,9 +153,6 @@ $(document).ready(function () {
       id: 'mapbox.streets',
       accessToken: 'pk.eyJ1IjoidGhldmVydmVyeTEiLCJhIjoiY2lzZXdzaXZ4MDBjaTJudm93dDI4MGVrMCJ9.Z8KKk0M_lpDTPB6_JtJBxg',
     }).addTo(map);
-
-    // настройка позиции кнопок зума
-    map.zoomControl.setPosition('bottomright');
 
     // настройка иконки маркера
     var myMarker = L.icon({

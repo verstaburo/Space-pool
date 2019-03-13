@@ -1,0 +1,74 @@
+mixin advanced-filter()
+  +b.advanced-filter&attributes(attributes)
+    - var checkboxes = getData('check-facilities-bus.json')
+    - var checkboxes2 = getData('check-facilities-add.json')
+    +e.head
+      +link-icon('round-cross', 'button')(type="reset"  data-target-form="location-filter-big")._icon_gray._no-shadow._bold._icon_mid-small.__clear.js-simple-reset Clear filter
+      +e.BUTTON.close.js-close-advanced-filter(type="button")
+        +icon('cross').close-icon
+    +e.scrollblock.js-scrollbar
+      +b.SECTION.form_white.__form
+        +form-section._underline._mg50._pb
+          +form-section-header._mg40
+            +form-section-title._small._mg0 Number of seats
+            +form-section-text._mg-2 Total number of people to be accommodated in the room
+          +form-section-content
+            +e.UL.list_line
+              +e.LI.item
+                +radio('seats', '1', true)._nobox2
+                  +e.text 1 - 5
+              +e.LI.item
+                +radio('seats', '2')._nobox2
+                  +e.text 5 - 10
+              +e.LI.item
+                +radio('seats', '3')._nobox2
+                  +e.text 10 - 20
+              +e.LI.item
+                +radio('seats', '4')._nobox2
+                  +e.text 20 - 40
+              +e.LI.item
+                +radio('seats', '5')._nobox2
+                  +e.text 40 - 60
+              +e.LI.item
+                +radio('seats', '6')._nobox2
+                  +e.text More than 60
+        +form-section._underline._mg50._pb46
+          +form-section-header._mg47
+            +form-section-title._small._mg0 Price gap
+            +form-section-text._mg-2 Adjust minimum and maximum price
+          +form-section-content
+            +e.warapper
+              +range(true)(data-start="[180, 65000]" data-connect="[false,true,false]" data-min="0" data-max="65000" data-step="10" data-margin="1000")
+                +e.INPUT(type="hidden" name="minGap" data-range-input-min)
+                +e.INPUT(type="hidden" name="maxGap" data-range-input-max)
+        +form-section._underline._mg52._pb
+          +form-section-header._mg35
+            +form-section-title._small._mg0 Available from
+            +form-section-text._mg-2 Set date when you want to rental period start
+          +form-section-content
+            +e.wrapper_w368
+              +form-box('', 'calendar2')._fz17._bold._sh
+                +input.input_fz17.input_bold(name="startDate" placeholder="Choose date" value="March 5, 2018" readonly).js-datepicker2
+        +form-section._underline._mg50._pb72
+          +form-section-header._mg46
+            +form-section-title._small._mg0 Business Facilities
+            +form-section-text._mg-2 Set date when you want to rental period start
+          +form-section-content
+            +e.UL.list_columns
+              each item in checkboxes
+                +e.LI.item
+                  +checkbox(item.name, item.value)!=item.title
+        +form-section._mg50._pb72
+          +form-section-header._mg49
+            +form-section-title._small._mg0 Additional Facilities
+            +form-section-text._mg-2 Set date when you want to rental period start
+          +form-section-content
+            +e.UL.list_columns
+              each item in checkboxes2
+                +e.LI.item
+                  +checkbox(item.name, item.value)!=item.title
+        +form-panel._pd0._links.__panel._mgt-10
+          +e.links
+            +link-icon('select-arrow', 'button')(type="button" data-target-form="location-filter-big")._back._bold._no-shadow.__link.js-close-advanced-filter.js-simple-reset Cancel
+          +button('button')(type="submit").__button_w360 Show results: 320
+          block

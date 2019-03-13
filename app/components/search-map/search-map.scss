@@ -1,0 +1,49 @@
+.search-map {
+  $b: &;
+
+  position: relative;
+  display: block;
+  box-sizing: border-box;
+  width: 41.67%;
+  transition: width $ease-main,
+    padding $ease-main, top $ease-main;
+  overflow: hidden;
+
+  @include screen('lg') {
+    width: 36.8%;
+  }
+
+  @include screen('md') {
+    position: fixed;
+    width: 100%;
+    top: 185px;
+    left: 0;
+    z-index: 9;
+    opacity: 1;
+    pointer-events: auto;
+
+    @include screen('sm') {
+      top: 144px;
+    }
+
+    .page.is-short & {
+      top: 140px;
+
+      @include screen('sm') {
+        top: 120px;
+      }
+    }
+  }
+
+  &.is-closed {
+    width: 0;
+    padding-left: 0;
+    padding-right: 0;
+
+    @include screen('md') {
+      width: 100%;
+      opacity: 0;
+      pointer-events: none;
+    }
+  }
+}

@@ -24,6 +24,18 @@
       @include text16;
     }
 
+    #{$b}_fz17 & {
+      @include text-mid;
+
+      @include screen('sm') {
+        @include text16;
+      }
+    }
+
+    #{$b}_bold & {
+      font-weight: 700;
+    }
+
     input:hover~&,
     input:focus~&,
     textarea:hover~&,
@@ -255,6 +267,17 @@
 
     &.is-top::before {
       opacity: 1;
+    }
+  }
+
+  &_sh {
+
+    .input {
+      padding-bottom: 4px;
+    }
+
+    #{$b}__icon {
+      bottom: 12px;
     }
   }
 

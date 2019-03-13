@@ -442,6 +442,16 @@ block content
             +form-box('Плейсхолдер')
               +input(placeholder="Плейсхолдер")
           +col(6)
+            +ui-description .input._fz17
+            br
+            +form-box('Плейсхолдер')._fz17
+              +input.input_fz17(placeholder="Плейсхолдер")
+          +col(6)
+            +ui-description .input._bold
+            br
+            +form-box('Плейсхолдер')._bold
+              +input.input_bold(placeholder="Плейсхолдер")
+          +col(6)
             +ui-description .select.js-select
             br
             +form-box('Плейсхолдер')
@@ -455,6 +465,11 @@ block content
             br
             +form-box('Выберите дату', 'calendar2')
               +input(placeholder="Выберите дату" readonly).js-datepicker
+          +col(6)
+            +ui-description .js-datepicker2<br> Параметры задаются через дата-атрибуты
+            br
+            +form-box('Выберите дату', 'calendar3')
+              +input(placeholder="Выберите дату" readonly).js-datepicker2
           +col(6)
             +ui-description Поле ввода номера телефона.<br> Маска привязана через атрибут data-tel-code и data-tel-number
             br
@@ -506,6 +521,11 @@ block content
               +ui-elements-list
                 +radio('ui-radio2', 'test', true)._nobox Радиокнопка
                 +radio('ui-radio2', 'test-2')._nobox Радиокнопка
+            +ui-description .checkradio._nobox2
+            +inputbox()
+              +ui-elements-list
+                +radio('ui-radio3', 'test', true)._nobox2 1-2
+                +radio('ui-radio3', 'test-2')._nobox2 3-10
             +ui-description .checkradio:disabled или .checkradio.is-disabled
             +inputbox()
               +ui-elements-list
@@ -521,6 +541,8 @@ block content
             +ui-description .range.js-range<br> Все параметры задаются дата-атрибутами
             +inputbox()
               +range()(data-start='40', data-connect='[true, false]', data-min='0', data-max='100')
+            +inputbox()
+              +range(true)(data-start="[40, 1000]" data-connect="[false, true, false]" data-min="0" data-max="1000" data-step="10" data-margin="30")
           +col(12)
             +ui-description Селектбоксы
             +grid

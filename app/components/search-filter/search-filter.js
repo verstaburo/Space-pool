@@ -1,29 +1,45 @@
+import {
+  freeze,
+  unfreeze,
+} from '../../blocks/js-functions/freeze';
+
 const $ = window.$;
 
-export default function toggleMap() {
-  // switch map state on page
-  $(document).on('click', '.js-toggle-map', (evt) => {
-    evt.preventDefault();
+export default function toggleFilter() {
+  // show advanced filter is-fitler-active
+  const showFilter = {
+    open(target) {
+      freeze();
+      const targetBlock = $(`[data-filter="${target}"]`);
+      const container = $(targetBlock).closest('[data-filter-container]');
+      $(container).addClass('is-filter-active');
+      $(targetBlock).addClass('is-active');
+    },
+    close() {
+      unfreeze();
+      const container = $('[data-filter-container]');
+      const targetBlocks = $('[data-filter]');
+      $(container).removeClass('is-filter-active');
+      $(targetBlocks).removeClass('is-active');
+    },
+    isActive(target) {
+      const targetBlock = $(`[data-filter="${target}"]`);
+      const container = $(targetBlock).closest('[data-filter-container]');
+      return $(container).is('.is-filter-active');
+    },
+  };
+
+  $(document).on('click', '.js-show-advanced-filter', (evt) => {
     const self = evt.currentTarget;
-    const targetMap = $(self).attr('data-target-map');
-    const openedName = $(self).attr('data-opened-title');
-    const closedName = $(self).attr('data-closed-title');
-    const titleBlock = $(self).find('.link__text');
-    const map = $(`[data-map=${targetMap}]`);
-    const mapContainer = $(map).find('.map');
-    if ($(map).is('.is-closed')) {
-      $(map).removeClass('is-closed');
-      $(titleBlock).text(openedName);
-      setTimeout(() => {
-        $('.js-sticky-block').trigger('sticky_kit:recalc');
-        $(mapContainer).trigger('isOpenMap');
-      }, 300);
+    const targetBlock = $(self).attr('data-target-filter');
+    if (showFilter.isActive(targetBlock)) {
+      showFilter.close();
     } else {
-      $(map).addClass('is-closed');
-      $(titleBlock).text(closedName);
-      setTimeout(() => {
-        $(mapContainer).trigger('isCloseMap');
-      }, 300);
+      showFilter.open(targetBlock);
     }
+  });
+
+  $(document).on('click', '[data-filter-overlay], .js-close-advanced-filter', () => {
+    showFilter.close();
   });
 }

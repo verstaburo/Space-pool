@@ -1,0 +1,54 @@
+.toggle {
+  $b: &;
+
+  @include text-mid;
+
+  position: relative;
+  display: inline-flex;
+  justify-content: flex-start;
+  align-items: center;
+  box-sizing: border-box;
+  color: $color-basic;
+  transition: color $ease-main;
+  font-weight: 700;
+  padding-right: 26px;
+  cursor: pointer;
+
+  @include screen('sm') {
+    @include text;
+
+    line-height: (26/14);
+  }
+
+  &:hover {
+    color: $color-basic-dark;
+  }
+
+  &__text {
+    position: relative;
+    z-index: 2;
+  }
+
+  &__icon {
+    position: absolute;
+    display: block;
+    font-size: 0;
+    line-height: 0;
+    top: 50%;
+    right: 0;
+    z-index: 2;
+    transform-origin: 50% 50% 0;
+    transform: translate3d(0, -50%, 0);
+    width: 12px;
+    height: 7px;
+    fill: currentColor;
+    transition:
+      fill $ease-main,
+      transform $ease-main;
+
+    #{$b}.is-active &,
+    .is-filter-active & {
+      transform: translate3d(0, -50%, 0) rotate(180deg);
+    }
+  }
+}

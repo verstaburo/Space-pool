@@ -1,0 +1,94 @@
+// #####
+// Range-слайдер
+// #####
+
+.range {
+  display: inline-block;
+  width: 100%;
+
+  &__slider {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0 14px;
+
+    &::before {
+      @include pseudo;
+
+      width: 100%;
+      height: 2px;
+      background-color: $color-range-track;
+      top: 50%;
+      left: 0;
+      transform: translate3d(0, -50%, 0);
+      z-index: 1;
+    }
+  }
+
+  &__output {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__value {
+    @include text-mid;
+
+    font-weight: 700;
+
+    @include screen('sm') {
+      @include text;
+
+      line-height: (26/14);
+    }
+
+    &:not(:last-child) {
+      margin-right: 20px;
+    }
+  }
+}
+
+.range .noUi {
+  // z-index: 2;
+
+  &-base {
+    height: 2px;
+    background-color: $color-range-track;
+    position: relative;
+    border-radius: 2px;
+    margin: 15px 0; // margin нужен, чтобы handler не налезал на другие элементы
+  }
+
+  &-connect {
+    height: 3px;
+    position: absolute;
+    background-color: $color-main;
+    background-image: linear-gradient(to right, rgba(11, 208, 167, 0.99) 0%, rgba(0, 129, 153, 0.99) 100%);
+    z-index: 2;
+  }
+
+  &-handle {
+    position: absolute;
+    width: 32px;
+    height: 32px;
+    top: 50%;
+    border: 2px solid $color-white;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    background-color: $color-basic;
+    box-sizing: border-box;
+    transition: background $ease-main;
+    cursor: pointer;
+
+    &:hover {
+      background-color: $color-range-handler-active;
+    }
+  }
+
+  &-origin {
+    position: absolute;
+    top: 0;
+    height: 100%;
+  }
+}

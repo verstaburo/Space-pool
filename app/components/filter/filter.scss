@@ -47,6 +47,35 @@
     margin-left: 50px;
   }
 
+  &__toggle {
+    position: relative;
+    z-index: 17;
+
+    &::before {
+      @include pseudo;
+
+      width: calc(100% + 28px);
+      height: 70px;
+      top: -12px;
+      left: -14px;
+      z-index: 1;
+      background-color: $color-white;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity $ease-main;
+      border-radius: 3px;
+    }
+
+    .is-filter-active & {
+      pointer-events: auto;
+
+      &::before {
+        opacity: 1;
+        pointer-events: auto;
+      }
+    }
+  }
+
   &_search {
 
     #{$b} {
@@ -55,7 +84,7 @@
 
         &:not(:last-child),
         &:first-child {
-          margin-right: 54px;
+          margin-right: 59px;
         }
       }
     }

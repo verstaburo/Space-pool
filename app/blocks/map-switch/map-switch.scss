@@ -1,0 +1,47 @@
+.map-switch {
+  $b: &;
+
+  position: fixed;
+  display: block;
+  bottom: 32px;
+  right: 36px;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  box-shadow: 0 7px 18px rgba(34, 42, 46, .47);
+  background-color: $color-white;
+  opacity: 0;
+  pointer-events: none;
+  z-index: 10;
+  cursor: pointer;
+  transition: background $ease-main;
+
+  @include screen('md') {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  @include screen('sm') {
+    right: 20px;
+    bottom: 20px;
+  }
+
+  &.is-active {
+    background-image: linear-gradient(to left, rgba(15, 177, 204, 0.79) 0%, rgba(48, 227, 201, 0.79) 100%);
+  }
+
+  &__icon {
+    position: absolute;
+    width: 18px;
+    height: 32px;
+    top: 50%;
+    left: 50%;
+    transform: translate3d(-50%, -50%, 0);
+    fill: url('#main-gradient');
+    transition: fill $ease-main;
+
+    #{$b}.is-active & {
+      fill: $color-white;
+    }
+  }
+}

@@ -42,10 +42,16 @@ block content
                   +col({xl: 6, sm: 12})
                     +space-reserv('a', item)(href="#")
                     ._show-heart.__space
+                      +e.offer
+                        +offer-info._small._small_light
+                          +box._size9._orange
+                          +e.title HOT DESK
+                          +e.price from 450 &pound;/mo
           +pagination._mgt32._md-centered
-        +e.column_map(data-map="map").hide-md
-          +sidebar._no-bg
+        +search-map.__column_map(data-map="map")
+          +sidebar._no-bg(data-unstick-media="md")
             +map._side#searchMap
+        +map-switch.js-show-map(data-target-map="map")
 
 block panels
   +main-menu

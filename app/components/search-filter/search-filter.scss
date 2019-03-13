@@ -6,7 +6,6 @@
   left: 0;
   display: block;
   width: 100%;
-  padding: 21px 0;
   border-bottom: 1px solid $color-border-light;
   background-color: $color-bg;
   z-index: 10;
@@ -17,17 +16,55 @@
     left: 0;
   }
 
+  &__overlay {
+    position: fixed;
+    display: block;
+    z-index: 15;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity $ease-main;
+
+    #{$b}.is-filter-active & {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    &::before {
+      @include pseudo;
+
+      top: 50%;
+      left: 50%;
+      width: 100%;
+      height: calc(100% + 140px);
+      transform: translate3d(-50%, -50%, 0);
+      background-color: rgba($color-overlay, .1);
+    }
+  }
+
   &__content {
+    position: relative;
     display: flex;
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
     box-sizing: border-box;
+    padding: 21px 0;
   }
 
   &__filter {
+    position: relative;
+    z-index: 15;
+
     &:not(:last-child) {
       margin-right: 50px;
+    }
+
+    #{$b}.is-filter-active & {
+      pointer-events: none;
     }
   }
 
@@ -51,6 +88,31 @@
 
     &:not(:first-child) {
       margin-left: 72px;
+    }
+  }
+
+  &__popup {
+    position: absolute;
+    display: block;
+    top: 100%;
+    left: -30px;
+    background-color: $color-white;
+    width: 60.5%;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity $ease-main;
+    z-index: 15;
+    border-radius: 3px;
+    box-shadow: 1px 1px 8px rgba(34, 42, 46, 0.06);
+
+    @include screen('lg') {
+      left: -20px;
+      width: 70%;
+    }
+
+    &.is-active {
+      opacity: 1;
+      pointer-events: auto;
     }
   }
 

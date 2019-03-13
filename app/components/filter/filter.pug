@@ -39,27 +39,27 @@ mixin filter()
 mixin filter-search()
   +b.SECTION.filter&attributes(attributes)
     +e.content
-      +e.FORM.form(data-form="location-filter-big")
-        +e.wrapper
-          +select.js-select-dark2(name="city" readonly)
-            option(value="placeholder" placeholder) City
-            option(value="London" selected) London
-            option(value="Paris") Paris
-            option(value="Moscow") Moscow
-        +e.wrapper
-          +select.js-select-dark2(name="area")
-            option(value="placeholder" placeholder) Area
-            option(value="Central London") Central London
-            option(value="Stratford Area") Stratford Area
-            option(value="Canary Warf") Canary Warf
-            option(value="Ilford") Ilford
-            option(value="Brixton") Brixton
-            option(value="Richmond") Richmond
-        +e.wrapper
-          +select.js-select-dark2(name="workplace-type")
-            option(value="placeholder" placeholder) Workplace type
-            option(value="htdsk") Hot Desk
-            option(value="dddsk") Dedicated Desk
-            option(value="room") Meeting Room
-            option(value="space") Office Space
-        +e.wrapper
+      +e.wrapper
+        +select.js-select-dark2(name="city" readonly)
+          option(value="placeholder" placeholder) City
+          option(value="London" selected) London
+          option(value="Paris") Paris
+          option(value="Moscow") Moscow
+      +e.wrapper.hide-md
+        +select.js-select-dark2(name="area")
+          option(value="placeholder" placeholder) Area
+          option(value="Central London") Central London
+          option(value="Stratford Area") Stratford Area
+          option(value="Canary Warf") Canary Warf
+          option(value="Ilford") Ilford
+          option(value="Brixton") Brixton
+          option(value="Richmond") Richmond
+      +e.wrapper.hide-md
+        +select.js-select-dark2(name="workplace-type")
+          option(value="placeholder" placeholder) Workplace type
+          option(value="htdsk") Hot Desk
+          option(value="dddsk") Dedicated Desk
+          option(value="room") Meeting Room
+          option(value="space") Office Space
+      +e.wrapper
+        +toggle().__toggle.js-show-advanced-filter(data-target-filter="advancedSearch") Other parameters

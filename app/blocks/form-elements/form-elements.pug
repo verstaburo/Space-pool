@@ -69,6 +69,11 @@ mixin color-radio(name, value, checked)
     +e.SPAN.content
       block
 
-mixin range()
+mixin range(output)
   +b.range&attributes(attributes).js-range
+    +e.slider(data-range-container)
+    if output
+      +e.output(data-range-output)
+        +e.value_min Min. <span data-range-min></span> &pound;/mo
+        +e.value_max Max. <span data-range-max></span> &pound;/mo
     block

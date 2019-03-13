@@ -295,13 +295,32 @@ export function sliders() {
   $('.js-range').each(function () {
     const el = $(this);
 
-    noUiSlider.create(el.get(0), {
+    const margin = el.data('margin') || 0;
+    const step = el.data('step') || 1;
+    noUiSlider.create(el.find('[data-range-container]').get(0), {
       start: el.data('start'),
       connect: el.data('connect'),
+      margin,
+      step,
       range: {
         min: el.data('min'),
         max: el.data('max'),
       },
+    });
+
+    const range = el.find('[data-range-container]').get(0);
+    const output = el.find('[data-range-output]');
+
+    if (output.length > 0) {
+      const nodes = [$('[data-range-min]'), $('[data-range-max]')];
+      range.noUiSlider.on('update', (values, handle) => {
+        nodes[handle].text(parseInt(values[handle], 10));
+      });
+    }
+
+    const inputs = [$('[data-range-input-min]'), $('[data-range-input-max]')];
+    range.noUiSlider.on('update', (values, handle) => {
+      inputs[handle].val(parseInt(values[handle], 10));
     });
   });
 }
@@ -326,6 +345,15 @@ export function datepicker() {
     el.datepicker({
       language: 'en',
       dateFormat: 'dd MM yyyy',
+    });
+  });
+
+  $('.js-datepicker2').each(function () {
+    const el = $(this);
+
+    el.datepicker({
+      language: 'en',
+      dateFormat: 'MM d, yyyy',
     });
   });
 
@@ -418,40 +446,5 @@ export function textareaAutosize() {
 
 // маска паролей
 export function passwordMask() {
-  // function presetMask() {
-  //   const passwordFields = $('.js-password-field input');
-  //   $(passwordFields).each((i, el) => {
-  //     const parent = $(el).closest('.js-password-field');
-  //     const value = el.value.length;
-  //     const mask = $(parent).find('[data-password-mask]');
-  //     let result = '';
-  //     for (let j = 0; j < value; j += 1) {
-  //       result += '<span></span>';
-  //     }
-  //     $(mask).empty();
-  //     $(mask).append(result);
-  //   });
-  // }
 
-  // window.setPasswordMask = presetMask;
-
-  // presetMask();
-
-  // $(document).on('input change', '.js-password-field input', (evt) => {
-  //   const self = evt.target;
-  //   const parent = $(self).closest('.js-password-field');
-  //   const value = self.value.length;
-  //   const mask = $(parent).find('[data-password-mask]');
-  //   const spans = $(mask).find('span');
-  //   if (value !== $(spans).length && value !== 0) {
-  //     let result = '';
-  //     for (let i = 0; i < value; i += 1) {
-  //       result += '<span></span>';
-  //     }
-  //     $(mask).empty();
-  //     $(mask).append(result);
-  //   } else if (value === 0) {
-  //     $(mask).empty();
-  //   }
-  // });
 }
