@@ -149,42 +149,472 @@
         </div>
     </header>
     <main class="page page_subnav" role="main">
-        <div class="search-filter">
+        <form class="search-filter" data-form="location-filter-big" data-filter-container="data-filter-container">
             <div class="container">
                 <div class="search-filter__content">
+                    <div class="search-filter__overlay" data-filter-overlay="data-filter-overlay"></div>
+                    <div class="search-filter__popup" data-filter="advancedSearch">
+                        <div class="advanced-filter">
+                            <div class="advanced-filter__head">
+                                <button class="link link_icon link_icon_gray link_no-shadow link_bold link_icon_mid-small advanced-filter__clear js-simple-reset" type="reset" data-target-form="location-filter-big">
+                                    <svg class="link__icon link__icon_round-cross"><use xlink:href="assets/images/icon.svg#icon_round-cross"></use></svg>
+                                    <span class="link__text">Clear filter</span>
+                                </button>
+                                <button class="advanced-filter__close js-close-advanced-filter" type="button">
+                                    <svg class="advanced-filter__close-icon"><use xlink:href="assets/images/icon.svg#icon_cross"></use></svg>
+                                </button>
+                            </div>
+                            <div class="advanced-filter__scrollblock js-scrollbar">
+                                <section class="form form_white advanced-filter__form">
+                                    <fieldset class="form__section form__section_underline form__section_mg50 form__section_pb">
+                                        <div class="form__header form__header_mg40">
+                                            <h3 class="form__title form__title_small form__title_mg0">Number of seats</h3>
+                                            <div class="form__text form__text_mg-2">Total number of people to be accommodated in the room</div>
+                                        </div>
+                                        <div class="form__content">
+                                            <ul class="form__list form__list_line">
+                                                <li class="form__item">
+                                                    <label class="checkradio checkradio_nobox2">
+                                                        <input class="checkradio__input" name="seats" value="1" checked="checked" type="radio" />
+                                                        <span class="checkradio__box"></span>
+                                                        <span class="checkradio__content">
+                                                            <span class="checkradio__text">1 - 5</span>
+                                                        </span>
+                                                    </label>
+                                                </li>
+                                                <li class="form__item">
+                                                    <label class="checkradio checkradio_nobox2">
+                                                        <input class="checkradio__input" name="seats" value="2" type="radio" />
+                                                        <span class="checkradio__box"></span>
+                                                        <span class="checkradio__content">
+                                                            <span class="checkradio__text">5 - 10</span>
+                                                        </span>
+                                                    </label>
+                                                </li>
+                                                <li class="form__item">
+                                                    <label class="checkradio checkradio_nobox2">
+                                                        <input class="checkradio__input" name="seats" value="3" type="radio" />
+                                                        <span class="checkradio__box"></span>
+                                                        <span class="checkradio__content">
+                                                            <span class="checkradio__text">10 - 20</span>
+                                                        </span>
+                                                    </label>
+                                                </li>
+                                                <li class="form__item">
+                                                    <label class="checkradio checkradio_nobox2">
+                                                        <input class="checkradio__input" name="seats" value="4" type="radio" />
+                                                        <span class="checkradio__box"></span>
+                                                        <span class="checkradio__content">
+                                                            <span class="checkradio__text">20 - 40</span>
+                                                        </span>
+                                                    </label>
+                                                </li>
+                                                <li class="form__item">
+                                                    <label class="checkradio checkradio_nobox2">
+                                                        <input class="checkradio__input" name="seats" value="5" type="radio" />
+                                                        <span class="checkradio__box"></span>
+                                                        <span class="checkradio__content">
+                                                            <span class="checkradio__text">40 - 60</span>
+                                                        </span>
+                                                    </label>
+                                                </li>
+                                                <li class="form__item">
+                                                    <label class="checkradio checkradio_nobox2">
+                                                        <input class="checkradio__input" name="seats" value="6" type="radio" />
+                                                        <span class="checkradio__box"></span>
+                                                        <span class="checkradio__content">
+                                                            <span class="checkradio__text">More than 60</span>
+                                                        </span>
+                                                    </label>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </fieldset>
+                                    <fieldset class="form__section form__section_underline form__section_mg50 form__section_pb46">
+                                        <div class="form__header form__header_mg47">
+                                            <h3 class="form__title form__title_small form__title_mg0">Price gap</h3>
+                                            <div class="form__text form__text_mg-2">Adjust minimum and maximum price</div>
+                                        </div>
+                                        <div class="form__content">
+                                            <div class="form__warapper">
+                                                <div class="range js-range" data-start="[180, 65000]" data-connect="[false,true,false]" data-min="0" data-max="65000" data-step="10" data-margin="1000">
+                                                    <div class="range__slider" data-range-container="data-range-container"></div>
+                                                    <div class="range__output" data-range-output="data-range-output">
+                                                        <div class="range__value range__value_min">Min.
+                                                            <span data-range-min></span> &pound;/mo</div>
+                                                        <div class="range__value range__value_max">Max.
+                                                            <span data-range-max></span> &pound;/mo</div>
+                                                    </div>
+                                                    <input type="hidden" name="minGap" data-range-input-min="data-range-input-min" />
+                                                    <input type="hidden" name="maxGap" data-range-input-max="data-range-input-max" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </fieldset>
+                                    <fieldset class="form__section form__section_underline form__section_mg52 form__section_pb">
+                                        <div class="form__header form__header_mg35">
+                                            <h3 class="form__title form__title_small form__title_mg0">Available from</h3>
+                                            <div class="form__text form__text_mg-2">Set date when you want to rental period start</div>
+                                        </div>
+                                        <div class="form__content">
+                                            <div class="form__wrapper form__wrapper_w368">
+                                                <label class="form-box form-box_fz17 form-box_bold form-box_sh">
+                                                    <input class="input input_fz17 input_bold js-datepicker2" name="startDate" placeholder="Choose date" value="March 5, 2018" readonly="readonly" />
+                                                    <svg class="form-box__icon"><use xlink:href="assets/images/icon.svg#icon_calendar2"></use></svg>
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </fieldset>
+                                    <fieldset class="form__section form__section_underline form__section_mg50 form__section_pb72">
+                                        <div class="form__header form__header_mg46">
+                                            <h3 class="form__title form__title_small form__title_mg0">Business Facilities</h3>
+                                            <div class="form__text form__text_mg-2">Set date when you want to rental period start</div>
+                                        </div>
+                                        <div class="form__content">
+                                            <ul class="form__list form__list_columns">
+                                                <li class="form__item">
+                                                    <label class="checkbox">
+                                                        <input class="checkbox__input" name="busFacilities" value="1" type="checkbox" />
+                                                        <span class="checkbox__box">
+                                                            <svg class="checkbox__icon"><use xlink:href="assets/images/icon.svg#icon_check"></use></svg>
+                                                        </span>
+                                                        <span class="checkbox__content">Breakout Space</span>
+                                                    </label>
+                                                </li>
+                                                <li class="form__item">
+                                                    <label class="checkbox">
+                                                        <input class="checkbox__input" name="busFacilities" value="6" type="checkbox" />
+                                                        <span class="checkbox__box">
+                                                            <svg class="checkbox__icon"><use xlink:href="assets/images/icon.svg#icon_check"></use></svg>
+                                                        </span>
+                                                        <span class="checkbox__content">Furniture</span>
+                                                    </label>
+                                                </li>
+                                                <li class="form__item">
+                                                    <label class="checkbox">
+                                                        <input class="checkbox__input" name="busFacilities" value="11" type="checkbox" />
+                                                        <span class="checkbox__box">
+                                                            <svg class="checkbox__icon"><use xlink:href="assets/images/icon.svg#icon_check"></use></svg>
+                                                        </span>
+                                                        <span class="checkbox__content">Trading Address</span>
+                                                    </label>
+                                                </li>
+                                                <li class="form__item">
+                                                    <label class="checkbox">
+                                                        <input class="checkbox__input" name="busFacilities" value="2" type="checkbox" />
+                                                        <span class="checkbox__box">
+                                                            <svg class="checkbox__icon"><use xlink:href="assets/images/icon.svg#icon_check"></use></svg>
+                                                        </span>
+                                                        <span class="checkbox__content">Cleaning</span>
+                                                    </label>
+                                                </li>
+                                                <li class="form__item">
+                                                    <label class="checkbox">
+                                                        <input class="checkbox__input" name="busFacilities" value="7" type="checkbox" />
+                                                        <span class="checkbox__box">
+                                                            <svg class="checkbox__icon"><use xlink:href="assets/images/icon.svg#icon_check"></use></svg>
+                                                        </span>
+                                                        <span class="checkbox__content">Meeting Rooms</span>
+                                                    </label>
+                                                </li>
+                                                <li class="form__item">
+                                                    <label class="checkbox">
+                                                        <input class="checkbox__input" name="busFacilities" value="12" type="checkbox" />
+                                                        <span class="checkbox__box">
+                                                            <svg class="checkbox__icon"><use xlink:href="assets/images/icon.svg#icon_check"></use></svg>
+                                                        </span>
+                                                        <span class="checkbox__content">WiFi</span>
+                                                    </label>
+                                                </li>
+                                                <li class="form__item">
+                                                    <label class="checkbox">
+                                                        <input class="checkbox__input" name="busFacilities" value="3" type="checkbox" />
+                                                        <span class="checkbox__box">
+                                                            <svg class="checkbox__icon"><use xlink:href="assets/images/icon.svg#icon_check"></use></svg>
+                                                        </span>
+                                                        <span class="checkbox__content">Disabled Access</span>
+                                                    </label>
+                                                </li>
+                                                <li class="form__item">
+                                                    <label class="checkbox">
+                                                        <input class="checkbox__input" name="busFacilities" value="8" type="checkbox" />
+                                                        <span class="checkbox__box">
+                                                            <svg class="checkbox__icon"><use xlink:href="assets/images/icon.svg#icon_check"></use></svg>
+                                                        </span>
+                                                        <span class="checkbox__content">Phone Booths</span>
+                                                    </label>
+                                                </li>
+                                                <li class="form__item">
+                                                    <label class="checkbox">
+                                                        <input class="checkbox__input" name="busFacilities" value="13" type="checkbox" />
+                                                        <span class="checkbox__box">
+                                                            <svg class="checkbox__icon"><use xlink:href="assets/images/icon.svg#icon_check"></use></svg>
+                                                        </span>
+                                                        <span class="checkbox__content">Secure Access</span>
+                                                    </label>
+                                                </li>
+                                                <li class="form__item">
+                                                    <label class="checkbox">
+                                                        <input class="checkbox__input" name="busFacilities" value="4" type="checkbox" />
+                                                        <span class="checkbox__box">
+                                                            <svg class="checkbox__icon"><use xlink:href="assets/images/icon.svg#icon_check"></use></svg>
+                                                        </span>
+                                                        <span class="checkbox__content">Inventory Storage</span>
+                                                    </label>
+                                                </li>
+                                                <li class="form__item">
+                                                    <label class="checkbox">
+                                                        <input class="checkbox__input" name="busFacilities" value="9" type="checkbox" />
+                                                        <span class="checkbox__box">
+                                                            <svg class="checkbox__icon"><use xlink:href="assets/images/icon.svg#icon_check"></use></svg>
+                                                        </span>
+                                                        <span class="checkbox__content">Printing</span>
+                                                    </label>
+                                                </li>
+                                                <li class="form__item">
+                                                    <label class="checkbox">
+                                                        <input class="checkbox__input" name="busFacilities" value="14" type="checkbox" />
+                                                        <span class="checkbox__box">
+                                                            <svg class="checkbox__icon"><use xlink:href="assets/images/icon.svg#icon_check"></use></svg>
+                                                        </span>
+                                                        <span class="checkbox__content">24 Hour Access</span>
+                                                    </label>
+                                                </li>
+                                                <li class="form__item">
+                                                    <label class="checkbox">
+                                                        <input class="checkbox__input" name="busFacilities" value="5" type="checkbox" />
+                                                        <span class="checkbox__box">
+                                                            <svg class="checkbox__icon"><use xlink:href="assets/images/icon.svg#icon_check"></use></svg>
+                                                        </span>
+                                                        <span class="checkbox__content">Mailing Address</span>
+                                                    </label>
+                                                </li>
+                                                <li class="form__item">
+                                                    <label class="checkbox">
+                                                        <input class="checkbox__input" name="busFacilities" value="10" type="checkbox" />
+                                                        <span class="checkbox__box">
+                                                            <svg class="checkbox__icon"><use xlink:href="assets/images/icon.svg#icon_check"></use></svg>
+                                                        </span>
+                                                        <span class="checkbox__content">Reception</span>
+                                                    </label>
+                                                </li>
+                                                <li class="form__item">
+                                                    <label class="checkbox">
+                                                        <input class="checkbox__input" name="busFacilities" value="15" type="checkbox" />
+                                                        <span class="checkbox__box">
+                                                            <svg class="checkbox__icon"><use xlink:href="assets/images/icon.svg#icon_check"></use></svg>
+                                                        </span>
+                                                        <span class="checkbox__content">Utilities</span>
+                                                    </label>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </fieldset>
+                                    <fieldset class="form__section form__section_mg50 form__section_pb72">
+                                        <div class="form__header form__header_mg49">
+                                            <h3 class="form__title form__title_small form__title_mg0">Additional Facilities</h3>
+                                            <div class="form__text form__text_mg-2">Set date when you want to rental period start</div>
+                                        </div>
+                                        <div class="form__content">
+                                            <ul class="form__list form__list_columns">
+                                                <li class="form__item">
+                                                    <label class="checkbox">
+                                                        <input class="checkbox__input" name="addFacilities" value="1" type="checkbox" />
+                                                        <span class="checkbox__box">
+                                                            <svg class="checkbox__icon"><use xlink:href="assets/images/icon.svg#icon_check"></use></svg>
+                                                        </span>
+                                                        <span class="checkbox__content">Beer/Wine</span>
+                                                    </label>
+                                                </li>
+                                                <li class="form__item">
+                                                    <label class="checkbox">
+                                                        <input class="checkbox__input" name="addFacilities" value="7" type="checkbox" />
+                                                        <span class="checkbox__box">
+                                                            <svg class="checkbox__icon"><use xlink:href="assets/images/icon.svg#icon_check"></use></svg>
+                                                        </span>
+                                                        <span class="checkbox__content">Fruit/Snacks</span>
+                                                    </label>
+                                                </li>
+                                                <li class="form__item">
+                                                    <label class="checkbox">
+                                                        <input class="checkbox__input" name="addFacilities" value="13" type="checkbox" />
+                                                        <span class="checkbox__box">
+                                                            <svg class="checkbox__icon"><use xlink:href="assets/images/icon.svg#icon_check"></use></svg>
+                                                        </span>
+                                                        <span class="checkbox__content">Allowed</span>
+                                                    </label>
+                                                </li>
+                                                <li class="form__item">
+                                                    <label class="checkbox">
+                                                        <input class="checkbox__input" name="addFacilities" value="2" type="checkbox" />
+                                                        <span class="checkbox__box">
+                                                            <svg class="checkbox__icon"><use xlink:href="assets/images/icon.svg#icon_check"></use></svg>
+                                                        </span>
+                                                        <span class="checkbox__content">Bike Storage</span>
+                                                    </label>
+                                                </li>
+                                                <li class="form__item">
+                                                    <label class="checkbox">
+                                                        <input class="checkbox__input" name="addFacilities" value="8" type="checkbox" />
+                                                        <span class="checkbox__box">
+                                                            <svg class="checkbox__icon"><use xlink:href="assets/images/icon.svg#icon_check"></use></svg>
+                                                        </span>
+                                                        <span class="checkbox__content">Gym</span>
+                                                    </label>
+                                                </li>
+                                                <li class="form__item">
+                                                    <label class="checkbox">
+                                                        <input class="checkbox__input" name="addFacilities" value="14" type="checkbox" />
+                                                        <span class="checkbox__box">
+                                                            <svg class="checkbox__icon"><use xlink:href="assets/images/icon.svg#icon_check"></use></svg>
+                                                        </span>
+                                                        <span class="checkbox__content">Roof</span>
+                                                    </label>
+                                                </li>
+                                                <li class="form__item">
+                                                    <label class="checkbox">
+                                                        <input class="checkbox__input" name="addFacilities" value="3" type="checkbox" />
+                                                        <span class="checkbox__box">
+                                                            <svg class="checkbox__icon"><use xlink:href="assets/images/icon.svg#icon_check"></use></svg>
+                                                        </span>
+                                                        <span class="checkbox__content">Cafe</span>
+                                                    </label>
+                                                </li>
+                                                <li class="form__item">
+                                                    <label class="checkbox">
+                                                        <input class="checkbox__input" name="addFacilities" value="9" type="checkbox" />
+                                                        <span class="checkbox__box">
+                                                            <svg class="checkbox__icon"><use xlink:href="assets/images/icon.svg#icon_check"></use></svg>
+                                                        </span>
+                                                        <span class="checkbox__content">Kitchen</span>
+                                                    </label>
+                                                </li>
+                                                <li class="form__item">
+                                                    <label class="checkbox">
+                                                        <input class="checkbox__input" name="addFacilities" value="15" type="checkbox" />
+                                                        <span class="checkbox__box">
+                                                            <svg class="checkbox__icon"><use xlink:href="assets/images/icon.svg#icon_check"></use></svg>
+                                                        </span>
+                                                        <span class="checkbox__content">Terrace</span>
+                                                    </label>
+                                                </li>
+                                                <li class="form__item">
+                                                    <label class="checkbox">
+                                                        <input class="checkbox__input" name="addFacilities" value="4" type="checkbox" />
+                                                        <span class="checkbox__box">
+                                                            <svg class="checkbox__icon"><use xlink:href="assets/images/icon.svg#icon_check"></use></svg>
+                                                        </span>
+                                                        <span class="checkbox__content">Childcare</span>
+                                                    </label>
+                                                </li>
+                                                <li class="form__item">
+                                                    <label class="checkbox">
+                                                        <input class="checkbox__input" name="addFacilities" value="10" type="checkbox" />
+                                                        <span class="checkbox__box">
+                                                            <svg class="checkbox__icon"><use xlink:href="assets/images/icon.svg#icon_check"></use></svg>
+                                                        </span>
+                                                        <span class="checkbox__content">Lockers</span>
+                                                    </label>
+                                                </li>
+                                                <li class="form__item">
+                                                    <label class="checkbox">
+                                                        <input class="checkbox__input" name="addFacilities" value="16" type="checkbox" />
+                                                        <span class="checkbox__box">
+                                                            <svg class="checkbox__icon"><use xlink:href="assets/images/icon.svg#icon_check"></use></svg>
+                                                        </span>
+                                                        <span class="checkbox__content">Showers</span>
+                                                    </label>
+                                                </li>
+                                                <li class="form__item">
+                                                    <label class="checkbox">
+                                                        <input class="checkbox__input" name="addFacilities" value="5" type="checkbox" />
+                                                        <span class="checkbox__box">
+                                                            <svg class="checkbox__icon"><use xlink:href="assets/images/icon.svg#icon_check"></use></svg>
+                                                        </span>
+                                                        <span class="checkbox__content">Coffee/Tea</span>
+                                                    </label>
+                                                </li>
+                                                <li class="form__item">
+                                                    <label class="checkbox">
+                                                        <input class="checkbox__input" name="addFacilities" value="11" type="checkbox" />
+                                                        <span class="checkbox__box">
+                                                            <svg class="checkbox__icon"><use xlink:href="assets/images/icon.svg#icon_check"></use></svg>
+                                                        </span>
+                                                        <span class="checkbox__content">Parking</span>
+                                                    </label>
+                                                </li>
+                                                <li class="form__item">
+                                                    <label class="checkbox">
+                                                        <input class="checkbox__input" name="addFacilities" value="6" type="checkbox" />
+                                                        <span class="checkbox__box">
+                                                            <svg class="checkbox__icon"><use xlink:href="assets/images/icon.svg#icon_check"></use></svg>
+                                                        </span>
+                                                        <span class="checkbox__content">Event Space</span>
+                                                    </label>
+                                                </li>
+                                                <li class="form__item">
+                                                    <label class="checkbox">
+                                                        <input class="checkbox__input" name="addFacilities" value="12" type="checkbox" />
+                                                        <span class="checkbox__box">
+                                                            <svg class="checkbox__icon"><use xlink:href="assets/images/icon.svg#icon_check"></use></svg>
+                                                        </span>
+                                                        <span class="checkbox__content">Pets</span>
+                                                    </label>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </fieldset>
+                                    <div class="form-panel form-panel_pd0 form-panel_links form__panel form__panel_mgt-10">
+                                        <div class="form-panel__links">
+                                            <button class="link link_icon link_back link_bold link_no-shadow form-panel__link js-close-advanced-filter js-simple-reset" type="button" data-target-form="location-filter-big">
+                                                <svg class="link__icon link__icon_select-arrow"><use xlink:href="assets/images/icon.svg#icon_select-arrow"></use></svg>
+                                                <span class="link__text">Cancel</span>
+                                            </button>
+                                        </div>
+                                        <button class="button form-panel__button form-panel__button_w360" type="submit">
+                                            <span class="button__text">Show results: 320</span>
+                                        </button>
+                                    </div>
+                                </section>
+                            </div>
+                        </div>
+                    </div>
                     <section class="filter filter_search search-filter__filter">
                         <div class="filter__content">
-                            <form class="filter__form" data-form="location-filter-big">
-                                <div class="filter__wrapper">
-                                    <select class="select js-select-dark2" name="city" readonly="readonly">
-                                        <option value="placeholder" placeholder="placeholder">City</option>
-                                        <option value="London" selected="selected">London</option>
-                                        <option value="Paris">Paris</option>
-                                        <option value="Moscow">Moscow</option>
-                                    </select>
+                            <div class="filter__wrapper">
+                                <select class="select js-select-dark2" name="city" readonly="readonly">
+                                    <option value="placeholder" placeholder="placeholder">City</option>
+                                    <option value="London" selected="selected">London</option>
+                                    <option value="Paris">Paris</option>
+                                    <option value="Moscow">Moscow</option>
+                                </select>
+                            </div>
+                            <div class="filter__wrapper hide-md">
+                                <select class="select js-select-dark2" name="area">
+                                    <option value="placeholder" placeholder="placeholder">Area</option>
+                                    <option value="Central London">Central London</option>
+                                    <option value="Stratford Area">Stratford Area</option>
+                                    <option value="Canary Warf">Canary Warf</option>
+                                    <option value="Ilford">Ilford</option>
+                                    <option value="Brixton">Brixton</option>
+                                    <option value="Richmond">Richmond</option>
+                                </select>
+                            </div>
+                            <div class="filter__wrapper hide-md">
+                                <select class="select js-select-dark2" name="workplace-type">
+                                    <option value="placeholder" placeholder="placeholder">Workplace type</option>
+                                    <option value="htdsk">Hot Desk</option>
+                                    <option value="dddsk">Dedicated Desk</option>
+                                    <option value="room">Meeting Room</option>
+                                    <option value="space">Office Space</option>
+                                </select>
+                            </div>
+                            <div class="filter__wrapper">
+                                <div class="toggle filter__toggle js-show-advanced-filter" data-target-filter="advancedSearch">
+                                    <div class="toggle__text">Other parameters</div>
+                                    <svg class="toggle__icon"><use xlink:href="assets/images/icon.svg#icon_select-arrow"></use></svg>
                                 </div>
-                                <div class="filter__wrapper">
-                                    <select class="select js-select-dark2" name="area">
-                                        <option value="placeholder" placeholder="placeholder">Area</option>
-                                        <option value="Central London">Central London</option>
-                                        <option value="Stratford Area">Stratford Area</option>
-                                        <option value="Canary Warf">Canary Warf</option>
-                                        <option value="Ilford">Ilford</option>
-                                        <option value="Brixton">Brixton</option>
-                                        <option value="Richmond">Richmond</option>
-                                    </select>
-                                </div>
-                                <div class="filter__wrapper">
-                                    <select class="select js-select-dark2" name="workplace-type">
-                                        <option value="placeholder" placeholder="placeholder">Workplace type</option>
-                                        <option value="htdsk">Hot Desk</option>
-                                        <option value="dddsk">Dedicated Desk</option>
-                                        <option value="room">Meeting Room</option>
-                                        <option value="space">Office Space</option>
-                                    </select>
-                                </div>
-                                <div class="filter__wrapper"></div>
-                            </form>
+                            </div>
                         </div>
                     </section>
                     <div class="search-filter__buttons">
@@ -192,14 +622,14 @@
                             <svg class="link__icon link__icon_round-cross"><use xlink:href="assets/images/icon.svg#icon_round-cross"></use></svg>
                             <span class="link__text">Clear filter</span>
                         </button>
-                        <a class="link link_icon link_icon_gray link_no-shadow link_bold link_icon_pad27 search-filter__button js-toggle-map" href="#" data-target-map="map" data-closed-title="Show Map" data-opened-title="Hide Map">
+                        <a class="link link_icon link_icon_gray link_no-shadow link_bold link_icon_pad27 search-filter__button hide-md js-toggle-map" href="#" data-target-map="map" data-closed-title="Show Map" data-opened-title="Hide Map">
                             <svg class="link__icon link__icon_map"><use xlink:href="assets/images/icon.svg#icon_map"></use></svg>
                             <span class="link__text">Hide Map</span>
                         </a>
                     </div>
                 </div>
             </div>
-        </div>
+        </form>
         <section class="content content_reverse content_last">
             <div class="container">
                 <div class="content__wrapper content__wrapper_lg">
@@ -1445,7 +1875,17 @@
                                                 <div class="space__location">W1W, London</div>
                                             </div>
                                         </a>
-                                        <div class="_show-heart __space"></div>
+                                        <div class="_show-heart __space">
+                                            <div class="results__offer">
+                                                <div class="offer-info offer-info_small offer-info_small_light">
+                                                    <div class="offer-info__head">
+                                                        <div class="box box_size9 box_orange"></div>
+                                                        <div class="offer-info__title">HOT DESK</div>
+                                                        <div class="offer-info__price">from 450 &pound;/mo</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                     <div class="grid__col grid__col_xl_6 grid__col_sm_12">
                                         <a class="space" href="#">
@@ -1470,7 +1910,17 @@
                                                 <div class="space__location">EC2A, London</div>
                                             </div>
                                         </a>
-                                        <div class="_show-heart __space"></div>
+                                        <div class="_show-heart __space">
+                                            <div class="results__offer">
+                                                <div class="offer-info offer-info_small offer-info_small_light">
+                                                    <div class="offer-info__head">
+                                                        <div class="box box_size9 box_orange"></div>
+                                                        <div class="offer-info__title">HOT DESK</div>
+                                                        <div class="offer-info__price">from 450 &pound;/mo</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                     <div class="grid__col grid__col_xl_6 grid__col_sm_12">
                                         <a class="space" href="#">
@@ -1496,7 +1946,17 @@
                                                 <div class="space__location">W1W, London</div>
                                             </div>
                                         </a>
-                                        <div class="_show-heart __space"></div>
+                                        <div class="_show-heart __space">
+                                            <div class="results__offer">
+                                                <div class="offer-info offer-info_small offer-info_small_light">
+                                                    <div class="offer-info__head">
+                                                        <div class="box box_size9 box_orange"></div>
+                                                        <div class="offer-info__title">HOT DESK</div>
+                                                        <div class="offer-info__price">from 450 &pound;/mo</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                     <div class="grid__col grid__col_xl_6 grid__col_sm_12">
                                         <a class="space" href="#">
@@ -1521,7 +1981,17 @@
                                                 <div class="space__location">EC2A, London</div>
                                             </div>
                                         </a>
-                                        <div class="_show-heart __space"></div>
+                                        <div class="_show-heart __space">
+                                            <div class="results__offer">
+                                                <div class="offer-info offer-info_small offer-info_small_light">
+                                                    <div class="offer-info__head">
+                                                        <div class="box box_size9 box_orange"></div>
+                                                        <div class="offer-info__title">HOT DESK</div>
+                                                        <div class="offer-info__price">from 450 &pound;/mo</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                     <div class="grid__col grid__col_xl_6 grid__col_sm_12">
                                         <a class="space" href="#">
@@ -1547,7 +2017,17 @@
                                                 <div class="space__location">W1W, London</div>
                                             </div>
                                         </a>
-                                        <div class="_show-heart __space"></div>
+                                        <div class="_show-heart __space">
+                                            <div class="results__offer">
+                                                <div class="offer-info offer-info_small offer-info_small_light">
+                                                    <div class="offer-info__head">
+                                                        <div class="box box_size9 box_orange"></div>
+                                                        <div class="offer-info__title">HOT DESK</div>
+                                                        <div class="offer-info__price">from 450 &pound;/mo</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                     <div class="grid__col grid__col_xl_6 grid__col_sm_12">
                                         <a class="space" href="#">
@@ -1572,7 +2052,17 @@
                                                 <div class="space__location">EC2A, London</div>
                                             </div>
                                         </a>
-                                        <div class="_show-heart __space"></div>
+                                        <div class="_show-heart __space">
+                                            <div class="results__offer">
+                                                <div class="offer-info offer-info_small offer-info_small_light">
+                                                    <div class="offer-info__head">
+                                                        <div class="box box_size9 box_orange"></div>
+                                                        <div class="offer-info__title">HOT DESK</div>
+                                                        <div class="offer-info__price">from 450 &pound;/mo</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                     <div class="grid__col grid__col_xl_6 grid__col_sm_12">
                                         <a class="space" href="#">
@@ -1598,7 +2088,17 @@
                                                 <div class="space__location">W1W, London</div>
                                             </div>
                                         </a>
-                                        <div class="_show-heart __space"></div>
+                                        <div class="_show-heart __space">
+                                            <div class="results__offer">
+                                                <div class="offer-info offer-info_small offer-info_small_light">
+                                                    <div class="offer-info__head">
+                                                        <div class="box box_size9 box_orange"></div>
+                                                        <div class="offer-info__title">HOT DESK</div>
+                                                        <div class="offer-info__price">from 450 &pound;/mo</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                     <div class="grid__col grid__col_xl_6 grid__col_sm_12">
                                         <a class="space" href="#">
@@ -1623,7 +2123,17 @@
                                                 <div class="space__location">EC2A, London</div>
                                             </div>
                                         </a>
-                                        <div class="_show-heart __space"></div>
+                                        <div class="_show-heart __space">
+                                            <div class="results__offer">
+                                                <div class="offer-info offer-info_small offer-info_small_light">
+                                                    <div class="offer-info__head">
+                                                        <div class="box box_size9 box_orange"></div>
+                                                        <div class="offer-info__title">HOT DESK</div>
+                                                        <div class="offer-info__price">from 450 &pound;/mo</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -1656,11 +2166,14 @@
                             </li>
                         </ul>
                     </div>
-                    <div class="content__column content__column_map hide-md" data-map="map">
-                        <aside class="js-sticky-block sidebar sidebar_no-bg">
+                    <div class="search-map content__column content__column_map" data-map="map">
+                        <aside class="js-sticky-block sidebar sidebar_no-bg" data-unstick-media="md">
                             <div class="map map_side" id="searchMap"></div>
                         </aside>
                     </div>
+                    <a class="map-switch js-show-map" href="#" data-target-map="map">
+                        <svg class="map-switch__icon"><use xlink:href="assets/images/icon.svg#icon_location2"></use></svg>
+                    </a>
                 </div>
             </div>
         </section>
