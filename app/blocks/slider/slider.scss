@@ -418,4 +418,55 @@
       }
     }
   }
+
+  &_map {
+    height: auto;
+    overflow: visible;
+
+    #{$b} {
+
+      &__slide {
+        box-sizing: border-box;
+        padding: 9px 9px 16px;
+        background-color: $color-white;
+      }
+
+      &__buttons {
+        margin-left: -28px;
+        margin-right: -28px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: calc(100% + 56px);
+      }
+
+      &__button {
+        width: 24px;
+        height: 57px;
+        background-color: $color-white;
+        box-shadow: 1px 1px 8px rgba(34, 42, 46, 0.06);
+        border-radius: 3px;
+
+        &:hover {
+          background-color: $color-white;
+
+          #{$b}__button-icon {
+            fill: $color-basic;
+          }
+        }
+
+        &-icon {
+          width: 8px;
+          height: 21px;
+          transition: fill $ease-main;
+          fill: $color-header-logo;
+
+          @include screen('sm') {
+            width: 4px;
+            height: 11px;
+          }
+        }
+      }
+    }
+  }
 }

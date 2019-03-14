@@ -18,7 +18,7 @@ block content
           +results
             +results-full.hide-md
               each item in spaces
-                +space-short('a')(href="#")
+                +space-short('a').js-map-marker-activator(href="#" data-map-marker=item.id)
                   +space-short-side
                     +space-short-media()
                       +slider-gallery-bold(true, false)._dark2._gallery_inner.js-slider-gallery.__gallery
@@ -37,12 +37,11 @@ block content
                             +box(class="_size10 " + offer.box)
                             +e.title_small._light-gray!= offer.name
             +results-short.hide-from-md
-              +grid.grid_layout
+              +grid.grid_layout.grid_int48
                 each item in spaces2
                   +col({xl: 6, sm: 12})
-                    +space-reserv('a', item)(href="#")
-                    ._show-heart.__space
-                      +e.offer
+                    +space-reserv('a', item)._show-heart.__space(href="#")
+                      +e.DIV.offer
                         +offer-info._small._small_light
                           +box._size9._orange
                           +e.title HOT DESK

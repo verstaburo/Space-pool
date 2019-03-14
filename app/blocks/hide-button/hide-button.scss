@@ -1,0 +1,28 @@
+.hide-button {
+  $b: &;
+
+  display: inline-flex;
+  justify-content: flex-start;
+  align-items: center;
+  box-sizing: border-box;
+  padding: 8px;
+  background-color: $color-white;
+
+  &__text {
+    @include text12;
+
+    line-height: 1;
+    font-weight: 700;
+    text-transform: uppercase;
+    white-space: nowrap;
+
+    &:not(:last-child) {
+      margin-right: 9px;
+    }
+  }
+
+  &__icon {
+    width: 15px;
+    height: 15px;
+  }
+}

@@ -75,7 +75,7 @@ $(document).ready(function () {
     }
 
     var source = [
-      [59.934, 30.315],
+      [51.934, 30.315],
       [59.9345, 30.3156],
       [59.924, 30.335],
       [59.924, 30.305],
@@ -144,7 +144,7 @@ $(document).ready(function () {
     var map = L.map('searchMap', {
       scrollWheelZoom: false,
       zoomControl: false,
-    }).setView([59.934, 30.335], 13);
+    }).setView([51.513443, -0.102139], 13);
 
 
     // настройка доступа к mapbox картам
@@ -155,43 +155,157 @@ $(document).ready(function () {
     }).addTo(map);
 
     // настройка иконки маркера
-    var myMarker = L.icon({
-      iconUrl: 'assets/images/map/marker-two.png',
-      iconSize: [34, 42],
-      iconAnchor: [10, 42],
-    });
+    var markerOptions = {
+      iconSize: [36, 46],
+      iconAnchor: [12, 46],
+      popupAnchor: [0, -52],
+      className: 'map-icon',
+    };
+
+    // настройки попапа маркера
+    var popupOptions = {
+      maxWidth: 100,
+      maxHeight: 100,
+      minWidth: 0,
+      closeButton: false,
+      className: 'map-popup',
+    };
 
     // добавляем точку на карту по координатам
-    var addMarker = function (coordinates) {
-      L.marker(coordinates, {
-        icon: myMarker,
-      }).addTo(map);
+    var addMarker = function (coordinates, popuptext, id) {
+      // контент для иконки
+      var markerOpt = markerOptions;
+      markerOpt.html = '<div class="map-icon__wrapper" data-map-marker-id="' + id + '"><img src="assets/images/map/marker-two.png" class="map-icon__icon"><img src="assets/images/map/marker-two-active.png" class="map-icon__icon-active"></div>';
+      var icon = L.divIcon(markerOpt);
+
+      // инициализируем маркер
+      var marker = L.marker(coordinates, {
+        icon: icon,
+      });
+
+      // цепляем попап
+      var text = popuptext;
+      marker.bindPopup('<div class="map-popup__text">' + text + '</div>', popupOptions).openTooltip();
+
+      // отправляем на карту
+      marker.addTo(map);
     }
 
-    var source = [
-      [59.934, 30.315],
-      [59.9345, 30.3156],
-      [59.924, 30.335],
-      [59.924, 30.305],
-      [59.924, 30.335],
-      [59.914, 30.335],
-      [59.934, 30.325],
-      [59.900, 30.315],
-      [59.934, 30.300],
-      [59.913, 30.330],
-      [59.927, 30.338],
-      [59.948, 30.34],
-      [59.988, 30.324],
-      [59.9, 30.34476],
-      [59.939, 30.76],
-      [59.941, 30.9],
-      [59.966, 30.8],
-      [59.977, 30.73735]
+    // точки
+    var source = [{
+        coord: [51.534, -0.082139],
+        id: 'space1',
+        popuptext: '150&pound;/mo',
+      },
+      {
+        coord: [51.5345, -0.092139],
+        id: 'space2',
+        popuptext: '350&pound;/mo',
+      },
+      {
+        coord: [51.524, -0.111139],
+        id: 'space3',
+        popuptext: '250&pound;/mo',
+      },
+      {
+        coord: [51.524, -0.099139],
+        id: 'space4',
+        popuptext: '450&pound;/mo',
+      },
+      {
+        coord: [51.524, -0.122139],
+        id: 'space5',
+        popuptext: '550&pound;/mo',
+      },
+      {
+        coord: [51.514, -0.098139],
+        id: 'space6',
+        popuptext: '650&pound;/mo',
+      },
+      {
+        coord: [51.534, -0.102439],
+        id: 'space7',
+        popuptext: '750&pound;/mo',
+      },
+      {
+        coord: [51.500, -0.101139],
+        id: 'space8',
+        popuptext: '450&pound;/mo',
+      },
+      {
+        coord: [51.534, -0.132109],
+        id: 'space9',
+        popuptext: '450&pound;/mo',
+      },
+      {
+        coord: [51.513, -0.102135],
+        id: 'spaceTen',
+        popuptext: '450&pound;/mo',
+      },
+      {
+        coord: [51.527, -0.112139],
+        id: 'spaceEleven',
+        popuptext: '450&pound;/mo',
+      },
+      {
+        coord: [51.548, -0.072439],
+        id: 'spaceTwelve',
+        popuptext: '450&pound;/mo',
+      },
+      {
+        coord: [51.588, -0.97139],
+        id: 'id13',
+        popuptext: '450&pound;/mo',
+      },
+      {
+        coord: [51.5, -0.104139],
+        id: 'id14',
+        popuptext: '450&pound;/mo',
+      },
+      {
+        coord: [51.539, -0.086139],
+        id: 'id15',
+        popuptext: '450&pound;/mo',
+      },
+      {
+        coord: [51.541, -0.112139],
+        id: 'id16',
+        popuptext: '450&pound;/mo',
+      },
+      {
+        coord: [51.566, -0.102189],
+        id: 'id17',
+        popuptext: '450&pound;/mo',
+      },
+      {
+        coord: [51.577, -0.102339],
+        id: 'id18',
+        popuptext: '450&pound;/mo',
+      }
     ];
 
     for (var i = 0; i < source.length; i++) {
-      addMarker(source[i]);
+      var m = source[i];
+      addMarker(m.coord, m.popuptext, m.id);
     }
+
+    // снимаем активное состояние маркера при клике по карте
+    map.on('click', function () {
+      var allIcons = $('.map-icon');
+      $(allIcons).removeClass('is-active');
+    });
+
+    // добовляем активное состояние маркеру по клику
+    $(document).on('click', '.map-icon', function (evt) {
+      var self = evt.currentTarget;
+      var allIcons = $('.map-icon');
+      if ($(self).is('.is-active')) {
+        $(self).removeClass('is-active');
+      } else {
+        $(allIcons).removeClass('is-active');
+        $(self).addClass('is-active');
+      }
+    });
 
     // перерисовываем карту
     $(document).on('isOpenMap', '#searchMap', function () {

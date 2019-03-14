@@ -46,4 +46,49 @@
       pointer-events: none;
     }
   }
+
+  &__interface {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    pointer-events: none;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    box-sizing: border-box;
+    padding: 22px 0 30px;
+    visibility: visible;
+
+    #{$b}.is-closed & {
+      visibility: hidden;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: flex-start;
+    }
+  }
+
+  &__hide {
+    align-self: flex-end;
+    pointer-events: auto;
+
+    #{$b}.is-closed & {
+      pointer-events: none;
+    }
+  }
+
+  &__slider {
+    width: 265px;
+    max-width: 100%;
+    height: auto;
+    pointer-events: auto;
+
+    #{$b}.is-closed & {
+      pointer-events: none;
+    }
+  }
 }

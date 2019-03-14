@@ -43,6 +43,101 @@
   }
 }
 
+.map-icon {
+  $i: &;
+  position: relative;
+  display: block;
+
+  &__wrapper {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+
+  &__icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 34px;
+    height: 42px;
+    transform: translate3d(-50%, -50%, 0);
+    transition: opacity $ease-main;
+
+    #{$i}.is-active & {
+      opacity: 0;
+    }
+  }
+
+  &__icon-active {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 36px;
+    height: 46px;
+    opacity: 0;
+    transform: translate3d(-50%, -50%, 0);
+    transition: opacity $ease-main;
+
+    #{$i}.is-active & {
+      opacity: 1;
+    }
+  }
+
+  &.is-active {
+    z-index: 1000 !important;
+  }
+}
+
+.map-popup {
+  margin-bottom: 12px;
+
+  &__text {
+    @include text16;
+
+    font-weight: 700;
+    text-align: center;
+    display: inline-block;
+    box-sizing: border-box;
+    width: auto;
+    margin: 0;
+    padding: 0 5px;
+  }
+
+  .leaflet-popup {
+
+    &-content-wrapper {
+      display: inline-flex;
+      padding: 0;
+      text-align: center;
+      box-sizing: border-box;
+      border-radius: 0;
+      box-shadow: 1px 4px 7px rgba(34, 42, 46, 0.3);
+    }
+
+    &-content {
+      display: inline-flex;
+      justify-content: center;
+      margin: 0;
+      padding: 0;
+      color: $color-basic;
+      font-family: $font-main;
+    }
+
+    &-tip-container {
+      width: 20px;
+      height: 10px;
+      margin-left: -10px;
+    }
+
+    &-tip {
+      width: 9px;
+      height: 9px;
+      margin-top: -5px;
+      box-shadow: 1px 4px 7px rgba(34, 42, 46, 0.3);
+    }
+  }
+}
+
 .leaflet-control-layers-toggle {
   background-image: url('../images/map/layers.png');
   width: 36px;
@@ -106,17 +201,6 @@
 
 .leaflet-bottom .leaflet-control {
   margin-bottom: 20px;
-}
-
-.leaflet-popup-content-wrapper {
-  border-radius: 3px;
-}
-
-.leaflet-popup-content {
-  margin: 0;
-  padding: 13px 20px;
-
-  @include text;
 }
 
 .leaflet-container .leaflet-control-attribution {

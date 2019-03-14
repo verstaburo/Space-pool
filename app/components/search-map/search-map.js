@@ -31,7 +31,7 @@ export default function mapManipulations() {
     if (maps.length > 0) {
       if (window.Modernizr.mq(`(max-width: ${bp.md - 1}px)`)) {
         $(maps).each((i, el) => {
-          const mapName = $(el).attr('[data-map]');
+          const mapName = $(el).attr('data-map');
           const isActive = $(`.js-show-map[data-target-map="${mapName}"]`).is('.is-active');
           const mapContainer = $(el).find('.map');
           if (isActive) {
@@ -72,6 +72,12 @@ export default function mapManipulations() {
     } else {
       $(self).addClass('is-active');
       mapper.open(mapname);
+      if (window.Modernizr.mq(`(max-width: ${bp.md - 1}px)`)) {
+        const activeSlide = $('.js-slider-map').find('.swiper-slide-active');
+        const markerId = $(activeSlide).attr('data-map-marker');
+        const marker = $(`[data-map-marker-id="${markerId}"]`);
+        $(marker).trigger('click');
+      }
     }
   });
 
@@ -99,5 +105,17 @@ export default function mapManipulations() {
         $(mapContainer).trigger('isCloseMap');
       }, 300);
     }
+  });
+
+  // активируем маркер на карте по наведению
+  $(document).on('mouseenter', '.js-map-marker-activator', (evt) => {
+    const self = evt.currentTarget;
+    const markerId = $(self).attr('data-map-marker');
+    const marker = $(`[data-map-marker-id="${markerId}"]`);
+    $(marker).trigger('click');
+  });
+
+  $(document).on('mouseleave', '.js-map-marker-activator', () => {
+    $('.map').click();
   });
 }

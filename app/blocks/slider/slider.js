@@ -12,6 +12,7 @@ export default function slider() {
   const gallerySlider = $('.js-slider-gallery');
   const monthsSlider = $('.js-slider-calendar');
   const promoSlider = $('.js-slider-promo');
+  const mapSlider = $('.js-slider-map');
   const bp = window.globalOptions.sizes;
 
   if (spacesSliders.length > 0) {
@@ -289,6 +290,44 @@ export default function slider() {
         },
         fadeEffect: {
           crossFade: true,
+        },
+      });
+    });
+  }
+
+  if (mapSlider.length > 0) {
+    $(mapSlider).each((i, el) => {
+      const btnPrev = $(el).find('.js-slider-button-prev')[0];
+      const btnNext = $(el).find('.js-slider-button-next')[0];
+      const dots = $(el).find('[data-slider-dots]')[0];
+      const sliderContainer = $(el).find('.js-slider-container');
+      const newslider = new Swiper(sliderContainer, {
+        speed: 500,
+        loop: true,
+        slidesPerView: 1,
+        slidesPerGroup: 1,
+        roundLengths: false,
+        autoHeight: true,
+        effect: 'fade',
+        observer: true,
+        observeParents: true,
+        navigation: {
+          nextEl: btnNext,
+          prevEl: btnPrev,
+        },
+        fadeEffect: {
+          crossFade: true,
+        },
+        on: {
+          slideChange() {
+            const sw = this;
+            const activeIndex = sw.realIndex;
+            const slides = sw.slides;
+            const activeSlide = slides[activeIndex];
+            const markerId = activeSlide.getAttribute('data-map-marker');
+            const marker = $(`[data-map-marker-id="${markerId}"]`);
+            $(marker).trigger('click');
+          },
         },
       });
     });

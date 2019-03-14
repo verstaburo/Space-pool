@@ -71,6 +71,18 @@ mixin slider-promo()
         +e.button._next.js-slider-button-next
           +icon('slider-arrow').__button-icon
 
+mixin slider-map(buttons)
+  +b.slider__._map&attributes(attributes)
+    +e.container.swiper-container.js-slider-container
+      .swiper-wrapper
+        block
+    if buttons
+      +e.buttons_simple
+        +e.button._prev.js-slider-button-prev
+          +icon('slider-arrow-bold').__button-icon
+        +e.button._next.js-slider-button-next
+          +icon('slider-arrow-bold').__button-icon
+
 mixin slide
   +e.slide.swiper-slide&attributes(attributes)
     block
