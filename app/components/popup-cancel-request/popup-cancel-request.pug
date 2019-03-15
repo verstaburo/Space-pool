@@ -1,0 +1,19 @@
+mixin popup-cancel-request()
+  +popup-origin.popup-cancel-request__&attributes(attributes)
+    +popup-content
+      +popup-title.popup__title_big.popup__title_mg28 Request cancellation
+      +e.SECTION.section
+        +e.column_space
+          +space-reserv-small('div', { head: { base: '_black', color: '_blue', name: 'MEETING ROOM'}, img: 'assets/images/space25.jpg', boxes: [{ class: '_orange'}, {class: '_red'}, {class: '_blue'}], title: 'Blooming Founders (Former Blooms Lon...'})._around
+        +e.column_note
+          +note-warning._color._bold._fz20 You are about to cancel your reservation or current service. Before you confirm your decision we want you to know:
+      +e.SECTION.section
+        +ul-list._big
+          li You will not be able to get a refund paid till the end of this month.
+          li Security Deposit will be refunded within 14 days after cancellation
+          li You will get your security deposit refund if Workplace provider don’t have any complaints to you
+          li Request cancellation for this particular workplace will have 50% of a monthly payment.
+      +e.buttons
+        +button('a')._border._border_dark._border_bg-white._short.__button(data-fancybox-close href="#") Don’t cancel this service
+        +button('a')._short.__button(href="#" data-fancybox-close) Yes, cancel this service
+      block

@@ -1,0 +1,61 @@
+.popup-cancel-request {
+  $b: &;
+
+  .popup {
+    &__content {
+      padding-top: 50px;
+    }
+  }
+
+  &__section {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  &__column {
+    display: block;
+    box-sizing: border-box;
+
+    &_space {
+      width: 35%;
+    }
+
+    &_note {
+      padding-left: 36px;
+      flex: 1;
+
+      @include screen('sm') {
+        flex: none;
+        width: 100%;
+        padding-left: 0;
+      }
+    }
+  }
+
+  &__buttons {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    margin-top: -10px;
+  }
+
+  &__button {
+    flex: 1;
+    margin-top: 10px;
+
+    @include screen('sm') {
+      flex: none;
+      width: 100%;
+    }
+
+    &:not(:last-child) {
+      margin-right: 27px;
+
+      @include screen('sm') {
+        margin-right: 0;
+      }
+    }
+  }
+}

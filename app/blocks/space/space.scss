@@ -140,6 +140,10 @@
         margin-bottom: 0;
       }
     }
+
+    &_small {
+      @include text16;
+    }
   }
 
   &__location {
@@ -157,6 +161,7 @@
   &__head {
     @include text15;
 
+    position: relative;
     line-height: (30/15);
     font-weight: 700;
     text-transform: uppercase;
@@ -180,6 +185,35 @@
     &_green {
       background-color: $color-office-space;
     }
+
+    &_black {
+      background-color: $color-hint-bg;
+    }
+
+    &_white {
+      background-color: $color-white;
+      color: $color-basic;
+    }
+
+    &_base {
+      padding-left: 35px;
+      padding-right: 35px;
+      line-height: (32/15);
+      box-sizing: border-box;
+    }
+
+    &_lh26 {
+      padding-left: 30px;
+      padding-right: 30px;
+      line-height: (26/15);
+    }
+
+    &-box {
+      position: absolute;
+      top: 0;
+      left: 0;
+      min-height: 100%;
+    }
   }
 
   &__offer {
@@ -193,6 +227,37 @@
         &:not(:last-child) {
           margin-right: 4px;
         }
+      }
+    }
+  }
+
+  &__flag {
+    @include text-mid;
+
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+
+    &-name {
+      display: inline-block;
+      width: auto;
+      max-width: 100%;
+      box-sizing: border-box;
+      padding: 4px 17px;
+      background-color: $color-basic;
+      font-weight: 700;
+      text-align: center;
+      text-transform: uppercase;
+      color: $color-white;
+
+      @include screen('sm') {
+        @include text;
+
+        line-height: (26/14);
       }
     }
   }

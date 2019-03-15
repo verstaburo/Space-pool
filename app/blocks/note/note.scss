@@ -29,6 +29,11 @@
       width: 8px;
       height: 8px;
     }
+
+    &_warning {
+      width: 29px;
+      height: 27px;
+    }
   }
 
   &__text {
@@ -87,6 +92,26 @@
     }
   }
 
+  &_fz20 {
+    #{$b} {
+
+      &__text {
+        @include heading-4;
+
+        @include screen('sm') {
+          @include text15;
+        }
+      }
+    }
+  }
+
+  &_bold {
+
+    #{$b}__text {
+      font-weight: 700;
+    }
+  }
+
   &_big {
 
     #{$b} {
@@ -109,6 +134,16 @@
         @include screen('sm') {
           @include text-big;
         }
+      }
+    }
+  }
+
+  &_warning {
+
+    #{$b} {
+
+      &__mark {
+        margin-bottom: 16px;
       }
     }
   }
