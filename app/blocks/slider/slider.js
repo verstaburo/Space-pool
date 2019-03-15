@@ -324,9 +324,13 @@ export default function slider() {
             const activeIndex = sw.realIndex;
             const slides = sw.slides;
             const activeSlide = slides[activeIndex];
-            const markerId = activeSlide.getAttribute('data-map-marker');
-            const marker = $(`[data-map-marker-id="${markerId}"]`);
-            $(marker).trigger('click');
+            console.log(window.manualChange);
+            if (!window.manualChange) {
+              const markerId = $(activeSlide).attr('data-map-marker');
+              const marker = $(`[data-map-marker-id="${markerId}"]`);
+              $(marker).trigger('changeBySlide');
+            }
+            window.manualChange = false;
           },
         },
       });

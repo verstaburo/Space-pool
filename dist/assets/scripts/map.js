@@ -171,6 +171,8 @@ $(document).ready(function () {
       className: 'map-popup',
     };
 
+    var markers = {};
+
     // добавляем точку на карту по координатам
     var addMarker = function (coordinates, popuptext, id) {
       // контент для иконки
@@ -185,10 +187,12 @@ $(document).ready(function () {
 
       // цепляем попап
       var text = popuptext;
-      marker.bindPopup('<div class="map-popup__text">' + text + '</div>', popupOptions).openTooltip();
+      marker.bindPopup('<div class="map-popup__text">' + text + '</div>', popupOptions).openPopup();
 
       // отправляем на карту
       marker.addTo(map);
+
+      markers[id] = marker;
     }
 
     // точки
@@ -289,13 +293,15 @@ $(document).ready(function () {
       addMarker(m.coord, m.popuptext, m.id);
     }
 
+    window.mapMarkers = markers;
+
     // снимаем активное состояние маркера при клике по карте
     map.on('click', function () {
       var allIcons = $('.map-icon');
       $(allIcons).removeClass('is-active');
     });
 
-    // добовляем активное состояние маркеру по клику
+    // добовляем активное состояние маркеру по клику + активируем соответствующий слайд на разрешениях ниже 1024
     $(document).on('click', '.map-icon', function (evt) {
       var self = evt.currentTarget;
       var allIcons = $('.map-icon');
@@ -304,7 +310,30 @@ $(document).ready(function () {
       } else {
         $(allIcons).removeClass('is-active');
         $(self).addClass('is-active');
+
+        // смена слайдов при клике на маркер
+        if (window.Modernizr.mq('(max-width:' + (window.globalOptions.sizes.md - 1) + 'px)')) {
+          var markId = $(self).find('[data-map-marker-id]').attr('data-map-marker-id');
+          var sw = $('.js-slider-map').find('.js-slider-container')[0].swiper;
+          var targetSlide = $('.js-slider-map .swiper-slide[data-map-marker="' + markId + '"]').first().attr('data-swiper-slide-index');
+          // блокируем событие changeBySlide
+          window.manualChange = true;
+          // не ломаем слайдер если маркеру не соответствует ни один слайд
+          var index = (targetSlide === undefined) ? 0 : parseInt(targetSlide, 10);
+          // переходим на нужный слайд
+          sw.slideToLoop(index);
+        }
       }
+    });
+
+    // засветка маркера при смене слайдов
+    $(document).on('changeBySlide', '.map-icon', function (evt) {
+      var self = evt.currentTarget;
+      var allIcons = $('.map-icon');
+      $(allIcons).removeClass('is-active');
+      $(self).addClass('is-active');
+      var markId = $(self).find('[data-map-marker-id]').attr('data-map-marker-id');
+      window.mapMarkers[markId].openPopup();
     });
 
     // перерисовываем карту
