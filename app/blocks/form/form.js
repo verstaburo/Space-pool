@@ -90,7 +90,7 @@ export default function formManipulations() {
       const showElements = $(el).attr('data-show-elements') !== undefined ? $(el).attr('data-show-elements').split(',') : [];
       const hideElements = $(el).attr('data-hide-elements') !== undefined ? $(el).attr('data-hide-elements').split(',') : [];
       if ($(el).prop('checked')) {
-        hideElements.forEach((item) => {
+        $(hideElements).each((ix, item) => {
           const itemElement = $(`[data-form-element="${item}"]`);
           $(itemElement).addClass('hide');
           const elements = $(itemElement).find('input, select, textarea');
@@ -98,7 +98,7 @@ export default function formManipulations() {
             $(elems).attr('disabled', 'disabled');
           });
         });
-        showElements.forEach((item) => {
+        $(showElements).each((ix, item) => {
           const itemElement = $(`[data-form-element="${item}"]`);
           $(itemElement).removeClass('hide is-disabled');
           const elements = $(itemElement).find('input, select, textarea');

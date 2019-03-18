@@ -8,6 +8,31 @@
       line-height: 1.2;
     }
   }
+
+  &_big {
+    @include heading-4;
+
+    @include screen('sm') {
+      @include text15;
+    }
+
+    li {
+      padding-left: 30px;
+      line-height: 1.35;
+
+      @include screen('sm') {
+        padding-left: 20px;
+      }
+
+      &:not(:last-child) {
+        margin-bottom: 25px;
+
+        @include screen('sm') {
+          margin-bottom: 15px;
+        }
+      }
+    }
+  }
 }
 
 ul.list {

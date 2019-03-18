@@ -4,12 +4,27 @@
   .popup {
     &__content {
       padding-top: 50px;
+      padding-bottom: 55px;
+
+      @include screen('sm') {
+        padding-top: 30px;
+        padding-bottom: 35px;
+      }
     }
   }
 
   &__section {
     display: flex;
     flex-wrap: wrap;
+    width: 100%;
+
+    &:not(:last-child) {
+      margin-bottom: 60px;
+
+      @include screen('sm') {
+        margin-bottom: 30px;
+      }
+    }
   }
 
   &__column {
@@ -18,6 +33,13 @@
 
     &_space {
       width: 35%;
+      padding-bottom: 14px;
+
+      @include screen('sm') {
+        width: 100%;
+        padding-bottom: 0;
+        margin-bottom: 30px;
+      }
     }
 
     &_note {

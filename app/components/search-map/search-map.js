@@ -46,9 +46,21 @@ export default function mapManipulations() {
         });
       } else {
         unfreeze();
-        $(mapContainers).trigger('isOpenMap');
-        $(maps).removeClass('is-closed');
+        const toggles = $('.js-toggle-map');
         $('.js-show-map').removeClass('is-active');
+        $(toggles).each((i, el) => {
+          const mapName = $(el).attr('data-target-map');
+          const isActive = $(el).is('.is-active');
+          const map = $(`[data-map="${mapName}"]`);
+          if (isActive) {
+            $(map).removeClass('is-closed');
+            setTimeout(() => {
+              $(mapContainers).trigger('isOpenMap');
+            }, 300);
+          } else {
+            $(map).addClass('is-closed');
+          }
+        });
       }
     }
   }
@@ -93,6 +105,7 @@ export default function mapManipulations() {
     const mapContainer = $(map).find('.map');
     if ($(map).is('.is-closed')) {
       $(map).removeClass('is-closed');
+      $(self).addClass('is-active');
       $(titleBlock).text(openedName);
       setTimeout(() => {
         $('.js-sticky-block').trigger('sticky_kit:recalc');
@@ -100,6 +113,7 @@ export default function mapManipulations() {
       }, 300);
     } else {
       $(map).addClass('is-closed');
+      $(self).removeClass('is-active');
       $(titleBlock).text(closedName);
       setTimeout(() => {
         $(mapContainer).trigger('isCloseMap');
