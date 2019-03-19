@@ -226,6 +226,25 @@
         filter: drop-shadow(1px 1px 0 rgba(34, 42, 46, .2));
       }
     }
+
+    &_sm {
+      #{$b}__button {
+        background-color: transparent;
+
+        &:hover {
+          background-color: $color-white;
+        }
+
+        &-icon {
+          @include screen('sm') {
+            width: 8px;
+            height: 21px;
+            fill: $color-arrow;
+            filter: none;
+          }
+        }
+      }
+    }
   }
 
   &_gallery {
@@ -429,6 +448,10 @@
         box-sizing: border-box;
         padding: 9px 9px 16px;
         background-color: $color-white;
+
+        @include screen('sm') {
+          padding: 6px 6px 0;
+        }
       }
 
       &__buttons {
@@ -438,6 +461,12 @@
         justify-content: space-between;
         align-items: center;
         width: calc(100% + 56px);
+
+        @include screen('sm') {
+          margin-left: -21px;
+          margin-right: -21px;
+          width: calc(100% + 42px);
+        }
       }
 
       &__button {
@@ -446,6 +475,12 @@
         background-color: $color-white;
         box-shadow: 1px 1px 8px rgba(34, 42, 46, 0.06);
         border-radius: 3px;
+
+        @include screen('sm') {
+          width: 18px;
+          height: 43px;
+          padding-left: 0;
+        }
 
         &:hover {
           background-color: $color-white;
@@ -462,8 +497,8 @@
           fill: $color-header-logo;
 
           @include screen('sm') {
-            width: 4px;
-            height: 11px;
+            width: 7px;
+            height: 18px;
           }
         }
       }

@@ -6,6 +6,8 @@
   left: 0;
   display: block;
   width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
   border-bottom: 1px solid $color-border-light;
   background-color: $color-bg;
   z-index: 10;
@@ -53,6 +55,12 @@
     flex-wrap: wrap;
     box-sizing: border-box;
     padding: 21px 0;
+    width: 100%;
+    max-width: 100%;
+
+    @include screen('sm') {
+      padding: 0;
+    }
   }
 
   &__filter {
@@ -61,6 +69,14 @@
 
     &:not(:last-child) {
       margin-right: 50px;
+
+      @include screen('sm') {
+        margin-right: 20px;
+      }
+
+      @include screen('sm') {
+        margin-right: 10px;
+      }
     }
 
     #{$b}.is-filter-active & {
@@ -90,6 +106,38 @@
     &:not(:first-child) {
       margin-left: 72px;
     }
+
+    &_clear {
+      @include screen('sm') {
+        position: relative;
+        padding-left: 10px !important;
+        height: 10px;
+      }
+
+      .link {
+
+        &__icon {
+          @include screen('sm') {
+            width: 10px;
+            height: 10px;
+            fill: $color-basic;
+          }
+        }
+      }
+
+      &::before {
+        @include screen('sm') {
+          @include pseudo;
+
+          top: 50%;
+          left: 50%;
+          width: 40px;
+          height: 40px;
+          background-color: transparent;
+          transform: translate3d(-50%, -50%, 0);
+        }
+      }
+    }
   }
 
   &__popup {
@@ -109,6 +157,16 @@
     @include screen('lg') {
       left: -20px;
       width: 70%;
+    }
+
+    @include screen('md') {
+      left: 0;
+      width: 100%;
+    }
+
+    @include screen('sm') {
+      left: -10px;
+      width: calc(100% + 20px);
     }
 
     &.is-active {

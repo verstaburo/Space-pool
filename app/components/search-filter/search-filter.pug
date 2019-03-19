@@ -5,7 +5,11 @@ mixin search-filter()
         +e.overlay(data-filter-overlay)
         +e.popup(data-filter="advancedSearch")
           +advanced-filter()
+        +e.popup(data-filter="workplace")
+          +advanced-filter2()
         +filter-search._search.__filter
         +e.buttons
-          +link-icon('round-cross', 'button')(type="reset"  data-target-form="location-filter-big")._icon_gray._no-shadow._bold._icon_mid-small.__button.js-simple-reset Clear filter
+          +b.BUTTON.link_icon._icon_gray._no-shadow._bold._icon_mid-small.__button_clear.js-simple-reset(type="reset" data-target-form="location-filter-big")
+            +icon('round-cross').__icon_round-cross
+            +e.SPAN.text.hide-sm Clear filter
           +link-icon('map')._icon_gray._no-shadow._bold._icon_pad27.__button.hide-md.js-toggle-map.is-active(href="#" data-target-map="map" data-closed-title="Show Map" data-opened-title="Hide Map") Hide Map

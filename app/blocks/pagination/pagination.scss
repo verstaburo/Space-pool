@@ -20,6 +20,10 @@
       @include screen('md') {
         margin-top: 114px;
       }
+
+      @include screen('sm') {
+        margin-top: 73px;
+      }
     }
   }
 
@@ -45,6 +49,10 @@
 
     &:not(:last-child) {
       margin-right: 14px;
+
+      @include screen('sm') {
+        margin-right: 9px;
+      }
     }
   }
 
@@ -65,11 +73,22 @@
     border-radius: 3px;
     cursor: pointer;
 
+    @include screen('sm') {
+      @include text15;
+
+      height: 25px;
+      line-height: (25/15);
+    }
+
     &:hover,
     &.is-active {
       width: 28px;
       background-color: $color-white;
-      box-shadow: 1px 1px 8px rgba(34, 42, 46, .06)
+      box-shadow: 1px 1px 8px rgba(34, 42, 46, .06);
+
+      @include screen('sm') {
+        width: 25px;
+      }
     }
   }
 
@@ -91,6 +110,11 @@
       top: 50%;
       left: 50%;
       transform: translate3d(-50%, -50%, 0);
+
+      @include screen('sm') {
+        width: 25px;
+        height: 25px;
+      }
     }
 
     &.is-disabled {
@@ -101,6 +125,10 @@
     &_prev {
       padding-right: 3px;
 
+      @include screen('sm') {
+        padding-right: 12px;
+      }
+
       #{$b}__icon {
         transform: rotate(180deg);
       }
@@ -108,6 +136,10 @@
 
     &_next {
       padding-left: 3px;
+
+      @include screen('sm') {
+        padding-left: 12px;
+      }
     }
   }
 
@@ -117,5 +149,10 @@
     transform-origin: 50% 50%;
     font-size: 0;
     line-height: 0;
+
+    @include screen('sm') {
+      width: 7px;
+      height: 10px;
+    }
   }
 }

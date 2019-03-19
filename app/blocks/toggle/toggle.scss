@@ -15,9 +15,10 @@
   cursor: pointer;
 
   @include screen('sm') {
-    @include text;
+    @include text13;
 
-    line-height: (26/14);
+    line-height: (26/13);
+    padding-right: 14px;
   }
 
   &:hover {
@@ -46,8 +47,12 @@
       fill $ease-main,
       transform $ease-main;
 
-    #{$b}.is-active &,
-    .is-filter-active & {
+    @include screen('sm') {
+      width: 9px;
+      height: 5px;
+    }
+
+    &.is-active {
       transform: translate3d(0, -50%, 0) rotate(180deg);
     }
   }

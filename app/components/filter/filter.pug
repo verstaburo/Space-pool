@@ -39,7 +39,7 @@ mixin filter()
 mixin filter-search()
   +b.SECTION.filter&attributes(attributes)
     +e.content
-      +e.wrapper
+      +e.wrapper.hide-sm
         +select.js-select-dark2(name="city" readonly)
           option(value="placeholder" placeholder) City
           option(value="London" selected) London
@@ -54,12 +54,7 @@ mixin filter-search()
           option(value="Ilford") Ilford
           option(value="Brixton") Brixton
           option(value="Richmond") Richmond
-      +e.wrapper.hide-md
-        +select.js-select-dark2(name="workplace-type")
-          option(value="placeholder" placeholder) Workplace type
-          option(value="htdsk") Hot Desk
-          option(value="dddsk") Dedicated Desk
-          option(value="room") Meeting Room
-          option(value="space") Office Space
       +e.wrapper
-        +toggle().__toggle.js-show-advanced-filter(data-target-filter="advancedSearch") Other parameters
+        +toggle().__toggle.js-show-advanced-filter(data-target-filter="workplace") Workplace type
+      +e.wrapper
+        +toggle().__toggle.js-show-advanced-filter(data-target-filter="advancedSearch") Advanced search

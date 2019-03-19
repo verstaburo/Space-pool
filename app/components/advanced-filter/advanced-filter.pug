@@ -72,3 +72,16 @@ mixin advanced-filter()
             +link-icon('select-arrow', 'button')(type="button" data-target-form="location-filter-big")._back._bold._no-shadow.__link.js-close-advanced-filter.js-simple-reset Cancel
           +button('button')(type="submit").__button_w360 Show results: 320
           block
+
+mixin advanced-filter2()
+  +b.advanced-filter&attributes(attributes)
+    +e.head
+      +e.BUTTON.close.js-close-advanced-filter(type="button")
+        +icon('cross').close-icon
+    +e.scrollblock.js-scrollbar
+      +b.SECTION.form_white.__form
+        +form-section
+          +form-section-header._mg40
+            +form-section-title._small._mg0.hide-sm Workplace type
+            +form-section-text._mg-2 Please choose workplace type you prefer
+          +form-section-content

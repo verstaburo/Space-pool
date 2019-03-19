@@ -64,9 +64,15 @@
       pointer-events: none;
       transition: opacity $ease-main;
       border-radius: 3px;
+
+      @include screen('sm') {
+        left: -10px;
+        height: 40px;
+        width: calc(100% + 20px);
+      }
     }
 
-    .is-filter-active & {
+    &.is-active {
       pointer-events: auto;
 
       &::before {
@@ -85,6 +91,14 @@
         &:not(:last-child),
         &:first-child {
           margin-right: 59px;
+
+          @include screen('md') {
+            margin-right: 42px;
+          }
+
+          @include screen('sm') {
+            margin-right: 30px;
+          }
         }
       }
     }

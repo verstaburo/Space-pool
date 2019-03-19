@@ -74,6 +74,33 @@ mixin space-reserv(tag, data)
         +e.location!= data.location
     block
 
+mixin space-reserv-gallery(tag, data)
+  +b(tag || 'a').space&attributes(attributes)
+    if data.type
+      +e(class="head " + data.type.color)!= data.type.name
+    if data.head
+      +e(class="head_base " + data.head.base)!= data.head.name
+        +box()(class="_size32 " + data.head.color + " __head-box")
+    +e.DIV.media_gallery
+      +slider-gallery-bold2(true, false)._gallery._dark2_sm.js-slider-gallery.__gallery
+          each slider in data.slider
+            +e.IMG.slide.swiper-slide(src=slider)
+      if data.heart
+        +button-heart.js-heart.is-active.__heart(class=data.heart.class)
+      if data.heart2
+        +button-heart.js-heart.__heart(class=data.heart2.class)
+      if data.flag
+        +e.flag
+          +e.flag-name!= data.flag
+    +e.DIV.describe
+      if data.boxes
+        +boxes.__boxes
+          each item in data.boxes
+            +box(class='_small ' + item.class)
+      +e.title!= data.title
+      if data.location
+        +e.location!= data.location
+    block
 
 mixin space-reserv-small(tag, data)
   +b(tag || 'a').space&attributes(attributes)

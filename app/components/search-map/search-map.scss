@@ -24,8 +24,8 @@
     pointer-events: auto;
 
     @include screen('sm') {
-      top: 144px;
-      height: calc(100% - 144px);
+      top: 100px;
+      height: calc(100% - 100px);
     }
 
     .page.is-short & {
@@ -33,8 +33,8 @@
       height: calc(100% - 140px);
 
       @include screen('sm') {
-        top: 120px;
-        height: calc(100% - 120px);
+        top: 76px;
+        height: calc(100% - 76px);
       }
     }
   }
@@ -71,6 +71,11 @@
     padding: 22px 0 30px;
     visibility: visible;
 
+    @include screen('sm') {
+      padding-top: 12px;
+      padding-left: 5px;
+    }
+
     #{$b}.is-closed & {
       visibility: hidden;
     }
@@ -97,6 +102,10 @@
     max-width: 100%;
     height: auto;
     pointer-events: auto;
+
+    @include screen('sm') {
+      width: 194px;
+    }
 
     #{$b}.is-closed & {
       pointer-events: none;

@@ -22,8 +22,10 @@
   }
 
   @include screen('sm') {
+    width: 36px;
+    height: 36px;
     right: 20px;
-    bottom: 20px;
+    bottom: 37px;
   }
 
   &.is-active {
@@ -40,6 +42,11 @@
     transform: translate3d(-50%, -50%, 0);
     fill: url('#main-gradient');
     transition: fill $ease-main;
+
+    @include screen('sm') {
+      width: 12px;
+      height: 20px;
+    }
 
     #{$b}.is-active & {
       fill: $color-white;

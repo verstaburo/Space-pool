@@ -10,13 +10,16 @@ export default function toggleFilter() {
   const showFilter = {
     open(target) {
       freeze();
+      $('.js-show-advanced-filter').removeClass('is-active');
       const targetBlock = $(`[data-filter="${target}"]`);
       const container = $(targetBlock).closest('[data-filter-container]');
       $(container).addClass('is-filter-active');
       $(targetBlock).addClass('is-active');
+      $(`.js-show-advanced-filter[data-target-filter="${target}"]`).addClass('is-active');
     },
     close() {
       unfreeze();
+      $('.js-show-advanced-filter').removeClass('is-active');
       const container = $('[data-filter-container]');
       const targetBlocks = $('[data-filter]');
       $(container).removeClass('is-filter-active');
