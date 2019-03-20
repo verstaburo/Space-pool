@@ -228,11 +228,16 @@
     }
 
     &_sm {
+
       #{$b}__button {
-        background-color: transparent;
+        @include screen('sm') {
+          background-color: transparent;
+        }
 
         &:hover {
-          background-color: $color-white;
+          @include screen('sm') {
+            background-color: $color-white;
+          }
         }
 
         &-icon {

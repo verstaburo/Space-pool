@@ -17,6 +17,11 @@
 
   .link {
     @include text-mid;
+
+    @include screen('sm') {
+      padding-left: 15px;
+      @include text15;
+    }
   }
 
   &__links {
@@ -71,6 +76,36 @@
 
     @include screen('sm') {
       padding: 14px 0;
+    }
+  }
+
+  &.is-always-fixed {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 19px 50px;
+    z-index: 5;
+    border-top: 1px solid $color-border-lightest;
+
+    @include screen('md') {
+      padding: 14px 36px;
+    }
+
+    @include screen('sm') {
+      padding: 14px 20px;
+    }
+
+    .is-login & {
+      @include screen('md') {
+        padding: 14px 36px;
+        bottom: 70px;
+      }
+
+      @include screen('sm') {
+        padding: 14px 20px;
+        bottom: 50px;
+      }
     }
   }
 

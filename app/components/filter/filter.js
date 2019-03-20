@@ -4,6 +4,7 @@ export default function desktopFilter() {
   // очистка фильтра
   function reset(form) {
     form[0].reset();
+    // сбрасываем селекты
     const selects = $(form).find('select');
     $(selects).each((i, el) => {
       const isChoices = $(el).closest('.choices').length;
@@ -12,6 +13,14 @@ export default function desktopFilter() {
         el.choices.setChoiceByValue(selectValue);
         $(el).trigger('change');
       }
+    });
+    // сбрасываем ползунок
+    const ranges = $(form).find('.js-range');
+    $(ranges).each((i, el) => {
+      const range = $(el).find('[data-range-container]').get(0);
+      range.noUiSlider.updateOptions({
+        start: $(el).data('start'),
+      });
     });
   }
 

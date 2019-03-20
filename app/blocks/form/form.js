@@ -34,7 +34,14 @@ export default function formManipulations() {
         $(el).attr('src', defaultPath);
       });
     }
-    // window.setPasswordMask();
+    // сбрасываем ползунок
+    const ranges = $(form).find('.js-range');
+    $(ranges).each((i, el) => {
+      const range = $(el).find('[data-range-container]').get(0);
+      range.noUiSlider.updateOptions({
+        start: $(el).data('start'),
+      });
+    });
     // сбрасываем положение лейблов
     window.setLabelPosition();
   }

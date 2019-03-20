@@ -56,4 +56,32 @@
       transform: translate3d(0, -50%, 0) rotate(180deg);
     }
   }
+
+  &__counter {
+    @include text15;
+    @include gradient-main;
+
+    position: relative;
+    line-height: 21px;
+    display: none;
+    width: 21px;
+    border-radius: 50%;
+    color: $color-white;
+    text-align: center;
+    margin-left: 10px;
+    margin-right: -4px;
+    z-index: 2;
+
+    @include screen('sm') {
+      font-size: 8px;
+      line-height: 13px;
+      width: 13px;
+      margin-left: 4px;
+      margin-right: -2px;
+    }
+
+    #{$b}.is-selected & {
+      display: inline-block;
+    }
+  }
 }

@@ -69,6 +69,17 @@ mixin color-radio(name, value, checked)
     +e.SPAN.content
       block
 
+mixin button-radio(name, value, checked)
+  +b.LABEL.button-radio&attributes(attributes)
+    - if (checked) {
+      +e.INPUT.input(name=name, value=value, type="radio", checked)
+    - } else {
+      +e.INPUT.input(name=name, value=value, type="radio")
+    - }
+    +e.SPAN.content
+      +e.text
+        block
+
 mixin range(output)
   +b.range&attributes(attributes).js-range
     +e.slider(data-range-container)

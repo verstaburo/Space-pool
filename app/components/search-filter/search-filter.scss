@@ -175,6 +175,29 @@
     }
   }
 
+  &__panel {
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity $ease-main;
+    pointer-events: none;
+
+    &.is-always-fixed {
+      z-index: 15;
+    }
+
+    .is-login &.is-always-fixed {
+      @include screen('md') {
+        bottom: 0;
+      }
+    }
+
+    #{$b}.is-filter-active & {
+      visibility: visible;
+      opacity: 1;
+      pointer-events: auto;
+    }
+  }
+
   .page.is-short & {
     top: 70px;
 

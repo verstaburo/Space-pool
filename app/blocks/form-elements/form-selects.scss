@@ -645,6 +645,128 @@
     }
   }
 
+  &_input2 {
+    width: 100%;
+
+    #{$k}__inner {
+      @include text-mid;
+
+      font-weight: 700;
+      line-height: (26/17);
+      width: 100%;
+      box-sizing: border-box;
+      border-radius: 0;
+      color: $color-basic;
+      transition: color $ease-main;
+      overflow: hidden;
+
+      @include screen('sm') {
+        @include text15;
+      }
+    }
+
+    #{$k}__toggle {
+      right: 0;
+
+      svg {
+        fill: $color-basic;
+      }
+    }
+
+    #{$k}__list {
+
+      &--single {
+        padding-top: 5px;
+        padding-bottom: 5px;
+        border-bottom: 1px solid $color-form-border;
+        width: 100%;
+        max-width: none;
+        transition: border $ease-main;
+
+        @include ellipsis(100%);
+
+        @include screen('sm') {
+          padding-top: 0;
+          padding-bottom: 0;
+        }
+
+        #{$k}__item {
+          @include ellipsis(100%);
+        }
+      }
+
+      #{$k}__placeholder {
+        color: transparent;
+
+        @include ellipsis(100%);
+      }
+
+      &--dropdown {
+        min-width: 0;
+        width: 100%;
+        max-width: none;
+        max-height: 276px;
+        padding-top: 16px;
+        padding-bottom: 16px;
+
+        #{$k}__item {
+          @include text16;
+
+          line-height: (35/16);
+          font-weight: 400;
+          padding: 0 6px;
+
+          &[data-value="placeholder"] {
+            display: none;
+          }
+        }
+
+        .form_white &,
+        .select_white~& {
+          background-color: $color-white;
+        }
+      }
+    }
+
+    .select_placeholder~#{$k}__list #{$k}__placeholder {
+      transition: color $ease-main;
+      color: $color-placeholder;
+    }
+
+    &:hover {
+      #{$k}__inner {
+        color: $color-basic;
+      }
+
+      #{$k}__list {
+        &--single {
+          border-bottom-color: $color-basic;
+        }
+      }
+
+      #{$k}__placeholder {
+        color: transparent;
+      }
+
+      .select_placeholder~#{$k}__list #{$k}__placeholder {
+        color: $color-basic;
+      }
+    }
+
+    &.is-open {
+
+      #{$k}__inner {
+        color: $color-basic;
+      }
+
+      #{$k}__list {
+        &--single {
+          border-bottom-color: $color-basic;
+        }
+      }
+    }
+  }
+
   &.is-disabled {
 
     #{$k} {

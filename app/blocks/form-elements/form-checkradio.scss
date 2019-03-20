@@ -102,6 +102,32 @@
     }
   }
 
+  &_sm-small {
+    @include screen('sm') {
+      padding-left: 28px;
+    }
+
+    #{$radio} {
+      @include screen('sm') {
+        &__box {
+          width: 14px;
+          height: 14px;
+        }
+
+        &__icon {
+          width: 12px;
+          height: 10px;
+          top: 1px;
+          left: 1px;
+        }
+
+        &__content {
+          @include text15;
+        }
+      }
+    }
+  }
+
   &_nobox {
     padding-left: 0;
 
@@ -164,9 +190,10 @@
       line-height: 1.2;
 
       @include screen('sm') {
-        @include text;
+        @include text13;
 
         line-height: 1.2;
+        padding: 1px 5px 0 3px;
       }
     }
 
@@ -314,6 +341,33 @@
     color: $color-basic;
   }
 
+  &_sm-small {
+    @include screen('sm') {
+      padding-left: 22px;
+    }
+
+    #{$check} {
+      @include screen('sm') {
+        &__box {
+          width: 12px;
+          height: 12px;
+          margin-top: -1px;
+        }
+
+        &__icon {
+          width: 12px;
+          height: 10px;
+          top: 0;
+          left: 0;
+        }
+
+        &__content {
+          @include text15;
+        }
+      }
+    }
+  }
+
   &_small {
     padding-left: 28px;
 
@@ -381,6 +435,66 @@
 
     input:checked~#{$check}__content {
       border-bottom-color: $color-basic;
+    }
+  }
+
+  &_nobox2 {
+    padding-left: 0;
+
+    #{$check}__input {
+      &:checked {
+
+        &~#{$check}__content {
+          color: $color-white;
+          background-image: linear-gradient(to right, rgba(11, 208, 167, 0.99) 0%, rgba(0, 129, 153, 0.99) 100%);
+
+          #{$check}__text {
+            border-bottom-color: transparent;
+          }
+        }
+      }
+    }
+
+    #{$check}__box {
+      display: none;
+    }
+
+    #{$check}__content {
+      @include text-mid;
+
+      display: inline-block;
+      box-sizing: border-box;
+      padding: 5px 11px 4px 9px;
+      font-weight: 700;
+      color: $color-basic;
+      transition: background $ease-main;
+      border-radius: 3px;
+      text-align: center;
+      line-height: 1.2;
+
+      @include screen('sm') {
+        @include text13;
+
+        line-height: 1.2;
+        padding: 1px 5px 0 3px;
+      }
+    }
+
+    #{$check}__text {
+      display: inline;
+      border-bottom: 1px solid $color-border-light;
+      transition: border $ease-main;
+    }
+
+    &:hover {
+      #{$check}__content {
+        color: $color-basic;
+        background-color: $color-bg;
+      }
+
+      #{$check}__text {
+        border-bottom-color: transparent;
+      }
     }
   }
 }
@@ -615,6 +729,112 @@
           width: calc(100% - 14px);
         }
       }
+    }
+  }
+}
+
+.button-radio {
+  $br: &;
+
+  @include text-mid;
+
+  display: inline-block;
+  font-weight: 700;
+  text-align: center;
+  line-height: 1.2;
+  cursor: pointer;
+
+  @include screen('sm') {
+    @include text12;
+
+    line-height: 1.1;
+    width: 100%;
+  }
+
+  &__input {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 0;
+    height: 0;
+    visibility: hidden;
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  &__content {
+    position: relative;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    padding: 4px 6px 2px;
+    transition: background $ease-main, border $ease-main, color $ease-main;
+    color: $color-basic;
+    border: 1px solid transparent;
+    text-align: center;
+    text-transform: uppercase;
+    border-radius: 3px;
+
+    @include screen('sm') {
+      padding: 12px 6px 11px;
+      border-radius: 0;
+      width: 100%;
+      border-color: $color-button-radio-border;
+    }
+
+    #{$br}:hover & {
+      color: $color-basic-dark;
+    }
+
+    #{$br}__input:checked~& {
+      background-color: $color-basic;
+      border-color: $color-basic;
+      color: $color-white;
+    }
+
+    #{$br}_orange #{$br}__input:checked~& {
+      background-color: $color-hot-desk;
+      border-color: $color-hot-desk;
+    }
+
+    #{$br}_red #{$br}__input:checked~& {
+      background-color: $color-dedicated-desk;
+      border-color: $color-dedicated-desk;
+    }
+
+    #{$br}_blue #{$br}__input:checked~& {
+      background-color: $color-meeting-room;
+      border-color: $color-meeting-room;
+    }
+
+    #{$br}_green #{$br}__input:checked~& {
+      background-color: $color-office-space;
+      border-color: $color-office-space;
+    }
+  }
+
+  &__text {
+    border-bottom: 2px solid $color-basic;
+
+    @include screen('sm') {
+      border-bottom-width: 1px;
+    }
+
+    #{$br}_orange & {
+      border-bottom-color: $color-hot-desk;
+    }
+
+    #{$br}_red & {
+      border-bottom-color: $color-dedicated-desk;
+    }
+
+    #{$br}_blue & {
+      border-bottom-color: $color-meeting-room;
+    }
+
+    #{$br}_green & {
+      border-bottom-color: $color-office-space;
     }
   }
 }

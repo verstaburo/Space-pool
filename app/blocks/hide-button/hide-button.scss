@@ -9,7 +9,7 @@
   background-color: $color-white;
 
   @include screen('sm') {
-    padding: 7px;
+    padding: 6px 7px;
   }
 
   &__text {
@@ -19,6 +19,7 @@
     font-weight: 700;
     text-transform: uppercase;
     white-space: nowrap;
+    margin-top: 2px;
 
     &:not(:last-child) {
       margin-right: 9px;
@@ -32,6 +33,29 @@
     @include screen('sm') {
       width: 8px;
       height: 8px;
+    }
+  }
+
+  &_small {
+    border-radius: 2px;
+    border: 1px solid $color-hide-button-border;
+    box-shadow: 1px 1px 4px rgba(34, 42, 46, 0.06);
+
+    @include screen('sm') {
+      padding: 3px 5px;
+    }
+
+    #{$b} {
+
+      &__text {
+
+        @include screen('sm') {
+          @include text9;
+
+          margin-top: 1px;
+          line-height: (12/9);
+        }
+      }
     }
   }
 }
