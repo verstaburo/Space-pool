@@ -156,7 +156,11 @@
                     <div class="search-filter__popup" data-filter="advancedSearch">
                         <div class="advanced-filter">
                             <div class="advanced-filter__head">
-                                <button class="link link_icon link_icon_gray link_no-shadow link_bold link_icon_mid-small advanced-filter__clear js-simple-reset" type="reset" data-target-form="location-filter-big">
+                                <button class="hide-button hide-button_small js-simple-reset hide-from-sm" type="reset" data-target-form="location-filter-big">
+                                    <div class="hide-button__text">Clear filter</div>
+                                    <svg class="hide-button__icon"><use xlink:href="assets/images/icon.svg#icon_cross"></use></svg>
+                                </button>
+                                <button class="link link_icon link_icon_gray link_no-shadow link_bold link_icon_mid-small advanced-filter__clear js-simple-reset hide-sm" type="reset" data-target-form="location-filter-big">
                                     <svg class="link__icon link__icon_round-cross"><use xlink:href="assets/images/icon.svg#icon_round-cross"></use></svg>
                                     <span class="link__text">Clear filter</span>
                                 </button>
@@ -166,64 +170,97 @@
                             </div>
                             <div class="advanced-filter__scrollblock js-scrollbar">
                                 <section class="form form_white advanced-filter__form">
+                                    <fieldset class="form__section form__section_underline form__section_mg50 form__section_pb hide-from-md">
+                                        <div class="form__header form__header_mg32">
+                                            <h3 class="form__title form__title_small2 form__title_mg0">Location area</h3>
+                                            <div class="form__text form__text_small form__text_mg-2">Specifty your location. Choose the area to search.</div>
+                                        </div>
+                                        <div class="form__content">
+                                            <div class="form__wrapper form__wrapper_w368">
+                                                <label class="form-box form-box_fz17 form-box_bold form-box_sh">
+                                                    <select class="select js-select-input2" name="area2">
+                                                        <option value="anywhere" selected="selected">Anywhere</option>
+                                                        <option value="Central London">Central London</option>
+                                                        <option value="Stratford Area">Stratford Area</option>
+                                                        <option value="Canary Warf">Canary Warf</option>
+                                                        <option value="Ilford">Ilford</option>
+                                                        <option value="Brixton">Brixton</option>
+                                                        <option value="Richmond">Richmond</option>
+                                                    </select>
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </fieldset>
                                     <fieldset class="form__section form__section_underline form__section_mg50 form__section_pb">
                                         <div class="form__header form__header_mg40">
-                                            <h3 class="form__title form__title_small form__title_mg0">Number of seats</h3>
-                                            <div class="form__text form__text_mg-2">Total number of people to be accommodated in the room</div>
+                                            <h3 class="form__title form__title_small2 form__title_mg0">Number of seats</h3>
+                                            <div class="form__text form__text_small form__text_mg-2">Total number of people to be accommodated in the room</div>
                                         </div>
                                         <div class="form__content">
                                             <ul class="form__list form__list_line">
                                                 <li class="form__item">
-                                                    <label class="checkradio checkradio_nobox2">
-                                                        <input class="checkradio__input" name="seats" value="1" checked="checked" type="radio" />
-                                                        <span class="checkradio__box"></span>
-                                                        <span class="checkradio__content">
-                                                            <span class="checkradio__text">1 - 5</span>
+                                                    <label class="checkbox checkbox_nobox2">
+                                                        <input class="checkbox__input" name="seats" value="1" checked="checked" type="checkbox" />
+                                                        <span class="checkbox__box">
+                                                            <svg class="checkbox__icon"><use xlink:href="assets/images/icon.svg#icon_check"></use></svg>
+                                                        </span>
+                                                        <span class="checkbox__content">
+                                                            <span class="checkbox__text">1 - 5</span>
                                                         </span>
                                                     </label>
                                                 </li>
                                                 <li class="form__item">
-                                                    <label class="checkradio checkradio_nobox2">
-                                                        <input class="checkradio__input" name="seats" value="2" type="radio" />
-                                                        <span class="checkradio__box"></span>
-                                                        <span class="checkradio__content">
-                                                            <span class="checkradio__text">5 - 10</span>
+                                                    <label class="checkbox checkbox_nobox2">
+                                                        <input class="checkbox__input" name="seats" value="2" type="checkbox" />
+                                                        <span class="checkbox__box">
+                                                            <svg class="checkbox__icon"><use xlink:href="assets/images/icon.svg#icon_check"></use></svg>
+                                                        </span>
+                                                        <span class="checkbox__content">
+                                                            <span class="checkbox__text">5 - 10</span>
                                                         </span>
                                                     </label>
                                                 </li>
                                                 <li class="form__item">
-                                                    <label class="checkradio checkradio_nobox2">
-                                                        <input class="checkradio__input" name="seats" value="3" type="radio" />
-                                                        <span class="checkradio__box"></span>
-                                                        <span class="checkradio__content">
-                                                            <span class="checkradio__text">10 - 20</span>
+                                                    <label class="checkbox checkbox_nobox2">
+                                                        <input class="checkbox__input" name="seats" value="3" type="checkbox" />
+                                                        <span class="checkbox__box">
+                                                            <svg class="checkbox__icon"><use xlink:href="assets/images/icon.svg#icon_check"></use></svg>
+                                                        </span>
+                                                        <span class="checkbox__content">
+                                                            <span class="checkbox__text">10 - 20</span>
                                                         </span>
                                                     </label>
                                                 </li>
                                                 <li class="form__item">
-                                                    <label class="checkradio checkradio_nobox2">
-                                                        <input class="checkradio__input" name="seats" value="4" type="radio" />
-                                                        <span class="checkradio__box"></span>
-                                                        <span class="checkradio__content">
-                                                            <span class="checkradio__text">20 - 40</span>
+                                                    <label class="checkbox checkbox_nobox2">
+                                                        <input class="checkbox__input" name="seats" value="4" type="checkbox" />
+                                                        <span class="checkbox__box">
+                                                            <svg class="checkbox__icon"><use xlink:href="assets/images/icon.svg#icon_check"></use></svg>
+                                                        </span>
+                                                        <span class="checkbox__content">
+                                                            <span class="checkbox__text">20 - 40</span>
                                                         </span>
                                                     </label>
                                                 </li>
                                                 <li class="form__item">
-                                                    <label class="checkradio checkradio_nobox2">
-                                                        <input class="checkradio__input" name="seats" value="5" type="radio" />
-                                                        <span class="checkradio__box"></span>
-                                                        <span class="checkradio__content">
-                                                            <span class="checkradio__text">40 - 60</span>
+                                                    <label class="checkbox checkbox_nobox2">
+                                                        <input class="checkbox__input" name="seats" value="5" type="checkbox" />
+                                                        <span class="checkbox__box">
+                                                            <svg class="checkbox__icon"><use xlink:href="assets/images/icon.svg#icon_check"></use></svg>
+                                                        </span>
+                                                        <span class="checkbox__content">
+                                                            <span class="checkbox__text">40 - 60</span>
                                                         </span>
                                                     </label>
                                                 </li>
                                                 <li class="form__item">
-                                                    <label class="checkradio checkradio_nobox2">
-                                                        <input class="checkradio__input" name="seats" value="6" type="radio" />
-                                                        <span class="checkradio__box"></span>
-                                                        <span class="checkradio__content">
-                                                            <span class="checkradio__text">More than 60</span>
+                                                    <label class="checkbox checkbox_nobox2">
+                                                        <input class="checkbox__input" name="seats" value="6" type="checkbox" />
+                                                        <span class="checkbox__box">
+                                                            <svg class="checkbox__icon"><use xlink:href="assets/images/icon.svg#icon_check"></use></svg>
+                                                        </span>
+                                                        <span class="checkbox__content">
+                                                            <span class="checkbox__text">More than 60</span>
                                                         </span>
                                                     </label>
                                                 </li>
@@ -232,8 +269,8 @@
                                     </fieldset>
                                     <fieldset class="form__section form__section_underline form__section_mg50 form__section_pb46">
                                         <div class="form__header form__header_mg47">
-                                            <h3 class="form__title form__title_small form__title_mg0">Price gap</h3>
-                                            <div class="form__text form__text_mg-2">Adjust minimum and maximum price</div>
+                                            <h3 class="form__title form__title_small2 form__title_mg0">Price gap</h3>
+                                            <div class="form__text form__text_small form__text_mg-2">Adjust minimum and maximum price</div>
                                         </div>
                                         <div class="form__content">
                                             <div class="form__warapper">
@@ -245,16 +282,16 @@
                                                         <div class="range__value range__value_max">Max.
                                                             <span data-range-max></span> &pound;/mo</div>
                                                     </div>
-                                                    <input type="hidden" name="minGap" data-range-input-min="data-range-input-min" />
-                                                    <input type="hidden" name="maxGap" data-range-input-max="data-range-input-max" />
+                                                    <input type="hidden" name="minGap" value="180" data-range-input-min="data-range-input-min" />
+                                                    <input type="hidden" name="maxGap" value="65000" data-range-input-max="data-range-input-max" />
                                                 </div>
                                             </div>
                                         </div>
                                     </fieldset>
                                     <fieldset class="form__section form__section_underline form__section_mg52 form__section_pb">
-                                        <div class="form__header form__header_mg35">
-                                            <h3 class="form__title form__title_small form__title_mg0">Available from</h3>
-                                            <div class="form__text form__text_mg-2">Set date when you want to rental period start</div>
+                                        <div class="form__header form__header_mg35-2">
+                                            <h3 class="form__title form__title_small2 form__title_mg0">Available from</h3>
+                                            <div class="form__text form__text_small form__text_mg-2">Set date when you want to rental period start</div>
                                         </div>
                                         <div class="form__content">
                                             <div class="form__wrapper form__wrapper_w368">
@@ -266,14 +303,14 @@
                                         </div>
                                     </fieldset>
                                     <fieldset class="form__section form__section_underline form__section_mg50 form__section_pb72">
-                                        <div class="form__header form__header_mg46">
-                                            <h3 class="form__title form__title_small form__title_mg0">Business Facilities</h3>
-                                            <div class="form__text form__text_mg-2">Set date when you want to rental period start</div>
+                                        <div class="form__header form__header_mg46-2">
+                                            <h3 class="form__title form__title_small2 form__title_mg0">Business Facilities</h3>
+                                            <div class="form__text form__text_small form__text_mg-2">Set date when you want to rental period start</div>
                                         </div>
                                         <div class="form__content">
                                             <ul class="form__list form__list_columns">
                                                 <li class="form__item">
-                                                    <label class="checkbox">
+                                                    <label class="checkbox checkbox_sm-small">
                                                         <input class="checkbox__input" name="busFacilities" value="1" type="checkbox" />
                                                         <span class="checkbox__box">
                                                             <svg class="checkbox__icon"><use xlink:href="assets/images/icon.svg#icon_check"></use></svg>
@@ -282,7 +319,7 @@
                                                     </label>
                                                 </li>
                                                 <li class="form__item">
-                                                    <label class="checkbox">
+                                                    <label class="checkbox checkbox_sm-small">
                                                         <input class="checkbox__input" name="busFacilities" value="6" type="checkbox" />
                                                         <span class="checkbox__box">
                                                             <svg class="checkbox__icon"><use xlink:href="assets/images/icon.svg#icon_check"></use></svg>
@@ -291,7 +328,7 @@
                                                     </label>
                                                 </li>
                                                 <li class="form__item">
-                                                    <label class="checkbox">
+                                                    <label class="checkbox checkbox_sm-small">
                                                         <input class="checkbox__input" name="busFacilities" value="11" type="checkbox" />
                                                         <span class="checkbox__box">
                                                             <svg class="checkbox__icon"><use xlink:href="assets/images/icon.svg#icon_check"></use></svg>
@@ -300,7 +337,7 @@
                                                     </label>
                                                 </li>
                                                 <li class="form__item">
-                                                    <label class="checkbox">
+                                                    <label class="checkbox checkbox_sm-small">
                                                         <input class="checkbox__input" name="busFacilities" value="2" type="checkbox" />
                                                         <span class="checkbox__box">
                                                             <svg class="checkbox__icon"><use xlink:href="assets/images/icon.svg#icon_check"></use></svg>
@@ -309,7 +346,7 @@
                                                     </label>
                                                 </li>
                                                 <li class="form__item">
-                                                    <label class="checkbox">
+                                                    <label class="checkbox checkbox_sm-small">
                                                         <input class="checkbox__input" name="busFacilities" value="7" type="checkbox" />
                                                         <span class="checkbox__box">
                                                             <svg class="checkbox__icon"><use xlink:href="assets/images/icon.svg#icon_check"></use></svg>
@@ -318,7 +355,7 @@
                                                     </label>
                                                 </li>
                                                 <li class="form__item">
-                                                    <label class="checkbox">
+                                                    <label class="checkbox checkbox_sm-small">
                                                         <input class="checkbox__input" name="busFacilities" value="12" type="checkbox" />
                                                         <span class="checkbox__box">
                                                             <svg class="checkbox__icon"><use xlink:href="assets/images/icon.svg#icon_check"></use></svg>
@@ -327,7 +364,7 @@
                                                     </label>
                                                 </li>
                                                 <li class="form__item">
-                                                    <label class="checkbox">
+                                                    <label class="checkbox checkbox_sm-small">
                                                         <input class="checkbox__input" name="busFacilities" value="3" type="checkbox" />
                                                         <span class="checkbox__box">
                                                             <svg class="checkbox__icon"><use xlink:href="assets/images/icon.svg#icon_check"></use></svg>
@@ -336,7 +373,7 @@
                                                     </label>
                                                 </li>
                                                 <li class="form__item">
-                                                    <label class="checkbox">
+                                                    <label class="checkbox checkbox_sm-small">
                                                         <input class="checkbox__input" name="busFacilities" value="8" type="checkbox" />
                                                         <span class="checkbox__box">
                                                             <svg class="checkbox__icon"><use xlink:href="assets/images/icon.svg#icon_check"></use></svg>
@@ -345,7 +382,7 @@
                                                     </label>
                                                 </li>
                                                 <li class="form__item">
-                                                    <label class="checkbox">
+                                                    <label class="checkbox checkbox_sm-small">
                                                         <input class="checkbox__input" name="busFacilities" value="13" type="checkbox" />
                                                         <span class="checkbox__box">
                                                             <svg class="checkbox__icon"><use xlink:href="assets/images/icon.svg#icon_check"></use></svg>
@@ -354,7 +391,7 @@
                                                     </label>
                                                 </li>
                                                 <li class="form__item">
-                                                    <label class="checkbox">
+                                                    <label class="checkbox checkbox_sm-small">
                                                         <input class="checkbox__input" name="busFacilities" value="4" type="checkbox" />
                                                         <span class="checkbox__box">
                                                             <svg class="checkbox__icon"><use xlink:href="assets/images/icon.svg#icon_check"></use></svg>
@@ -363,7 +400,7 @@
                                                     </label>
                                                 </li>
                                                 <li class="form__item">
-                                                    <label class="checkbox">
+                                                    <label class="checkbox checkbox_sm-small">
                                                         <input class="checkbox__input" name="busFacilities" value="9" type="checkbox" />
                                                         <span class="checkbox__box">
                                                             <svg class="checkbox__icon"><use xlink:href="assets/images/icon.svg#icon_check"></use></svg>
@@ -372,7 +409,7 @@
                                                     </label>
                                                 </li>
                                                 <li class="form__item">
-                                                    <label class="checkbox">
+                                                    <label class="checkbox checkbox_sm-small">
                                                         <input class="checkbox__input" name="busFacilities" value="14" type="checkbox" />
                                                         <span class="checkbox__box">
                                                             <svg class="checkbox__icon"><use xlink:href="assets/images/icon.svg#icon_check"></use></svg>
@@ -381,7 +418,7 @@
                                                     </label>
                                                 </li>
                                                 <li class="form__item">
-                                                    <label class="checkbox">
+                                                    <label class="checkbox checkbox_sm-small">
                                                         <input class="checkbox__input" name="busFacilities" value="5" type="checkbox" />
                                                         <span class="checkbox__box">
                                                             <svg class="checkbox__icon"><use xlink:href="assets/images/icon.svg#icon_check"></use></svg>
@@ -390,7 +427,7 @@
                                                     </label>
                                                 </li>
                                                 <li class="form__item">
-                                                    <label class="checkbox">
+                                                    <label class="checkbox checkbox_sm-small">
                                                         <input class="checkbox__input" name="busFacilities" value="10" type="checkbox" />
                                                         <span class="checkbox__box">
                                                             <svg class="checkbox__icon"><use xlink:href="assets/images/icon.svg#icon_check"></use></svg>
@@ -399,7 +436,7 @@
                                                     </label>
                                                 </li>
                                                 <li class="form__item">
-                                                    <label class="checkbox">
+                                                    <label class="checkbox checkbox_sm-small">
                                                         <input class="checkbox__input" name="busFacilities" value="15" type="checkbox" />
                                                         <span class="checkbox__box">
                                                             <svg class="checkbox__icon"><use xlink:href="assets/images/icon.svg#icon_check"></use></svg>
@@ -411,14 +448,14 @@
                                         </div>
                                     </fieldset>
                                     <fieldset class="form__section form__section_mg50 form__section_pb72">
-                                        <div class="form__header form__header_mg49">
-                                            <h3 class="form__title form__title_small form__title_mg0">Additional Facilities</h3>
-                                            <div class="form__text form__text_mg-2">Set date when you want to rental period start</div>
+                                        <div class="form__header form__header_mg49-2">
+                                            <h3 class="form__title form__title_small2 form__title_mg0">Additional Facilities</h3>
+                                            <div class="form__text form__text_small form__text_mg-2">Set date when you want to rental period start</div>
                                         </div>
                                         <div class="form__content">
-                                            <ul class="form__list form__list_columns">
+                                            <ul class="form__list form__list_columns form__list_columns_sm2">
                                                 <li class="form__item">
-                                                    <label class="checkbox">
+                                                    <label class="checkbox checkbox_sm-small">
                                                         <input class="checkbox__input" name="addFacilities" value="1" type="checkbox" />
                                                         <span class="checkbox__box">
                                                             <svg class="checkbox__icon"><use xlink:href="assets/images/icon.svg#icon_check"></use></svg>
@@ -427,7 +464,7 @@
                                                     </label>
                                                 </li>
                                                 <li class="form__item">
-                                                    <label class="checkbox">
+                                                    <label class="checkbox checkbox_sm-small">
                                                         <input class="checkbox__input" name="addFacilities" value="7" type="checkbox" />
                                                         <span class="checkbox__box">
                                                             <svg class="checkbox__icon"><use xlink:href="assets/images/icon.svg#icon_check"></use></svg>
@@ -436,7 +473,7 @@
                                                     </label>
                                                 </li>
                                                 <li class="form__item">
-                                                    <label class="checkbox">
+                                                    <label class="checkbox checkbox_sm-small">
                                                         <input class="checkbox__input" name="addFacilities" value="13" type="checkbox" />
                                                         <span class="checkbox__box">
                                                             <svg class="checkbox__icon"><use xlink:href="assets/images/icon.svg#icon_check"></use></svg>
@@ -445,7 +482,7 @@
                                                     </label>
                                                 </li>
                                                 <li class="form__item">
-                                                    <label class="checkbox">
+                                                    <label class="checkbox checkbox_sm-small">
                                                         <input class="checkbox__input" name="addFacilities" value="2" type="checkbox" />
                                                         <span class="checkbox__box">
                                                             <svg class="checkbox__icon"><use xlink:href="assets/images/icon.svg#icon_check"></use></svg>
@@ -454,7 +491,7 @@
                                                     </label>
                                                 </li>
                                                 <li class="form__item">
-                                                    <label class="checkbox">
+                                                    <label class="checkbox checkbox_sm-small">
                                                         <input class="checkbox__input" name="addFacilities" value="8" type="checkbox" />
                                                         <span class="checkbox__box">
                                                             <svg class="checkbox__icon"><use xlink:href="assets/images/icon.svg#icon_check"></use></svg>
@@ -463,7 +500,7 @@
                                                     </label>
                                                 </li>
                                                 <li class="form__item">
-                                                    <label class="checkbox">
+                                                    <label class="checkbox checkbox_sm-small">
                                                         <input class="checkbox__input" name="addFacilities" value="14" type="checkbox" />
                                                         <span class="checkbox__box">
                                                             <svg class="checkbox__icon"><use xlink:href="assets/images/icon.svg#icon_check"></use></svg>
@@ -472,7 +509,7 @@
                                                     </label>
                                                 </li>
                                                 <li class="form__item">
-                                                    <label class="checkbox">
+                                                    <label class="checkbox checkbox_sm-small">
                                                         <input class="checkbox__input" name="addFacilities" value="3" type="checkbox" />
                                                         <span class="checkbox__box">
                                                             <svg class="checkbox__icon"><use xlink:href="assets/images/icon.svg#icon_check"></use></svg>
@@ -481,7 +518,7 @@
                                                     </label>
                                                 </li>
                                                 <li class="form__item">
-                                                    <label class="checkbox">
+                                                    <label class="checkbox checkbox_sm-small">
                                                         <input class="checkbox__input" name="addFacilities" value="9" type="checkbox" />
                                                         <span class="checkbox__box">
                                                             <svg class="checkbox__icon"><use xlink:href="assets/images/icon.svg#icon_check"></use></svg>
@@ -490,7 +527,7 @@
                                                     </label>
                                                 </li>
                                                 <li class="form__item">
-                                                    <label class="checkbox">
+                                                    <label class="checkbox checkbox_sm-small">
                                                         <input class="checkbox__input" name="addFacilities" value="15" type="checkbox" />
                                                         <span class="checkbox__box">
                                                             <svg class="checkbox__icon"><use xlink:href="assets/images/icon.svg#icon_check"></use></svg>
@@ -499,7 +536,7 @@
                                                     </label>
                                                 </li>
                                                 <li class="form__item">
-                                                    <label class="checkbox">
+                                                    <label class="checkbox checkbox_sm-small">
                                                         <input class="checkbox__input" name="addFacilities" value="4" type="checkbox" />
                                                         <span class="checkbox__box">
                                                             <svg class="checkbox__icon"><use xlink:href="assets/images/icon.svg#icon_check"></use></svg>
@@ -508,7 +545,7 @@
                                                     </label>
                                                 </li>
                                                 <li class="form__item">
-                                                    <label class="checkbox">
+                                                    <label class="checkbox checkbox_sm-small">
                                                         <input class="checkbox__input" name="addFacilities" value="10" type="checkbox" />
                                                         <span class="checkbox__box">
                                                             <svg class="checkbox__icon"><use xlink:href="assets/images/icon.svg#icon_check"></use></svg>
@@ -517,7 +554,7 @@
                                                     </label>
                                                 </li>
                                                 <li class="form__item">
-                                                    <label class="checkbox">
+                                                    <label class="checkbox checkbox_sm-small">
                                                         <input class="checkbox__input" name="addFacilities" value="16" type="checkbox" />
                                                         <span class="checkbox__box">
                                                             <svg class="checkbox__icon"><use xlink:href="assets/images/icon.svg#icon_check"></use></svg>
@@ -526,7 +563,7 @@
                                                     </label>
                                                 </li>
                                                 <li class="form__item">
-                                                    <label class="checkbox">
+                                                    <label class="checkbox checkbox_sm-small">
                                                         <input class="checkbox__input" name="addFacilities" value="5" type="checkbox" />
                                                         <span class="checkbox__box">
                                                             <svg class="checkbox__icon"><use xlink:href="assets/images/icon.svg#icon_check"></use></svg>
@@ -535,7 +572,7 @@
                                                     </label>
                                                 </li>
                                                 <li class="form__item">
-                                                    <label class="checkbox">
+                                                    <label class="checkbox checkbox_sm-small">
                                                         <input class="checkbox__input" name="addFacilities" value="11" type="checkbox" />
                                                         <span class="checkbox__box">
                                                             <svg class="checkbox__icon"><use xlink:href="assets/images/icon.svg#icon_check"></use></svg>
@@ -544,7 +581,7 @@
                                                     </label>
                                                 </li>
                                                 <li class="form__item">
-                                                    <label class="checkbox">
+                                                    <label class="checkbox checkbox_sm-small">
                                                         <input class="checkbox__input" name="addFacilities" value="6" type="checkbox" />
                                                         <span class="checkbox__box">
                                                             <svg class="checkbox__icon"><use xlink:href="assets/images/icon.svg#icon_check"></use></svg>
@@ -553,7 +590,7 @@
                                                     </label>
                                                 </li>
                                                 <li class="form__item">
-                                                    <label class="checkbox">
+                                                    <label class="checkbox checkbox_sm-small">
                                                         <input class="checkbox__input" name="addFacilities" value="12" type="checkbox" />
                                                         <span class="checkbox__box">
                                                             <svg class="checkbox__icon"><use xlink:href="assets/images/icon.svg#icon_check"></use></svg>
@@ -564,24 +601,13 @@
                                             </ul>
                                         </div>
                                     </fieldset>
-                                    <div class="form-panel form-panel_pd0 form-panel_links form__panel form__panel_mgt-10">
-                                        <div class="form-panel__links">
-                                            <button class="link link_icon link_back link_bold link_no-shadow form-panel__link js-close-advanced-filter js-simple-reset" type="button" data-target-form="location-filter-big">
-                                                <svg class="link__icon link__icon_select-arrow"><use xlink:href="assets/images/icon.svg#icon_select-arrow"></use></svg>
-                                                <span class="link__text">Cancel</span>
-                                            </button>
-                                        </div>
-                                        <button class="button form-panel__button form-panel__button_w360" type="submit">
-                                            <span class="button__text">Show results: 320</span>
-                                        </button>
-                                    </div>
                                 </section>
                             </div>
                         </div>
                     </div>
                     <div class="search-filter__popup" data-filter="workplace">
-                        <div class="advanced-filter">
-                            <div class="advanced-filter__head">
+                        <div class="advanced-filter advanced-filter_workplace">
+                            <div class="advanced-filter__head advanced-filter__head_transparent">
                                 <button class="advanced-filter__close js-close-advanced-filter" type="button">
                                     <svg class="advanced-filter__close-icon"><use xlink:href="assets/images/icon.svg#icon_cross"></use></svg>
                                 </button>
@@ -590,14 +616,58 @@
                                 <section class="form form_white advanced-filter__form">
                                     <fieldset class="form__section">
                                         <div class="form__header form__header_mg40">
-                                            <h3 class="form__title form__title_small form__title_mg0 hide-sm">Workplace type</h3>
-                                            <div class="form__text form__text_mg-2">Please choose workplace type you prefer</div>
+                                            <h3 class="form__title form__title_small2 form__title_mg0 hide-sm">Workplace type</h3>
+                                            <div class="form__text form__text_small2 form__text_mg-2">Please choose workplace type you prefer</div>
                                         </div>
-                                        <div class="form__content"></div>
+                                        <div class="form__content">
+                                            <ul class="places">
+                                                <li class="places__place">
+                                                    <label class="button-radio button-radio_orange places__radio">
+                                                        <input class="button-radio__input" name="workplace" value="hd" type="radio" checked="checked" />
+                                                        <span class="button-radio__content">
+                                                            <span class="button-radio__text">HOT DESK</span>
+                                                        </span>
+                                                    </label>
+                                                </li>
+                                                <li class="places__place">
+                                                    <label class="button-radio button-radio_red places__radio">
+                                                        <input class="button-radio__input" name="workplace" value="dd" type="radio" />
+                                                        <span class="button-radio__content">
+                                                            <span class="button-radio__text">DEDICATED DESK</span>
+                                                        </span>
+                                                    </label>
+                                                </li>
+                                                <li class="places__place">
+                                                    <label class="button-radio button-radio_blue places__radio">
+                                                        <input class="button-radio__input" name="workplace" value="mr" type="radio" />
+                                                        <span class="button-radio__content">
+                                                            <span class="button-radio__text">MEETING ROOM</span>
+                                                        </span>
+                                                    </label>
+                                                </li>
+                                                <li class="places__place">
+                                                    <label class="button-radio button-radio_green places__radio">
+                                                        <input class="button-radio__input" name="workplace" value="os" type="radio" />
+                                                        <span class="button-radio__content">
+                                                            <span class="button-radio__text">OFFICE SPACE</span>
+                                                        </span>
+                                                    </label>
+                                                </li>
+                                            </ul>
+                                        </div>
                                     </fieldset>
                                 </section>
                             </div>
                         </div>
+                    </div>
+                    <div class="form-panel search-filter__panel is-always-fixed">
+                        <button class="link link_icon link_back link_bold link_no-shadow form-panel__link js-close-advanced-filter js-simple-reset" type="button" data-target-form="location-filter-big">
+                            <svg class="link__icon link__icon_select-arrow"><use xlink:href="assets/images/icon.svg#icon_select-arrow"></use></svg>
+                            <span class="link__text">Cancel</span>
+                        </button>
+                        <button class="button button_mob-smaller form-panel__button form-panel__button_w360" type="submit">
+                            <span class="button__text">Show results: 320</span>
+                        </button>
                     </div>
                     <section class="filter filter_search search-filter__filter">
                         <div class="filter__content">
@@ -629,6 +699,7 @@
                             <div class="filter__wrapper">
                                 <div class="toggle filter__toggle js-show-advanced-filter" data-target-filter="advancedSearch">
                                     <div class="toggle__text">Advanced search</div>
+                                    <div class="toggle__counter">2</div>
                                     <svg class="toggle__icon"><use xlink:href="assets/images/icon.svg#icon_select-arrow"></use></svg>
                                 </div>
                             </div>
