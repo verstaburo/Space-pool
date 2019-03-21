@@ -16,6 +16,7 @@
   @include screen('sm') {
     top: 74px;
     left: 0;
+    border-bottom-width: 0;
   }
 
   &__overlay {
@@ -112,6 +113,14 @@
         position: relative;
         padding-left: 10px !important;
         height: 10px;
+        transition: opacity $ease-main;
+        opacity: 0;
+        pointer-events: none;
+
+        &.is-visible {
+          opacity: 1;
+          pointer-events: auto;
+        }
       }
 
       .link {
@@ -176,18 +185,37 @@
   }
 
   &__panel {
+    position: fixed;
     visibility: hidden;
     opacity: 0;
     transition: opacity $ease-main;
     pointer-events: none;
+    z-index: 15;
+    width: 100%;
+    bottom: 0;
+    left: 0;
 
-    &.is-always-fixed {
-      z-index: 15;
+    &-wrapper {
+      width: 100%;
     }
 
-    .is-login &.is-always-fixed {
+    .form-panel {
+      margin-left: -30px;
+      width: 60.5%;
+
+      @include screen('lg') {
+        margin-left: -20px;
+        width: 70%;
+      }
+
       @include screen('md') {
-        bottom: 0;
+        margin-left: 0;
+        width: 100%;
+      }
+
+      @include screen('sm') {
+        margin-left: -10px;
+        width: calc(100% + 20px);
       }
     }
 

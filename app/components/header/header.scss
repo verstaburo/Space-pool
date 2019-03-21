@@ -34,6 +34,18 @@
     border-bottom-color: $color-border-light;
   }
 
+  &_no-mob-border {
+    @include screen('sm') {
+      border-bottom-color: transparent;
+    }
+
+    &.is-short {
+      @include screen('sm') {
+        border-bottom-color: $color-border-light;
+      }
+    }
+  }
+
   .container {
     display: flex;
 

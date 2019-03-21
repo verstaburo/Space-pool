@@ -7,6 +7,7 @@ export default function advancedFilter() {
     const weightsEl = $(filterEl).find('[data-current-weight]');
     const counter = $(`[data-counter-for-filter="${filter}"]`);
     const weights = [];
+    const mobileReset = $('[data-mobile-hidden-reset]');
     $(weightsEl).each((i, el) => {
       weights.push(parseInt($(el).attr('data-current-weight'), 10));
     });
@@ -15,8 +16,10 @@ export default function advancedFilter() {
     $(counter).text(totalWeight);
     if (totalWeight > 0) {
       $(counter).addClass('is-selected');
+      $(mobileReset).addClass('is-visible');
     } else {
       $(counter).removeClass('is-selected');
+      $(mobileReset).removeClass('is-visible');
     }
   }
 
@@ -25,11 +28,13 @@ export default function advancedFilter() {
     const filterEl = $(`[data-filter="${filter}"]`);
     const weightsEl = $(filterEl).find('[data-current-weight]');
     const counter = $(`[data-counter-for-filter="${filter}"]`);
+    const mobileReset = $('[data-mobile-hidden-reset]');
     $(weightsEl).each((i, el) => {
       $(el).attr('data-current-weight', 0);
     });
     $(counter).text('0');
     $(counter).removeClass('is-selected');
+    $(mobileReset).removeClass('is-visible');
   }
 
   $(document).on('change', '[data-filter] input, [data-filter] select', (evt) => {
@@ -47,7 +52,6 @@ export default function advancedFilter() {
       const weightEl = $(self).closest('[data-current-weight]');
       $(weightEl).attr('data-current-weight', '1');
       const filter = $(weightEl).attr('data-weight-for-filter');
-      console.log(filter);
       weightGet(filter);
     } else {
       const weightEl = $(self).closest('[data-current-weight]');
