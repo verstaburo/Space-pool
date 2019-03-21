@@ -58,6 +58,7 @@ import uploader from '../blocks/uploader/uploader';
 import toggleFilter from '../components/search-filter/search-filter';
 import truncateBlocks from '../blocks/js-functions/lineClamp';
 import mapManipulations from '../components/search-map/search-map';
+import advancedSearch from '../components/advanced-filter/advanced-filter';
 
 const $ = window.$;
 
@@ -115,4 +116,5 @@ $(() => {
   mapManipulations();
   truncateBlocks();
   toggleFilter();
+  advancedSearch();
 });

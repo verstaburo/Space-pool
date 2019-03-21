@@ -3,13 +3,13 @@ mixin advanced-filter()
     - var checkboxes = getData('check-facilities-bus.json')
     - var checkboxes2 = getData('check-facilities-add.json')
     +e.head
-      +hide-button('button')(type="reset"  data-target-form="location-filter-big")._small.js-simple-reset.hide-from-sm Clear filter
-      +link-icon('round-cross', 'button')(type="reset"  data-target-form="location-filter-big")._icon_gray._no-shadow._bold._icon_mid-small.__clear.js-simple-reset.hide-sm Clear filter
+      +hide-button('button')(type="reset"  data-target-form="location-filter-big" data-reset-weights-for-filter="advancedSearch")._small.js-simple-reset.hide-from-sm Clear filter
+      +link-icon('round-cross', 'button')(type="reset"  data-target-form="location-filter-big" data-reset-weights-for-filter="advancedSearch")._icon_gray._no-shadow._bold._icon_mid-small.__clear.js-simple-reset.hide-sm Clear filter
       +e.BUTTON.close.js-close-advanced-filter(type="button")
         +icon('cross').close-icon
     +e.scrollblock.js-scrollbar
       +b.SECTION.form_white.__form
-        +form-section._underline._mg50._pb.hide-from-md
+        +form-section._underline._mg50._pb.hide-from-md(data-current-weight="0" data-weight-for-filter="advancedSearch")
           +form-section-header._mg32
             +form-section-title._small2._mg0 Location area
             +form-section-text._small._mg-2 Specifty your location. Choose the area to search.
@@ -24,7 +24,7 @@ mixin advanced-filter()
                   option(value="Ilford") Ilford
                   option(value="Brixton") Brixton
                   option(value="Richmond") Richmond
-        +form-section._underline._mg50._pb
+        +form-section._underline._mg50._pb(data-current-weight="0" data-weight-for-filter="advancedSearch")
           +form-section-header._mg40
             +form-section-title._small2._mg0 Number of seats
             +form-section-text._small._mg-2 Total number of people to be accommodated in the room
@@ -48,7 +48,7 @@ mixin advanced-filter()
               +e.LI.item
                 +checkbox('seats', '6')._nobox2
                   +e.text More than 60
-        +form-section._underline._mg50._pb46
+        +form-section._underline._mg50._pb46(data-current-weight="0" data-weight-for-filter="advancedSearch")
           +form-section-header._mg47
             +form-section-title._small2._mg0 Price gap
             +form-section-text._small._mg-2 Adjust minimum and maximum price
@@ -57,7 +57,7 @@ mixin advanced-filter()
               +range(true)(data-start="[180, 65000]" data-connect="[false,true,false]" data-min="0" data-max="65000" data-step="10" data-margin="1000")
                 +e.INPUT(type="hidden" name="minGap" value="180" data-range-input-min)
                 +e.INPUT(type="hidden" name="maxGap" value="65000" data-range-input-max)
-        +form-section._underline._mg52._pb
+        +form-section._underline._mg52._pb(data-current-weight="0" data-weight-for-filter="advancedSearch")
           +form-section-header._mg35-2
             +form-section-title._small2._mg0 Available from
             +form-section-text._small._mg-2 Set date when you want to rental period start
@@ -65,7 +65,7 @@ mixin advanced-filter()
             +e.wrapper_w368
               +form-box('', 'calendar2')._fz17._bold._sh
                 +input.input_fz17.input_bold(name="startDate" placeholder="Choose date" value="March 5, 2018" readonly).js-datepicker2
-        +form-section._underline._mg50._pb72
+        +form-section._underline._mg50._pb72(data-current-weight="0" data-weight-for-filter="advancedSearch")
           +form-section-header._mg46-2
             +form-section-title._small2._mg0 Business Facilities
             +form-section-text._small._mg-2 Set date when you want to rental period start
@@ -74,7 +74,7 @@ mixin advanced-filter()
               each item in checkboxes
                 +e.LI.item
                   +checkbox(item.name, item.value)._sm-small!=item.title
-        +form-section._mg50._pb72
+        +form-section._mg50._pb72(data-current-weight="0" data-weight-for-filter="advancedSearch")
           +form-section-header._mg49-2
             +form-section-title._small2._mg0 Additional Facilities
             +form-section-text._small._mg-2 Set date when you want to rental period start

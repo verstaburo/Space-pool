@@ -361,6 +361,7 @@ export function sliders() {
     const inputs = [$('[data-range-input-min]'), $('[data-range-input-max]')];
     range.noUiSlider.on('update', (values, handle) => {
       inputs[handle].val(parseInt(values[handle], 10));
+      inputs[handle].trigger('change');
     });
   });
 }
@@ -386,6 +387,10 @@ export function datepicker() {
       language: 'en',
       dateFormat: 'dd MM yyyy',
       autoClose: true,
+      onSelect(a, b, inst) {
+        const self = inst.el;
+        $(self).trigger('change');
+      },
     });
   });
 
@@ -396,6 +401,10 @@ export function datepicker() {
       language: 'en',
       dateFormat: 'MM d, yyyy',
       autoClose: true,
+      onSelect(a, b, inst) {
+        const self = inst.el;
+        $(self).trigger('change');
+      },
     });
   });
 

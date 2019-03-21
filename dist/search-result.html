@@ -156,11 +156,11 @@
                     <div class="search-filter__popup" data-filter="advancedSearch">
                         <div class="advanced-filter">
                             <div class="advanced-filter__head">
-                                <button class="hide-button hide-button_small js-simple-reset hide-from-sm" type="reset" data-target-form="location-filter-big">
+                                <button class="hide-button hide-button_small js-simple-reset hide-from-sm" type="reset" data-target-form="location-filter-big" data-reset-weights-for-filter="advancedSearch">
                                     <div class="hide-button__text">Clear filter</div>
                                     <svg class="hide-button__icon"><use xlink:href="assets/images/icon.svg#icon_cross"></use></svg>
                                 </button>
-                                <button class="link link_icon link_icon_gray link_no-shadow link_bold link_icon_mid-small advanced-filter__clear js-simple-reset hide-sm" type="reset" data-target-form="location-filter-big">
+                                <button class="link link_icon link_icon_gray link_no-shadow link_bold link_icon_mid-small advanced-filter__clear js-simple-reset hide-sm" type="reset" data-target-form="location-filter-big" data-reset-weights-for-filter="advancedSearch">
                                     <svg class="link__icon link__icon_round-cross"><use xlink:href="assets/images/icon.svg#icon_round-cross"></use></svg>
                                     <span class="link__text">Clear filter</span>
                                 </button>
@@ -170,7 +170,7 @@
                             </div>
                             <div class="advanced-filter__scrollblock js-scrollbar">
                                 <section class="form form_white advanced-filter__form">
-                                    <fieldset class="form__section form__section_underline form__section_mg50 form__section_pb hide-from-md">
+                                    <fieldset class="form__section form__section_underline form__section_mg50 form__section_pb hide-from-md" data-current-weight="0" data-weight-for-filter="advancedSearch">
                                         <div class="form__header form__header_mg32">
                                             <h3 class="form__title form__title_small2 form__title_mg0">Location area</h3>
                                             <div class="form__text form__text_small form__text_mg-2">Specifty your location. Choose the area to search.</div>
@@ -191,7 +191,7 @@
                                             </div>
                                         </div>
                                     </fieldset>
-                                    <fieldset class="form__section form__section_underline form__section_mg50 form__section_pb">
+                                    <fieldset class="form__section form__section_underline form__section_mg50 form__section_pb" data-current-weight="0" data-weight-for-filter="advancedSearch">
                                         <div class="form__header form__header_mg40">
                                             <h3 class="form__title form__title_small2 form__title_mg0">Number of seats</h3>
                                             <div class="form__text form__text_small form__text_mg-2">Total number of people to be accommodated in the room</div>
@@ -267,7 +267,7 @@
                                             </ul>
                                         </div>
                                     </fieldset>
-                                    <fieldset class="form__section form__section_underline form__section_mg50 form__section_pb46">
+                                    <fieldset class="form__section form__section_underline form__section_mg50 form__section_pb46" data-current-weight="0" data-weight-for-filter="advancedSearch">
                                         <div class="form__header form__header_mg47">
                                             <h3 class="form__title form__title_small2 form__title_mg0">Price gap</h3>
                                             <div class="form__text form__text_small form__text_mg-2">Adjust minimum and maximum price</div>
@@ -288,7 +288,7 @@
                                             </div>
                                         </div>
                                     </fieldset>
-                                    <fieldset class="form__section form__section_underline form__section_mg52 form__section_pb">
+                                    <fieldset class="form__section form__section_underline form__section_mg52 form__section_pb" data-current-weight="0" data-weight-for-filter="advancedSearch">
                                         <div class="form__header form__header_mg35-2">
                                             <h3 class="form__title form__title_small2 form__title_mg0">Available from</h3>
                                             <div class="form__text form__text_small form__text_mg-2">Set date when you want to rental period start</div>
@@ -302,7 +302,7 @@
                                             </div>
                                         </div>
                                     </fieldset>
-                                    <fieldset class="form__section form__section_underline form__section_mg50 form__section_pb72">
+                                    <fieldset class="form__section form__section_underline form__section_mg50 form__section_pb72" data-current-weight="0" data-weight-for-filter="advancedSearch">
                                         <div class="form__header form__header_mg46-2">
                                             <h3 class="form__title form__title_small2 form__title_mg0">Business Facilities</h3>
                                             <div class="form__text form__text_small form__text_mg-2">Set date when you want to rental period start</div>
@@ -447,7 +447,7 @@
                                             </ul>
                                         </div>
                                     </fieldset>
-                                    <fieldset class="form__section form__section_mg50 form__section_pb72">
+                                    <fieldset class="form__section form__section_mg50 form__section_pb72" data-current-weight="0" data-weight-for-filter="advancedSearch">
                                         <div class="form__header form__header_mg49-2">
                                             <h3 class="form__title form__title_small2 form__title_mg0">Additional Facilities</h3>
                                             <div class="form__text form__text_small form__text_mg-2">Set date when you want to rental period start</div>
@@ -661,7 +661,7 @@
                         </div>
                     </div>
                     <div class="form-panel search-filter__panel is-always-fixed">
-                        <button class="link link_icon link_back link_bold link_no-shadow form-panel__link js-close-advanced-filter js-simple-reset" type="button" data-target-form="location-filter-big">
+                        <button class="link link_icon link_back link_bold link_no-shadow form-panel__link js-close-advanced-filter" type="button">
                             <svg class="link__icon link__icon_select-arrow"><use xlink:href="assets/images/icon.svg#icon_select-arrow"></use></svg>
                             <span class="link__text">Cancel</span>
                         </button>
@@ -699,14 +699,14 @@
                             <div class="filter__wrapper">
                                 <div class="toggle filter__toggle js-show-advanced-filter" data-target-filter="advancedSearch">
                                     <div class="toggle__text">Advanced search</div>
-                                    <div class="toggle__counter">2</div>
+                                    <div class="toggle__counter" data-counter-for-filter="advancedSearch">0</div>
                                     <svg class="toggle__icon"><use xlink:href="assets/images/icon.svg#icon_select-arrow"></use></svg>
                                 </div>
                             </div>
                         </div>
                     </section>
                     <div class="search-filter__buttons">
-                        <button class="link link_icon link_icon_gray link_no-shadow link_bold link_icon_mid-small search-filter__button search-filter__button_clear js-simple-reset" type="reset" data-target-form="location-filter-big">
+                        <button class="link link_icon link_icon_gray link_no-shadow link_bold link_icon_mid-small search-filter__button search-filter__button_clear js-simple-reset" type="reset" data-target-form="location-filter-big" data-reset-weights-for-filter="advancedSearch">
                             <svg class="link__icon link__icon_round-cross"><use xlink:href="assets/images/icon.svg#icon_round-cross"></use></svg>
                             <span class="link__text hide-sm">Clear filter</span>
                         </button>
