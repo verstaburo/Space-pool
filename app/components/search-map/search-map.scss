@@ -22,22 +22,25 @@
     z-index: 9;
     opacity: 1;
     pointer-events: auto;
+  }
+
+  @include screen('sm') {
+    top: 100px;
+    height: calc(100% - 100px);
+  }
+
+  .page.is-short & {
+    @include screen('md') {
+      top: 70px;
+      height: calc(100% - 70px);
+    }
 
     @include screen('sm') {
-      top: 100px;
-      height: calc(100% - 100px);
-    }
-
-    .page.is-short & {
-      top: 140px;
-      height: calc(100% - 140px);
-
-      @include screen('sm') {
-        top: 76px;
-        height: calc(100% - 76px);
-      }
+      top: 50px;
+      height: calc(100% - 50px);
     }
   }
+
 
   &.is-closed {
     width: 0;

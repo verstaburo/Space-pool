@@ -1,29 +1,30 @@
-import {
-  freeze,
-  unfreeze,
-} from '../../blocks/js-functions/freeze';
-
 const $ = window.$;
 
 export default function toggleFilter() {
   // show advanced filter is-fitler-active
   const showFilter = {
     open(target) {
-      freeze();
       $('.js-show-advanced-filter').removeClass('is-active');
       const targetBlock = $(`[data-filter="${target}"]`);
+      const pageMinHeight = $(targetBlock).outerHeight(true) + 200;
       const container = $(targetBlock).closest('[data-filter-container]');
       $(container).addClass('is-filter-active');
       $(targetBlock).addClass('is-active');
       $(`.js-show-advanced-filter[data-target-filter="${target}"]`).addClass('is-active');
+      $('.page').css({
+        'min-height': `${pageMinHeight}px`,
+      });
+      $('.page').trigger('openSearchFilter');
     },
     close() {
-      unfreeze();
       $('.js-show-advanced-filter').removeClass('is-active');
       const container = $('[data-filter-container]');
       const targetBlocks = $('[data-filter]');
       $(container).removeClass('is-filter-active');
       $(targetBlocks).removeClass('is-active');
+      $('.page').css({
+        'min-height': 0,
+      });
     },
     isActive(target) {
       const targetBlock = $(`[data-filter="${target}"]`);

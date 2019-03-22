@@ -93,6 +93,20 @@ export default function mapManipulations() {
     }
   });
 
+  // закрываем карту при открытии фильтра
+  $(document).on('openSearchFilter', '.page', () => {
+    const maps = $('.js-show-map');
+    if (window.Modernizr.mq(`(max-width: ${window.globalOptions.sizes.md - 1}px)`)) {
+      $(maps).each((i, el) => {
+        const mapname = $(el).attr('data-target-map');
+        if ($(el).is('.is-active')) {
+          $(el).removeClass('is-active');
+          mapper.close(mapname);
+        }
+      });
+    }
+  });
+
   // switch map state on page
   $(document).on('click', '.js-toggle-map', (evt) => {
     evt.preventDefault();

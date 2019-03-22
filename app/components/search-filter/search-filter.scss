@@ -1,21 +1,16 @@
 .search-filter {
   $b: &;
 
-  position: fixed;
-  top: 115px;
-  left: 0;
+  position: relative;
   display: block;
   width: 100%;
   max-width: 100%;
   box-sizing: border-box;
   border-bottom: 1px solid $color-border-light;
   background-color: $color-bg;
-  z-index: 11;
-  transition: top $ease-main;
+  z-index: 9;
 
   @include screen('sm') {
-    top: 74px;
-    left: 0;
     border-bottom-width: 0;
   }
 
@@ -216,6 +211,8 @@
       @include screen('sm') {
         margin-left: -10px;
         width: calc(100% + 20px);
+        padding-left: 20px;
+        padding-right: 20px;
       }
     }
 
@@ -226,11 +223,7 @@
     }
   }
 
-  .page.is-short & {
-    top: 70px;
-
-    @include screen('sm') {
-      top: 50px;
-    }
+  &.is-filter-active {
+    z-index: 11;
   }
 }
