@@ -30193,10 +30193,16 @@ ol.list li::before{
       -webkit-box-sizing:border-box;
               box-sizing:border-box;
       padding:9px 9px 16px;
-      background-color:#ffffff; }
+      background-color:#ffffff;
+      border-radius:3px;
+      -webkit-box-shadow:1px 1px 8px rgba(34, 42, 46, 0.06);
+              box-shadow:1px 1px 8px rgba(34, 42, 46, 0.06); }
 @media only screen and (max-width: 767px){
         .slider_map .slider__slide{
-          padding:6px 6px 0; } }
+          padding:6px 6px 0;
+          -webkit-box-shadow:1px 1px 4px rgba(34, 42, 46, 0.06);
+                  box-shadow:1px 1px 4px rgba(34, 42, 46, 0.06);
+          border-radius:2px; } }
 .slider_map .slider__buttons{
       margin-left:-28px;
       margin-right:-28px;
@@ -30226,7 +30232,10 @@ ol.list li::before{
         .slider_map .slider__button{
           width:18px;
           height:43px;
-          padding-left:0; } }
+          padding-left:0;
+          -webkit-box-shadow:1px 1px 4px rgba(34, 42, 46, 0.06);
+                  box-shadow:1px 1px 4px rgba(34, 42, 46, 0.06);
+          border-radius:2px; } }
 .slider_map .slider__button:hover{
         background-color:#ffffff; }
 .slider_map .slider__button:hover .slider__button-icon{
@@ -30607,10 +30616,16 @@ ol.list li::before{
       -webkit-box-sizing:border-box;
               box-sizing:border-box;
       padding:9px 9px 16px;
-      background-color:#ffffff; }
+      background-color:#ffffff;
+      border-radius:3px;
+      -webkit-box-shadow:1px 1px 8px rgba(34, 42, 46, 0.06);
+              box-shadow:1px 1px 8px rgba(34, 42, 46, 0.06); }
 @media only screen and (max-width: 767px){
         .slider_map .slider__slide{
-          padding:6px 6px 0; } }
+          padding:6px 6px 0;
+          -webkit-box-shadow:1px 1px 4px rgba(34, 42, 46, 0.06);
+                  box-shadow:1px 1px 4px rgba(34, 42, 46, 0.06);
+          border-radius:2px; } }
 .slider_map .slider__buttons{
       margin-left:-28px;
       margin-right:-28px;
@@ -30640,7 +30655,10 @@ ol.list li::before{
         .slider_map .slider__button{
           width:18px;
           height:43px;
-          padding-left:0; } }
+          padding-left:0;
+          -webkit-box-shadow:1px 1px 4px rgba(34, 42, 46, 0.06);
+                  box-shadow:1px 1px 4px rgba(34, 42, 46, 0.06);
+          border-radius:2px; } }
 .slider_map .slider__button:hover{
         background-color:#ffffff; }
 .slider_map .slider__button:hover .slider__button-icon{
@@ -40004,7 +40022,7 @@ ol.list li::before{
           width:calc(100% + 20px);
           padding-left:20px;
           padding-right:20px; } }
-.search-filter.is-filter-active .search-filter__panel{
+.search-filter__popup.is-active .search-filter__panel{
       visibility:visible;
       opacity:1;
       pointer-events:auto; }
@@ -40197,7 +40215,7 @@ ol.list li::before{
           width:calc(100% + 20px);
           padding-left:20px;
           padding-right:20px; } }
-.search-filter.is-filter-active .search-filter__panel{
+.search-filter__popup.is-active .search-filter__panel{
       visibility:visible;
       opacity:1;
       pointer-events:auto; }
@@ -40208,13 +40226,13 @@ ol.list li::before{
   display:block;
   -webkit-box-sizing:border-box;
           box-sizing:border-box;
-  width:41.67%;
   -webkit-transition:width 0.3s ease, padding 0.3s ease, top 0.3s ease, opacity 0.3s ease;
   transition:width 0.3s ease, padding 0.3s ease, top 0.3s ease, opacity 0.3s ease;
-  overflow:hidden; }
-@media only screen and (max-width: 1299px){
-    .search-map{
-      width:36.8%; } }
+  overflow:hidden;
+  width:0;
+  padding-left:0;
+  padding-right:0;
+  opacity:0; }
 @media only screen and (max-width: 1019px){
     .search-map{
       position:fixed;
@@ -40223,8 +40241,8 @@ ol.list li::before{
       top:185px;
       left:0;
       z-index:9;
-      opacity:1;
-      pointer-events:auto; } }
+      opacity:0;
+      pointer-events:none; } }
 @media only screen and (max-width: 767px){
     .search-map{
       top:0;
@@ -40256,6 +40274,18 @@ ol.list li::before{
       .search-map.is-closed{
         width:100%;
         pointer-events:none; } }
+@media only screen and (min-width: 1020px){
+    .page.is-dt-map-active .search-map{
+      width:36.8%;
+      opacity:1; } }
+@media only screen and (min-width: 1300px){
+    .page.is-dt-map-active .search-map{
+      width:41.67%; } }
+@media only screen and (max-width: 1019px){
+    .page.is-mb-map-active .search-map{
+      width:100%;
+      pointer-events:auto;
+      opacity:1; } }
 @media only screen and (max-width: 1019px){
     .search-map .sidebar{
       height:100%; } }
@@ -40273,13 +40303,13 @@ ol.list li::before{
     -webkit-box-sizing:border-box;
             box-sizing:border-box;
     padding:22px 0 30px;
-    visibility:visible; }
+    visibility:hidden; }
 @media only screen and (max-width: 767px){
       .search-map__interface{
         padding-top:12px;
         padding-left:5px; } }
-.search-map.is-closed .search-map__interface{
-      visibility:hidden; }
+.page.is-mb-map-active .search-map__interface{
+      visibility:visible; }
 .search-map__interface .container{
       display:-webkit-box;
       display:-ms-flexbox;
@@ -40297,34 +40327,33 @@ ol.list li::before{
 .search-map__hide{
     -ms-flex-item-align:end;
         align-self:flex-end;
-    pointer-events:auto; }
-.search-map.is-closed .search-map__hide{
-      pointer-events:none; }
+    pointer-events:none; }
+.page.is-mb-map-active .search-map__hide{
+      pointer-events:auto; }
 .search-map__slider{
     width:265px;
     max-width:100%;
     height:auto;
-    pointer-events:auto; }
+    pointer-events:none;
+    visibility:hidden; }
 @media only screen and (max-width: 767px){
       .search-map__slider{
         width:194px; } }
-.search-map.is-closed .search-map__slider{
-      pointer-events:none; }
-@media only screen and (max-width: 767px){
-        .search-map.is-closed .search-map__slider{
-          visibility:hidden; } }
+.page.is-mb-map-active .search-map__slider{
+      pointer-events:auto;
+      visibility:visible; }
 .search-map{
   position:relative;
   display:block;
   -webkit-box-sizing:border-box;
           box-sizing:border-box;
-  width:41.67%;
   -webkit-transition:width 0.3s ease, padding 0.3s ease, top 0.3s ease, opacity 0.3s ease;
   transition:width 0.3s ease, padding 0.3s ease, top 0.3s ease, opacity 0.3s ease;
-  overflow:hidden; }
-@media only screen and (max-width: 1299px){
-    .search-map{
-      width:36.8%; } }
+  overflow:hidden;
+  width:0;
+  padding-left:0;
+  padding-right:0;
+  opacity:0; }
 @media only screen and (max-width: 1019px){
     .search-map{
       position:fixed;
@@ -40333,8 +40362,8 @@ ol.list li::before{
       top:185px;
       left:0;
       z-index:9;
-      opacity:1;
-      pointer-events:auto; } }
+      opacity:0;
+      pointer-events:none; } }
 @media only screen and (max-width: 767px){
     .search-map{
       top:0;
@@ -40366,6 +40395,18 @@ ol.list li::before{
       .search-map.is-closed{
         width:100%;
         pointer-events:none; } }
+@media only screen and (min-width: 1020px){
+    .page.is-dt-map-active .search-map{
+      width:36.8%;
+      opacity:1; } }
+@media only screen and (min-width: 1300px){
+    .page.is-dt-map-active .search-map{
+      width:41.67%; } }
+@media only screen and (max-width: 1019px){
+    .page.is-mb-map-active .search-map{
+      width:100%;
+      pointer-events:auto;
+      opacity:1; } }
 @media only screen and (max-width: 1019px){
     .search-map .sidebar{
       height:100%; } }
@@ -40383,13 +40424,13 @@ ol.list li::before{
     -webkit-box-sizing:border-box;
             box-sizing:border-box;
     padding:22px 0 30px;
-    visibility:visible; }
+    visibility:hidden; }
 @media only screen and (max-width: 767px){
       .search-map__interface{
         padding-top:12px;
         padding-left:5px; } }
-.search-map.is-closed .search-map__interface{
-      visibility:hidden; }
+.page.is-mb-map-active .search-map__interface{
+      visibility:visible; }
 .search-map__interface .container{
       display:-webkit-box;
       display:-ms-flexbox;
@@ -40407,22 +40448,21 @@ ol.list li::before{
 .search-map__hide{
     -ms-flex-item-align:end;
         align-self:flex-end;
-    pointer-events:auto; }
-.search-map.is-closed .search-map__hide{
-      pointer-events:none; }
+    pointer-events:none; }
+.page.is-mb-map-active .search-map__hide{
+      pointer-events:auto; }
 .search-map__slider{
     width:265px;
     max-width:100%;
     height:auto;
-    pointer-events:auto; }
+    pointer-events:none;
+    visibility:hidden; }
 @media only screen and (max-width: 767px){
       .search-map__slider{
         width:194px; } }
-.search-map.is-closed .search-map__slider{
-      pointer-events:none; }
-@media only screen and (max-width: 767px){
-        .search-map.is-closed .search-map__slider{
-          visibility:hidden; } }
+.page.is-mb-map-active .search-map__slider{
+      pointer-events:auto;
+      visibility:visible; }
 .side-navigation{
   display:-webkit-box;
   display:-ms-flexbox;
