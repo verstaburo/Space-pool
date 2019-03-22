@@ -4,14 +4,18 @@
   position: relative;
   display: block;
   box-sizing: border-box;
-  width: 41.67%;
+  // width: 41.67%;
   transition: width $ease-main,
     padding $ease-main, top $ease-main, opacity $ease-main;
   overflow: hidden;
+  width: 0;
+  padding-left: 0;
+  padding-right: 0;
+  opacity: 0;
 
-  @include screen('lg') {
-    width: 36.8%;
-  }
+  // @include screen('lg') {
+  //   width: 36.8%;
+  // }
 
   @include screen('md') {
     position: fixed;
@@ -20,8 +24,9 @@
     top: 185px;
     left: 0;
     z-index: 9;
-    opacity: 1;
-    pointer-events: auto;
+    opacity: 0;
+    // pointer-events: auto;
+    pointer-events: none;
   }
 
   @include screen('sm') {
@@ -70,6 +75,25 @@
     }
   }
 
+  .page.is-dt-map-active & {
+    @include screen('md', min) {
+      width: 36.8%;
+      opacity: 1;
+    }
+
+    @include screen('lg', min) {
+      width: 41.67%;
+    }
+  }
+
+  .page.is-mb-map-active & {
+    @include screen('md') {
+      width: 100%;
+      pointer-events: auto;
+      opacity: 1;
+    }
+  }
+
   .sidebar {
 
     @include screen('md') {
@@ -88,15 +112,15 @@
     z-index: 2;
     box-sizing: border-box;
     padding: 22px 0 30px;
-    visibility: visible;
+    visibility: hidden;
 
     @include screen('sm') {
       padding-top: 12px;
       padding-left: 5px;
     }
 
-    #{$b}.is-closed & {
-      visibility: hidden;
+    .page.is-mb-map-active & {
+      visibility: visible;
     }
 
     .container {
@@ -109,10 +133,10 @@
 
   &__hide {
     align-self: flex-end;
-    pointer-events: auto;
+    pointer-events: none;
 
-    #{$b}.is-closed & {
-      pointer-events: none;
+    .page.is-mb-map-active & {
+      pointer-events: auto;
     }
   }
 
@@ -120,18 +144,16 @@
     width: 265px;
     max-width: 100%;
     height: auto;
-    pointer-events: auto;
+    pointer-events: none;
+    visibility: hidden;
 
     @include screen('sm') {
       width: 194px;
     }
 
-    #{$b}.is-closed & {
-      pointer-events: none;
-
-      @include screen('sm') {
-        visibility: hidden;
-      }
+    .page.is-mb-map-active & {
+      pointer-events: auto;
+      visibility: visible;
     }
   }
 }

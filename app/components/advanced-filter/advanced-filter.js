@@ -1,6 +1,8 @@
 const $ = window.$;
 
 export default function advancedFilter() {
+  // расчет весов для расширенного поиска
+  // установка веса по имени фильтра
   function weightGet(fltr) {
     const filter = fltr;
     const filterEl = $(`[data-filter="${filter}"]`);
@@ -23,6 +25,7 @@ export default function advancedFilter() {
     }
   }
 
+  // сброс веса по имени фильтра
   function resetWeight(fltr) {
     const filter = fltr;
     const filterEl = $(`[data-filter="${filter}"]`);
@@ -37,17 +40,20 @@ export default function advancedFilter() {
     $(mobileReset).removeClass('is-visible');
   }
 
+  // подсчет веса при изменении
   $(document).on('change', '[data-filter] input, [data-filter] select', (evt) => {
     const self = evt.currentTarget;
     if ($(self).attr('type') === 'radio' || $(self).attr('type') === 'checkbox') {
-      const weightEl = $(self).closest('[data-current-weight]');
-      const filter = $(weightEl).attr('data-weight-for-filter');
-      if ($(weightEl).find('input:checked').length > 0) {
-        $(weightEl).attr('data-current-weight', '1');
-      } else {
-        $(weightEl).attr('data-current-weight', '0');
+      if ($(self).closest('[data-weight-for-filter]').length > 0) {
+        const weightEl = $(self).closest('[data-current-weight]');
+        const filter = $(weightEl).attr('data-weight-for-filter');
+        if ($(weightEl).find('input:checked').length > 0) {
+          $(weightEl).attr('data-current-weight', '1');
+        } else {
+          $(weightEl).attr('data-current-weight', '0');
+        }
+        weightGet(filter);
       }
-      weightGet(filter);
     } else if ($(self).val().length > 0) {
       const weightEl = $(self).closest('[data-current-weight]');
       $(weightEl).attr('data-current-weight', '1');
@@ -61,9 +67,39 @@ export default function advancedFilter() {
     }
   });
 
+  // сброс веса по запросу
   $(document).on('click', '[data-reset-weights-for-filter]', (evt) => {
     const self = evt.currentTarget;
     const filter = $(self).attr('data-reset-weights-for-filter');
     resetWeight(filter);
+  });
+
+  // переименование фильтра
+  $(document).on('click', '.js-change-filter-name', (evt) => {
+    const self = evt.currentTarget;
+    const filterName = $(self).attr('data-target-filter-name');
+    const mobileReset = $('[data-mobile-hidden-reset]');
+    const newName = $(self).attr('data-new-filter-name');
+    const toggle = $(`[data-target-filter="${filterName}"]`);
+    const textEl = $(toggle).find('[data-toggle-name]');
+    const radio = $(self).find('input:checked');
+    if ($(radio).length > 0) {
+      $(textEl).text(newName);
+    }
+    $(mobileReset).addClass('is-visible');
+  });
+
+  // cброс имени фильтра
+  $(document).on('click', '.js-simple-reset', () => {
+    const toggles = $('[data-target-filter]');
+    if (toggles.length > 0) {
+      $(toggles).each((i, el) => {
+        const toggleDefaultName = $(el).attr('data-default-name');
+        const textEl = $(el).find('[data-toggle-name]');
+        if (toggleDefaultName !== undefined) {
+          $(textEl).text(toggleDefaultName);
+        }
+      });
+    }
   });
 }

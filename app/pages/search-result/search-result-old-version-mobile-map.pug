@@ -5,7 +5,7 @@ block head
 
 block header
   -var headerClass = '_border _no-mob-border'
-  -var pageClass = ''
+  -var pageClass = ' is-dt-map-active'
 
 block content
   -var spaces = getData('search-spaces.json')
@@ -47,7 +47,7 @@ block content
                           +e.title HOT DESK
                           +e.price from 450 &pound;/mo
           +pagination._mgt32._md-centered
-        +search-map._old-mobile-version.__column_map.is-closed(data-map="map")
+        +search-map._old-mobile-version.__column_map(data-map="map")
           +sidebar._no-bg(data-unstick-media="md")
             +map._side#searchMap
         +map-switch._old-mobile-version.js-show-map(data-target-map="map")

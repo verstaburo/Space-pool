@@ -5,14 +5,14 @@ mixin search-filter()
         +e.overlay(data-filter-overlay)
         +e.popup(data-filter="advancedSearch")
           +advanced-filter()
+          +e.panel
+            .container
+              +e.panel-wrapper
+                +form-panel
+                  +link-icon('select-arrow', 'button')(type="button")._back._bold._no-shadow.__link.js-close-advanced-filter Cancel
+                  +button('button')(type="submit")._mob-smaller.__button_w360 Show results: 320
         +e.popup(data-filter="workplace")
           +advanced-filter2()
-        +e.panel
-          .container
-            +e.panel-wrapper
-              +form-panel
-                +link-icon('select-arrow', 'button')(type="button")._back._bold._no-shadow.__link.js-close-advanced-filter Cancel
-                +button('button')(type="submit")._mob-smaller.__button_w360 Show results: 320
         +filter-search._search.__filter
         +e.buttons
           +b.BUTTON.link_icon._icon_gray._no-shadow._bold._icon_mid-small.__button_clear.js-simple-reset(type="reset" data-target-form="location-filter-big" data-reset-weights-for-filter="advancedSearch" data-mobile-hidden-reset)

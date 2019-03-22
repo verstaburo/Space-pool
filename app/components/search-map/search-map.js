@@ -9,64 +9,75 @@ export default function mapManipulations() {
   const bp = window.globalOptions.sizes;
   const mapper = {
     open(mapname) {
-      freeze();
       const map = $(`[data-map=${mapname}]`);
       const mapContainer = $(map).find('.map');
-      $(map).removeClass('is-closed');
+      const page = $('.page');
+      if (window.Modernizr.mq(`(max-width: ${bp.md - 1}px)`)) {
+        freeze();
+        $(page).addClass('is-mb-map-active');
+      } else {
+        $(page).addClass('is-dt-map-active');
+      }
       $(mapContainer).trigger('isOpenMap');
     },
     close(mapname) {
-      unfreeze();
       const map = $(`[data-map=${mapname}]`);
       const mapContainer = $(map).find('.map');
+      const page = $('.page');
       $(map).addClass('is-closed');
       $(mapContainer).trigger('isCloseMap');
+      if (window.Modernizr.mq(`(max-width: ${bp.md - 1}px)`)) {
+        unfreeze();
+        $(page).removeClass('is-mb-map-active');
+      } else {
+        $(page).removeClass('is-dt-map-active');
+      }
     },
   };
 
   // открываем скрываем или показываем карту
-  function mapState() {
-    const maps = $('[data-map]');
-    const mapContainers = $(maps).find('.map');
-    if (maps.length > 0) {
-      if (window.Modernizr.mq(`(max-width: ${bp.md - 1}px)`)) {
-        $(maps).each((i, el) => {
-          const mapName = $(el).attr('data-map');
-          const isActive = $(`.js-show-map[data-target-map="${mapName}"]`).is('.is-active');
-          const mapContainer = $(el).find('.map');
-          if (isActive) {
-            freeze();
-            $(el).removeClass('is-closed');
-            $(mapContainer).trigger('isOpenMap');
-          } else {
-            unfreeze();
-            $(el).addClass('is-closed');
-            $(mapContainer).trigger('isCloseMap');
-          }
-        });
-      } else {
-        unfreeze();
-        const toggles = $('.js-toggle-map');
-        $('.js-show-map').removeClass('is-active');
-        $(toggles).each((i, el) => {
-          const mapName = $(el).attr('data-target-map');
-          const isActive = $(el).is('.is-active');
-          const map = $(`[data-map="${mapName}"]`);
-          if (isActive) {
-            $(map).removeClass('is-closed');
-            setTimeout(() => {
-              $(mapContainers).trigger('isOpenMap');
-            }, 300);
-          } else {
-            $(map).addClass('is-closed');
-          }
-        });
-      }
-    }
-  }
+  // function mapState() {
+  //   const maps = $('[data-map]');
+  //   const mapContainers = $(maps).find('.map');
+  //   if (maps.length > 0) {
+  //     if (window.Modernizr.mq(`(max-width: ${bp.md - 1}px)`)) {
+  //       $(maps).each((i, el) => {
+  //         const mapName = $(el).attr('data-map');
+  //         const isActive = $(`.js-show-map[data-target-map="${mapName}"]`).is('.is-active');
+  //         const mapContainer = $(el).find('.map');
+  //         if (isActive) {
+  //           freeze();
+  //           $(el).removeClass('is-closed');
+  //           $(mapContainer).trigger('isOpenMap');
+  //         } else {
+  //           unfreeze();
+  //           $(el).addClass('is-closed');
+  //           $(mapContainer).trigger('isCloseMap');
+  //         }
+  //       });
+  //     } else {
+  //       unfreeze();
+  //       const toggles = $('.js-toggle-map');
+  //       $('.js-show-map').removeClass('is-active');
+  //       $(toggles).each((i, el) => {
+  //         const mapName = $(el).attr('data-target-map');
+  //         const isActive = $(el).is('.is-active');
+  //         const map = $(`[data-map="${mapName}"]`);
+  //         if (isActive) {
+  //           $(map).removeClass('is-closed');
+  //           setTimeout(() => {
+  //             $(mapContainers).trigger('isOpenMap');
+  //           }, 300);
+  //         } else {
+  //           $(map).addClass('is-closed');
+  //         }
+  //       });
+  //     }
+  //   }
+  // }
 
-  mapState();
-  $(window).on('resize', mapState);
+  // mapState();
+  // $(window).on('resize', mapState);
 
   $(document).on('click', '.js-close-map', (evt) => {
     const self = evt.currentTarget;
@@ -117,8 +128,8 @@ export default function mapManipulations() {
     const titleBlock = $(self).find('.link__text');
     const map = $(`[data-map=${targetMap}]`);
     const mapContainer = $(map).find('.map');
-    if ($(map).is('.is-closed')) {
-      $(map).removeClass('is-closed');
+    if (!$(self).is('.is-active')) {
+      mapper.open(targetMap);
       $(self).addClass('is-active');
       $(titleBlock).text(openedName);
       setTimeout(() => {
@@ -126,7 +137,7 @@ export default function mapManipulations() {
         $(mapContainer).trigger('isOpenMap');
       }, 300);
     } else {
-      $(map).addClass('is-closed');
+      mapper.close(targetMap);
       $(self).removeClass('is-active');
       $(titleBlock).text(closedName);
       setTimeout(() => {

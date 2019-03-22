@@ -148,7 +148,7 @@
             </div>
         </div>
     </header>
-    <main class="page" role="main">
+    <main class="page is-dt-map-active" role="main">
         <form class="search-filter" data-form="location-filter-big" data-filter-container="data-filter-container">
             <div class="container">
                 <div class="search-filter__content">
@@ -592,6 +592,21 @@
                                 </section>
                             </div>
                         </div>
+                        <div class="search-filter__panel">
+                            <div class="container">
+                                <div class="search-filter__panel-wrapper">
+                                    <div class="form-panel">
+                                        <button class="link link_icon link_back link_bold link_no-shadow form-panel__link js-close-advanced-filter" type="button">
+                                            <svg class="link__icon link__icon_select-arrow"><use xlink:href="assets/images/icon.svg#icon_select-arrow"></use></svg>
+                                            <span class="link__text">Cancel</span>
+                                        </button>
+                                        <button class="button button_mob-smaller form-panel__button form-panel__button_w360" type="submit">
+                                            <span class="button__text">Show results: 320</span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     <div class="search-filter__popup" data-filter="workplace">
                         <div class="advanced-filter advanced-filter_workplace">
@@ -610,7 +625,7 @@
                                         <div class="form__content">
                                             <ul class="places">
                                                 <li class="places__place">
-                                                    <label class="button-radio button-radio_orange places__radio">
+                                                    <label class="button-radio button-radio_orange places__radio js-close-advanced-filter js-change-filter-name" data-target-filter-name="workplace" data-new-filter-name="Hot desk">
                                                         <input class="button-radio__input" name="workplace" value="hd" type="radio" checked="checked" />
                                                         <span class="button-radio__content">
                                                             <span class="button-radio__text">HOT DESK</span>
@@ -618,7 +633,7 @@
                                                     </label>
                                                 </li>
                                                 <li class="places__place">
-                                                    <label class="button-radio button-radio_red places__radio">
+                                                    <label class="button-radio button-radio_red places__radio js-close-advanced-filter js-change-filter-name" data-target-filter-name="workplace" data-new-filter-name="Dedicated desk">
                                                         <input class="button-radio__input" name="workplace" value="dd" type="radio" />
                                                         <span class="button-radio__content">
                                                             <span class="button-radio__text">DEDICATED DESK</span>
@@ -626,7 +641,7 @@
                                                     </label>
                                                 </li>
                                                 <li class="places__place">
-                                                    <label class="button-radio button-radio_blue places__radio">
+                                                    <label class="button-radio button-radio_blue places__radio js-close-advanced-filter js-change-filter-name" data-target-filter-name="workplace" data-new-filter-name="Meeting room">
                                                         <input class="button-radio__input" name="workplace" value="mr" type="radio" />
                                                         <span class="button-radio__content">
                                                             <span class="button-radio__text">MEETING ROOM</span>
@@ -634,7 +649,7 @@
                                                     </label>
                                                 </li>
                                                 <li class="places__place">
-                                                    <label class="button-radio button-radio_green places__radio">
+                                                    <label class="button-radio button-radio_green places__radio js-close-advanced-filter js-change-filter-name" data-target-filter-name="workplace" data-new-filter-name="Office space">
                                                         <input class="button-radio__input" name="workplace" value="os" type="radio" />
                                                         <span class="button-radio__content">
                                                             <span class="button-radio__text">OFFICE SPACE</span>
@@ -645,21 +660,6 @@
                                         </div>
                                     </fieldset>
                                 </section>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="search-filter__panel">
-                        <div class="container">
-                            <div class="search-filter__panel-wrapper">
-                                <div class="form-panel">
-                                    <button class="link link_icon link_back link_bold link_no-shadow form-panel__link js-close-advanced-filter" type="button">
-                                        <svg class="link__icon link__icon_select-arrow"><use xlink:href="assets/images/icon.svg#icon_select-arrow"></use></svg>
-                                        <span class="link__text">Cancel</span>
-                                    </button>
-                                    <button class="button button_mob-smaller form-panel__button form-panel__button_w360" type="submit">
-                                        <span class="button__text">Show results: 320</span>
-                                    </button>
-                                </div>
                             </div>
                         </div>
                     </div>
@@ -685,8 +685,8 @@
                                 </select>
                             </div>
                             <div class="filter__wrapper">
-                                <div class="toggle filter__toggle js-show-advanced-filter" data-target-filter="workplace">
-                                    <div class="toggle__text">Workplace type</div>
+                                <div class="toggle filter__toggle js-show-advanced-filter" data-target-filter="workplace" data-default-name="Workplace type">
+                                    <div class="toggle__text" data-toggle-name="data-toggle-name">Workplace type</div>
                                     <svg class="toggle__icon"><use xlink:href="assets/images/icon.svg#icon_select-arrow"></use></svg>
                                 </div>
                             </div>
@@ -2369,7 +2369,7 @@
                             </li>
                         </ul>
                     </div>
-                    <div class="search-map search-map_old-mobile-version content__column content__column_map is-closed" data-map="map">
+                    <div class="search-map search-map_old-mobile-version content__column content__column_map" data-map="map">
                         <div class="search-map__interface hide-from-md">
                             <div class="container">
                                 <a class="hide-button search-map__hide js-close-map" data-target-map="map">

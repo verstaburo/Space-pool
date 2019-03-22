@@ -5,3 +5,10 @@ mixin toggle(counter)
     if counter
       +e.counter(data-counter-for-filter="advancedSearch")!=counter
     +icon('select-arrow').icon
+
+
+mixin toggle-changed-name()
+  +b.toggle&attributes(attributes)
+    +e.text(data-toggle-name)
+      block
+    +icon('select-arrow').icon
