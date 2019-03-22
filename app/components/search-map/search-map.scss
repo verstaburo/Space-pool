@@ -25,8 +25,17 @@
   }
 
   @include screen('sm') {
-    top: 100px;
-    height: calc(100% - 100px);
+    top: 0;
+    height: 100%;
+    z-index: 11;
+  }
+
+  &_old-mobile-version {
+    @include screen('sm') {
+      top: 100px;
+      height: calc(100% - 100px);
+      z-index: 9;
+    }
   }
 
   .page.is-short & {
@@ -36,8 +45,15 @@
     }
 
     @include screen('sm') {
-      top: 50px;
-      height: calc(100% - 50px);
+      top: 0;
+      height: 100%;
+    }
+
+    &_old-mobile-version {
+      @include screen('sm') {
+        top: 50px;
+        height: calc(100% - 50px);
+      }
     }
   }
 
@@ -112,6 +128,10 @@
 
     #{$b}.is-closed & {
       pointer-events: none;
+
+      @include screen('sm') {
+        visibility: hidden;
+      }
     }
   }
 }
