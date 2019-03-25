@@ -36,9 +36,14 @@ export default function header() {
   // стилизуем хэдер в зависимости от позиции на странице
   function headerStyle() {
     const sT = $(window).scrollTop();
+    let offset = 19;
+
+    if (window.Modernizr.mq(`(max-width: ${window.globalOptions.sizes.md - 1}px)`)) {
+      offset = 13;
+    }
 
     if (!$('html').hasClass('freeze')) {
-      if (sT > 1) {
+      if (sT > offset) {
         $('.page').addClass('is-short');
         $('.header').addClass('is-short');
         $('.main-menu').addClass('is-short');
