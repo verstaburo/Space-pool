@@ -9,7 +9,7 @@ export default function toggleFilter() {
     $(activePopups).each((i, el) => {
       const elTop = $(el).offset().top;
       const elHeight = $(el).outerHeight();
-      const elBottom = elTop + elHeight;
+      const elBottom = (elTop + elHeight) + 70;
       if (elBottom > sB) {
         $(el).removeClass('is-absolute-bottom');
       } else {
@@ -66,4 +66,9 @@ export default function toggleFilter() {
 
   // Следим за низмо попапа
   $(window).on('scroll', hideBottomPanel);
+  setInterval(() => {
+    if (window.Modernizr.mq(`(max-width: ${window.globalOptions.sizes.md - 1}px)`)) {
+      hideBottomPanel();
+    }
+  }, 100);
 }
