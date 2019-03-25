@@ -1,6 +1,24 @@
 const $ = window.$;
 
 export default function toggleFilter() {
+  function hideBottomPanel() {
+    const sT = $(window).scrollTop();
+    const wH = $(window).height();
+    const sB = sT + wH;
+    const activePopups = $('.is-active[data-filter]');
+    $(activePopups).each((i, el) => {
+      const elTop = $(el).offset().top;
+      const elHeight = $(el).outerHeight();
+      const elBottom = elTop + elHeight + 70;
+      console.log(elBottom);
+      if (elBottom < sB) {
+        $(el).removeClass('is-show-bottom');
+      } else {
+        $(el).addClass('is-show-bottom');
+      }
+    });
+  }
+
   // show advanced filter is-fitler-active
   const showFilter = {
     open(target) {
@@ -9,7 +27,7 @@ export default function toggleFilter() {
       const pageMinHeight = $(targetBlock).outerHeight(true) + 200;
       const container = $(targetBlock).closest('[data-filter-container]');
       $(container).addClass('is-filter-active');
-      $(targetBlock).addClass('is-active');
+      $(targetBlock).addClass('is-active is-show-bottom');
       $(`.js-show-advanced-filter[data-target-filter="${target}"]`).addClass('is-active');
       $('.page').css({
         'min-height': `${pageMinHeight}px`,
@@ -21,7 +39,7 @@ export default function toggleFilter() {
       const container = $('[data-filter-container]');
       const targetBlocks = $('[data-filter]');
       $(container).removeClass('is-filter-active');
-      $(targetBlocks).removeClass('is-active');
+      $(targetBlocks).removeClass('is-active is-show-bottom');
       $('.page').css({
         'min-height': 0,
       });
@@ -46,4 +64,7 @@ export default function toggleFilter() {
   $(document).on('click', '[data-filter-overlay], .js-close-advanced-filter', () => {
     showFilter.close();
   });
+
+  // Следим за низмо попапа
+  $(window).on('scroll', hideBottomPanel);
 }
