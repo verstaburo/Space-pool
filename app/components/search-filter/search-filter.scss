@@ -216,10 +216,24 @@
       }
     }
 
-    #{$b}__popup.is-show-bottom & {
+    #{$b}__popup.is-active & {
       visibility: visible;
       opacity: 1;
       pointer-events: auto;
+    }
+
+    #{$b}__popup.is-absolute-bottom & {
+      position: absolute;
+
+      .container {
+        width: 100%;
+        padding: 0;
+      }
+
+      .form-panel {
+        width: 100%;
+        margin-left: 0;
+      }
     }
   }
 

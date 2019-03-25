@@ -9,12 +9,11 @@ export default function toggleFilter() {
     $(activePopups).each((i, el) => {
       const elTop = $(el).offset().top;
       const elHeight = $(el).outerHeight();
-      const elBottom = elTop + elHeight + 70;
-      console.log(elBottom);
-      if (elBottom < sB) {
-        $(el).removeClass('is-show-bottom');
+      const elBottom = elTop + elHeight;
+      if (elBottom > sB) {
+        $(el).removeClass('is-absolute-bottom');
       } else {
-        $(el).addClass('is-show-bottom');
+        $(el).addClass('is-absolute-bottom');
       }
     });
   }
@@ -27,7 +26,7 @@ export default function toggleFilter() {
       const pageMinHeight = $(targetBlock).outerHeight(true) + 200;
       const container = $(targetBlock).closest('[data-filter-container]');
       $(container).addClass('is-filter-active');
-      $(targetBlock).addClass('is-active is-show-bottom');
+      $(targetBlock).addClass('is-active');
       $(`.js-show-advanced-filter[data-target-filter="${target}"]`).addClass('is-active');
       $('.page').css({
         'min-height': `${pageMinHeight}px`,
@@ -39,7 +38,7 @@ export default function toggleFilter() {
       const container = $('[data-filter-container]');
       const targetBlocks = $('[data-filter]');
       $(container).removeClass('is-filter-active');
-      $(targetBlocks).removeClass('is-active is-show-bottom');
+      $(targetBlocks).removeClass('is-active is-absolute-bottom');
       $('.page').css({
         'min-height': 0,
       });
