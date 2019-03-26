@@ -173,10 +173,28 @@
       width: calc(100% + 20px);
     }
 
+    &_md-full {
+      @include screen('md') {
+        position: fixed;
+        display: flex;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        z-index: 16;
+      }
+    }
+
     &.is-active {
       opacity: 1;
       pointer-events: auto;
     }
+  }
+
+  &__scrollblock {
+    width: 100%;
+    max-height: 100%;
+    position: relative;
   }
 
   &__panel {
@@ -190,6 +208,13 @@
     bottom: 0;
     left: 0;
 
+    .container {
+      @include screen('md') {
+        width: 100%;
+        padding: 0;
+      }
+    }
+
     &-wrapper {
       width: 100%;
     }
@@ -200,17 +225,21 @@
 
       @include screen('lg') {
         margin-left: -20px;
+        padding-left: 40px;
+        padding-right: 40px;
         width: 70%;
       }
 
       @include screen('md') {
         margin-left: 0;
+        padding-left: 50px;
+        padding-right: 50px;
         width: 100%;
       }
 
       @include screen('sm') {
-        margin-left: -10px;
-        width: calc(100% + 20px);
+        margin-left: 0;
+        width: 100%;
         padding-left: 20px;
         padding-right: 20px;
       }
@@ -224,7 +253,7 @@
 
     #{$b}__popup.is-absolute-bottom & {
       position: absolute;
-      bottom: -70px;
+      bottom: 0;
 
       .container {
         width: 100%;

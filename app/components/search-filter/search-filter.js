@@ -1,3 +1,8 @@
+import {
+  freeze,
+  unfreeze,
+} from '../../blocks/js-functions/freeze';
+
 const $ = window.$;
 
 export default function toggleFilter() {
@@ -9,7 +14,7 @@ export default function toggleFilter() {
     $(activePopups).each((i, el) => {
       const elTop = $(el).offset().top;
       const elHeight = $(el).outerHeight();
-      const elBottom = (elTop + elHeight) + 70;
+      const elBottom = (elTop + elHeight);
       if (elBottom > sB) {
         $(el).removeClass('is-absolute-bottom');
       } else {
@@ -25,6 +30,7 @@ export default function toggleFilter() {
       const targetBlock = $(`[data-filter="${target}"]`);
       const pageMinHeight = $(targetBlock).outerHeight(true) + 200;
       const container = $(targetBlock).closest('[data-filter-container]');
+      const isFixed = $(targetBlock).is('[data-md-full]');
       $(container).addClass('is-filter-active');
       $(targetBlock).addClass('is-active');
       $(`.js-show-advanced-filter[data-target-filter="${target}"]`).addClass('is-active');
@@ -32,6 +38,9 @@ export default function toggleFilter() {
         'min-height': `${pageMinHeight}px`,
       });
       $('.page').trigger('openSearchFilter');
+      if (isFixed && window.Modernizr.mq(`(max-width: ${window.globalOptions.sizes.md - 1}px)`)) {
+        freeze();
+      }
     },
     close() {
       $('.js-show-advanced-filter').removeClass('is-active');
@@ -42,6 +51,7 @@ export default function toggleFilter() {
       $('.page').css({
         'min-height': 0,
       });
+      unfreeze();
     },
     isActive(target) {
       const targetBlock = $(`[data-filter="${target}"]`);
@@ -66,9 +76,9 @@ export default function toggleFilter() {
 
   // Следим за низмо попапа
   $(window).on('scroll', hideBottomPanel);
-  setInterval(() => {
-    if (window.Modernizr.mq(`(max-width: ${window.globalOptions.sizes.md - 1}px)`)) {
-      hideBottomPanel();
-    }
-  }, 100);
+  // setInterval(() => {
+  //   if (window.Modernizr.mq(`(max-width: ${window.globalOptions.sizes.md - 1}px)`)) {
+  //     hideBottomPanel();
+  //   }
+  // }, 100);
 }

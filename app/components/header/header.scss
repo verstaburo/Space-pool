@@ -11,7 +11,6 @@
   max-width: 100vw;
   z-index: 10;
   transition:
-    background $ease-main,
     border $ease-main;
   background-color: $color-bg;
   box-sizing: border-box;
@@ -27,9 +26,9 @@
   }
 
   &__wrapper {
-    transition:
-      background $ease-main,
-      border $ease-main;
+    // transition:
+    //   background $ease-main,
+    //   border $ease-main;
     position: absolute;
     top: 19px;
     display: flex;
@@ -40,18 +39,42 @@
     box-sizing: border-box;
     border-top: 1px solid transparent;
     border-bottom: 1px solid transparent;
-    background-color: $color-bg;
+    // background-color: $color-bg;
 
     @include screen('sm') {
       top: 13px;
       height: 50px;
     }
 
+    &::before {
+      @include pseudo;
+
+      height: 89px;
+      top: -19px;
+      width: 100%;
+      border-top: 1px solid transparent;
+      border-bottom: 1px solid transparent;
+      background-color: $color-bg;
+      transition:
+        background $ease-main,
+        border $ease-main;
+      box-sizing: border-box;
+      z-index: 1;
+
+      @include screen('sm') {
+        height: 63px;
+        top: -13px;
+      }
+    }
+
     #{$b}.is-short & {
       position: fixed;
       top: 0;
-      background-color: $color-white;
-      border-bottom-color: $color-border-light;
+
+      &::before {
+        background-color: $color-white;
+        border-bottom-color: $color-border-light;
+      }
     }
   }
 
@@ -82,7 +105,9 @@
   }
 
   .container {
+    position: relative;
     display: flex;
+    z-index: 2;
 
     @include screen('sm') {
       justify-content: space-between;
