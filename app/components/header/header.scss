@@ -65,6 +65,22 @@
       }
     }
 
+    #{$b}_border & {
+      &::before {
+        @include screen('sm') {
+          border-bottom-color: $color-border-light;
+        }
+      }
+    }
+
+    #{$b}_no-mob-border & {
+      &::before {
+        @include screen('sm') {
+          border-bottom-color: transparent;
+        }
+      }
+    }
+
     #{$b}.is-short & {
       position: fixed;
       top: 0;
