@@ -21,6 +21,18 @@
     padding-right: 14px;
   }
 
+  &::after {
+    @include screen('sm') {
+      @include pseudo;
+
+      width: calc(100% + 20px);
+      height: 200%;
+      top: 50%;
+      left: 50%;
+      transform: translate3d(-50%, -50%, 0);
+    }
+  }
+
   &:hover {
     color: $color-basic-dark;
   }
