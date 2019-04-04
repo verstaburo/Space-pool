@@ -85,7 +85,7 @@
     }
 
     &:not(:last-child) {
-      margin-right: 5px;
+      margin-right: 10px;
 
       @include screen('sm') {
         margin-right: 0;
@@ -134,6 +134,11 @@
       text-align: center;
     }
 
+    b {
+      text-transform: none;
+      color: $color-basic;
+    }
+
     #{$b}:not(.is-not-available):hover & {
       opacity: 0;
     }
@@ -147,6 +152,10 @@
 
     #{$b}.is-not-available & {
       color: $color-basic-light;
+    }
+
+    #{$b}.is-soon & {
+      color: $color-yellow;
     }
   }
 
@@ -162,10 +171,25 @@
     }
 
     &:not(:first-child) {
-      margin-top: 12px;
+      margin-top: 13px;
 
       @include screen('sm') {
         margin-top: 15px;
+      }
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      @include text-mid;
+
+      font-weight: 700;
+
+      &:not(:last-child) {
+        margin-bottom: 14px;
       }
     }
   }
