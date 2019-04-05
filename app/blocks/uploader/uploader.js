@@ -4,14 +4,16 @@ const $ = window.$;
 
 export default function uploader() {
   function loadTemplate(url) {
-    $.ajax(url, {
-      dataType: 'json',
-      async: false,
-      type: 'GET',
-      complete(answer) {
-        window.templates = answer.responseJSON;
-      },
-    });
+    if (window.templates === undefined) {
+      $.ajax(url, {
+        dataType: 'json',
+        async: false,
+        type: 'GET',
+        complete(answer) {
+          window.templates = answer.responseJSON;
+        },
+      });
+    }
   }
 
   function processingImages(source, tests) {
@@ -96,9 +98,6 @@ export default function uploader() {
     .on('drag dragstart dragend dragover dragenter dragleave drop', (evt) => {
       evt.preventDefault();
       evt.stopPropagation();
-      const self = evt.currentTarget;
-      const url = $(self).attr('data-url-template');
-      loadTemplate(url);
     })
     .on('dragover dragenter', (evt) => {
       const self = evt.currentTarget;
@@ -110,6 +109,8 @@ export default function uploader() {
     })
     .on('drop', (evt) => {
       const self = evt.currentTarget;
+      const url = $(self).attr('data-url-template');
+      loadTemplate(url);
       const conditions = {};
       conditions.minSize = parseInt($(self).attr('data-min-size'), 10) || 0;
       conditions.maxSize = parseInt($(self).attr('data-max-size'), 10) || '1000000000000';
