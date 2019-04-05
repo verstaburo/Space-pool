@@ -66,14 +66,6 @@ $(() => {
   svg4everybody();
   picturefill();
   objectFitImages();
-  $.ajax('assets/data/templates.json', {
-    dataType: 'json',
-    async: false,
-    type: 'GET',
-    complete(answer) {
-      window.templates = answer.responseJSON;
-    },
-  });
   anchor();
   freezebuttons();
   selects();

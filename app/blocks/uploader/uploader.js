@@ -3,6 +3,17 @@
 const $ = window.$;
 
 export default function uploader() {
+  function loadTemplate(url) {
+    $.ajax(url, {
+      dataType: 'json',
+      async: false,
+      type: 'GET',
+      complete(answer) {
+        window.templates = answer.responseJSON;
+      },
+    });
+  }
+
   function processingImages(source, tests) {
     const files = source;
     const selectedFiles = {};
@@ -85,6 +96,9 @@ export default function uploader() {
     .on('drag dragstart dragend dragover dragenter dragleave drop', (evt) => {
       evt.preventDefault();
       evt.stopPropagation();
+      const self = evt.currentTarget;
+      const url = $(self).attr('data-url-template');
+      loadTemplate(url);
     })
     .on('dragover dragenter', (evt) => {
       const self = evt.currentTarget;
@@ -107,6 +121,8 @@ export default function uploader() {
 
   $(document).on('change', '.js-upload-file input', (evt) => {
     const self = $(evt.target).closest('.js-upload-file');
+    const url = $(self).attr('data-url-template');
+    loadTemplate(url);
     const files = evt.target.files;
     const conditions = {};
     conditions.minSize = parseInt($(self).attr('data-min-size'), 10) || 0;
