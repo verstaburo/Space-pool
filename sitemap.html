@@ -272,6 +272,9 @@
                     <a class="link js-popup" href="#popup-cancel-request">
                         <span class="link__text">Popup cancel request</span>
                     </a>
+                    <a class="link js-popup" href="#popup-password-change">
+                        <span class="link__text">Popup password change</span>
+                    </a>
                 </div>
             </div>
         </div>
@@ -2190,6 +2193,38 @@
                         <span class="button__text">Yes, cancel this service</span>
                     </a>
                 </div>
+            </div>
+        </div>
+        <div class="popup popup-password-change" id="popup-password-change">
+            <div class="popup__content">
+                <h3 class="popup__title popup__title_big">Password change</h3>
+                <form class="form form_white popup-password-change__form" data-validated-form="data-validated-form">
+                    <div class="grid grid_bigger">
+                        <div class="grid__col grid__col_xl_12">
+                            <div class="form__wrapper">
+                                <label class="form-box">
+                                    <input class="input" type="password" name="newPassword" data-parsley-equalto="[data-password2]" data-password1="password1" />
+                                    <span class="form-box__label">New password</span>
+                                </label>
+                                <div class="error-message"></div>
+                            </div>
+                        </div>
+                        <div class="grid__col grid__col_xl_12">
+                            <div class="form__wrapper">
+                                <label class="form-box">
+                                    <input class="input" type="password" name="newPasswordConfirm" data-parsley-equalto="[data-password1]" data-password2="password2" />
+                                    <span class="form-box__label">New password one more time</span>
+                                </label>
+                                <div class="error-message"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form__buttons form__buttons_mgt60">
+                        <button class="button button_short button_wide" type="submit">
+                            <span class="button__text">Save changes</span>
+                        </button>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
