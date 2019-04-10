@@ -63,17 +63,12 @@ block content
                         - }
                 +col({xl: 6, md:12 })
                   +form-section-wrapper
-                    +form-box('New password')
-                      +input(type="password" name="newPassword")
+                    +link-icon('key')(href="#popup-password-change")._icon_black._icon_mid._form-underline._no-shadow._bold.__link_big._mt.js-popup Change password
                 +col({xl: 6, md:12 }).grid__col_md-order2
                   +form-section-wrapper
                     +form-section-text._compensate
                       p Forgot your existing password?
                       +link(href="#")._gray._underline Recover the password VIA E-mail adress
-                +col({xl: 6, md:12 })
-                  +form-section-wrapper
-                    +form-box('New password one more time')
-                      +input(type="password" name="newPasswordConfirm")
             +form-section._bmg._bmg_ext
               +form-section-header._lg-mmg
                 +form-section-title Profile Data
@@ -108,6 +103,49 @@ block content
                   +form-section-wrapper
                     +form-box('Employee position')
                       +input(type="text" name="employeePosition" value="Art-director" placeholder="Employee position")
+            +form-section._mg80
+              +form-section-checker()._mgt-20(data-form-element="details-checker")
+                +b.LABEL.checkbox
+                  +e.INPUT.input(name="isCompaty" value="1" type="checkbox" data-checker="details")
+                  +e.SPAN.box
+                    +icon('check').__icon
+                  +e.SPAN.content I work under brand or company
+              +form-section-content.is-disabled(data-checker-target="details" data-form-element="details")
+                +form-section-header._mg35
+                  +form-section-title Company details:
+                +grid.grid_big
+                  +col({xl: 6, md:12 })
+                    +form-section-wrapper
+                      +form-box('Company name')
+                        +input(type="text" name="companyName" placeholder="Company name" required="required")
+                  +col({xl: 6, md:12 })
+                    +form-section-wrapper
+                      +form-box('Company Registry No.')
+                        +input(type="text" name="companyRegN" placeholder="Company Registry No." required="required")
+                  +col({xl: 6, md:12 })
+                    +form-section-wrapper
+                      +form-box('VAT number if you have it')
+                        +input(type="text" name="VATnumber" placeholder="VAT number if you have it")
+                  +col({xl: 6, md:12 })
+                    +form-section-wrapper
+                      +form-box('Legal adress city')
+                        +input(type="text" name="legalAdressCity" placeholder="Legal adress city" required="required")
+                  +col({xl: 6, md:12 })
+                    +form-section-wrapper
+                      +form-box('Legal adress street')
+                        +input(type="text" name="legalAdressStreet" placeholder="Legal adress street" required="required")
+                  +col({xl: 6, md:12 })
+                    +form-section-wrapper
+                      +form-box('Building No.')
+                        +input(type="text" name="buildingN" placeholder="Building No." required="required")
+                  +col({xl: 6, md:12 })
+                    +form-section-wrapper
+                      +form-box('Apartment or Office No.')
+                        +input(type="text" name="officeN" placeholder="Apartment or Office No.")
+                  +col({xl: 6, md:12 })
+                    +form-section-wrapper
+                      +form-box('ZIP/Postal Code')
+                        +input(type="text" name="ZIPcode" placeholder="ZIP/Postal Code" required="required")
             +form-section
               +form-section-header._bmg
                 +form-section-title Service settings and notifications
@@ -128,3 +166,6 @@ block content
 block panels
   +main-menu-inner
     +nav-list(getData('main-menu-user.json'))
+
+block popups
+  +popup-password-change#popup-password-change

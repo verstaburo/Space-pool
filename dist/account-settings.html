@@ -264,7 +264,7 @@
                                                 </span>
                                                 <span class="avatar-uploader__content">
                                                     <input class="avatar-uploader__input js-upload-image" type="file" name="ava" />
-                                                    <span class="link link_icon link_icon_gray-dark link_icon_mid link_light-underline link_no-shadow link_bold avatar-uploader__name">
+                                                    <span class="link link_icon link_icon_gray-dark link_icon_mid link_form-underline link_no-shadow link_bold avatar-uploader__name">
                                                         <svg class="link__icon link__icon_img"><use xlink:href="assets/images/icon.svg#icon_img"></use></svg>
                                                         <span class="link__text">Change userpic</span>
                                                     </span>
@@ -306,10 +306,10 @@
                                     </div>
                                     <div class="grid__col grid__col_xl_6 grid__col_md_12">
                                         <div class="form__wrapper">
-                                            <label class="form-box">
-                                                <input class="input" type="password" name="newPassword" />
-                                                <span class="form-box__label">New password</span>
-                                            </label>
+                                            <a class="link link_icon link_icon_black link_icon_mid link_form-underline link_no-shadow link_bold form__link form__link_big form__link_mt js-popup" href="#popup-password-change">
+                                                <svg class="link__icon link__icon_key"><use xlink:href="assets/images/icon.svg#icon_key"></use></svg>
+                                                <span class="link__text">Change password</span>
+                                            </a>
                                             <div class="error-message"></div>
                                         </div>
                                     </div>
@@ -321,15 +321,6 @@
                                                     <span class="link__text">Recover the password VIA E-mail adress</span>
                                                 </a>
                                             </div>
-                                            <div class="error-message"></div>
-                                        </div>
-                                    </div>
-                                    <div class="grid__col grid__col_xl_6 grid__col_md_12">
-                                        <div class="form__wrapper">
-                                            <label class="form-box">
-                                                <input class="input" type="password" name="newPasswordConfirm" />
-                                                <span class="form-box__label">New password one more time</span>
-                                            </label>
                                             <div class="error-message"></div>
                                         </div>
                                     </div>
@@ -396,6 +387,96 @@
                                                 <span class="form-box__label">Employee position</span>
                                             </label>
                                             <div class="error-message"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </fieldset>
+                            <fieldset class="form__section form__section_mg80">
+                                <div class="form__checker form__checker_mgt-20" data-form-element="details-checker">
+                                    <label class="checkbox">
+                                        <input class="checkbox__input" name="isCompaty" value="1" type="checkbox" data-checker="details" />
+                                        <span class="checkbox__box">
+                                            <svg class="checkbox__icon"><use xlink:href="assets/images/icon.svg#icon_check"></use></svg>
+                                        </span>
+                                        <span class="checkbox__content">I work under brand or company</span>
+                                    </label>
+                                </div>
+                                <div class="form__content is-disabled" data-checker-target="details" data-form-element="details">
+                                    <div class="form__header form__header_mg35">
+                                        <h3 class="form__title">Company details:</h3>
+                                    </div>
+                                    <div class="grid grid_big">
+                                        <div class="grid__col grid__col_xl_6 grid__col_md_12">
+                                            <div class="form__wrapper">
+                                                <label class="form-box">
+                                                    <input class="input" type="text" name="companyName" placeholder="Company name" required="required" />
+                                                    <span class="form-box__label">Company name</span>
+                                                </label>
+                                                <div class="error-message"></div>
+                                            </div>
+                                        </div>
+                                        <div class="grid__col grid__col_xl_6 grid__col_md_12">
+                                            <div class="form__wrapper">
+                                                <label class="form-box">
+                                                    <input class="input" type="text" name="companyRegN" placeholder="Company Registry No." required="required" />
+                                                    <span class="form-box__label">Company Registry No.</span>
+                                                </label>
+                                                <div class="error-message"></div>
+                                            </div>
+                                        </div>
+                                        <div class="grid__col grid__col_xl_6 grid__col_md_12">
+                                            <div class="form__wrapper">
+                                                <label class="form-box">
+                                                    <input class="input" type="text" name="VATnumber" placeholder="VAT number if you have it" />
+                                                    <span class="form-box__label">VAT number if you have it</span>
+                                                </label>
+                                                <div class="error-message"></div>
+                                            </div>
+                                        </div>
+                                        <div class="grid__col grid__col_xl_6 grid__col_md_12">
+                                            <div class="form__wrapper">
+                                                <label class="form-box">
+                                                    <input class="input" type="text" name="legalAdressCity" placeholder="Legal adress city" required="required" />
+                                                    <span class="form-box__label">Legal adress city</span>
+                                                </label>
+                                                <div class="error-message"></div>
+                                            </div>
+                                        </div>
+                                        <div class="grid__col grid__col_xl_6 grid__col_md_12">
+                                            <div class="form__wrapper">
+                                                <label class="form-box">
+                                                    <input class="input" type="text" name="legalAdressStreet" placeholder="Legal adress street" required="required" />
+                                                    <span class="form-box__label">Legal adress street</span>
+                                                </label>
+                                                <div class="error-message"></div>
+                                            </div>
+                                        </div>
+                                        <div class="grid__col grid__col_xl_6 grid__col_md_12">
+                                            <div class="form__wrapper">
+                                                <label class="form-box">
+                                                    <input class="input" type="text" name="buildingN" placeholder="Building No." required="required" />
+                                                    <span class="form-box__label">Building No.</span>
+                                                </label>
+                                                <div class="error-message"></div>
+                                            </div>
+                                        </div>
+                                        <div class="grid__col grid__col_xl_6 grid__col_md_12">
+                                            <div class="form__wrapper">
+                                                <label class="form-box">
+                                                    <input class="input" type="text" name="officeN" placeholder="Apartment or Office No." />
+                                                    <span class="form-box__label">Apartment or Office No.</span>
+                                                </label>
+                                                <div class="error-message"></div>
+                                            </div>
+                                        </div>
+                                        <div class="grid__col grid__col_xl_6 grid__col_md_12">
+                                            <div class="form__wrapper">
+                                                <label class="form-box">
+                                                    <input class="input" type="text" name="ZIPcode" placeholder="ZIP/Postal Code" required="required" />
+                                                    <span class="form-box__label">ZIP/Postal Code</span>
+                                                </label>
+                                                <div class="error-message"></div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -537,6 +618,38 @@
                         </div>
                     </div>
                 </div>
+            </div>
+        </div>
+        <div class="popup popup-password-change" id="popup-password-change">
+            <div class="popup__content">
+                <h3 class="popup__title popup__title_big">Password change</h3>
+                <form class="form form_white popup-password-change__form" data-validated-form="data-validated-form">
+                    <div class="grid grid_bigger">
+                        <div class="grid__col grid__col_xl_12">
+                            <div class="form__wrapper">
+                                <label class="form-box">
+                                    <input class="input" type="password" name="newPassword" data-parsley-equalto="[data-password2]" data-password1="password1" />
+                                    <span class="form-box__label">New password</span>
+                                </label>
+                                <div class="error-message"></div>
+                            </div>
+                        </div>
+                        <div class="grid__col grid__col_xl_12">
+                            <div class="form__wrapper">
+                                <label class="form-box">
+                                    <input class="input" type="password" name="newPasswordConfirm" data-parsley-equalto="[data-password1]" data-password2="password2" />
+                                    <span class="form-box__label">New password one more time</span>
+                                </label>
+                                <div class="error-message"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form__buttons form__buttons_mgt60">
+                        <button class="button button_short button_wide" type="submit">
+                            <span class="button__text">Save changes</span>
+                        </button>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
