@@ -632,7 +632,7 @@
     width: 100%;
 
     &_fixed {
-      position: absolute;
+      position: fixed;
       bottom: 0;
       left: 0;
       transition:
@@ -640,17 +640,7 @@
         bottom $ease-main;
       opacity: 0;
       pointer-events: none;
-
-      @include screen('md') {
-        position: fixed;
-        border-top: 1px solid $color-border-light;
-        padding: 0 $container-padding-tablet;
-        z-index: 4;
-      }
-
-      @include screen('sm') {
-        padding: 0 $container-padding-mobile;
-      }
+      z-index: 4;
 
       body.is-login & {
         @include screen('md') {
@@ -659,6 +649,47 @@
 
         @include screen('sm') {
           bottom: 50px;
+        }
+      }
+
+      .container {
+        @include screen('md') {
+          padding-left: 0;
+          padding-right: 0;
+        }
+      }
+
+      .form-panel {
+        @include screen('md') {
+          border-top: 1px solid $color-border-light;
+          padding: 0 $container-padding-tablet;
+        }
+
+        @include screen('sm') {
+          padding: 0 $container-padding-mobile;
+        }
+      }
+
+      &.is-stop {
+        @include screen('md', min) {
+          position: absolute;
+        }
+
+        .container {
+          @include screen('md', min) {
+            padding-left: 0;
+            padding-right: 0;
+          }
+        }
+
+        .grid {
+
+
+          &__col {
+            @include screen('md', min) {
+              width: 100%;
+            }
+          }
         }
       }
 

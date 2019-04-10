@@ -13,6 +13,24 @@ export default function formManipulations() {
     });
   }
 
+  // следим за формой, чтобы остановить панель
+  $(window).on('scroll', () => {
+    const sT = $(window).scrollTop();
+    const panel = $(document).find('[data-hidden-panel]');
+    const form = $(panel).closest('form');
+    const wH = $(window).height();
+    const pH = $(panel).outerHeight();
+    const fT = $(form).offset().top;
+    const fH = $(form).outerHeight();
+    const fS = (fT + fH) - pH;
+    const swT = sT + wH;
+    if (swT > fS) {
+      $(panel).addClass('is-stop');
+    } else {
+      $(panel).removeClass('is-stop');
+    }
+  });
+
   // сбрасываем форму
   function resetForm(form) {
     form[0].reset();
