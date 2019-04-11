@@ -26,6 +26,7 @@ export default function slider() {
         spaceBetween: 50,
         slidesPerView: 4,
         slidesPerGroup: 1,
+        loopAdditionalSlides: 4,
         roundLengths: true,
         navigation: {
           nextEl: btnNext,
@@ -74,6 +75,7 @@ export default function slider() {
         slidesPerView: 4,
         slidesPerGroup: 1,
         roundLengths: true,
+        loopAdditionalSlides: 4,
         navigation: {
           nextEl: btnNext,
           prevEl: btnPrev,
@@ -122,6 +124,7 @@ export default function slider() {
         slidesPerView: 3,
         slidesPerGroup: 1,
         roundLengths: true,
+        loopAdditionalSlides: 3,
         navigation: {
           nextEl: btnNext,
           prevEl: btnPrev,
