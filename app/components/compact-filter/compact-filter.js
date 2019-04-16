@@ -29,10 +29,8 @@ export default function mobileFilter() {
     // отрытие-закрытие списков фильтров
     this.filterOpen = {
       open(name) {
-        console.log('open filter');
         const t = tself;
         const targetList = $(t.el).find(`[data-filter-list="${name}"]`);
-        console.log(targetList);
         $(targetList).addClass('is-active');
       },
       close() {

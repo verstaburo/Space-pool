@@ -9,7 +9,8 @@ export default function desktopFilter() {
     $(selects).each((i, el) => {
       const isChoices = $(el).closest('.choices').length;
       if (isChoices) {
-        const selectValue = el.defaultSelectedValue || 'placeholder';
+        // const selectValue = el.defaultSelectedValue || 'placeholder';
+        const selectValue = el.defaultSelectedValue || '';
         el.choices.setChoiceByValue(selectValue);
         $(el).trigger('change');
       }

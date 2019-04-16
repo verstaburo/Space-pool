@@ -289,7 +289,8 @@ export function selects() {
     $('select').each((i, el) => {
       const value = el.value;
       const container = $(el).closest('.choices');
-      if (value !== 'placeholder' && container.length > 0) {
+      // if (value !== 'placeholder' && container.length > 0) {
+      if (value !== '' && container.length > 0) {
         $(container).addClass('is-item-select');
       } else {
         $(container).removeClass('is-item-select');
@@ -300,7 +301,8 @@ export function selects() {
       const self = evt.target;
       const value = self.value;
       const container = $(self).closest('.choices');
-      if (value !== 'placeholder' && container.length > 0) {
+      // if (value !== 'placeholder' && container.length > 0) {
+      if (value !== '' && container.length > 0) {
         $(container).addClass('is-item-select');
       } else {
         $(container).removeClass('is-item-select');
