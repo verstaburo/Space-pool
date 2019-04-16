@@ -1,8 +1,9 @@
 const $ = window.$;
 
 export default function floatingLabel() {
-  function preset() {
-    $('.form-box input, .form-box textarea').each((i, el) => {
+  function preset(labels) {
+    const targets = labels || $('.form-box input, .form-box textarea');
+    $(targets).each((i, el) => {
       if ($(el).siblings('input').length === 0) {
         if (el.value.length > 0) {
           $(el).closest('.form-box').addClass('is-top');
