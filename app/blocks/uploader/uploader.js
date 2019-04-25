@@ -23,6 +23,7 @@ export default function uploader() {
     const conditions = tests;
     let fileName;
     const counter = $('[data-file-counter]');
+    const totalPreviews = $('[data-preview-item]').length;
     for (let i = 0; i < files.length; i += 1) {
       const file = files[i];
       fileName = file.name;
@@ -32,7 +33,6 @@ export default function uploader() {
       }
     }
     while (queue.length !== 0) {
-      const totalPreviews = $('[data-preview-item]').length;
       const index = (queue.length + totalPreviews) - 1;
       const file = queue.pop();
       const name = file.name;
