@@ -1,280 +1,94 @@
 mixin popup-add-offer()
   +popup.popup-add-offer__&attributes(attributes)
     +popup-title Add rental offer
-    +tabs.__tabs
-      +tab()(data-tab-target="tab1")._orange.active Hot Desk
-      +tab()(data-tab-target="tab2")._red Dedicated desk
-      +tab()(data-tab-target="tab3")._blue Meeting room
-      +tab()(data-tab-target="tab4")._green Office space
-    +tabs-content
-      +tab-wrapper()(data-tab="tab1" data-tab-group="offer").active
-        +form._white(data-validated-form)
-          +form-section._mid-mg
-            +grid.grid_layout.grid_bigger
-              +col({xl: 12})
-                +form-section-wrapper
-                  +form-box('Offer title')
-                    +input(type="text" name="offerTitle" placeholder="Offer title" required)
-              +col({xl: 12})
-                +form-section-wrapper._noflex
-                  +form-box('Offer Description')
-                    +input(type="text" name="offerDescription" placeholder="Offer Description" required)
-                  +form-section-text._light Any information, rules, restrictions and additional features for this offer
-              +col({xl: 6, sm: 7})
-                +form-section-wrapper._negative-mg._separator
-                  +form-box('Price ', '', '', '&pound;')._icon
-                    +input(type="text" name="price" placeholder="Price" required)
-              +col({xl: 6, sm: 5})
-                +form-section-wrapper._negative-mg
-                  +form-box('')
-                    +select.js-select-input(name="shedule")
-                      option(value="Per month" selected) Per month
-                      option(value="per day") Per day
-                      option(value="per week") Per week
-                      option(value="per year") Per year
-              +col({xl: 12})
-                +form-section-wrapper._noflex
-                  +form-box('Available Quantity', '', 'div')
-                    +input-numbers('quantity', 'Available Quantity', 1)
-                  +form-section-text._light Provide overal ammount of this particular offer.
-              +col({xl: 6, sm: 12})
-                +form-section-wrapper._negative-mg
-                  +form-box('Minimum rent period').__count
-                    +input(type="text" name="durationRentMin" placeholder="Minimum rent period" required)
-                  +form-box('').__mesure
-                    +select.js-select-input(name="mesuresPeriodMin")
-                      option(value="Days" selected) Days
-                      option(value="Week") Weeks
-                      option(value="Month") Months
-                      option(value="Year") Years
-              +col({xl: 6, sm: 12})
-                +form-section-wrapper._negative-mg
-                  +form-box('Maximum rent period').__count
-                    +input(type="text" name="durationRentMax" placeholder="Maximum rent period")
-                  +form-box('').__mesure
-                    +select.js-select-input(name="mesuresPeriodMax")
-                      option(value="Days" selected) Days
-                      option(value="Week") Week
-                      option(value="Month") Month
-                      option(value="Year") Year
-          +form-section._mid-mg(data-deleted-group)
-            +form-section-header._mg21
-              +form-section-title('h4')._small Points to know about this offer. (optional)
-            +form-section-wrapper._sm-mg(data-deleted-object)
-              +form-box-removable('')._icon
-                +input(type="text" name="points[]" placeholder="Point").input_points
-          +form-section._sm-mg
-            +form-section-wrapper._noflex
-              +form-box('Comment (Only you can see it)')
-                +textarea(type="text" name="comment" placeholder="Comment (Only you can see it)" rows="1")
-              +form-section-text._light This comment helps you to recognize this particular offer inbetween other offers
-          +e.buttons
-            +button('button')(type="submit")._short._wide Add Hot Desk rental offer
-      +tab-wrapper()(data-tab="tab2" data-tab-group="offer")
-        +form._white(data-validated-form)
-          +form-section._mid-mg
-            +grid.grid_layout.grid_bigger
-              +col({xl: 12})
-                +form-section-wrapper
-                  +form-box('Offer title')
-                    +input(type="text" name="offerTitle" placeholder="Offer title" required)
-              +col({xl: 12})
-                +form-section-wrapper._noflex
-                  +form-box('Offer Description')
-                    +input(type="text" name="offerDescription" placeholder="Offer Description" required)
-                  +form-section-text._light Any information, rules, restrictions and additional features for this offer
-              +col({xl: 6, sm: 7})
-                +form-section-wrapper._negative-mg._separator
-                  +form-box('Price ', '', '', '&pound;')._icon
-                    +input(type="text" name="price" placeholder="Price" required)
-              +col({xl: 6, sm: 5})
-                +form-section-wrapper._negative-mg
-                  +form-box('')
-                    +select.js-select-input(name="shedule")
-                      option(value="Per month" selected) Per month
-                      option(value="per day") Per day
-                      option(value="per week") Per week
-                      option(value="per year") Per year
-              +col({xl: 12})
-                +form-section-wrapper._noflex
-                  +form-box('Available Quantity', '', 'div')
-                    +input-numbers('quantity', 'Available Quantity', 1)
-                  +form-section-text._light Provide overal ammount of this particular offer.
-              +col({xl: 6, sm: 12})
-                +form-section-wrapper._negative-mg
-                  +form-box('Minimum rent period').__count
-                    +input(type="text" name="durationRentMin" placeholder="Minimum rent period" required)
-                  +form-box('').__mesure
-                    +select.js-select-input(name="mesuresPeriodMin")
-                      option(value="Days" selected) Days
-                      option(value="Week") Week
-                      option(value="Month") Month
-                      option(value="Year") Year
-              +col({xl: 6, sm: 12})
-                +form-section-wrapper._negative-mg
-                  +form-box('Maximum rent period').__count
-                    +input(type="text" name="durationRentMax" placeholder="Maximum rent period")
-                  +form-box('').__mesure
-                    +select.js-select-input(name="mesuresPeriodMax")
-                      option(value="Days" selected) Days
-                      option(value="Week") Week
-                      option(value="Month") Month
-                      option(value="Year") Year
-          +form-section._mid-mg(data-deleted-group)
-            +form-section-header._mg21
-              +form-section-title('h4')._small Points to know about this offer. (optional)
-            +form-section-wrapper._sm-mg(data-deleted-object)
-              +form-box-removable('')._icon
-                +input(type="text" name="points[]" placeholder="Point").input_points
-          +form-section._sm-mg
-            +form-section-wrapper._noflex
-              +form-box('Comment (Only you can see it)')
-                +textarea(type="text" name="comment" placeholder="Comment (Only you can see it)" rows="1")
-              +form-section-text._light This comment helps you to recognize this particular offer inbetween other offers
-          +e.buttons
-            +button('button')(type="submit")._short._wide Add Dedicated Desk rental offer
-      +tab-wrapper()(data-tab="tab3" data-tab-group="offer")
-        +form._white(data-validated-form)
-          +form-section._mg90
-            +grid.grid_layout.grid_bigger
-              +col({xl: 12})
-                +form-section-wrapper
-                  +form-box('Offer title')
-                    +input(type="text" name="offerTitle" placeholder="Offer title" required)
-              +col({xl: 12})
-                +form-section-wrapper._noflex
-                  +form-box('Offer Description')
-                    +input(type="text" name="offerDescription" placeholder="Offer Description" required)
-                  +form-section-text._light Any information, rules, restrictions and additional features for this offer
-              +col({xl: 6, sm: 7})
-                +form-section-wrapper._negative-mg._separator
-                  +form-box('Price ', '', '', '&pound;')._icon
-                    +input(type="text" name="price" placeholder="Price" required)
-              +col({xl: 6, sm: 5})
-                +form-section-wrapper._negative-mg
-                  +form-box('')
-                    +select.js-select-input(name="shedule")
-                      option(value="Per month" selected) Per month
-                      option(value="per day") Per day
-                      option(value="per week") Per week
-                      option(value="per year") Per year
-              +col({xl: 12})
-                +form-section-wrapper._noflex._negative-mg17
-                  +form-box('Available Quantity', '', 'div')
-                    +input-numbers('quantity', 'Available Quantity', 1)
-                  +form-section-text._light Provide overal ammount of this particular offer.
-              +col({xl: 12})
-                +form-section-wrapper._noflex._negative-mg13
-                  +form-box('Number of seats', '', 'div')
-                    +input-numbers('seats', 'Number of seats', 1)
-                  +form-section-text._light Overal ammount of available seats for one particular Meeting Rooms
-              +col({xl: 6, sm: 12})
-                +form-section-wrapper._negative-mg6
-                  +form-box('Minimum rent period').__count
-                    +input(type="text" name="durationRentMin" placeholder="Minimum rent period" required)
-                  +form-box('').__mesure
-                    +select.js-select-input(name="mesuresPeriodMin")
-                      option(value="Hours" selected) Hours
-                      option(value="Days") Days
-                      option(value="Week") Week
-                      option(value="Month") Month
-                      option(value="Year") Year
-              +col({xl: 6, sm: 12})
-                +form-section-wrapper._negative-mg6
-                  +form-box('Maximum rent period').__count
-                    +input(type="text" name="durationRentMax" placeholder="Maximum rent period")
-                  +form-box('').__mesure
-                    +select.js-select-input(name="mesuresPeriodMax")
-                      option(value="Hours" selected) Hours
-                      option(value="Days") Days
-                      option(value="Week") Week
-                      option(value="Month") Month
-                      option(value="Year") Year
-          +form-section._mid-mg(data-deleted-group)
-            +form-section-header._mg21
-              +form-section-title('h4')._small Points to know about this offer. (optional)
-            +form-section-wrapper._sm-mg(data-deleted-object)
-              +form-box-removable('')._icon
-                +input(type="text" name="points[]" placeholder="Point").input_points
-          +form-section._sm-mg
-            +form-section-wrapper._noflex
-              +form-box('Comment (Only you can see it)')
-                +textarea(type="text" name="comment" placeholder="Comment (Only you can see it)" rows="1")
-              +form-section-text._light This comment helps you to recognize this particular offer inbetween other offers
-          +e.buttons_mgt60
-            +button('button')(type="submit")._short._wide Add Meeting Room rental offer
-      +tab-wrapper()(data-tab="tab4" data-tab-group="offer")
-        +form._white(data-validated-form)
-          +form-section._mg90
-            +grid.grid_layout.grid_bigger
-              +col({xl: 12})
-                +form-section-wrapper
-                  +form-box('Offer title')
-                    +input(type="text" name="offerTitle" placeholder="Offer title" required)
-              +col({xl: 12})
-                +form-section-wrapper._noflex
-                  +form-box('Offer Description')
-                    +input(type="text" name="offerDescription" placeholder="Offer Description" required)
-                  +form-section-text._light Any information, rules, restrictions and additional features for this offer
-              +col({xl: 6, sm: 7})
-                +form-section-wrapper._negative-mg._separator
-                  +form-box('Price ', '', '', '&pound;')._icon
-                    +input(type="text" name="price" placeholder="Price" required)
-              +col({xl: 6, sm: 5})
-                +form-section-wrapper._negative-mg
-                  +form-box('')
-                    +select.js-select-input(name="shedule")
-                      option(value="Per month" selected) Per month
-                      option(value="per day") Per day
-                      option(value="per week") Per week
-                      option(value="per year") Per year
-              +col({xl: 12})
-                +form-section-wrapper._noflex._negative-mg17
-                  +form-box('Available Quantity', '', 'div')
-                    +input-numbers('quantity', 'Available Quantity', 1)
-                  +form-section-text._light Provide overal ammount of this particular offer.
-              +col({xl: 6, sm: 12})
-                +form-section-wrapper._noflex._negative-mg13
-                  +form-box('Number of Desks', '', 'div')
-                    +input-numbers('desks', 'Number of Desks', 1)
-                  +form-section-text._light Existing desks or office capability
-              +col({xl: 6, sm: 12})
-                +form-section-wrapper._noflex._negative-mg13
-                  +form-box('Floor area ', '', '', '', 'ft<sup>2</sup>')._icon
-                    +input(type="text" name="area" placeholder="Floor area" required)
-                  +form-section-text._light Without supply rooms
-              +col({xl: 6, sm: 12})
-                +form-section-wrapper._negative-mg6
-                  +form-box('Minimum rent period').__count
-                    +input(type="text" name="durationRentMin" placeholder="Minimum rent period" required)
-                  +form-box('').__mesure
-                    +select.js-select-input(name="mesuresPeriodMin")
-                      option(value="Hours" selected) Hours
-                      option(value="Days") Days
-                      option(value="Week") Week
-                      option(value="Month") Month
-                      option(value="Year") Year
-              +col({xl: 6, sm: 12})
-                +form-section-wrapper._negative-mg6
-                  +form-box('Maximum rent period').__count
-                    +input(type="text" name="durationRentMax" placeholder="Maximum rent period")
-                  +form-box('').__mesure
-                    +select.js-select-input(name="mesuresPeriodMax")
-                      option(value="Hours" selected) Hours
-                      option(value="Days") Days
-                      option(value="Week") Week
-                      option(value="Month") Month
-                      option(value="Year") Year
-          +form-section._mid-mg(data-deleted-group)
-            +form-section-header._mg21
-              +form-section-title('h4')._small Points to know about this offer. (optional)
-            +form-section-wrapper._sm-mg(data-deleted-object)
-              +form-box-removable('')._icon
-                +input(type="text" name="points[]" placeholder="Point").input_points
-          +form-section._sm-mg
-            +form-section-wrapper._noflex
-              +form-box('Comment (Only you can see it)')
-                +textarea(type="text" name="comment" placeholder="Comment (Only you can see it)" rows="1")
-              +form-section-text._light This comment helps you to recognize this particular offer inbetween other offers
-          +e.buttons_mgt60
-            +button('button')(type="submit")._short._wide Add Office space rental offer
+    +form._white(data-validated-form)
+      +tabs('div').popup-add-offer__tabs
+        +b.LABEL.tab-radio_orange
+          +e.INPUT.input(name='addOffer', value='1', type="radio", checked="checked", data-show-elements="hotDesk", data-hide-elements="dedicatedDesk,meetingRoom,officeSpace", data-toggle-form)
+          +e.label Hot Desk
+        +b.LABEL.tab-radio_red
+          +e.INPUT.input(name='addOffer', value='1', type="radio", disabled="disabled", data-show-elements="dedicatedDesk", data-hide-elements="hotDesk,meetingRoom,officeSpace", data-toggle-form)
+          +e.label Dedicated desk
+        +b.LABEL.tab-radio_blue
+          +e.INPUT.input(name='addOffer', value='1', type="radio", data-show-elements="meetingRoom", data-hide-elements="hotDesk,dedicatedDesk,officeSpace", data-toggle-form)
+          +e.label Meeting room
+        +b.LABEL.tab-radio_green
+          +e.INPUT.input(name='addOffer', value='1', type="radio", data-show-elements="officeSpace", data-hide-elements="hotDesk,dedicatedDesk,meetingRoom", data-toggle-form)
+          +e.label Office space
+      +e.content
+        +form-section._mid-mg
+          +grid.grid_layout.grid_bigger
+            +col({xl: 12})
+              +form-section-wrapper
+                +form-box('Offer title')
+                  +input(type="text" name="offerTitle" placeholder="Offer title" required)
+            +col({xl: 12})
+              +form-section-wrapper._noflex
+                +form-box('Offer Description')
+                  +input(type="text" name="offerDescription" placeholder="Offer Description" required)
+                +form-section-text._light Any information, rules, restrictions and additional features for this offer
+            +col({xl: 6, sm: 7})
+              +form-section-wrapper._negative-mg._separator
+                +form-box('Price ', '', '', '&pound;')._icon
+                  +input(type="text" name="price" placeholder="Price" required)
+            +col({xl: 6, sm: 5})
+              +form-section-wrapper._negative-mg
+                +form-box('')
+                  +select.js-select-input(name="shedule")
+                    option(value="Per month" selected) Per month
+                    option(value="per day") Per day
+                    option(value="per week") Per week
+                    option(value="per year") Per year
+            +col({xl: 12})
+              +form-section-wrapper._noflex
+                +form-box('Available Quantity', '', 'div')
+                  +input-numbers('quantity', 'Available Quantity', 1)
+                +form-section-text._light Provide overal ammount of this particular offer.
+            +col({xl: 12})(data-form-element="meetingRoom")
+              +form-section-wrapper._noflex._negative-mg
+                +form-box('Number of seats', '', 'div')
+                  +input-numbers('seats', 'Number of seats', 1)
+                +form-section-text._light Overal ammount of available seats for one particular Meeting Rooms
+            +col({xl: 6, sm: 12})(data-form-element="officeSpace")
+              +form-section-wrapper._noflex._negative-mg
+                +form-box('Number of Desks', '', 'div')
+                  +input-numbers('desks', 'Number of Desks', 1)
+                +form-section-text._light Existing desks or office capability
+            +col({xl: 6, sm: 12})(data-form-element="officeSpace")
+              +form-section-wrapper._noflex._negative-mg
+                +form-box('Floor area ', '', '', '', 'ft<sup>2</sup>')._icon
+                  +input(type="text" name="area" placeholder="Floor area" required)
+                +form-section-text._light Without supply rooms
+            +col({xl: 6, sm: 12})
+              +form-section-wrapper._negative-mg
+                +form-box('Minimum rent period').__count
+                  +input(type="text" name="durationRentMin" placeholder="Minimum rent period" required)
+                +form-box('').__mesure
+                  +select.js-select-input(name="mesuresPeriodMin")
+                    option(value="Days" selected) Days
+                    option(value="Week") Weeks
+                    option(value="Month") Months
+                    option(value="Year") Years
+            +col({xl: 6, sm: 12})
+              +form-section-wrapper._negative-mg
+                +form-box('Maximum rent period').__count
+                  +input(type="text" name="durationRentMax" placeholder="Maximum rent period")
+                +form-box('').__mesure
+                  +select.js-select-input(name="mesuresPeriodMax")
+                    option(value="Days" selected) Days
+                    option(value="Week") Week
+                    option(value="Month") Month
+                    option(value="Year") Year
+        +form-section._mid-mg(data-deleted-group)
+          +form-section-header._mg21
+            +form-section-title('h4')._small Points to know about this offer. (optional)
+          +form-section-wrapper._sm-mg(data-deleted-object)
+            +form-box-removable('')._icon
+              +input(type="text" name="points[]" placeholder="Point").input_points
+        +form-section._sm-mg
+          +form-section-wrapper._noflex
+            +form-box('Comment (Only you can see it)')
+              +textarea(type="text" name="comment" placeholder="Comment (Only you can see it)" rows="1")
+            +form-section-text._light This comment helps you to recognize this particular offer inbetween other offers
+        +e.buttons
+          +button('button')(type="submit")._short._wide Add <span data-form-element="hotDesk">Hot Desk</span><span data-form-element="dedicatedDesk">Dedicated Desk</span><span data-form-element="meetingRoom">Meeting Room</span><span data-form-element="officeSpace">Office space</span> rental offer

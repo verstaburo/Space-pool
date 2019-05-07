@@ -1,10 +1,28 @@
-mixin tabs()
-  +b.UL.tabs&attributes(attributes)
+mixin tabs(tag)
+  +b(tag || 'ul').tabs&attributes(attributes)
     block
 
-mixin tab()
-  +e.LI.tab&attributes(attributes)
+mixin tab(tag)
+  +e(tag || 'li').tab&attributes(attributes)
     block
+
+mixin tab-radio(tag, value, name, checked, disabled)
+  +b(tag || 'label').tab-radio&attributes(attributes)
+    - if (checked) {
+      - if (disabled) {
+        +e.INPUT.input(name=name, value=value, type="radio", checked="checked", disabled="disabled")
+      - } else {
+        +e.INPUT.input(name=name, value=value, type="radio", checked="checked")
+      - }
+    - } else {
+      - if (disabled) {
+        +e.INPUT.input(name=name, value=value, type="radio", disabled="disabled")
+      - } else {
+        +e.INPUT.input(name=name, value=value, type="radio")
+      - }
+    - }
+    +e.label
+      block
 
 mixin tab-container()
   +e.LI.tab_button&attributes(attributes)

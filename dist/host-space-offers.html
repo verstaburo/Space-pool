@@ -693,583 +693,203 @@
         <div class="popup popup-add-offer" id="popup-add-rental-offer">
             <div class="popup__content">
                 <h3 class="popup__title">Add rental offer</h3>
-                <ul class="tabs popup-add-offer__tabs">
-                    <li class="tabs__tab tabs__tab_orange active" data-tab-target="tab1">Hot Desk</li>
-                    <li class="tabs__tab tabs__tab_red" data-tab-target="tab2">Dedicated desk</li>
-                    <li class="tabs__tab tabs__tab_blue" data-tab-target="tab3">Meeting room</li>
-                    <li class="tabs__tab tabs__tab_green" data-tab-target="tab4">Office space</li>
-                </ul>
-                <div class="tabs-content">
-                    <div class="tabs-content__wrapper active" data-tab="tab1" data-tab-group="offer">
-                        <form class="form form_white" data-validated-form="data-validated-form">
-                            <fieldset class="form__section form__section_mid-mg">
-                                <div class="grid grid_layout grid_bigger">
-                                    <div class="grid__col grid__col_xl_12">
-                                        <div class="form__wrapper">
-                                            <label class="form-box">
-                                                <input class="input" type="text" name="offerTitle" placeholder="Offer title" required="required" />
-                                                <span class="form-box__label">Offer title</span>
-                                            </label>
-                                            <div class="error-message"></div>
-                                        </div>
-                                    </div>
-                                    <div class="grid__col grid__col_xl_12">
-                                        <div class="form__wrapper form__wrapper_noflex">
-                                            <label class="form-box">
-                                                <input class="input" type="text" name="offerDescription" placeholder="Offer Description" required="required" />
-                                                <span class="form-box__label">Offer Description</span>
-                                            </label>
-                                            <div class="form__text form__text_light">Any information, rules, restrictions and additional features for this offer</div>
-                                            <div class="error-message"></div>
-                                        </div>
-                                    </div>
-                                    <div class="grid__col grid__col_xl_6 grid__col_sm_7">
-                                        <div class="form__wrapper form__wrapper_negative-mg form__wrapper_separator">
-                                            <label class="form-box form-box_icon form-box_icon">
-                                                <input class="input" type="text" name="price" placeholder="Price" required="required" />
-                                                <span class="form-box__label">Price </span>
-                                                <span class="form-box__icon form-box__icon_text">&pound;</span>
-                                            </label>
-                                            <div class="error-message"></div>
-                                        </div>
-                                    </div>
-                                    <div class="grid__col grid__col_xl_6 grid__col_sm_5">
-                                        <div class="form__wrapper form__wrapper_negative-mg">
-                                            <label class="form-box">
-                                                <select class="select js-select-input" name="shedule">
-                                                    <option value="Per month" selected="selected">Per month</option>
-                                                    <option value="per day">Per day</option>
-                                                    <option value="per week">Per week</option>
-                                                    <option value="per year">Per year</option>
-                                                </select>
-                                            </label>
-                                            <div class="error-message"></div>
-                                        </div>
-                                    </div>
-                                    <div class="grid__col grid__col_xl_12">
-                                        <div class="form__wrapper form__wrapper_noflex">
-                                            <div class="form-box">
-                                                <div class="input-numbers">
-                                                    <input class="input input-numbers__input js-numberbox-input" type="text" name="quantity" placeholder="Available Quantity" data-min="1" />
-                                                    <div class="input-numbers__buttons">
-                                                        <div class="input-numbers__button js-numberbox-minus"></div>
-                                                        <div class="input-numbers__button js-numberbox-plus"></div>
-                                                    </div>
-                                                </div>
-                                                <div class="form-box__label">Available Quantity</div>
-                                            </div>
-                                            <div class="form__text form__text_light">Provide overal ammount of this particular offer.</div>
-                                            <div class="error-message"></div>
-                                        </div>
-                                    </div>
-                                    <div class="grid__col grid__col_xl_6 grid__col_sm_12">
-                                        <div class="form__wrapper form__wrapper_negative-mg">
-                                            <label class="form-box form__count">
-                                                <input class="input" type="text" name="durationRentMin" placeholder="Minimum rent period" required="required" />
-                                                <span class="form-box__label">Minimum rent period</span>
-                                            </label>
-                                            <label class="form-box form__mesure">
-                                                <select class="select js-select-input" name="mesuresPeriodMin">
-                                                    <option value="Days" selected="selected">Days</option>
-                                                    <option value="Week">Weeks</option>
-                                                    <option value="Month">Months</option>
-                                                    <option value="Year">Years</option>
-                                                </select>
-                                            </label>
-                                            <div class="error-message"></div>
-                                        </div>
-                                    </div>
-                                    <div class="grid__col grid__col_xl_6 grid__col_sm_12">
-                                        <div class="form__wrapper form__wrapper_negative-mg">
-                                            <label class="form-box form__count">
-                                                <input class="input" type="text" name="durationRentMax" placeholder="Maximum rent period" />
-                                                <span class="form-box__label">Maximum rent period</span>
-                                            </label>
-                                            <label class="form-box form__mesure">
-                                                <select class="select js-select-input" name="mesuresPeriodMax">
-                                                    <option value="Days" selected="selected">Days</option>
-                                                    <option value="Week">Week</option>
-                                                    <option value="Month">Month</option>
-                                                    <option value="Year">Year</option>
-                                                </select>
-                                            </label>
-                                            <div class="error-message"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </fieldset>
-                            <fieldset class="form__section form__section_mid-mg" data-deleted-group="data-deleted-group">
-                                <div class="form__header form__header_mg21">
-                                    <h4 class="form__title form__title_small">Points to know about this offer. (optional)</h4>
-                                </div>
-                                <div class="form__wrapper form__wrapper_sm-mg" data-deleted-object="data-deleted-object">
-                                    <label class="form-box form-box_icon">
-                                        <input class="input input_points" type="text" name="points[]" placeholder="Point" />
-                                        <span class="form-box__point"></span>
-                                        <button class="form-box__delete js-delete-object-except-last" type="button">
-                                            <svg class="form-box__icon form-box__icon_cross"><use xlink:href="assets/images/icon.svg#icon_cross"></use></svg>
-                                        </button>
-                                    </label>
-                                    <div class="error-message"></div>
-                                </div>
-                            </fieldset>
-                            <fieldset class="form__section form__section_sm-mg">
-                                <div class="form__wrapper form__wrapper_noflex">
-                                    <label class="form-box">
-                                        <textarea class="textarea" type="text" name="comment" placeholder="Comment (Only you can see it)" rows="1"></textarea>
-                                        <span class="form-box__label">Comment (Only you can see it)</span>
-                                    </label>
-                                    <div class="form__text form__text_light">This comment helps you to recognize this particular offer inbetween other offers</div>
-                                    <div class="error-message"></div>
-                                </div>
-                            </fieldset>
-                            <div class="form__buttons">
-                                <button class="button button_short button_wide" type="submit">
-                                    <span class="button__text">Add Hot Desk rental offer</span>
-                                </button>
-                            </div>
-                        </form>
+                <form class="form form_white" data-validated-form="data-validated-form">
+                    <div class="tabs popup-add-offer__tabs">
+                        <label class="tab-radio tab-radio_orange">
+                            <input class="tab-radio__input" name="addOffer" value="1" type="radio" checked="checked" data-show-elements="hotDesk" data-hide-elements="dedicatedDesk,meetingRoom,officeSpace" data-toggle-form="data-toggle-form" />
+                            <span class="tab-radio__label">Hot Desk</span>
+                        </label>
+                        <label class="tab-radio tab-radio_red">
+                            <input class="tab-radio__input" name="addOffer" value="1" type="radio" disabled="disabled" data-show-elements="dedicatedDesk" data-hide-elements="hotDesk,meetingRoom,officeSpace" data-toggle-form="data-toggle-form" />
+                            <span class="tab-radio__label">Dedicated desk</span>
+                        </label>
+                        <label class="tab-radio tab-radio_blue">
+                            <input class="tab-radio__input" name="addOffer" value="1" type="radio" data-show-elements="meetingRoom" data-hide-elements="hotDesk,dedicatedDesk,officeSpace" data-toggle-form="data-toggle-form" />
+                            <span class="tab-radio__label">Meeting room</span>
+                        </label>
+                        <label class="tab-radio tab-radio_green">
+                            <input class="tab-radio__input" name="addOffer" value="1" type="radio" data-show-elements="officeSpace" data-hide-elements="hotDesk,dedicatedDesk,meetingRoom" data-toggle-form="data-toggle-form" />
+                            <span class="tab-radio__label">Office space</span>
+                        </label>
                     </div>
-                    <div class="tabs-content__wrapper" data-tab="tab2" data-tab-group="offer">
-                        <form class="form form_white" data-validated-form="data-validated-form">
-                            <fieldset class="form__section form__section_mid-mg">
-                                <div class="grid grid_layout grid_bigger">
-                                    <div class="grid__col grid__col_xl_12">
-                                        <div class="form__wrapper">
-                                            <label class="form-box">
-                                                <input class="input" type="text" name="offerTitle" placeholder="Offer title" required="required" />
-                                                <span class="form-box__label">Offer title</span>
-                                            </label>
-                                            <div class="error-message"></div>
-                                        </div>
+                    <div class="form__content">
+                        <fieldset class="form__section form__section_mid-mg">
+                            <div class="grid grid_layout grid_bigger">
+                                <div class="grid__col grid__col_xl_12">
+                                    <div class="form__wrapper">
+                                        <label class="form-box">
+                                            <input class="input" type="text" name="offerTitle" placeholder="Offer title" required="required" />
+                                            <span class="form-box__label">Offer title</span>
+                                        </label>
+                                        <div class="error-message"></div>
                                     </div>
-                                    <div class="grid__col grid__col_xl_12">
-                                        <div class="form__wrapper form__wrapper_noflex">
-                                            <label class="form-box">
-                                                <input class="input" type="text" name="offerDescription" placeholder="Offer Description" required="required" />
-                                                <span class="form-box__label">Offer Description</span>
-                                            </label>
-                                            <div class="form__text form__text_light">Any information, rules, restrictions and additional features for this offer</div>
-                                            <div class="error-message"></div>
-                                        </div>
+                                </div>
+                                <div class="grid__col grid__col_xl_12">
+                                    <div class="form__wrapper form__wrapper_noflex">
+                                        <label class="form-box">
+                                            <input class="input" type="text" name="offerDescription" placeholder="Offer Description" required="required" />
+                                            <span class="form-box__label">Offer Description</span>
+                                        </label>
+                                        <div class="form__text form__text_light">Any information, rules, restrictions and additional features for this offer</div>
+                                        <div class="error-message"></div>
                                     </div>
-                                    <div class="grid__col grid__col_xl_6 grid__col_sm_7">
-                                        <div class="form__wrapper form__wrapper_negative-mg form__wrapper_separator">
-                                            <label class="form-box form-box_icon form-box_icon">
-                                                <input class="input" type="text" name="price" placeholder="Price" required="required" />
-                                                <span class="form-box__label">Price </span>
-                                                <span class="form-box__icon form-box__icon_text">&pound;</span>
-                                            </label>
-                                            <div class="error-message"></div>
-                                        </div>
+                                </div>
+                                <div class="grid__col grid__col_xl_6 grid__col_sm_7">
+                                    <div class="form__wrapper form__wrapper_negative-mg form__wrapper_separator">
+                                        <label class="form-box form-box_icon form-box_icon">
+                                            <input class="input" type="text" name="price" placeholder="Price" required="required" />
+                                            <span class="form-box__label">Price </span>
+                                            <span class="form-box__icon form-box__icon_text">&pound;</span>
+                                        </label>
+                                        <div class="error-message"></div>
                                     </div>
-                                    <div class="grid__col grid__col_xl_6 grid__col_sm_5">
-                                        <div class="form__wrapper form__wrapper_negative-mg">
-                                            <label class="form-box">
-                                                <select class="select js-select-input" name="shedule">
-                                                    <option value="Per month" selected="selected">Per month</option>
-                                                    <option value="per day">Per day</option>
-                                                    <option value="per week">Per week</option>
-                                                    <option value="per year">Per year</option>
-                                                </select>
-                                            </label>
-                                            <div class="error-message"></div>
-                                        </div>
+                                </div>
+                                <div class="grid__col grid__col_xl_6 grid__col_sm_5">
+                                    <div class="form__wrapper form__wrapper_negative-mg">
+                                        <label class="form-box">
+                                            <select class="select js-select-input" name="shedule">
+                                                <option value="Per month" selected="selected">Per month</option>
+                                                <option value="per day">Per day</option>
+                                                <option value="per week">Per week</option>
+                                                <option value="per year">Per year</option>
+                                            </select>
+                                        </label>
+                                        <div class="error-message"></div>
                                     </div>
-                                    <div class="grid__col grid__col_xl_12">
-                                        <div class="form__wrapper form__wrapper_noflex">
-                                            <div class="form-box">
-                                                <div class="input-numbers">
-                                                    <input class="input input-numbers__input js-numberbox-input" type="text" name="quantity" placeholder="Available Quantity" data-min="1" />
-                                                    <div class="input-numbers__buttons">
-                                                        <div class="input-numbers__button js-numberbox-minus"></div>
-                                                        <div class="input-numbers__button js-numberbox-plus"></div>
-                                                    </div>
+                                </div>
+                                <div class="grid__col grid__col_xl_12">
+                                    <div class="form__wrapper form__wrapper_noflex">
+                                        <div class="form-box">
+                                            <div class="input-numbers">
+                                                <input class="input input-numbers__input js-numberbox-input" type="text" name="quantity" placeholder="Available Quantity" data-min="1" />
+                                                <div class="input-numbers__buttons">
+                                                    <div class="input-numbers__button js-numberbox-minus"></div>
+                                                    <div class="input-numbers__button js-numberbox-plus"></div>
                                                 </div>
-                                                <div class="form-box__label">Available Quantity</div>
                                             </div>
-                                            <div class="form__text form__text_light">Provide overal ammount of this particular offer.</div>
-                                            <div class="error-message"></div>
+                                            <div class="form-box__label">Available Quantity</div>
                                         </div>
-                                    </div>
-                                    <div class="grid__col grid__col_xl_6 grid__col_sm_12">
-                                        <div class="form__wrapper form__wrapper_negative-mg">
-                                            <label class="form-box form__count">
-                                                <input class="input" type="text" name="durationRentMin" placeholder="Minimum rent period" required="required" />
-                                                <span class="form-box__label">Minimum rent period</span>
-                                            </label>
-                                            <label class="form-box form__mesure">
-                                                <select class="select js-select-input" name="mesuresPeriodMin">
-                                                    <option value="Days" selected="selected">Days</option>
-                                                    <option value="Week">Week</option>
-                                                    <option value="Month">Month</option>
-                                                    <option value="Year">Year</option>
-                                                </select>
-                                            </label>
-                                            <div class="error-message"></div>
-                                        </div>
-                                    </div>
-                                    <div class="grid__col grid__col_xl_6 grid__col_sm_12">
-                                        <div class="form__wrapper form__wrapper_negative-mg">
-                                            <label class="form-box form__count">
-                                                <input class="input" type="text" name="durationRentMax" placeholder="Maximum rent period" />
-                                                <span class="form-box__label">Maximum rent period</span>
-                                            </label>
-                                            <label class="form-box form__mesure">
-                                                <select class="select js-select-input" name="mesuresPeriodMax">
-                                                    <option value="Days" selected="selected">Days</option>
-                                                    <option value="Week">Week</option>
-                                                    <option value="Month">Month</option>
-                                                    <option value="Year">Year</option>
-                                                </select>
-                                            </label>
-                                            <div class="error-message"></div>
-                                        </div>
+                                        <div class="form__text form__text_light">Provide overal ammount of this particular offer.</div>
+                                        <div class="error-message"></div>
                                     </div>
                                 </div>
-                            </fieldset>
-                            <fieldset class="form__section form__section_mid-mg" data-deleted-group="data-deleted-group">
-                                <div class="form__header form__header_mg21">
-                                    <h4 class="form__title form__title_small">Points to know about this offer. (optional)</h4>
+                                <div class="grid__col grid__col_xl_12" data-form-element="meetingRoom">
+                                    <div class="form__wrapper form__wrapper_noflex form__wrapper_negative-mg">
+                                        <div class="form-box">
+                                            <div class="input-numbers">
+                                                <input class="input input-numbers__input js-numberbox-input" type="text" name="seats" placeholder="Number of seats" data-min="1" />
+                                                <div class="input-numbers__buttons">
+                                                    <div class="input-numbers__button js-numberbox-minus"></div>
+                                                    <div class="input-numbers__button js-numberbox-plus"></div>
+                                                </div>
+                                            </div>
+                                            <div class="form-box__label">Number of seats</div>
+                                        </div>
+                                        <div class="form__text form__text_light">Overal ammount of available seats for one particular Meeting Rooms</div>
+                                        <div class="error-message"></div>
+                                    </div>
                                 </div>
-                                <div class="form__wrapper form__wrapper_sm-mg" data-deleted-object="data-deleted-object">
-                                    <label class="form-box form-box_icon">
-                                        <input class="input input_points" type="text" name="points[]" placeholder="Point" />
-                                        <span class="form-box__point"></span>
-                                        <button class="form-box__delete js-delete-object-except-last" type="button">
-                                            <svg class="form-box__icon form-box__icon_cross"><use xlink:href="assets/images/icon.svg#icon_cross"></use></svg>
-                                        </button>
-                                    </label>
-                                    <div class="error-message"></div>
+                                <div class="grid__col grid__col_xl_6 grid__col_sm_12" data-form-element="officeSpace">
+                                    <div class="form__wrapper form__wrapper_noflex form__wrapper_negative-mg">
+                                        <div class="form-box">
+                                            <div class="input-numbers">
+                                                <input class="input input-numbers__input js-numberbox-input" type="text" name="desks" placeholder="Number of Desks" data-min="1" />
+                                                <div class="input-numbers__buttons">
+                                                    <div class="input-numbers__button js-numberbox-minus"></div>
+                                                    <div class="input-numbers__button js-numberbox-plus"></div>
+                                                </div>
+                                            </div>
+                                            <div class="form-box__label">Number of Desks</div>
+                                        </div>
+                                        <div class="form__text form__text_light">Existing desks or office capability</div>
+                                        <div class="error-message"></div>
+                                    </div>
                                 </div>
-                            </fieldset>
-                            <fieldset class="form__section form__section_sm-mg">
-                                <div class="form__wrapper form__wrapper_noflex">
-                                    <label class="form-box">
-                                        <textarea class="textarea" type="text" name="comment" placeholder="Comment (Only you can see it)" rows="1"></textarea>
-                                        <span class="form-box__label">Comment (Only you can see it)</span>
-                                    </label>
-                                    <div class="form__text form__text_light">This comment helps you to recognize this particular offer inbetween other offers</div>
-                                    <div class="error-message"></div>
+                                <div class="grid__col grid__col_xl_6 grid__col_sm_12" data-form-element="officeSpace">
+                                    <div class="form__wrapper form__wrapper_noflex form__wrapper_negative-mg">
+                                        <label class="form-box form-box_icon form-box_icon">
+                                            <input class="input" type="text" name="area" placeholder="Floor area" required="required" />
+                                            <span class="form-box__label">Floor area </span>
+                                            <span class="form-box__icon form-box__icon_text form-box__icon_text_r0">ft
+                                                <sup>2</sup>
+                                            </span>
+                                        </label>
+                                        <div class="form__text form__text_light">Without supply rooms</div>
+                                        <div class="error-message"></div>
+                                    </div>
                                 </div>
-                            </fieldset>
-                            <div class="form__buttons">
-                                <button class="button button_short button_wide" type="submit">
-                                    <span class="button__text">Add Dedicated Desk rental offer</span>
-                                </button>
+                                <div class="grid__col grid__col_xl_6 grid__col_sm_12">
+                                    <div class="form__wrapper form__wrapper_negative-mg">
+                                        <label class="form-box form__count">
+                                            <input class="input" type="text" name="durationRentMin" placeholder="Minimum rent period" required="required" />
+                                            <span class="form-box__label">Minimum rent period</span>
+                                        </label>
+                                        <label class="form-box form__mesure">
+                                            <select class="select js-select-input" name="mesuresPeriodMin">
+                                                <option value="Days" selected="selected">Days</option>
+                                                <option value="Week">Weeks</option>
+                                                <option value="Month">Months</option>
+                                                <option value="Year">Years</option>
+                                            </select>
+                                        </label>
+                                        <div class="error-message"></div>
+                                    </div>
+                                </div>
+                                <div class="grid__col grid__col_xl_6 grid__col_sm_12">
+                                    <div class="form__wrapper form__wrapper_negative-mg">
+                                        <label class="form-box form__count">
+                                            <input class="input" type="text" name="durationRentMax" placeholder="Maximum rent period" />
+                                            <span class="form-box__label">Maximum rent period</span>
+                                        </label>
+                                        <label class="form-box form__mesure">
+                                            <select class="select js-select-input" name="mesuresPeriodMax">
+                                                <option value="Days" selected="selected">Days</option>
+                                                <option value="Week">Week</option>
+                                                <option value="Month">Month</option>
+                                                <option value="Year">Year</option>
+                                            </select>
+                                        </label>
+                                        <div class="error-message"></div>
+                                    </div>
+                                </div>
                             </div>
-                        </form>
-                    </div>
-                    <div class="tabs-content__wrapper" data-tab="tab3" data-tab-group="offer">
-                        <form class="form form_white" data-validated-form="data-validated-form">
-                            <fieldset class="form__section form__section_mg90">
-                                <div class="grid grid_layout grid_bigger">
-                                    <div class="grid__col grid__col_xl_12">
-                                        <div class="form__wrapper">
-                                            <label class="form-box">
-                                                <input class="input" type="text" name="offerTitle" placeholder="Offer title" required="required" />
-                                                <span class="form-box__label">Offer title</span>
-                                            </label>
-                                            <div class="error-message"></div>
-                                        </div>
-                                    </div>
-                                    <div class="grid__col grid__col_xl_12">
-                                        <div class="form__wrapper form__wrapper_noflex">
-                                            <label class="form-box">
-                                                <input class="input" type="text" name="offerDescription" placeholder="Offer Description" required="required" />
-                                                <span class="form-box__label">Offer Description</span>
-                                            </label>
-                                            <div class="form__text form__text_light">Any information, rules, restrictions and additional features for this offer</div>
-                                            <div class="error-message"></div>
-                                        </div>
-                                    </div>
-                                    <div class="grid__col grid__col_xl_6 grid__col_sm_7">
-                                        <div class="form__wrapper form__wrapper_negative-mg form__wrapper_separator">
-                                            <label class="form-box form-box_icon form-box_icon">
-                                                <input class="input" type="text" name="price" placeholder="Price" required="required" />
-                                                <span class="form-box__label">Price </span>
-                                                <span class="form-box__icon form-box__icon_text">&pound;</span>
-                                            </label>
-                                            <div class="error-message"></div>
-                                        </div>
-                                    </div>
-                                    <div class="grid__col grid__col_xl_6 grid__col_sm_5">
-                                        <div class="form__wrapper form__wrapper_negative-mg">
-                                            <label class="form-box">
-                                                <select class="select js-select-input" name="shedule">
-                                                    <option value="Per month" selected="selected">Per month</option>
-                                                    <option value="per day">Per day</option>
-                                                    <option value="per week">Per week</option>
-                                                    <option value="per year">Per year</option>
-                                                </select>
-                                            </label>
-                                            <div class="error-message"></div>
-                                        </div>
-                                    </div>
-                                    <div class="grid__col grid__col_xl_12">
-                                        <div class="form__wrapper form__wrapper_noflex form__wrapper_negative-mg17">
-                                            <div class="form-box">
-                                                <div class="input-numbers">
-                                                    <input class="input input-numbers__input js-numberbox-input" type="text" name="quantity" placeholder="Available Quantity" data-min="1" />
-                                                    <div class="input-numbers__buttons">
-                                                        <div class="input-numbers__button js-numberbox-minus"></div>
-                                                        <div class="input-numbers__button js-numberbox-plus"></div>
-                                                    </div>
-                                                </div>
-                                                <div class="form-box__label">Available Quantity</div>
-                                            </div>
-                                            <div class="form__text form__text_light">Provide overal ammount of this particular offer.</div>
-                                            <div class="error-message"></div>
-                                        </div>
-                                    </div>
-                                    <div class="grid__col grid__col_xl_12">
-                                        <div class="form__wrapper form__wrapper_noflex form__wrapper_negative-mg13">
-                                            <div class="form-box">
-                                                <div class="input-numbers">
-                                                    <input class="input input-numbers__input js-numberbox-input" type="text" name="seats" placeholder="Number of seats" data-min="1" />
-                                                    <div class="input-numbers__buttons">
-                                                        <div class="input-numbers__button js-numberbox-minus"></div>
-                                                        <div class="input-numbers__button js-numberbox-plus"></div>
-                                                    </div>
-                                                </div>
-                                                <div class="form-box__label">Number of seats</div>
-                                            </div>
-                                            <div class="form__text form__text_light">Overal ammount of available seats for one particular Meeting Rooms</div>
-                                            <div class="error-message"></div>
-                                        </div>
-                                    </div>
-                                    <div class="grid__col grid__col_xl_6 grid__col_sm_12">
-                                        <div class="form__wrapper form__wrapper_negative-mg6">
-                                            <label class="form-box form__count">
-                                                <input class="input" type="text" name="durationRentMin" placeholder="Minimum rent period" required="required" />
-                                                <span class="form-box__label">Minimum rent period</span>
-                                            </label>
-                                            <label class="form-box form__mesure">
-                                                <select class="select js-select-input" name="mesuresPeriodMin">
-                                                    <option value="Hours" selected="selected">Hours</option>
-                                                    <option value="Days">Days</option>
-                                                    <option value="Week">Week</option>
-                                                    <option value="Month">Month</option>
-                                                    <option value="Year">Year</option>
-                                                </select>
-                                            </label>
-                                            <div class="error-message"></div>
-                                        </div>
-                                    </div>
-                                    <div class="grid__col grid__col_xl_6 grid__col_sm_12">
-                                        <div class="form__wrapper form__wrapper_negative-mg6">
-                                            <label class="form-box form__count">
-                                                <input class="input" type="text" name="durationRentMax" placeholder="Maximum rent period" />
-                                                <span class="form-box__label">Maximum rent period</span>
-                                            </label>
-                                            <label class="form-box form__mesure">
-                                                <select class="select js-select-input" name="mesuresPeriodMax">
-                                                    <option value="Hours" selected="selected">Hours</option>
-                                                    <option value="Days">Days</option>
-                                                    <option value="Week">Week</option>
-                                                    <option value="Month">Month</option>
-                                                    <option value="Year">Year</option>
-                                                </select>
-                                            </label>
-                                            <div class="error-message"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </fieldset>
-                            <fieldset class="form__section form__section_mid-mg" data-deleted-group="data-deleted-group">
-                                <div class="form__header form__header_mg21">
-                                    <h4 class="form__title form__title_small">Points to know about this offer. (optional)</h4>
-                                </div>
-                                <div class="form__wrapper form__wrapper_sm-mg" data-deleted-object="data-deleted-object">
-                                    <label class="form-box form-box_icon">
-                                        <input class="input input_points" type="text" name="points[]" placeholder="Point" />
-                                        <span class="form-box__point"></span>
-                                        <button class="form-box__delete js-delete-object-except-last" type="button">
-                                            <svg class="form-box__icon form-box__icon_cross"><use xlink:href="assets/images/icon.svg#icon_cross"></use></svg>
-                                        </button>
-                                    </label>
-                                    <div class="error-message"></div>
-                                </div>
-                            </fieldset>
-                            <fieldset class="form__section form__section_sm-mg">
-                                <div class="form__wrapper form__wrapper_noflex">
-                                    <label class="form-box">
-                                        <textarea class="textarea" type="text" name="comment" placeholder="Comment (Only you can see it)" rows="1"></textarea>
-                                        <span class="form-box__label">Comment (Only you can see it)</span>
-                                    </label>
-                                    <div class="form__text form__text_light">This comment helps you to recognize this particular offer inbetween other offers</div>
-                                    <div class="error-message"></div>
-                                </div>
-                            </fieldset>
-                            <div class="form__buttons form__buttons_mgt60">
-                                <button class="button button_short button_wide" type="submit">
-                                    <span class="button__text">Add Meeting Room rental offer</span>
-                                </button>
+                        </fieldset>
+                        <fieldset class="form__section form__section_mid-mg" data-deleted-group="data-deleted-group">
+                            <div class="form__header form__header_mg21">
+                                <h4 class="form__title form__title_small">Points to know about this offer. (optional)</h4>
                             </div>
-                        </form>
-                    </div>
-                    <div class="tabs-content__wrapper" data-tab="tab4" data-tab-group="offer">
-                        <form class="form form_white" data-validated-form="data-validated-form">
-                            <fieldset class="form__section form__section_mg90">
-                                <div class="grid grid_layout grid_bigger">
-                                    <div class="grid__col grid__col_xl_12">
-                                        <div class="form__wrapper">
-                                            <label class="form-box">
-                                                <input class="input" type="text" name="offerTitle" placeholder="Offer title" required="required" />
-                                                <span class="form-box__label">Offer title</span>
-                                            </label>
-                                            <div class="error-message"></div>
-                                        </div>
-                                    </div>
-                                    <div class="grid__col grid__col_xl_12">
-                                        <div class="form__wrapper form__wrapper_noflex">
-                                            <label class="form-box">
-                                                <input class="input" type="text" name="offerDescription" placeholder="Offer Description" required="required" />
-                                                <span class="form-box__label">Offer Description</span>
-                                            </label>
-                                            <div class="form__text form__text_light">Any information, rules, restrictions and additional features for this offer</div>
-                                            <div class="error-message"></div>
-                                        </div>
-                                    </div>
-                                    <div class="grid__col grid__col_xl_6 grid__col_sm_7">
-                                        <div class="form__wrapper form__wrapper_negative-mg form__wrapper_separator">
-                                            <label class="form-box form-box_icon form-box_icon">
-                                                <input class="input" type="text" name="price" placeholder="Price" required="required" />
-                                                <span class="form-box__label">Price </span>
-                                                <span class="form-box__icon form-box__icon_text">&pound;</span>
-                                            </label>
-                                            <div class="error-message"></div>
-                                        </div>
-                                    </div>
-                                    <div class="grid__col grid__col_xl_6 grid__col_sm_5">
-                                        <div class="form__wrapper form__wrapper_negative-mg">
-                                            <label class="form-box">
-                                                <select class="select js-select-input" name="shedule">
-                                                    <option value="Per month" selected="selected">Per month</option>
-                                                    <option value="per day">Per day</option>
-                                                    <option value="per week">Per week</option>
-                                                    <option value="per year">Per year</option>
-                                                </select>
-                                            </label>
-                                            <div class="error-message"></div>
-                                        </div>
-                                    </div>
-                                    <div class="grid__col grid__col_xl_12">
-                                        <div class="form__wrapper form__wrapper_noflex form__wrapper_negative-mg17">
-                                            <div class="form-box">
-                                                <div class="input-numbers">
-                                                    <input class="input input-numbers__input js-numberbox-input" type="text" name="quantity" placeholder="Available Quantity" data-min="1" />
-                                                    <div class="input-numbers__buttons">
-                                                        <div class="input-numbers__button js-numberbox-minus"></div>
-                                                        <div class="input-numbers__button js-numberbox-plus"></div>
-                                                    </div>
-                                                </div>
-                                                <div class="form-box__label">Available Quantity</div>
-                                            </div>
-                                            <div class="form__text form__text_light">Provide overal ammount of this particular offer.</div>
-                                            <div class="error-message"></div>
-                                        </div>
-                                    </div>
-                                    <div class="grid__col grid__col_xl_6 grid__col_sm_12">
-                                        <div class="form__wrapper form__wrapper_noflex form__wrapper_negative-mg13">
-                                            <div class="form-box">
-                                                <div class="input-numbers">
-                                                    <input class="input input-numbers__input js-numberbox-input" type="text" name="desks" placeholder="Number of Desks" data-min="1" />
-                                                    <div class="input-numbers__buttons">
-                                                        <div class="input-numbers__button js-numberbox-minus"></div>
-                                                        <div class="input-numbers__button js-numberbox-plus"></div>
-                                                    </div>
-                                                </div>
-                                                <div class="form-box__label">Number of Desks</div>
-                                            </div>
-                                            <div class="form__text form__text_light">Existing desks or office capability</div>
-                                            <div class="error-message"></div>
-                                        </div>
-                                    </div>
-                                    <div class="grid__col grid__col_xl_6 grid__col_sm_12">
-                                        <div class="form__wrapper form__wrapper_noflex form__wrapper_negative-mg13">
-                                            <label class="form-box form-box_icon form-box_icon">
-                                                <input class="input" type="text" name="area" placeholder="Floor area" required="required" />
-                                                <span class="form-box__label">Floor area </span>
-                                                <span class="form-box__icon form-box__icon_text form-box__icon_text_r0">ft
-                                                    <sup>2</sup>
-                                                </span>
-                                            </label>
-                                            <div class="form__text form__text_light">Without supply rooms</div>
-                                            <div class="error-message"></div>
-                                        </div>
-                                    </div>
-                                    <div class="grid__col grid__col_xl_6 grid__col_sm_12">
-                                        <div class="form__wrapper form__wrapper_negative-mg6">
-                                            <label class="form-box form__count">
-                                                <input class="input" type="text" name="durationRentMin" placeholder="Minimum rent period" required="required" />
-                                                <span class="form-box__label">Minimum rent period</span>
-                                            </label>
-                                            <label class="form-box form__mesure">
-                                                <select class="select js-select-input" name="mesuresPeriodMin">
-                                                    <option value="Hours" selected="selected">Hours</option>
-                                                    <option value="Days">Days</option>
-                                                    <option value="Week">Week</option>
-                                                    <option value="Month">Month</option>
-                                                    <option value="Year">Year</option>
-                                                </select>
-                                            </label>
-                                            <div class="error-message"></div>
-                                        </div>
-                                    </div>
-                                    <div class="grid__col grid__col_xl_6 grid__col_sm_12">
-                                        <div class="form__wrapper form__wrapper_negative-mg6">
-                                            <label class="form-box form__count">
-                                                <input class="input" type="text" name="durationRentMax" placeholder="Maximum rent period" />
-                                                <span class="form-box__label">Maximum rent period</span>
-                                            </label>
-                                            <label class="form-box form__mesure">
-                                                <select class="select js-select-input" name="mesuresPeriodMax">
-                                                    <option value="Hours" selected="selected">Hours</option>
-                                                    <option value="Days">Days</option>
-                                                    <option value="Week">Week</option>
-                                                    <option value="Month">Month</option>
-                                                    <option value="Year">Year</option>
-                                                </select>
-                                            </label>
-                                            <div class="error-message"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </fieldset>
-                            <fieldset class="form__section form__section_mid-mg" data-deleted-group="data-deleted-group">
-                                <div class="form__header form__header_mg21">
-                                    <h4 class="form__title form__title_small">Points to know about this offer. (optional)</h4>
-                                </div>
-                                <div class="form__wrapper form__wrapper_sm-mg" data-deleted-object="data-deleted-object">
-                                    <label class="form-box form-box_icon">
-                                        <input class="input input_points" type="text" name="points[]" placeholder="Point" />
-                                        <span class="form-box__point"></span>
-                                        <button class="form-box__delete js-delete-object-except-last" type="button">
-                                            <svg class="form-box__icon form-box__icon_cross"><use xlink:href="assets/images/icon.svg#icon_cross"></use></svg>
-                                        </button>
-                                    </label>
-                                    <div class="error-message"></div>
-                                </div>
-                            </fieldset>
-                            <fieldset class="form__section form__section_sm-mg">
-                                <div class="form__wrapper form__wrapper_noflex">
-                                    <label class="form-box">
-                                        <textarea class="textarea" type="text" name="comment" placeholder="Comment (Only you can see it)" rows="1"></textarea>
-                                        <span class="form-box__label">Comment (Only you can see it)</span>
-                                    </label>
-                                    <div class="form__text form__text_light">This comment helps you to recognize this particular offer inbetween other offers</div>
-                                    <div class="error-message"></div>
-                                </div>
-                            </fieldset>
-                            <div class="form__buttons form__buttons_mgt60">
-                                <button class="button button_short button_wide" type="submit">
-                                    <span class="button__text">Add Office space rental offer</span>
-                                </button>
+                            <div class="form__wrapper form__wrapper_sm-mg" data-deleted-object="data-deleted-object">
+                                <label class="form-box form-box_icon">
+                                    <input class="input input_points" type="text" name="points[]" placeholder="Point" />
+                                    <span class="form-box__point"></span>
+                                    <button class="form-box__delete js-delete-object-except-last" type="button">
+                                        <svg class="form-box__icon form-box__icon_cross"><use xlink:href="assets/images/icon.svg#icon_cross"></use></svg>
+                                    </button>
+                                </label>
+                                <div class="error-message"></div>
                             </div>
-                        </form>
+                        </fieldset>
+                        <fieldset class="form__section form__section_sm-mg">
+                            <div class="form__wrapper form__wrapper_noflex">
+                                <label class="form-box">
+                                    <textarea class="textarea" type="text" name="comment" placeholder="Comment (Only you can see it)" rows="1"></textarea>
+                                    <span class="form-box__label">Comment (Only you can see it)</span>
+                                </label>
+                                <div class="form__text form__text_light">This comment helps you to recognize this particular offer inbetween other offers</div>
+                                <div class="error-message"></div>
+                            </div>
+                        </fieldset>
+                        <div class="form__buttons">
+                            <button class="button button_short button_wide" type="submit">
+                                <span class="button__text">Add
+                                    <span data-form-element="hotDesk">Hot Desk</span>
+                                    <span data-form-element="dedicatedDesk">Dedicated Desk</span>
+                                    <span data-form-element="meetingRoom">Meeting Room</span>
+                                    <span data-form-element="officeSpace">Office space</span> rental offer</span>
+                            </button>
+                        </div>
                     </div>
-                </div>
+                </form>
             </div>
         </div>
     </div>

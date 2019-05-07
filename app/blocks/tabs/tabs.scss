@@ -227,3 +227,177 @@
     }
   }
 }
+
+.tab-radio {
+  $tab-gap: 5px;
+  $b: &;
+
+  display: flex;
+  margin-top: $tab-gap;
+  box-sizing: border-box;
+  width: 25%;
+
+  &:nth-child(5n+1) {
+
+    #{$b}__label {
+      border-left: 1px solid $color-border-light;
+      border-radius: 3px 0 0;
+
+      @include screen('sm') {
+        border-left: none;
+        border-radius: 0;
+      }
+    }
+  }
+
+  &:nth-child(4n) {
+
+    #{$b}__label {
+      border-radius: 0 3px 0 0;
+
+      @include screen('sm') {
+        border-radius: 0;
+      }
+    }
+  }
+
+  &__input {
+    display: none;
+  }
+
+  &__label {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    border-top: 1px solid $color-border-light;
+    border-bottom: 1px solid $color-border-light;
+    border-right: 1px solid $color-border-light;
+    transition: box-shadow $ease-main;
+    padding: 21px 10px 22px;
+    cursor: pointer;
+    font-weight: 700;
+    text-align: center;
+    width: 100%;
+
+    @include text-big;
+
+    @include screen('sm') {
+      border-right: none;
+      border-bottom-width: 2px;
+      text-transform: uppercase;
+      padding: 8px 7px 6px;
+
+      @include text12;
+
+      line-height: 1.2;
+    }
+
+    &:hover {
+      box-shadow: inset 0 -5px 0 $color-border-light;
+
+      @include screen('sm') {
+        box-shadow: inset 0 -4px 0 $color-border-light;
+      }
+    }
+
+    #{$b}__input:checked~& {
+      box-shadow: inset 0 -5px 0 $color-border-light;
+
+      @include screen('sm') {
+        box-shadow: inset 0 -4px 0 $color-border-light;
+      }
+
+      #{$b}_orange & {
+        box-shadow: inset 0 -5px 0 $color-hot-desk;
+
+        @include screen('sm') {
+          box-shadow: inset 0 -4px 0 $color-hot-desk;
+        }
+      }
+
+      #{$b}_red & {
+        box-shadow: inset 0 -5px 0 $color-dedicated-desk;
+
+        @include screen('sm') {
+          box-shadow: inset 0 -4px 0 $color-dedicated-desk;
+        }
+      }
+
+      #{$b}_blue & {
+        box-shadow: inset 0 -5px 0 $color-meeting-room;
+
+        @include screen('sm') {
+          box-shadow: inset 0 -4px 0 $color-meeting-room;
+        }
+      }
+
+      #{$b}_green & {
+        box-shadow: inset 0 -5px 0 $color-office-space;
+
+        @include screen('sm') {
+          box-shadow: inset 0 -4px 0 $color-office-space;
+        }
+      }
+    }
+
+    #{$b}_orange & {
+      border-bottom-color: $color-hot-desk;
+
+      &:hover {
+        box-shadow: inset 0 -5px 0 $color-hot-desk;
+
+        @include screen('sm') {
+          box-shadow: inset 0 -4px 0 $color-hot-desk;
+        }
+      }
+    }
+
+    #{$b}_red & {
+      border-bottom-color: $color-dedicated-desk;
+
+      &:hover {
+        box-shadow: inset 0 -5px 0 $color-dedicated-desk;
+
+        @include screen('sm') {
+          box-shadow: inset 0 -4px 0 $color-dedicated-desk;
+        }
+      }
+    }
+
+    #{$b}_blue & {
+      border-bottom-color: $color-meeting-room;
+
+      &:hover {
+        box-shadow: inset 0 -5px 0 $color-meeting-room;
+
+        @include screen('sm') {
+          box-shadow: inset 0 -4px 0 $color-meeting-room;
+        }
+      }
+    }
+
+    #{$b}_green & {
+      border-bottom-color: $color-office-space;
+
+      &:hover {
+        box-shadow: inset 0 -5px 0 $color-office-space;
+
+        @include screen('sm') {
+          box-shadow: inset 0 -4px 0 $color-office-space;
+        }
+      }
+    }
+
+    #{$b}__input:disabled~& {
+      color: $color-disabled-tabs;
+      border-bottom-color: $color-border-light;
+      cursor: not-allowed;
+      pointer-events: none;
+
+      &:hover {
+        box-shadow: none;
+      }
+    }
+  }
+}
