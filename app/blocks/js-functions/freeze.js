@@ -29,6 +29,7 @@ export function freeze() {
       height: '100%',
       position: 'fixed',
       top: -top,
+      'touch-action': 'none',
     });
   }
   setTimeout(() => {
@@ -57,6 +58,7 @@ export function unfreeze() {
       height: '',
       top: '',
       'overflow-y': '',
+      'touch-action': '',
     });
 
     $('body').css({

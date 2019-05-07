@@ -17,7 +17,10 @@ export default function popups() {
       $(popup).trigger('POPUP_SHOW');
     },
     afterClose(i) {
-      unfreeze();
+      const panel = $('.panel');
+      if (!($(panel).length > 0 && $(panel).is('.is-open'))) {
+        unfreeze();
+      }
       const popup = $(i.slides[0].src);
       if ($(popup).is('.popup-arrange-viewing')) {
         const sections = $('[data-record-step]');
