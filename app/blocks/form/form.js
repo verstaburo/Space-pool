@@ -166,4 +166,41 @@ export default function formManipulations() {
       changeType(self);
     });
   }
+
+  // Клонирование поинтов
+  function pointsClone(el) {
+    const group = $(el).closest('[data-point-group]');
+    const points = $(group).find('[data-point-object]');
+    const totalPoints = $(points).length;
+    const count = parseInt($(group).attr('data-point-last-index'), 10) || (totalPoints - 1);
+    const nextCount = count + 1;
+    const cloneTarget = $(points)[0];
+    const clone = $(cloneTarget).clone(true);
+    const cloneInput = $(clone).find('input');
+    $(cloneInput).val('');
+    const name = $(cloneInput).attr('name').split('[')[0];
+    $(cloneInput).attr('name', `${name}[${nextCount}]`);
+    $(group).append(clone);
+    $(group).attr('data-point-last-index', nextCount);
+  }
+
+  $(document).on('focus', '[data-point-object]:last input', (evt) => {
+    const self = evt.currentTarget;
+    pointsClone(self);
+  });
+
+  $(document).on('keyup', '[data-point-object] input', (evt) => {
+    const self = evt.currentTarget;
+    console.log(evt);
+    if (evt.keyCode === 13) {
+      evt.preventDefault();
+      const wrapper = $(self).closest('[data-point-object]');
+      const nextWrapper = $(wrapper).next();
+      console.log(nextWrapper);
+      if (nextWrapper) {
+        const point = $(nextWrapper).find('input')[0];
+        point.focus();
+      }
+    }
+  });
 }
