@@ -31,8 +31,7 @@
     z-index: 3;
   }
 
-  &:disabled,
-  &.is-disabled {
+  &:disabled,&.is-disabled {
     cursor: not-allowed;
     pointer-events: none;
     background-color: $color-border-light;
@@ -40,15 +39,13 @@
     color: $color-white;
 
     #{$b} {
-
       &__text {
         background-color: $color-border-light;
       }
     }
   }
 
-  &:hover::before,
-  &.is-active::before {
+  &:hover::before,&.is-active::before {
     opacity: .2;
   }
 
@@ -94,8 +91,7 @@
         left: 18px;
       }
 
-      &::before,
-      &::after {
+      &::before,&::after {
         @include pseudo;
 
         top: 50%;
@@ -163,7 +159,6 @@
   }
 
   &_icon {
-
     #{$b}__text {
       padding-left: 38px;
       padding-right: 55px;
@@ -179,12 +174,12 @@
 
   &_fz24 {
     font-size: 24px;
-    line-height: (26/24);
+    line-height: (26 / 24);
     letter-spacing: -.02em;
 
     @include screen('sm') {
       font-size: 17px;
-      line-height: (26/17);
+      line-height: (26 / 17);
     }
   }
 
@@ -201,7 +196,6 @@
     }
 
     #{$b} {
-
       &__text {
         padding: 20px 40px;
         border-radius: 35px;
@@ -254,9 +248,7 @@
   &_border {
     position: relative;
     padding: 3px;
-    transition:
-      opacity $ease-main,
-      color $ease-main;
+    transition: opacity $ease-main, color $ease-main;
     color: $color-basic;
 
     #{$b}__text {
@@ -270,7 +262,6 @@
     }
 
     &_bg-white {
-
       #{$b}__text {
         background: $color-white;
       }
@@ -292,8 +283,7 @@
       }
     }
 
-    &:hover,
-    &.is-active {
+    &:hover,&.is-active {
       color: $color-white;
 
       &::before {
@@ -306,7 +296,6 @@
     }
 
     &#{$b}_plus {
-
       #{$b}__text {
         padding-left: 50px;
         padding-right: 30px;
@@ -322,8 +311,7 @@
   &_thin-border {
     position: relative;
     padding: 2px;
-    transition: opacity $ease-main,
-      color $ease-main;
+    transition: opacity $ease-main, color $ease-main;
     color: $color-basic;
 
     #{$b}__text {
@@ -337,14 +325,12 @@
     }
 
     &_bg-white {
-
       #{$b}__text {
         background: $color-white;
       }
     }
 
-    &:hover,
-    &.is-active {
+    &:hover,&.is-active {
       color: $color-white;
 
       &::before {
@@ -371,7 +357,7 @@
     @include screen('sm') {
       @include text15;
 
-      line-height: (26/15);
+      line-height: (26 / 15);
       letter-spacing: -.02em;
     }
   }
@@ -379,7 +365,7 @@
   &_small {
     @include text15;
 
-    line-height: (26/15);
+    line-height: (26 / 15);
     letter-spacing: -.01em;
 
     #{$b}__text {
@@ -390,7 +376,7 @@
   &_smaller {
     @include text15;
 
-    line-height: (26/15);
+    line-height: (26 / 15);
     border-radius: 15px;
 
     #{$b}__text {
@@ -402,7 +388,7 @@
     @include screen('sm') {
       @include text15;
 
-      line-height: (26/15);
+      line-height: (26 / 15);
       border-radius: 15px;
 
       #{$b}__text {
@@ -432,7 +418,6 @@
   }
 
   &_thin-border {
-
     &_smaller {
       #{$b}__text {
         padding: 0 8px 1px;
@@ -454,7 +439,6 @@
     }
 
     &#{$b}_border {
-
       #{$b}__text {
         padding-left: 13px;
         padding-right: 13px;
@@ -462,7 +446,6 @@
     }
 
     &#{$b}_thin-border {
-
       #{$b}__text {
         padding-left: 14px;
         padding-right: 14px;
@@ -471,7 +454,6 @@
   }
 
   &_short {
-
     #{$b}__text {
       padding-left: 28px;
       padding-right: 28px;
@@ -517,7 +499,6 @@
   }
 
   &_preview {
-
     #{$b}__text {
       padding-left: 35px;
       padding-right: 20px;
