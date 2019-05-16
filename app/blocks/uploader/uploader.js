@@ -159,14 +159,21 @@ export default function uploader() {
     }
   });
 
+  function isReadyRemove() {
+    return true;
+  }
+
+  window.isReadyRemove = isReadyRemove;
+
   $(document).on('click', '.js-delete-file', (evt) => {
     evt.preventDefault();
     const self = evt.currentTarget;
     const preview = $(self).closest('[data-preview-item]');
+    const callback = $(preview).attr('data-callback');
     const previewParentCol = $(preview).closest('.grid__col');
     if ($(preview).is('.is-error') && !$(self).is('[data-delete]')) {
       $(preview).removeClass('is-error');
-    } else {
+    } else if (window[callback]()) {
       $(previewParentCol).remove();
       $(preview).remove();
     }
