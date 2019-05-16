@@ -1,6 +1,6 @@
 mixin photo-preview(name)
   - var nm = name || 'photo'
-  +b.photo-preview&attributes(attributes)(data-preview-item data-callback="isReadyRemove")
+  +b.photo-preview&attributes(attributes)(data-preview-item)
     +e.INPUT(type="hidden" name=nm)
     +e.BUTTON.delete.js-delete-file(type="button")
       +icon('cross').delete-icon

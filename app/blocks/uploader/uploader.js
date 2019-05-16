@@ -159,23 +159,26 @@ export default function uploader() {
     }
   });
 
-  function isReadyRemove() {
-    return true;
-  }
+  // function isReadyRemove() {
+  //   setTimeout(() => {
+  //     console.log('типа успех');
+  //   }, 1000);
+  //   return $.Deferred();
+  // }
 
-  window.isReadyRemove = isReadyRemove;
+  // window.isReadyRemove = isReadyRemove;
 
   $(document).on('click', '.js-delete-file', (evt) => {
     evt.preventDefault();
     const self = evt.currentTarget;
     const preview = $(self).closest('[data-preview-item]');
-    const callback = $(preview).attr('data-callback');
+    // const callback = $(preview).attr('data-callback');
     const previewParentCol = $(preview).closest('.grid__col');
     if ($(preview).is('.is-error') && !$(self).is('[data-delete]')) {
       $(preview).removeClass('is-error');
-    } else if (window[callback]()) {
-      $(previewParentCol).remove();
-      $(preview).remove();
+    } else {
+      const el = previewParentCol;
+      $(el).remove();
     }
     $('.uploader-output').trigger('changeItems');
   });
