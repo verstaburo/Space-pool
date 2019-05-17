@@ -36,8 +36,10 @@ export function selects() {
       callbackOnInit() {
         const sel = this.passedElement.element;
         const main = this.containerOuter.element;
+        const formbox = $(select).closest('label');
         if ($(sel).attr('readonly') !== undefined) {
           $(main).addClass('is-readonly');
+          $(formbox).addClass('is-readonly');
         }
       },
     });
@@ -70,8 +72,10 @@ export function selects() {
       callbackOnInit() {
         const sel = this.passedElement.element;
         const main = this.containerOuter.element;
+        const formbox = $(select).closest('label');
         if ($(sel).attr('readonly') !== undefined) {
           $(main).addClass('is-readonly');
+          $(formbox).addClass('is-readonly');
         }
       },
     });
@@ -105,8 +109,10 @@ export function selects() {
         callbackOnInit() {
           const select = this.passedElement.element;
           const main = this.containerOuter.element;
+          const formbox = $(select).closest('label');
           if ($(select).attr('readonly') !== undefined) {
             $(main).addClass('is-readonly');
+            $(formbox).addClass('is-readonly');
           }
         },
       });
@@ -138,8 +144,10 @@ export function selects() {
       callbackOnInit() {
         const select = this.passedElement.element;
         const main = this.containerOuter.element;
+        const formbox = $(select).closest('label');
         if ($(select).attr('readonly') !== undefined) {
           $(main).addClass('is-readonly');
+          $(formbox).addClass('is-readonly');
         }
       },
     });
@@ -166,8 +174,10 @@ export function selects() {
       callbackOnInit() {
         const select = this.passedElement.element;
         const main = this.containerOuter.element;
+        const formbox = $(select).closest('label');
         if ($(select).attr('readonly') !== undefined) {
           $(main).addClass('is-readonly');
+          $(formbox).addClass('is-readonly');
         }
       },
     });
@@ -196,7 +206,9 @@ export function selects() {
         callbackOnInit() {
           const select = this.passedElement.element;
           const main = this.containerOuter.element;
+          const formbox = $(select).closest('label');
           if ($(select).attr('readonly') !== undefined) {
+            $(formbox).addClass('is-readonly');
             $(main).addClass('is-readonly');
           }
         },
@@ -231,8 +243,10 @@ export function selects() {
         callbackOnInit() {
           const select = this.passedElement.element;
           const main = this.containerOuter.element;
+          const formbox = $(select).closest('label');
           if ($(select).attr('readonly') !== undefined) {
             $(main).addClass('is-readonly');
+            $(formbox).addClass('is-readonly');
           }
         },
       });
@@ -266,8 +280,10 @@ export function selects() {
         callbackOnInit() {
           const select = this.passedElement.element;
           const main = this.containerOuter.element;
+          const formbox = $(select).closest('label');
           if ($(select).attr('readonly') !== undefined) {
             $(main).addClass('is-readonly');
+            $(formbox).addClass('is-readonly');
           }
         },
       });

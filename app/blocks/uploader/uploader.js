@@ -164,7 +164,7 @@ export default function uploader() {
 
   function deleteOnBackend() {
     return new Promise((resolve) => {
-      resolve();
+      resolve(true);
     });
   }
 
@@ -180,9 +180,11 @@ export default function uploader() {
       $(preview).removeClass('is-error');
     } else {
       const el = previewParentCol;
-      window[fn]().then(() => {
-        $(el).remove();
-        $('.uploader-output').trigger('changeItems');
+      window[fn]().then((redyDelete) => {
+        if (redyDelete) {
+          $(el).remove();
+          $('.uploader-output').trigger('changeItems');
+        }
       });
     }
     $('.uploader-output').trigger('changeItems');
