@@ -71,7 +71,11 @@ export default function uploader() {
         const img = new Image();
         img.src = e.target.result;
         img.classList.add('photo-preview__image');
-        $(preview).find('input[type="hidden"]').val(e.target.result);
+        // $(preview).find('input[type="hidden"]').val(e.target.result);
+        const inputEl = $(preview).find('input[type="hidden"]');
+        $.when($(inputEl).val(e.target.result)).then((input) => {
+          input.trigger('IMG_READY_FOR_LOAD');
+        });
         $(preview).find('[data-preview-image]').append(img);
         if (errorMessage.length > 0) {
           $(preview).find('[data-preview-error-text]').text(errorMessage);
@@ -90,7 +94,6 @@ export default function uploader() {
       $('[data-insert-preview-after]').after(preview);
       $(preview).find('input[type="hidden"]').trigger('IMG_READY_FOR_LOAD');
       $(preview).find('.js-select-input');
-      window.inputSelectInit($(preview).find('.js-select-input'));
       $('.uploader-output').trigger('changeItems');
     }
   }
@@ -159,26 +162,28 @@ export default function uploader() {
     }
   });
 
-  // function isReadyRemove() {
-  //   setTimeout(() => {
-  //     console.log('типа успех');
-  //   }, 1000);
-  //   return $.Deferred();
-  // }
+  function deleteOnBackend() {
+    return new Promise((resolve) => {
+      resolve();
+    });
+  }
 
-  // window.isReadyRemove = isReadyRemove;
+  window.deleteOnBackend = deleteOnBackend;
 
   $(document).on('click', '.js-delete-file', (evt) => {
     evt.preventDefault();
     const self = evt.currentTarget;
     const preview = $(self).closest('[data-preview-item]');
-    // const callback = $(preview).attr('data-callback');
+    const fn = $(preview).attr('data-callback');
     const previewParentCol = $(preview).closest('.grid__col');
     if ($(preview).is('.is-error') && !$(self).is('[data-delete]')) {
       $(preview).removeClass('is-error');
     } else {
       const el = previewParentCol;
-      $(el).remove();
+      window[fn]().then(() => {
+        $(el).remove();
+        $('.uploader-output').trigger('changeItems');
+      });
     }
     $('.uploader-output').trigger('changeItems');
   });

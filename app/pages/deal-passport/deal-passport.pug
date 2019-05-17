@@ -1,0 +1,36 @@
+extends ../../layouts/default-login
+
+block head
+  - var pageTitle = 'SpacePool - Deal Passport'
+
+block header
+  -var headerClass = '_border'
+
+block content
+  +page-header._wide-lg._bpad
+    .container
+      +e.wrapper
+        +page-header-side
+          +link-icon('select-arrow')._no-shadow._back._bold.__back(href="#") Back to reservations
+        +page-header-main.hide-md
+          +breadcrumbs-form
+            +breadcrumbs(['Home', 'Booking', 'One Heddon Street']).__navigation
+            +e.step_light Office Space
+  +content-origin._reverse._mid-pad._wide-lg._last
+    .container
+      +e.wrapper
+        +content-column-aside
+          +sidebar._no-bg
+        +content-column-main._no-ptop
+          +table-head._messages._borders
+            +e.wrapper
+              +e.cell_lead
+                +e.name Manager:
+                +short-profile-origin('assets/images/ava3.jpg', 'Maria Barstaier')(href="#")
+              +e.cell_req-info
+                +e.name Status:
+          +message-form._noborder
+          +dialog2
+block panels
+  +main-menu-inner
+    +nav-list(getData('main-menu-user.json'))
