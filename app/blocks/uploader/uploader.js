@@ -92,8 +92,8 @@ export default function uploader() {
         $(counter).text(`${totalPreviews + 1}/${conditions.maxCount}`);
       }
       $('[data-insert-preview-after]').after(preview);
-      $(preview).find('input[type="hidden"]').trigger('IMG_READY_FOR_LOAD');
       $(preview).find('.js-select-input');
+      window.inputSelectInit($(preview).find('.js-select-input'));
       $('.uploader-output').trigger('changeItems');
     }
   }
