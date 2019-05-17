@@ -71,6 +71,18 @@
     }
   }
 
+  &_xspad {
+    padding: 43px 0 22px;
+
+    @include screen('md') {
+      padding: 34px 0 22px;
+    }
+
+    @include screen('sm') {
+      padding: 19px 0;
+    }
+  }
+
   .container {
     display: block;
   }
@@ -183,7 +195,7 @@
   &__info {
     @include text-big;
 
-    line-height: (26/18);
+    line-height: (26 / 18);
     font-weight: 700;
     color: $color-basic-light;
 
@@ -196,7 +208,7 @@
     @include screen('sm') {
       @include text15;
 
-      line-height: (26/15);
+      line-height: (26 / 15);
       order: inherit;
       margin-top: 3px;
     }
@@ -232,13 +244,13 @@
   &__back {
     @include heading-3;
 
-    line-height: (26/25);
+    line-height: (26 / 25);
     padding-left: 25px;
 
     @include screen('sm') {
       @include heading-6;
 
-      line-height: (26/15);
+      line-height: (26 / 15);
     }
 
     .link__text {
@@ -249,6 +261,13 @@
     .indicator {
       align-self: flex-start;
       margin-top: 4px;
+    }
+
+    &_fz18 {
+      @include text-big;
+
+      font-weight: 700;
+      padding-left: 22px;
     }
   }
 
@@ -289,10 +308,14 @@
   &__link {
     @include text;
 
-    line-height: (26/14);
+    line-height: (26 / 14);
 
     @include screen('sm') {
       @include text12;
+    }
+
+    &_fz17 {
+      @include text-mid;
     }
   }
 }

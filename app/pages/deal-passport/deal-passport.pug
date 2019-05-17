@@ -7,15 +7,17 @@ block header
   -var headerClass = '_border'
 
 block content
-  +page-header._wide-lg._bpad
+  +page-header._wide-lg._xspad
     .container
       +e.wrapper
         +page-header-side
-          +link-icon('select-arrow')._no-shadow._back._bold.__back(href="#") Back to reservations
-        +page-header-main.hide-md
+          +link-icon('select-arrow')._no-shadow._back._bold.__back_fz18(href="#") Back to reservations
+        +page-header-main._main_mgt
           +breadcrumbs-form
             +breadcrumbs(['Home', 'Booking', 'One Heddon Street']).__navigation
             +e.step_light Office Space
+          +e.links
+            +link-icon('round-cross')(href="#")._icon_gray._no-shadow._bold._icon_small._light-underline.__link_fz17 Cancel Reservation
   +content-origin._reverse._mid-pad._wide-lg._last
     .container
       +e.wrapper
@@ -24,11 +26,12 @@ block content
         +content-column-main._no-ptop
           +table-head._messages._borders
             +e.wrapper
-              +e.cell_lead
+              +e.cell._vp11._pr25._lead
                 +e.name Manager:
                 +short-profile-origin('assets/images/ava3.jpg', 'Maria Barstaier')(href="#")
-              +e.cell_req-info
+              +e.cell._vp11._pl25._messages
                 +e.name Status:
+                +e.info
           +message-form._noborder
           +dialog2
 block panels

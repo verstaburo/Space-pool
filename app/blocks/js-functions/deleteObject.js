@@ -7,26 +7,49 @@ export default function deleteObject() {
   $(document).on('click', '.js-delete-object', (evt) => {
     evt.preventDefault();
     const self = $(evt.target).closest('[data-deleted-object]');
+    const fn = $(self).attr('data-callback');
     const offers = $(self).closest('.offers');
     const timeline = anime.timeline({
       easing: 'easeInQuad',
       duration: 300,
     });
-    timeline
-      .add({
-        targets: self[0],
-        opacity: 0,
-      })
-      .add({
-        targets: self[0],
-        height: 0,
-        complete() {
-          $(self).remove();
-          if ($(offers).length) {
-            $(offers).trigger('changeOffer');
-          }
-        },
+    if (fn) {
+      window[fn]().then((redyDelete) => {
+        if (redyDelete) {
+          timeline
+            .add({
+              targets: self[0],
+              opacity: 0,
+            })
+            .add({
+              targets: self[0],
+              height: 0,
+              complete() {
+                $(self).remove();
+                if ($(offers).length) {
+                  $(offers).trigger('changeOffer');
+                }
+              },
+            });
+        }
       });
+    } else {
+      timeline
+        .add({
+          targets: self[0],
+          opacity: 0,
+        })
+        .add({
+          targets: self[0],
+          height: 0,
+          complete() {
+            $(self).remove();
+            if ($(offers).length) {
+              $(offers).trigger('changeOffer');
+            }
+          },
+        });
+    }
   });
 
   $(document).on('click', '.js-delete-object-except-last', (evt) => {
