@@ -1,0 +1,19 @@
+mixin popup-document(data)
+  +popup-free._nobg._wide._light.popup-document__&attributes(attributes)
+    +e.content
+      +e.column_left
+        +e.header
+          +e.H3.title!=data.title
+          +e.info
+            +e.header-icon
+              +icon('long-arrow').arrow
+            +e.header-text!= data.explanation
+        +e.wrapper.js-scrollbar.wide
+          +e.inner-content
+            block
+      +e.column_right
+        +e.side
+          +e.H3.title!= data.side.title
+          +e.side-icon
+            +icon('long-arrow').arrow_long
+          +e.explanation!= data.side.explanation

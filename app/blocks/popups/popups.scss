@@ -6,6 +6,9 @@
 }
 
 .fancybox {
+  &-content {
+    background-color: transparent;
+  }
 
   &-bg {
     background-color: rgba($color-overlay, .2);
@@ -24,7 +27,6 @@
   }
 
   &-slide {
-
     &--html {
       padding: 0;
     }
@@ -39,6 +41,7 @@
   max-width: 788px;
   padding: 0;
   overflow: visible;
+  background-color: $color-white;
 
   &__wrapper {
     display: block;
@@ -89,7 +92,7 @@
     &_big {
       @include heading-2;
 
-      line-height: (39/40);
+      line-height: (39 / 40);
       font-weight: 700;
 
       @include screen('lg') {
@@ -142,6 +145,8 @@
     -webkit-appearance: none;
     background-color: transparent;
     color: $color-black;
+    outline: none;
+    border: none;
     fill: currentColor;
     transition: color $ease-main;
     padding: 10px;
@@ -198,8 +203,28 @@
       opacity: .16;
     }
 
-    &~#{$b}__bottom-content {
+    & ~ #{$b}__bottom-content {
       color: $color-white;
+    }
+  }
+
+  &_nobg {
+    background-color: transparent;
+  }
+
+  &_wide {
+    max-width: 1344px;
+  }
+
+  &_light {
+    #{$b}__close {
+      top: 16px;
+      right: 8px;
+      color: $color-white;
+
+      &:hover {
+        color: rgba($color-white, .7);
+      }
     }
   }
 }

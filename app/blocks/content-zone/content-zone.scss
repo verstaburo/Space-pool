@@ -10,7 +10,6 @@
   }
 
   h1 {
-
     &:not(:last-child) {
       margin-bottom: 25px;
 
@@ -23,7 +22,6 @@
   }
 
   h2 {
-
     &:not(:last-child) {
       margin-bottom: 25px;
 
@@ -36,7 +34,6 @@
   }
 
   h3 {
-
     &:not(:last-child) {
       margin-bottom: 25px;
 
@@ -49,7 +46,6 @@
   }
 
   h4 {
-
     &:not(:last-child) {
       margin-bottom: 25px;
 
@@ -62,7 +58,6 @@
   }
 
   h5 {
-
     &:not(:last-child) {
       margin-bottom: 25px;
 
@@ -75,7 +70,6 @@
   }
 
   h6 {
-
     &:not(:last-child) {
       margin-bottom: 25px;
 
@@ -132,16 +126,13 @@
     }
   }
 
-  >ul,
-  >ol {
-
+  > ul,> ol {
     &:not(:last-child) {
       margin-bottom: 10px;
     }
   }
 
-  ul,
-  ol {
+  ul,ol {
     @include list;
   }
 
@@ -166,10 +157,9 @@
   &_mid {
     @include text16;
 
-    line-height: (20/16);
+    line-height: (20 / 16);
 
     p {
-
       &:not(:last-child) {
         margin-bottom: 20px;
 
@@ -181,12 +171,12 @@
       small {
         @include text-small;
 
-        line-height: (20/11);
+        line-height: (20 / 11);
       }
     }
 
     ul {
-      line-height: (20/16);
+      line-height: (20 / 16);
 
       li {
         &:not(:last-child) {
@@ -203,21 +193,15 @@
   &_mid2 {
     @include text16;
 
-    line-height: (24/16);
+    line-height: (24 / 16);
 
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6 {
+    h1,h2,h3,h4,h5,h6 {
       &:not(:last-child) {
         margin-bottom: 26px;
       }
     }
 
     p {
-
       &:not(:last-child) {
         margin-bottom: 24px;
       }
@@ -225,12 +209,12 @@
       small {
         @include text-small;
 
-        line-height: (24/11);
+        line-height: (24 / 11);
       }
     }
 
     ul {
-      line-height: (24/16);
+      line-height: (24 / 16);
 
       li {
         padding-left: 19px;
@@ -253,10 +237,9 @@
   &_small {
     @include text15;
 
-    line-height: (19/15);
+    line-height: (19 / 15);
 
     p {
-
       &:not(:last-child) {
         margin-bottom: 25px;
 
@@ -268,12 +251,12 @@
       small {
         @include text-small;
 
-        line-height: (19/11);
+        line-height: (19 / 11);
       }
     }
 
     ul {
-      line-height: (19/15);
+      line-height: (19 / 15);
 
       li {
         &:not(:last-child) {
@@ -290,10 +273,9 @@
   &_smaller {
     @include text12;
 
-    line-height: (15/12);
+    line-height: (15 / 12);
 
     p {
-
       &:not(:last-child) {
         margin-bottom: 20px;
 
@@ -305,12 +287,12 @@
       small {
         @include text-small;
 
-        line-height: (15/11);
+        line-height: (15 / 11);
       }
     }
 
     ul {
-      line-height: (15/12);
+      line-height: (15 / 12);
 
       li {
         &:not(:last-child) {
@@ -341,6 +323,99 @@
 
     @include screen('md') {
       max-width: none;
+    }
+  }
+
+  &_doc {
+    @include text-mid;
+
+    color: $color-basic;
+    line-height: 1.2;
+    font-weight: 400;
+
+    p {
+      &:not(:last-child) {
+        margin-bottom: 22px;
+
+        @include screen('sm') {
+          margin-bottom: 25px;
+        }
+      }
+
+      small {
+        @include text-small;
+
+        line-height: 1.2;
+      }
+    }
+
+    ul {
+      line-height: 1.2;
+
+      &:not(:first-child) {
+        margin-top: 61px;
+      }
+
+      &:not(:last-child) {
+        margin-bottom: 30px;
+      }
+
+      li {
+        padding-left: 19px;
+
+        &:not(:last-child) {
+          margin-bottom: 12px;
+        }
+
+        &::before {
+          top: 6px;
+        }
+      }
+    }
+  }
+
+  &_doc2 {
+    @include text-mid;
+
+    color: $color-basic;
+    font-weight: 400;
+    line-height: (26 / 17);
+
+    p {
+      &:not(:last-child) {
+        margin-bottom: 20px;
+
+        @include screen('sm') {
+          margin-bottom: 25px;
+        }
+      }
+
+      small {
+        @include text-small;
+
+        line-height: (15 / 11);
+      }
+    }
+
+    ul,ol {
+      &:not(:first-child) {
+        margin-top: 27px;
+      }
+
+      &:not(:last-child) {
+        margin-bottom: 27px;
+      }
+
+      ol {
+        padding-top: 28px;
+        padding-bottom: 0;
+      }
+
+      li {
+        &:not(:last-child) {
+          margin-bottom: 28px;
+        }
+      }
     }
   }
 }

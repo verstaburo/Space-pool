@@ -1,0 +1,81 @@
+mixin document()
+  +b.ARTICLE.document&attributes(attributes)
+    block
+
+mixin document-section()
+  +e.SECTION.section&attributes(attributes)
+    block
+
+mixin document-heading()
+  +e.H4.heading&attributes(attributes)
+    block
+
+mixin document-content()
+  +e.DIV.content&attributes(attributes)
+    block
+
+mixin document-title(icon)
+  +e.title&attributes(attributes)
+    +icon(icon)(class="__title-icon _" + icon)
+    +e.title-text
+      block
+
+mixin document-legal()
+  +document
+    +document-section
+      +document-heading
+        +document-title('agreement') WORKSPACE <br> OCCUPATION AGGREEMENT
+        +e.object
+          +e.object-name One Heddon Street
+          +e.object-info Floor 5 Dedicated office space. Room 54
+      +document-content
+    +document-section
+      +document-heading
+        +document-title('home-rules') HOUSE <br> RULES
+      +document-content
+        +content-zone._doc
+          p The building starts to work at 8:00 am, workers can come at 8:30 am. Cleaning every day starts at 9pm. Car parking available for clients within 1 hour, afterwards parking will be charged 5 pounds per hour. The building starts to work at 8:00 am, workers can come at 8:30 am. Cleaning every day starts at 9pm.
+          p Car parking available for clients within 1 hour, afterwards parking will be charged 5 pounds per hour. The building starts to work at 8:00 am, workers can come at 8:30 am. Cleaning every day starts at 9pm. Car parking available for clients within 1 hour, afterwards parking will be charged 5 pounds per hour.
+          ul
+            li High Speed Internet
+            li Micro-Roasted Coffee
+            li Onsite Staff
+            li Cleaning Services
+            li Unique Common Areas
+            li Conference Rooms
+            li Professional & Social Events
+            li Phone Booths
+            li Fruit Water
+            li Printing
+            li Dog-friendly
+    +document-section
+      +document-heading._smg
+        +document-title('rules') TERMS <br> &amp; CONDITIONS
+      +document-content
+        +content-zone._doc2
+          p Room number (position on the Plan)
+            br
+            | Room area
+            br
+            | Notes
+          ol
+            li The present Contract comes into force from the moment of its state registration and is valid for 25 years.
+            li Rent and payment procedure.
+              ol
+                li The amount of the monthly rent for the leased premises (in accordance with clause 1.4 of this Agreement) at the time of conclusion of the Agreement is
+                li The rent is paid monthly on the 20th day following the reporting month directly by the Tenant to the Landlord’s current account or otherwise by agreement of the parties.
+                li Changing the size of the rent and the order of its payment is possible only by agreement of the parties.
+                li The cost of maintaining the building and utilities, landscaping, capital and current repairs (according to a previously agreed cost estimate) of the shared premises and facilities are reimbursed to the Lessor by the Tenant in proportion to the occupied space. The costs indicated in this clause are hereinafter referred to as “maintenance costs”, unless it follows otherwise from the meaning of the contract. Current and major repairs of the rented premises to be made at the expense of the Tenant.
+                li The cost of maintenance in the amount of rent is not included.
+                li The tenant pays the charges in accordance with clause 2.4. of this invoice agreement within 5 business days from the date of the invoice.
+            li Rights and obligations of the parties
+              ol
+                li The tenant must:
+                  ol
+                    li timely pay the rent for the rented premises on the terms and conditions and in accordance with clause 2.2 .;
+                    li effectively use the rented premises in accordance with the intended purpose specified in the Agreement;
+                    li eliminate the accident (fire) resulting from his actions (inaction) and its consequences, or compensate the Landlord for the material damage caused by this accident (fire);
+                    li make timely repairs to the premises specified in section 1.2;
+                    li do not perform work on the improvement and redevelopment without the consent of the Lessor
+
+    block

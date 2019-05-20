@@ -34,4 +34,10 @@ export default function scrollbar() {
       className: 'os-theme-custom-light-gray',
     });
   });
+
+  $('.js-scrollbar-wide').each((i, el) => {
+    OverlayScrollbars(el, {
+      className: 'os-theme-custom-wide',
+    });
+  });
 }

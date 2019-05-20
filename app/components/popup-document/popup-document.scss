@@ -1,0 +1,154 @@
+.popup-document {
+  $b: &;
+
+  display: inline-flex !important;
+  max-height: 100%;
+
+  &__content {
+    display: flex;
+  }
+
+  &__column {
+    display: block;
+    max-height: 100%;
+
+    &_left {
+      position: relative;
+      flex: 1;
+
+      &:not(:last-child) {
+        margin-right: 50px;
+      }
+    }
+
+    &_right {
+      margin-top: 4px;
+      width: 27.3%;
+    }
+  }
+
+  &__header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    background-color: $color-hint-bg;
+    box-sizing: border-box;
+    padding: 10px 68px 10px 70px;
+    height: 70px;
+    color: $color-white;
+    z-index: 2;
+
+    &-icon {
+      position: relative;
+      display: inline-block;
+      width: 10px;
+      height: 10px;
+      transform-origin: 50% 50%;
+      transform: rotate(90deg);
+      overflow: hidden;
+
+      &:not(:last-child) {
+        margin-right: 16px;
+      }
+    }
+
+    &-text {
+      @include text;
+
+      font-weight: 400;
+      line-height: (26 / 14);
+    }
+  }
+
+  &__info {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    box-sizing: border-box;
+    margin-bottom: -3px;
+  }
+
+  &__side {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 100%;
+    background-color: $color-hint-bg;
+    box-shadow: 0 0 8px rgba(34, 42, 46, .11);
+    box-sizing: border-box;
+    padding: 26px 40px 52px;
+    color: $color-white;
+    height: 378px;
+
+    &-icon {
+      position: relative;
+      display: inline-block;
+      width: 80px;
+      height: 22px;
+      overflow: hidden;
+      margin-top: auto;
+    }
+
+    #{$b}__title {
+      &:not(:last-child) {
+        margin-bottom: 20px;
+      }
+    }
+  }
+
+  &__arrow {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    fill: $color-yellow;
+    width: 93px;
+    height: 9px;
+
+    &_long {
+      top: 0;
+      left: 0;
+      height: 22px;
+      width: 228px;
+      transform-origin: 50% 50%;
+      transform: rotate(180deg);
+    }
+  }
+
+  &__title {
+    @include heading-3;
+
+    line-height: (39 / 25);
+    font-weight: 700;
+    color: $color-white;
+  }
+
+  &__explanation {
+    @include text-big;
+
+    font-weight: 400;
+    line-height: 1.35;
+
+    &:not(:first-child) {
+      margin-top: 52px;
+    }
+  }
+
+  &__wrapper {
+    background-color: $color-white;
+    width: 100%;
+    max-height: 100%;
+  }
+
+  &__inner-content {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 144px 68px 120px;
+  }
+}
