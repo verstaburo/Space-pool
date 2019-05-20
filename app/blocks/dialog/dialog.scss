@@ -10,6 +10,10 @@
     margin-top: 29px;
   }
 
+  &_mgt18,&_mgt18:not(:first-child) {
+    margin-top: 18px;
+  }
+
   &__block {
     display: block;
     width: 100%;
@@ -33,9 +37,12 @@
   }
 
   &__item {
-
     &:not(:last-child) {
       margin-bottom: 26px;
+    }
+
+    &_wide {
+      width: 100%;
     }
   }
 
@@ -46,6 +53,11 @@
 
     &:not(:first-child) {
       margin-top: -12px;
+    }
+
+    &_sp:not(:first-child) {
+      margin-top: -4px;
+      margin-bottom: 4px;
     }
 
     &::before {
@@ -63,7 +75,7 @@
     @include text;
 
     font-weight: 700;
-    line-height: (26/14);
+    line-height: (26 / 14);
     position: relative;
     display: inline-block;
     background-color: $color-bg;

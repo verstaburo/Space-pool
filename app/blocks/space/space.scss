@@ -181,7 +181,7 @@
     @include text15;
 
     position: relative;
-    line-height: (30/15);
+    line-height: (30 / 15);
     font-weight: 700;
     text-transform: uppercase;
     display: block;
@@ -216,15 +216,15 @@
 
     &_base {
       padding-left: 35px;
-      padding-right: 3px;
-      line-height: (32/15);
+      padding-right: 35px;
+      line-height: (32 / 15);
       box-sizing: border-box;
     }
 
     &_lh26 {
       padding-left: 30px;
-      padding-right: 4px;
-      line-height: (26/15);
+      padding-right: 30px;
+      line-height: (26 / 15);
     }
 
     &-box {
@@ -245,7 +245,6 @@
     }
 
     .offer-info {
-
       .box {
         align-self: center;
 
@@ -261,7 +260,6 @@
       }
 
       &__title {
-
         @include screen('sm') {
           @include text12;
 
@@ -313,8 +311,27 @@
       @include screen('sm') {
         @include text;
 
-        line-height: (26/14);
+        line-height: (26 / 14);
       }
+    }
+  }
+
+  &__text {
+    @include text;
+
+    line-height: (26/ 14);
+    font-weight: 400;
+    color: $color-basic-light;
+  }
+
+  &__informer {
+    display: block;
+    width: 100%;
+  }
+
+  &__state {
+    &:not(:first-child) {
+      margin-top: 17px;
     }
   }
 
@@ -352,14 +369,12 @@
   }
 
   &_search {
-
     &:hover #{$b}__title {
       color: $color-basic;
     }
 
     #{$b} {
       &__boxes {
-
         @include screen('sm') {
           min-height: 9px;
           margin-top: 9px;
@@ -376,7 +391,6 @@
   }
 
   &_map {
-
     &:hover #{$b}__title {
       color: $color-basic;
     }
@@ -439,14 +453,85 @@
         }
 
         .offer-info {
-
-          &__title,
-          &__price {
+          &__title,&__price {
             @include screen('sm') {
               @include text10;
             }
           }
         }
+      }
+    }
+  }
+
+  &_dark {
+    background-color: $color-hint-bg;
+    color: $color-basic-light;
+
+    #{$b} {
+      &__title {
+        color: $color-white;
+      }
+    }
+
+    &:hover #{$b} {
+      &__title {
+        color: $color-white;
+      }
+    }
+  }
+
+  &_side {
+    padding-bottom: 24px;
+
+    #{$b} {
+      &__media {
+        margin-bottom: 15px;
+      }
+
+      &__describe {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+        padding: 0 18px 5px;
+
+        &:not(:last-child) {
+          margin-bottom: 14px;
+        }
+      }
+
+      &__boxes {
+        margin-top: 0;
+        order: 1;
+      }
+
+      &__location {
+        @include text;
+
+        line-height: 1.2;
+        font-weight: 400;
+        order: 2;
+
+        &:not(:last-child) {
+          margin-bottom: 10px;
+        }
+      }
+
+      &__title {
+        order: 3;
+      }
+
+      &__text {
+        @include text;
+
+        line-height: (26/ 14);
+        font-weight: 400;
+        order: 3;
+      }
+
+      &__informer {
+        padding: 0 15px;
+        box-sizing: border-box;
       }
     }
   }

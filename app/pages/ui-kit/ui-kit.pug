@@ -2184,20 +2184,47 @@ block content
         +address-line({line: ['London', 'Kengsinton', 'W22EBF'], icons: [{ ico: 'metro', color: '#9b0158'}, {ico: 'metro', color: '#fed201'}]})
 
     //- state
-    //- +ui-section
-    //-   +ui-section-head
-    //-     h2 state
-    //-     p Блок: block/state
-    //-   +ui-section-content
-    //-     +ui-description .state
-    //-     +state() Состояние
-    //-     +ui-description .state_right индикатор справа
-    //-     +state()._right состояние
-    //-       +link()(href="#") ссылка
-    //-     +ui-description .state_light
-    //-     +state()._light состояние
-    //-     +ui-description .state_fz18
-    //-     +state()._fz18 состояние
+    +ui-section
+      +ui-section-head
+        h2 state
+        p Блок: block/state
+      +ui-section-content
+        +ui-description .state
+        +state() Состояние
+        +ui-description .state_right индикатор справа
+        +state()._right состояние
+          +link()._underline(href="#") ссылка
+        +ui-description .state_light
+        +state()._light состояние
+        +ui-description .state_fz18
+        +state()._fz18 состояние
+        +ui-description .state_orange
+        +state()._orange состояние
+        +ui-description .state_red
+        +state()._red состояние
+        +ui-description .state_green
+        +state()._green._right состояние
+
+    //- timer
+    +ui-section
+      +ui-section-head
+        h2 timer
+        p Блок: block/timer
+      +ui-section-content
+        +ui-description .timer
+        +timer('Estimated time')
+
+    //- notification
+    +ui-section
+      +ui-section-head
+        h2 notification
+        p Блок: block/notification
+      +ui-section-content
+        +ui-description .notification
+        +notification({actionName: 'Action required:', title: 'Please sign the contract', timer: {name: 'Estimated time:'}, buttons: [{name: 'Decline reservation'}, {name: 'Open contract'}]})
+          +offer-info
+            +box._big._green
+            +e.title_dark._fz16 OFFICE SPACE
 
 block panels
   +main-menu

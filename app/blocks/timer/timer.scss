@@ -1,0 +1,36 @@
+.timer {
+  $b: &;
+
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  box-sizing: border-box;
+  color: $color-basic;
+
+  &__name {
+    @include text16;
+
+    font-weight: 400;
+
+    &:not(:last-child) {
+      margin-right: 4px;
+    }
+  }
+
+  &__counter {
+    @include text-mid;
+
+    font-weight: 700;
+    display: inline-flex;
+    justify-content: flex-start;
+    align-items: baseline;
+  }
+
+  &__item {
+    &:not(:last-child)::after {
+      display: inline;
+      content: ':';
+      margin: 0 4px;
+    }
+  }
+}

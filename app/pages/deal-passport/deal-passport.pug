@@ -22,18 +22,31 @@ block content
     .container
       +e.wrapper
         +content-column-aside
-          +sidebar._no-bg
+          +sidebar._dark2
+            +space-reserv('ARTICLE', {head: {name: 'office space', color: '_green', base: '_black'}, img: 'assets/images/space16.jpg', heart: '', boxes: [{ class: '_orange'}, {class: '_red'}, {class: '_blue'}, {class: '_green'}], title: 'One Heddon Street', location: 'EC2A, London', text: 'Floor 5 Dedicated office space. Room 54'})._dark._side
+              +e.informer
+                +status-button('Order summary').__state
+                  +state()._right._orange._light Please confirm
+                +status-button('Contract').__state
+                  +state()._right._orange._light Please sign
+                +status-button('Invoices').is-disabled.__state
+                  +state()._right._light N/A
         +content-column-main._no-ptop
           +table-head._messages._borders
             +e.wrapper
               +e.cell._vp11._pr25._lead
                 +e.name Manager:
                 +short-profile-origin('assets/images/ava3.jpg', 'Maria Barstaier')(href="#")
-              +e.cell._vp11._pl25._messages
+              +e.cell._vp11._pl25._pr0._messages
                 +e.name Status:
                 +e.info
+                  +state()._orange._fz18.__state
+                    +link()._underline(href="#") Order summary confirmation
+                    | &nbsp;required
+                  +state()._orange._fz18.__state Please sign
+                    +link()._underline(href="#") the contract
           +message-form._noborder
-          +dialog2
+          +dialog2._mgt18
 block panels
   +main-menu-inner
     +nav-list(getData('main-menu-user.json'))

@@ -162,11 +162,13 @@ export default function uploader() {
     }
   });
 
-  function deleteOnBackend() {
+  /* eslint-disable no-unused-vars */
+  function deleteOnBackend(obj) {
     return new Promise((resolve) => {
       resolve(true);
     });
   }
+  /* eslint-enable no-unused-vars */
 
   window.deleteOnBackend = deleteOnBackend;
 
@@ -180,7 +182,7 @@ export default function uploader() {
       $(preview).removeClass('is-error');
     } else {
       const el = previewParentCol;
-      window[fn]().then((redyDelete) => {
+      window[fn]($(el)).then((redyDelete) => {
         if (redyDelete) {
           $(el).remove();
           $('.uploader-output').trigger('changeItems');

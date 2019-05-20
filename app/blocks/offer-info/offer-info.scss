@@ -21,7 +21,7 @@
 
     font-weight: 700;
     text-transform: uppercase;
-    line-height: (26/14);
+    line-height: (26 / 14);
     color: $color-text-light;
 
     &:not(:last-child) {
@@ -31,11 +31,21 @@
     &_small {
       @include text12;
 
-      line-height: (20/12);
+      line-height: (20 / 12);
     }
 
     &_light-gray {
       color: $color-basic-light;
+    }
+
+    &_dark {
+      color: $color-basic;
+    }
+
+    &_fz16 {
+      @include text16;
+
+      line-height: (20 / 16);
     }
 
     #{$b}.is-empty & {
@@ -62,7 +72,7 @@
     @include text12;
 
     font-weight: 400;
-    line-height: (20/12);
+    line-height: (20 / 12);
     text-transform: uppercase;
     display: inline-block;
     color: $color-basic-light;
@@ -141,7 +151,6 @@
   }
 
   &_small {
-
     .box {
       margin-right: 5px;
     }
@@ -172,7 +181,6 @@
     }
 
     &_light {
-
       #{$b}__title {
         color: $color-basic-light;
       }
@@ -185,7 +193,6 @@
   }
 
   &_light {
-
     #{$b}__title {
       color: $color-white;
     }
@@ -195,7 +202,6 @@
     }
 
     &.is-empty {
-
       #{$b}__title {
         color: $color-offer-disable;
       }
@@ -207,7 +213,6 @@
   }
 
   &_short {
-
     .box {
       margin-right: 4px;
     }
@@ -227,8 +232,7 @@
     display: none;
   }
 
-  input:checked~.offer-info,
-  &:hover .offer-info {
+  input:checked ~ .offer-info,&:hover .offer-info {
     background-color: $color-bg;
   }
 }

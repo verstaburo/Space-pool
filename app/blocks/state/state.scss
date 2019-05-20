@@ -1,12 +1,70 @@
 .state {
   $b: &;
 
+  @include text16;
+
+  display: inline-block;
+  position: relative;
+  font-weight: 400;
+  color: $color-basic;
+  padding-left: 16px;
+  padding-right: 0;
+
+  &::before {
+    @include pseudo;
+
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: $color-basic;
+    top: 50%;
+    left: 0;
+    transform: translate3d(0, -50%, 0);
+  }
+
+  .link {
+    &__text {
+      display: inline-block;
+      box-sizing: border-box;
+      line-height: 1;
+    }
+  }
+
   &_right {
+    padding-left: 0;
+    padding-right: 20px;
+
+    &::before {
+      left: auto;
+      right: 0;
+    }
   }
 
   &_light {
+    color: $color-basic-light;
   }
 
   &_fz18 {
+    @include text-big;
+
+    font-weight: 400;
+  }
+
+  &_orange {
+    &::before {
+      background-color: $color-yellow;
+    }
+  }
+
+  &_red {
+    &::before {
+      background-color: $color-red;
+    }
+  }
+
+  &_green {
+    &::before {
+      background-color: $color-green;
+    }
   }
 }

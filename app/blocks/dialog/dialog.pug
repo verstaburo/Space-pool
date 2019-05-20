@@ -20,8 +20,12 @@ mixin dialog2()
   +b.UL.dialog&attributes(attributes)
     +e.LI.block
       +e.UL.list
-        +bubble('li', '15:45', "2018-10-29T15:45")._bold.__item But we can discuss it. Maybe somehow charge you a little extra of you want to use the gym.
-      +e.head
+        +bubble('li', '15:45', "2018-10-29T15:45")._notification.__item_wide
+          +notification({actionName: 'Action required:', title: 'Please sign the contract', timer: {name: 'Estimated time:'}, buttons: [{name: 'Decline reservation'}, {name: 'Open contract'}]})
+            +offer-info
+              +box._big._green
+              +e.title_dark._fz16 OFFICE SPACE
+      +e.head_sp
         +e.TIME.date(datetime="2018-10-29") Few minutes ago
     +e.LI.block
       +e.UL.list

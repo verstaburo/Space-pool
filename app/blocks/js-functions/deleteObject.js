@@ -14,7 +14,7 @@ export default function deleteObject() {
       duration: 300,
     });
     if (fn) {
-      window[fn]().then((redyDelete) => {
+      window[fn](self).then((redyDelete) => {
         if (redyDelete) {
           timeline
             .add({

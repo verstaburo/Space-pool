@@ -1,0 +1,11 @@
+mixin notification(data)
+  +b.notification&attributes(attributes)
+    +e.about
+      +e.name!= data.actionName
+      +e.target
+        block
+    +e.title!= data.title
+    +timer(data.timer.name).__timer
+    +e.buttons
+      +button()._border._border_bg-white._short.__button!=data.buttons[0].name
+      +button()._short.__button!=data.buttons[1].name

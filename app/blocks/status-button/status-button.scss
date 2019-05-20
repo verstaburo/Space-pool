@@ -1,0 +1,41 @@
+.status-button {
+  $b: &;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  width: 100%;
+  box-sizing: border-box;
+  border: 1px solid $color-border-gray;
+  border-radius: 3px;
+  padding: 4px 9px 14px 11px;
+  cursor: pointer;
+  color: $color-white;
+  transition: color $ease-main;
+
+  &.is-disabled {
+    color: $color-basic;
+  }
+
+  &__status {
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-start;
+    width: 100%;
+  }
+
+  &__text {
+    @include heading-4;
+
+    line-height: (20 / 20);
+    font-weight: 700;
+    width: 100%;
+    margin-top: -5px;
+    transition: opacity $ease-main;
+
+    #{$b}:not(.is-disabled):hover & {
+      opacity: .7;
+    }
+  }
+}
