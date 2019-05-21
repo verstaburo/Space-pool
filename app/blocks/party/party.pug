@@ -1,3 +1,8 @@
-mixin party()
+mixin party(data)
   +b.party&attributes(attributes)
-    block
+    +e.top
+      +e.name!= data.name
+      +e.sign
+        +sign-input(data.label)
+    +e.bottom
+      block

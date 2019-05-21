@@ -27,7 +27,7 @@ block content
               +e.informer
                 +status-button('Order summary').__state
                   +state()._right._orange._light Please confirm
-                +status-button('Contract').__state
+                +status-button('Contract').__state.js-popup(href="#popup-legal-formalities")
                   +state()._right._orange._light Please sign
                 +status-button('Invoices').is-disabled.__state
                   +state()._right._light N/A
@@ -44,9 +44,13 @@ block content
                     +link()._underline(href="#") Order summary confirmation
                     | &nbsp;required
                   +state()._orange._fz18.__state Please sign
-                    +link()._underline(href="#") the contract
+                    +link()._underline.js-popup(href="#popup-legal-formalities") the contract
           +message-form._noborder
           +dialog2._mgt18
 block panels
   +main-menu-inner
     +nav-list(getData('main-menu-user.json'))
+
+block popups
+  +popup-document(getData('legal-formalities.json'))#popup-legal-formalities
+    +document-legal

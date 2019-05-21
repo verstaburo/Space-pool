@@ -1,0 +1,65 @@
+.summary-table {
+  $b: &;
+
+  width: 100%;
+  display: block;
+  border-top: 1px solid $color-border-light;
+  border-bottom: 1px solid $color-border-light;
+
+  &__row {
+    display: flex;
+    justify-content: flex-start;
+    align-items: stretch;
+    width: 100%;
+    box-sizing: border-box;
+    padding-top: 14px;
+    padding-bottom: 25px;
+
+    &:not(:last-child) {
+      border-bottom: 1px solid $color-border-light;
+    }
+
+    &_pb32 {
+      padding-bottom: 32px;
+    }
+
+    &_nopb {
+      padding-bottom: 0;
+    }
+  }
+
+  &__cell {
+    @include text15;
+
+    font-weight: 400;
+    line-height: 1.2;
+    display: block;
+    flex: 1;
+    box-sizing: border-box;
+    padding-top: 2px;
+
+    b {
+      font-weight: 700;
+    }
+
+    &_head {
+      @include text-mid;
+
+      font-weight: 700;
+      flex: none;
+      width: 42%;
+      padding-top: 0;
+    }
+
+    &_full {
+      flex: none;
+      width: 100%;
+    }
+  }
+
+  &__info {
+    display: block;
+    width: 100%;
+    margin-top: 8px;
+  }
+}

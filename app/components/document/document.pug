@@ -14,6 +14,14 @@ mixin document-content()
   +e.DIV.content&attributes(attributes)
     block
 
+mixin document-subsection()
+  +e.DIV.subsection&attributes(attributes)
+    block
+
+mixin document-subtitle()
+  +e.DIV.subtitle&attributes(attributes)
+    block
+
 mixin document-title(icon)
   +e.title&attributes(attributes)
     +icon(icon)(class="__title-icon _" + icon)
@@ -22,13 +30,87 @@ mixin document-title(icon)
 
 mixin document-legal()
   +document
-    +document-section
-      +document-heading
+    +document-section._mb98
+      +document-heading._smg
         +document-title('agreement') WORKSPACE <br> OCCUPATION AGGREEMENT
         +e.object
           +e.object-name One Heddon Street
           +e.object-info Floor 5 Dedicated office space. Room 54
       +document-content
+        +document-subsection
+          +grid.grid_gap72
+            +col(6)
+              +detail('Host details (Space owner)')
+                p
+                  b LABS inc. Spaces
+                p
+                  b Registration number:&nbsp;
+                  | 90238620105932
+                p
+                  b Registered office:&nbsp;
+                  | Canterbury Court, Kennington Park, 145 Brixton Road, London, SW9 6DE
+            +col(6)
+              +detail('Guest details (Ocupier)')
+                p
+                  b Eugene Peterson
+                p
+                  b Registration number:&nbsp;
+                  | 90238620105932
+                p
+                  b Registered office:&nbsp;
+                  | Canterbury Court, Kennington Park, 145 Brixton Road, London, SW9 6DE
+        +document-subsection
+          +summary-table
+            body
+              +e.TR.row_pb32
+                +e.TD.cell_head Unit
+                +e.TD.cell
+                  p
+                    b Room 54
+                  p
+                    b One heddon Street Spaces
+                  p 393 One Heddon Street, London, SW7 8HE
+              +e.TR.row
+                +e.TD.cell_head Occupation period
+                +e.TD.cell
+                  b From and including 2 May 2019 and ending on 2 may 2020
+              +e.TR.row
+                +e.TD.cell_head Break notice
+                +e.TD.cell
+                  p
+                    b Guest: 3 months written notice to end on the last day ot the month not to be served within 6 months of the start of the Occupation Period.
+                  p
+                    b Host: No breaks in Occupation Period
+              +e.TR.row_nopb
+                +e.TD.cell_head._full Rent
+                  +e.info
+                    +info._light-border._summary
+                      +e.cell_fz17 Total Monthly payment:
+                      +e.cell_fz20._fw400
+                        p
+                          b &pound; 560.00&nbsp;
+                          | + VAT
+                    +info._noborder._summary
+                      +e.cell_fz17 Annual payment:
+                      +e.cell_fz20._fw400
+                        p
+                          b &pound; 6720.00&nbsp;
+                          | + VAT
+        +document-subsection
+          +document-subtitle Sign your contract part:
+          +signatures
+            +grid.grid_big
+              +col({xl: 6, sm: 12})
+                +party({name: 'Mark Macenthire', label: { text: 'Host sign here', name: 'hostSign'}}).is-disabled
+                  +e.text On behalf of Blooming Founders
+              +col({xl: 6, sm: 12})
+                +party({name: 'Eugene Peterson', label: { text: 'Click here to sign', star: '_red', name: 'guestSign'}})
+                  +e.text On behalf of DEZI Design Agency LLT.
+          +content-zone._small
+            ul
+              li Rent excludes Value Added Tax (VAT), Rates, Gas and Electricity.
+              li In advance by equal monthly instalments on the first day of every month. <b>&pound;2,929.50</b> plus VAT which we will hold as security.
+              li Invoices/Fees are charged on a monthly basis which is calculated based on a 30day month
     +document-section
       +document-heading
         +document-title('home-rules') HOUSE <br> RULES

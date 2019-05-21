@@ -14,10 +14,18 @@
     border-bottom-color: $color-border-light;
   }
 
+  &_noborder {
+    border-bottom: none;
+  }
+
+  &_summary {
+    padding: 15px 0;
+  }
+
   &__cell {
     @include heading-3;
 
-    line-height: (26/25);
+    line-height: (26 / 25);
     font-weight: 700;
     display: inline-block;
     white-space: nowrap;
@@ -25,7 +33,7 @@
     @include screen('sm') {
       @include heading-4;
 
-      line-height: (26/20);
+      line-height: (26 / 20);
     }
 
     &:not(:last-child) {
@@ -35,13 +43,29 @@
     &_afend {
       align-self: flex-end;
     }
+
+    &_fw400 {
+      font-weight: 400;
+
+      b {
+        font-weight: 700;
+      }
+    }
+
+    &_fz20 {
+      @include heading-4;
+    }
+
+    &_fz17 {
+      @include text-mid;
+    }
   }
 
   &__input {
     @include text-big;
 
     font-weight: 700;
-    line-height: (26/18);
+    line-height: (26 / 18);
     color: $color-basic;
 
     @include screen('sm') {
@@ -72,12 +96,12 @@
     @include text-mid;
 
     font-weight: 700;
-    line-height: (34/17);
+    line-height: (34 / 17);
 
     @include screen('sm') {
       @include text15;
 
-      line-height: (34/15);
+      line-height: (34 / 15);
     }
   }
 

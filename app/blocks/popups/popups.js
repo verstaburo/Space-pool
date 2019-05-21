@@ -9,6 +9,7 @@ const $ = window.$;
 
 export default function popups() {
   $('.js-popup').fancybox({
+    autoFocus: false,
     afterLoad() {
       freeze();
     },

@@ -1,3 +1,8 @@
-mixin sign-input()
-  +b.sign-input&attributes(attributes)
+mixin sign-input(data)
+  +b.LABEL.sign-input&attributes(attributes)
+    +input(type="text" name=data.name).sign-input__input
+    +e.label
+      if (data.star)
+        +e.SUB.star *&nbsp;
+      +e.SPAN.text!= data.text
     block
