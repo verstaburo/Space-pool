@@ -641,6 +641,11 @@
       pointer-events: none;
       z-index: 4;
 
+      &_visible {
+        opacity: 1;
+        pointer-events: auto;
+      }
+
       body.is-login & {
         @include screen('md') {
           bottom: 70px;
@@ -875,6 +880,14 @@
 
     @include screen('sm') {
       padding-bottom: 70px;
+    }
+  }
+
+  &_pb2 {
+    padding-bottom: 80px;
+
+    @include screen('md') {
+      padding-bottom: 0;
     }
   }
 

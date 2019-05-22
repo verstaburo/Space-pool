@@ -21,7 +21,7 @@ block content
       +progress(100)
   +content-origin._wide-lg._reverse._last
     .container
-      +section._white._pt
+      +section._white._pt._pb.js-form-with-hidden-panel
         +section-content._form2._flex
           +e.column_info._mr
             +e.heading
@@ -60,10 +60,14 @@ block content
                   +section-title('h4')._mg28 Example:
                   +content-zone
                     p <b>HOT DESK</b> and <b>HOT DESK with access to workshops and lectures</b> are to different rental offers with possibly two differenet prices. So you can always add a rental offer or same rental offer plus extra services.
-        +form-panel._links._border
-          +e.links
-            +link-icon('select-arrow', 'a')(href="#")._back._bold._no-shadow.__button Back
-          +button-icon('a', 'select-arrow')(href="#").__button_wide Publish this space
+        +e.panel_fixed._fixed_visible(data-hidden-panel)
+          .container
+            +grid.grid_big.grid_notop
+              +col({ xl: 12 })
+                +form-panel._links._border
+                  +e.links
+                    +link-icon('select-arrow', 'a')(href="#")._back._bold._no-shadow.__button Back
+                  +button-icon('a', 'select-arrow')(href="#").__button_wide Publish this space
 
 
 block panels

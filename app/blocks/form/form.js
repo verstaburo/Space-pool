@@ -17,13 +17,16 @@ export default function formManipulations() {
   $(window).on('scroll', () => {
     const sT = $(window).scrollTop();
     const panel = $(document).find('[data-hidden-panel]');
-    const form = $(panel).closest('form');
+    let form = $(panel).closest('form');
+    if ($(form).length <= 0) {
+      form = $(panel).closest('.js-form-with-hidden-panel');
+    }
     if ($(panel).length > 0) {
       const wH = $(window).height();
-      const pH = $(panel).outerHeight();
+      // const pH = $(panel).outerHeight();
       const fT = $(form).offset().top;
       const fH = $(form).outerHeight();
-      const fS = (fT + fH) - pH;
+      const fS = (fT + fH);
       const swT = sT + wH;
       if (swT > fS) {
         $(panel).addClass('is-stop');

@@ -38,6 +38,24 @@
     }
   }
 
+  &_pb {
+    position: relative;
+    padding-bottom: 80px;
+
+    @include screen('md') {
+      padding-bottom: 0;
+    }
+  }
+
+  &_pb2 {
+    position: relative;
+    padding-bottom: 80px;
+
+    @include screen('md') {
+      padding-bottom: 0;
+    }
+  }
+
   &_inner {
     margin-bottom: 66px;
 
@@ -332,13 +350,11 @@
       }
     }
 
-    &_smg,
-    #{$b}_inner &_smg {
+    &_smg,#{$b}_inner &_smg {
       margin-bottom: 16px;
     }
 
-    &_bmg,
-    #{$b}_inner &_bmg {
+    &_bmg,#{$b}_inner &_bmg {
       margin-bottom: 43px;
 
       @include screen('sm') {
@@ -535,7 +551,7 @@
     @include screen('sm') {
       @include text15;
 
-      line-height: (20/15);
+      line-height: (20 / 15);
     }
 
     &:not(:first-child) {
@@ -826,7 +842,6 @@
   }
 
   &__location {
-
     &-top {
       margin-right: 50px;
 
@@ -851,6 +866,94 @@
         flex: none;
         width: 100%;
       }
+    }
+  }
+
+  &__panel {
+    width: 100%;
+
+    &_fixed {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      transition: opacity $ease-main, bottom $ease-main;
+      opacity: 0;
+      pointer-events: none;
+      z-index: 4;
+
+      &_visible {
+        opacity: 1;
+        pointer-events: auto;
+      }
+
+      body.is-login & {
+        @include screen('md') {
+          bottom: 70px;
+        }
+
+        @include screen('sm') {
+          bottom: 50px;
+        }
+      }
+
+      .container {
+        @include screen('md') {
+          padding-left: 0;
+          padding-right: 0;
+        }
+      }
+
+      .form-panel {
+        @include screen('md') {
+          border-top: 1px solid $color-border-light;
+          padding: 0 $container-padding-tablet;
+        }
+
+        @include screen('sm') {
+          padding: 0 $container-padding-mobile;
+        }
+      }
+
+      &.is-stop {
+        @include screen('md', min) {
+          position: absolute;
+        }
+
+        .container {
+          @include screen('md', min) {
+            padding-left: 0;
+            padding-right: 0;
+          }
+        }
+
+        .grid {
+          &__col {
+            @include screen('md', min) {
+              width: 100%;
+            }
+          }
+        }
+      }
+
+      &.is-active {
+        opacity: 1;
+        pointer-events: auto;
+      }
+    }
+
+    &_border {
+      border-top: 1px solid $color-border-lightest;
+    }
+
+    &_mgt-10 {
+      margin-top: -10px;
+    }
+
+    &.is-fixed {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
     }
   }
 

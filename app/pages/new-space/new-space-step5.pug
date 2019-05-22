@@ -30,7 +30,7 @@ block content
               +page-info-title Space Rules and additional terms
               +page-info-description Step 5 <i>of 7</i>
         +content-column-main._no-ptop
-          +form()._white._flex(data-validated-form)
+          +form()._white._flex._pb2.js-form-with-hidden-panel(data-validated-form)
             +e.container_pb120
               +form-section._sm-mg
                 +e.row
@@ -104,9 +104,14 @@ block content
                         li No swearing
                         li Be eco friendly
                         li Leve the bikes on parking lot
-            +form-panel.__panel_border
-              +link-icon('select-arrow', 'a')(href="#")._back._bold._no-shadow.__button Back
-              +button-icon('button', 'select-arrow')(type="submit").__button_wide Next
+            +e.panel_fixed._fixed_visible(data-hidden-panel)
+              .container
+                +grid.grid_big.grid_notop
+                  +col({ xl: 3, md: 12 })
+                  +col({ xl: 9, md: 12 })
+                    +form-panel.__panel_border
+                      +link-icon('select-arrow', 'a')(href="#")._back._bold._no-shadow.__button Back
+                      +button-icon('button', 'select-arrow')(type="submit").__button_wide Next
 
 
 block panels

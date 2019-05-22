@@ -32,7 +32,7 @@ block content
         +content-column-main._no-ptop
           - var facilitiesB = getData('business-facilities.json')
           - var facilitiesA = getData('additional-facilities.json')
-          +form()._white._flex(data-validated-form)
+          +form()._white._flex._pb2.js-form-with-hidden-panel(data-validated-form)
             +e.container_pds
               +form-section._mg65
                 +form-section-header._mg21
@@ -48,9 +48,14 @@ block content
                   each item in facilitiesA
                     +col({ xl: 2, lg: 3, sm: 4, xs: 6})
                       +facility-checkbox(item.icon, item.iconClass, item.name, item.value, item.checked)!= item.title
-            +form-panel.__panel_border
-              +link-icon('select-arrow', 'a')(href="#")._back._bold._no-shadow.__button Back
-              +button-icon('button', 'select-arrow')(type="submit").__button_wide Next
+            +e.panel_fixed._fixed_visible(data-hidden-panel)
+              .container
+                +grid.grid_big.grid_notop
+                  +col({ xl: 3, md: 12 })
+                  +col({ xl: 9, md: 12 })
+                    +form-panel.__panel_border
+                      +link-icon('select-arrow', 'a')(href="#")._back._bold._no-shadow.__button Back
+                      +button-icon('button', 'select-arrow')(type="submit").__button_wide Next
 
 
 block panels

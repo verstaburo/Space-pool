@@ -30,7 +30,7 @@ block content
               +page-info-title._mg62 Almost there
               +page-info-description Step 6 <i>of 7</i>
         +content-column-main._no-ptop
-          +section._white
+          +section._white._pb2.js-form-with-hidden-panel
             +section-content._form._flex
               +e.column_rborder._stretch._pb25
                 +e.subsection._pr
@@ -57,11 +57,16 @@ block content
                   +col({xl: 12, md: 6, sm: 12})
                     +content-zone
                       p One Neal Street offers some twelve-thousand square foot of open-plan office space across the third floor, which can accommodate up to two hundred people. It also benefits from 24/7 access, a manned reception and large kitchen and breakout area.
-            +form-panel._links._border
-              +e.links
-                +link-icon('select-arrow', 'a')(href="#")._back._bold._no-shadow.__link Back
-                +link-icon('select-arrow', 'a')(href="#")._forward._bold._no-shadow.__link Skip
-              +button-icon('button', 'select-arrow')(type="submit").__button_wide Next
+            +e.panel_fixed._fixed_visible(data-hidden-panel)
+              .container
+                +grid.grid_big.grid_notop
+                  +col({ xl: 3, md: 12 })
+                  +col({ xl: 9, md: 12 })
+                    +form-panel._links._border
+                      +e.links
+                        +link-icon('select-arrow', 'a')(href="#")._back._bold._no-shadow.__link Back
+                        +link-icon('select-arrow', 'a')(href="#")._forward._bold._no-shadow.__link Skip
+                      +button-icon('button', 'select-arrow')(type="submit").__button_wide Next
 
 
 block panels

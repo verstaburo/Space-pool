@@ -30,7 +30,7 @@ block content
               +page-info-title Terms and<br> Conditions
               +page-info-description Step 6 <i>of 8</i>
         +content-column-main._no-ptop
-          +form()._white._flex(data-validated-form)
+          +form()._white._flex._pb2.js-form-with-hidden-panel(data-validated-form)
             +e.container_pt45._pb40
               +form-section
                 +e.header_mg43
@@ -40,9 +40,14 @@ block content
                 +form-section-wrapper
                   +form-box('', '', '', '', '')
                     +textarea(type="text" name="termsConditions" placeholder="Terms and conditions" required).textarea_big.textarea_bordered.textarea_def-plchldr
-            +form-panel.__panel_border
-              +link-icon('select-arrow', 'a')(href="#")._back._bold._no-shadow.__button Back
-              +button-icon('button', 'select-arrow')(type="submit").__button_wide Next
+              +e.panel_fixed._fixed_visible(data-hidden-panel)
+                .container
+                  +grid.grid_big.grid_notop
+                    +col({ xl: 3, md: 12 })
+                    +col({ xl: 9, md: 12 })
+                      +form-panel.__panel_border
+                        +link-icon('select-arrow', 'a')(href="#")._back._bold._no-shadow.__button Back
+                        +button-icon('button', 'select-arrow')(type="submit").__button_wide Next
 
 
 block panels
