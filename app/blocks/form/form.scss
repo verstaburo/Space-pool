@@ -244,6 +244,14 @@
       }
     }
 
+    &_mg43 {
+      margin-bottom: 43px;
+
+      @include screen('sm') {
+        margin-bottom: 20px;
+      }
+    }
+
     &_mg46 {
       margin-bottom: 46px;
 
@@ -354,13 +362,13 @@
     &_mid {
       @include heading-4;
 
-      line-height: (26/20);
+      line-height: (26 / 20);
       font-weight: 700;
 
       @include screen('sm') {
         @include text16;
 
-        line-height: (26/16);
+        line-height: (26 / 16);
       }
     }
 
@@ -372,7 +380,7 @@
       @include screen('sm') {
         @include text-mid;
 
-        line-height: (20/17);
+        line-height: (20 / 17);
       }
     }
 
@@ -384,20 +392,20 @@
       @include screen('sm') {
         @include text15;
 
-        line-height: (20/15);
+        line-height: (20 / 15);
       }
     }
 
     &_smaller {
       @include text-mid;
 
-      line-height: (26/17);
+      line-height: (26 / 17);
       font-weight: 700;
 
       @include screen('sm') {
         @include text15;
 
-        line-height: (26/15);
+        line-height: (26 / 15);
       }
     }
   }
@@ -406,7 +414,7 @@
     @include text;
 
     font-weight: 400;
-    line-height: (26/14);
+    line-height: (26 / 14);
     color: $color-basic-light;
 
     @include screen('sm') {
@@ -421,8 +429,7 @@
         margin-top: -36px;
       }
 
-      p:not(:first-child),
-      .link:not(:first-child) {
+      p:not(:first-child),.link:not(:first-child) {
         display: inline-block;
         margin-top: 12px;
       }
@@ -433,7 +440,6 @@
     }
 
     &_small {
-
       @include screen('sm') {
         @include text-small;
 
@@ -442,7 +448,6 @@
     }
 
     &_small2 {
-
       @include screen('sm') {
         @include text10;
 
@@ -456,7 +461,7 @@
       @include screen('sm') {
         @include text;
 
-        line-height: (26/14);
+        line-height: (26 / 14);
       }
     }
 
@@ -507,8 +512,7 @@
       }
     }
 
-    .checkbox,
-    .checkradio {
+    .checkbox,.checkradio {
       width: 100%;
 
       &__content {
@@ -518,21 +522,18 @@
     }
 
     &_no-mg {
-
       &:not(:last-child) {
         margin-bottom: 0;
       }
     }
 
     &_sm-mg {
-
       &:not(:last-child) {
         margin-bottom: 13px;
       }
     }
 
     &_mg29 {
-
       &:not(:last-child) {
         margin-bottom: 29px;
       }
@@ -635,9 +636,7 @@
       position: fixed;
       bottom: 0;
       left: 0;
-      transition:
-        opacity $ease-main,
-        bottom $ease-main;
+      transition: opacity $ease-main, bottom $ease-main;
       opacity: 0;
       pointer-events: none;
       z-index: 4;
@@ -683,8 +682,6 @@
         }
 
         .grid {
-
-
           &__col {
             @include screen('md', min) {
               width: 100%;
@@ -712,8 +709,6 @@
       bottom: 0;
       left: 0;
       width: 100%;
-
-
     }
   }
 
@@ -953,7 +948,6 @@
     }
 
     #{$b} {
-
       &__buttons {
         width: 100%;
       }
@@ -967,6 +961,18 @@
       }
     }
 
+    &_pt45 {
+      padding-top: 45px;
+
+      @include screen('sm') {
+        padding-top: 40px;
+      }
+    }
+
+    &_pb40 {
+      padding-bottom: 40px;
+    }
+
     &_pb120 {
       padding-bottom: 120px;
 
@@ -977,7 +983,6 @@
   }
 
   &__button {
-
     &_mxw300 {
       max-width: 300px;
 
@@ -1022,7 +1027,7 @@
         margin-bottom: 40px;
       }
 
-      &~#{$b}__column_stretch {
+      & ~ #{$b}__column_stretch {
         @include screen('bg') {
           width: 100%;
           flex: none;
@@ -1144,7 +1149,6 @@
     }
 
     #{$b}__list_line & {
-
       &:not(:last-child) {
         margin-right: 20px;
       }
@@ -1153,7 +1157,6 @@
 }
 
 [data-point-object]:last-child {
-
   .form-box__delete {
     display: none;
   }

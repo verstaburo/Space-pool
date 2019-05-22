@@ -2,7 +2,7 @@
   @include text-big;
 
   font-weight: 400;
-  line-height: (26/18);
+  line-height: (26 / 18);
   border-bottom: 1px solid $color-form-border;
   width: 100%;
   box-sizing: border-box;
@@ -24,8 +24,7 @@
     color: transparent;
   }
 
-  &:hover,
-  &:focus {
+  &:hover,&:focus {
     border-bottom-color: $color-basic;
   }
 
@@ -74,6 +73,47 @@
   &_bpd {
     padding-top: 9px;
     padding-bottom: 16px;
+  }
+
+  &_big {
+    box-sizing: border-box;
+    min-height: 442px;
+
+    @include screen('md') {
+      min-height: 350px;
+    }
+
+    @include screen('sm') {
+      min-height: 200px;
+    }
+  }
+
+  &_bordered {
+    border: 1px solid $color-form-border;
+
+    &:focus,&:hover {
+      border-color: $color-basic;
+    }
+
+    .is-error & {
+      border-color: $color-error;
+    }
+  }
+
+  &_def-plchldr {
+    padding: 17px 26px;
+
+    @include screen('sm') {
+      padding: 10px 15px;
+    }
+
+    &:-ms-input-placeholder {
+      color: $color-placeholder;
+    }
+
+    &::placeholder {
+      color: $color-placeholder;
+    }
   }
 }
 
@@ -132,8 +172,7 @@
       border-color: $color-text-light;
     }
 
-    &::before,
-    &::after {
+    &::before,&::after {
       @include pseudo;
 
       top: 50%;
@@ -152,7 +191,8 @@
     }
 
     &.js-numberbox-plus {
-      &::before {}
+      &::before {
+      }
 
       &::after {
         transform: translate3d(-50%, -50%, 0) rotate(90deg);
@@ -164,7 +204,7 @@
     @include heading-4;
 
     font-weight: 700;
-    line-height: (26/20);
+    line-height: (26 / 20);
     color: $color-basic;
     width: auto;
     min-width: 0;
@@ -173,7 +213,7 @@
   &__label {
     @include text;
 
-    line-height: (26/14);
+    line-height: (26 / 14);
     font-weight: 700;
     text-transform: uppercase;
     color: $color-text-light;
@@ -211,8 +251,7 @@
     height: 100%;
     cursor: pointer;
 
-    &::before,
-    &::after {
+    &::before,&::after {
       @include pseudo;
 
       top: 50%;
@@ -225,8 +264,7 @@
       transition: background $ease-main;
     }
 
-    &:hover::before,
-    &:hover::after {
+    &:hover::before,&:hover::after {
       background-color: $color-basic-dark;
     }
 
@@ -237,7 +275,8 @@
     }
 
     &.js-numberbox-plus {
-      &::before {}
+      &::before {
+      }
 
       &::after {
         transform: translate3d(-50%, -50%, 0) rotate(90deg);
@@ -324,9 +363,7 @@
 
 // Цвет ховера по ячейкам в календаре, шапке
 
-.datepicker--cell.-focus-,
-.datepicker--nav-action:hover,
-.datepicker--nav-title:hover {
+.datepicker--cell.-focus-,.datepicker--nav-action:hover,.datepicker--nav-title:hover {
   background: rgba($color-border, .3);
 }
 
@@ -357,16 +394,14 @@
 
   // Цвет фона активного месяца/дня
 
-  &.-selected-,
-  &.-selected-.-current- {
+  &.-selected-,&.-selected-.-current- {
     background: $color-main;
   }
 }
 
 // Цвет даты другого месяца/года
 
-.datepicker--cell-day.-other-month-,
-.datepicker--cell-year.-other-decade- {
+.datepicker--cell-day.-other-month-,.datepicker--cell-year.-other-decade- {
   color: rgba($color-basic, .2);
 
   &:hover {
@@ -376,8 +411,7 @@
 
 // Стили при выборе диапазона дат
 
-.datepicker--cell.-range-to-,
-.datepicker--cell.-range-from- {
+.datepicker--cell.-range-to-,.datepicker--cell.-range-from- {
   border: 0;
   background-color: rgba($color-main, .3);
 
@@ -396,8 +430,7 @@
 
 // Стили ячеек другого месяца, находящихся в диапазоне
 
-.-in-range-.datepicker--cell-day.-other-month-,
-.-in-range-.datepicker--cell-year.-other-decade- {
+.-in-range-.datepicker--cell-day.-other-month-,.-in-range-.datepicker--cell-year.-other-decade- {
   background-color: rgba($color-main, .1);
   color: rgba($color-main, .3);
 

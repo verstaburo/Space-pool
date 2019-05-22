@@ -1,0 +1,50 @@
+extends ../../layouts/default-login-host
+
+block head
+  - var pageTitle = 'SpacePool - HOST My rental offers New Space Step 6'
+
+block header
+  -var headerClass = '_border'
+
+block content
+  +page-header._wide-lg._hpad
+    .container
+      +e.wrapper
+        +page-header-side
+          +link-icon('select-arrow')._no-shadow._back._bold.__back(href="#") Back to previous step
+        +page-header-main._main_mgt
+          +breadcrumbs-form
+            +breadcrumbs(['Home', 'My offers', 'Create new Space']).__navigation.hide-md
+            +e.step <b>Step 6</b> Terms and conditions
+          +e.links
+            +link-icon('save')(href="#")._no-shadow._icon_gray-dark._icon_pad30._bold.__link All changes saved
+      +progress(75)
+  +content-origin._wide-lg._reverse._last
+    .container
+      +e.wrapper
+        +content-column-aside.hide-md
+          +side-navigation('Please write here your Terms and Conditions. This is infromation will be used as a part of rental contract.')._pt46
+            +page-info.__info
+              +page-info-image
+                +icon('rules').icon_rules._grad4
+              +page-info-title Terms and<br> Conditions
+              +page-info-description Step 6 <i>of 8</i>
+        +content-column-main._no-ptop
+          +form()._white._flex(data-validated-form)
+            +e.container_pt45._pb40
+              +form-section
+                +e.header_mg43
+                  +content-zone._mid2._pr
+                    h5 Quick Tip:
+                    p You can just copy and paste here your Standart rental contract. Remember that any document has it’s own editing, <b>so please remove any blank placeholders, unnecessary character editing, company and client names.</b> <strong>This section must contain only your space terms and conditions.</strong>
+                +form-section-wrapper
+                  +form-box('', '', '', '', '')
+                    +textarea(type="text" name="termsConditions" placeholder="Terms and conditions" required).textarea_big.textarea_bordered.textarea_def-plchldr
+            +form-panel.__panel_border
+              +link-icon('select-arrow', 'a')(href="#")._back._bold._no-shadow.__button Back
+              +button-icon('button', 'select-arrow')(type="submit").__button_wide Next
+
+
+block panels
+  +main-menu-inner
+    +nav-list(getData('main-menu-user.json'))
