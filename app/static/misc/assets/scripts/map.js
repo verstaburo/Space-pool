@@ -3,6 +3,27 @@
 // библиотека подключена в app.min.js
 
 $(document).ready(function () {
+  // function initGMap() {
+  //   // The location of Uluru
+  //   var uluru = {
+  //     lat: -25.344,
+  //     lng: 131.036
+  //   };
+  //   // The map, centered at Uluru
+  //   var map = new google.maps.Map(
+  //     document.getElementById('googleMap'), {
+  //       zoom: 4,
+  //       center: uluru
+  //     });
+  //   // The marker, positioned at Uluru
+  //   var marker = new google.maps.Marker({
+  //     position: uluru,
+  //     map: map
+  //   });
+  // }
+
+  // initGMap();
+
   // карта в спейсе
   function maps() {
     if (!$('#map').length) {

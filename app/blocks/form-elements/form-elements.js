@@ -441,7 +441,7 @@ export function datepicker() {
       selectOtherYears: false,
       selectOtherMonths: false,
       altField: '[data-calendar-output]',
-      altFieldDateFormat: 'yyyy MM d',
+      altFieldDateFormat: 'yyyy-mm-dd',
       onRenderCell(date, cellType) {
         if (cellType === 'day') {
           return {

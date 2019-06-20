@@ -68,6 +68,9 @@ export function unfreeze() {
 }
 
 export function freezebuttons() {
+  window.globalFunctions.freeze = freeze;
+  window.globalFunctions.unfreeze = unfreeze;
+
   $(document).on('click', '.js-freeze', (e) => {
     e.preventDefault();
     freeze();
