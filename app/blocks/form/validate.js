@@ -26,10 +26,28 @@ Parsley.addMessages('en', {
   mincheck: 'You must select at least %s choices.',
   maxcheck: 'You must select %s choices or fewer.',
   check: 'You must select between %s and %s choices.',
-  equalto: 'Passwords should be the same.',
+  equalto: 'Values should be the same.',
 });
 
 Parsley.setLocale('en');
+
+Parsley.addValidator(
+    'passwordequalto',
+    (value, refOrValue) => {
+      if (!value) {
+        return true; // Builtin validators all accept empty strings, except `required` of course
+      }
+      const $reference = $(refOrValue);
+      const refValue = $reference.val();
+      let result = false;
+      if ($reference.length) {
+        result = refValue ? (value === refValue) : true;
+      } else {
+        result = (value === refOrValue);
+      }
+      return result;
+    }, 256)
+  .addMessage('en', 'passwordequalto', 'Passwords should be the same.');
 
 $('[data-validated-form]').parsley({
   trigger: 'input',
@@ -43,4 +61,5 @@ $('[data-validated-form]').parsley({
     return $(el.element).closest('.form__wrapper').find('.error-message');
   },
 });
+
 /* eslint-enable no-unused-vars */

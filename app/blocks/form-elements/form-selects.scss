@@ -22,7 +22,7 @@
 
     @include text-mid;
 
-    line-height: (26/17);
+    line-height: (26 / 17);
     font-weight: 700;
     color: $color-basic;
     transition: all $ease-main;
@@ -31,15 +31,21 @@
     @include screen('sm') {
       @include text;
 
-      line-height: (26/14);
+      line-height: (26 / 14);
     }
   }
 
   &[data-type*="select-one"] {
-
     .choices__inner {
       padding-bottom: 0;
       background-color: rgba(0, 0, 0, 0);
+    }
+
+    .choices__input {
+      box-sizing: border-box;
+      background-color: transparent;
+      border: none;
+      color: currentColor;
     }
   }
 
@@ -76,10 +82,10 @@
       max-height: 100px;
       transition: all $ease-main;
 
-      .choices__item {
+      .choices__item,.choices__input {
         @include text16;
 
-        line-height: (28/16);
+        line-height: (28 / 16);
         font-weight: 700;
         color: $color-basic;
         padding: 0 10px;
@@ -106,8 +112,7 @@
         right: 0;
       }
 
-      .popup &,
-      .select_white~& {
+      .popup &,.select_white ~ & {
         background-color: $color-white;
       }
     }
@@ -142,7 +147,6 @@
   }
 
   &.is-open & {
-
     &__inner {
       border-color: $color-basic;
       border-radius: 0;
@@ -156,8 +160,7 @@
     }
   }
 
-  &:hover &,
-  &.is-open & {
+  &:hover &,&.is-open & {
     &__inner {
       color: $color-basic-dark;
     }
@@ -169,7 +172,7 @@
     #{$k}__inner {
       @include text-mid;
 
-      line-height: (26/17);
+      line-height: (26 / 17);
       color: $color-white;
       overflow: hidden;
       border-radius: 3px 3px 0 0;
@@ -177,7 +180,7 @@
       @include screen('sm') {
         @include text;
 
-        line-height: (26/14);
+        line-height: (26 / 14);
       }
 
       &::before {
@@ -207,7 +210,6 @@
     }
 
     #{$k}__list {
-
       &--single {
         position: relative;
         width: 100%;
@@ -243,10 +245,10 @@
           background-color: $color-select-bg;
         }
 
-        #{$k}__item {
+        #{$k}__item,#{$k}__input {
           @include text;
 
-          line-height: (26/14);
+          line-height: (26 / 14);
           color: $color-white;
           font-weight: 700;
 
@@ -260,8 +262,7 @@
       }
     }
 
-    &:hover #{$k}__inner,
-    &.is-open #{$k}__inner {
+    &:hover #{$k}__inner,&.is-open #{$k}__inner {
       color: $color-white;
     }
 
@@ -313,7 +314,6 @@
   }
 
   &_color {
-
     #{$k}__inner {
       &::before {
         background-image: linear-gradient(to right, $color-hot-desk 25%, $color-dedicated-desk 25%, $color-dedicated-desk 50%, $color-meeting-room 50%, $color-meeting-room 75%, $color-office-space 75%);
@@ -321,14 +321,12 @@
     }
 
     &:hover #{$k}__inner {
-
       &::before {
         background-image: none;
       }
     }
 
     &.is-open #{$k}__inner {
-
       &::before {
         background-image: none;
       }
@@ -336,11 +334,10 @@
   }
 
   &_dark {
-
     #{$k}__inner {
       @include heading-4;
 
-      line-height: (26/20);
+      line-height: (26 / 20);
       border-radius: 3px;
       transition: box-shadow $ease-main;
 
@@ -360,7 +357,6 @@
     }
 
     #{$k}__list {
-
       &--single {
         padding-top: 5px;
         padding-bottom: 3px;
@@ -368,8 +364,7 @@
         padding-right: 30px;
         background-color: rgba($color-select-bg-light, 0);
         border-bottom: 2px solid transparent;
-        transition: border $ease-main,
-          background $ease-main;
+        transition: border $ease-main, background $ease-main;
 
         @include screen('md') {
           padding-right: 34px;
@@ -382,17 +377,17 @@
         border-top-width: 0;
         border-bottom-width: 0;
         background-color: $color-select-bg-light;
-        border-radius: 0 3px 3px 3px;
+        border-radius: 0 3px 3px;
         box-shadow: 1px 1px 8px rgba(34, 42, 46, .06);
         max-height: 201px;
         min-width: 0;
         width: 290px;
         transition: box-shadow $ease-main, opacity $ease-main;
 
-        #{$k}__item {
+        #{$k}__item,#{$k}__input {
           @include text16;
 
-          line-height: (30/16);
+          line-height: (30 / 16);
           color: $color-basic;
           font-weight: 700;
           padding: 0 18px;
@@ -415,8 +410,7 @@
       }
     }
 
-    &:hover #{$k}__inner,
-    &.is-open #{$k}__inner {
+    &:hover #{$k}__inner,&.is-open #{$k}__inner {
       color: $color-basic;
     }
 
@@ -436,7 +430,6 @@
     }
 
     &:hover #{$k}__list {
-
       &--single {
         background-color: $color-select-bg-light;
       }
@@ -452,29 +445,27 @@
     }
 
     &.is-open #{$k}__list {
-
       &--single {
         box-shadow: 1px 1px 8px rgba(34, 42, 46, .06);
         background-color: $color-select-bg-light;
       }
 
       &--dropdown {
-        border-radius: 0 3px 3px 3px;
+        border-radius: 0 3px 3px;
       }
     }
 
     &#{$k}_small {
-
       #{$k}__inner {
         @include text-mid;
 
-        line-height: (26/17);
+        line-height: (26 / 17);
         font-weight: 700;
 
         @include screen('sm') {
           @include text;
 
-          line-height: (26/14);
+          line-height: (26 / 14);
         }
       }
 
@@ -503,10 +494,9 @@
   }
 
   &_dark2 {
-
     #{$k}__list {
-
-      &--single {}
+      &--single {
+      }
 
       &--dropdown {
         max-height: 201px;
@@ -527,7 +517,7 @@
       @include text-big;
 
       font-weight: 400;
-      line-height: (26/18);
+      line-height: (26 / 18);
       width: 100%;
       box-sizing: border-box;
       border-radius: 0;
@@ -557,7 +547,6 @@
     }
 
     #{$k}__list {
-
       &--single {
         padding-top: 5px;
         padding-bottom: 8px;
@@ -587,10 +576,10 @@
         padding-top: 16px;
         padding-bottom: 16px;
 
-        #{$k}__item {
+        #{$k}__item,#{$k}__input {
           @include text16;
 
-          line-height: (35/16);
+          line-height: (35 / 16);
           font-weight: 400;
           padding: 0 6px;
 
@@ -599,14 +588,13 @@
           }
         }
 
-        .form_white &,
-        .select_white~& {
+        .form_white &,.select_white ~ & {
           background-color: $color-white;
         }
       }
     }
 
-    .select_placeholder~#{$k}__list #{$k}__placeholder {
+    .select_placeholder ~ #{$k}__list #{$k}__placeholder {
       transition: color $ease-main;
       color: $color-placeholder;
     }
@@ -626,13 +614,12 @@
         color: transparent;
       }
 
-      .select_placeholder~#{$k}__list #{$k}__placeholder {
+      .select_placeholder ~ #{$k}__list #{$k}__placeholder {
         color: $color-basic;
       }
     }
 
     &.is-open {
-
       #{$k}__inner {
         color: $color-basic;
       }
@@ -652,7 +639,7 @@
       @include text-mid;
 
       font-weight: 700;
-      line-height: (26/17);
+      line-height: (26 / 17);
       width: 100%;
       box-sizing: border-box;
       border-radius: 0;
@@ -674,7 +661,6 @@
     }
 
     #{$k}__list {
-
       &--single {
         padding-top: 5px;
         padding-bottom: 5px;
@@ -709,10 +695,10 @@
         padding-top: 16px;
         padding-bottom: 16px;
 
-        #{$k}__item {
+        #{$k}__item,#{$k}__input {
           @include text16;
 
-          line-height: (35/16);
+          line-height: (35 / 16);
           font-weight: 400;
           padding: 0 6px;
 
@@ -721,14 +707,13 @@
           }
         }
 
-        .form_white &,
-        .select_white~& {
+        .form_white &,.select_white ~ & {
           background-color: $color-white;
         }
       }
     }
 
-    .select_placeholder~#{$k}__list #{$k}__placeholder {
+    .select_placeholder ~ #{$k}__list #{$k}__placeholder {
       transition: color $ease-main;
       color: $color-placeholder;
     }
@@ -748,13 +733,12 @@
         color: transparent;
       }
 
-      .select_placeholder~#{$k}__list #{$k}__placeholder {
+      .select_placeholder ~ #{$k}__list #{$k}__placeholder {
         color: $color-basic;
       }
     }
 
     &.is-open {
-
       #{$k}__inner {
         color: $color-basic;
       }
@@ -768,7 +752,6 @@
   }
 
   &.is-disabled {
-
     #{$k} {
       &__inner {
         color: $color-pagination-disabled;

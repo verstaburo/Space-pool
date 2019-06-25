@@ -90,7 +90,8 @@ export function selects() {
     $('.js-select').each((i, el) => {
       const self = el;
       const choices = new Choices(self, {
-        searchEnabled: false,
+        // searchEnabled: false,
+        searchFields: ['label'],
         itemSelectText: '',
         classNames: {
           containerOuter: 'choices',
@@ -125,7 +126,8 @@ export function selects() {
 
   if ($('.js-select-light').length) {
     const choices = new Choices('.js-select-light', {
-      searchEnabled: false,
+      // searchEnabled: false,
+      searchFields: ['label'],
       itemSelectText: '',
       classNames: {
         containerOuter: 'choices choices_light',
@@ -155,7 +157,8 @@ export function selects() {
 
   if ($('.js-select-color').length) {
     const choices = new Choices('.js-select-color', {
-      searchEnabled: false,
+      // searchEnabled: false,
+      searchFields: ['label'],
       itemSelectText: '',
       classNames: {
         containerOuter: 'choices choices_light choices_color',
@@ -187,7 +190,8 @@ export function selects() {
     $('.js-select-dark').each((i, el) => {
       const self = el;
       const choices = new Choices(self, {
-        searchEnabled: false,
+        // searchEnabled: false,
+        searchFields: ['label'],
         itemSelectText: '',
         classNames: {
           containerOuter: 'choices choices_dark',
@@ -224,7 +228,8 @@ export function selects() {
     $('.js-select-dark2').each((i, el) => {
       const self = el;
       const choices = new Choices(self, {
-        searchEnabled: false,
+        // searchEnabled: false,
+        searchFields: ['label'],
         itemSelectText: '',
         classNames: {
           containerOuter: 'choices choices_dark2',
@@ -261,7 +266,8 @@ export function selects() {
     $('.js-select-input').each((i, el) => {
       const self = el;
       const choices = new Choices(self, {
-        searchEnabled: false,
+        // searchEnabled: false,
+        searchFields: ['label'],
         itemSelectText: '',
         classNames: {
           containerOuter: 'choices choices_input',
@@ -491,9 +497,7 @@ export function numberinput() {
     } else {
       input.val(val += 1);
     }
-    setTimeout(() => {
-      input.trigger('input');
-    }, 50);
+    input[0].focus();
   });
 
   $(document).on('keyup change', '.js-numberbox-input', function () {
@@ -502,18 +506,11 @@ export function numberinput() {
     this.value = this.value.replace(/[^\d]/, '');
     if ($(this).val() < min) $(this).val(min);
     if (max && $(this).val() > max) $(this).val(max);
-    setTimeout(() => {
-      $(this).trigger('input');
-    }, 50);
+    this.focus();
   });
 }
 
 // автосайз для textarea
 export function textareaAutosize() {
   autosize($('.textarea'));
-}
-
-// маска паролей
-export function passwordMask() {
-
 }

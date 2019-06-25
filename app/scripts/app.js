@@ -15,7 +15,6 @@ import {
   datepicker,
   numberinput,
   textareaAutosize,
-  passwordMask,
 } from '../blocks/form-elements/form-elements';
 import maskForm from '../blocks/form-elements/form-elements-masking';
 import popups from '../blocks/popups/popups';
@@ -59,6 +58,7 @@ import toggleFilter from '../components/search-filter/search-filter';
 import truncateBlocks from '../blocks/js-functions/lineClamp';
 import mapManipulations from '../components/search-map/search-map';
 import advancedSearch from '../components/advanced-filter/advanced-filter';
+import textareaCounters from '../blocks/form-elements/textareaCounters';
 
 const $ = window.$;
 
@@ -94,7 +94,6 @@ $(() => {
   floatingLabels();
   textareaAutosize();
   maskForm();
-  passwordMask();
   formManipulations();
   tip();
   deleteObject();
@@ -109,4 +108,5 @@ $(() => {
   truncateBlocks();
   toggleFilter();
   advancedSearch();
+  textareaCounters();
 });
