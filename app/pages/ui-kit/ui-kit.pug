@@ -2211,6 +2211,8 @@ block content
         +state()._red состояние
         +ui-description .state_green
         +state()._green._right состояние
+        +ui-description .state_empty
+        +state()._empty
 
     //- timer
     +ui-section
@@ -2221,6 +2223,26 @@ block content
         +ui-description .timer
         +timer('Estimated time')
 
+    //- informer
+    +ui-section
+      +ui-section-head
+        h2 informer
+        p Блок: block/informer
+      +ui-section-content
+        +ui-description .informer
+        +informer
+          +e.text Reason:&nbsp;
+            b This offer is not available for specified dates.
+        +ui-description .informer_sb
+        +informer._sb
+          +e.text
+            b Please check order summary and confirm again.
+          +state._empty._orange
+        +ui-description .informer_fz20
+        +informer._fz20
+          +e.text
+            b Please check order summary and confirm again.
+
     //- notification
     +ui-section
       +ui-section-head
@@ -2228,10 +2250,18 @@ block content
         p Блок: block/notification
       +ui-section-content
         +ui-description .notification
-        +notification({actionName: 'Action required:', title: 'Please sign the contract', timer: {name: 'Estimated time:'}, buttons: [{name: 'Decline reservation'}, {name: 'Open contract'}]})
-          +offer-info
-            +box._big._green
-            +e.title_dark._fz16 OFFICE SPACE
+        +notification
+          +notification-head('Action required:')
+            +offer-info
+              +box._big._green
+              +e.title_dark._fz16 OFFICE SPACE
+          +notification-content
+            +notification-title Please sign the contract
+            +notification-timer('Estimated time:')
+          +notification-footer
+            +notification-buttons
+              +button()._border._border_bg-white._short.__button Decline reservation
+              +button()._short.__button Open contract
 
 block panels
   +main-menu

@@ -1,0 +1,47 @@
+.informer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  background-color: $color-hint-bg;
+  color: $color-white;
+  padding: 5px 23px;
+  box-sizing: border-box;
+  $b: &;
+
+  @include text16;
+
+  line-height: (20 / 16);
+
+  @include screen('sm') {
+    @include text12;
+
+    line-height: (17 / 12);
+    padding: 3px 17px 4px;
+  }
+
+  &_sb {
+    justify-content: space-between;
+  }
+
+  &_fz20 {
+    @include heading-4;
+
+    line-height: (35 / 20);
+
+    @include screen('sm') {
+      @include text12;
+
+      line-height: (17 / 12);
+      padding: 3px 17px 4px;
+    }
+  }
+
+  &__text {
+    font-weight: 400;
+
+    b {
+      font-weight: 700;
+    }
+  }
+}

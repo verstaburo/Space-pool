@@ -1,11 +1,36 @@
-mixin notification(data)
-  +b.notification&attributes(attributes)
-    +e.about
-      +e.name!= data.actionName
-      +e.target
-        block
-    +e.title!= data.title
-    +timer(data.timer.name).__timer
-    +e.buttons
-      +button()._border._border_bg-white._short.__button!=data.buttons[0].name
-      +button()._short.__button!=data.buttons[1].name
+mixin notification()
+  +b.ARTICLE.notification&attributes(attributes)
+    block
+
+mixin notification-head(name, title)
+  +e.SECTION.head&attributes(attributes)
+    if name
+      +e.name!= name
+    if title
+      +e.title!= title
+    +e.target
+      block
+
+mixin notification-content()
+  +e.SECTION.content&attributes(attributes)
+    block
+
+mixin notification-footer()
+  +e.SECTION.footer&attributes(attributes)
+    block
+
+mixin notification-title()
+  +e.H3.title&attributes(attributes)
+    block
+
+mixin notification-timer(name)
+    +timer(name).__timer&attributes(attributes)
+
+mixin notification-time(start, startISO, end, endISO)
+  +time(start, startISO, end, endISO).__time&attributes(attributes)
+
+mixin notification-buttons()
+    +e.buttons&attributes(attributes)
+      block
+      //- +button()._border._border_bg-white._short.__button!=data.buttons[0].name
+      //- +button()._short.__button!=data.buttons[1].name

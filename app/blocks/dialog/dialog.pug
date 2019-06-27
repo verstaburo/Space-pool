@@ -21,10 +21,18 @@ mixin dialog2()
     +e.LI.block
       +e.UL.list
         +bubble('li', '15:45', "2018-10-29T15:45")._notification.__item_wide
-          +notification({actionName: 'Action required:', title: 'Please sign the contract', timer: {name: 'Estimated time:'}, buttons: [{name: 'Decline reservation'}, {name: 'Open contract'}]})
-            +offer-info
-              +box._big._green
-              +e.title_dark._fz16 OFFICE SPACE
+          +notification
+            +notification-head('Action required:')
+              +offer-info
+                +box._big._green
+                +e.title_dark._fz16 OFFICE SPACE
+            +notification-content
+              +notification-title Please sign the contract
+              +notification-timer('Estimated time:')
+            +notification-footer
+              +notification-buttons
+                +button()._border._border_bg-white._short.__button Decline reservation
+                +button()._short.__button Open contract
       +e.head_sp
         +e.TIME.date(datetime="2018-10-29") Few minutes ago
     +e.LI.block
