@@ -14,8 +14,14 @@
   color: $color-white;
   transition: color $ease-main;
 
+  @include screen('sm') {
+    border-color: $color-border-st-button;
+    border-radius: 2px;
+  }
+
   &.is-disabled {
     color: $color-basic;
+    pointer-events: none;
   }
 
   &__status {
@@ -28,11 +34,17 @@
   &__text {
     @include heading-4;
 
-    line-height: (20 / 20);
+    line-height: 1;
     font-weight: 700;
     width: 100%;
     margin-top: -5px;
     transition: opacity $ease-main;
+
+    @include screen('sm') {
+      @include text-mid;
+
+      line-height: 1;
+    }
 
     #{$b}:not(.is-disabled):hover & {
       opacity: .7;

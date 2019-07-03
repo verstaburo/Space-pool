@@ -473,6 +473,10 @@
       &__title {
         color: $color-white;
       }
+
+      &__text {
+        color: $color-white;
+      }
     }
 
     &:hover #{$b} {
@@ -524,11 +528,16 @@
       }
 
       &__text {
-        @include text;
+        @include text16;
 
-        line-height: (26/ 14);
         font-weight: 400;
         order: 3;
+
+        @include screen('sm') {
+          @include text-mid;
+
+          font-weight: 700;
+        }
       }
 
       &__informer {

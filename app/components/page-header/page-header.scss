@@ -147,6 +147,15 @@
         }
       }
 
+      #{$b}_nowrap & {
+        width: 75%;
+
+        @include screen('md') {
+          width: auto;
+          flex: 1;
+        }
+      }
+
       &_mgt {
         @include screen('md') {
           margin-top: 10px;
@@ -181,6 +190,14 @@
 
         @include screen('md') {
           width: 100%;
+        }
+      }
+
+      #{$b}_nowrap & {
+        width: 25%;
+
+        @include screen('md') {
+          width: auto;
         }
       }
     }
@@ -256,6 +273,12 @@
     .link__text {
       display: inline-flex;
       align-items: center;
+
+      #{$b}_nowrap & {
+        @include screen('sm') {
+          display: none;
+        }
+      }
     }
 
     .indicator {
@@ -316,6 +339,19 @@
 
     &_fz17 {
       @include text-mid;
+
+      @include screen('sm') {
+        padding-left: 20px;
+
+        @include text12;
+      }
+
+      .link__icon_round-cross {
+        @include screen('sm') {
+          width: 12px;
+          height: 12px;
+        }
+      }
     }
   }
 }

@@ -33,12 +33,34 @@ mixin dialog2()
               +notification-buttons
                 +button()._border._border_bg-white._short.__button Decline reservation
                 +button()._short.__button Open contract
-      +e.head_sp
+      +e.head_mg
         +e.TIME.date(datetime="2018-10-29") Few minutes ago
-    +e.LI.block
       +e.UL.list
         +bubble('li', '15:45', "2018-10-27T15:45", true)._dark.__item I have ordered HOT DESK in your Building in East London. o the question is if i am able to have an access to your sports area when im ordering HOT DESK?
         +bubble('li', '15:45', "2018-10-27T15:45", true)._dark.__item Hello. Well, let me think a little...
       +e.UL.list
         +bubble('li', '15:45', "2018-10-27T15:45").__item So, here’s is the point. We will open till 10-th of november. So you can visit the Co-working about 9-th of november. Go here see the space.
         +bubble('li', '15:45', "2018-10-27T15:45").__item Hello and welcome to Blooming Founders! How can i help you?
+
+mixin dialog3()
+  +b.UL.dialog_reverse&attributes(attributes)
+    +e.LI.block
+      +e.head_mg
+        +e.TIME.date(datetime="2018-10-29") Few minutes ago
+      +e.UL.list
+        +bubble('li', '15:45', "2018-10-27T15:45", true)._dark.__item I have ordered HOT DESK in your Building in East London. o the question is if i am able to have an access to your sports area when im ordering HOT DESK?
+        +bubble('li', '15:45', "2018-10-27T15:45", true)._dark.__item Hello. Well, let me think a little...
+      +e.UL.list
+        +bubble('li', '15:45', "2018-10-29T15:45")._notification.__item_wide
+          +notification
+            +notification-head('Action required:')
+              +offer-info
+                +box._big._green
+                +e.title_dark._fz16 OFFICE SPACE
+            +notification-content
+              +notification-title Please sign the contract
+              +notification-timer('Estimated time:')
+            +notification-footer
+              +notification-buttons
+                +button()._border._border_bg-white._short.__button Decline reservation
+                +button()._short.__button Open contract

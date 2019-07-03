@@ -7,13 +7,13 @@ block header
   -var headerClass = '_border'
 
 block content
-  +page-header._wide-lg._xspad
+  +page-header._xspad._nowrap
     .container
       +e.wrapper
         +page-header-side
           +link-icon('select-arrow')._no-shadow._back._bold.__back_fz18(href="#") Back to reservations
         +page-header-main._main_mgt
-          +breadcrumbs-form
+          +breadcrumbs-form.hide-md
             +breadcrumbs(['Home', 'Booking', 'One Heddon Street']).__navigation
             +e.step_light Office Space
           +e.links
@@ -22,7 +22,7 @@ block content
     .container
       +e.wrapper
         +content-column-aside
-          +sidebar._dark2
+          +sidebar._dark2(data-unstick-media="md")
             +space-reserv('ARTICLE', {head: {name: 'office space', color: '_green', base: '_black'}, img: 'assets/images/space16.jpg', heart: '', boxes: [{ class: '_orange'}, {class: '_red'}, {class: '_blue'}, {class: '_green'}], title: 'One Heddon Street', location: 'EC2A, London', text: 'Floor 5 Dedicated office space. Room 54'})._dark._side
               +e.informer
                 +status-button('Order summary').__state
@@ -31,7 +31,7 @@ block content
                   +state()._right._orange._light Please sign
                 +status-button('Invoices').is-disabled.__state
                   +state()._right._light N/A
-        +content-column-main._no-ptop
+        +content-column-main._no-ptop.hide-md
           +table-head._messages._borders
             +e.wrapper
               +e.cell._vp11._pr25._lead

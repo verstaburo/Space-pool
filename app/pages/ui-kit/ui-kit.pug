@@ -2213,6 +2213,14 @@ block content
         +state()._green._right состояние
         +ui-description .state_empty
         +state()._empty
+        +ui-description .state_check
+        +state()._check состояние
+        +ui-description .state_dcheck
+        +state()._dcheck состояние
+        +ui-description .state_check._right
+        +state()._check._right состояние
+        +ui-description .state_dcheck._right
+        +state()._dcheck._right состояние
 
     //- timer
     +ui-section
@@ -2262,6 +2270,50 @@ block content
             +notification-buttons
               +button()._border._border_bg-white._short.__button Decline reservation
               +button()._short.__button Open contract
+
+    //- space on deal page
+    +ui-section
+      +ui-section-head
+        h2 space on deal page side
+      +ui-section-content
+        +ui-description
+        +grid
+          +col({xl: 3, md: 12})
+            +space-reserv('ARTICLE', {head: {name: 'office space', color: '_green', base: '_black'}, img: 'assets/images/space16.jpg', heart: '', boxes: [{ class: '_orange'}, {class: '_red'}, {class: '_blue'}, {class: '_green'}], title: 'One Heddon Street', location: 'EC2A, London', text: 'Floor 5 Dedicated office space. Room 54'})._dark._side
+              +e.informer
+                +status-button('Order summary').__state
+                  +state()._right._orange._light Please confirm
+                +status-button('Contract').__state.is-disabled.js-popup(href="#popup-legal-formalities")
+                  +state()._right._light Confirm order summary first
+                +status-button('Invoices').is-disabled.__state
+                  +state()._right._light N/A
+          +col({xl: 3, md: 12})
+            +space-reserv('ARTICLE', {head: {name: 'office space', color: '_green', base: '_black'}, img: 'assets/images/space16.jpg', heart: '', boxes: [{ class: '_orange'}, {class: '_red'}, {class: '_blue'}, {class: '_green'}], title: 'One Heddon Street', location: 'EC2A, London', text: 'Floor 5 Dedicated office space. Room 54'})._dark._side
+              +e.informer
+                +status-button('Order summary').__state
+                  +state()._right._check._light Confirmed
+                +status-button('Contract').__state.js-popup(href="#popup-legal-formalities")
+                  +state()._right._orange._light Please sign
+                +status-button('Invoices').is-disabled.__state
+                  +state()._right._light N/A
+          +col({xl: 3, md: 12})
+            +space-reserv('ARTICLE', {head: {name: 'office space', color: '_green', base: '_black'}, img: 'assets/images/space16.jpg', heart: '', boxes: [{ class: '_orange'}, {class: '_red'}, {class: '_blue'}, {class: '_green'}], title: 'One Heddon Street', location: 'EC2A, London', text: 'Floor 5 Dedicated office space. Room 54'})._dark._side
+              +e.informer
+                +status-button('Order summary').__state
+                  +state()._right._check._light Confirmed
+                +status-button('Contract').__state.js-popup(href="#popup-legal-formalities")
+                  +state()._right._check._light Signed waiting for Host
+                +status-button('Invoices').is-disabled.__state
+                  +state()._right._light N/A
+          +col({xl: 3, md: 12})
+            +space-reserv('ARTICLE', {head: {name: 'office space', color: '_green', base: '_black'}, img: 'assets/images/space16.jpg', heart: '', boxes: [{ class: '_orange'}, {class: '_red'}, {class: '_blue'}, {class: '_green'}], title: 'One Heddon Street', location: 'EC2A, London', text: 'Floor 5 Dedicated office space. Room 54'})._dark._side
+              +e.informer
+                +status-button('Order summary').__state
+                  +state()._right._check._light Confirmed
+                +status-button('Contract').__state.js-popup(href="#popup-legal-formalities")
+                  +state()._right._dcheck._light Signed by both sides
+                +status-button('Invoices').__state
+                  +state()._right._orange._light <b>1</b> unpaid invoice
 
 block panels
   +main-menu
