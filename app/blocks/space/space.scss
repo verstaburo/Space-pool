@@ -189,6 +189,12 @@
     text-align: center;
     color: $color-white;
 
+    @include screen('sm') {
+      @include text12;
+
+      line-height: (25 / 12);
+    }
+
     &_orange {
       background-color: $color-hot-desk;
     }
@@ -225,6 +231,10 @@
       padding-left: 30px;
       padding-right: 30px;
       line-height: (26 / 15);
+
+      @include screen('sm') {
+        line-height: (25 / 12);
+      }
     }
 
     &-box {
@@ -232,6 +242,11 @@
       top: 0;
       left: 0;
       min-height: 100%;
+
+      @include screen('sm') {
+        min-width: 25px;
+        width: 25px;
+      }
     }
   }
 
@@ -334,6 +349,10 @@
   &__state {
     &:not(:first-child) {
       margin-top: 17px;
+
+      @include screen('sm') {
+        margin-top: 15px;
+      }
     }
   }
 
@@ -489,9 +508,17 @@
   &_side {
     padding-bottom: 24px;
 
+    @include screen('sm') {
+      padding-bottom: 40px;
+    }
+
     #{$b} {
       &__media {
         margin-bottom: 15px;
+
+        @include screen('sm') {
+          margin-bottom: 22px;
+        }
       }
 
       &__describe {
@@ -499,16 +526,35 @@
         flex-direction: column;
         justify-content: flex-start;
         align-items: flex-start;
-        padding: 0 18px 5px;
+        padding: 0 18px;
 
         &:not(:last-child) {
-          margin-bottom: 14px;
+          margin-bottom: 19px;
+
+          @include screen('sm') {
+            margin-bottom: 28px;
+          }
         }
       }
 
       &__boxes {
         margin-top: 0;
         order: 1;
+        min-height: 9px;
+
+        @include screen('sm') {
+          margin-bottom: 7px;
+        }
+
+        .box {
+          height: 9px;
+          width: 9px;
+
+          @include screen('sm') {
+            height: 9px;
+            width: 9px;
+          }
+        }
       }
 
       &__location {
@@ -518,31 +564,74 @@
         font-weight: 400;
         order: 2;
 
+        @include screen('sm') {
+          @include text12;
+
+          line-height: 1.2;
+        }
+
         &:not(:last-child) {
           margin-bottom: 10px;
+
+          @include screen('sm') {
+            margin-bottom: 11px;
+          }
         }
       }
 
       &__title {
         order: 3;
+
+        @include screen('md') {
+          margin-bottom: 10px;
+        }
+
+        @include screen('sm') {
+          @include heading-4;
+        }
       }
 
       &__text {
         @include text16;
 
         font-weight: 400;
+        width: 100%;
         order: 3;
+
+        @include screen('md') {
+          position: relative;
+          display: inline-block;
+          box-sizing: border-box;
+          padding-top: 18px;
+        }
 
         @include screen('sm') {
           @include text-mid;
 
           font-weight: 700;
+          line-height: 1.2;
+        }
+
+        &::before {
+          @include screen('md') {
+            @include pseudo;
+
+            top: 0;
+            left: 0;
+            width: 20px;
+            height: 1px;
+            background-color: $color-border-gray;
+          }
         }
       }
 
       &__informer {
         padding: 0 15px;
         box-sizing: border-box;
+
+        @include screen('sm') {
+          padding: 0 19px;
+        }
       }
     }
   }

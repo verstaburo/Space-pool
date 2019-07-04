@@ -42,12 +42,53 @@
         display: inline-block;
       }
     }
+
+    #{$b}_ext & {
+      color: $color-profile-name;
+      line-height: 1.2;
+
+      @include screen('sm') {
+        @include text15;
+
+        line-height: 1.2;
+      }
+    }
+
+    #{$b}_light & {
+      color: $color-white;
+    }
+  }
+
+  &__post {
+    @include text;
+
+    line-height: 1.2;
+    font-weight: 400;
+    color: $color-profile-post;
+
+    @include screen('sm') {
+      @include text12;
+
+      line-height: 1.2;
+    }
+  }
+
+  &__info {
+    display: block;
+    box-sizing: border-box;
+    padding-top: 2px;
   }
 
   &:hover {
 
     #{$b}__name {
       color: $color-basic-dark;
+    }
+  }
+
+  &_light:hover {
+    #{$b}__name {
+      color: rgba($color-white, .7);
     }
   }
 
@@ -78,6 +119,44 @@
       width: 100%;
       height: 2px;
       background-image: linear-gradient(to right, $color-hot-desk 25%, $color-dedicated-desk 25%, $color-dedicated-desk 50%, $color-meeting-room 50%, $color-meeting-room 75%, $color-office-space 75%);
+    }
+  }
+
+  &_ext {
+    align-items: center;
+
+    #{$b} {
+      &__avatar {
+        margin-right: 6px;
+        margin-top: -2px;
+      }
+
+      &__post {
+        display: block;
+        letter-spacing: -0.03em;
+      }
+
+      &__name {
+        display: block;
+        letter-spacing: -0.03em;
+        margin-top: -2px;
+      }
+    }
+
+    &_reverse {
+      flex-direction: row-reverse;
+
+      #{$b} {
+
+        &__avatar {
+          margin-right: 0;
+          margin-left: 6px;
+        }
+
+        &__info {
+          text-align: right;
+        }
+      }
     }
   }
 }

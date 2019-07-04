@@ -83,6 +83,12 @@
     }
   }
 
+  &_nowrap {
+    @include screen('sm') {
+      padding: 12px 0 9px;
+    }
+  }
+
   .container {
     display: block;
   }
@@ -270,6 +276,12 @@
       line-height: (26 / 15);
     }
 
+    #{$b}_nowrap & {
+      @include screen('sm') {
+        height: 22px;
+      }
+    }
+
     .link__text {
       display: inline-flex;
       align-items: center;
@@ -339,17 +351,41 @@
 
     &_fz17 {
       @include text-mid;
+    }
 
+    &_cnl {
       @include screen('sm') {
-        padding-left: 20px;
+        padding-left: 19px;
 
         @include text12;
       }
 
-      .link__icon_round-cross {
-        @include screen('sm') {
-          width: 12px;
-          height: 12px;
+      .link {
+
+        &__icon_round-cross {
+          @include screen('sm') {
+            top: calc(50% - 1px);
+            width: 12px;
+            height: 12px;
+          }
+        }
+
+        &__text {
+          @include screen('sm') {
+            border-bottom: none;
+          }
+        }
+      }
+
+      &:hover {
+
+        .link {
+
+          &__text {
+            @include screen('sm') {
+              border-bottom: none;
+            }
+          }
         }
       }
     }

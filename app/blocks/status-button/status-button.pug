@@ -1,5 +1,10 @@
-mixin status-button(name, tag)
-  +b(tag || 'a').status-button&attributes(attributes)
-    +e.status
-      block
-    +e.text!=name
+mixin status-button(data)
+  +b(data.tag || 'a').status-button&attributes(attributes)
+    if data.status
+      +e.status
+        block
+    if data.icon
+      +icon(data.icon)(class="__icon_" + data.icon)
+    if data.marker
+      +e.marker!= data.marker
+    +e.text!=data.name

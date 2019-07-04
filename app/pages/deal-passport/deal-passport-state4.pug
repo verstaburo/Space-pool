@@ -30,11 +30,11 @@ block content
             +space-reserv('ARTICLE', {head: {name: 'office space', color: '_green', base: '_black'}, img: 'assets/images/space16.jpg', heart: '', boxes: [{ class: '_orange'}, {class: '_red'}, {class: '_blue'}, {class: '_green'}], title: 'One Heddon Street', location: 'EC2A, London', text: 'Floor 5 Dedicated office space. Room 54'})._dark._side
               +e.informer
                 +status-button({name: 'Order summary', status: true}).__state
-                  +state()._right._orange._light Please confirm
-                +status-button({name: 'Contract', status: true}).__state.is-disabled.js-popup(href="#popup-legal-formalities")
-                  +state()._right._light Confirm order summary first
-                +status-button({name: 'Invoices', status: true}).is-disabled.__state
-                  +state()._right._light N/A
+                  +state()._right._check._light Confirmed
+                +status-button({name: 'Contract', status: true}).__state.js-popup(href="#popup-legal-formalities")
+                  +state()._right._dcheck._light Signed by both sides
+                +status-button({name: 'Invoices', status: true}).__state
+                  +state()._right._orange._light <b>1</b> unpaid invoice
         +content-column-main._no-ptop.hide-md
           +table-head._messages._borders
             +e.wrapper

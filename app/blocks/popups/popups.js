@@ -6,6 +6,7 @@ import {
 } from '../js-functions/freeze';
 
 const $ = window.$;
+// const bp = window.globalOptions.sizes;
 
 export default function popups() {
   $('.js-popup').fancybox({
@@ -39,6 +40,13 @@ export default function popups() {
     },
     touch: false,
   });
+
+  // $(document).on('click', '.js-popup-depends-width', (evt) => {
+  //   evt.preventDefault();
+  //   const self = evt.currentTarget;
+  //   const sources = JSON.parse(self.getAttribute('data-sources'));
+  //   window.Modernizr.mq(`(max-width: ${window.globalOptions.sizes.xs - 1}px)`
+  // });
 
   // Open the gallery in the slider on the page space.html
   // trigger buttons

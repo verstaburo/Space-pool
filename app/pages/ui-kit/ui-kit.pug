@@ -999,10 +999,16 @@ block content
         h2 Профиль в хэдере
         p Блок: blocks/short-profile
       +ui-section-content
-        +ui-description .short-provile
+        +ui-description .short-profile
         +short-profile
-        +ui-description .short-provile host
+        +ui-description .short-profile host
         +short-profile-host
+        +ui-description .short-profile_full
+        +short-profile-origin('assets/images/ava4.jpg', 'Maria Stv')(href='#')
+        +ui-description .short-profile_ext
+        +short-profile-ext({ image: 'assets/images/ava6.jpg', name: 'Maria Bernetta', post: 'Manager'})(href='#')
+        +ui-description .short-profile_ext._light
+        +short-profile-ext({ image: 'assets/images/ava6.jpg', name: 'Maria Bernetta', post: 'Manager'})._light(href='#')
 
     //- User link
     +ui-section
@@ -2222,6 +2228,21 @@ block content
         +ui-description .state_dcheck._right
         +state()._dcheck._right состояние
 
+    //- status-button
+    +ui-section
+      +ui-section-head
+        h2 status-button
+        p Блок: block/status-button
+      +ui-section-content
+        +ui-description .status-button
+        div(style="display: block; width: 100%; background-color: black; padding: 20px;")
+          +status-button({name: 'Order summary', status: true})
+            +state()._right._orange._light Please confirm
+          br
+          +status-button({name: 'button'})
+          br
+          +status-button({name: '.button_icon', icon: 'chat'})._icon
+
     //- timer
     +ui-section
       +ui-section-head
@@ -2281,39 +2302,51 @@ block content
           +col({xl: 3, md: 12})
             +space-reserv('ARTICLE', {head: {name: 'office space', color: '_green', base: '_black'}, img: 'assets/images/space16.jpg', heart: '', boxes: [{ class: '_orange'}, {class: '_red'}, {class: '_blue'}, {class: '_green'}], title: 'One Heddon Street', location: 'EC2A, London', text: 'Floor 5 Dedicated office space. Room 54'})._dark._side
               +e.informer
-                +status-button('Order summary').__state
+                +status-button({name: 'Order summary', status: true}).__state
                   +state()._right._orange._light Please confirm
-                +status-button('Contract').__state.is-disabled.js-popup(href="#popup-legal-formalities")
+                +status-button({name: 'Contract', status: true}).__state.is-disabled.js-popup(href="#popup-legal-formalities")
                   +state()._right._light Confirm order summary first
-                +status-button('Invoices').is-disabled.__state
+                +status-button({name: 'Invoices', status: true}).is-disabled.__state
                   +state()._right._light N/A
           +col({xl: 3, md: 12})
             +space-reserv('ARTICLE', {head: {name: 'office space', color: '_green', base: '_black'}, img: 'assets/images/space16.jpg', heart: '', boxes: [{ class: '_orange'}, {class: '_red'}, {class: '_blue'}, {class: '_green'}], title: 'One Heddon Street', location: 'EC2A, London', text: 'Floor 5 Dedicated office space. Room 54'})._dark._side
               +e.informer
-                +status-button('Order summary').__state
+                +status-button({name: 'Order summary', status: true}).__state
                   +state()._right._check._light Confirmed
-                +status-button('Contract').__state.js-popup(href="#popup-legal-formalities")
+                +status-button({name: 'Contract', status: true}).__state.js-popup(href="#popup-legal-formalities")
                   +state()._right._orange._light Please sign
-                +status-button('Invoices').is-disabled.__state
+                +status-button({name: 'Invoices', status: true}).is-disabled.__state
                   +state()._right._light N/A
           +col({xl: 3, md: 12})
             +space-reserv('ARTICLE', {head: {name: 'office space', color: '_green', base: '_black'}, img: 'assets/images/space16.jpg', heart: '', boxes: [{ class: '_orange'}, {class: '_red'}, {class: '_blue'}, {class: '_green'}], title: 'One Heddon Street', location: 'EC2A, London', text: 'Floor 5 Dedicated office space. Room 54'})._dark._side
               +e.informer
-                +status-button('Order summary').__state
+                +status-button({name: 'Order summary', status: true}).__state
                   +state()._right._check._light Confirmed
-                +status-button('Contract').__state.js-popup(href="#popup-legal-formalities")
+                +status-button({name: 'Contract', status: true}).__state.js-popup(href="#popup-legal-formalities")
                   +state()._right._check._light Signed waiting for Host
-                +status-button('Invoices').is-disabled.__state
+                +status-button({name: 'Invoices', status: true}).is-disabled.__state
                   +state()._right._light N/A
           +col({xl: 3, md: 12})
             +space-reserv('ARTICLE', {head: {name: 'office space', color: '_green', base: '_black'}, img: 'assets/images/space16.jpg', heart: '', boxes: [{ class: '_orange'}, {class: '_red'}, {class: '_blue'}, {class: '_green'}], title: 'One Heddon Street', location: 'EC2A, London', text: 'Floor 5 Dedicated office space. Room 54'})._dark._side
               +e.informer
-                +status-button('Order summary').__state
+                +status-button({name: 'Order summary', status: true}).__state
                   +state()._right._check._light Confirmed
-                +status-button('Contract').__state.js-popup(href="#popup-legal-formalities")
+                +status-button({name: 'Contract', status: true}).__state.js-popup(href="#popup-legal-formalities")
                   +state()._right._dcheck._light Signed by both sides
-                +status-button('Invoices').__state
+                +status-button({name: 'Invoices' , status: true}).__state
                   +state()._right._orange._light <b>1</b> unpaid invoice
+
+    //- toolbar
+    +ui-section
+      +ui-section-head
+        h2 toolbar
+        p Блок: block/toolbar/toolbar
+      +ui-section-content
+        +ui-description .toolbar
+          +toolbar
+            +short-profile-ext({ image: 'assets/images/ava6.jpg', name: 'Maria Bernetta', post: 'Manager'})._light(href='#').__profile
+            +e.buttons
+              +status-button({name: 'Chat', icon: 'chat', marker: 3})._icon.__button.is-new
 
 block panels
   +main-menu
