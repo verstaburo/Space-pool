@@ -8,7 +8,7 @@ mixin popup-document(data)
             +e.header-icon
               +icon('long-arrow').arrow
             +e.header-text!= data.explanation
-        +e.wrapper.js-scrollbar.wide
+        +e.wrapper.js-scrollbar-wide
           +e.inner-content
             block
       +e.column_right
@@ -17,3 +17,13 @@ mixin popup-document(data)
           +e.side-icon
             +icon('long-arrow').arrow_long
           +e.explanation!= data.side.explanation
+
+mixin popup-document-mobile(data)
+  +popup-mobile.popup-document__&attributes(attributes)
+    +popup-header.popup__header_white
+      +popup-title Contract
+    +popup-content
+      div.popup__scrollblock.js-scrollbar
+        +e.inner-content
+          block
+    +popup-footer

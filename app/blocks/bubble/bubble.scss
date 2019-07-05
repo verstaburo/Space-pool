@@ -13,7 +13,9 @@
   cursor: pointer;
 
   @include screen('sm') {
+    padding: 17px 15px;
     max-width: 100%;
+    width: 100%;
   }
 
   &__angle {
@@ -65,9 +67,9 @@
     width: 100%;
 
     @include screen('sm') {
-      @include text;
+      @include text13;
 
-      line-height: (20 / 14);
+      line-height: 1.25;
     }
   }
 
@@ -80,6 +82,29 @@
         top: auto;
         bottom: -6px;
         fill: $color-basic;
+      }
+    }
+  }
+
+  &_peach {
+    background-color: $color-peach;
+    color: $color-white;
+
+    #{$b} {
+
+      &__angle {
+        fill: $color-peach;
+      }
+    }
+  }
+
+  &_darker {
+    background-color: $color-hint-bg;
+    color: $color-white;
+
+    #{$b} {
+      &__angle {
+        fill: $color-hint-bg;
       }
     }
   }

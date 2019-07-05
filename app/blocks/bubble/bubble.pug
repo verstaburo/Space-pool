@@ -5,6 +5,7 @@ mixin bubble(tag, time, timeISO, angle)
     - } else {
       +icon('round-angle').angle
     - }
-    +e.TIME.timestamp(datetime=timeISO)!= time
+    if time
+      +e.TIME.timestamp(datetime=timeISO)!= time
     +e.content
       block

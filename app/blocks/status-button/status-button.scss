@@ -13,7 +13,7 @@
   padding: 6px 9px 16px 11px;
   cursor: pointer;
   color: $color-white;
-  transition: color $ease-main;
+  transition: border $ease-main;
 
   @include screen('sm') {
     padding: 5px 9px 10px;
@@ -31,6 +31,10 @@
     justify-content: flex-end;
     align-items: flex-start;
     width: 100%;
+  }
+
+  &:not(.is-disabled):hover {
+    border-color: $color-white;
   }
 
   .state {
@@ -55,7 +59,7 @@
 
       line-height: 1;
       margin-top: 3px;
-      letter-spacing: -0.03em;
+      letter-spacing: -.03em;
     }
 
     #{$b}_small & {
@@ -64,10 +68,6 @@
 
         line-height: 1;
       }
-    }
-
-    #{$b}:not(.is-disabled):hover & {
-      opacity: .7;
     }
   }
 

@@ -71,6 +71,43 @@
     }
   }
 
+  &__header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    box-sizing: border-box;
+    height: 70px;
+    padding: 0 $container-padding;
+    background-color: $color-bg;
+    z-index: 2;
+
+    @include screen('md') {
+      padding: 0 $container-padding-tablet;
+    }
+
+    @include screen('sm') {
+      height: 50px;
+      padding: 0 $container-padding-mobile;
+    }
+
+    &_white {
+      background-color: $color-white;
+    }
+  }
+
+  &__footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    display: block;
+    z-index: 2;
+  }
+
   &__title {
     @include heading-3;
 
@@ -150,8 +187,18 @@
     fill: currentColor;
     transition: color $ease-main;
     padding: 10px;
+    box-sizing: border-box;
+    width: 44px;
+    height: 44px;
     cursor: pointer;
     z-index: 100000;
+
+    @include screen('sm') {
+      top: 4px;
+      right: 9px;
+      width: 34px;
+      height: 34px;
+    }
 
     &:hover {
       color: $color-basic;
@@ -160,6 +207,11 @@
     &-icon {
       width: 21px;
       height: 21px;
+
+      @include screen('sm') {
+        width: 14px;
+        height: 14px;
+      }
     }
   }
 
@@ -208,6 +260,40 @@
     }
   }
 
+  &__scrollblock {
+    display: block;
+    width: 100%;
+  }
+
+  &__inner-content {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: auto;
+    padding: 70px $container-padding;
+    box-sizing: border-box;
+
+    @include screen('md') {
+      padding: 70px $container-padding-tablet;
+    }
+
+    @include screen('sm') {
+      padding: 50px $container-padding-mobile;
+    }
+
+    &_informer {
+      padding-top: 96px;
+
+      @include screen('sm') {
+        padding-top: 76px;
+      }
+    }
+  }
+
+  &__profile {
+    margin-top: -7px;
+  }
+
   &_nobg {
     background-color: transparent;
   }
@@ -224,6 +310,46 @@
 
       &:hover {
         color: rgba($color-white, .7);
+      }
+    }
+  }
+
+  &_mobile {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 100%;
+    background-color: $color-bg;
+    max-width: none;
+
+    #{$b} {
+
+      &__content {
+        position: relative;
+        display: flex;
+        width: 100%;
+        height: 100%;
+        padding: 0;
+        z-index: 1;
+      }
+
+      &__header {
+        position: absolute;
+      }
+
+      &__close {
+        top: 13px;
+        left: 30px;
+        right: auto;
+
+        @include screen('md') {
+          left: 26px;
+        }
+
+        @include screen('sm') {
+          top: 4px;
+          left: 9px;
+        }
       }
     }
   }

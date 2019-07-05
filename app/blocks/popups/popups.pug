@@ -15,6 +15,14 @@ mixin popup-heading()
   div.popup__heading&attributes(attributes)
     block
 
+mixin popup-header()
+  div.popup__header&attributes(attributes)
+    block
+
+mixin popup-footer()
+  div.popup__footer&attributes(attributes)
+    block
+
 mixin popup-title()
   h3.popup__title&attributes(attributes)
     block
@@ -40,3 +48,7 @@ mixin popup-with-heading(title)
       +popup-title!= title
     div.popup__content
       block
+
+mixin popup-mobile()
+  +b.popup_mobile&attributes(attributes)
+    block

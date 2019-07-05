@@ -1,13 +1,37 @@
 .notification {
   $b: &;
 
+  position: relative;
   display: block;
   width: 100%;
   background-color: $color-white;
   color: $color-basic;
-  overflow: hidden;
   box-sizing: border-box;
   max-width: 577px;
+
+  &__marker {
+    position: absolute;
+    right: -5px;
+    top: -5px;
+    display: block;
+    width: 10px;
+    height: 10px;
+    opacity: 0;
+    transition: opacity $ease-main;
+    background-color: $color-yellow;
+    border-radius: 50%;
+
+    @include screen('sm') {
+      top: -2px;
+      right: -3px;
+      width: 7px;
+      height: 7px;
+    }
+
+    #{$b}.is-new & {
+      opacity: 1;
+    }
+  }
 
   &__head {
     display: flex;
@@ -16,6 +40,10 @@
     box-sizing: border-box;
     width: 100%;
     padding: 23px 23px 10px;
+
+    @include screen('sm') {
+      padding: 19px 15px 10px;
+    }
   }
 
   &__content {
@@ -23,6 +51,10 @@
     width: 100%;
     box-sizing: border-box;
     padding: 14px 23px 26px;
+
+    @include screen('sm') {
+      padding: 11px 16px;
+    }
   }
 
   &__footer {
@@ -31,17 +63,29 @@
     box-sizing: border-box;
     border-top: 1px solid $color-gray-light-2;
     padding: 27px 23px 37px;
+
+    @include screen('sm') {
+      padding: 16px 13px 22px;
+    }
   }
 
   &__name {
     @include heading-4;
 
     font-weight: 400;
-    line-height: (20 / 20);
+    line-height: 1;
+
+    @include screen('sm') {
+      @include text12;
+
+      line-height: 1;
+    }
   }
 
   &__target {
     display: inline-block;
+    font-size: 0;
+    line-height: 0;
 
     &:not(:first-child) {
       margin-left: 20px;
@@ -53,6 +97,12 @@
 
     font-weight: 700;
 
+    @include screen('sm') {
+      font-size: 21px;
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+    }
+
     &:not(:first-child) {
       margin-top: 22px;
     }
@@ -61,6 +111,10 @@
   &__timer {
     &:not(:first-child) {
       margin-top: 14px;
+
+      @include screen('sm') {
+        margin-top: 1px;
+      }
     }
   }
 
@@ -72,6 +126,7 @@
     margin-top: -11px;
 
     @include screen('sm') {
+      flex-direction: column-reverse;
       flex-wrap: wrap;
     }
   }
@@ -87,6 +142,41 @@
 
     &:not(:last-child) {
       margin-right: 28px;
+    }
+  }
+
+  &__text {
+    @include text16;
+
+    display: inline-block;
+    line-height: (20 / 16);
+    width: 100%;
+
+    @include screen('sm') {
+      @include text13;
+
+      line-height: (20 / 13);
+    }
+  }
+
+  .offer-info {
+
+    .box {
+      @include screen('sm') {
+        min-width: 10px;
+        width: 10px;
+        height: 10px;
+        margin-right: 4px;
+      }
+    }
+
+    &__title {
+      @include screen('sm') {
+        @include text-small;
+
+        line-height: 1;
+        letter-spacing: -.04em;
+      }
     }
   }
 }

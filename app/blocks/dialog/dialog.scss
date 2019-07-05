@@ -20,6 +20,10 @@
 
     &:not(:last-child) {
       margin-bottom: 34px;
+
+      @include screen('sm') {
+        margin-bottom: 30px;
+      }
     }
   }
 
@@ -37,12 +41,20 @@
 
     &:not(:last-child) {
       margin-bottom: 38px;
+
+      @include screen('sm') {
+        margin-bottom: 30px;
+      }
     }
   }
 
   &__item {
     &:not(:last-child) {
       margin-bottom: 26px;
+
+      @include screen('sm') {
+        margin-bottom: 20px;
+      }
     }
 
     &_wide {
@@ -64,6 +76,20 @@
       &:not(:first-child) {
         margin-top: -4px;
         margin-bottom: 39px;
+      }
+
+      #{$b}_reverse & {
+        &:first-child {
+          margin-bottom: 10px;
+        }
+
+        &:not(:last-child) {
+          margin-bottom: 10px;
+        }
+
+        &:last-child {
+          margin-bottom: 0;
+        }
       }
     }
 
@@ -89,5 +115,11 @@
     z-index: 1;
     color: $color-basic-light;
     padding-right: 10px;
+
+    @include screen('sm') {
+      @include text9;
+
+      line-height: (24 / 9);
+    }
   }
 }

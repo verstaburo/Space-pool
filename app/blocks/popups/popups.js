@@ -6,10 +6,11 @@ import {
 } from '../js-functions/freeze';
 
 const $ = window.$;
-// const bp = window.globalOptions.sizes;
+const bp = window.globalOptions.sizes;
 
 export default function popups() {
-  $('.js-popup').fancybox({
+  // настройки стандартного попапа
+  const optionsStPopup = {
     autoFocus: false,
     afterLoad() {
       freeze();
@@ -39,14 +40,68 @@ export default function popups() {
       smallBtn: '<button type="button" data-fancybox-close class="fancybox-button popup__close" title="{{CLOSE}}"><svg class="popup__close-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15.36 15.36"><rect x="-2.43" y="6.94" width="20.23" height="1.49" transform="translate(18.55 7.68) rotate(135)"/><rect x="-2.43" y="6.94" width="20.23" height="1.49" transform="translate(7.68 -3.18) rotate(45)"/></svg></button>',
     },
     touch: false,
-  });
+  };
 
-  // $(document).on('click', '.js-popup-depends-width', (evt) => {
-  //   evt.preventDefault();
-  //   const self = evt.currentTarget;
-  //   const sources = JSON.parse(self.getAttribute('data-sources'));
-  //   window.Modernizr.mq(`(max-width: ${window.globalOptions.sizes.xs - 1}px)`
-  // });
+  // настройки мобильного попапа
+  const optionsMobPopup = {
+    autoFocus: false,
+    afterLoad() {
+      freeze();
+    },
+    afterShow(i) {
+      const popup = $(i.slides[0].src);
+      $(popup).trigger('POPUP_SHOW');
+    },
+    afterClose() {
+      const panel = $('.panel');
+      if (!($(panel).length > 0 && $(panel).is('.is-open'))) {
+        unfreeze();
+      }
+    },
+    btnTpl: {
+      smallBtn: '<button type="button" data-fancybox-close class="fancybox-button popup__close" title="{{CLOSE}}"><svg class="popup__close-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15.36 15.36"><rect x="-2.43" y="6.94" width="20.23" height="1.49" transform="translate(18.55 7.68) rotate(135)"/><rect x="-2.43" y="6.94" width="20.23" height="1.49" transform="translate(7.68 -3.18) rotate(45)"/></svg></button>',
+    },
+    touch: false,
+  };
+
+  $('.js-popup').fancybox(optionsStPopup);
+  $('.js-popup-mobile').fancybox(optionsMobPopup);
+
+  $(document).on('click', '.js-popup-depends-width', (evt) => {
+    evt.preventDefault();
+    const self = evt.currentTarget;
+    const data = self.getAttribute('data-source').split(',');
+    const sources = {};
+    const keys = [];
+    let source;
+    let result = false;
+    for (let i = 0, l = data.length; i < l; i += 1) {
+      const item = data[i].split(':');
+      sources[item[0]] = item[1];
+      if (item[0] !== 'xl') {
+        keys.push(item[0]);
+      }
+    }
+    for (let i = 0, l = keys.length; i < l; i += 1) {
+      if (window.Modernizr.mq(`(max-width: ${bp[keys[i]] - 1}px)`) && !result) {
+        source = sources[keys[i]];
+        $.fancybox.open({
+          src: source,
+          type: 'inline',
+          opts: optionsMobPopup,
+        });
+        result = true;
+      }
+    }
+    if (!result) {
+      source = sources.xl;
+      $.fancybox.open({
+        src: source,
+        type: 'inline',
+        opts: optionsStPopup,
+      });
+    }
+  });
 
   // Open the gallery in the slider on the page space.html
   // trigger buttons
