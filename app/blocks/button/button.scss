@@ -395,6 +395,25 @@
         padding: 2px 27px 3px;
       }
     }
+
+    &#{$b}_border {
+      @include screen('sm') {
+        padding: 2px;
+      }
+
+      &::before {
+        @include screen('sm') {
+          border-radius: 15px;
+        }
+      }
+
+      #{$b}__text {
+        @include screen('sm') {
+          padding: 1px 19px 2px;
+          border-radius: 15px;
+        }
+      }
+    }
   }
 
   &_border {

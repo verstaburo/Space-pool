@@ -45,12 +45,22 @@ export default function popups() {
   // настройки мобильного попапа
   const optionsMobPopup = {
     autoFocus: false,
+    animationEffect: 'fade',
+    animationDuration: 400,
+    transitionDuration: 400,
+    transitionEffect: 'fade',
     afterLoad() {
       freeze();
     },
     afterShow(i) {
+      const stage = i.$refs.container;
       const popup = $(i.slides[0].src);
+      $(stage).addClass('is-animation-show');
       $(popup).trigger('POPUP_SHOW');
+    },
+    beforeClose(i) {
+      const stage = i.$refs.container;
+      $(stage).removeClass('is-animation-show');
     },
     afterClose() {
       const panel = $('.panel');
@@ -62,6 +72,15 @@ export default function popups() {
       smallBtn: '<button type="button" data-fancybox-close class="fancybox-button popup__close" title="{{CLOSE}}"><svg class="popup__close-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15.36 15.36"><rect x="-2.43" y="6.94" width="20.23" height="1.49" transform="translate(18.55 7.68) rotate(135)"/><rect x="-2.43" y="6.94" width="20.23" height="1.49" transform="translate(7.68 -3.18) rotate(45)"/></svg></button>',
     },
     touch: false,
+    baseTpl: '<div class="fancybox-container fancybox-container_shift" role="dialog" tabindex="-1">' +
+      '<div class="fancybox-inner">' +
+      '<div class="fancybox-infobar"><span data-fancybox-index></span>&nbsp;/&nbsp;<span data-fancybox-count></span></div>' +
+      '<div class="fancybox-toolbar">{{buttons}}</div>' +
+      '<div class="fancybox-navigation">{{arrows}}</div>' +
+      '<div class="fancybox-stage"></div>' +
+      '<div class="fancybox-caption"></div>' +
+      '</div' +
+      '</div>',
   };
 
   $('.js-popup').fancybox(optionsStPopup);
