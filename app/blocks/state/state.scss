@@ -160,6 +160,57 @@
     font-weight: 400;
   }
 
+  &_fz17  {
+    @include text-mid;
+
+    @include screen('sm') {
+      @include text12;
+    }
+  }
+
+  &_big {
+    @include heading-4;
+
+    line-height: 1;
+
+    @include screen('sm') {
+      @include text12;
+
+      line-height: 1;
+    }
+
+    &#{$b}_check {
+      padding-left: 32px;
+
+      @include screen('sm') {
+        padding-left: 16px;
+      }
+
+      &::before {
+        width: 22px;
+        height: 19px;
+
+        @include screen('sm') {
+          width: 10px;
+          height: 8px;
+        }
+      }
+    }
+
+    &#{$b}_right {
+      padding-left: 0;
+      padding-right: 32px;
+
+      @include screen('sm') {
+        padding-right: 14px;
+      }
+    }
+  }
+
+  &_bold {
+    font-weight: 700;
+  }
+
   &_orange {
     &::before {
       background-color: $color-yellow;

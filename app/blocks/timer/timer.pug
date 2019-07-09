@@ -5,3 +5,9 @@ mixin timer(name)
       +e.B.item 24hr
       +e.B.item 00min
     block
+
+mixin timer-other(name)
+  +b.DIV.timer&attributes(attributes)
+    +e.SPAN.name!= name
+    +e.SPAN.counter
+      block

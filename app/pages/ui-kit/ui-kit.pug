@@ -2279,18 +2279,258 @@ block content
         p Блок: block/notification
       +ui-section-content
         +ui-description .notification
-        +notification
-          +notification-head('Action required:')
-            +offer-info
-              +box._big._green
-              +e.title_dark._fz16 OFFICE SPACE
-          +notification-content
-            +notification-title Please sign the contract
-            +notification-timer('Estimated time:')
-          +notification-footer
-            +notification-buttons
-              +button()._border._border_bg-white._short.__button Decline reservation
-              +button()._short.__button Open contract
+        +b.UL.dialog
+          +e.LI.block
+            +e.UL.list
+              +e.LI.item_wide
+                +notification._white
+                  +notification-head('Action required:')
+                    +offer-info
+                      +box._big._green
+                      +e.title._fz16 OFFICE SPACE
+                  +notification-content
+                    +notification-title Please sign the contract
+                    +notification-timer('Estimated time:')
+                  +notification-footer
+                    +notification-buttons
+                      +button()._border._border_bg-white._short._mob-smaller.__button Decline reservation
+                      +button()._short._mob-smaller.__button Open contract
+              +e.LI.item_wide
+                +notification._white
+                  +notification-head('', 'You’ve requested Tenancy')
+                    +offer-info
+                      +box._big._orange
+                      +e.title._fz16 HOT DESK
+                  +notification-content._spd
+                    +notification-time('30 October 2018', '2018-10-30', '30 October 2019', '2010-10-30')._dark
+                  +notification-table
+                    +e.TR.row
+                      +e.TD.cell_w38
+                        +short-info('Price:')
+                          +e.text &pound; 560.90 mo
+                      +e.TD.cell_w62
+                        +short-info('Reservation status:')._taright
+                          +e.text_bold._red Rejected
+                  +informer.__informer
+                    +e.text Reason:&nbsp;
+                      b This offer is not available for specified dates.
+              +e.LI.item_wide
+                +notification._white
+                  +notification-head('', 'You’ve requested Tenancy')
+                    +offer-info
+                      +box._big._orange
+                      +e.title._fz16 HOT DESK
+                  +notification-content._spd
+                    +notification-time('30 October 2018', '2018-10-30', '30 October 2019', '2010-10-30')._dark
+                  +notification-table
+                    +e.TR.row
+                      +e.TD.cell_w38
+                        +short-info('Price:')
+                          +e.text &pound; 560.90 mo
+                      +e.TD.cell_w62
+                        +short-info('Reservation status:')._taright
+                          +e.text Awating confirmation
+              +e.LI.item_wide
+                +notification._white
+                  +notification-head('', 'You’ve requested Tenancy')
+                    +offer-info
+                      +box._big._orange
+                      +e.title._fz16 HOT DESK
+                  +notification-content._spd
+                    +notification-time('30 October 2018', '2018-10-30', '30 October 2019', '2010-10-30')._dark
+                  +notification-table
+                    +e.TR.row
+                      +e.TD.cell_w38
+                        +short-info('Price:')
+                          +e.text &pound; 560.90 mo
+                      +e.TD.cell_w62
+                        +short-info('Reservation status:')._taright
+                          +e.text_bold._green Confirmed
+              +e.LI.item_wide
+                +notification._white
+                  +notification-head('', 'You’ve requested Tenancy')
+                    +offer-info
+                      +box._big._orange
+                      +e.title._fz16 HOT DESK
+                  +notification-content._spd
+                    +notification-time('30 October 2018', '2018-10-30', '30 October 2019', '2010-10-30')._dark
+                  +notification-table
+                    +e.TR.row
+                      +e.TD.cell_w38
+                        +short-info('Price:')
+                          +e.text &pound; 560.90 mo
+                      +e.TD.cell_w62
+                        +short-info('Reservation status:')._taright
+                          +e.text_bold._green Confirmed
+              +e.LI.item_wide
+                +notification._peach
+                  +notification-head('Reservation info')
+                    +offer-info
+                      +box._big._orange
+                      +e.title._fz16 HOT DESK
+                  +notification-content._otpd
+                    +notification-title._icon
+                      +icon('block-cross').__icon_cross
+                      +e.title-text This reservation was canceled
+              +e.LI.item_wide
+                +notification._white
+                  +notification-head('Action required:')
+                    +offer-info
+                      +box._big._orange
+                      +e.title._fz16 HOT DESK
+                  +notification-content
+                    +notification-title Host changed dates in Order&nbsp;Summary.
+                  +informer._sb._fz20.__informer
+                    +e.text
+                      b Please check order summary and confirm again.
+                    +state._empty._orange
+                  +notification-footer._noborder
+                    +notification-buttons
+                      +button()._border._border_bg-white._short._mob-smaller.__button Decline reservation
+                      +button()._short._mob-smaller.__button Open Order Summary
+              +e.LI.item_wide
+                +notification._white
+                  +notification-head('', 'Order summary')
+                    +offer-info
+                      +box._big._orange
+                      +e.title._fz16 HOT DESK
+                  +notification-content._ipd._nobpd
+                    +short-info('Status')._line._line_bordered
+                      +state()._right._check._bold._fz17 Order Summary confirmed by Host
+                  +notification-footer._noborder
+                    +notification-buttons
+                      +button()._border._border_bg-white._mob-smaller._short.__button Decline reservation
+                      +button()._short._mob-smaller.__button Open Order Summary
+              +e.LI.item_wide
+                +notification._white
+                  +notification-head('', 'Order summary')
+                    +offer-info
+                      +box._big._orange
+                      +e.title._fz16 HOT DESK
+                  +notification-content._ipd
+                    +short-info('Status')._line._line_bordered
+                      +state()._right._dcheck._bold._fz17 Order Summary confirmed both sides
+              +e.LI.item_wide
+                +notification._white
+                  +notification-head('', 'Contract')
+                    +offer-info
+                      +box._big._orange
+                      +e.title._fz16 HOT DESK
+                  +notification-content._ipd
+                    +short-info('Status')._line._line_bordered
+                      +state()._right._check._bold._fz17 Contract signed by the Host
+              +e.LI.item_wide
+                +notification._white
+                  +notification-head('', 'Contract')
+                    +offer-info
+                      +box._big._orange
+                      +e.title._fz16 HOT DESK
+                  +notification-content._ipd
+                    +short-info('Status')._line._line_bordered
+                      +state()._right._check._bold._fz17 Contract signed by the Guest
+              +e.LI.item_wide
+                +notification._white
+                  +notification-head('', 'Contract signed')
+                    +offer-info
+                      +box._big._orange
+                      +e.title._fz16 HOT DESK
+                  +notification-content._ipd
+                    +short-info('Status')._line._line_bordered
+                      +state()._right._dcheck._bold._fz17 Contract signed both Sides
+              +e.LI.item_wide
+                +notification._white
+                  +notification-head('Friendly reminder:')
+                    +offer-info
+                      +box._big._orange
+                      +e.title._fz16 HOT DESK
+                  +notification-content
+                    +notification-title Payment required
+                  +notification-table._mt
+                    +e.TR.row
+                      +e.TD.cell_w59
+                        +short-info('Payment Subject:')
+                          +e.text Monthly payment for January 2019
+                      +e.TD.cell_w41
+                        +short-info('Amount to pay:')
+                          +e.text &pound; 560.90
+                  +notification-footer._tbl
+                    +e.buttons
+                      +button()._border._border_bg-white._short._mob-smaller.__button View/Print Invoice
+                      +link-icon('download')(href="#")._icon_small._download-small._no-shadow._bold.__link PDF
+                      +button()._short._mob-smaller.__button Pay now
+              +e.LI.item_wide
+                +notification._white
+                  +notification-head('Billing information:')
+                    +offer-info
+                      +box._big._orange
+                      +e.title._fz16 HOT DESK
+                  +notification-content
+                    +notification-title Payment received
+                  +notification-table._mt
+                    +e.TR.row
+                      +e.TD.cell_w59
+                        +short-info('Payment Subject:')
+                          +e.text Monthly payment for January 2019
+                      +e.TD.cell_w41
+                        +short-info('Amount to pay:')
+                          +e.text &pound; 560.90
+                    +e.TR.row
+                      +e.TD.cell_w59._ft
+                        +short-info('Invoice number:')._mb15
+                          +e.text_bold._up SP1254-1757
+                      +e.TD.cell_w41._ft
+                        +short-info('Status:')._mb15
+                          +state()._check._big._bold Invoice Paid
+              +e.LI.item_wide
+                +notification._white
+                  +notification-head('Payment status:')
+                    +offer-info
+                      +box._big._orange
+                      +e.title._fz16 HOT DESK
+                  +notification-content._spt
+                    +notification-title Your payment was received
+                  +notification-footer._txt
+                    +short-info('Payment status:')._line
+                      +state()._check._big._bold Received
+              +e.LI.item_wide
+                +notification._white
+                  +notification-head('Rental period due:')
+                    +offer-info
+                      +box._big._orange
+                      +e.title._fz16 HOT DESK
+                  +notification-content
+                    +notification-title Rental period will end up soon.
+                    +notification-time-small('30 October 2018', '2018-10-30', '30 February 2019', '2019-02-30', true)._mgt
+                  +notification-footer._st
+                    +e.text_big Please choose one of the following options:
+                    +notification-buttons
+                      +button()._border._border_bg-white._short._mob-smaller.__button It’s okay. I am leaving
+                      +button()._short._mob-smaller.__button Request new reservation
+              +e.LI.item_wide
+                +notification._white
+                  +notification-head('', 'Contract <br> termination request')
+                    +offer-info
+                      +box._big._orange
+                      +e.title._fz16 HOT DESK
+                  +notification-content._txt
+                    +e.text You have requested contract termination for:
+                      br
+                      b Heddonism Workspace Co-working area / 5th floor Co-working HOT DESKS
+                    +notification-timer2('Current contract is Active Till:') 30 October 2020
+                  +notification-footer._smpd
+                    +notification-buttons._center
+                      +button()._border._border_bg-white._short._mob-smaller.__button Cancel Request
+              +e.LI.item_wide
+                +notification._dark
+                  +notification-head('Well that\'s it')
+                    +offer-info
+                      +box._big._orange
+                      +e.title._fz16 HOT DESK
+                  +notification-content._otpd
+                    +notification-title._icon
+                      +icon('block-cross').__icon_cross
+                      +e.title-text Contract was terminated
+
 
     //- space on deal page
     +ui-section
@@ -2347,6 +2587,44 @@ block content
             +short-profile-ext({ image: 'assets/images/ava6.jpg', name: 'Maria Bernetta', post: 'Manager'})._light(href='#').__profile
             +e.buttons
               +status-button({name: 'Chat', icon: 'chat', marker: 3})._icon.__button.is-new
+
+    //- short-info
+    +ui-section
+      +ui-section-head
+        h2 short-info
+        p Блок: block/short-info
+      +ui-section-content
+        +ui-description .short-info
+        +short-info('Status')
+          +e.text &pound;180 mo
+        +ui-description .short-info with bold text
+        +short-info('Status')
+          +e.text_bold Status
+        +ui-description .short-info with green bold text
+        +short-info('Status')
+          +e.text_bold._green Confirmed
+        +ui-description .short-info with red bold text
+        +short-info('Status')
+          +e.text_bold._red Rejected
+        +ui-description .short-info with state
+        +short-info('Status')
+          +state()._right._dcheck._bold._fz17 Signed by both sides
+        +ui-description .short-info with state
+        +short-info('Status')
+          +state()._right._check._bold._fz17 Signed waiting for Host
+        +ui-description .short-info with state
+        +short-info('Status')
+          +state()._check._big._bold Recived
+        +ui-description .short-info line
+        +short-info('Status')._line
+          +state()._check._big._bold Recived
+        +ui-description .short-info line bordered
+        +short-info('Status')._line._line_bordered
+          +e.text_bold._red Rejected
+        +ui-description .short-info end align
+        +short-info('Status')._taright
+          +state()._right._check._bold._fz17 Signed waiting for Host
+
 
 block panels
   +main-menu

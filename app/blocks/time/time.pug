@@ -1,8 +1,22 @@
-mixin time(start, startISO, end, endISO)
+mixin time(start, startISO, end, endISO, color)
+  - var addClass = ''
+  -if (color) {addClass = '_color'}
   +b.time&attributes(attributes)
     +e.text From:
       +e.TIME.time(datetime=startISO)!= start
     +long-arrow.__divider
-    +e.text Till:
+    +e.text(class=addClass) Till:
+      +e.TIME.time(datetime=endISO)!= end
+    block
+
+
+mixin time-big(start, startISO, end, endISO, color)
+  - var addClass = ''
+  - if (color) {addClass = '_color'}
+  +b.time_sb&attributes(attributes)
+    +e.text From:
+      +e.TIME.time(datetime=startISO)!= start
+    +long-arrow._big.__divider
+    +e.text(class=addClass) Till:
       +e.TIME.time(datetime=endISO)!= end
     block

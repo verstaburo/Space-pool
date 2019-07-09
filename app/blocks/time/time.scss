@@ -12,9 +12,13 @@
     display: inline-block;
 
     @include screen('sm') {
-      @include text;
+      @include text12;
 
-      line-height: (26/14);
+      line-height: (20/12);
+    }
+
+    &_color {
+      color: $color-peach;
     }
   }
 
@@ -25,7 +29,10 @@
     white-space: nowrap;
 
     @include screen('sm') {
-      @include text15;
+      @include text12;
+
+      line-height: (20/12);
+      letter-spacing: -.02em;
     }
   }
 
@@ -34,5 +41,9 @@
     margin-left: 11px;
     margin-right: 11px;
     min-width: 15px;
+  }
+
+  &_sb {
+    justify-content: space-between;
   }
 }
