@@ -1,0 +1,79 @@
+mixin form-order-summary(editable)
+  +form._white.form-order-summary&attributes(attributes)
+    +e.section
+      +info-editable
+        +info-editable-name Space:
+        +info-editable-field One Heddon Street Office Space center
+      +info-editable
+        +info-editable-name Offer type:
+        +info-editable-field
+          +offer-info.__offer
+            +box._size13._blue
+            +e.title._fz18 OFFICE SPACE
+      +info-editable
+        +info-editable-name Offer description:
+        - if (editable) {
+          +info-editable-field
+            +e.text(data-field-edit="t1") One Heddon Office Space. 226 sq.ft. with terrace
+            input(type="hidden" name="description" value="One Heddon Office Space. 226 sq.ft. with terrace")
+            +link()(data-edit-target="t1")._light-underline.js-field-edit Edit
+        - } else {
+          +info-editable-field One Heddon Office Space. 226 sq.ft. with terrace
+        - }
+      +info-editable
+        +info-editable-name Amount:
+        +info-editable-field 1
+    +e.dates.form-order-summary__dates
+      +info-editable
+        +info-editable-name Rent period start:
+        - if (editable) {
+          +info-editable-field
+            +e.text.js-change-date 26 May 2019
+            input(type="hidden" name="rentStart" data-copy-date="rentStart" value="2019-05-26")
+        - } else {
+          +info-editable-field 26 May 2019
+        - }
+      +e.dates-icon
+        +icon('arrow').dates-arrow
+      +info-editable
+        +info-editable-name Rent period end:
+        - if (editable) {
+          +info-editable-field
+            +e.text.js-change-date 26 may 2020
+            input(type="hidden" name="rentStart" data-copy-date="rentStart" value="2020-05-26")
+        - } else {
+          +info-editable-field 26 May 2020
+        - }
+    +e.section
+      +info-editable
+        +info-editable-name Price:
+        - if (editable) {
+          +info-editable-field
+            +e.text
+              span(data-field-edit="t2" data-price="1568.00") 1568.00
+              span &pound;/mo
+            input(type="hidden" name="price" value="1568.00")
+            +link()(data-edit-target="t2")._light-underline.js-field-edit Edit
+        - } else {
+          +info-editable-field 1568.00 &pound;/mo
+        - }
+      +info-editable
+        +info-editable-name Safety deposit:
+        - if (editable) {
+          +info-editable-field
+            +e.text
+              span(data-field-edit="t3" data-deposit="1568.00")  1568.00
+              span &pound;
+            input(type="hidden" name="deposit" value="1568.00")
+            +link()(data-edit-target="t3")._light-underline.js-field-edit Edit
+        - } else {
+          +info-editable-field 1568.00 &pound;
+        - }
+      +info-editable
+        +info-editable-name Total:
+        +info-editable-field
+          +e.text
+            span(data-total-price) 3136.00
+            span &pound;
+      +e.text Total amount is first bill you need to pay to start the rent. You will receive first bill with that amount to pay.
+    block

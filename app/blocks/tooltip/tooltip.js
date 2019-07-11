@@ -10,6 +10,7 @@ export default function tooltips() {
     delay: 0,
     side: 'top',
     theme: 'tooltipster-borderless',
+    trigger: 'click',
   });
 }
 /* eslint-enable no-unused-vars */

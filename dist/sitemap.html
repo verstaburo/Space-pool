@@ -299,6 +299,12 @@
                     <a class="link js-popup-depends-width" href="#" data-source="xl:#popup-legal-formalities3,md:#popup-legal-formalities-m3">
                         <span class="link__text">Popup legal formalities stage 3</span>
                     </a>
+                    <a class="link js-popup-depends-width" href="#" data-source="xl:#popup-order-host,md:#popup-order-mobile-host">
+                        <span class="link__text">Popup order summary HOST</span>
+                    </a>
+                    <a class="link js-popup-depends-width" href="#" data-source="xl:#popup-order-guest,md:#popup-order-mobile-guest">
+                        <span class="link__text">Popup order summary GUEST</span>
+                    </a>
                 </div>
             </div>
         </div>
@@ -2812,6 +2818,202 @@
                         <span class="contract-status__text">Download contract PDF</span>
                         <svg class="contract-status__icon contract-status__icon_arrow"><use xlink:href="assets/images/icon.svg#icon_download"></use></svg>
                     </a>
+                </div>
+            </div>
+        </div>
+        <div class="popup popup_big popup-order-summary" id="popup-order-host">
+            <div class="popup__content">
+                <div class="popup__header popup__header_white popup__header_fx">
+                    <h3 class="popup__title">Order summary</h3>
+                    <div class="popup__info">
+                        <div class="popup__header-icon">
+                            <svg class="popup__arrow"><use xlink:href="assets/images/icon.svg#icon_long-arrow"></use></svg>
+                        </div>
+                        <div class="popup__header-text">Please check the offer, it’s price and other deal information</div>
+                    </div>
+                </div>
+                <form class="form form_white form-order-summary">
+                    <div class="form__section">
+                        <div class="info-editable">
+                            <div class="info-editable__name">Space:</div>
+                            <div class="info-editable__field">One Heddon Street Office Space center</div>
+                        </div>
+                        <div class="info-editable">
+                            <div class="info-editable__name">Offer type:</div>
+                            <div class="info-editable__field">
+                                <div class="offer-info info-editable__offer">
+                                    <div class="offer-info__head">
+                                        <div class="box box_size13 box_blue"></div>
+                                        <div class="offer-info__title offer-info__title_fz18">OFFICE SPACE</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="info-editable">
+                            <div class="info-editable__name">Offer description:</div>
+                            <div class="info-editable__field">
+                                <div class="info-editable__text" data-field-edit="t1">One Heddon Office Space. 226 sq.ft. with terrace</div>
+                                <input type="hidden" name="description" value="One Heddon Office Space. 226 sq.ft. with terrace" />
+                                <a class="link link_light-underline js-field-edit" data-edit-target="t1">
+                                    <span class="link__text">Edit</span>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="info-editable">
+                            <div class="info-editable__name">Amount:</div>
+                            <div class="info-editable__field">1</div>
+                        </div>
+                    </div>
+                    <div class="form__dates form-order-summary__dates">
+                        <div class="info-editable">
+                            <div class="info-editable__name">Rent period start:</div>
+                            <div class="info-editable__field">
+                                <div class="info-editable__text js-change-date">26 May 2019</div>
+                                <input type="hidden" name="rentStart" data-copy-date="rentStart" value="2019-05-26" />
+                            </div>
+                        </div>
+                        <div class="form__dates-icon">
+                            <svg class="form__dates-arrow"><use xlink:href="assets/images/icon.svg#icon_arrow"></use></svg>
+                        </div>
+                        <div class="info-editable">
+                            <div class="info-editable__name">Rent period end:</div>
+                            <div class="info-editable__field">
+                                <div class="info-editable__text js-change-date">26 may 2020</div>
+                                <input type="hidden" name="rentStart" data-copy-date="rentStart" value="2020-05-26" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form__section">
+                        <div class="info-editable">
+                            <div class="info-editable__name">Price:</div>
+                            <div class="info-editable__field">
+                                <div class="info-editable__text">
+                                    <span data-field-edit="t2" data-price="1568.00">1568.00</span>
+                                    <span>&pound;/mo</span>
+                                </div>
+                                <input type="hidden" name="price" value="1568.00" />
+                                <a class="link link_light-underline js-field-edit" data-edit-target="t2">
+                                    <span class="link__text">Edit</span>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="info-editable">
+                            <div class="info-editable__name">Safety deposit:</div>
+                            <div class="info-editable__field">
+                                <div class="info-editable__text">
+                                    <span data-field-edit="t3" data-deposit="1568.00"> 1568.00</span>
+                                    <span>&pound;</span>
+                                </div>
+                                <input type="hidden" name="deposit" value="1568.00" />
+                                <a class="link link_light-underline js-field-edit" data-edit-target="t3">
+                                    <span class="link__text">Edit</span>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="info-editable">
+                            <div class="info-editable__name">Total:</div>
+                            <div class="info-editable__field">
+                                <div class="info-editable__text">
+                                    <span data-total-price="data-total-price">3136.00</span>
+                                    <span>&pound;</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form__text">Total amount is first bill you need to pay to start the rent. You will receive first bill with that amount to pay.</div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="popup popup_mobile popup-order-summary" id="popup-order-mobile-host">
+            <div class="popup__header popup__header_white">
+                <h3 class="popup__title">Order Summary</h3>
+            </div>
+            <div class="popup__content">
+                <div class="popup__scrollblock js-scrollbar">
+                    <div class="popup-order-summary__inner-content"></div>
+                </div>
+            </div>
+        </div>
+        <div class="popup popup_big popup-order-summary" id="popup-order-guest">
+            <div class="popup__content">
+                <div class="popup__header popup__header_white popup__header_fx">
+                    <h3 class="popup__title">Order summary</h3>
+                    <div class="popup__info">
+                        <div class="popup__header-icon">
+                            <svg class="popup__arrow"><use xlink:href="assets/images/icon.svg#icon_long-arrow"></use></svg>
+                        </div>
+                        <div class="popup__header-text">Please check the offer, it’s price and other deal information</div>
+                    </div>
+                </div>
+                <form class="form form_white form-order-summary">
+                    <div class="form__section">
+                        <div class="info-editable">
+                            <div class="info-editable__name">Space:</div>
+                            <div class="info-editable__field">One Heddon Street Office Space center</div>
+                        </div>
+                        <div class="info-editable">
+                            <div class="info-editable__name">Offer type:</div>
+                            <div class="info-editable__field">
+                                <div class="offer-info info-editable__offer">
+                                    <div class="offer-info__head">
+                                        <div class="box box_size13 box_blue"></div>
+                                        <div class="offer-info__title offer-info__title_fz18">OFFICE SPACE</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="info-editable">
+                            <div class="info-editable__name">Offer description:</div>
+                            <div class="info-editable__field">One Heddon Office Space. 226 sq.ft. with terrace</div>
+                        </div>
+                        <div class="info-editable">
+                            <div class="info-editable__name">Amount:</div>
+                            <div class="info-editable__field">1</div>
+                        </div>
+                    </div>
+                    <div class="form__dates form-order-summary__dates">
+                        <div class="info-editable">
+                            <div class="info-editable__name">Rent period start:</div>
+                            <div class="info-editable__field">26 May 2019</div>
+                        </div>
+                        <div class="form__dates-icon">
+                            <svg class="form__dates-arrow"><use xlink:href="assets/images/icon.svg#icon_arrow"></use></svg>
+                        </div>
+                        <div class="info-editable">
+                            <div class="info-editable__name">Rent period end:</div>
+                            <div class="info-editable__field">26 May 2020</div>
+                        </div>
+                    </div>
+                    <div class="form__section">
+                        <div class="info-editable">
+                            <div class="info-editable__name">Price:</div>
+                            <div class="info-editable__field">1568.00 &pound;/mo</div>
+                        </div>
+                        <div class="info-editable">
+                            <div class="info-editable__name">Safety deposit:</div>
+                            <div class="info-editable__field">1568.00 &pound;</div>
+                        </div>
+                        <div class="info-editable">
+                            <div class="info-editable__name">Total:</div>
+                            <div class="info-editable__field">
+                                <div class="info-editable__text">
+                                    <span data-total-price="data-total-price">3136.00</span>
+                                    <span>&pound;</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form__text">Total amount is first bill you need to pay to start the rent. You will receive first bill with that amount to pay.</div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="popup popup_mobile popup-order-summary" id="popup-order-mobile-guest">
+            <div class="popup__header popup__header_white">
+                <h3 class="popup__title">Order Summary</h3>
+            </div>
+            <div class="popup__content">
+                <div class="popup__scrollblock js-scrollbar">
+                    <div class="popup-order-summary__inner-content"></div>
                 </div>
             </div>
         </div>

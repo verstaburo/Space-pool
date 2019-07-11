@@ -58,6 +58,8 @@ block content
         +link.js-popup-depends-width(href="#" data-source="xl:#popup-legal-formalities,md:#popup-legal-formalities-m") Popup legal formalities stage 1
         +link.js-popup-depends-width(href="#" data-source="xl:#popup-legal-formalities2,md:#popup-legal-formalities-m2") Popup legal formalities stage 2
         +link.js-popup-depends-width(href="#" data-source="xl:#popup-legal-formalities3,md:#popup-legal-formalities-m3") Popup legal formalities stage 3
+        +link.js-popup-depends-width(href="#" data-source="xl:#popup-order-host,md:#popup-order-mobile-host") Popup order summary HOST
+        +link.js-popup-depends-width(href="#" data-source="xl:#popup-order-guest,md:#popup-order-mobile-guest") Popup order summary GUEST
 
 block panels
   +main-menu
@@ -78,3 +80,9 @@ block popups
   +popup-document-mobile(getData('contract-status.json'))#popup-legal-formalities-m
   +popup-document-mobile(getData('contract-status-stage3.json'))#popup-legal-formalities-m3
   +popup-document-mobile(getData('contract-status-stage2.json'))#popup-legal-formalities-m2
+  +popup-order-summary#popup-order-host
+    +form-order-summary(true)
+  +popup-order-summary-mobile#popup-order-mobile-host
+  +popup-order-summary-g#popup-order-guest
+    +form-order-summary
+  +popup-order-summary-mobile-g#popup-order-mobile-guest

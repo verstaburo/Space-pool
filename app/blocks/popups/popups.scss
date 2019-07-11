@@ -51,6 +51,10 @@
   overflow: visible;
   background-color: $color-white;
 
+  &_big {
+    max-width: 930px;
+  }
+
   &__wrapper {
     display: block;
     width: 100%;
@@ -105,6 +109,60 @@
     &_white {
       background-color: $color-white;
     }
+
+    &_fx {
+      justify-content: space-between;
+      align-items: baseline;
+      padding: 28px 70px 24px;
+      height: auto;
+
+      #{$b} {
+
+        &__title {
+          &:not(:last-child) {
+            margin-bottom: 0;
+          }
+        }
+      }
+    }
+
+    &-icon {
+      position: relative;
+      display: inline-block;
+      width: 10px;
+      height: 10px;
+      transform-origin: 50% 50%;
+      transform: rotate(90deg);
+      overflow: hidden;
+
+      &:not(:last-child) {
+        margin-right: 16px;
+      }
+    }
+
+    &-text {
+      @include text;
+
+      font-weight: 400;
+      line-height: (26 / 14);
+    }
+  }
+
+  &__info {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    box-sizing: border-box;
+    margin-bottom: -3px;
+  }
+
+  &__arrow {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    fill: $color-yellow;
+    width: 93px;
+    height: 9px;
   }
 
   &__footer {
