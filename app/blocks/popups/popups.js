@@ -172,4 +172,11 @@ export default function popups() {
         '</div>',
     });
   });
+
+  $(document).on('click', '.js-show-pfooter', (evt) => {
+    evt.preventDefault();
+    const self = evt.currentTarget;
+    const footer = $(self).closest('.popup__footer');
+    $(footer).toggleClass('is-open');
+  });
 }

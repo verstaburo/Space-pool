@@ -55,7 +55,9 @@ block content
         +link(href="#popup-subscribe-host").js-popup Popup subscribe for host
         +link(href="#popup-cancel-request").js-popup Popup cancel request
         +link(href="#popup-password-change").js-popup Popup password change
-        +link(href="#popup-legal-formalities").js-popup Popup legal formalities
+        +link.js-popup-depends-width(href="#" data-source="xl:#popup-legal-formalities,md:#popup-legal-formalities-m") Popup legal formalities stage 1
+        +link.js-popup-depends-width(href="#" data-source="xl:#popup-legal-formalities2,md:#popup-legal-formalities-m2") Popup legal formalities stage 2
+        +link.js-popup-depends-width(href="#" data-source="xl:#popup-legal-formalities3,md:#popup-legal-formalities-m3") Popup legal formalities stage 3
 
 block panels
   +main-menu
@@ -69,3 +71,10 @@ block popups
   +popup-password-change#popup-password-change
   +popup-document(getData('legal-formalities.json'))#popup-legal-formalities
     +document-legal
+  +popup-document(getData('legal-formalities stage 2.json'))#popup-legal-formalities2
+    +document-legal
+  +popup-document(getData('legal-formalities stage 3.json'))#popup-legal-formalities3
+    +document-legal
+  +popup-document-mobile(getData('contract-status.json'))#popup-legal-formalities-m
+  +popup-document-mobile(getData('contract-status-stage3.json'))#popup-legal-formalities-m3
+  +popup-document-mobile(getData('contract-status-stage2.json'))#popup-legal-formalities-m2

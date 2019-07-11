@@ -19,8 +19,11 @@ mixin popup-header()
   div.popup__header&attributes(attributes)
     block
 
-mixin popup-footer()
+mixin popup-footer(opened)
   div.popup__footer&attributes(attributes)
+    if opened
+      div.popup__control.js-show-pfooter
+        +icon('select-arrow', true).popup__control-icon
     block
 
 mixin popup-title()

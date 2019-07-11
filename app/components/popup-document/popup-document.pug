@@ -12,11 +12,7 @@ mixin popup-document(data)
           +e.inner-content
             block
       +e.column_right
-        +e.side
-          +e.H3.title!= data.side.title
-          +e.side-icon
-            +icon('long-arrow').arrow_long
-          +e.explanation!= data.side.explanation
+        +contract-status(data.side)
 
 mixin popup-document-mobile(data)
   +popup-mobile.popup-document__&attributes(attributes)
@@ -25,5 +21,7 @@ mixin popup-document-mobile(data)
     +popup-content
       div.popup__scrollblock.js-scrollbar
         +e.inner-content
+          +e.IMG.document(src="assets/images/document.jpg")
           block
-    +popup-footer
+    +popup-footer(true).popup__footer_dropdown
+      +contract-status(data).__status
