@@ -432,6 +432,24 @@ export function datepicker() {
     });
   });
 
+  $('.js-change-date').each((i, el) => {
+    $(el).datepicker({
+      language: 'en',
+      dateFormat: 'yyyy-mm-dd',
+      autoClose: true,
+      showEvent: 'click',
+      classes: 'datepicker_fancybox',
+      onSelect(a, b, inst) {
+        const date = b;
+        const self = inst.el;
+        const copyfield = $(el).siblings('[data-copy-date]');
+        const stringDate = `${date.getDate()} ${$.fn.datepicker.language.en.monthsShort[date.getMonth()]} ${date.getFullYear()}`;
+        $(copyfield).text(stringDate);
+        $(self).trigger('change');
+      },
+    });
+  });
+
   $('.js-days-calendar').each(function () {
     const el = $(this);
     /* eslint-disable consistent-return */

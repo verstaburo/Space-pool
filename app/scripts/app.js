@@ -59,6 +59,7 @@ import truncateBlocks from '../blocks/js-functions/lineClamp';
 import mapManipulations from '../components/search-map/search-map';
 import advancedSearch from '../components/advanced-filter/advanced-filter';
 import textareaCounters from '../blocks/form-elements/textareaCounters';
+import infoEditable from '../blocks/info-editable/info-editable';
 
 const $ = window.$;
 
@@ -109,4 +110,5 @@ $(() => {
   toggleFilter();
   advancedSearch();
   textareaCounters();
+  infoEditable();
 });

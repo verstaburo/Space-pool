@@ -1,3 +1,45 @@
 .form-order-summary {
   $b: &;
+
+  position: static;
+  display: block;
+  width: 100%;
+
+  &__section {
+    width: 100%;
+
+    &:not(:first-child) {
+      margin-top: 82px;
+
+      @include screen('sm') {
+        margin-top: 35px;
+      }
+
+    }
+  }
+
+  &__dates {
+    width: 100%;
+
+    &:not(:first-child) {
+      margin-top: 74px;
+
+      @include screen('sm') {
+        margin-top: 35px;
+      }
+    }
+  }
+
+  .form {
+
+    &__text {
+      &:not(:first-child) {
+        margin-top: -8px;
+
+        @include screen('sm') {
+          margin-top: -4px;
+        }
+      }
+    }
+  }
 }
