@@ -88,3 +88,96 @@ mixin form-order-summary(editable)
       +link-icon('select-arrow', 'a')(href="#")._back._bold._no-shadow.__button Cancel  Reservation
       +button('button')(type="submit").__button_w360 Confirm order summary
     block
+
+mixin form-order-summary-mobile(editable)
+  +form._white.form-order-summary_mobile&attributes(attributes)
+    div.form-order-summary__scrollblock.js-scrollbar-light
+      div.form-order-summary__inner-content
+        div.form-order-summary__section
+          +info-editable.__line
+            +info-editable-name Space:
+            +info-editable-field One Heddon Street Center
+          +info-editable.__line
+            +info-editable-name Offer type:
+            +info-editable-field
+              +offer-info.__offer
+                +e.title._fz18 OFFICE SPACE
+          +info-editable.__line
+            +info-editable-name Offer description:
+            - if (editable) {
+              +info-editable-field
+                +e.text(data-field-edit="t1") Floor 5 Space Room 56
+                input(type="hidden" name="description" value="Floor 5 Space Room 56" data-field-copy="t1")
+                +link()(data-edit-target="t1")._light-underline.__edit.js-field-edit Edit
+            - } else {
+              +info-editable-field Floor 5 Space Room 56
+            - }
+          +info-editable.__line
+            +info-editable-name Amount:
+            +info-editable-field 1
+        +e.dates.form-order-summary__dates
+          +info-editable.__line
+            +info-editable-name Rent period start:
+            - if (editable) {
+              +info-editable-field._date
+                +e.text(data-copy-date) 26 May 2019
+                +e.INPUT.date.js-change-date(type="text" name="rentStart" value="2019-05-26" readonly)
+            - } else {
+              +info-editable-field 26 May 2019
+            - }
+          +e.dates-icon
+            +icon('download').dates-arrow
+          +info-editable.__line
+            +info-editable-name Rent period end:
+            - if (editable) {
+              +info-editable-field._date
+                +e.text(data-copy-date) 26 May 2020
+                +e.INPUT.date.js-change-date(type="text" name="rentEnd" value="2020-05-26" readonly)
+            - } else {
+              +info-editable-field 26 May 2020
+            - }
+        div.form-order-summary__section
+          +info-editable.__line
+            +info-editable-name Price:
+            - if (editable) {
+              +info-editable-field
+                +e.text
+                  span &pound;&nbsp;
+                  span(data-field-edit="t2" data-price="1568.00") 1568.00
+                  span /mo
+                input(type="hidden" name="price" value="1568.00" data-field-copy="t2")
+                +link()(data-edit-target="t2")._light-underline.__edit.js-field-edit Edit
+            - } else {
+              +info-editable-field &pound; 1568.00/mo
+            - }
+          +info-editable.__line
+            +info-editable-name Safety deposit:
+            - if (editable) {
+              +info-editable-field
+                +e.text
+                  span &pound;
+                  span(data-field-edit="t3" data-deposit="1568.00")  4568.00
+                  +info-tooltip.__info.js-tooltip.hide-sm(title="In the absence of claims, the deposit is returned to the lessee in full at the end of the rental period.")
+                input(type="hidden" name="deposit" value="4568.00" data-field-copy="t3")
+                +link()(data-edit-target="t3")._light-underline.__edit.js-field-edit Edit
+            - } else {
+              +info-editable-field._bold &pound; 4568.00
+            - }
+          +info-editable.__line
+            +info-editable-name Total:
+            - if (editable) {
+              +info-editable-field._editpd
+                +e.text_bold
+                  span &pound;&nbsp;
+                  span(data-total-price) 15668.00
+            - } else {
+              +info-editable-field
+                +e.text_bold
+                  span &pound;&nbsp;
+                  span(data-total-price) 15668.00
+            - }
+          +e.text_dark._small3 Total amount is first bill you need to pay to start the rent. You will receive first bill with that amount to pay.
+    +form-panel.__panel_absolute.__panel_border.__panel_small
+      +link-icon('select-arrow', 'a')(href="#")._back._bold._no-shadow._mfz12.__button Cancel  Reservation
+      +button('button')(type="submit")._mob-smaller.__button Confirm
+    block

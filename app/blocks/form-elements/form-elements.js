@@ -437,6 +437,7 @@ export function datepicker() {
       language: 'en',
       dateFormat: 'yyyy-mm-dd',
       autoClose: true,
+      position: 'bottom right',
       showEvent: 'click',
       classes: 'datepicker_fancybox',
       onSelect(a, b, inst) {

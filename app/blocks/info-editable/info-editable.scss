@@ -9,6 +9,10 @@
   box-sizing: border-box;
   padding-bottom: 11px;
 
+  @include screen('sm') {
+    padding-bottom: 5px;
+  }
+
   &__name {
     @include text-big;
 
@@ -20,7 +24,7 @@
       @include text;
 
       line-height: (26/14);
-      letter-spacing: 0.01em;
+      letter-spacing: -.01em;
     }
 
     &:not(:last-child) {
@@ -52,7 +56,7 @@
           @include text;
 
           line-height: (26 / 14);
-          letter-spacing: .01em;
+          letter-spacing: -.01em;
         }
       }
     }
@@ -64,6 +68,15 @@
     align-items: center;
     margin-left: auto;
 
+    @include text-big;
+
+    @include screen('sm') {
+      @include text;
+
+      line-height: (26 / 14);
+      letter-spacing: -.01em;
+    }
+
     &_date {
       position: relative;
     }
@@ -72,7 +85,7 @@
       padding-right: 56px;
 
       @include screen('sm') {
-        padding-right: 40px;
+        padding-right: 28px;
       }
     }
   }
@@ -84,7 +97,7 @@
       @include text;
 
       line-height: (26 / 14);
-      letter-spacing: .01em;
+      letter-spacing: -.01em;
     }
 
     &_bold {
@@ -105,7 +118,7 @@
     margin-left: 27px;
 
     @include screen('sm') {
-      margin-left: 10px;
+      margin-left: 5px;
     }
   }
 
