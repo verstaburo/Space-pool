@@ -688,6 +688,27 @@ block content
           +tab-radio('', '3', 'info')._blue() Информация
           +tab-radio('', '4', 'info')._green() Информация
 
+    //- Таблицы
+    +ui-section
+      +ui-section-head
+        h2 Таблицы
+        p Блок: blocks/table
+      +ui-section-content()
+        +table()
+          thead
+            tr
+              td Ячейка
+              td Ячейка
+              td Ячейка
+          tr
+            td Ячейка
+            td Ячейка
+            td Ячейка
+          tr
+            td Ячейка
+            td Ячейка
+            td Ячейка
+
     //- Попапы
     +ui-section
       +ui-section-head
@@ -1453,6 +1474,12 @@ block content
       +ui-section-content
         +ui-description .status
         +status not listed
+        +ui-description .status_fz10
+        +status._fz10 new
+        +ui-description .status_grad
+        +status._grad new
+
+
 
     //- note
     +ui-section
@@ -2781,6 +2808,50 @@ block content
       +ui-section-content
         +ui-description .info-tooltip
         +info-tooltip.js-tooltip(title="In the absence of claims, the deposit is returned to the lessee in full at the end of the rental period.")
+
+    //- info-editable
+    +ui-section
+      +ui-section-head
+        h2 info-editable
+        p Блок: block/info-editable
+      +ui-section-content
+        +ui-description .info-editable with button
+        +info-editable
+          +info-editable-name Safety deposit:
+          +info-editable-field
+            +e.text
+              span(data-field-edit="t3" data-deposit="1568.00")  1568.00
+              span &pound;
+              +info-tooltip.__info.js-tooltip.hide-sm(title="In the absence of claims, the deposit is returned to the lessee in full at the end of the rental period.")
+            input(type="hidden" name="deposit" value="1568.00" data-field-copy="t3")
+            +link()(data-edit-target="t3")._light-underline.__edit.js-field-edit Edit
+        +ui-description .info-editable with shift on Edit button
+        +info-editable.__line
+          +info-editable-name Total:
+          +info-editable-field._editpd
+            +e.text_bold
+              span(data-total-price) 3136.00
+              span &pound;
+        +ui-description .info-editable only read
+        +info-editable
+          +info-editable-name Safety deposit:
+          +info-editable-field._bold 1568.00 &pound;
+        +ui-description .info-editable editable date
+        +info-editable
+          +info-editable-name Rent period start:
+          +info-editable-field._date
+            +e.text(data-copy-date) 26 May 2019
+            +e.INPUT.date.js-change-date(type="text" name="rentStart" value="2019-05-26" readonly)
+        +ui-description .info-editable simple edit work only on window.width < 1020
+        +info-editable
+          +info-editable-name Price:
+          +info-editable-field
+            +e.text
+              span &pound;&nbsp;
+              span(data-field-edit="t2" data-price="1568.00" contenteditable="true") 1568.00
+              span /mo
+            input(type="hidden" name="price" value="1568.00" data-field-copy="t2")
+
 block panels
   +main-menu
 

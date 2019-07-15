@@ -1,3 +1,76 @@
 .popup-invoices {
   $b: &;
+
+  .popup {
+    &__close {
+      top: 13px;
+      right: 16px;
+      width: 38px;
+      height: 38px;
+
+      @include screen('md') {
+        top: 13px;
+        left: 26px;
+        width: 44px;
+        height: 44px;
+      }
+
+      @include screen('sm') {
+        top: 8px;
+        left: 9px;
+        width: 34px;
+        height: 34px;
+      }
+    }
+
+    &__header {
+      padding-top: 55px;
+      padding-bottom: 28px;
+
+      @include screen('sm') {
+        padding-top: 12px;
+        padding-bottom: 12px;
+      }
+    }
+
+    &__content {
+      padding: 138px 70px 65px;
+
+      @include screen('md') {
+        padding: 80px 0 0;
+      }
+
+      @include screen('sm') {
+        padding: 50px 0 0;
+      }
+    }
+  }
+
+  &__pagination {
+
+    &:not(:first-child) {
+      margin-top: 53px;
+    }
+  }
+
+  &__table {
+    width: 100%;
+  }
+
+  &__invoices {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 28px 46px 65px;
+
+    @include screen('sm') {
+      padding: 28px 19px 43px;
+    }
+  }
+
+  &__invoice {
+    &:not(:last-child) {
+      margin-bottom: 31px;
+    }
+  }
 }

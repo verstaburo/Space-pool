@@ -106,9 +106,8 @@ mixin form-order-summary-mobile(editable)
             +info-editable-name Offer description:
             - if (editable) {
               +info-editable-field
-                +e.text(data-field-edit="t1") Floor 5 Space Room 56
+                +e.text(data-field-edit="t1" contenteditable="true") Floor 5 Space Room 56
                 input(type="hidden" name="description" value="Floor 5 Space Room 56" data-field-copy="t1")
-                +link()(data-edit-target="t1")._light-underline.__edit.js-field-edit Edit
             - } else {
               +info-editable-field Floor 5 Space Room 56
             - }
@@ -143,10 +142,9 @@ mixin form-order-summary-mobile(editable)
               +info-editable-field
                 +e.text
                   span &pound;&nbsp;
-                  span(data-field-edit="t2" data-price="1568.00") 1568.00
+                  span(data-field-edit="t2" data-price="1568.00" contenteditable="true") 1568.00
                   span /mo
                 input(type="hidden" name="price" value="1568.00" data-field-copy="t2")
-                +link()(data-edit-target="t2")._light-underline.__edit.js-field-edit Edit
             - } else {
               +info-editable-field &pound; 1568.00/mo
             - }
@@ -156,10 +154,9 @@ mixin form-order-summary-mobile(editable)
               +info-editable-field
                 +e.text
                   span &pound;
-                  span(data-field-edit="t3" data-deposit="1568.00")  4568.00
+                  span(data-field-edit="t3" data-deposit="1568.00" contenteditable="true")  4568.00
                   +info-tooltip.__info.js-tooltip.hide-sm(title="In the absence of claims, the deposit is returned to the lessee in full at the end of the rental period.")
                 input(type="hidden" name="deposit" value="4568.00" data-field-copy="t3")
-                +link()(data-edit-target="t3")._light-underline.__edit.js-field-edit Edit
             - } else {
               +info-editable-field._bold &pound; 4568.00
             - }

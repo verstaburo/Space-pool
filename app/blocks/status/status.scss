@@ -11,4 +11,25 @@
   background-color: $color-status-bg;
   color: $color-white;
   display: inline-block;
+
+  &_fz10 {
+    @include text10;
+
+    line-height: 10px;
+    padding: 1px 2px 0;
+
+    @include screen('sm') {
+      @include text8;
+
+      line-height: 8px;
+      font-weight: 700;
+    }
+  }
+
+  &_grad {
+    background-color: $color-main;
+    background-image: linear-gradient(to left, #0caecc 0%, #30e3c9 100%);
+    background-repeat: no-repeat;
+    background-position: 0 0;
+  }
 }
