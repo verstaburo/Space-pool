@@ -14,7 +14,7 @@ mixin popup-invoices()
         tr.table__row
           td.table__cell
             +status._fz10._grad.table__status new
-            a.js-popup-depends-width(href="#") One Heddon street Office space
+            a.js-popup-depends-width(href="#" data-source="xl:#popup-invoice,md:#popup-invoice-mobile") One Heddon street Office space
           td.table__cell 25 Apr 2019
           td.table__cell 30 Apr 2019
           td.table__cell.table__cell_bold 1568.00 &pound;
@@ -23,14 +23,14 @@ mixin popup-invoices()
         - for (var i = 0; i < 9; i++) {
           tr.table__row
             td.table__cell
-              a.js-popup-depends-width(href="#") One Heddon street Office space
+              a.js-popup-depends-width(href="#" data-source="xl:#popup-invoice,md:#popup-invoice-mobile") One Heddon street Office space
             td.table__cell 25 Mar 2019
             td.table__cell 30 Feb 2019
             td.table__cell.table__cell_bold 1568.00 &pound;
             td.table__cell.table__cell_bold Paid
           tr.table__row
             td.table__cell
-              a.js-popup-depends-width(href="#") One Heddon street Office space
+              a.js-popup-depends-width(href="#" data-source="xl:#popup-invoice,md:#popup-invoice-mobile") One Heddon street Office space
             td.table__cell 25 Mar 2019
             td.table__cell 30 Feb 2019
             td.table__cell.table__cell_bold 1568.00 &pound;
@@ -44,7 +44,7 @@ mixin popup-invoices-mobile()
   - var data1 = {isnew: true, date: { iso: '2019-06-24', text: '24 June 2019'}, nameTag: 'a', name: 'One Heddon Street Center', price: '&pound; 1568.00', pay: true};
   - var data2 = {date: { iso: '2019-05-24', text: '24 May 2019'}, nameTag: 'a', name: 'One Heddon Street Center', price: '&pound; 1568.00', state: 'Paid'};
   -var data3 = {date: { iso: '2019-04-24', text: '24 April 2019'}, nameTag: 'a', name: 'One Heddon Street Center', price: '&pound; 1568.00', state: 'Paid'};
-  +popup-mobile._white.popup-invoices__._mobile&attributes(attributes)
+  +popup-mobile._white.popup-invoices__&attributes(attributes)
     +popup-header.popup__header_white.popup__header_border
       +popup-title Invoices
     +popup-content

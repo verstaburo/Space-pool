@@ -1,3 +1,173 @@
 .popup-invoice {
   $b: &;
+
+  .popup {
+    &__close {
+      top: 13px;
+      right: 16px;
+      width: 38px;
+      height: 38px;
+
+      @include screen('md') {
+        top: 13px;
+        left: 26px;
+        width: 44px;
+        height: 44px;
+      }
+
+      @include screen('sm') {
+        top: 8px;
+        left: 9px;
+        width: 34px;
+        height: 34px;
+      }
+    }
+
+    &__header {
+      padding-top: 55px;
+      padding-bottom: 28px;
+
+      @include screen('md') {
+        padding-top: 12px;
+        padding-bottom: 12px;
+      }
+    }
+
+    &__content {
+      padding: 217px 70px 176px;
+
+      @include screen('md') {
+        padding: 70px 0 80px;
+      }
+
+      @include screen('sm') {
+        padding: 50px 0;
+      }
+    }
+  }
+
+  &__inner-content {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 28px 40px 144px;
+
+    @include screen('sm') {
+      padding: 28px 19px 114px;
+    }
+  }
+
+  &__logo {
+    height: 54px;
+    width: auto;
+
+    @include screen('md') {
+      margin-bottom: 30px;
+    }
+
+    @include screen('sm') {
+      height: 49px;
+      margin-bottom: 26px;
+    }
+  }
+
+  &__describe {
+    @include text-mid;
+
+    font-weight: 700;
+    line-height: 1.2;
+
+    @include screen('sm') {
+      @include text15;
+
+      line-height: 1.2;
+    }
+
+    &:not(:first-child) {
+      margin-top: 96px;
+
+      @include screen('sm') {
+        margin-top: 41px;
+      }
+    }
+  }
+
+  &__table {
+    margin-top: 96px;
+    width: 100%;
+
+    @include screen('md') {
+      margin-top: 15px;
+    }
+
+    @include screen('sm') {
+      margin-top: 10px;
+    }
+  }
+
+  &__buttons {
+    display: flex;
+    width: 100%;
+    box-sizing: border-box;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 50px 15px 70px;
+    min-height: 80px;
+
+    @include screen('md') {
+      padding: 15px 50px;
+    }
+
+    @include screen('sm') {
+      padding: 10px 18px;
+      min-height: 50px;
+    }
+
+    .link {
+      @include text-mid;
+
+      padding-left: 23px;
+
+      @include screen('sm') {
+        @include text12;
+
+        padding-left: 16px;
+      }
+    }
+
+    .button {
+      min-width: 355px;
+
+      @include screen('md') {
+        min-width: 300px;
+      }
+
+      @include screen('sm') {
+        min-width: 88px;
+      }
+    }
+  }
+
+  &__button {
+    &:not(:last-child) {
+      margin-right: 50px;
+
+      @include screen('sm') {
+        margin-right: 20px;
+      }
+    }
+  }
+
+  &__amount {
+    width: 100%;
+    border-bottom: 1px solid $color-border-light;
+
+    @include screen('md') {
+      margin-top: 60px;
+    }
+
+    @include screen('sm') {
+      margin-top: 29px;
+    }
+  }
 }

@@ -1,0 +1,18 @@
+mixin client-info(data)
+  - var addClass = data.namecls || '';
+  +b.client-info&attributes(attributes)
+    +e.title(class=addClass)!= data.name
+    +characteristics-table._dark._big.__table
+      tbody
+        each item in data.info
+          - var cellClass = item.cls || ''
+          +e.TR.row_bsr
+            +e.TD.cell._h45!=item.name
+            - if (item.new) {
+              +e.TD(class='__cell_fw400 _h45 _wrap _flex' + cellClass)
+                +status._fz10._grad.__new new
+                span!= item.text
+            - } else {
+              +e.TD(class='__cell_fw400 _h45 _wrap _flex' + cellClass)!= item.text
+            - }
+    block

@@ -73,6 +73,22 @@ $new-breakpoints: map_remove($breakpoints, $default-breakpoit-name);
     margin-top: -$grid-gap-vertical-big;
   }
 
+  &_gap106 {
+    margin-left: -53px;
+    margin-right: -53px;
+    margin-top: -40px;
+
+    @include screen('md') {
+      margin-left: -25px;
+      margin-right: -25px;
+    }
+
+    @include screen('sm') {
+      margin-left: -10px;
+      margin-right: -10px;
+    }
+  }
+
   &_30x40 {
     margin-top: -30px;
     margin-left: -20px;
@@ -234,6 +250,18 @@ $new-breakpoints: map_remove($breakpoints, $default-breakpoit-name);
 
     #{$b}_gap72 & {
       padding: $grid-gap-vertical-big 36px 0;
+    }
+
+    #{$b}_gap106 & {
+      padding: 40px 53px 0;
+
+      @include screen('md') {
+        padding: 40px 25px 0;
+      }
+
+      @include screen('sm') {
+        padding: 40px 10px 0;
+      }
     }
 
     #{$b}_30x40 & {

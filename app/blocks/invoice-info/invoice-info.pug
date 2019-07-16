@@ -3,7 +3,7 @@ mixin invoice-info(data)
     +status._fz10._grad.__status new
     if data.date
       +e.TIME.date(datetime=data.date.iso)!= data.date.text
-    +e('a').name(href="#")!= data.name
+    +e('a').name.js-popup-depends-width(href="#" data-source="xl:#popup-invoice,md:#popup-invoice-mobile")!= data.name
     +e.describe
       +e.price!= data.price
       if data.state

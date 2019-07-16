@@ -53,10 +53,14 @@
     .table {
 
       &__cell {
-        padding: 8px 0;
+        padding: 9px 0;
         padding-left: 32px;
         position: relative;
         width: 16.7%;
+
+        @include screen('sm') {
+          padding: 7px 0;
+        }
 
         &:first-child {
           width: 33.2%;
@@ -76,12 +80,20 @@
           padding-bottom: 4px;
 
           @include screen('sm') {
-            @include text12;
+            @include text10;
+
+            line-height: 1;
+            padding: 7px;
+            padding-bottom: 7px;
           }
         }
 
         &_bold {
           font-weight: 700;
+        }
+
+        &_centered {
+          text-align: center;
         }
 
         a:not(.button) {
@@ -100,5 +112,50 @@
       }
     }
 
+    &_v2 {
+
+      .table {
+
+        &__cell {
+          width: 14.4%;
+          padding-left: 0;
+
+          @include screen('md') {
+            width: 25%;
+            padding-right: 10px;
+          }
+
+          @include screen('sm') {
+            width: 21.5%;
+          }
+
+          &:first-child {
+            width: 28.8%;
+
+            @include screen('sm') {
+              width: 19%;
+            }
+          }
+
+          &:nth-child(2) {
+            width: 28%;
+
+            @include screen('sm') {
+              width: 30%;
+            }
+          }
+
+          &:last-child {
+            @include screen('md') {
+              padding-right: 0;
+            }
+
+            @include screen('sm') {
+              width: 30%;
+            }
+          }
+        }
+      }
+    }
   }
 }

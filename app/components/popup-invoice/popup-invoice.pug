@@ -1,3 +1,94 @@
 mixin popup-invoice()
-  +b.popup-invoice&attributes(attributes)
+  +popup._big.popup-invoice__&attributes(attributes)
+    +popup-header.popup__header_white.popup__header_fx.popup__header_fx_center
+      div.popup__links
+        +link-icon('select-arrow', 'a')._back._bold._no-shadow.__button(href="#" data-fancybox-close) Back to list
+      +popup-title Invoice:  INV-SP-52352
+      div.popup__info.popup__info_mb0
+        +logo-image().__logo
+    +grid.grid_gap106
+      +col({xl: 6, sm: 12})
+        +client-info({name: 'Guest', info: [{name: 'To:', text: 'Bright Ideas Ltd. 1st Floor, 5 Martin Lande London EC1&nbsp;4AD', cls: ' _mw250'}, {name: 'Issued:', text: '01.06.2019'}, {name: 'Due:', text: '01.07.2019'}]})
+      +col({xl: 6, sm: 12})
+        +client-info({name: 'Host:', namecls: '_right', info: [{name: 'From:', text: 'Hereford Ltd, Holme Lacy Rd, Rotherwas Industrial Estate, Hereford HR2&nbsp;6FE,',  cls: ' _mw250'}, {name: 'Company Number:', text: '321826390'}, {name: 'Registered VAT number:', text: '351268260'}]})
+    +table.table_simple.table_simple_v2.popup-invoice__table
+      thead
+        tr.table__row
+          th.table__cell.table__cell_head Description
+          th.table__cell.table__cell_head.table__cell_centered Quantity
+          th.table__cell.table__cell_head Charge
+          th.table__cell.table__cell_head.table__cell_centered VAT
+          th.table__cell.table__cell_head Amount GBP
+      tbody
+        tr.table__row
+          td.table__cell One Heddon street Office space
+          td.table__cell.table__cell_centered 1
+          td.table__cell.table__cell_bold &pound; 1568.00
+          td.table__cell.table__cell_centered 20%
+          td.table__cell.table__cell_bold &pound; 1568.00
+    +grid.grid_gap106
+      +col({xl: 6, sm: 12})
+      +col({xl: 6, sm: 12})
+        +characteristics-table._dark._big.__amount
+          tbody
+            +e.TR.row_bsl
+              +e.TD.cell._h45 Subtotal
+              +e.TD.cell._h45 &pound; 1568.00
+            +e.TR.row_bsl
+              +e.TD.cell._h45 Total VAT
+              +e.TD.cell._h45 &pound; 568.00
+            +e.TR.row_bsl
+              +e.TD.cell._h45._fz20 Amount Due
+              +e.TD.cell._h45._fz20 &pound; 1568.00
     block
+    +popup-footer.popup__footer_border
+      +e.buttons
+        +link-icon('select-arrow', 'a')._back._bold._no-shadow.__button(href="#" data-fancybox-close) Back to list
+        +link-icon('download')(href="#")._icon_small._download-small._no-shadow._bold.__button Download as PDF
+        +button().__button Pay now
+
+
+mixin popup-invoice-mobile()
+  +popup-mobile._white.popup-invoice__&attributes(attributes)
+    +popup-header.popup__header_white.popup__header_border
+      +popup-title Invoice: INV-SP-2141532
+    +popup-content
+      div.popup__scrollblock.js-scrollbar-light
+        +e.inner-content
+          +logo-image2().__logo
+          +grid.grid_gap106
+            +col({xl: 6, sm: 12})
+              +client-info({name: 'Guest:', info: [{name: 'To:', text: 'Dezi Design Agency ltd.', cls: ' _mw250'}, {name: 'Issued:', text: '01.06.2019', new: true}, {name: 'Due:', text: '01.07.2019'}]})
+            +col({xl: 6, sm: 12})
+              +client-info({name: 'Host:', namecls: '_right', info: [{name: 'From:', text: 'Hereford Ltd, Holme Lacy Rd, Rotherwas Industrial Estate, Hereford HR2&nbsp;6FE,', cls: ' _mw250'}, {name: 'Company Number:', text: '321826390'}, {name: 'Registered VAT number:', text: '3218232234234'}]})
+          +e.describe 6 Desks Private Office at WeWork, 8 Devonshire Sq, London, EC2M 4PL
+          +table.table_simple.table_simple_v2.popup-invoice__table
+            thead
+              tr.table__row
+                th.table__cell.table__cell_head Quantity
+                th.table__cell.table__cell_head Charge
+                th.table__cell.table__cell_head VAT
+                th.table__cell.table__cell_head Amount GBP
+            tbody
+              tr.table__row
+                td.table__cell 1
+                td.table__cell.table__cell_bold &pound; 1568.00
+                td.table__cell 20%
+                td.table__cell.table__cell_bold &pound; 1568.00
+          +characteristics-table._dark._big.__amount
+            tbody
+              +e.TR.row_bsl
+                +e.TD.cell._h45 Subtotal
+                +e.TD.cell.fw400._h45 &pound; 1568.00/mo
+              +e.TR.row_bsl
+                +e.TD.cell._h45 Total VAT
+                +e.TD.cell._fw400._h45 &pound; 4568.00
+              +e.TR.row_bsl
+                +e.TD.cell._h45 Total Due
+                +e.TD.cell._h45 &pound; 15 668.00
+          block
+    +popup-footer.popup__footer_border
+      +e.buttons
+        +link-icon('select-arrow', 'a')._back._bold._no-shadow._mfz12.__button(href="#" data-fancybox-close) Back to list
+        +link-icon('download')(href="#")._icon_small._download-small._no-shadow._bold._mfz12.__button PDF
+        +button('button')(type="submit")._smaller.__button Pay now

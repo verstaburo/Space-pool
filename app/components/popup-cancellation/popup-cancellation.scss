@@ -1,3 +1,94 @@
 .popup-cancellation {
   $b: &;
+
+  .popup {
+    &__close {
+      top: 13px;
+      right: 16px;
+      width: 38px;
+      height: 38px;
+
+      @include screen('md') {
+        top: 13px;
+        right: 26px;
+        width: 44px;
+        height: 44px;
+      }
+
+      @include screen('sm') {
+        top: 8px;
+        right: 9px;
+        width: 34px;
+        height: 34px;
+      }
+    }
+
+    &__heading {
+      padding: 55px 0 24px;
+      border: none;
+
+      @include screen('md') {
+        padding: 35px 0;
+      }
+
+      @include screen('sm') {
+        padding: 25px 0;
+      }
+
+      &:not(:last-child) {
+        margin-bottom: 8px;
+
+        @include screen('md') {
+          margin-bottom: 0;
+        }
+      }
+    }
+
+    &__content {
+      padding: 0 70px 50px;
+
+      @include screen('md') {
+        padding: 0 50px 30px;
+      }
+
+      @include screen('sm') {
+        padding: 0 20px 20px;
+      }
+    }
+  }
+
+  &__form {
+    padding-bottom: 0;
+  }
+
+  &__warning {
+
+    &:not(:last-child) {
+      margin-bottom: 30px;
+
+      @include screen('sm') {
+        margin-bottom: 15px;
+      }
+    }
+  }
+
+  .form {
+
+    &__panel {
+      padding-left: 0;
+      padding-right: 0;
+
+      &:not(:first-child) {
+        margin-top: 22px;
+      }
+    }
+  }
+
+  .button {
+    min-width: 290px;
+
+    @include screen('sm') {
+      min-width: 88px;
+    }
+  }
 }

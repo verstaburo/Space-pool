@@ -100,6 +100,7 @@
     padding: 0 $container-padding;
     background-color: $color-bg;
     z-index: 2;
+    flex-wrap: wrap;
 
     @include screen('md') {
       padding: 0 $container-padding-tablet;
@@ -132,6 +133,11 @@
           }
         }
       }
+
+      &_center {
+        align-items: center;
+        align-content: flex-start;
+      }
     }
 
     &-icon {
@@ -156,12 +162,32 @@
     }
   }
 
+  &__links {
+    width: 100%;
+
+    &:not(:last-child) {
+      margin-bottom: 33px;
+    }
+
+    .link {
+      @include text-big;
+
+      @include screen('sm') {
+        @include text12;
+      }
+    }
+  }
+
   &__info {
     display: flex;
     justify-content: flex-start;
     align-items: center;
     box-sizing: border-box;
     margin-bottom: -3px;
+
+    &_mb0 {
+      margin-bottom: 0;
+    }
   }
 
   &__arrow {
@@ -200,6 +226,10 @@
           transform: translate3d(0, 50px, 0);
         }
       }
+    }
+
+    &_border {
+      border-top: 1px solid $color-border-lightest;
     }
   }
 
