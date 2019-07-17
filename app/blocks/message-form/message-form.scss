@@ -30,10 +30,10 @@
   }
 
   .textarea {
-    @include text;
+    @include text-mid;
 
     font-weight: 400;
-    line-height: (26 / 14);
+    line-height: (26 / 17);
     border-radius: 21px 0 0 21px;
     border: 1px solid $color-border-light;
     border-right-width: 0;
@@ -45,9 +45,21 @@
     overflow: hidden;
 
     @include screen('sm') {
-      @include text13;
+      @include text15;
 
       letter-spacing: -.026em;
+    }
+
+    &::placeholder {
+      @include text;
+
+      line-height: (26 / 14);
+
+      @include screen('sm') {
+        @include text13;
+
+        letter-spacing: -.026em;
+      }
     }
   }
 

@@ -58,3 +58,24 @@ mixin filter-search()
         +toggle-changed-name().__toggle.js-show-advanced-filter(data-target-filter="workplace" data-default-name="Workplace type") Workplace type
       +e.wrapper
         +toggle('0').__toggle.js-show-advanced-filter(data-target-filter="advancedSearch") Advanced search
+
+mixin filter-reservations()
+  +b.FORM.filter&attributes(attributes)
+    +e.content_sb
+      +e.column
+        +e.wrapper.hide-from-sm
+        +e.wrapper.hide-sm
+          +b.LABEL.color-radio._full._dark._big.__toggle
+            +e.INPUT.input(name="userType", value="tenant", type="radio", checked, data-show-elements="details-checker", data-toggle-form)
+            +e.SPAN.content Sign up as a tenant
+        +e.wrapper.hide-sm
+          +b.LABEL.color-radio._full._dark._big.__toggle
+            +e.INPUT.input(name="userType", value="host", type="radio", data-hide-elements="details-checker",data-show-elements="details", data-toggle-form)
+            +e.SPAN.content Sign up as a host
+        +e.wrapper.hide-sm
+          +b.LABEL.color-radio._full._dark._big.__toggle
+            +e.INPUT.input(name="userType", value="host", type="radio", data-hide-elements="details-checker",data-show-elements="details", data-toggle-form)
+            +e.SPAN.content Sign up as a host
+      +e.column
+        +e.wrapper
+          +e.text.hide-sm Show
