@@ -59,15 +59,22 @@
     .table {
 
       &__row_interactive {
-        box-shadow: 0 -2px 0 -1px transparent;
-        position: relative;
-        transition: box-shadow $ease-main, border $ease-main, color $ease-main;
+        width: 100%;
+        transition: border $ease-main, color $ease-main;
         cursor: pointer;
+
+        td {
+          transition: box-shadow $ease-main;
+          box-shadow: inset 0 1px 0 transparent;
+        }
 
         &:hover {
           color: $color-basic-dark;
           border-color: $color-basic-dark;
-          box-shadow: 0 -2px 0 -1px $color-basic-dark;
+
+          td {
+            box-shadow: inset 0 1px 0 $color-basic-dark;
+          }
         }
       }
     }
