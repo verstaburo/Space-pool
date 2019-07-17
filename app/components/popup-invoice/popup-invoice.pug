@@ -2,7 +2,7 @@ mixin popup-invoice()
   +popup._big.popup-invoice__&attributes(attributes)
     +popup-header.popup__header_white.popup__header_fx.popup__header_fx_center
       div.popup__links
-        +link-icon('select-arrow', 'a')._back._bold._no-shadow.__button(href="#" data-fancybox-close) Back to list
+        +link-icon('select-arrow', 'a')._back._bold._no-shadow.__button.js-popup-depends-width(href="#" data-source="xl:#popup-invoices,md:#popup-invoices-mobile") Back to list
       +popup-title Invoice:  INV-SP-52352
       div.popup__info.popup__info_mb0
         +logo-image().__logo
@@ -43,7 +43,7 @@ mixin popup-invoice()
     block
     +popup-footer.popup__footer_border
       +e.buttons
-        +link-icon('select-arrow', 'a')._back._bold._no-shadow.__button(href="#" data-fancybox-close) Back to list
+        +link-icon('select-arrow', 'a')._back._bold._no-shadow.__button.js-popup-depends-width(href="#" data-source="xl:#popup-invoices,md:#popup-invoices-mobile") Back to list
         +link-icon('download')(href="#")._icon_small._download-small._no-shadow._bold.__button Download as PDF
         +button().__button Pay now
 
@@ -89,6 +89,6 @@ mixin popup-invoice-mobile()
           block
     +popup-footer.popup__footer_border
       +e.buttons
-        +link-icon('select-arrow', 'a')._back._bold._no-shadow._mfz12.__button(href="#" data-fancybox-close) Back to list
+        +link-icon('select-arrow', 'a')._back._bold._no-shadow._mfz12.__button.js-popup-depends-width(href="#" data-source="xl:#popup-invoices,md:#popup-invoices-mobile") Back to list
         +link-icon('download')(href="#")._icon_small._download-small._no-shadow._bold._mfz12.__button PDF
         +button('button')(type="submit")._smaller.__button Pay now

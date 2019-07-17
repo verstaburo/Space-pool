@@ -12,6 +12,9 @@ export default function popups() {
   // настройки стандартного попапа
   const optionsStPopup = {
     autoFocus: false,
+    onDeactivate(i) {
+      i.close();
+    },
     onActivate() {
       freeze();
     },
@@ -52,6 +55,9 @@ export default function popups() {
     animationDuration: 400,
     transitionDuration: 400,
     transitionEffect: 'fade',
+    onDeactivate(i) {
+      i.close();
+    },
     onActivate() {
       freeze();
     },

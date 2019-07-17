@@ -8,6 +8,7 @@
   border: 1px solid $color-border-st-button;
   border-radius: 2px;
   padding: 18px 15px 15px;
+  cursor: pointer;
 
   @include screen('sm') {
     padding: 12px 9px 9px;
@@ -65,6 +66,12 @@
   }
 
   &__name {
+    transition: color $ease-main;
+
+    #{$b}:hover & {
+      color: $color-basic-dark;
+    }
+
     &:not(:last-child) {
       margin-bottom: 26px;
 
