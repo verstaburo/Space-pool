@@ -6,6 +6,7 @@
   margin: 0 -25px;
   box-sizing: border-box;
   padding: 33px 0 40px;
+  transition: border $ease-main, background $ease-main, box-shadow $ease-main;
 
   @include screen('sm') {
     flex-wrap: wrap;
@@ -23,6 +24,7 @@
     right: 25px;
     height: 1px;
     background-color: $color-border-light;
+    transition: background $ease-main;
   }
 
   &::before {
@@ -33,6 +35,31 @@
     right: 25px;
     height: 1px;
     background-color: $color-border-light;
+    transition: background $ease-main;
+  }
+
+  &.is-new {
+    &:not(:first-child) {
+      margin-top: -2px;
+    }
+
+    &::after, &::before {
+      height: 2px;
+      background-color: $color-header-logo;
+    }
+
+    & + #{$b} {
+      margin-top: -2px;
+
+      &::before {
+        height: 2px;
+        background-color: $color-header-logo;
+      }
+
+      &:hover::before {
+        background-color: transparent;
+      }
+    }
   }
 
   &__space {
@@ -68,7 +95,30 @@
     }
   }
 
+  &__prop {
+    position: relative;
+    display: flex;
+    box-sizing: border-box;
+    padding: 0 25px;
+    width: 48.8%;
+
+    @include screen('md') {
+      width: 100%;
+    }
+
+    @include screen('sm') {
+      margin-bottom: 20px;
+    }
+
+    .space-description {
+      margin-left: -12px;
+      margin-right: -12px;
+      width: calc(100% + 24px);
+    }
+  }
+
   &__info {
+    position: relative;
     display: flex;
     box-sizing: border-box;
     padding: 0 25px;
@@ -77,6 +127,97 @@
     @include screen('sm') {
       flex: none;
       width: 100%;
+    }
+  }
+
+  &__data {
+    position: absolute;
+    display: inline-flex;
+    justify-content: flex-start;
+    align-items: center;
+    top: 5px;
+    left: 25px;
+  }
+
+  &__date {
+    @include text15;
+
+    font-weight: 400;
+
+    @include screen('sm') {
+      @include text10;
+    }
+
+    &:not(:last-child) {
+      margin-right: 10px;
+    }
+  }
+
+  &__new {
+    &:not(:last-child) {
+      margin-right: 10px;
+    }
+  }
+
+  &__links {
+    position: absolute;
+    display: inline-flex;
+    justify-content: flex-end;
+    align-items: center;
+    bottom: 0;
+    right: 25px;
+    opacity: 0;
+    transition: opacity $ease-main;
+    min-height: 40px;
+    z-index: 3;
+
+    @include screen('md') {
+      position: static;
+      bottom: auto;
+      right: auto;
+      width: 100%;
+      opacity: 1;
+      justify-content: center;
+    }
+
+    #{$b}:hover & {
+      opacity: 1;
+    }
+  }
+
+  &__arrow {
+    position: absolute;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    bottom: 0;
+    right: 25px;
+    height: 40px;
+    width: 7px;
+    z-index: 2;
+
+    @include screen('md') {
+      display: none;
+    }
+
+    &-icon {
+      width: 7px;
+      height: 12px;
+      fill: $color-basic;
+    }
+  }
+
+  &:hover {
+    background-color: $color-white;
+    box-shadow: 1px 1px 8px rgba(34, 42, 46, .06);
+    border-radius: 3px;
+
+    &::before, &::after {
+      background-color: transparent;
+    }
+
+    & + #{$b}::before {
+      background-color: transparent;
     }
   }
 }

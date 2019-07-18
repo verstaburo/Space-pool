@@ -22,12 +22,18 @@
     @include screen('md') {
       flex-wrap: wrap;
     }
+
+    &_tar {
+      text-align: right;
+      justify-content: flex-end;
+    }
   }
 
   &__name {
     @include text-big;
 
     font-weight: 700;
+    display: inline-block;
   }
 
   .boxes:not(:first-child) {
@@ -93,6 +99,12 @@
           padding-right: 25px;
         }
 
+        &_req-prop {
+          width: 48.8%;
+          padding-left: 25px;
+          padding-right: 25px;
+        }
+
         &_lead {
           white-space: nowrap;
           border-right: 1px solid $color-border-light;
@@ -102,6 +114,18 @@
           flex: 1;
           padding-right: 25px;
           padding-left: 25px;
+        }
+      }
+    }
+
+    &_gr {
+
+      #{$b} {
+
+        &__wrapper {
+          margin-left: -25px;
+          margin-right: -25px;
+          width: calc(100% + 50px);
         }
       }
     }

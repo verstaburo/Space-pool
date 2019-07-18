@@ -526,6 +526,12 @@
     pointer-events: none;
   }
 
+  &__marker {
+    position: absolute;
+    top: 0.42em;
+    right: 0;
+  }
+
   &__content {
     @include text-mid;
 
@@ -729,6 +735,52 @@
           width: calc(100% - 14px);
         }
       }
+    }
+  }
+
+  &_fz25 {
+    text-align: center;
+
+    #{$b}__content {
+      @include heading-3;
+
+      line-height: 1.2;
+      padding: 4px;
+      font-weight: 700;
+
+      @include screen('md') {
+        @include heading-5;
+
+        line-height: 1.2;
+      }
+
+      @include screen('sm') {
+        @include text13;
+
+        line-height: 1.2;
+        padding: 2px 4px;
+      }
+
+      &::before {
+        top: auto;
+        bottom: 4px;
+        left: 4px;
+        width: calc(100% - 8px);
+
+        @include screen('sm') {
+          left: 4px;
+          width: calc(100% - 8px);
+        }
+      }
+    }
+  }
+
+  &_marker {
+    position: relative;
+    padding-right: 20px;
+
+    @include screen('sm') {
+      padding-right: 10px;
     }
   }
 }

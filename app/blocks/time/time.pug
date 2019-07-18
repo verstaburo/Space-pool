@@ -20,3 +20,18 @@ mixin time-big(start, startISO, end, endISO, color)
     +e.text(class=addClass) Till:
       +e.TIME.time(datetime=endISO)!= end
     block
+
+mixin time-origin()
+  +b.time_sb&attributes(attributes)
+    block
+
+mixin time-text()
+  +e.text&attributes(attributes)
+    block
+
+mixin time-time()
+  +e.TIME.time&attributes(attributes)
+    block
+
+mixin time-divider()
+  +long-arrow.__divider&attributes(attributes)

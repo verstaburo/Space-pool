@@ -95,8 +95,32 @@ export default function popups() {
       '</div>',
   };
 
-  $('.js-popup').fancybox(optionsStPopup);
-  $('.js-popup-mobile').fancybox(optionsMobPopup);
+  // $('.js-popup').fancybox(optionsStPopup);
+  // $('.js-popup-mobile').fancybox(optionsMobPopup);
+
+  $(document).on('click', '.js-popup', (evt) => {
+    const self = evt.currentTarget;
+    const data = $(self).attr('data-src') || $(self).attr('href');
+    const popupId = `#${data.split('#').pop()}`;
+    const source = $(popupId);
+    $.fancybox.open({
+      src: source,
+      type: 'inline',
+      opts: optionsStPopup,
+    });
+  });
+
+  $(document).on('click', '.js-popupj-mobile', (evt) => {
+    const self = evt.currentTarget;
+    const data = $(self).attr('data-src') || $(self).attr('href');
+    const popupId = `#${data.split('#').pop()}`;
+    const source = $(popupId);
+    $.fancybox.open({
+      src: source,
+      type: 'inline',
+      opts: optionsMobPopup,
+    });
+  });
 
   $(document).on('click', '.js-popup-depends-width', (evt) => {
     evt.preventDefault();

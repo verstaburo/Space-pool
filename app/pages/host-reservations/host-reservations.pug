@@ -7,34 +7,29 @@ block header
   -var headerClass = '_border'
 
 block content
+  - var requests = getData('host-requsts.json')
   +content-origin._reverse._last
     .container
       +e.wrapper
         +content-column-aside._ptop.hide-lg
           +side-navigation('Change your personal info, password and notification options here')
             +nav-list-sidebar(getData('side-menu-host.json'), 'Reservations').__navigation
-        +content-column-main
+        +content-column-main._ptp34
           +filter-reservations
+          +table-head._messages._messages_gr.hide-md
+            +e.wrapper
+              +e.cell_req-prop
+                +e.name Property and offer
+              +e.cell_req-info
+                +e.name Details
+              +e.cell_req-info._tar
+                +e.name Status
           +section._inner._inner_ssmg
             +section-content
-              +table-head._messages.hide-md
-                +e.wrapper
-                  +e.cell_req-sub
-                    +e.name Request for
-                  +e.cell_req-info
-                    +e.name Request Details and Status
-              +request-full('4', '2', '730', 'buttons')
-              +request-full('4', '2', '730', 'wait')
-          +section._inner._inner_gmg
-            +section-header._flex._smg
-              +section-title('h3') Upcoming
-            +section-content
-              +request-full('1', '1', '455', 'buttons')
-              +request-full('3', '2', '730', 'buttons')
-              +request-full('4', '2', '730', 'accept')
-              +request-full('4', '2', '730', 'decline')
-              +request-full('2', '2', '730', 'accept')
-              +request-full('1', '2', '730', 'accept')
+              each item in requests
+                +request-full-new(item)
+              //- +request-full('4', '2', '730', 'buttons')
+              //- +request-full('4', '2', '730', 'wait')
           +pagination._negative-mgt
 
 block panels

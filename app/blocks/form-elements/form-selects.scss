@@ -510,6 +510,51 @@
     }
   }
 
+  &_dark3 {
+    #{$k}__inner {
+      @include heading-5;
+
+      line-height: (26 / 18);
+      transition: box-shadow $ease-main;
+
+      @include screen('sm') {
+        @include text13;
+      }
+    }
+
+    #{$k}__toggle {
+      svg {
+        width: 17px;
+        height: 10px;
+
+        @include screen('sm') {
+          width: 9px;
+          height: 5px;
+        }
+      }
+    }
+
+    #{$k}__list {
+      &--single {
+        padding-right: 27px;
+
+        @include screen('sm') {
+          padding-right: 16px;
+        }
+      }
+
+      &--dropdown {
+        max-height: 201px;
+        min-width: 0;
+        width: 290px;
+      }
+    }
+
+    &.is-item-select:not(.is-readonly):not(.is-disabled) #{$k}__inner {
+      color: $color-basic-dark;
+    }
+  }
+
   &_input {
     width: 100%;
 

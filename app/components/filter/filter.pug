@@ -60,22 +60,30 @@ mixin filter-search()
         +toggle('0').__toggle.js-show-advanced-filter(data-target-filter="advancedSearch") Advanced search
 
 mixin filter-reservations()
-  +b.FORM.filter&attributes(attributes)
+  +b.FORM.filter_reserv&attributes(attributes)
     +e.content_sb
       +e.column
         +e.wrapper.hide-from-sm
         +e.wrapper.hide-sm
-          +b.LABEL.color-radio._full._dark._big.__toggle
-            +e.INPUT.input(name="userType", value="tenant", type="radio", checked, data-show-elements="details-checker", data-toggle-form)
-            +e.SPAN.content Sign up as a tenant
+          +b.LABEL.color-radio._full._fz25._dark.__toggle
+            +e.INPUT.input(name="dealType", value="all", type="radio", checked)
+            +e.SPAN.content All contracts
         +e.wrapper.hide-sm
-          +b.LABEL.color-radio._full._dark._big.__toggle
-            +e.INPUT.input(name="userType", value="host", type="radio", data-hide-elements="details-checker",data-show-elements="details", data-toggle-form)
-            +e.SPAN.content Sign up as a host
+          +b.LABEL.color-radio._full._fz25._dark._marker.__toggle
+            +e.INPUT.input(name="dealType", value="viewings", type="radio")
+            +e.SPAN.content Viewings
+            +indicator.__marker 2
         +e.wrapper.hide-sm
-          +b.LABEL.color-radio._full._dark._big.__toggle
-            +e.INPUT.input(name="userType", value="host", type="radio", data-hide-elements="details-checker",data-show-elements="details", data-toggle-form)
-            +e.SPAN.content Sign up as a host
+          +b.LABEL.color-radio._full._fz25._dark._marker.__toggle
+            +e.INPUT.input(name="dealType", value="tenacies", type="radio")
+            +e.SPAN.content Tenancies
+            +indicator.__marker 1
       +e.column
-        +e.wrapper
+        +e.wrapper_line
           +e.text.hide-sm Show
+          +select.js-select-dark3(name="area" style="width: 56px;")
+            option(value="all" selected) All deal statuses
+            option(value="Request") Request
+            option(value="Upcoming") Upcoming event
+            option(value="Active") Active contract
+            option(value="Finished") Finished contract

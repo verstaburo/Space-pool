@@ -41,3 +41,81 @@ mixin request-full(count1, count2, price, status)
             - break
           default
             - break
+
+mixin request-full-new(data)
+  - var addClass  = data.new ? 'is-new' : '';
+  - var btnName = data.new ? 'Respond to a request' : 'Open deal page'
+  +b.request&attributes(attributes)(class=addClass)
+    +e.data
+      if data.new
+        +status._fz10._grad.__new new
+      +e.TIME.date!= data.create
+    +e.prop
+      +space-description._request2
+        +space-description-image(data.space.image)
+        +space-description-content
+          +space-description-title!=data.space.name
+          +space-description-info
+            +offer-info
+              +box._big(class=data.space.offer.box)
+              +e.title!= data.space.offer.name
+          +space-description-text._bold!=data.space.describe
+    +e.info
+      +request-info-table
+        +request-info-row._type
+          +request-info-cell._head.hide-from-md
+            +e.text Deal type
+          +request-info-cell
+            case data.type
+              when 'Tenancy'
+                +request-type('key2')._green.__type Tenancy
+                - break
+              when 'Viewing'
+                +request-type('eye')._yellow.__type Viewing
+                - break
+              default
+                - break
+        +request-info-row._renter
+          +request-info-cell._head.hide-from-md
+            +e.text Requested by
+          +request-info-cell
+            +short-profile-origin('assets/images/ava.jpg', ' Mr. Edward Pullman')
+        +request-info-row._status
+          +request-info-cell._head.hide-from-md
+            +e.text Status
+          +request-info-cell
+            case data.status
+              when 'request'
+                +request-status-simple._orange.__status Status: <b>Request</b>
+                - break
+              when 'upcoming'
+                +request-status-simple._blue.__status Status: <b>Upcoming event</b>
+                - break
+              when 'active'
+                +request-status-simple._green-light.__status Status: <b>Active contract</b>
+                - break
+              when 'finished'
+                +request-status-simple.__status Status: <b>Finished contract</b>
+                - break
+              default
+                - break
+        +request-info-row._period
+          +request-info-cell._head
+            +e.text!= data.period.name
+          +request-info-cell
+            +time-origin
+              +time-text
+                +time-time()(datetime=data.period.start.ISO)!= data.period.start.text
+              if data.period.end
+                +time-divider
+                +time-text
+                  +time-time()(datetime=data.period.end.ISO)!= data.period.end.text
+      +e.links
+        - if (data.link) {
+          +button()._border._border_bg-white._mob-smaller.__button.hide-from-md(href="#")!=btnName
+          +link()._underline._bold.__link.hide-md(href="#")!=btnName
+        - } else {
+          +button()._border._border_bg-white._mob-smaller.__button(href="#")!=btnName
+        - }
+      +e.arrow
+        +icon('arrow2').__arrow-icon

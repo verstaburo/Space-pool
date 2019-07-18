@@ -57,4 +57,44 @@
   &__status {
     margin-top: auto;
   }
+
+  &__row {
+    width: 50%;
+
+    @include screen('md') {
+      width: 100%;
+    }
+
+    &_status {
+      @include screen('md', min) {
+        order: 2;
+      }
+    }
+
+    &_period {
+      padding-bottom: 50px;
+
+      @include screen('md') {
+        padding-bottom: 0;
+      }
+
+      @include screen('md', min) {
+        order: 3;
+      }
+    }
+
+    &_renter {
+      @include screen('md', min) {
+        order: 4;
+      }
+    }
+  }
+
+  &_table {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: stretch;
+    flex-wrap: wrap;
+  }
 }
