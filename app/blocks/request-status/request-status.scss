@@ -80,4 +80,49 @@
       background-color: $color-status-accept-dark;
     }
   }
+
+  &_orange {
+    #{$b}__text {
+      background-color: $color-yellow;
+    }
+  }
+
+  &_blue {
+    #{$b}__text {
+      background-color: $color-blue;
+    }
+  }
+
+  &_green-light {
+    #{$b}__text {
+      background-color: $color-confirm;
+    }
+  }
+
+  &_simple {
+    display: inline-flex;
+    width: auto;
+
+    #{$b} {
+
+      &__text {
+        @include heading-4;
+
+        line-height: 26px;
+        padding: 0 8px;
+        font-weight: 400;
+
+        @include screen('sm') {
+          @include text;
+
+          line-height: 17px;
+          padding: 0 4px;
+        }
+
+        b {
+          font-weight: 700;
+        }
+      }
+    }
+  }
 }

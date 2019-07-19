@@ -4,7 +4,7 @@ block head
   - var pageTitle = 'SpacePool - HOST Reservations'
 
 block header
-  -var headerClass = '_border'
+  -var headerClass = ''
 
 block content
   - var requests = getData('host-requsts.json')
@@ -28,9 +28,7 @@ block content
             +section-content
               each item in requests
                 +request-full-new(item)
-              //- +request-full('4', '2', '730', 'buttons')
-              //- +request-full('4', '2', '730', 'wait')
-          +pagination._negative-mgt
+          +pagination._mgt80._sm-centered
 
 block panels
   +main-menu-inner

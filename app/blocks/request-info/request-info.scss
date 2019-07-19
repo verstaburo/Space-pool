@@ -62,20 +62,42 @@
     width: 50%;
 
     @include screen('md') {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
       width: 100%;
+      padding: 15px 0 14px;
+    }
+
+    @include screen('sm') {
+      padding: 4px 0 3px;
+      border-bottom: 1px solid $color-border-light;
     }
 
     &_status {
+      @include screen('md') {
+        padding: 12px 0 11px;
+      }
+
+      @include screen('sm') {
+        padding: 1px 0 2px;
+      }
+
       @include screen('md', min) {
         order: 2;
       }
     }
 
     &_period {
-      padding-bottom: 50px;
+      padding-top: 20px;
 
       @include screen('md') {
-        padding-bottom: 0;
+        padding: 12px 0 11px;
+      }
+
+      @include screen('sm') {
+        padding: 1px 0 0;
       }
 
       @include screen('md', min) {
@@ -84,9 +106,79 @@
     }
 
     &_renter {
+      padding-bottom: 50px;
+
+      @include screen('md') {
+        padding: 7px 0 6px;
+      }
+
+      @include screen('sm') {
+        padding: 0 0 2px;
+      }
+
       @include screen('md', min) {
         order: 4;
       }
+    }
+
+    &:not(:last-child) {
+      @include screen('md') {
+        border-bottom: 1px solid $color-border-light;
+      }
+    }
+  }
+
+  &__cell {
+    text-align: right;
+
+    @include screen('md') {
+      display: inline-block;
+      margin-top: 4px;
+      margin-bottom: 5px;
+    }
+
+    &_head {
+      text-align: left;
+      margin-bottom: 32px;
+
+      @include screen('md') {
+        margin-right: 20px;
+        margin-bottom: 5px;
+      }
+    }
+
+    &_tal {
+      text-align: left;
+
+      @include screen('md') {
+        text-align: right;
+      }
+    }
+
+    &:last-child {
+      @include screen('md') {
+        margin-left: auto;
+      }
+    }
+
+    #{$b} {
+      &__status {
+        margin-top: -3px;
+
+        @include screen('md') {
+          margin-top: 0;
+        }
+      }
+    }
+  }
+
+  &__text {
+    @include text-mid;
+
+    @include screen('sm') {
+      @include text;
+
+      line-height: (26/14);
     }
   }
 
@@ -95,6 +187,31 @@
     flex-direction: row;
     justify-content: flex-start;
     align-items: stretch;
+    align-content: space-between;
     flex-wrap: wrap;
+    margin-top: -26px;
+
+    @include screen('md') {
+      align-content: flex-start;
+      margin-top: 0;
+    }
+
+    #{$b} {
+
+      &__row {
+        margin-top: 26px;
+
+        @include screen('md') {
+          margin-top: 0;
+        }
+      }
+    }
+
+    .time {
+
+      &__text {
+        white-space: normal;
+      }
+    }
   }
 }

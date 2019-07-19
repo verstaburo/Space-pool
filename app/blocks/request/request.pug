@@ -44,8 +44,8 @@ mixin request-full(count1, count2, price, status)
 
 mixin request-full-new(data)
   - var addClass  = data.new ? 'is-new' : '';
-  - var btnName = data.new ? 'Respond to a request' : 'Open deal page'
-  +b.request&attributes(attributes)(class=addClass)
+  - var btnName = data.new ? 'Respond to a request' : 'Open the deal page'
+  +b.request_v2&attributes(attributes)(class=addClass)
     +e.data
       if data.new
         +status._fz10._grad.__new new
@@ -54,18 +54,18 @@ mixin request-full-new(data)
       +space-description._request2
         +space-description-image(data.space.image)
         +space-description-content
-          +space-description-title!=data.space.name
+          +space-description-title._smdeco!=data.space.name
           +space-description-info
             +offer-info
-              +box._big(class=data.space.offer.box)
-              +e.title!= data.space.offer.name
-          +space-description-text._bold!=data.space.describe
-    +e.info
-      +request-info-table
+              +box._mid(class=data.space.offer.box)
+              +e.title_mfz10._light-gray._lsp!= data.space.offer.name
+          +space-description-text._mid._bold!=data.space.describe
+    +e.info_wrap
+      +request-info-table.__table
         +request-info-row._type
           +request-info-cell._head.hide-from-md
             +e.text Deal type
-          +request-info-cell
+          +request-info-cell._tal
             case data.type
               when 'Tenancy'
                 +request-type('key2')._green.__type Tenancy
@@ -79,7 +79,7 @@ mixin request-full-new(data)
           +request-info-cell._head.hide-from-md
             +e.text Requested by
           +request-info-cell
-            +short-profile-origin('assets/images/ava.jpg', ' Mr. Edward Pullman')
+            +short-profile-origin('assets/images/ava.jpg', ' Mr. Edward Pullman')._full._smava
         +request-info-row._status
           +request-info-cell._head.hide-from-md
             +e.text Status
@@ -102,20 +102,20 @@ mixin request-full-new(data)
         +request-info-row._period
           +request-info-cell._head
             +e.text!= data.period.name
-          +request-info-cell
+          +request-info-cell._tal
             +time-origin
               +time-text
-                +time-time()(datetime=data.period.start.ISO)!= data.period.start.text
+                +time-time()._sm-fz14(datetime=data.period.start.ISO)!= data.period.start.text
               if data.period.end
-                +time-divider
+                +time-arrow
                 +time-text
-                  +time-time()(datetime=data.period.end.ISO)!= data.period.end.text
+                  +time-time()._sm-fz14(datetime=data.period.end.ISO)!= data.period.end.text
       +e.links
         - if (data.link) {
-          +button()._border._border_bg-white._mob-smaller.__button.hide-from-md(href="#")!=btnName
+          +button()._border._border_bg-white._mob-smaller._short.__button.hide-from-md(href="#")!=btnName
           +link()._underline._bold.__link.hide-md(href="#")!=btnName
         - } else {
-          +button()._border._border_bg-white._mob-smaller.__button(href="#")!=btnName
+          +button()._border._border_bg-white._mob-smaller._short.__button(href="#")!=btnName
         - }
       +e.arrow
         +icon('arrow2').__arrow-icon

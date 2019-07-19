@@ -34,6 +34,14 @@
       line-height: (20/12);
       letter-spacing: -.02em;
     }
+
+    &_sm-fz14 {
+      @include screen('sm') {
+        @include text;
+
+        line-height: (17 / 14);
+      }
+    }
   }
 
   &__divider {
@@ -41,6 +49,21 @@
     margin-left: 11px;
     margin-right: 11px;
     min-width: 15px;
+
+    &_dark {
+      color: $color-basic;
+    }
+  }
+
+  &__arrow {
+    display: block;
+    width: 16px;
+    height: 7px;
+    font-size: 0;
+    line-height: 0;
+    margin: 0 8px;
+    fill: $color-basic;
+    min-width: 16px;
   }
 
   &_sb {

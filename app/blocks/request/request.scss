@@ -8,7 +8,7 @@
   padding: 33px 0 40px;
   transition: border $ease-main, background $ease-main, box-shadow $ease-main;
 
-  @include screen('sm') {
+  @include screen('md') {
     flex-wrap: wrap;
   }
 
@@ -41,6 +41,10 @@
   &.is-new {
     &:not(:first-child) {
       margin-top: -2px;
+
+      @include screen('md') {
+        margin-top: 0;
+      }
     }
 
     &::after, &::before {
@@ -50,6 +54,10 @@
 
     & + #{$b} {
       margin-top: -2px;
+
+      @include screen('md') {
+        margin-top: 0;
+      }
 
       &::before {
         height: 2px;
@@ -99,15 +107,17 @@
     position: relative;
     display: flex;
     box-sizing: border-box;
-    padding: 0 25px;
+    padding: 0 25px 7px;
     width: 48.8%;
 
     @include screen('md') {
       width: 100%;
+      padding: 0;
+      margin-bottom: 25px;
     }
 
     @include screen('sm') {
-      margin-bottom: 20px;
+      margin-bottom: 15px;
     }
 
     .space-description {
@@ -128,6 +138,10 @@
       flex: none;
       width: 100%;
     }
+
+    &_wrap {
+      flex-wrap: wrap;
+    }
   }
 
   &__data {
@@ -137,6 +151,15 @@
     align-items: center;
     top: 5px;
     left: 25px;
+
+    @include screen('md') {
+      left: 35px;
+    }
+
+    @include screen('sm') {
+      top: 2px;
+      left: 11px;
+    }
   }
 
   &__date {
@@ -164,7 +187,7 @@
     display: inline-flex;
     justify-content: flex-end;
     align-items: center;
-    bottom: 0;
+    bottom: -5px;
     right: 25px;
     opacity: 0;
     transition: opacity $ease-main;
@@ -185,12 +208,51 @@
     }
   }
 
+  &__button {
+    min-width: 220px;
+
+    @include screen('md') {
+      min-width: 240px;
+    }
+
+    @include screen('sm') {
+      width: 100%;
+    }
+  }
+
+  &__link {
+    @include text-mid;
+
+    line-height: 1;
+    margin-right: 20px;
+
+    @include screen('sm') {
+      @include text;
+
+      line-height: 1;
+    }
+  }
+
+  &__table {
+    width: 100%;
+
+    &:not(:last-child) {
+      @include screen('md') {
+        margin-bottom: 16px;
+      }
+
+      @include screen('sm') {
+        margin-bottom: 24px;
+      }
+    }
+  }
+
   &__arrow {
     position: absolute;
     display: inline-flex;
     justify-content: center;
     align-items: center;
-    bottom: 0;
+    bottom: -7px;
     right: 25px;
     height: 40px;
     width: 7px;
@@ -210,7 +272,6 @@
   &:hover {
     background-color: $color-white;
     box-shadow: 1px 1px 8px rgba(34, 42, 46, .06);
-    border-radius: 3px;
 
     &::before, &::after {
       background-color: transparent;
@@ -218,6 +279,55 @@
 
     & + #{$b}::before {
       background-color: transparent;
+    }
+  }
+
+  &_v2 {
+    padding: 35px 0 33px;
+    border-radius: 3px;
+
+    @include screen('md') {
+      background-color: $color-white;
+      box-shadow: none;
+      margin: 0;
+      padding: 35px 35px 27px;
+      box-sizing: border-box;
+      margin-top: 0;
+    }
+
+    @include screen('sm') {
+      padding: 32px 11px 25px;
+    }
+
+    &::before, &::after {
+      @include screen('md') {
+        display: none;
+      }
+    }
+
+    &.is-new {
+      @include screen('md') {
+        border: 2px solid $color-header-logo;
+      }
+    }
+
+    &:not(:last-child) {
+      @include screen('md') {
+        margin-bottom: 38px;
+      }
+
+      @include screen('sm') {
+        margin-bottom: 30px;
+      }
+    }
+
+    #{$b} {
+
+      &__info {
+        @include screen('md') {
+          padding: 0;
+        }
+      }
     }
   }
 }

@@ -75,6 +75,25 @@
         margin-bottom: 6px;
       }
     }
+
+    &_smdeco {
+      @include screen('sm') {
+        position: relative;
+        padding-bottom: 16px;
+      }
+
+      &::before {
+        @include screen('sm') {
+          @include pseudo;
+
+          width: 20px;
+          height: 1px;
+          background-color: $color-border-light;
+          left: 0;
+          bottom: 0;
+        }
+      }
+    }
   }
 
   &__boxes {
@@ -110,6 +129,13 @@
     &:not(:last-child) {
       margin-bottom: 10px;
     }
+
+    .offer-info .box {
+
+      @include screen('sm') {
+        margin-right: 4px;
+      }
+    }
   }
 
   &__text {
@@ -121,6 +147,22 @@
 
     @include screen('sm') {
       margin-bottom: 0;
+    }
+
+    &_mid {
+      @include text-mid;
+
+      line-height: 1.2;
+
+      @include screen('sm') {
+        @include text15;
+
+        line-height: 1.13;
+      }
+    }
+
+    &_bold {
+      font-weight: 700;
     }
   }
 
@@ -166,23 +208,86 @@
   }
 
   &_request2 {
+
     #{$b} {
       &__media {
         flex: 1;
 
+        @include screen('md') {
+          margin-bottom: 0;
+        }
+
         @include screen('sm') {
           flex: none;
           width: 100%;
-          margin-bottom: 10px;
+          margin-bottom: 20px;
         }
       }
 
       &__content {
         flex: 1.35;
 
+        @include screen('md') {
+          flex: 1.6;
+          margin-top: -3px;
+        }
+
         @include screen('sm') {
           flex: none;
           width: 100%;
+          margin-top: 0;
+        }
+      }
+
+      &__title {
+        @include screen('md') {
+          order: 2;
+        }
+
+        @include screen('sm') {
+          @include heading-4;
+
+          line-height: 1;
+          order: 1;
+        }
+
+        &:not(:last-child) {
+          @include screen('md') {
+            margin-bottom: 29px;
+          }
+
+          @include screen('sm') {
+            margin-bottom: 10px;
+          }
+        }
+      }
+
+      &__info {
+        @include screen('md') {
+          order: 1;
+          margin-top: 0;
+        }
+
+        @include screen('sm') {
+          order: 2;
+        }
+
+        &:not(:last-child) {
+          margin-bottom: 17px;
+
+          @include screen('md') {
+            margin-bottom: 0;
+          }
+
+          @include screen('sm') {
+            margin-bottom: 10px;
+          }
+        }
+      }
+
+      &__text {
+        @include screen('md') {
+          order: 3;
         }
       }
     }

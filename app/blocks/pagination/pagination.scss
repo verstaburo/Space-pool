@@ -27,6 +27,20 @@
     }
   }
 
+  &_mgt80 {
+    &:not(:first-child) {
+      margin-top: 80px;
+
+      @include screen('md') {
+        margin-top: 61px;
+      }
+
+      @include screen('sm') {
+        margin-top: 53px;
+      }
+    }
+  }
+
   &_negative-mgt:not(:first-child) {
     margin-top: -28px;
 
@@ -37,6 +51,12 @@
 
   &_md-centered {
     @include screen('md') {
+      justify-content: center;
+    }
+  }
+
+  &_sm-centered {
+    @include screen('sm') {
       justify-content: center;
     }
   }

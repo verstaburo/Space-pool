@@ -1,3 +1,61 @@
 .request-type {
   $b: &;
+
+  display: inline-flex;
+  align-items: center;
+
+  &_green {
+    color: $color-confirm;
+  }
+
+  &_yellow {
+    color: $color-viewing;
+  }
+
+  &__text {
+    @include heading-4;
+
+    line-height: 1;
+    font-weight: 700;
+
+    @include screen('sm') {
+      @include text;
+
+      line-height: 1;
+    }
+  }
+
+  &__icon {
+    width: 22px;
+    height: 14px;
+    fill: $color-icon-gray-another;
+
+    &:not(:first-child) {
+      margin-left: 10px;
+
+      @include screen('sm') {
+        margin-left: 5px;
+      }
+    }
+
+    &_key2 {
+      width: 22px;
+      height: 12px;
+
+      @include screen('sm') {
+        width: 18px;
+        height: 10px;
+      }
+    }
+
+    &_eye {
+      width: 21px;
+      height: 14px;
+
+      @include screen('sm') {
+        width: 18px;
+        height: 12px;
+      }
+    }
+  }
 }
