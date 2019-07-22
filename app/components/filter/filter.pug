@@ -63,21 +63,43 @@ mixin filter-reservations()
   +b.FORM.filter_reserv&attributes(attributes)
     +e.content_sb
       +e.column
-        +e.wrapper.hide-from-sm
-        +e.wrapper.hide-sm
-          +b.LABEL.color-radio._full._fz25._dark.__toggle
-            +e.INPUT.input(name="dealType", value="all", type="radio", checked)
-            +e.SPAN.content All contracts
-        +e.wrapper.hide-sm
-          +b.LABEL.color-radio._full._fz25._dark._marker.__toggle
-            +e.INPUT.input(name="dealType", value="viewings", type="radio")
-            +e.SPAN.content Viewings
-            +indicator.__marker 2
-        +e.wrapper.hide-sm
-          +b.LABEL.color-radio._full._fz25._dark._marker.__toggle
-            +e.INPUT.input(name="dealType", value="tenacies", type="radio")
-            +e.SPAN.content Tenancies
-            +indicator.__marker 1
+        +e.wrapper_line
+          +filter-select.js-offer-select
+            +filter-head.hide-from-sm
+              +filter-label.color-radio_full._dark._fz25._sm-noundr
+                div.color-radio__content All deal types
+                  +indicator._sm-small.__marker 2
+            +filter-dropdown
+              +filter-item
+                +b.LABEL.color-radio._full._fz25._dark._sm-noundr.__radio
+                  +e.INPUT.input(name="dealType", value="all", type="radio", checked data-offer-input)
+                  +e.SPAN.content.hide-from-sm(data-select-value) All deal types
+                    +indicator._sm-small.__marker 2
+                  +e.SPAN.content.hide-sm All contracts
+              +filter-item
+                +b.LABEL.color-radio._full._fz25._dark._sm-noundr._marker.__radio
+                  +e.INPUT.input(name="dealType", value="viewings", type="radio" data-offer-input)
+                  +e.SPAN.content(data-select-value) Viewings
+                    +indicator._sm-small.__marker 2
+              +filter-item
+                +b.LABEL.color-radio._full._fz25._dark._sm-noundr._marker.__radio
+                  +e.INPUT.input(name="dealType", value="tenacies", type="radio" data-offer-input)
+                  +e.SPAN.content(data-select-value) Tenancies
+                    +indicator._sm-small.__marker 1
+        //- +e.wrapper.hide-sm
+        //-   +b.LABEL.color-radio._full._fz25._dark.__toggle
+        //-     +e.INPUT.input(name="dealType", value="all", type="radio", checked)
+        //-     +e.SPAN.content All contracts
+        //- +e.wrapper.hide-sm
+        //-   +b.LABEL.color-radio._full._fz25._dark._marker.__toggle
+        //-     +e.INPUT.input(name="dealType", value="viewings", type="radio")
+        //-     +e.SPAN.content Viewings
+        //-       +indicator.__marker 2
+        //- +e.wrapper.hide-sm
+        //-   +b.LABEL.color-radio._full._fz25._dark._marker.__toggle
+        //-     +e.INPUT.input(name="dealType", value="tenacies", type="radio")
+        //-     +e.SPAN.content Tenancies
+        //-       +indicator.__marker 1
       +e.column
         +e.wrapper_line
           +e.text.hide-sm Show

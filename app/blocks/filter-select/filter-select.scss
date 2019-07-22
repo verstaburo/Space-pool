@@ -1,0 +1,117 @@
+.filter-select {
+  $b: &;
+
+  display: inline-block;
+  position: relative;
+  font-size: 0;
+  line-height: 0;
+
+  &__head {
+    display: inline-flex;
+    position: relative;
+    box-sizing: border-box;
+    padding-right: 24px;
+    align-items: center;
+  }
+
+  &__label {
+    display: inline-block;
+    position: relative;
+
+    .color-radio__content {
+      border: none;
+      padding: 0 4px 0 0 !important;
+    }
+  }
+
+  &__toggle {
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 17px;
+    height: 100%;
+
+    @include screen('sm') {
+      width: 9px;
+    }
+
+    &-icon {
+      width: 17px;
+      height: 10px;
+      fill: currentColor;
+      transition: all $ease-main;
+      transform-origin: 50% 50% 0;
+      transform: rotate(0);
+
+      @include screen('sm') {
+        width: 9px;
+        height: 5px;
+      }
+
+      #{$b}:hover & {
+        fill: $color-basic-dark;
+      }
+
+      #{$b}.is-open & {
+        transform: rotate(180deg);
+      }
+    }
+  }
+
+  &__dropdown {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    box-sizing: border-box;
+    transition: opacity $ease-main;
+
+    @include screen('sm') {
+      position: absolute;
+      display: inline-flex;
+      flex-direction: column;
+      align-items: flex-start;
+      z-index: 2;
+      opacity: 0;
+      pointer-events: none;
+      background-color: $color-bg;
+      top: 100%;
+      left: 0;
+      min-width: 290px;
+      padding: 10px 0;
+      border-top: 1px solid $color-basic;
+      border-bottom: 1px solid $color-basic;
+    }
+
+    #{$b}.is-open & {
+      @include screen('sm') {
+        opacity: 1;
+        pointer-events: auto;
+      }
+    }
+  }
+
+  &__item {
+    display: inline-block;
+
+    @include screen('sm') {
+      display: block;
+      width: 100px;
+    }
+
+    &:not(:last-child) {
+      margin-right: 44px;
+
+      @include screen('md') {
+        margin-right: 23px;
+      }
+
+      @include screen('sm') {
+        margin-right: 0;
+        margin-bottom: 4px;
+      }
+    }
+  }
+}

@@ -1,0 +1,21 @@
+mixin filter-select()
+  +b.filter-select&attributes(attributes)
+    block
+
+mixin filter-head()
+  +e.head&attributes(attributes)(data-head)
+    block
+    +e.toggle
+      +icon('select-arrow').__toggle-icon
+
+mixin filter-label()
+  +e.label&attributes(attributes)(data-label)
+    block
+
+mixin filter-dropdown()
+  +e.dropdown&attributes(attributes)
+    block
+
+mixin filter-item()
+  +e.item&attributes(attributes)(data-select-item)
+    block

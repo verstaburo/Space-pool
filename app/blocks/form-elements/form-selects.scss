@@ -511,6 +511,11 @@
   }
 
   &_dark3 {
+    @include screen('sm') {
+      font-size: 13px;
+      line-height: 1.2;
+    }
+
     #{$k}__inner {
       @include heading-5;
 
@@ -519,6 +524,8 @@
 
       @include screen('sm') {
         @include text13;
+
+        line-height: 1.2;
       }
     }
 
@@ -551,7 +558,7 @@
     }
 
     &.is-item-select:not(.is-readonly):not(.is-disabled) #{$k}__inner {
-      color: $color-basic-dark;
+      color: $color-basic;
     }
   }
 
