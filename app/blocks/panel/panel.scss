@@ -5,10 +5,15 @@
   top: 100%;
   left: 0;
   width: 100%;
-  transform: translate3d(0, -70px, 0);
-  max-height: calc(100% - 70px);
+  transform: translate3d(0, -140px, 0);
+  max-height: calc(100% - 140px);
   z-index: 5;
   transition: transform $ease-main;
+
+  @include screen('sm') {
+    transform: translate3d(0, -110px, 0);
+    max-height: calc(100% - 110px);
+  }
 
   &.is-open {
     transform: translate3d(0, -100%, 0);

@@ -13,14 +13,34 @@
     line-height: 0;
     transition: fill $ease-main;
 
+    @include screen('sm') {
+      min-width: 20px;
+      width: 20px;
+      height: 19px;
+    }
+
+    #{$b}.is-active & {
+      fill: $color-user-link-active;
+    }
+
     &_heart {
       min-width: 27px;
       width: 27px;
       height: 25px;
+
+      @include screen('sm') {
+        min-width: 19px;
+        width: 19px;
+        height: 18px;
+      }
     }
 
     &_calendar {
       height: 25px;
+
+      @include screen('sm') {
+        height: 18px;
+      }
     }
 
     #{$b}:hover & {
@@ -39,8 +59,19 @@
     opacity: 0;
     transition: opacity $ease-main;
 
+    @include screen('sm') {
+      top: 0;
+      right: -2px;
+      width: 6px;
+      height: 6px;
+    }
+
     #{$b}.is-new & {
       opacity: 1;
+    }
+
+    #{$b}.is-active & {
+      opacity: 0;
     }
   }
 }

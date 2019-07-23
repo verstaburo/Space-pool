@@ -40,7 +40,7 @@
     // background-color: $color-bg;
 
     @include screen('sm') {
-      position: fixed;
+      // position: fixed;
       top: 0;
       height: 50px;
     }
@@ -58,6 +58,7 @@
         border $ease-main;
       box-sizing: border-box;
       z-index: 1;
+      backface-visibility: hidden;
 
       @include screen('sm') {
         height: 50px;
@@ -82,23 +83,26 @@
     }
 
     #{$b}.is-short & {
-      position: fixed;
-      top: 0;
+      @include screen('md', min) {
+        position: fixed;
+        top: 0;
+      }
 
       &::before {
-        background-color: $color-white;
-        border-bottom-color: $color-border-light;
+        @include screen('md', min) {
+          background-color: $color-white;
+          border-bottom-color: $color-border-light;
+        }
       }
     }
   }
 
   &.is-short {
-    height: 70px;
+    // height: 70px;
     // background-color: $color-white;
     // border-bottom-color: $color-border-light;
-
-    @include screen('sm') {
-      height: 50px;
+    @include screen('md', min) {
+      height: 70px;
     }
   }
 
@@ -111,11 +115,11 @@
       border-bottom-color: transparent;
     }
 
-    &.is-short {
-      @include screen('sm') {
-        border-bottom-color: $color-border-light;
-      }
-    }
+    // &.is-short {
+    //   @include screen('sm') {
+    //     border-bottom-color: $color-border-light;
+    //   }
+    // }
   }
 
   .container {
@@ -228,7 +232,9 @@
     }
 
     #{$b}.is-short & {
-      opacity: 0;
+      @include screen('md', min) {
+        opacity: 0;
+      }
     }
   }
 

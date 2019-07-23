@@ -75,9 +75,15 @@
     box-sizing: border-box;
     padding-top: 112px;
     transition: padding $ease-main;
+    padding-bottom: 70px;
+
+    @include screen('md') {
+      padding-top: 70px;
+    }
 
     @include screen('sm') {
       padding-top: 50px;
+      padding-bottom: 50px;
     }
 
     #{$b}.is-short & {
@@ -109,6 +115,7 @@
 
     @include screen('md') {
       padding: 0 36px;
+      opacity: 0;
     }
 
     @include screen('sm') {

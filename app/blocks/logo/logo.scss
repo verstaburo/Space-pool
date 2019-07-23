@@ -38,7 +38,9 @@
     }
 
     .header.is-short & {
-      opacity: 0;
+      @include screen('md', min) {
+        opacity: 0;
+      }
     }
   }
 
@@ -77,6 +79,32 @@
     @include screen('sm') {
       width: 45px;
       height: 52px;
+    }
+  }
+
+  &_small {
+    width: 35px;
+    height: 40px;
+
+    @include screen('sm') {
+      width: 21px;
+      height: 24px;
+    }
+
+    #{$b} {
+      &__icon {
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+
+  &_gray {
+    #{$b} {
+
+      &__icon {
+        fill: $color-basic;
+      }
     }
   }
 }

@@ -77,6 +77,12 @@
       .is-navigation-open & {
         transform: rotate(45deg);
       }
+
+      .is-navigation-open .header & {
+        @include screen('md') {
+          transform: rotate(0);
+        }
+      }
     }
 
     &::after {
@@ -94,6 +100,17 @@
 
         @include screen('sm') {
           width: 30px;
+        }
+      }
+
+      .is-navigation-open .header & {
+        @include screen('md') {
+          width: 32px;
+          transform: rotate(0);
+        }
+
+        @include screen('sm') {
+          width: 23px;
         }
       }
     }
@@ -133,6 +150,11 @@
       transform: scale(0);
       opacity: 0;
     }
+
+    .is-navigation-open .header & {
+      transform: scale(1);
+      opacity: 1;
+    }
   }
 
   &::before {
@@ -143,5 +165,62 @@
     top: 50%;
     left: 50%;
     transform: translate3d(-50%, -50%, 0);
+  }
+
+  &_small {
+    @include screen('sm') {
+      min-width: 21px;
+      width: 21px;
+      height: 16px;
+    }
+
+    &::before {
+      @include screen('sm') {
+        width: 40px;
+        height: 40px;
+      }
+    }
+
+    #{$b} {
+
+      &__image {
+        @include screen('sm') {
+          width: 21px;
+          height: 16px;
+        }
+
+        &::before,&::after {
+          @include screen('sm') {
+            height: 2px;
+          }
+        }
+
+        &::before {
+          @include screen('sm') {
+            width: 21px;
+          }
+        }
+
+        &::after {
+          @include screen('sm') {
+            width: 16px;
+          }
+
+          .is-navigation-open & {
+            @include screen('sm') {
+              width: 21px;
+            }
+          }
+        }
+      }
+
+      &__line {
+        @include screen('sm') {
+          top: 7px;
+          height: 2px;
+          width: 11px;
+        }
+      }
+    }
   }
 }

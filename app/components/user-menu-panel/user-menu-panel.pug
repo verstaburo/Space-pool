@@ -2,8 +2,12 @@ mixin user-menu-panel()
   +b.user-menu-panel&attributes(attributes)
     +e.UL.list
       +e.LI.item
-        +user-link('calendar', '_calendar', true)(href="#")
+        +logo-icon-short()(href="./")._small._gray.__logo
       +e.LI.item
-        +user-link('message', '_message', true)(href="#")
+        +user-link('calendar', '_calendar', true).__link(href="#")
       +e.LI.item
-        +user-link('heart', '_heart')(href="#")
+        +user-link('message', '_message', true).__link(href="#")
+      +e.LI.item
+        +user-link('heart', '_heart').__link(href="#")
+      +e.LI.item
+        +burger.burger_small

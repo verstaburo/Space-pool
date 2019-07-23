@@ -1,12 +1,18 @@
 .page-header {
   $b: &;
 
-  display: block;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 100%;
-  padding: 37px 0 43px;
+  padding: 34px 0 35px;
+  min-height: 110px;
+  box-sizing: border-box;
 
   @include screen('md') {
     padding: 34px 0 30px;
+    display: block;
+    min-height: 0;
   }
 
   @include screen('sm') {
@@ -60,7 +66,7 @@
   }
 
   &_gpad {
-    padding: 45px 0 43px;
+    padding: 42px 0;
 
     @include screen('md') {
       padding: 35px 0;
@@ -73,6 +79,7 @@
 
   &_xspad {
     padding: 43px 0 22px;
+    min-height: 0;
 
     @include screen('md') {
       padding: 34px 0 22px;
@@ -81,6 +88,10 @@
     @include screen('sm') {
       padding: 19px 0;
     }
+  }
+
+  &_nomh {
+    min-height: 0;
   }
 
   &_nowrap {

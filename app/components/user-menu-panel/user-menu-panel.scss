@@ -15,19 +15,24 @@
   padding: 5px 0;
   border-top: 1px solid $color-border-light;
   transition: opacity $ease-main;
-  z-index: 4;
+  z-index: 22;
+
+  @include screen('md') {
+    opacity: 1;
+    pointer-events: auto;
+  }
 
   @include screen('sm') {
     padding: 5px 0;
     height: 50px;
   }
 
-  body.is-login:not(.is-panel) & {
-    @include screen('md') {
-      opacity: 1;
-      pointer-events: auto;
-    }
-  }
+  // body.is-login:not(.is-panel) & {
+  //   @include screen('md') {
+  //     opacity: 1;
+  //     pointer-events: auto;
+  //   }
+  // }
 
   &__list {
     display: flex;
@@ -45,5 +50,16 @@
     flex: 1;
     box-sizing: border-box;
     padding: 0 15px;
+    transition: opacity $ease-main;
+  }
+
+  &__link {
+    opacity: .2;
+    pointer-events: none;
+
+    body.is-login & {
+      opacity: 1;
+      pointer-events: auto;
+    }
   }
 }
