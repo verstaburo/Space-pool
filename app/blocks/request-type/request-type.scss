@@ -58,4 +58,58 @@
       }
     }
   }
+
+  &_small {
+    #{$b} {
+      &__text {
+        @include text13;
+
+        line-height: 1.2;
+
+        @include screen('sm') {
+          @include text;
+
+          line-height: 1.2;
+        }
+      }
+
+      &__icon {
+        width: 15px;
+        height: 8px;
+
+        @include screen('sm') {
+          width: 12px;
+          height: 6px;
+        }
+
+        &:not(:first-child) {
+          margin-left: 3px;
+
+          @include screen('sm') {
+            margin-left: 2px;
+          }
+        }
+
+        &_key {
+          width: 15px;
+          height: 8px;
+
+          @include screen('sm') {
+            width: 12px;
+            height: 6px;
+          }
+        }
+
+        &_eye {
+          width: 11px;
+          height: 8px;
+
+          @include screen('sm') {
+            width: 9px;
+            height: 6px;
+          }
+        }
+      }
+    }
+  }
 }

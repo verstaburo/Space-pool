@@ -1,0 +1,18 @@
+mixin info-notices(data)
+  +b.info-notices&attributes(attributes)
+    +e.tail
+    +e.wrapper
+      +e.head
+        +close.__close.js-close-notices
+        if data.indicator
+          +indicator.__marker!= data.indicator
+        +e.title!= data.title
+      +e.scrollblock.js-scrollbar
+        +e.content
+          block
+      +e.bottom
+        +link()._underline.__link(href="#")
+          span.hide-from-md!= data.link.mdname
+          span.hide-md!= data.link.xlname
+        if data.link.indicator
+          +indicator.__marker!= data.link.indicator

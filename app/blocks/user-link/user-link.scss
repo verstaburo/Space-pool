@@ -2,9 +2,19 @@
   $b: &;
 
   position: relative;
-  display: inline-block;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 30px;
+  height: 30px;
+
+  @include screen('sm') {
+    width: 24px;
+    height: 24px;
+  }
 
   &__icon {
+    display: block;
     min-width: 28px;
     width: 28px;
     height: 26px;
@@ -16,35 +26,39 @@
     @include screen('sm') {
       min-width: 20px;
       width: 20px;
-      height: 19px;
-    }
-
-    #{$b}.is-active & {
-      fill: $color-user-link-active;
-    }
-
-    &_heart {
-      min-width: 27px;
-      width: 27px;
-      height: 25px;
-
-      @include screen('sm') {
-        min-width: 19px;
-        width: 19px;
-        height: 18px;
-      }
-    }
-
-    &_calendar {
-      height: 25px;
-
-      @include screen('sm') {
-        height: 18px;
-      }
+      height: 20px;
     }
 
     #{$b}:hover & {
       fill: $color-basic-dark;
+    }
+
+    #{$b}.is-active & {
+      fill: $color-user-link-active;
+
+      &:hover {
+        fill: $color-user-link-active;
+      }
+    }
+
+    &_heart {
+      // min-width: 27px;
+      // width: 27px;
+      // height: 25px;
+
+      // @include screen('sm') {
+      //   min-width: 19px;
+      //   width: 19px;
+      //   height: 18px;
+      // }
+    }
+
+    &_calendar {
+      // height: 25px;
+
+      // @include screen('sm') {
+      //   height: 18px;
+      // }
     }
   }
 
@@ -60,8 +74,8 @@
     transition: opacity $ease-main;
 
     @include screen('sm') {
-      top: 0;
-      right: -2px;
+      top: 2px;
+      right: 1px;
       width: 6px;
       height: 6px;
     }

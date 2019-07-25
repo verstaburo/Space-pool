@@ -7,6 +7,8 @@ html(lang='en')
   body.is-panel.is-login
     block header
     - var addClass = headerClass || ''
+    - var messages = getData('notices-message.json')
+    - var events = getData('notices-event.json')
     +gradients
     +header()(class=addClass + ' is-login')
 
@@ -19,6 +21,12 @@ html(lang='en')
 
     +overlay
     +user-menu-panel
+    +info-notices({indicator: 2, title: 'Events', link: {mdname: 'View all events', xlname: 'Show all events'}})#events-list
+      each item in events
+        +notice(item)
+    +info-notices({indicator: 2, title: 'Messages', link: {xlname: 'View all Messages', mdname: 'Read all messages', indicator: 2}})#messages-list
+      each item in messages
+        +notice(item)
     +cookies
     block panels
     +footer._panel-padding

@@ -33,6 +33,10 @@ export default function header() {
     mainNavigation.close();
   });
 
+  $(document).on('click', '.js-show-notices', () => {
+    mainNavigation.close();
+  });
+
   // стилизуем хэдер в зависимости от позиции на странице
   function headerStyle() {
     const sT = $(window).scrollTop();
@@ -47,10 +51,16 @@ export default function header() {
         $('.page').addClass('is-short');
         $('.header').addClass('is-short');
         $('.main-menu').addClass('is-short');
+        setTimeout(() => {
+          $('body').trigger('HEADER_SHORT_ON');
+        }, 50);
       } else {
         $('.page').removeClass('is-short');
         $('.header').removeClass('is-short');
         $('.main-menu').removeClass('is-short');
+        setTimeout(() => {
+          $('body').trigger('HEADER_SHORT_OFF');
+        }, 50);
       }
     }
   }

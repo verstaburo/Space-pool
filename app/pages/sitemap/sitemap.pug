@@ -1,4 +1,4 @@
-extends ../../layouts/default
+extends ../../layouts/default-login
 
 block head
   - var pageTitle = 'Space Pool - Sitemap'
@@ -67,6 +67,7 @@ block content
 
 block panels
   +main-menu
+    +nav-list(getData('main-menu-user.json'))
 
 block popups
   +popup-add-offer#popup-add-rental-offer

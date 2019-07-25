@@ -61,6 +61,7 @@ import advancedSearch from '../components/advanced-filter/advanced-filter';
 import textareaCounters from '../blocks/form-elements/textareaCounters';
 import infoEditable from '../blocks/info-editable/info-editable';
 import messageForm from '../blocks/message-form/message-form';
+import infoNoitces from '../blocks/info-notices/info-notices';
 
 const $ = window.$;
 
@@ -113,4 +114,5 @@ $(() => {
   textareaCounters();
   infoEditable();
   messageForm();
+  infoNoitces();
 });
