@@ -41,11 +41,22 @@
       background-color: rgba(0, 0, 0, 0);
     }
 
-    .choices__input {
+    #{$k}__input {
+      @include text16;
+
+      line-height: (28 / 16);
+      font-weight: 700;
+      color: $color-basic;
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 100px;
+      height: 20px;
       box-sizing: border-box;
-      background-color: transparent;
+      background-color: rgba($color-white, .4);
       border: none;
-      color: currentColor;
+      padding: 0 5px;
+      z-index: 6;
     }
   }
 
@@ -79,10 +90,10 @@
       border-bottom: 1px solid $color-basic;
       min-width: 100px;
       width: 100%;
-      max-height: 100px;
+      max-height: none;
       transition: all $ease-main;
 
-      .choices__item,.choices__input {
+      .choices__item {
         @include text16;
 
         line-height: (28 / 16);
@@ -100,8 +111,14 @@
         }
       }
 
+      #{$k}__input {
+        padding: 0 5px;
+      }
+
       #{$k}__list {
         overflow: visible;
+        box-sizing: border-box;
+        width: 100%;
       }
 
       #{$k}__placeholder {
@@ -146,6 +163,55 @@
     }
   }
 
+  &__header {
+    display: none;
+    color: $color-basic;
+    padding: 0 40px;
+    box-sizing: border-box;
+    background-color: $color-white;
+    z-index: 5;
+    height: 70px;
+
+    @include screen('sm') {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      position: absolute;
+      padding: 0 19px;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 48px;
+      border-bottom: 1px solid $color-border-light;
+      z-index: 2;
+    }
+
+    &-title {
+      @include heading-3;
+
+      font-weight: 700;
+      user-select: none;
+
+      @include screen('sm') {
+        @include heading-4;
+      }
+    }
+  }
+
+  &__scrollblock {
+    display: block;
+    width: 100%;
+    max-height: 100px;
+    box-sizing: border-box;
+  }
+
+  &__close {
+    position: absolute;
+    top: 6px;
+    left: 9px;
+    z-index: 2;
+  }
+
   &.is-open & {
     &__inner {
       border-color: $color-basic;
@@ -176,6 +242,7 @@
       color: $color-white;
       overflow: hidden;
       border-radius: 3px 3px 0 0;
+      transition: border $ease-main;
 
       @include screen('sm') {
         @include text;
@@ -183,12 +250,24 @@
         line-height: (26 / 14);
       }
 
+      &::after {
+        @include pseudo;
+
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+        box-shadow: 0 0 49px rgba(34, 42, 46, 0.25);
+        display: none;
+      }
+
       &::before {
         @include pseudo;
 
         bottom: 0;
-        left: 7px;
-        width: calc(100% - 14px);
+        left: 9px;
+        width: calc(100% - 16px);
         height: 2px;
         background-color: $color-white;
         transition: all $ease-main;
@@ -209,60 +288,73 @@
       }
     }
 
+    #{$k}__scrollblock {
+      max-height: 277px;
+    }
+
     #{$k}__list {
       &--single {
         position: relative;
         width: 100%;
         max-width: none;
-        padding-left: 5px;
+        padding-left: 7px;
         padding-right: 25px;
         padding-bottom: 1px;
-        background-color: rgba($color-select-bg, 0);
+        background-color: rgba($color-white, 0);
         background-clip: padding-box;
         border-radius: 3px 3px 0 0;
         border: 2px solid transparent;
         overflow: hidden;
-        transition: border $ease-main, background $ease-main;
+        transition: border $ease-main;
         z-index: 2;
       }
 
       &--dropdown {
         min-width: 0;
-        width: 100%;
+        width: 434px;
         max-width: none;
-        background-color: rgba($color-select-bg, .32);
-        border: 2px solid $color-white;
+        background-color: $color-white;
+        border-radius: 0 3px 3px 3px;
+        border: 3px solid $color-white;
         border-top-width: 0;
         border-top-color: transparent;
-        border-radius: 0 0 3px 3px;
+        box-shadow: 0 0 49px rgba(34, 42, 46, 0.25);
         margin-top: -2px;
-        max-height: 118px;
         box-sizing: border-box;
-        padding-top: 7px;
-        padding-bottom: 7px;
 
         @include screen('sm') {
           background-color: $color-select-bg;
         }
 
-        #{$k}__item,#{$k}__input {
-          @include text;
+        #{$k}__list {
+          padding-top: 7px;
+          padding-bottom: 7px;
+          width: 100%;
+        }
 
-          line-height: (26 / 14);
-          color: $color-white;
+        #{$k}__item,#{$k}__input {
+          @include text-big;
+
+          line-height: (26 / 18);
+          color: $color-basic;
           font-weight: 700;
 
           &--selectable {
             &.is-highlighted {
-              background-color: $color-bg;
-              color: $color-basic;
+              background-color: $color-basic;
+              color: $color-white;
             }
           }
+        }
+
+        #{$k}__item {
+          padding-top: 7px;
+          padding-bottom: 8px;
         }
       }
     }
 
-    &:hover #{$k}__inner,&.is-open #{$k}__inner {
+    &:hover #{$k}__inner {
       color: $color-white;
     }
 
@@ -282,33 +374,74 @@
       }
     }
 
+    &.is-open #{$k}__toggle {
+      z-index: 6;
+
+      @include screen('sm') {
+        z-index: 3;
+      }
+    }
+
     &.is-open #{$k}__inner {
+      color: $color-basic;
+      z-index: 5;
+
+      @include screen('sm') {
+        z-index: inherit;
+      }
+
+      &::after {
+        display: block;
+      }
+
       &::before {
         bottom: 1px;
-        left: 2px;
-        width: calc(100% - 4px);
+        left: 0;
+        width: 100%;
         height: 1px;
-        background-color: $color-inner-border;
+        background-color: $color-bg;
         z-index: 5;
+
+        @include screen('sm') {
+          z-index: inherit;
+        }
       }
     }
 
     &.is-open #{$k}__list {
       &--single {
-        background-color: rgba($color-select-bg, .32);
+        background-color: $color-white;
         border-color: $color-white;
         border-bottom-color: transparent;
         border-radius: 3px 3px 0 0;
+        z-index: 5;
 
         @include screen('sm') {
-          background-color: $color-select-bg;
+          z-index: inherit;
         }
       }
 
       &--dropdown {
         border-color: $color-white;
         border-top-color: transparent;
-        border-radius: 0 0 3px 3px;
+        border-radius: 0 3px 3px 3px;
+      }
+    }
+
+    &.is-readonly {
+      #{$k} {
+
+        &__inner {
+
+          &::before {
+            opacity: .4;
+          }
+        }
+
+        &__toggle svg {
+          opacity: .4;
+          fill: currentColor !important;
+        }
       }
     }
   }
@@ -372,19 +505,21 @@
       }
 
       &--dropdown {
-        padding-top: 15px;
-        padding-bottom: 6px;
         border-top-width: 0;
         border-bottom-width: 0;
         background-color: $color-select-bg-light;
         border-radius: 0 3px 3px;
         box-shadow: 1px 1px 8px rgba(34, 42, 46, .06);
-        max-height: 201px;
         min-width: 0;
         width: 290px;
         transition: box-shadow $ease-main, opacity $ease-main;
 
-        #{$k}__item,#{$k}__input {
+        #{$k}__list {
+          padding-top: 15px;
+          padding-bottom: 6px;
+        }
+
+        #{$k}__item {
           @include text16;
 
           line-height: (30 / 16);
@@ -400,6 +535,10 @@
           }
         }
       }
+    }
+
+    #{$k}__scrollblock {
+      max-height: 201px;
     }
 
     #{$k}__toggle {
@@ -495,14 +634,14 @@
 
   &_dark2 {
     #{$k}__list {
-      &--single {
-      }
-
       &--dropdown {
-        max-height: 201px;
         min-width: 0;
         width: 290px;
       }
+    }
+
+    #{$k}__scrollblock {
+      max-height: 201px;
     }
 
     &.is-item-select:not(.is-readonly):not(.is-disabled) #{$k}__inner {
@@ -551,10 +690,13 @@
       }
 
       &--dropdown {
-        max-height: 201px;
         min-width: 0;
         width: 290px;
       }
+    }
+
+    #{$k}__scrollblock {
+      max-height: 201px;
     }
 
     &.is-item-select:not(.is-readonly):not(.is-disabled) #{$k}__inner {
@@ -624,11 +766,13 @@
         min-width: 0;
         width: 100%;
         max-width: none;
-        max-height: 276px;
-        padding-top: 16px;
-        padding-bottom: 16px;
 
-        #{$k}__item,#{$k}__input {
+        #{$k}__list {
+          padding-top: 16px;
+          padding-bottom: 16px;
+        }
+
+        #{$k}__item {
           @include text16;
 
           line-height: (35 / 16);
@@ -644,6 +788,10 @@
           background-color: $color-white;
         }
       }
+    }
+
+    #{$k}__scrollblock {
+      max-height: 276px;
     }
 
     .select_placeholder ~ #{$k}__list #{$k}__placeholder {
@@ -743,11 +891,13 @@
         min-width: 0;
         width: 100%;
         max-width: none;
-        max-height: 276px;
-        padding-top: 16px;
-        padding-bottom: 16px;
 
-        #{$k}__item,#{$k}__input {
+        #{$k}__list {
+          padding-top: 16px;
+          padding-bottom: 16px;
+        }
+
+        #{$k}__item {
           @include text16;
 
           line-height: (35 / 16);
@@ -763,6 +913,10 @@
           background-color: $color-white;
         }
       }
+    }
+
+    #{$k}__scrollblock {
+      max-height: 276px;
     }
 
     .select_placeholder ~ #{$k}__list #{$k}__placeholder {
@@ -798,6 +952,73 @@
       #{$k}__list {
         &--single {
           border-bottom-color: $color-basic;
+        }
+      }
+    }
+  }
+
+  &_popup {
+
+    #{$k} {
+
+      &__scrollblock {
+        @include screen('sm') {
+          height: 100%;
+          max-height: 100%;
+        }
+      }
+
+      &__list {
+
+        &--dropdown {
+          @include screen('sm') {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none !important;
+            z-index: 3;
+            max-height: none;
+            background-color: $color-white;
+          }
+
+          #{$k}__input {
+            @include screen('sm') {
+              font-size: 15px;
+              line-height: (20 / 15);
+              top: 13px;
+              right: auto;
+              left: 40px;
+              color: $color-basic !important;
+            }
+          }
+
+          #{$k}__list {
+            @include screen('sm') {
+              padding-top: 57px;
+              padding-bottom: 56px;
+            }
+          }
+
+          #{$k}__item {
+            @include screen('sm') {
+              font-size: 15px !important;
+              line-height: (26 / 15);
+              color: $color-basic !important;
+              font-weight: 700;
+              padding: 7px 18px 8px !important;
+            }
+
+            &--selectable {
+              &.is-highlighted {
+                @include screen('sm') {
+                  background-color: $color-basic !important;
+                  color: $color-white !important;
+                }
+              }
+            }
+          }
         }
       }
     }

@@ -65,23 +65,24 @@ mixin filter-reservations()
       +e.column
         +e.wrapper_line
           +filter-select.js-offer-select
-            +filter-head.hide-from-sm
-              +filter-label.color-radio_full._dark._fz25._sm-noundr
+            +filter-select-head.hide-from-sm
+              +filter-select-label.color-radio_full._dark._fz25._sm-noundr
                 div.color-radio__content All deal types
                   +indicator._sm-small.__marker 2
-            +filter-dropdown
-              +filter-item
+            +filter-select-dropdown
+              +filter-select-header.hide-from-sm Deal types
+              +filter-select-item
                 +b.LABEL.color-radio._full._fz25._dark._sm-noundr.__radio
                   +e.INPUT.input(name="dealType", value="all", type="radio", checked data-offer-input)
                   +e.SPAN.content.hide-from-sm(data-select-value) All deal types
                     +indicator._sm-small.__marker 2
                   +e.SPAN.content.hide-sm All contracts
-              +filter-item
+              +filter-select-item
                 +b.LABEL.color-radio._full._fz25._dark._sm-noundr._marker.__radio
                   +e.INPUT.input(name="dealType", value="viewings", type="radio" data-offer-input)
                   +e.SPAN.content(data-select-value) Viewings
                     +indicator._sm-small.__marker 2
-              +filter-item
+              +filter-select-item
                 +b.LABEL.color-radio._full._fz25._dark._sm-noundr._marker.__radio
                   +e.INPUT.input(name="dealType", value="tenacies", type="radio" data-offer-input)
                   +e.SPAN.content(data-select-value) Tenancies
@@ -103,7 +104,7 @@ mixin filter-reservations()
       +e.column
         +e.wrapper_line
           +e.text.hide-sm Show
-          +select.js-select-dark3(name="area" style="width: 56px;")
+          +select.js-select-dark3(name="area" style="width: 56px;" placeholder="Deal status")
             option(value="all" selected) All deal statuses
             option(value="Request") Request
             option(value="Upcoming") Upcoming event

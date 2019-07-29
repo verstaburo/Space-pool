@@ -2,20 +2,26 @@ mixin filter-select()
   +b.filter-select&attributes(attributes)
     block
 
-mixin filter-head()
+mixin filter-select-head()
   +e.head&attributes(attributes)(data-head)
     block
     +e.toggle
       +icon('select-arrow').__toggle-icon
 
-mixin filter-label()
+mixin filter-select-label()
   +e.label&attributes(attributes)(data-label)
     block
 
-mixin filter-dropdown()
+mixin filter-select-dropdown()
   +e.dropdown&attributes(attributes)
     block
 
-mixin filter-item()
+mixin filter-select-item()
   +e.item&attributes(attributes)(data-select-item)
     block
+
+mixin filter-select-header()
+  +e.DIV.header&attributes(attributes)
+    +close.__close(data-select-close)
+    +e.H3.title
+      block

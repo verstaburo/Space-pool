@@ -105,11 +105,11 @@ mixin request-full-new(data)
           +request-info-cell._tal
             +time-origin
               +time-text
-                +time-time()._sm-fz14(datetime=data.period.start.ISO)!= data.period.start.text
+                +time-time()._sm-fz14._wrap(datetime=data.period.start.ISO)!= data.period.start.text
               if data.period.end
                 +time-arrow
                 +time-text
-                  +time-time()._sm-fz14(datetime=data.period.end.ISO)!= data.period.end.text
+                  +time-time()._sm-fz14._wrap(datetime=data.period.end.ISO)!= data.period.end.text
       +e.links
         - if (data.link) {
           +button()._border._border_bg-white._mob-smaller._short.__button.hide-from-md(href="#")!=btnName

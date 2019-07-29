@@ -44,11 +44,19 @@
     padding-top: 8px;
     z-index: 2;
     background-color: $color-white;
+    transition: opacity $ease-main;
 
     @include screen('sm') {
       justify-content: space-between;
       padding-top: 0;
       padding-left: 25px;
+    }
+
+    #{$b}.is-select-opened & {
+      @include screen('sm') {
+        opacity: 0;
+        pointer-events: none;
+      }
     }
 
     &_transparent {
@@ -147,6 +155,12 @@
           height: 30px;
         }
       }
+    }
+  }
+
+  .choices.is-open {
+    @include screen('sm') {
+      z-index: 6;
     }
   }
 }

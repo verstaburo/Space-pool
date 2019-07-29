@@ -5,39 +5,82 @@ import 'os-scroll-chain';
 const $ = window.$;
 
 export default function scrollbar() {
-  $('.js-scrollbar').each((i, el) => {
+  function scrollbarS(el) {
     OverlayScrollbars(el, {
       className: 'os-theme-custom',
     });
+  }
+
+  window.globalFunctions.scrollbarS = scrollbarS;
+
+  $('.js-scrollbar').each((i, el) => {
+    scrollbarS(el);
   });
 
-  $('.js-scrollbar-thin').each((i, el) => {
+  function scrollbarThin(el) {
     OverlayScrollbars(el, {
       className: 'os-theme-custom-thin',
     });
+  }
+  window.globalFunctions.scrollbarThin = scrollbarThin;
+
+  $('.js-scrollbar-thin').each((i, el) => {
+    scrollbarThin(el);
   });
 
-  $('.js-scrollbar-dark').each((i, el) => {
+  function scrollbarBold(el) {
+    OverlayScrollbars(el, {
+      className: 'os-theme-custom-bold',
+    });
+  }
+  window.globalFunctions.scrollbarBold = scrollbarBold;
+
+  $('.js-scrollbar-bold').each((i, el) => {
+    scrollbarThin(el);
+  });
+
+  function scrollbarDark(el) {
+    console.log(el);
     OverlayScrollbars(el, {
       className: 'os-theme-custom-dark',
     });
+  }
+  window.globalFunctions.scrollbarDark = scrollbarDark;
+
+  $('.js-scrollbar-dark').each((i, el) => {
+    scrollbarDark(el);
   });
 
-  $('.js-scrollbar-light').each((i, el) => {
+  function scrollbarLight(el) {
     OverlayScrollbars(el, {
       className: 'os-theme-custom-light',
     });
+  }
+  window.globalFunctions.scrollbarLight = scrollbarLight;
+
+  $('.js-scrollbar-light').each((i, el) => {
+    scrollbarLight(el);
   });
 
-  $('.js-scrollbar-light-gray').each((i, el) => {
+  function scrollbarLightGray(el) {
     OverlayScrollbars(el, {
       className: 'os-theme-custom-light-gray',
     });
+  }
+  window.globalFunctions.scrollbarLightGray = scrollbarLightGray;
+
+  $('.js-scrollbar-light-gray').each((i, el) => {
+    scrollbarLightGray(el);
   });
 
-  $('.js-scrollbar-wide').each((i, el) => {
+  function scrollbarWide(el) {
     OverlayScrollbars(el, {
       className: 'os-theme-custom-wide',
     });
+  }
+  window.globalFunctions.scrollbarWide = scrollbarWide;
+
+  $('.js-scrollbar-wide').each((i, el) => {
+    scrollbarWide(el);
   });
 }

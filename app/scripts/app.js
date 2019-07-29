@@ -8,6 +8,7 @@ import anchor from '../blocks/js-functions/anchor';
 import {
   freezebuttons,
 } from '../blocks/js-functions/freeze';
+import scrollbar from '../blocks/scrollbar/scrollbar';
 import scrollanimation from '../blocks/js-functions/scrollanimation';
 import {
   selects,
@@ -18,7 +19,6 @@ import {
 } from '../blocks/form-elements/form-elements';
 import maskForm from '../blocks/form-elements/form-elements-masking';
 import popups from '../blocks/popups/popups';
-import scrollbar from '../blocks/scrollbar/scrollbar';
 import header from '../components/header/header';
 import scrollCont from '../blocks/sidebar/sidebar';
 import slider from '../blocks/slider/slider';
@@ -71,10 +71,10 @@ $(() => {
   objectFitImages();
   anchor();
   freezebuttons();
+  scrollbar();
   selects();
   sliders();
   popups();
-  scrollbar();
   header();
   slider();
   tooltips();

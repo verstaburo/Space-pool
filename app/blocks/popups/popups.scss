@@ -101,6 +101,7 @@
     background-color: $color-bg;
     z-index: 2;
     flex-wrap: wrap;
+    transition: opacity $ease-main;
 
     @include screen('md') {
       padding: 0 $container-padding-tablet;
@@ -137,6 +138,13 @@
       &_center {
         align-items: center;
         align-content: flex-start;
+      }
+    }
+
+    #{$b}.is-select-opened & {
+      @include screen('sm') {
+        opacity: 0;
+        pointer-events: none;
       }
     }
 
@@ -310,7 +318,7 @@
     outline: none;
     border: none;
     fill: currentColor;
-    transition: color $ease-main;
+    transition: color $ease-main, opacity $ease-main;
     padding: 10px;
     box-sizing: border-box;
     width: 44px;
@@ -336,6 +344,13 @@
       @include screen('sm') {
         width: 14px;
         height: 14px;
+      }
+    }
+
+    #{$b}.is-select-opened & {
+      @include screen('sm') {
+        opacity: 0;
+        pointer-events: none;
       }
     }
   }

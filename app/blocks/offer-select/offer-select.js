@@ -6,6 +6,7 @@ export default function offerSelect() {
     this.label = $(this.el).find('[data-label]');
     this.head = $(this.el).find('[data-head]');
     this.inputs = $(this.el).find('[data-offer-input]');
+    this.cross = $(this.el).find('[data-select-close]');
 
     this.init = function () {
       const t = this;
@@ -19,6 +20,8 @@ export default function offerSelect() {
             t.open();
           }
         } else if (!($(self).is(t.el) || $(self).closest(t.el).length > 0)) {
+          t.close();
+        } else if ($(self).is(t.cross) || $(self).closest(t.cross).length > 0) {
           t.close();
         }
       });

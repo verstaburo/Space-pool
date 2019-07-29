@@ -11,20 +11,20 @@ mixin condition-search()
       +e.bottom
         +e.selects
           +e.select.hide-from-sm
-            +select.js-select-color(name="workplace-type")
+            +select.js-select-color(name="workplace-type"  data-mobile-title="Select Workplace")
               option(value="" placeholder) Workplace type
               option(value="htdsk") Hot Desk
               option(value="dddsk") Dedicated Desk
               option(value="room") Meeting Room
               option(value="space") Office Space
           +e.select
-            +select.js-select-light(name="city")
+            +select.js-select-light(name="city" data-mobile-title="Select City" readonly)
               option(value="" placeholder) City
               option(value="London" selected) London
               option(value="Paris") Paris
               option(value="Moscow") Moscow
           +e.select_wide
-            +select.js-select-light(name="area")
+            +select.js-select-light(name="area" data-mobile-title="Select Location")
               option(value="" placeholder) Select area
               option(value="Central London") Central London
               option(value="Stratford Area") Stratford Area
@@ -32,5 +32,7 @@ mixin condition-search()
               option(value="Ilford") Ilford
               option(value="Brixton") Brixton
               option(value="Richmond") Richmond
+              option(value="Brent") Brent
+              option(value="Redbridge") Redbridge
         +e.buttons
           +button('button')(type="submit")._mob-wide.__button Find

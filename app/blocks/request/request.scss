@@ -193,14 +193,18 @@
     transition: opacity $ease-main;
     min-height: 40px;
     z-index: 3;
+    width: 50%;
+    max-width: 50%;
 
     @include screen('md') {
       position: static;
       bottom: auto;
       right: auto;
       width: 100%;
+      max-width: none;
       opacity: 1;
       justify-content: center;
+      z-index: inherit;
     }
 
     #{$b}:hover & {
