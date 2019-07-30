@@ -1,0 +1,17 @@
+mixin form-toggle(data)
+  +b.LABEL.form-toggle&attributes(attributes)
+    - if (data.radio.checked) {
+      +e.INPUT.input(type="radio" name=data.radio.name value=data.radio.value data-hide-elements=data.radio.hide data-show-elements=data.radio.show data-toggle-form checked)
+    - } else {
+      +e.INPUT.input(type="radio" name=data.radio.name value=data.radio.value data-hide-elements=data.radio.hide data-show-elements=data.radio.show data-toggle-form)
+    - }
+    +e.content
+      if data.arrow
+        +icon('arrow3').__arrow
+      if data.subtitle
+        +e.subtitle!= data.subtitle
+      if data.title
+        +e.title!= data.title
+      if data.describe
+        +e.text!= data.describe
+    block

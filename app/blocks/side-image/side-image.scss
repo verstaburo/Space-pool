@@ -1,0 +1,23 @@
+.side-image {
+  $b: &;
+
+  display: block;
+  width: 100%;
+
+  &__image {
+    width: 100%;
+    height: auto;
+
+    #{$b}_vf1 & {
+      transform: scale(1.05) translate3d(-9.2%, -8%, 0);
+
+      @include screen('lg') {
+        transform: scale(1.05) translate3d(0, -8%, 0);
+      }
+    }
+
+    #{$b}_vf2 & {
+      transform: scale(1.16) translate3d(-9.2%, 6%, 0); // y 6%
+    }
+  }
+}

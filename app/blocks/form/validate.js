@@ -50,7 +50,7 @@ Parsley.addValidator(
   .addMessage('en', 'passwordequalto', 'Passwords should be the same.');
 
 $('[data-validated-form]').parsley({
-  trigger: 'input',
+  trigger: 'submit',
   errorClass: 'is-error',
   successClass: 'is-valid',
   excluded: 'input[type=button], input[type = submit], input[type = reset], input[type = hidden], [disabled]',

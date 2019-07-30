@@ -5,6 +5,55 @@
   display: block;
   background-color: $color-white;
 
+  &__title {
+    width: 100%;
+    line-height: 1;
+    margin-top: -3px;
+
+    @include screen('lg') {
+      margin-top: 0;
+    }
+  }
+
+  &__toggles {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: stretch;
+    width: 100%;
+    margin-top: 40px;
+
+    @include screen('lg') {
+      flex-direction: row;
+    }
+
+    @include screen('sm') {
+      margin-top: 20px;
+    }
+  }
+
+  &__toggle {
+    width: 100%;
+
+    @include screen('lg') {
+      flex: 1;
+      max-width: 368px;
+    }
+
+    &:not(:last-child) {
+      margin-bottom: 40px;
+
+      @include screen('lg') {
+        margin-right: 50px;
+        margin-bottom: 0;
+      }
+
+      @include screen('sm') {
+        margin-right: 20px;
+      }
+    }
+  }
+
   &_dark {
     background-color: $color-grey-dark;
     color: $color-white;

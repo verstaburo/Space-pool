@@ -382,6 +382,10 @@
     &_mgb0 {
       margin-bottom: 0;
     }
+
+    &_mgb35 {
+      margin-bottom: 35px;
+    }
   }
 
   &__heading {
@@ -408,6 +412,16 @@
 
     @include screen('sm') {
       @include heading-4;
+    }
+
+    &_smaller {
+      @include text-big;
+
+      font-weight: 700;
+
+      @include screen('sm') {
+        @include text15;
+      }
     }
 
     &_small {
@@ -539,6 +553,16 @@
       }
     }
 
+    &_mg26 {
+      &:not(:last-child) {
+        margin-bottom: 26px;
+
+        @include screen('sm') {
+          margin-bottom: 13px;
+        }
+      }
+    }
+
     &_mg24 {
       &:not(:last-child) {
         margin-bottom: 24px;
@@ -661,13 +685,23 @@
     }
 
     &_bordered {
-      padding-top: 36px;
-      padding-bottom: 48px;
+      padding-top: 32px;
+      padding-bottom: 35px;
       border-top: 1px solid $color-border-light;
 
       @include screen('sm') {
         padding-top: 20px;
         padding-bottom: 25px;
+      }
+
+      &_bpd {
+        padding-top: 37px;
+        padding-bottom: 40px;
+
+        @include screen('sm') {
+          padding-top: 20px;
+          padding-bottom: 25px;
+        }
       }
     }
 
@@ -698,6 +732,14 @@
     &_flex {
       display: flex;
       flex-wrap: wrap;
+    }
+
+    &_mgt13 {
+      margin-top: 13px;
+    }
+
+    &_mgt55 {
+      margin-top: 55px;
     }
   }
 
@@ -761,6 +803,10 @@
     @include screen('sm') {
       margin-top: 0;
     }
+
+    &_mt0 {
+      margin-top: 0;
+    }
   }
 
   &__button {
@@ -771,8 +817,87 @@
       max-width: 100%;
     }
 
+    &_str200 {
+      min-width: 0;
+      max-width: 200px;
+      flex: 1;
+
+      @include screen('sm') {
+        max-width: none;
+        flex: none;
+        width: 100%;
+      }
+    }
+
+    &_mt {
+      margin-top: 6px;
+
+      @include screen('sm') {
+        margin-top: 20px;
+      }
+    }
+
+    &_ml30 {
+      &:not(:first-child) {
+        margin-left: 30px;
+
+        @include screen('sm') {
+          margin-left: 0;
+        }
+      }
+    }
+
     &_txta {
       margin-top: 4px;
+    }
+  }
+
+  &__line {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+  }
+
+  &__block {
+
+    &_w35 {
+      width: 35%;
+
+      @include screen('sm') {
+        width: 100%;
+      }
+    }
+
+    &_stretch {
+      flex: 1;
+
+      @include screen('sm') {
+        flex: none;
+        width: 100%;
+      }
+    }
+
+    &:not(:last-child) {
+      margin-right: 60px;
+
+      @include screen('sm') {
+        margin-right: 0;
+        margin-bottom: 30px;
+      }
+    }
+  }
+
+  &__text {
+    width: 100%;
+
+    &_mw60 {
+      max-width: 60%;
+
+      @include screen('sm') {
+        max-width: none;
+        width: 100%;
+      }
     }
   }
 

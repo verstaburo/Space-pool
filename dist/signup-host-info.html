@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimal-ui">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>SpacePool - Sign Up Verification Message (for host)</title>
+    <title>SpacePool - Sign Up host important info</title>
     <meta name="description" content="">
     <meta name="keywords" content="">
     <link href="favicon.ico" rel="shortcut icon">
@@ -13,12 +13,20 @@
     <script src="assets/scripts/libs/jquery.min.js"></script>
 </head>
 
-<body class="is-login">
+<body>
     <svg class="gradients" aria-hidden="true" focusable="false">
         <defs>
             <linearGradient id="main-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
                 <stop offset="0%" stop-color="#30e3c9"></stop>
                 <stop offset="100%" stop-color="#0caecc"></stop>
+            </linearGradient>
+            <linearGradient id="main-gradient-v" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" stop-color="#30e3c9"></stop>
+                <stop offset="100%" stop-color="#0caecc"></stop>
+            </linearGradient>
+            <linearGradient id="main-gradient-vi" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" stop-color="#0caecc"></stop>
+                <stop offset="100%" stop-color="#30e3c9"></stop>
             </linearGradient>
             <linearGradient id="form-gradient1" x1="0%" y1="0%" x2="0%" y2="100%">
                 <stop offset="0%" stop-color="rgba(29, 213, 240, 1)"></stop>
@@ -49,7 +57,7 @@
             </linearGradient>
         </defs>
     </svg>
-    <header class="header is-login">
+    <header class="header">
         <div class="header__wrapper">
             <div class="container">
                 <div class="header__logo">
@@ -154,11 +162,11 @@
         <section class="content content_reverse content_last content_heading">
             <div class="container">
                 <div class="grid grid_layout grid_content">
-                    <div class="grid__col grid__col_xl_4 grid__col_lg_12">
+                    <div class="grid__col grid__col_xl_3 grid__col_lg_12">
                         <aside class="js-sticky-block sidebar sidebar_no-bg" data-unstick-media="lg">
-                            <div class="heading heading_mask2 heading_wide">
+                            <div class="heading">
                                 <div class="heading__bg">
-                                    <img class="heading__bg-image" src="assets/images/heading-bg2.jpg" alt="" role="presentation" />
+                                    <img class="heading__bg-image" src="assets/images/heading-bg1-v2.jpg" alt="" role="presentation" />
                                 </div>
                                 <div class="heading__content">
                                     <h1 class="heading__title">Sign Up</h1>
@@ -166,60 +174,230 @@
                                         <div class="note__mark">
                                             <svg class="note__icon"><use xlink:href="assets/images/icon.svg#icon_info"></use></svg>
                                         </div>
-                                        <div class="note__text">Almost there. Just few more things to&nbsp;go. Please verify your new account.</div>
+                                        <div class="note__text">Create your own Space Pool account. Get full access to letting options or become a host and create your own offers on Space pool.</div>
                                     </div>
                                 </div>
                             </div>
                         </aside>
                     </div>
                     <div class="grid__col grid__col_xl_8 grid__col_lg_12">
-                        <section class="success-message">
-                            <section class="section">
-                                <div class="section__header">
-                                    <h2 class="section__title section__title_big section__title_mg16">Wonderfull!</h2>
-                                    <div class="section__title section__title_mid">You have created your Space Pool account.</div>
+                        <form class="form" data-validated-form="data-validated-form">
+                            <div class="form__toggles">
+                                <label class="color-radio color-radio_full color-radio_dark color-radio_big form__toggle">
+                                    <input class="color-radio__input" name="userType" value="tenant" type="radio" checked="checked" data-show-elements="details-checker" data-toggle-form="data-toggle-form" />
+                                    <span class="color-radio__content">Sign up as a tenant</span>
+                                </label>
+                                <label class="color-radio color-radio_full color-radio_dark color-radio_big form__toggle">
+                                    <input class="color-radio__input" name="userType" value="host" type="radio" data-hide-elements="details-checker" data-show-elements="details" data-toggle-form="data-toggle-form" />
+                                    <span class="color-radio__content">Sign up as a host</span>
+                                </label>
+                            </div>
+                            <section class="form__section form__section_socials">
+                                <div class="form__header form__header_mg14">
+                                    <div class="form__text">Choose one of automatic options using social media:</div>
                                 </div>
-                                <div class="section__content section__content_bordered">
-                                    <div class="grid grid_layout">
-                                        <div class="grid__col grid__col_xl_6 grid__col_sm_12">
-                                            <div class="content-zone">
-                                                <p>Please check you E-mail for further instruction. We have sent you an E-mail with Account verification link. You will be able to enter your account right after it’s verification.</p>
-                                            </div>
-                                        </div>
-                                        <div class="grid__col grid__col_xl_6 grid__col_sm_12">
-                                            <div class="content-zone">
-                                                <p>Link sent to:
-                                                    <b>es********lv@gmail.com</b>
-                                                </p>
-                                            </div>
-                                            <div class="section__links">
-                                                <a class="link link_light-underline section__link" href="#">
-                                                    <span class="link__text">Resend verification mail</span>
-                                                </a>
-                                            </div>
-                                        </div>
+                                <div class="grid grid_layout grid_int10">
+                                    <div class="grid__col grid__col_xl_6 grid__col_sm_12">
+                                        <a class="social-button social-button_fb social-button_white" href="#">
+                                            <svg class="social-button__icon"><use xlink:href="assets/images/icon.svg#icon_fb-symbol"></use></svg>
+                                            <span class="social-button__text">Sign up with Facebook</span>
+                                        </a>
                                     </div>
-                                </div>
-                                <div class="section__content section__content_bordered">
-                                    <h3 class="section__title section__title_small">What’s next?</h3>
-                                    <div class="grid grid_layout">
-                                        <div class="grid__col grid__col_xl_6 grid__col_sm_12">
-                                            <div class="content-zone">
-                                                <p>To finish registration process you whould add your first Space.
-                                                    <br>Please go to our step by step guide in the next step.</p>
-                                            </div>
-                                        </div>
-                                        <div class="grid__col grid__col_xl_6 grid__col_sm_12">
-                                            <a class="button button_icon button_icon_big section__button section__button_txta">
-                                                <span class="button__text">Go to step 2: Add Space</span>
-                                                <svg class="button__icon button__icon_select-arrow"><use xlink:href="assets/images/icon.svg#icon_select-arrow"></use></svg>
-                                            </a>
-                                        </div>
+                                    <div class="grid__col grid__col_xl_6 grid__col_sm_12">
+                                        <a class="social-button social-button_gg social-button_white" href="#">
+                                            <img class="social-button__icon" src="assets/images/google.svg" alt="" role="presentation" />
+                                            <span class="social-button__text">Sign up with Google Account</span>
+                                        </a>
                                     </div>
                                 </div>
                             </section>
-                        </section>
+                            <div class="divider divider_text form__divider">
+                                <div class="divider__text">OR</div>
+                            </div>
+                            <fieldset class="form__section form__section_mg80">
+                                <div class="form__header form__header_mg49">
+                                    <div class="form__text">Fill the form Below. Provide us All necessary information about you and you so We can create unique account for you.</div>
+                                </div>
+                                <div class="grid grid_big">
+                                    <div class="grid__col grid__col_xl_6 grid__col_md_12">
+                                        <div class="form__wrapper">
+                                            <label class="form-box">
+                                                <input class="input" type="text" name="firstName" value="Eugene" placeholder="First name" required="required" />
+                                                <span class="form-box__label">First name</span>
+                                            </label>
+                                            <div class="error-message"></div>
+                                        </div>
+                                    </div>
+                                    <div class="grid__col grid__col_xl_6 grid__col_md_12">
+                                        <div class="form__wrapper">
+                                            <label class="form-box">
+                                                <input class="input" type="text" name="lastName" value="Sheeleen" placeholder="Last name" required="required" />
+                                                <span class="form-box__label">Last name</span>
+                                            </label>
+                                            <div class="error-message"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </fieldset>
+                            <fieldset class="form__section form__section_mg80">
+                                <div class="form__checker form__checker_mgt-20" data-form-element="details-checker">
+                                    <label class="checkbox">
+                                        <input class="checkbox__input" name="isCompaty" value="1" type="checkbox" data-checker="details" />
+                                        <span class="checkbox__box">
+                                            <svg class="checkbox__icon"><use xlink:href="assets/images/icon.svg#icon_check"></use></svg>
+                                        </span>
+                                        <span class="checkbox__content">I work under brand or company</span>
+                                    </label>
+                                </div>
+                                <div class="form__content is-disabled" data-checker-target="details" data-form-element="details">
+                                    <div class="form__header form__header_mg35">
+                                        <h3 class="form__title">Company details:</h3>
+                                    </div>
+                                    <div class="grid grid_big">
+                                        <div class="grid__col grid__col_xl_6 grid__col_md_12">
+                                            <div class="form__wrapper">
+                                                <label class="form-box">
+                                                    <input class="input" type="text" name="companyName" placeholder="Company name" required="required" />
+                                                    <span class="form-box__label">Company name</span>
+                                                </label>
+                                                <div class="error-message"></div>
+                                            </div>
+                                        </div>
+                                        <div class="grid__col grid__col_xl_6 grid__col_md_12">
+                                            <div class="form__wrapper">
+                                                <label class="form-box">
+                                                    <input class="input" type="text" name="companyRegN" placeholder="Company Registry No." required="required" />
+                                                    <span class="form-box__label">Company Registry No.</span>
+                                                </label>
+                                                <div class="error-message"></div>
+                                            </div>
+                                        </div>
+                                        <div class="grid__col grid__col_xl_6 grid__col_md_12">
+                                            <div class="form__wrapper">
+                                                <label class="form-box">
+                                                    <input class="input" type="text" name="VATnumber" placeholder="VAT number if you have it" />
+                                                    <span class="form-box__label">VAT number if you have it</span>
+                                                </label>
+                                                <div class="error-message"></div>
+                                            </div>
+                                        </div>
+                                        <div class="grid__col grid__col_xl_6 grid__col_md_12">
+                                            <div class="form__wrapper">
+                                                <label class="form-box">
+                                                    <input class="input" type="text" name="legalAdressCity" placeholder="Legal adress city" required="required" />
+                                                    <span class="form-box__label">Legal adress city</span>
+                                                </label>
+                                                <div class="error-message"></div>
+                                            </div>
+                                        </div>
+                                        <div class="grid__col grid__col_xl_6 grid__col_md_12">
+                                            <div class="form__wrapper">
+                                                <label class="form-box">
+                                                    <input class="input" type="text" name="legalAdressStreet" placeholder="Legal adress street" required="required" />
+                                                    <span class="form-box__label">Legal adress street</span>
+                                                </label>
+                                                <div class="error-message"></div>
+                                            </div>
+                                        </div>
+                                        <div class="grid__col grid__col_xl_6 grid__col_md_12">
+                                            <div class="form__wrapper">
+                                                <label class="form-box">
+                                                    <input class="input" type="text" name="buildingN" placeholder="Building No." required="required" />
+                                                    <span class="form-box__label">Building No.</span>
+                                                </label>
+                                                <div class="error-message"></div>
+                                            </div>
+                                        </div>
+                                        <div class="grid__col grid__col_xl_6 grid__col_md_12">
+                                            <div class="form__wrapper">
+                                                <label class="form-box">
+                                                    <input class="input" type="text" name="officeN" placeholder="Apartment or Office No." />
+                                                    <span class="form-box__label">Apartment or Office No.</span>
+                                                </label>
+                                                <div class="error-message"></div>
+                                            </div>
+                                        </div>
+                                        <div class="grid__col grid__col_xl_6 grid__col_md_12">
+                                            <div class="form__wrapper">
+                                                <label class="form-box">
+                                                    <input class="input" type="text" name="ZIPcode" placeholder="ZIP/Postal Code" required="required" />
+                                                    <span class="form-box__label">ZIP/Postal Code</span>
+                                                </label>
+                                                <div class="error-message"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </fieldset>
+                            <fieldset class="form__section">
+                                <div class="form__header form__header_mg35">
+                                    <h3 class="form__title">Registration info:</h3>
+                                </div>
+                                <div class="grid grid_big grid_inner">
+                                    <div class="grid__col grid__col_xl_6 grid__col_md_12">
+                                        <div class="form__wrapper">
+                                            <label class="form-box">
+                                                <input class="input" type="email" name="email" placeholder="E-mail adress" required="required" />
+                                                <span class="form-box__label">E-mail adress</span>
+                                            </label>
+                                            <div class="error-message"></div>
+                                        </div>
+                                    </div>
+                                    <div class="grid__col grid__col_xl_6 grid__col_md_12 grid__col_md-order2">
+                                        <div class="form__wrapper">
+                                            <label class="checkbox checkbox_border">
+                                                <input class="checkbox__input" name="agreement" value="1" type="checkbox" />
+                                                <span class="checkbox__box">
+                                                    <svg class="checkbox__icon"><use xlink:href="assets/images/icon.svg#icon_check"></use></svg>
+                                                </span>
+                                                <span class="checkbox__content">I agree with Terms and Conditions</span>
+                                            </label>
+                                            <div class="error-message"></div>
+                                        </div>
+                                    </div>
+                                    <div class="grid__col grid__col_xl_6 grid__col_md_12">
+                                        <div class="form__wrapper">
+                                            <label class="form-box">
+                                                <input class="input" type="password" name="password" placeholder="Password" data-parsley-passwordequalto="[data-password2]" data-password1="password1" required="required" />
+                                                <span class="form-box__label">Password</span>
+                                            </label>
+                                            <div class="error-message"></div>
+                                        </div>
+                                    </div>
+                                    <div class="grid__col grid__col_xl_6 grid__col_md_12 grid__col_md-order2">
+                                        <div class="form__wrapper">
+                                            <label class="checkbox checkbox_border">
+                                                <input class="checkbox__input" name="subscribe" value="1" type="checkbox" />
+                                                <span class="checkbox__box">
+                                                    <svg class="checkbox__icon"><use xlink:href="assets/images/icon.svg#icon_check"></use></svg>
+                                                </span>
+                                                <span class="checkbox__content">Sign me up to Space Pool notification via E-mail</span>
+                                            </label>
+                                            <div class="error-message"></div>
+                                        </div>
+                                    </div>
+                                    <div class="grid__col grid__col_xl_6 grid__col_md_12">
+                                        <div class="form__wrapper">
+                                            <label class="form-box">
+                                                <input class="input" type="password" name="password" placeholder="Password one more time" data-password2="password2" data-parsley-passwordequalto="[data-password1]" required="required" />
+                                                <span class="form-box__label">Password one more time</span>
+                                            </label>
+                                            <div class="error-message"></div>
+                                        </div>
+                                    </div>
+                                    <div class="grid__col grid__col_xl_6 grid__col_md_12 grid__col_md-order2">
+                                        <div class="form__wrapper">
+                                            <button class="button button_wide button_short" type="submit">
+                                                <span class="button__text">Create my Space Pool account</span>
+                                            </button>
+                                            <div class="error-message"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </form>
                     </div>
+                    <div class="grid__col grid__col_xl_1 grid__col_lg_12 hide-lg"></div>
                 </div>
             </div>
         </section>

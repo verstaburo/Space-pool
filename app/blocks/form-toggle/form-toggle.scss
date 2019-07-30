@@ -1,0 +1,111 @@
+.form-toggle {
+  $b: &;
+
+  display: flex;
+
+  &__input {
+    display: none;
+  }
+
+  &__content {
+    position: relative;
+    width: 100%;
+    display: block;
+    cursor: pointer;
+    box-sizing: border-box;
+    border-radius: 3px;
+    border: 1px solid $color-border-light;
+    background: transparent;
+    transition: border $ease-main, background $ease-main, box-shadow $ease-main;
+    padding: 16px 26px 29px 41px;
+
+    @include screen('md') {
+      padding: 16px 30px 40px;
+    }
+
+    @include screen('sm') {
+      padding: 15px 10px 25px;
+    }
+
+    &:hover, #{$b}__input:checked ~ & {
+      border-color: $color-basic;
+      background: $color-white;
+      box-shadow: 0 0 0 1px $color-basic;
+    }
+  }
+
+  &__arrow {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    fill: url('#main-gradient-vi');
+    transform-origin: 50% 50%;
+    transform: rotate(90deg);
+    top: 19px;
+    right: 21px;
+    opacity: 0;
+    transition: opacity $ease-main;
+
+    @include screen('lg') {
+      top: auto;
+      bottom: 19px;
+      transform: rotate(180deg);
+    }
+
+    @include screen('sm') {
+      width: 15px;
+      height: 15px;
+      right: 10px;
+      bottom: 10px;
+    }
+
+    #{$b}:hover &, #{$b}__input:checked ~ #{$b}__content & {
+      opacity: 1;
+    }
+  }
+
+  &__title {
+    @include heading-1-lg;
+
+    font-weight: 700;
+    color: $color-basic;
+    transition: color $ease-main, border $ease-main;
+    display: inline-block;
+    margin-bottom: 34px;
+    border-bottom: 1px solid currentColor;
+
+    @include screen('sm') {
+      @include heading-4;
+
+      line-height: 1;
+      margin-bottom: 16px;
+    }
+
+    #{$b}:hover &, #{$b}__input:checked ~ #{$b}__content & {
+      color: $color-form-toggle-title;
+      border-color: transparent;
+    }
+  }
+
+  &__subtitle, &__text {
+    @include text-mid;
+
+    display: block;
+    width: 100%;
+
+    @include screen('sm') {
+      @include text10;
+
+      line-height: 1.2;
+    }
+  }
+
+  &__subtitle {
+    font-weight: 700;
+    margin-bottom: 11px;
+
+    @include screen('sm') {
+      margin-bottom: 5px;
+    }
+  }
+}

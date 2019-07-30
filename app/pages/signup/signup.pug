@@ -4,37 +4,29 @@ block head
   - var pageTitle = 'SpacePool - Sign Up'
 
 block content
-  +content-origin._reverse._last._heading
+  +content-origin._reverse._last._mt40
     .container
       +grid.grid_layout.grid_content
         +col({ xl: 3, lg: 12})
           +sidebar._no-bg(data-unstick-media="lg")
-            +heading('assets/images/heading-bg1-v2.jpg')
-              +e.H1.title Sign Up
-              +note._color._color_green._lh26.__note Create your own Space Pool account. Get full access to letting options or become a host and create your own offers on Space pool.
+            +page-title._small.__title Choose an option:
+            +e.toggles
+              +form-toggle({radio: {checked: true, name: "userType", value: "tenant", show: "socials", hide: ""}, arrow: true, subtitle: "To rent Spaces Sign up as", title: "Tenant", describe: "Register as a Tenant to&nbsp;get opportunity to rent Hot and Fixed desks, Meeting Rooms and Office Spaces."}).__toggle
+              +form-toggle({radio: {name: "userType", value: "host", show: "", hide: "socials"}, arrow: true, subtitle: "To list on Spacepool sign up as", title: "Host", describe: "Register as a host and get the opportunity to list your space on Spacepool and make offers for thousands of tenants"}).__toggle
         +col({ xl: 8, lg: 12})
           +form()(data-validated-form)
-            +e.toggles
-              +b.LABEL.color-radio._full._dark._big.__toggle
-                +e.INPUT.input(name="userType", value="tenant", type="radio", checked, data-show-elements="details-checker", data-toggle-form)
-                +e.SPAN.content Sign up as a tenant
-              +b.LABEL.color-radio._full._dark._big.__toggle
-                +e.INPUT.input(name="userType", value="host", type="radio", data-hide-elements="details-checker",data-show-elements="details", data-toggle-form)
-                +e.SPAN.content Sign up as a host
-            +form-section('section')._socials
-              +form-section-header._mg14
-                +form-section-text Choose one of automatic options using social media:
+            +form-section()._mg43(data-form-element="socials")
+              +form-section-header._mg35-2
+                +form-section-text You can choose one of automatic options using social media:
               +grid.grid_layout.grid_int10
                 +col({xl: 6, sm: 12})
-                  +social-button('fb-symbol')._fb._white(href="#") Sign up with Facebook
+                  +social-button('fb-symbol')._fb._white._h60(href="#") Sign up with Facebook
                 +col({xl: 6, sm: 12})
-                  +social-button('', 'assets/images/google.svg')._gg._white(href="#") Sign up with Google Account
-            +divider('div')._text.__divider
-              +e.text OR
-            +form-section._mg80
-              +form-section-header._mg49
-                +form-section-text Fill the form Below. Provide us All necessary information about you and you so We can create unique account for you.
-              +grid.grid_big
+                  +social-button('', 'assets/images/google.svg')._gg._white._h60(href="#") Sign up with Google Account
+            +form-section._mg66
+              +form-section-header._mg65
+                +form-section-text Or just feel the form below:
+              +grid.grid_big.grid_int59
                 +col({xl: 6, md:12 })
                   +form-section-wrapper
                     +form-box('First name')
@@ -43,76 +35,31 @@ block content
                   +form-section-wrapper
                     +form-box('Last name')
                       +input(type="text" name="lastName" value="Sheeleen" placeholder="Last name" required="required")
-            +form-section._mg80
-              +form-section-checker()._mgt-20(data-form-element="details-checker")
-                +b.LABEL.checkbox
-                  +e.INPUT.input(name="isCompaty" value="1" type="checkbox" data-checker="details")
-                  +e.SPAN.box
-                    +icon('check').__icon
-                  +e.SPAN.content I work under brand or company
-              +form-section-content.is-disabled(data-checker-target="details" data-form-element="details")
-                +form-section-header._mg35
-                  +form-section-title Company details:
-                +grid.grid_big
-                  +col({xl: 6, md:12 })
-                    +form-section-wrapper
-                      +form-box('Company name')
-                        +input(type="text" name="companyName" placeholder="Company name" required="required")
-                  +col({xl: 6, md:12 })
-                    +form-section-wrapper
-                      +form-box('Company Registry No.')
-                        +input(type="text" name="companyRegN" placeholder="Company Registry No." required="required")
-                  +col({xl: 6, md:12 })
-                    +form-section-wrapper
-                      +form-box('VAT number if you have it')
-                        +input(type="text" name="VATnumber" placeholder="VAT number if you have it")
-                  +col({xl: 6, md:12 })
-                    +form-section-wrapper
-                      +form-box('Legal adress city')
-                        +input(type="text" name="legalAdressCity" placeholder="Legal adress city" required="required")
-                  +col({xl: 6, md:12 })
-                    +form-section-wrapper
-                      +form-box('Legal adress street')
-                        +input(type="text" name="legalAdressStreet" placeholder="Legal adress street" required="required")
-                  +col({xl: 6, md:12 })
-                    +form-section-wrapper
-                      +form-box('Building No.')
-                        +input(type="text" name="buildingN" placeholder="Building No." required="required")
-                  +col({xl: 6, md:12 })
-                    +form-section-wrapper
-                      +form-box('Apartment or Office No.')
-                        +input(type="text" name="officeN" placeholder="Apartment or Office No.")
-                  +col({xl: 6, md:12 })
-                    +form-section-wrapper
-                      +form-box('ZIP/Postal Code')
-                        +input(type="text" name="ZIPcode" placeholder="ZIP/Postal Code" required="required")
-            +form-section
-              +form-section-header._mg35
-                +form-section-title Registration info:
-              +grid.grid_big.grid_inner
-                +col({xl: 6, md:12 })
+                +col({xl: 12 })
                   +form-section-wrapper
                     +form-box('E-mail adress')
                       +input(type="email" name="email" placeholder="E-mail adress" required="required")
-                +col({xl: 6, md:12 }).grid__col_md-order2
-                  +form-section-wrapper
-                    +checkbox('agreement', '1')._border I agree with Terms and Conditions
                 +col({xl: 6, md:12 })
                   +form-section-wrapper
                     +form-box('Password')
                       +input(type="password" name="password" placeholder="Password"
                       data-parsley-passwordequalto="[data-password2]" data-password1="password1" required="required")
-                +col({xl: 6, md:12 }).grid__col_md-order2
-                  +form-section-wrapper
-                    +checkbox('subscribe', '1')._border Sign me up to Space Pool notification via E-mail
+                +col({xl: 6, md:12 }).hide-md
                 +col({xl: 6, md:12 })
                   +form-section-wrapper
                     +form-box('Password one more time')
                       +input(type="password" name="password" placeholder="Password one more time" data-password2="password2"
                       data-parsley-passwordequalto="[data-password1]" required="required")
-                +col({xl: 6, md:12 }).grid__col_md-order2
-                  +form-section-wrapper
-                    +button('button')(type="submit")._wide._short Create my Space Pool account
+            +form-section._mg66
+              +grid.grid_big.grid_int59
+                +col({xl: 6, md:12 })
+                  +form-section-wrapper._mg22._shiftl
+                    +checkbox('agreement', '1') I agree with Terms and Conditions
+                  +form-section-wrapper._mg22._shiftl
+                    +checkbox('subscribe', '1') Sign me up to Space Pool notification via E-mail
+                +col({xl: 6, md:12 })
+                  +form-section-wrapper._fxe._h100p._pb
+                    +button('button')(type="submit")._wide._short Sign up
         +col({ xl: 1, lg: 12}).hide-lg
 
 block panels

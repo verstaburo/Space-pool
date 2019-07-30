@@ -1,11 +1,10 @@
 mixin success-message()
   +b.SECTION.success-message&attributes(attributes)
     +section
-      +section-header
-        +section-title('h2')._big._mg16 Wonderfull!
-
-        +section-title('div')._mid You have created your Space Pool account.
+      +section-header._mgb35
+        +section-title('h2')._big Wonderfull! <br> You have created Space Pool account.
       +section-content._bordered
+        +section-title('div')._mid._mg26 Please verify your account via E-mail.
         +grid.grid_layout
           +col({xl: 6, sm: 12})
             +content-zone
@@ -16,4 +15,13 @@ mixin success-message()
                 b es********lv@gmail.com
             +e.links
               +link()(href="#")._light-underline.__link Resend verification mail
+      block
+
+mixin success-message2()
+  +b.SECTION.success-message&attributes(attributes)
+    +section
+      +section-header._bmg
+        +section-title('h2')._big Your account was successfully verified
+      +section-content._bordered._bordered_bpd
+        +section-title('div')._mid._mg26 You can now Request tenancy for Spaces.
       block
