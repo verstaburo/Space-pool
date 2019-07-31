@@ -4,116 +4,129 @@ block head
   - var pageTitle = 'SpacePool - Sign Up host important info'
 
 block content
-  +content-origin._reverse._last._heading
+  +page-header._styled
+    +e.bg
+      +e.IMG.bg-image(src="assets/images/info-account.jpg")
     .container
       +grid.grid_layout.grid_content
-        +col({ xl: 3, lg: 12})
-          +sidebar._no-bg(data-unstick-media="lg")
-            +heading('assets/images/heading-bg1-v2.jpg')
-              +e.H1.title Sign Up
-              +note._color._color_green._lh26.__note Create your own Space Pool account. Get full access to letting options or become a host and create your own offers on Space pool.
-        +col({ xl: 8, lg: 12})
+        +col({ xl: 2, md: 12})
+        +col({ xl: 10, md: 12})
+  +content-origin._reverse._last._mt40
+    .container
+      +grid.grid_layout.grid_content
+        +col({ xl: 2, md: 12}).hide-md
+          +sidebar._no-bg(data-unstick-media="md")
+        +col({ xl: 8, md: 10, md: 12})
           +form()(data-validated-form)
-            +e.toggles
-              +b.LABEL.color-radio._full._dark._big.__toggle
-                +e.INPUT.input(name="userType", value="tenant", type="radio", checked, data-show-elements="details-checker", data-toggle-form)
-                +e.SPAN.content Sign up as a tenant
-              +b.LABEL.color-radio._full._dark._big.__toggle
-                +e.INPUT.input(name="userType", value="host", type="radio", data-hide-elements="details-checker",data-show-elements="details", data-toggle-form)
-                +e.SPAN.content Sign up as a host
-            +form-section('section')._socials
-              +form-section-header._mg14
-                +form-section-text Choose one of automatic options using social media:
-              +grid.grid_layout.grid_int10
-                +col({xl: 6, sm: 12})
-                  +social-button('fb-symbol')._fb._white(href="#") Sign up with Facebook
-                +col({xl: 6, sm: 12})
-                  +social-button('', 'assets/images/google.svg')._gg._white(href="#") Sign up with Google Account
-            +divider('div')._text.__divider
-              +e.text OR
             +form-section._mg80
               +form-section-header._mg49
-                +form-section-text Fill the form Below. Provide us All necessary information about you and you so We can create unique account for you.
-              +grid.grid_big
-                +col({xl: 6, md:12 })
-                  +form-section-wrapper
-                    +form-box('First name')
-                      +input(type="text" name="firstName" value="Eugene" placeholder="First name" required="required")
-                +col({xl: 6, md:12 })
-                  +form-section-wrapper
-                    +form-box('Last name')
-                      +input(type="text" name="lastName" value="Sheeleen" placeholder="Last name" required="required")
+                +form-section-title._big Please take a moment to complete your host account with important information:
+                +form-section-text Fill all the field in this form. This information will be used to create rental contracts aswell it is a part of financial service KYC protocol
             +form-section._mg80
-              +form-section-checker()._mgt-20(data-form-element="details-checker")
-                +b.LABEL.checkbox
-                  +e.INPUT.input(name="isCompaty" value="1" type="checkbox" data-checker="details")
-                  +e.SPAN.box
-                    +icon('check').__icon
-                  +e.SPAN.content I work under brand or company
-              +form-section-content.is-disabled(data-checker-target="details" data-form-element="details")
+              +form-section-content
                 +form-section-header._mg35
-                  +form-section-title Company details:
+                  +form-section-title('h4') Company information
                 +grid.grid_big
-                  +col({xl: 6, md:12 })
+                  +col({xl: 12 })
                     +form-section-wrapper
                       +form-box('Company name')
-                        +input(type="text" name="companyName" placeholder="Company name" required="required")
+                        +input(type="text" name="companyName" placeholder="Company name" required="required" value="DEZI Co-working").input_bold2
                   +col({xl: 6, md:12 })
                     +form-section-wrapper
-                      +form-box('Company Registry No.')
-                        +input(type="text" name="companyRegN" placeholder="Company Registry No." required="required")
+                      +form-box('Company Number')
+                        +input(type="text" name="companyNum" placeholder="Company Number" required="required").input_bold2
                   +col({xl: 6, md:12 })
                     +form-section-wrapper
-                      +form-box('VAT number if you have it')
-                        +input(type="text" name="VATnumber" placeholder="VAT number if you have it")
+                      +form-box('VAT number (if you have it)')
+                        +input(type="text" name="VATnumber" placeholder="VAT number (if you have it)").input_bold2
                   +col({xl: 6, md:12 })
                     +form-section-wrapper
-                      +form-box('Legal adress city')
-                        +input(type="text" name="legalAdressCity" placeholder="Legal adress city" required="required")
+                      +form-box('Registered Adress Line 1')
+                        +input(type="text" name="regAdressL1" placeholder="Registered Adress Line 1" required="required").input_bold2
                   +col({xl: 6, md:12 })
                     +form-section-wrapper
-                      +form-box('Legal adress street')
-                        +input(type="text" name="legalAdressStreet" placeholder="Legal adress street" required="required")
+                      +form-box('Registered Adress Line 2')
+                        +input(type="text" name="regAdressL2" placeholder="Registered Adress Line 2" required="required").input_bold2
                   +col({xl: 6, md:12 })
                     +form-section-wrapper
-                      +form-box('Building No.')
-                        +input(type="text" name="buildingN" placeholder="Building No." required="required")
+                      +form-box('Country')
+                        +select.js-select-input(name="country")
+                          option(value="" placeholder) Country
+                          option(value="lv") Latvia
+                          option(value="ru") Russia
+                          option(value="de") Germany
+                          option(value="fr") France
                   +col({xl: 6, md:12 })
                     +form-section-wrapper
-                      +form-box('Apartment or Office No.')
-                        +input(type="text" name="officeN" placeholder="Apartment or Office No.")
+                      +form-box('City')
+                        +input(type="text" name="city" placeholder="City").input_bold2
                   +col({xl: 6, md:12 })
                     +form-section-wrapper
-                      +form-box('ZIP/Postal Code')
-                        +input(type="text" name="ZIPcode" placeholder="ZIP/Postal Code" required="required")
+                      +form-box('Postcode')
+                        +input(type="text" name="postCode" placeholder="Postcode" required="required").input_bold2
             +form-section
               +form-section-header._mg35
-                +form-section-title Registration info:
+                +form-section-title Legal representative information
               +grid.grid_big.grid_inner
                 +col({xl: 6, md:12 })
                   +form-section-wrapper
-                    +form-box('E-mail adress')
-                      +input(type="email" name="email" placeholder="E-mail adress" required="required")
-                +col({xl: 6, md:12 }).grid__col_md-order2
-                  +form-section-wrapper
-                    +checkbox('agreement', '1')._border I agree with Terms and Conditions
+                    +form-box('Company director name')
+                      +input(type="text" name="directorName" value="Eugene" placeholder="Company director name")
                 +col({xl: 6, md:12 })
                   +form-section-wrapper
-                    +form-box('Password')
-                      +input(type="password" name="password" placeholder="Password"
-                      data-parsley-passwordequalto="[data-password2]" data-password1="password1" required="required")
-                +col({xl: 6, md:12 }).grid__col_md-order2
-                  +form-section-wrapper
-                    +checkbox('subscribe', '1')._border Sign me up to Space Pool notification via E-mail
+                    +form-box('Company director Last name')
+                      +input(type="text" name="directorLastName" value="Sheeleen" placeholder="Company director Last name")
                 +col({xl: 6, md:12 })
                   +form-section-wrapper
-                    +form-box('Password one more time')
-                      +input(type="password" name="password" placeholder="Password one more time" data-password2="password2"
-                      data-parsley-passwordequalto="[data-password1]" required="required")
-                +col({xl: 6, md:12 }).grid__col_md-order2
+                    +form-box('Date of birth', 'calendar2')._icon
+                      +input.js-datepicker(type="text" name="birthDate" placeholder="Date of birth")
+                +col({xl: 3, md:6, sm: 12 }).grid__col_md-order2
                   +form-section-wrapper
-                    +button('button')(type="submit")._wide._short Create my Space Pool account
-        +col({ xl: 1, lg: 12}).hide-lg
+                    +form-box('Nationality')
+                      +select.js-select-input(name="nationality")
+                        option(value="" placeholder) Nationality
+                        option(value="eng") English
+                        option(value="rus") Russians
+                        option(value="ger") Germans
+                        option(value="lat") Latvians
+                +col({xl: 3, md:6, sm: 12 })
+                  +form-section-wrapper
+                    +form-box('Country of Residence')
+                      +select.js-select-input(name="countryResidence")
+                        option(value="" placeholder) Country of Residence
+                        option(value="lv") Latvia
+                        option(value="ru") Russia
+                        option(value="de") Germany
+                        option(value="fr") France
+                +col({xl: 6, md:12 })
+                  +form-section-wrapper
+                    +form-box('Service Adress Line 1')
+                      +input(type="text" name="serviceAdressL1" placeholder="Service Adress Line 1")
+                +col({xl: 6, md:12 })
+                  +form-section-wrapper
+                    +form-box('Service Adress Line 2')
+                      +input(type="text" name="serviceAdressL2" placeholder="Service Adress Line 2")
+                +col({xl: 6, md:12 })
+                  +form-section-wrapper
+                    +form-box('Country')
+                      +select.js-select-input(name="country")
+                        option(value="" placeholder) Country
+                        option(value="lv") Latvia
+                        option(value="ru") Russia
+                        option(value="de") Germany
+                        option(value="fr") France
+                +col({xl: 6, md:12 })
+                  +form-section-wrapper
+                    +form-box('City')
+                      +input(type="text" name="city" placeholder="City").input_bold2
+                +col({xl: 6, md:12 })
+                  +form-section-wrapper
+                    +form-box('Postcode')
+                      +input(type="text" name="postCode" placeholder="Postcode")
+                +col({xl: 6, md:12 })
+                  +form-section-wrapper
+                    +button('button')(type="submit")._wide._short Continue
+        +col({ xl: 2, lg: 12}).hide-lg
 
 block panels
   +main-menu-inner
