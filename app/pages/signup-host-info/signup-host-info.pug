@@ -5,48 +5,70 @@ block head
 
 block content
   +page-header._styled
-    +e.bg
-      +e.IMG.bg-image(src="assets/images/info-account.jpg")
+    +e.bg.hide-md
+      +e.IMG.bg-image(src="assets/images/info-account.svg")
     .container
       +grid.grid_layout.grid_content
-        +col({ xl: 2, md: 12})
+        +col({ xl: 2, md: 12}).hide-md
         +col({ xl: 10, md: 12})
-  +content-origin._reverse._last._mt40
+          +page-title._fx._big
+            +e.text Your account was successfully verified
+            +icon('check').__check
+  +content-origin._reverse._last._mt64
     .container
       +grid.grid_layout.grid_content
         +col({ xl: 2, md: 12}).hide-md
           +sidebar._no-bg(data-unstick-media="md")
+            +steps
+              +steps-item.is-success
+                +e.top
+                  +steps-text._sub YOU ARE HERE
+                +e.line
+                  +steps-text Create an account
+                  +icon('check').__check
+              +steps-item.is-active
+                +e.top
+                  +steps-text._sub YOU ARE HERE
+                +e.line
+                  +steps-text Fill important info
+                  +icon('check').__check
+              +steps-item
+                +e.top
+                  +steps-text._sub YOU ARE HERE
+                +e.line
+                  +steps-text Add Space (optional)
+                  +icon('check').__check
         +col({ xl: 8, md: 10, md: 12})
           +form()(data-validated-form)
-            +form-section._mg80
-              +form-section-header._mg49
-                +form-section-title._big Please take a moment to complete your host account with important information:
+            +form-section._mg50
+              +form-section-header._mg0
+                +form-section-title._big._mg48 Please take a moment to complete your host account with important information:
                 +form-section-text Fill all the field in this form. This information will be used to create rental contracts aswell it is a part of financial service KYC protocol
-            +form-section._mg80
+            +form-section._mg88
               +form-section-content
-                +form-section-header._mg35
+                +form-section-header._mg62
                   +form-section-title('h4') Company information
-                +grid.grid_big
+                +grid.grid_big.grid_int59
                   +col({xl: 12 })
                     +form-section-wrapper
                       +form-box('Company name')
-                        +input(type="text" name="companyName" placeholder="Company name" required="required" value="DEZI Co-working").input_bold2
+                        +input(type="text" name="companyName" placeholder="Company name" required="required" value="DEZI Co-working")
                   +col({xl: 6, md:12 })
                     +form-section-wrapper
                       +form-box('Company Number')
-                        +input(type="text" name="companyNum" placeholder="Company Number" required="required").input_bold2
+                        +input(type="text" name="companyNum" placeholder="Company Number" required="required")
                   +col({xl: 6, md:12 })
                     +form-section-wrapper
                       +form-box('VAT number (if you have it)')
-                        +input(type="text" name="VATnumber" placeholder="VAT number (if you have it)").input_bold2
+                        +input(type="text" name="VATnumber" placeholder="VAT number (if you have it)")
                   +col({xl: 6, md:12 })
                     +form-section-wrapper
                       +form-box('Registered Adress Line 1')
-                        +input(type="text" name="regAdressL1" placeholder="Registered Adress Line 1" required="required").input_bold2
+                        +input(type="text" name="regAdressL1" placeholder="Registered Adress Line 1" required="required")
                   +col({xl: 6, md:12 })
                     +form-section-wrapper
                       +form-box('Registered Adress Line 2')
-                        +input(type="text" name="regAdressL2" placeholder="Registered Adress Line 2" required="required").input_bold2
+                        +input(type="text" name="regAdressL2" placeholder="Registered Adress Line 2" required="required")
                   +col({xl: 6, md:12 })
                     +form-section-wrapper
                       +form-box('Country')
@@ -59,15 +81,15 @@ block content
                   +col({xl: 6, md:12 })
                     +form-section-wrapper
                       +form-box('City')
-                        +input(type="text" name="city" placeholder="City").input_bold2
+                        +input(type="text" name="city" placeholder="City")
                   +col({xl: 6, md:12 })
                     +form-section-wrapper
                       +form-box('Postcode')
-                        +input(type="text" name="postCode" placeholder="Postcode" required="required").input_bold2
-            +form-section
-              +form-section-header._mg35
+                        +input(type="text" name="postCode" placeholder="Postcode" required="required")
+            +form-section._mg88
+              +form-section-header._mg62
                 +form-section-title Legal representative information
-              +grid.grid_big.grid_inner
+              +grid.grid_big.grid_int59
                 +col({xl: 6, md:12 })
                   +form-section-wrapper
                     +form-box('Company director name')
@@ -79,8 +101,8 @@ block content
                 +col({xl: 6, md:12 })
                   +form-section-wrapper
                     +form-box('Date of birth', 'calendar2')._icon
-                      +input.js-datepicker(type="text" name="birthDate" placeholder="Date of birth")
-                +col({xl: 3, md:6, sm: 12 }).grid__col_md-order2
+                      +input.js-datepicker(type="text" name="birthDate" placeholder="Date of birth" readonly="readonly")
+                +col({xl: 3, md:6, sm: 12 })
                   +form-section-wrapper
                     +form-box('Nationality')
                       +select.js-select-input(name="nationality")
@@ -118,7 +140,7 @@ block content
                 +col({xl: 6, md:12 })
                   +form-section-wrapper
                     +form-box('City')
-                      +input(type="text" name="city" placeholder="City").input_bold2
+                      +input(type="text" name="city" placeholder="City")
                 +col({xl: 6, md:12 })
                   +form-section-wrapper
                     +form-box('Postcode')

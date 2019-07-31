@@ -27,4 +27,39 @@
       @include heading-4;
     }
   }
+
+  &_big {
+    @include heading-1;
+
+    font-weight: 700;
+
+    @include screen('md') {
+      @include heading-1-lg;
+    }
+
+    @include screen('sm') {
+      @include heading-1-sm;
+    }
+  }
+
+  &_fx {
+    display: flex;
+    justify-content: flex-start;
+    align-items: baseline;
+  }
+
+  &__check {
+    min-width: 51px;
+    width: 51px;
+    height: 44px;
+    fill: $color-green-check;
+    margin-left: 35px;
+
+    @include screen('sm') {
+      min-width: 28px;
+      width: 28px;
+      height: 25px;
+      margin-left: 15px;
+    }
+  }
 }

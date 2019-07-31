@@ -1,0 +1,83 @@
+.steps {
+  $b: &;
+
+  display: block;
+  width: 100%;
+  margin: 2px 0 0;
+  box-shadow: inset 1px 0 0 $color-border-light;
+
+  &__item {
+    position: relative;
+    width: 100%;
+    background-color: $color-bg;
+    box-sizing: border-box;
+    padding: 6px 0;
+
+    &:not(:last-child) {
+      margin-bottom: 46px;
+    }
+
+    &.is-active {
+      &:not(:first-child) {
+        margin-top: -9px;
+      }
+    }
+  }
+
+  &__top {
+    display: none;
+    width: 100%;
+
+    #{$b}__item.is-active & {
+      display: block;
+    }
+  }
+
+  &__text {
+    @include text-big;
+
+    line-height: 1.2;
+    transition: color $ease-main;
+    font-weight: 700;
+    max-width: 100%;
+
+    @include screen('sm') {
+      @include text;
+
+      line-height: 1.2;
+    }
+
+    #{$b}__item.is-active & {
+      color: $color-step-active;
+    }
+
+    &_sub {
+      @include text9;
+
+      line-height: 1;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      font-weight: 700;
+      display: block;
+      width: 100%;
+    }
+  }
+
+  &__line {
+    display: flex;
+    justify-content: flex-start;
+    align-items: baseline;
+  }
+
+  &__check {
+    width: 14px;
+    height: 12px;
+    fill: $color-green-check;
+    margin-left: 7px;
+    display: none;
+
+    #{$b}__item.is-success & {
+      display: inline-block;
+    }
+  }
+}
