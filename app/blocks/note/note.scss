@@ -147,4 +147,33 @@
       }
     }
   }
+
+  &_side {
+    @include screen('md') {
+      position: relative;
+      padding-left: 25px;
+      box-sizing: border-box;
+    }
+
+    #{$b} {
+
+      &__mark {
+        @include screen('md') {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 20px;
+          height: 15px;
+        }
+      }
+
+      &__text {
+        @include screen('md') {
+          @include text15;
+
+          line-height: (20 /15);
+        }
+      }
+    }
+  }
 }

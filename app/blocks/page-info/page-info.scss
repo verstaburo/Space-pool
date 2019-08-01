@@ -4,6 +4,18 @@
   display: block;
   width: 100%;
 
+  @include screen('md') {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    box-sizing: border-box;
+    padding-left: 70px;
+  }
+
+  @include screen('sm') {
+    padding-left: 32px;
+  }
+
   &__image {
     display: flex;
     align-items: center;
@@ -12,8 +24,27 @@
     height: 70px;
     min-width: 70px;
 
+    @include screen('md') {
+      position: absolute;
+      top: 50%;
+      left: 33px;
+      transform: translate3d(0, -50%, 0);
+      align-items: flex-start;
+    }
+
+    @include screen('sm') {
+      width: 35px;
+      height: 35px;
+      min-width: 35px;
+      left: 15px;
+    }
+
     &:not(:last-child) {
       margin-bottom: 31px;
+
+      @include screen('md') {
+        margin-bottom: 0;
+      }
     }
   }
 
@@ -27,26 +58,51 @@
     &_location {
       width: 41px;
       height: 69px;
+
+      @include screen('sm') {
+        width: 20px;
+        height: 34px;
+      }
     }
 
     &_strings {
       width: 62px;
+
+      @include screen('sm') {
+        width: 31px;
+      }
     }
 
     &_boxes {
       width: 54px;
+
+      @include screen('sm') {
+        width: 27px;
+      }
     }
 
     &_photo {
       width: 61px;
+
+      @include screen('sm') {
+        width: 30px;
+      }
     }
 
     &_rules {
       width: 48px;
+
+      @include screen('sm') {
+        width: 24px;
+      }
     }
 
     &_check-form {
       width: 68px;
+
+      @include screen('sm') {
+        width: 34px;
+      }
     }
 
     &_grad1 {
@@ -72,19 +128,37 @@
     font-weight: 700;
     line-height: (26/25);
 
-    @include screen('sm') {
-      @include heading-4;
+    @include screen('md') {
+      order: 2;
+    }
 
-      line-height: (26/20);
+    @include screen('sm') {
+      @include text15;
+
+      line-height: 1;
+    }
+
+    br {
+      @include screen('md') {
+        display: none;
+      }
     }
 
     &:not(:last-child) {
       margin-bottom: 35px;
+
+      @include screen('md') {
+        margin-bottom: 0;
+      }
     }
 
     &_mg62 {
       &:not(:last-child) {
         margin-bottom: 62px;
+
+        @include screen('md') {
+          margin-bottom: 0;
+        }
       }
     }
   }
@@ -100,8 +174,16 @@
     width: 100%;
     padding-top: 23px;
 
+    @include screen('md') {
+      padding-top: 0;
+      order: 1;
+    }
+
     @include screen('sm') {
-      @include text15;
+      @include text10;
+
+      line-height: (13 / 10);
+      margin-top: 2px;
     }
 
     i {
@@ -117,6 +199,10 @@
       background-color: $color-basic;
       top: 0;
       left: 0;
+
+      @include screen('md') {
+        display: none;
+      }
     }
   }
 }

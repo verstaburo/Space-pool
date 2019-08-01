@@ -1,0 +1,17 @@
+mixin composite-tab(data)
+  +b.composite-tab&attributes(attributes)
+    +e.checkbox
+      +b.LABEL.checkbox_sm-small._notext
+        block
+    +e.button
+      +e.content
+        if data.box
+          +box()(class=data.box + ' __box hide-from-sm')
+        if data.title
+          +e.title!=data.title
+        if data.save
+          +e.saved
+            +e.text Saved
+            +icon('check').__check
+        if data.plus
+          +icon('plus').__plus

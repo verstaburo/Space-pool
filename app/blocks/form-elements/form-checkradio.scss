@@ -341,9 +341,38 @@
     color: $color-basic;
   }
 
+  &_notext {
+    padding-left: 20px;
+    height: 20px;
+
+    &::before {
+      @include pseudo;
+
+      top: 50%;
+      left: 50%;
+      transform: translate3d(-50%, -50%, 0);
+      width: 30px;
+      height: 30px;
+    }
+  }
+
   &_sm-small {
     @include screen('sm') {
       padding-left: 22px;
+    }
+
+    &#{$check}_notext {
+      @include screen('sm') {
+        padding-left: 14px;
+        height: 14px;
+      }
+
+      &::before {
+        @include screen('sm') {
+          width: 24px;
+          height: 24px;
+        }
+      }
     }
 
     #{$check} {

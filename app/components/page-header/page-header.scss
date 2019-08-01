@@ -53,18 +53,6 @@
     }
   }
 
-  &_hpad {
-    padding: 45px 0 32px;
-
-    @include screen('md') {
-      padding: 35px 0;
-    }
-
-    @include screen('sm') {
-      padding: 19px 0;
-    }
-  }
-
   &_gpad {
     padding: 42px 0;
 
@@ -97,6 +85,18 @@
   &_nowrap {
     @include screen('sm') {
       padding: 12px 0 9px;
+    }
+  }
+
+  &_hpad {
+    padding: 45px 0 32px;
+
+    @include screen('md') {
+      padding: 45px 0 20px;
+    }
+
+    @include screen('sm') {
+      padding: 23px 0 9px;
     }
   }
 
@@ -216,6 +216,14 @@
         @include screen('md') {
           width: auto;
         }
+      }
+    }
+
+    &_md-fx {
+      @include screen('md') {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
       }
     }
   }
@@ -385,6 +393,14 @@
 
     &_fz17 {
       @include text-mid;
+    }
+
+    &_mfz10 {
+      @include screen('sm') {
+        @include text10;
+
+        padding-left: 20px;
+      }
     }
 
     &_cnl {

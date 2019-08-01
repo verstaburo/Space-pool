@@ -22,9 +22,31 @@
     padding-right: 12%;
   }
 
+  @include screen('md') {
+    position: relative;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    min-height: 0;
+    padding: 20px 21px 24px 33px;
+  }
+
+  @include screen('sm') {
+    padding: 13px 15px;
+  }
+
   &__navigation,&__info {
     &:not(:last-child) {
       margin-bottom: 32px;
+
+      @include screen('md') {
+        margin-bottom: 0;
+        margin-right: 30px;
+      }
+
+      @include screen('sm') {
+        margin-right: 0;
+      }
     }
   }
 
@@ -48,5 +70,12 @@
 
   .note,&__links {
     margin-top: auto;
+  }
+
+  .note {
+    @include screen('md') {
+      margin-top: 6px;
+      max-width: 270px;
+    }
   }
 }
