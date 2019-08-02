@@ -62,6 +62,7 @@ import textareaCounters from '../blocks/form-elements/textareaCounters';
 import infoEditable from '../blocks/info-editable/info-editable';
 import messageForm from '../blocks/message-form/message-form';
 import infoNoitces from '../blocks/info-notices/info-notices';
+import compositeTab from '../blocks/composite-tab/composite-tab';
 
 const $ = window.$;
 
@@ -115,4 +116,5 @@ $(() => {
   infoEditable();
   messageForm();
   infoNoitces();
+  compositeTab();
 });

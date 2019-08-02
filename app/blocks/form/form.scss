@@ -31,8 +31,8 @@
       padding-right: 53px;
 
       @include screen('sm') {
-        padding-right: 10px;
-        padding-left: 10px;
+        padding-right: 15px;
+        padding-left: 13px;
       }
     }
 
@@ -83,6 +83,20 @@
     &_mg21 {
       &:not(:last-of-type) {
         margin-bottom: 21px;
+      }
+    }
+
+    &_mg21-2 {
+      &:not(:last-of-type) {
+        margin-bottom: 21px;
+
+        @include screen('lg') {
+          margin-bottom: 30px;
+        }
+
+        @include screen('sm') {
+          margin-bottom: 0;
+        }
       }
     }
 
@@ -250,6 +264,14 @@
 
     &_mg26-2 {
       margin-bottom: 26px;
+
+      @include screen('lg') {
+        margin-bottom: 34px;
+      }
+
+      @include screen('sm') {
+        margin-bottom: 0;
+      }
     }
 
     &_mg30 {
@@ -394,6 +416,13 @@
       align-content: baseline;
     }
 
+    &_fxc {
+      display: flex;
+      justify-content: flex-start;
+      align-items: flex-start;
+      flex-direction: column;
+    }
+
     &_mg0 {
       margin-bottom: 0;
     }
@@ -512,6 +541,14 @@
         @include text15;
 
         line-height: (26 / 15);
+      }
+    }
+
+    &_mfz12 {
+      @include screen('sm') {
+        @include text12;
+
+        line-height: (15 / 12);
       }
     }
 
@@ -819,9 +856,16 @@
         @include screen('sm') {
           padding: 0 $container-padding-mobile;
         }
+
+        &_sm-pd30 {
+          @include screen('sm') {
+            padding: 5px 30px;
+          }
+        }
       }
 
       &.is-stop {
+
         @include screen('md', min) {
           position: absolute;
         }
@@ -845,6 +889,25 @@
       &.is-active {
         opacity: 1;
         pointer-events: auto;
+      }
+    }
+
+    &_lg-shft20 {
+      @include screen('lg') {
+        margin-left: -20px;
+        width: calc(100% + 20px);
+      }
+
+      @include screen('md') {
+        margin-left: 0;
+        width: 100%;
+      }
+
+      &.is-stop, .is-stop & {
+        @include screen('lg') {
+          margin-left: 0;
+          width: 100%;
+        }
       }
     }
 
@@ -1223,7 +1286,7 @@
       padding-top: 42px;
 
       @include screen('sm') {
-        padding-top: 40px;
+        padding-top: 20px;
       }
     }
 
@@ -1354,15 +1417,50 @@
 
     @include screen('sm') {
       position: fixed;
+      display: block;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
       z-index: 20;
+      opacity: 0;
+      transform: translate3d(100%, 0, 0);
+      transition: transform $ease-main, opacity $ease-main;
+      pointer-events: none;
     }
 
     &.is-active {
       display: block;
+    }
+
+    &.is-opened {
+      @include screen('sm') {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+        pointer-events: auto;
+      }
+    }
+
+    &-cross {
+      position: absolute;
+      top: 0;
+      left: 9px;
+    }
+
+    &-title {
+      text-align: right;
+
+      .offer-info .box {
+        @include screen('sm') {
+          margin-right: 6px;
+        }
+      }
+
+      #{$b}__title {
+        @include screen('sm') {
+          margin-top: -3px;
+        }
+      }
     }
 
     &-top {
@@ -1522,6 +1620,49 @@
       &:not(:last-child) {
         margin-right: 20px;
       }
+    }
+  }
+
+  &__sequence {
+    flex: none;
+
+    @include screen('sm') {
+      margin-bottom: 35px;
+    }
+
+    .time {
+
+      &__text {
+        @include screen('lg') {
+          max-width: 270px;
+        }
+
+        @include screen('sm') {
+          max-width: 100px;
+        }
+
+        &:first-child {
+          @include screen('lg') {
+            max-width: 226px;
+          }
+
+          @include screen('sm') {
+            max-width: 100px;
+          }
+        }
+      }
+    }
+  }
+
+  &_lg-shft20 {
+    @include screen('lg') {
+      margin-left: -20px;
+      width: calc(100% + 20px);
+    }
+
+    @include screen('md') {
+      margin-left: 0;
+      width: 100%;
     }
   }
 }

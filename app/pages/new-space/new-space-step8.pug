@@ -30,97 +30,97 @@ block content
               +page-info-title Terms and<br> Conditions
               +page-info-description Step 6 <i>of 8</i>
         +content-column-main._no-ptop
-          +form()._white._flex._pb2.js-form-with-hidden-panel(data-validated-form)
+          +form()._white._flex._pb2._lg-shft20.js-form-with-hidden-panel(data-validated-form)
             +e.container._pds0._pt42._pb0
-              +form-section._pds._border._border_no-sm._mg21
-                +form-section-header._fx._mg26-2
+              +form-section._pds._border._border_no-sm._mg21-2
+                +form-section-header._fxc._mg26-2
                   +form-section-title._small2._mg28._sm-ord2
                     span.hide-sm Terms and Conditions
                     span.hide-from-sm Terms and conditions for:
-                  +time-origin.__sequence
+                  +time-origin._aibsl.__sequence
                     +time-text
                       +e.DIV.time_fz18._wrap Step 1: Select Offer types for Particular Space
                     +time-arrow._big._bmg._grad
                     +time-text
                       +e.DIV.time_fz18._wrap Step 2: Copy and paste Terms and conditions for each Offer type
               +form-section._pds._border._border_no-sm._mg21
-                +content-zone._mid2._pr
+                +content-zone._mid2._pr.hide-sm
                   p You can just copy and paste here your Standart rental contract. Remember that any document has it’s own editing, <b>so please remove any blank placeholders, unnecessary character editing, company and client names.</b> <strong>This section must contain only your space terms and conditions.</strong>
                 +tabs('div')._form.__tabs
-                  +composite-tab({title: 'Hot Desk', box: '_orange _size11', plus: true, save: true})._orange.is-active.__item
-                    +e.INPUT.input(name="typeOffer", value="hd", checked, type="checkbox")
+                  +composite-tab({title: 'Hot Desk', box: '_orange _size11', plus: true, save: true})._orange.is-active.__item(data-composite-el="offerHD")
+                    +e.INPUT.input(name="typeOffer", value="hd", checked, type="checkbox" data-composite-activator)
                     +e.SPAN.box
                       +icon('check').__icon
-                  +composite-tab({title: 'Fixed desk', box: '_red _size11', plus: true, save: true})._red.is-saved.__item
-                    +e.INPUT.input(name="typeOffer", value="fd", checked, type="checkbox")
+                  +composite-tab({title: 'Fixed desk', box: '_red _size11', plus: true, save: true})._red.is-saved.__item(data-composite-el="offerFD")
+                    +e.INPUT.input(name="typeOffer", value="fd", checked, type="checkbox" data-composite-activator)
                     +e.SPAN.box
                       +icon('check').__icon
-                  +composite-tab({title: 'Meeting room', box: '_blue _size11', plus: true, save: true})._blue.is-disabled.__item
-                    +e.INPUT.input(name="typeOffer", value="mr", type="checkbox")
+                  +composite-tab({title: 'Meeting room', box: '_blue _size11', plus: true, save: true})._blue.is-disabled.__item(data-composite-el="offerMR")
+                    +e.INPUT.input(name="typeOffer", value="mr", type="checkbox" data-composite-activator)
                     +e.SPAN.box
                       +icon('check').__icon
-                  +composite-tab({title: 'Office space', box: '_green _size11', plus: true, save: true})._green.is-disabled.__item
-                    +e.INPUT.input(name="typeOffer", value="os", type="checkbox")
+                  +composite-tab({title: 'Office space', box: '_green _size11', plus: true, save: true})._green.is-disabled.__item(data-composite-el="offerOS")
+                    +e.INPUT.input(name="typeOffer", value="os", type="checkbox" data-composite-activator)
                     +e.SPAN.box
                       +icon('check').__icon
               +form-section
-                +e.FIELDSET.modal.is-active
+                +e.FIELDSET.modal.is-active(data-composite-target="offerHD")
                   +e.modal-top
                     +close.__modal-cross.js-close-form-modal
                     +e.modal-title
-                      +offer-info._dark
+                      +offer-info
                         +box._size11._orange
-                        +e.title Hot Desk
-                      +form-section-title._small Terms and conditions
+                        +e.title_dark._mfz15 Hot Desk
+                      +form-section-title._mfz12 Terms and conditions
                   +e.modal-content
                     +form-section-wrapper
                       +form-box('', '', '', '', '')
-                        +textarea(type="text" name="termsConditionsHD" placeholder="Terms and conditions for HOT DESK").textarea_big.textarea_bordered.textarea_def-plchldr
+                        +textarea(type="text" name="termsConditionsHD" placeholder="Terms and conditions for HOT DESK").textarea_big.textarea_bordered.textarea_def-plchldr.textarea_mfz12.no-sm-autosize
                   +e.modal-bottom
                     +button('button')(type="button")._short._mob-smaller.__button Save
                       span.hide-sm &nbsp;Terms and Conditions for HOT DESK
-                +e.FIELDSET.modal
+                +e.FIELDSET.modal(data-composite-target="offerFD")
                   +e.modal-top
                     +close.__modal-cross.js-close-form-modal
                     +e.modal-title
-                      +offer-info._dark
+                      +offer-info
                         +box._size11._red
-                        +e.title Fixed Desk
-                      +form-section-title._small Terms and conditions
+                        +e.title_dark._mfz15 Fixed Desk
+                      +form-section-title._mfz12 Terms and conditions
                   +e.modal-content
                     +form-section-wrapper
                       +form-box('', '', '', '', '')
-                        +textarea(type="text" name="termsConditionsFD" placeholder="Terms and conditions for FIXED DESK").textarea_big.textarea_bordered.textarea_def-plchldr
+                        +textarea(type="text" name="termsConditionsFD" placeholder="Terms and conditions for FIXED DESK").textarea_big.textarea_bordered.textarea_def-plchldr.textarea_mfz12.no-sm-autosize
                   +e.modal-bottom
                     +button('button')(type="button")._short._mob-smaller.__button Save
                       span.hide-sm &nbsp;Terms and Conditions for FIXED DESK
-                +e.FIELDSET.modal
+                +e.FIELDSET.modal(data-composite-target="offerMR")
                   +e.modal-top
                     +close.__modal-cross.js-close-form-modal
                     +e.modal-title
-                      +offer-info._dark
+                      +offer-info
                         +box._size11._blue
-                        +e.title Meeting Room
-                      +form-section-title._small Terms and conditions
+                        +e.title_dark._mfz15 Meeting Room
+                      +form-section-title._mfz12 Terms and conditions
                   +e.modal-content
                     +form-section-wrapper
                       +form-box('', '', '', '', '')
-                        +textarea(type="text" name="termsConditionsMR" placeholder="Terms and conditions for MEETING ROOM").textarea_big.textarea_bordered.textarea_def-plchldr
+                        +textarea(type="text" name="termsConditionsMR" placeholder="Terms and conditions for MEETING ROOM").textarea_big.textarea_bordered.textarea_def-plchldr.textarea_mfz12.no-sm-autosize
                   +e.modal-bottom
                     +button('button')(type="button")._short._mob-smaller.__button Save
                       span.hide-sm &nbsp;Terms and Conditions for MEETING ROOM
-                +e.FIELDSET.modal
+                +e.FIELDSET.modal(data-composite-target="offerOS")
                   +e.modal-top
                     +close.__modal-cross.js-close-form-modal
                     +e.modal-title
-                      +offer-info._dark
+                      +offer-info
                         +box._size11._green
-                        +e.title OFFICE SPACE
-                      +form-section-title._small Terms and conditions
+                        +e.title_dark._mfz15 OFFICE SPACE
+                      +form-section-title._mfz12 Terms and conditions
                   +e.modal-content
                     +form-section-wrapper
                       +form-box('', '', '', '', '')
-                        +textarea(type="text" name="termsConditionsOS" placeholder="Terms and conditions for OFFICE SPACE").textarea_big.textarea_bordered.textarea_def-plchldr
+                        +textarea(type="text" name="termsConditionsOS" placeholder="Terms and conditions for OFFICE SPACE").textarea_big.textarea_bordered.textarea_def-plchldr.textarea_mfz12.no-sm-autosize
                   +e.modal-bottom
                     +button('button')(type="button")._short._mob-smaller.__button Save
                       span.hide-sm &nbsp;Terms and Conditions for OFFICE SPACE
@@ -129,7 +129,7 @@ block content
                   +grid.grid_big.grid_notop
                     +col({ xl: 3, md: 12 })
                     +col({ xl: 9, md: 12 })
-                      +form-panel.__panel_border
+                      +form-panel._sm-pd30.__panel_border._lg-shft20
                         +link-icon('select-arrow', 'a')(href="#")._back._bold._no-shadow.__button Back
                         +button('button')(type="submit")._short._mob-smaller.__button_wide Save and continue
 

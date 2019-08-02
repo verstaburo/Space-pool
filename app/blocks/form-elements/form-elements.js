@@ -580,8 +580,17 @@ $.fn.datepicker.language.en = {
 };
 
 export function datepicker() {
+  function getFormattedDate(date) {
+    const year = date.getFullYear();
+    const month = date.getMonth() + 1;
+    const day = date.getDate();
+
+    return `${year}-${month}-${day}`;
+  }
+
   $('.js-datepicker').each(function () {
     const el = $(this);
+    const disabledDates = $(el).attr('data-disabled-dates') ? $(el).attr('data-disabled-dates').split(',') : [];
 
     el.datepicker({
       language: 'en',
@@ -591,11 +600,24 @@ export function datepicker() {
         const self = inst.el;
         $(self).trigger('change');
       },
+      onRenderCell(d, type) {
+        let disabled = false;
+        const formatted = getFormattedDate(d);
+
+        if (type === 'day') {
+          disabled = disabledDates.filter(date => (date === formatted)).length;
+        }
+
+        return {
+          disabled,
+        };
+      },
     });
   });
 
   $('.js-datepicker2').each(function () {
     const el = $(this);
+    const disabledDates = $(el).attr('data-disabled-dates') ? $(el).attr('data-disabled-dates').split(',') : [];
 
     el.datepicker({
       language: 'en',
@@ -605,10 +627,24 @@ export function datepicker() {
         const self = inst.el;
         $(self).trigger('change');
       },
+      onRenderCell(d, type) {
+        let disabled = false;
+        const formatted = getFormattedDate(d);
+
+        if (type === 'day') {
+          disabled = disabledDates.filter(date => (date === formatted)).length;
+        }
+
+        return {
+          disabled,
+        };
+      },
     });
   });
 
   $('.js-change-date').each((i, el) => {
+    const disabledDates = $(el).attr('data-disabled-dates') ? $(el).attr('data-disabled-dates').split(',') : [];
+
     $(el).datepicker({
       language: 'en',
       dateFormat: 'yyyy-mm-dd',
@@ -624,11 +660,23 @@ export function datepicker() {
         $(copyfield).text(stringDate);
         $(self).trigger('change');
       },
+      onRenderCell(d, type) {
+        let disabled = false;
+        const formatted = getFormattedDate(d);
+        if (type === 'day') {
+          disabled = disabledDates.filter(date => (date === formatted)).length;
+        }
+
+        return {
+          disabled,
+        };
+      },
     });
   });
 
   $('.js-days-calendar').each(function () {
     const el = $(this);
+    const disabledDates = $(el).attr('data-disabled-dates') ? $(el).attr('data-disabled-dates').split(',') : [];
     /* eslint-disable consistent-return */
     el.datepicker({
       classes: 'calendar__grid',
@@ -644,9 +692,15 @@ export function datepicker() {
       altField: '[data-calendar-output]',
       altFieldDateFormat: 'yyyy-mm-dd',
       onRenderCell(date, cellType) {
+        let disabled = false;
+        const formatted = getFormattedDate(date);
+
         if (cellType === 'day') {
+          disabled = disabledDates.filter(dt => (dt === formatted)).length;
+
           return {
             html: `<span>${date.getDate()}</span>`,
+            disabled,
           };
         }
         if (cellType === 'year') {
@@ -707,5 +761,17 @@ export function numberinput() {
 
 // автосайз для textarea
 export function textareaAutosize() {
-  autosize($('.textarea'));
+  autosize($('.textarea').not('.no-sm-autosize'));
+
+  function smnoAutosize() {
+    if (window.Modernizr.mq(`(max-width: ${window.globalOptions.sizes.sm - 1}px)`)) {
+      autosize.destroy($('.textarea.no-sm-autosize'));
+    } else {
+      autosize($('.textarea.no-sm-autosize'));
+    }
+  }
+
+  smnoAutosize();
+
+  $(window).on('resize', smnoAutosize);
 }
