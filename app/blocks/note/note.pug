@@ -1,13 +1,26 @@
-mixin note
+mixin note(mark, text)
   +b.note&attributes(attributes)
-    +e.mark
-      +icon('info').__icon
-    +e.text
-      block
+    if !mark
+      +e.mark
+        +icon('info').__icon
+    if !text
+      +e.text
+        block
 
-mixin note-warning
+mixin note-warning(mark, text)
   +b.note_warning&attributes(attributes)
-    +e.mark
-      +icon('warning').__icon_warning
-    +e.text
-      block
+    if !mark
+      +e.mark
+        +icon('warning').__icon_warning
+    if !text
+      +e.text
+        block
+
+mixin note-exclamation(mark, text)
+  +b.note_exclamation&attributes(attributes)
+    if !mark
+      +e.mark
+        +icon('exclamation').__icon_exclamation
+    if !text
+      +e.text
+        block

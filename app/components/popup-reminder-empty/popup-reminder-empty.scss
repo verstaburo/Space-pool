@@ -1,0 +1,57 @@
+.popup-reminder-empty {
+  $b: &;
+
+  .popup {
+    &__content {
+      @include screen('sm') {
+        padding-top: 36px;
+        padding-bottom: 36px;
+      }
+    }
+  }
+
+  &__note {
+    width: 100%;
+  }
+
+  &__notice {
+    width: 100%;
+    margin-top: 26px;
+
+    @include screen('sm') {
+      margin-top: 32px;
+    }
+  }
+
+  &__buttons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top: 26px;
+
+    @include screen('sm') {
+      flex-direction: column-reverse;
+      margin-top: 48px;
+    }
+  }
+
+  &__button {
+    margin-top: 14px;
+    flex: 1;
+    box-sizing: border-box;
+
+    @include screen('sm') {
+      flex: none;
+      width: 100%;
+    }
+
+    &:not(:last-child) {
+      margin-right: 40px;
+
+      @include screen('sm') {
+        margin-right: 0;
+      }
+    }
+  }
+}
