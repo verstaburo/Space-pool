@@ -119,6 +119,8 @@ export default function formManipulations() {
     if ($(el).attr('data-toggle-form') !== undefined) {
       const showElements = $(el).attr('data-show-elements') !== undefined ? $(el).attr('data-show-elements').split(',') : [];
       const hideElements = $(el).attr('data-hide-elements') !== undefined ? $(el).attr('data-hide-elements').split(',') : [];
+      console.log(showElements);
+      console.log(hideElements);
       if ($(el).prop('checked')) {
         $(hideElements).each((ix, item) => {
           const itemElement = $(`[data-form-element="${item}"]`);

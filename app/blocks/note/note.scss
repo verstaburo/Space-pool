@@ -58,6 +58,10 @@
       font-weight: 700;
     }
 
+    b {
+      font-weight: 700;
+    }
+
     @include screen('sm') {
       @include text12;
     }
@@ -110,6 +114,23 @@
 
         @include screen('sm') {
           @include text15;
+        }
+      }
+    }
+
+    &_lh30  {
+      #{$b} {
+
+        &__text {
+          @include heading-4;
+
+          line-height: (30 / 20);
+
+          @include screen('sm') {
+            @include text15;
+
+            line-height: 1.5;
+          }
         }
       }
     }
@@ -252,6 +273,28 @@
       &__text {
         display: inline-block;
         width: auto;
+      }
+    }
+
+    &_vert {
+      flex-direction: column;
+      align-items: flex-start;
+
+      #{$b} {
+
+        &__mark {
+          margin-right: 0;
+          margin-bottom: 26px;
+
+          @include screen('sm') {
+            margin-bottom: 8px;
+          }
+        }
+
+        &__text {
+          display: block;
+          width: 100%;
+        }
       }
     }
   }

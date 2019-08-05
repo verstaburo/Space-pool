@@ -283,7 +283,7 @@
                                     <div class="offers__text">There is now Meeting Room offers for this Space yet.</div>
                                 </div>
                                 <div class="offers__column offers__column_right">
-                                    <a class="button button_short button_border offers__button js-popup" href="#popup-add-rental-offer">
+                                    <a class="button button_short button_border offers__button js-popup" href="#popup-add-offer-tc">
                                         <span class="button__text">Add Meeting Room offer</span>
                                     </a>
                                 </div>
@@ -453,7 +453,7 @@
                                     <div class="offers__text">There is now Meeting Room offers for this Space yet.</div>
                                 </div>
                                 <div class="offers__column offers__column_right">
-                                    <a class="button button_short button_border offers__button js-popup" href="#popup-add-rental-offer">
+                                    <a class="button button_short button_border offers__button js-popup" href="#popup-add-offer-tc">
                                         <span class="button__text">Add Meeting Room offer</span>
                                     </a>
                                 </div>
@@ -551,7 +551,7 @@
                                     <div class="offers__text">There is now Meeting Room offers for this Space yet.</div>
                                 </div>
                                 <div class="offers__column offers__column_right">
-                                    <a class="button button_short button_border offers__button js-popup" href="#popup-add-rental-offer">
+                                    <a class="button button_short button_border offers__button js-popup" href="#popup-add-offer-tc">
                                         <span class="button__text">Add Meeting Room offer</span>
                                     </a>
                                 </div>
@@ -576,7 +576,7 @@
                                     <div class="offers__text">There is now Meeting Room offers for this Space yet.</div>
                                 </div>
                                 <div class="offers__column offers__column_right">
-                                    <a class="button button_short button_border offers__button js-popup" href="#popup-add-rental-offer">
+                                    <a class="button button_short button_border offers__button js-popup" href="#popup-add-offer-tc">
                                         <span class="button__text">Add Meeting Room offer</span>
                                     </a>
                                 </div>
@@ -708,15 +708,15 @@
                             <span class="tab-radio__label">Hot Desk</span>
                         </label>
                         <label class="tab-radio tab-radio_red">
-                            <input class="tab-radio__input" name="addOffer" value="1" type="radio" disabled="disabled" data-show-elements="dedicatedDesk" data-hide-elements="hotDesk,meetingRoom,officeSpace" data-toggle-form="data-toggle-form" />
+                            <input class="tab-radio__input" name="addOffer" value="2" type="radio" disabled="disabled" data-show-elements="dedicatedDesk" data-hide-elements="hotDesk,meetingRoom,officeSpace" data-toggle-form="data-toggle-form" />
                             <span class="tab-radio__label">Dedicated desk</span>
                         </label>
                         <label class="tab-radio tab-radio_blue">
-                            <input class="tab-radio__input" name="addOffer" value="1" type="radio" data-show-elements="meetingRoom" data-hide-elements="hotDesk,dedicatedDesk,officeSpace" data-toggle-form="data-toggle-form" />
+                            <input class="tab-radio__input" name="addOffer" value="3" type="radio" data-show-elements="meetingRoom" data-hide-elements="hotDesk,dedicatedDesk,officeSpace" data-toggle-form="data-toggle-form" />
                             <span class="tab-radio__label">Meeting room</span>
                         </label>
                         <label class="tab-radio tab-radio_green">
-                            <input class="tab-radio__input" name="addOffer" value="1" type="radio" data-show-elements="officeSpace" data-hide-elements="hotDesk,dedicatedDesk,meetingRoom" data-toggle-form="data-toggle-form" />
+                            <input class="tab-radio__input" name="addOffer" value="4" type="radio" data-show-elements="officeSpace" data-hide-elements="hotDesk,dedicatedDesk,meetingRoom" data-toggle-form="data-toggle-form" />
                             <span class="tab-radio__label">Office space</span>
                         </label>
                     </div>
@@ -894,6 +894,242 @@
                                     <span data-form-element="dedicatedDesk">Dedicated Desk</span>
                                     <span data-form-element="meetingRoom">Meeting Room</span>
                                     <span data-form-element="officeSpace">Office space</span> rental offer</span>
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="popup popup-add-offer" id="popup-add-offer-tc">
+            <div class="popup__content">
+                <h3 class="popup__title">Add rental offer</h3>
+                <form class="form form_white" data-validated-form="data-validated-form">
+                    <div class="tabs popup-add-offer__tabs">
+                        <label class="tab-radio tab-radio_orange">
+                            <input class="tab-radio__input" name="addOffer" value="1" type="radio" data-show-elements="hotDesk,main" data-hide-elements="dedicatedDesk,meetingRoom,officeSpace,tc" data-toggle-form="data-toggle-form" />
+                            <span class="tab-radio__label">Hot Desk</span>
+                        </label>
+                        <label class="tab-radio tab-radio_red">
+                            <input class="tab-radio__input" name="addOffer" value="2" type="radio" disabled="disabled" data-show-elements="dedicatedDesk,main" data-hide-elements="hotDesk,meetingRoom,officeSpace,tc" data-toggle-form="data-toggle-form" />
+                            <span class="tab-radio__label">Dedicated desk</span>
+                        </label>
+                        <label class="tab-radio tab-radio_blue">
+                            <input class="tab-radio__input" name="addOffer" value="3" type="radio" checked="checked" data-show-elements="meetingRoom,tc" data-hide-elements="hotDesk,dedicatedDesk,officeSpace,main" data-toggle-form="data-toggle-form" />
+                            <span class="tab-radio__label">Meeting room</span>
+                        </label>
+                        <label class="tab-radio tab-radio_green">
+                            <input class="tab-radio__input" name="addOffer" value="4" type="radio" data-show-elements="officeSpace,main" data-hide-elements="hotDesk,dedicatedDesk,meetingRoom,tc" data-toggle-form="data-toggle-form" />
+                            <span class="tab-radio__label">Office space</span>
+                        </label>
+                    </div>
+                    <div class="form__content">
+                        <fieldset class="form__section form__section_mg58" data-form-element="tc">
+                            <div class="note note_exclamation note_color note_fz30 note_exclamation_vert form__note">
+                                <div class="note__mark">
+                                    <svg class="note__icon note__icon_exclamation"><use xlink:href="assets/images/icon.svg#icon_exclamation"></use></svg>
+                                </div>
+                                <div class="note__text">In order to add
+                                    <span data-form-element="hotDesk">Hot Desk</span>
+                                    <span data-form-element="dedicatedDesk">Dedicated Desk</span>
+                                    <span data-form-element="meetingRoom">Meeting Room</span>
+                                    <span data-form-element="officeSpace">Office Space</span> offer for this space you should provide Terms and Conditions for
+                                    <span data-form-element="hotDesk">Hot Desks</span>
+                                    <span data-form-element="dedicatedDesk">Dedicated Desks</span>
+                                    <span data-form-element="meetingRoom">Meeting Rooms</span>
+                                    <span data-form-element="officeSpace">Office Spaces</span>.</div>
+                            </div>
+                            <div class="note note_fw400 note_fz20 note_fz20_lh30 form__notice">
+                                <div class="note__text">By pushing the button below you will enter
+                                    <b>Blooming Founders Ofice Space</b> setting section where you should Activate
+                                    <span data-form-element="hotDesk">Hot Desk</span>
+                                    <span data-form-element="dedicatedDesk">Dedicated Desk</span>
+                                    <span data-form-element="meetingRoom">Meeting Room</span>
+                                    <span data-form-element="officeSpace">Office Space</span> section and provide Terms and condition text which will be used to generate Rental agreement.</div>
+                            </div>
+                        </fieldset>
+                        <fieldset class="form__section form__section_mid-mg" data-form-element="main">
+                            <div class="grid grid_layout grid_bigger">
+                                <div class="grid__col grid__col_xl_12">
+                                    <div class="form__wrapper">
+                                        <label class="form-box">
+                                            <input class="input" type="text" name="offerTitle" placeholder="Offer title" required="required" />
+                                            <span class="form-box__label">Offer title</span>
+                                        </label>
+                                        <div class="error-message"></div>
+                                    </div>
+                                </div>
+                                <div class="grid__col grid__col_xl_12">
+                                    <div class="form__wrapper form__wrapper_noflex">
+                                        <label class="form-box">
+                                            <input class="input" type="text" name="offerDescription" placeholder="Offer Description" required="required" />
+                                            <span class="form-box__label">Offer Description</span>
+                                        </label>
+                                        <div class="form__text form__text_light">Any information, rules, restrictions and additional features for this offer</div>
+                                        <div class="error-message"></div>
+                                    </div>
+                                </div>
+                                <div class="grid__col grid__col_xl_6 grid__col_sm_7">
+                                    <div class="form__wrapper form__wrapper_negative-mg form__wrapper_separator">
+                                        <label class="form-box form-box_icon form-box_icon">
+                                            <input class="input" type="text" name="price" placeholder="Price" required="required" />
+                                            <span class="form-box__label">Price </span>
+                                            <span class="form-box__icon form-box__icon_text">&pound;</span>
+                                        </label>
+                                        <div class="error-message"></div>
+                                    </div>
+                                </div>
+                                <div class="grid__col grid__col_xl_6 grid__col_sm_5">
+                                    <div class="form__wrapper form__wrapper_negative-mg">
+                                        <label class="form-box">
+                                            <select class="select js-select-input" name="shedule">
+                                                <option value="Per month" selected="selected">Per month</option>
+                                                <option value="per day">Per day</option>
+                                                <option value="per week">Per week</option>
+                                                <option value="per year">Per year</option>
+                                            </select>
+                                        </label>
+                                        <div class="error-message"></div>
+                                    </div>
+                                </div>
+                                <div class="grid__col grid__col_xl_12">
+                                    <div class="form__wrapper form__wrapper_noflex">
+                                        <div class="form-box">
+                                            <div class="input-numbers">
+                                                <input class="input input-numbers__input js-numberbox-input" type="text" name="quantity" placeholder="Available Quantity" data-min="1" />
+                                                <div class="input-numbers__buttons">
+                                                    <div class="input-numbers__button js-numberbox-minus"></div>
+                                                    <div class="input-numbers__button js-numberbox-plus"></div>
+                                                </div>
+                                            </div>
+                                            <div class="form-box__label">Available Quantity</div>
+                                        </div>
+                                        <div class="form__text form__text_light">Provide overal ammount of this particular offer.</div>
+                                        <div class="error-message"></div>
+                                    </div>
+                                </div>
+                                <div class="grid__col grid__col_xl_12" data-form-element="meetingRoom">
+                                    <div class="form__wrapper form__wrapper_noflex form__wrapper_negative-mg">
+                                        <div class="form-box">
+                                            <div class="input-numbers">
+                                                <input class="input input-numbers__input js-numberbox-input" type="text" name="seats" placeholder="Number of seats" data-min="1" />
+                                                <div class="input-numbers__buttons">
+                                                    <div class="input-numbers__button js-numberbox-minus"></div>
+                                                    <div class="input-numbers__button js-numberbox-plus"></div>
+                                                </div>
+                                            </div>
+                                            <div class="form-box__label">Number of seats</div>
+                                        </div>
+                                        <div class="form__text form__text_light">Overal ammount of available seats for one particular Meeting Rooms</div>
+                                        <div class="error-message"></div>
+                                    </div>
+                                </div>
+                                <div class="grid__col grid__col_xl_6 grid__col_sm_12" data-form-element="officeSpace">
+                                    <div class="form__wrapper form__wrapper_noflex form__wrapper_negative-mg">
+                                        <div class="form-box">
+                                            <div class="input-numbers">
+                                                <input class="input input-numbers__input js-numberbox-input" type="text" name="desks" placeholder="Number of Desks" data-min="1" />
+                                                <div class="input-numbers__buttons">
+                                                    <div class="input-numbers__button js-numberbox-minus"></div>
+                                                    <div class="input-numbers__button js-numberbox-plus"></div>
+                                                </div>
+                                            </div>
+                                            <div class="form-box__label">Number of Desks</div>
+                                        </div>
+                                        <div class="form__text form__text_light">Existing desks or office capability</div>
+                                        <div class="error-message"></div>
+                                    </div>
+                                </div>
+                                <div class="grid__col grid__col_xl_6 grid__col_sm_12" data-form-element="officeSpace">
+                                    <div class="form__wrapper form__wrapper_noflex form__wrapper_negative-mg">
+                                        <label class="form-box form-box_icon form-box_icon">
+                                            <input class="input" type="text" name="area" placeholder="Floor area" required="required" />
+                                            <span class="form-box__label">Floor area </span>
+                                            <span class="form-box__icon form-box__icon_text form-box__icon_text_r0">ft
+                                                <sup>2</sup>
+                                            </span>
+                                        </label>
+                                        <div class="form__text form__text_light">Without supply rooms</div>
+                                        <div class="error-message"></div>
+                                    </div>
+                                </div>
+                                <div class="grid__col grid__col_xl_6 grid__col_sm_12">
+                                    <div class="form__wrapper form__wrapper_negative-mg">
+                                        <label class="form-box form__count">
+                                            <input class="input" type="text" name="durationRentMin" placeholder="Minimum rent period" required="required" />
+                                            <span class="form-box__label">Minimum rent period</span>
+                                        </label>
+                                        <label class="form-box form__mesure">
+                                            <select class="select js-select-input" name="mesuresPeriodMin">
+                                                <option value="Days" selected="selected">Days</option>
+                                                <option value="Week">Weeks</option>
+                                                <option value="Month">Months</option>
+                                                <option value="Year">Years</option>
+                                            </select>
+                                        </label>
+                                        <div class="error-message"></div>
+                                    </div>
+                                </div>
+                                <div class="grid__col grid__col_xl_6 grid__col_sm_12">
+                                    <div class="form__wrapper form__wrapper_negative-mg">
+                                        <label class="form-box form__count">
+                                            <input class="input" type="text" name="durationRentMax" placeholder="Maximum rent period" />
+                                            <span class="form-box__label">Maximum rent period</span>
+                                        </label>
+                                        <label class="form-box form__mesure">
+                                            <select class="select js-select-input" name="mesuresPeriodMax">
+                                                <option value="Days" selected="selected">Days</option>
+                                                <option value="Week">Week</option>
+                                                <option value="Month">Month</option>
+                                                <option value="Year">Year</option>
+                                            </select>
+                                        </label>
+                                        <div class="error-message"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </fieldset>
+                        <fieldset class="form__section form__section_mid-mg" data-deleted-group="data-deleted-group" data-point-group="data-point-group" data-form-element="main">
+                            <div class="form__header form__header_mg21">
+                                <h4 class="form__title form__title_small">Points to know about this offer. (optional)</h4>
+                            </div>
+                            <div class="form__wrapper form__wrapper_sm-mg" data-deleted-object="data-deleted-object" data-point-object="data-point-object">
+                                <label class="form-box form-box_icon">
+                                    <input class="input input_points" type="text" name="points[0]" placeholder="Point" />
+                                    <span class="form-box__point"></span>
+                                    <button class="form-box__delete js-delete-object-except-last" type="button">
+                                        <svg class="form-box__icon form-box__icon_cross"><use xlink:href="assets/images/icon.svg#icon_cross"></use></svg>
+                                    </button>
+                                </label>
+                                <div class="error-message"></div>
+                            </div>
+                        </fieldset>
+                        <fieldset class="form__section form__section_sm-mg" data-form-element="main">
+                            <div class="form__wrapper form__wrapper_noflex">
+                                <label class="form-box">
+                                    <textarea class="textarea" type="text" name="comment" placeholder="Comment (Only you can see it)" rows="1"></textarea>
+                                    <span class="form-box__label">Comment (Only you can see it)</span>
+                                </label>
+                                <div class="form__text form__text_light">This comment helps you to recognize this particular offer inbetween other offers</div>
+                                <div class="error-message"></div>
+                            </div>
+                        </fieldset>
+                        <div class="form__buttons">
+                            <button class="button button_short button_wide" type="submit" data-form-element="main">
+                                <span class="button__text">Add
+                                    <span data-form-element="hotDesk">Hot Desk</span>
+                                    <span data-form-element="dedicatedDesk">Dedicated Desk</span>
+                                    <span data-form-element="meetingRoom">Meeting Room</span>
+                                    <span data-form-element="officeSpace">Office space</span> rental offer</span>
+                            </button>
+                            <button class="button button_short button_wide" type="button" data-form-element="tc">
+                                <span class="button__text">Provide
+                                    <span class="hide-sm">Terms and Conditions</span>
+                                    <span class="hide-from-sm">T&amp;C</span> for
+                                    <span data-form-element="hotDesk">hot desks</span>
+                                    <span data-form-element="dedicatedDesk">dedicated desks</span>
+                                    <span data-form-element="meetingRoom">meeting rooms</span>
+                                    <span data-form-element="officeSpace">office spaces</span>
+                                </span>
                             </button>
                         </div>
                     </div>

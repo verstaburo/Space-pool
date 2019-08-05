@@ -75,7 +75,7 @@ block content
                   +e.modal-content
                     +form-section-wrapper
                       +form-box('', '', '', '', '')
-                        +textarea(type="text" name="termsConditionsHD" placeholder="Terms and conditions for HOT DESK").textarea_big.textarea_bordered.textarea_def-plchldr.textarea_mfz12.no-sm-autosize
+                        +textarea(type="text" name="termsConditionsHD" placeholder="Terms and conditions for HOT DESK" data-composite-save-trigger="saveHotDesk").textarea_big.textarea_bordered.textarea_def-plchldr.textarea_mfz12.no-sm-autosize
                   +e.modal-bottom
                     +button('button')(type="button")._short._mob-smaller.__button Save
                       span.hide-sm &nbsp;Terms and Conditions for HOT DESK
@@ -90,7 +90,7 @@ block content
                   +e.modal-content
                     +form-section-wrapper
                       +form-box('', '', '', '', '')
-                        +textarea(type="text" name="termsConditionsFD" placeholder="Terms and conditions for FIXED DESK").textarea_big.textarea_bordered.textarea_def-plchldr.textarea_mfz12.no-sm-autosize
+                        +textarea(type="text" name="termsConditionsFD" placeholder="Terms and conditions for FIXED DESK" data-composite-save-trigger="fixedDesk").textarea_big.textarea_bordered.textarea_def-plchldr.textarea_mfz12.no-sm-autosize
                   +e.modal-bottom
                     +button('button')(type="button")._short._mob-smaller.__button Save
                       span.hide-sm &nbsp;Terms and Conditions for FIXED DESK
@@ -105,7 +105,7 @@ block content
                   +e.modal-content
                     +form-section-wrapper
                       +form-box('', '', '', '', '')
-                        +textarea(type="text" name="termsConditionsMR" placeholder="Terms and conditions for MEETING ROOM").textarea_big.textarea_bordered.textarea_def-plchldr.textarea_mfz12.no-sm-autosize
+                        +textarea(type="text" name="termsConditionsMR" placeholder="Terms and conditions for MEETING ROOM" data-composite-save-trigger="saveMeetingRoom").textarea_big.textarea_bordered.textarea_def-plchldr.textarea_mfz12.no-sm-autosize
                   +e.modal-bottom
                     +button('button')(type="button")._short._mob-smaller.__button Save
                       span.hide-sm &nbsp;Terms and Conditions for MEETING ROOM
@@ -120,7 +120,7 @@ block content
                   +e.modal-content
                     +form-section-wrapper
                       +form-box('', '', '', '', '')
-                        +textarea(type="text" name="termsConditionsOS" placeholder="Terms and conditions for OFFICE SPACE").textarea_big.textarea_bordered.textarea_def-plchldr.textarea_mfz12.no-sm-autosize
+                        +textarea(type="text" name="termsConditionsOS" placeholder="Terms and conditions for OFFICE SPACE" data-composite-save-trigger="saveOfficeSpace").textarea_big.textarea_bordered.textarea_def-plchldr.textarea_mfz12.no-sm-autosize
                   +e.modal-bottom
                     +button('button')(type="button")._short._mob-smaller.__button Save
                       span.hide-sm &nbsp;Terms and Conditions for OFFICE SPACE
@@ -137,3 +137,7 @@ block content
 block panels
   +main-menu-inner
     +nav-list(getData('main-menu-user.json'))
+
+block popups
+  +popup-reminder-empty#popup-reminder-empty
+  +popup-reminder-save#popup-reminder-save

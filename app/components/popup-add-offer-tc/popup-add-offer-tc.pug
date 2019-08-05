@@ -1,22 +1,25 @@
-mixin popup-add-offer()
+mixin popup-add-offer-tc()
   +popup.popup-add-offer__&attributes(attributes)
     +popup-title Add rental offer
     +form._white(data-validated-form)
       +tabs('div').popup-add-offer__tabs
         +b.LABEL.tab-radio_orange
-          +e.INPUT.input(name='addOffer', value='1', type="radio", checked="checked", data-show-elements="hotDesk", data-hide-elements="dedicatedDesk,meetingRoom,officeSpace", data-toggle-form)
+          +e.INPUT.input(name='addOffer', value='1', type="radio", data-show-elements="hotDesk,main", data-hide-elements="dedicatedDesk,meetingRoom,officeSpace,tc", data-toggle-form)
           +e.label Hot Desk
         +b.LABEL.tab-radio_red
-          +e.INPUT.input(name='addOffer', value='2', type="radio", disabled="disabled", data-show-elements="dedicatedDesk", data-hide-elements="hotDesk,meetingRoom,officeSpace", data-toggle-form)
+          +e.INPUT.input(name='addOffer', value='2', type="radio", disabled="disabled", data-show-elements="dedicatedDesk,main", data-hide-elements="hotDesk,meetingRoom,officeSpace,tc", data-toggle-form)
           +e.label Dedicated desk
         +b.LABEL.tab-radio_blue
-          +e.INPUT.input(name='addOffer', value='3', type="radio", data-show-elements="meetingRoom", data-hide-elements="hotDesk,dedicatedDesk,officeSpace", data-toggle-form)
+          +e.INPUT.input(name='addOffer', value='3', type="radio", checked="checked", data-show-elements="meetingRoom,tc", data-hide-elements="hotDesk,dedicatedDesk,officeSpace,main", data-toggle-form)
           +e.label Meeting room
         +b.LABEL.tab-radio_green
-          +e.INPUT.input(name='addOffer', value='4', type="radio", data-show-elements="officeSpace", data-hide-elements="hotDesk,dedicatedDesk,meetingRoom", data-toggle-form)
+          +e.INPUT.input(name='addOffer', value='4', type="radio", data-show-elements="officeSpace,main", data-hide-elements="hotDesk,dedicatedDesk,meetingRoom,tc", data-toggle-form)
           +e.label Office space
       +e.content
-        +form-section._mid-mg
+        +form-section._mg58(data-form-element="tc")
+          +note-exclamation()._color._fz30._exclamation_vert.__note In order to add <span data-form-element="hotDesk">Hot Desk</span><span data-form-element="dedicatedDesk">Dedicated Desk</span><span data-form-element="meetingRoom">Meeting Room</span><span data-form-element="officeSpace">Office Space</span> offer for this space you should provide Terms and Conditions for <span data-form-element="hotDesk">Hot Desks</span><span data-form-element="dedicatedDesk">Dedicated Desks</span><span data-form-element="meetingRoom">Meeting Rooms</span><span data-form-element="officeSpace">Office Spaces</span>.
+          +note(true)._fw400._fz20._fz20_lh30.__notice By pushing the button below you will enter <b>Blooming Founders Ofice Space</b> setting section where you should Activate <span data-form-element="hotDesk">Hot Desk</span><span data-form-element="dedicatedDesk">Dedicated Desk</span><span data-form-element="meetingRoom">Meeting Room</span><span data-form-element="officeSpace">Office Space</span> section and provide Terms and condition text which will be used to generate Rental agreement.
+        +form-section._mid-mg(data-form-element="main")
           +grid.grid_layout.grid_bigger
             +col({xl: 12})
               +form-section-wrapper
@@ -79,16 +82,17 @@ mixin popup-add-offer()
                     option(value="Week") Week
                     option(value="Month") Month
                     option(value="Year") Year
-        +form-section._mid-mg(data-deleted-group data-point-group)
+        +form-section._mid-mg(data-deleted-group data-point-group data-form-element="main")
           +form-section-header._mg21
             +form-section-title('h4')._small Points to know about this offer. (optional)
           +form-section-wrapper._sm-mg(data-deleted-object data-point-object)
             +form-box-removable('')._icon
               +input(type="text" name="points[0]" placeholder="Point").input_points
-        +form-section._sm-mg
+        +form-section._sm-mg(data-form-element="main")
           +form-section-wrapper._noflex
             +form-box('Comment (Only you can see it)')
               +textarea(type="text" name="comment" placeholder="Comment (Only you can see it)" rows="1")
             +form-section-text._light This comment helps you to recognize this particular offer inbetween other offers
         +e.buttons
-          +button('button')(type="submit")._short._wide Add <span data-form-element="hotDesk">Hot Desk</span><span data-form-element="dedicatedDesk">Dedicated Desk</span><span data-form-element="meetingRoom">Meeting Room</span><span data-form-element="officeSpace">Office space</span> rental offer
+          +button('button')(type="submit" data-form-element="main")._short._wide Add <span data-form-element="hotDesk">Hot Desk</span><span data-form-element="dedicatedDesk">Dedicated Desk</span><span data-form-element="meetingRoom">Meeting Room</span><span data-form-element="officeSpace">Office space</span> rental offer
+          +button('button')(type="button" data-form-element="tc")._short._wide Provide <span class="hide-sm">Terms and Conditions</span><span class="hide-from-sm">T&amp;C</span> for <span data-form-element="hotDesk">hot desks</span><span data-form-element="dedicatedDesk">dedicated desks</span><span data-form-element="meetingRoom">meeting rooms</span><span data-form-element="officeSpace">office spaces</span>

@@ -36,13 +36,20 @@ mixin select()
   select.select&attributes(attributes)
     block
 
-mixin checkbox(name, value, checked)
+mixin checkbox(name, value, checked, required)
   +b.LABEL.checkbox&attributes(attributes)
     - if (checked) {
-      +e.INPUT.input(name=name, value=value, checked, type="checkbox")
+      -if (required) {
+        +e.INPUT.input(name=name, value=value, checked, type="checkbox" required)
+      - } else {
+        +e.INPUT.input(name=name, value=value, checked, type="checkbox")
+      - }
+    - } else if (required) {
+      +e.INPUT.input(name=name, value=value, type="checkbox" required)
     - } else {
       +e.INPUT.input(name=name, value=value, type="checkbox")
     - }
+
     +e.SPAN.box
       +icon('check').__icon
     +e.SPAN.content
