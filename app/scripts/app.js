@@ -63,6 +63,7 @@ import infoEditable from '../blocks/info-editable/info-editable';
 import messageForm from '../blocks/message-form/message-form';
 import infoNoitces from '../blocks/info-notices/info-notices';
 import compositeTab from '../blocks/composite-tab/composite-tab';
+import newSpaceStep6 from '../pages/new-space/new-space-step8';
 
 const $ = window.$;
 
@@ -117,4 +118,5 @@ $(() => {
   messageForm();
   infoNoitces();
   compositeTab();
+  newSpaceStep6();
 });

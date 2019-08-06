@@ -30,7 +30,7 @@ block content
               +page-info-title Terms and<br> Conditions
               +page-info-description Step 6 <i>of 8</i>
         +content-column-main._no-ptop
-          +form()._white._flex._pb2._lg-shft20.js-form-with-hidden-panel(data-validated-form)
+          +form()._white._flex._pb3._lg-shft20.js-form-with-hidden-panel(data-validated-form)
             +e.container._pds0._pt42._pb0
               +form-section._pds._border._border_no-sm._mg21-2
                 +form-section-header._fxc._mg26-2
@@ -47,26 +47,26 @@ block content
                 +content-zone._mid2._pr.hide-sm
                   p You can just copy and paste here your Standart rental contract. Remember that any document has it’s own editing, <b>so please remove any blank placeholders, unnecessary character editing, company and client names.</b> <strong>This section must contain only your space terms and conditions.</strong>
                 +tabs('div')._form.__tabs
-                  +composite-tab({title: 'Hot Desk', box: '_orange _size11', plus: true, save: true})._orange.is-active.__item(data-composite-el="offerHD")
-                    +e.INPUT.input(name="typeOffer", value="hd", checked, type="checkbox" data-composite-activator)
+                  +composite-tab({title: 'Hot Desk', box: '_orange _size11', plus: true, save: true})._orange.__item.is-active(data-composite-el="offerHD" data-src="#popup-reminder-save")
+                    +e.INPUT.input(name="typeOffer", value="hd", checked, type="checkbox" data-composite-activator="offerHD")
                     +e.SPAN.box
                       +icon('check').__icon
-                  +composite-tab({title: 'Fixed desk', box: '_red _size11', plus: true, save: true})._red.is-saved.__item(data-composite-el="offerFD")
-                    +e.INPUT.input(name="typeOffer", value="fd", checked, type="checkbox" data-composite-activator)
+                  +composite-tab({title: 'Fixed desk', box: '_red _size11', plus: true, save: true})._red.is-disabled.__item(data-composite-el="offerFD" data-src="#popup-reminder-save")
+                    +e.INPUT.input(name="typeOffer", value="fd", type="checkbox" data-composite-activator="offerFD")
                     +e.SPAN.box
                       +icon('check').__icon
-                  +composite-tab({title: 'Meeting room', box: '_blue _size11', plus: true, save: true})._blue.is-disabled.__item(data-composite-el="offerMR")
-                    +e.INPUT.input(name="typeOffer", value="mr", type="checkbox" data-composite-activator)
+                  +composite-tab({title: 'Meeting room', box: '_blue _size11', plus: true, save: true})._blue.is-disabled.__item(data-composite-el="offerMR" data-src="#popup-reminder-save")
+                    +e.INPUT.input(name="typeOffer", value="mr", type="checkbox" data-composite-activator="offerMR")
                     +e.SPAN.box
                       +icon('check').__icon
-                  +composite-tab({title: 'Office space', box: '_green _size11', plus: true, save: true})._green.is-disabled.__item(data-composite-el="offerOS")
-                    +e.INPUT.input(name="typeOffer", value="os", type="checkbox" data-composite-activator)
+                  +composite-tab({title: 'Office space', box: '_green _size11', plus: true, save: true})._green.is-disabled.__item(data-composite-el="offerOS" data-src="#popup-reminder-save")
+                    +e.INPUT.input(name="typeOffer", value="os", type="checkbox" data-composite-activator="offerOS")
                     +e.SPAN.box
                       +icon('check').__icon
               +form-section
                 +e.FIELDSET.modal.is-active(data-composite-target="offerHD")
                   +e.modal-top
-                    +close.__modal-cross.js-close-form-modal
+                    +close.__modal-cross(data-src-empty="#popup-reminder-empty" data-src-save="#popup-reminder-save" data-composite-reminder-button="offerHD")
                     +e.modal-title
                       +offer-info
                         +box._size11._orange
@@ -75,13 +75,13 @@ block content
                   +e.modal-content
                     +form-section-wrapper
                       +form-box('', '', '', '', '')
-                        +textarea(type="text" name="termsConditionsHD" placeholder="Terms and conditions for HOT DESK" data-composite-save-trigger="saveHotDesk").textarea_big.textarea_bordered.textarea_def-plchldr.textarea_mfz12.no-sm-autosize
-                  +e.modal-bottom
-                    +button('button')(type="button")._short._mob-smaller.__button Save
+                        +textarea(type="text" name="termsConditionsHD" placeholder="Terms and conditions for HOT DESK" data-composite-textarea="offerHD").textarea_big.textarea_bordered.textarea_def-plchldr.textarea_mfz12.no-sm-autosize
+                  +e.modal-bottom.hide(data-composite-save-area="offerHD")
+                    +button('button')(type="button" data-src="#popup-reminder-empty" data-textarea-save-callback="saveTextarea" data-composite-save-button="offerHD")._short._mob-smaller.__button Save
                       span.hide-sm &nbsp;Terms and Conditions for HOT DESK
                 +e.FIELDSET.modal(data-composite-target="offerFD")
                   +e.modal-top
-                    +close.__modal-cross.js-close-form-modal
+                    +close.__modal-cross(data-src-empty="#popup-reminder-empty" data-src-save="#popup-reminder-save" data-composite-reminder-button="offerFD")
                     +e.modal-title
                       +offer-info
                         +box._size11._red
@@ -90,13 +90,13 @@ block content
                   +e.modal-content
                     +form-section-wrapper
                       +form-box('', '', '', '', '')
-                        +textarea(type="text" name="termsConditionsFD" placeholder="Terms and conditions for FIXED DESK" data-composite-save-trigger="fixedDesk").textarea_big.textarea_bordered.textarea_def-plchldr.textarea_mfz12.no-sm-autosize
-                  +e.modal-bottom
-                    +button('button')(type="button")._short._mob-smaller.__button Save
+                        +textarea(type="text" name="termsConditionsFD" placeholder="Terms and conditions for FIXED DESK" data-composite-textarea="offerFD" disabled).textarea_big.textarea_bordered.textarea_def-plchldr.textarea_mfz12.no-sm-autosize
+                  +e.modal-bottom.hide(data-composite-save-area="offerFD")
+                    +button('button')(type="button" data-src="#popup-reminder-empty" data-textarea-save-callback="saveTextarea" data-composite-save-button="offerFD")._short._mob-smaller.__button Save
                       span.hide-sm &nbsp;Terms and Conditions for FIXED DESK
                 +e.FIELDSET.modal(data-composite-target="offerMR")
                   +e.modal-top
-                    +close.__modal-cross.js-close-form-modal
+                    +close.__modal-cross(data-src-empty="#popup-reminder-empty" data-src-save="#popup-reminder-save" data-composite-reminder-button="offerMR")
                     +e.modal-title
                       +offer-info
                         +box._size11._blue
@@ -105,13 +105,13 @@ block content
                   +e.modal-content
                     +form-section-wrapper
                       +form-box('', '', '', '', '')
-                        +textarea(type="text" name="termsConditionsMR" placeholder="Terms and conditions for MEETING ROOM" data-composite-save-trigger="saveMeetingRoom").textarea_big.textarea_bordered.textarea_def-plchldr.textarea_mfz12.no-sm-autosize
-                  +e.modal-bottom
-                    +button('button')(type="button")._short._mob-smaller.__button Save
+                        +textarea(type="text" name="termsConditionsMR" placeholder="Terms and conditions for MEETING ROOM" data-composite-textarea="offerMR" disabled).textarea_big.textarea_bordered.textarea_def-plchldr.textarea_mfz12.no-sm-autosize
+                  +e.modal-bottom.hide(data-composite-save-area="offerMR")
+                    +button('button')(type="button" data-src="#popup-reminder-empty" data-composite-save-button="offerMR")._short._mob-smaller.__button Save
                       span.hide-sm &nbsp;Terms and Conditions for MEETING ROOM
                 +e.FIELDSET.modal(data-composite-target="offerOS")
                   +e.modal-top
-                    +close.__modal-cross.js-close-form-modal
+                    +close.__modal-cross(data-src-empty="#popup-reminder-empty" data-src-save="#popup-reminder-save" data-composite-reminder-button="offerOS")
                     +e.modal-title
                       +offer-info
                         +box._size11._green
@@ -120,9 +120,9 @@ block content
                   +e.modal-content
                     +form-section-wrapper
                       +form-box('', '', '', '', '')
-                        +textarea(type="text" name="termsConditionsOS" placeholder="Terms and conditions for OFFICE SPACE" data-composite-save-trigger="saveOfficeSpace").textarea_big.textarea_bordered.textarea_def-plchldr.textarea_mfz12.no-sm-autosize
-                  +e.modal-bottom
-                    +button('button')(type="button")._short._mob-smaller.__button Save
+                        +textarea(type="text" name="termsConditionsOS" placeholder="Terms and conditions for OFFICE SPACE" data-composite-textarea="offerOS" disabled).textarea_big.textarea_bordered.textarea_def-plchldr.textarea_mfz12.no-sm-autosize
+                  +e.modal-bottom.hide(data-composite-save-area="offerOS")
+                    +button('button')(type="button" data-src="#popup-reminder-empty" data-textarea-save-callback="saveTextarea" data-composite-save-button="offerOS")._short._mob-smaller.__button Save
                       span.hide-sm &nbsp;Terms and Conditions for OFFICE SPACE
               +e.panel_fixed._fixed_visible(data-hidden-panel)
                 .container
@@ -131,7 +131,7 @@ block content
                     +col({ xl: 9, md: 12 })
                       +form-panel._sm-pd30.__panel_border._lg-shft20
                         +link-icon('select-arrow', 'a')(href="#")._back._bold._no-shadow.__button Back
-                        +button('button')(type="submit")._short._mob-smaller.__button_wide Save and continue
+                        +button('button')(type="submit" data-callback="savefull" data-src="#popup-reminder-empty" data-composite-full-save)._short._mob-smaller.__button_wide Save and continue
 
 
 block panels

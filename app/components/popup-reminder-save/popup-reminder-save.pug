@@ -1,18 +1,27 @@
 mixin popup-reminder-save()
   +popup-free._sm-cross._sm-full.popup-reminder-save__&attributes(attributes)
     +popup-heading.popup__heading_smpd.popup__heading_sm-col.popup__heading_sb
-      +offer-info
+      +offer-info(data-popup-element="offerHD")
         +box._big2._orange
         +e.title_dark._fz24 HOT DESK
+      +offer-info(data-popup-element="offerFD")
+        +box._big2._red
+        +e.title_dark._fz24 FIXED DESK
+      +offer-info(data-popup-element="offerMR")
+        +box._big2._blue
+        +e.title_dark._fz24 MEETING ROOM
+      +offer-info(data-popup-element="offerOS")
+        +box._big2._green
+        +e.title_dark._fz24 OFFICE SPACE
       +popup-title.popup__title_mfz12 Terms and conditions
     +popup-content
-      +note-exclamation(true)._fw400._color._fz20.__note You’ve recently added Terms and Conditions for HOT DESK offers.
-      +note(true)._fz30.__notice Do you want to save Terms and Conditions for HOTD DESK offers and continue?
+      +note-exclamation(true)._fw400._color._fz20.__note You’ve recently added Terms and Conditions for <span data-popup-element="offerHD">HOT DESK</span><span data-popup-element="offerFD">FIXED DESK</span><span data-popup-element="offerMR">MEETING ROOM</span><span data-popup-element="offerOS">OFFICE SPACE</span> offers.
+      +note(true)._fz30.__notice Do you want to save Terms and Conditions for <span data-popup-element="offerHD">HOT DESK</span><span data-popup-element="offerFD">FIXED DESK</span><span data-popup-element="offerMR">MEETING ROOM</span><span data-popup-element="offerOS">OFFICE SPACE</span> offers and continue?
       +e.buttons
-        +button('button')._short._mob-smaller.__button(type="button")
-          span.hide-sm Yes, Save Terms and conditions for HOT DESKS and continue
+        +button('button')._short._mob-smaller.__button(type="button"  data-src="#popup-reminder-empty" data-textarea-save-callback="saveTextarea" data-composite-save-button)
+          span.hide-sm Yes, Save Terms and conditions for <span data-popup-element="offerHD">HOT DESKS</span><span data-popup-element="offerFD">FIXED DESKS</span><span data-popup-element="offerMR">MEETING ROOMS</span><span data-popup-element="offerOS">OFFICE SPACES</span> and continue
           span.hide-from-sm Yes, Save T&amp;C and continue
-        +link()._underline.__link(href="#" data-fancybox-close)
-          span.hide-sm Don’t save Terms and Conditions for HOT DESK
-          span.hide-from-sm Don’t save T&amp;C for HOT DESK
+        +link()._underline.__link(href="#" data-composite-newtab)
+          span.hide-sm Don’t save Terms and Conditions for <span data-popup-element="offerHD">HOT DESK</span><span data-popup-element="offerFD">FIXED DESK</span><span data-popup-element="offerMR">MEETING ROOM</span><span data-popup-element="offerOS">OFFICE SPACE</span>
+          span.hide-from-sm Don’t save T&amp;C for <span data-popup-element="offerHD">HOT DESK</span><span data-popup-element="offerFD">FIXED DESK</span><span data-popup-element="offerMR">MEETING ROOM</span><span data-popup-element="offerOS">OFFICE SPACE</span>
       block

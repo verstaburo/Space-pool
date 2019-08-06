@@ -98,6 +98,15 @@ export default function popups() {
   // $('.js-popup').fancybox(optionsStPopup);
   // $('.js-popup-mobile').fancybox(optionsMobPopup);
 
+  window.globalFunctions.openPopup = (popupEl, isMobile) => {
+    const options = isMobile ? optionsMobPopup : optionsStPopup;
+    $.fancybox.open({
+      src: popupEl,
+      type: 'inline',
+      opts: options,
+    });
+  };
+
   $(document).on('click', '.js-popup', (evt) => {
     const self = evt.currentTarget;
     const data = $(self).attr('data-src') || $(self).attr('href');
