@@ -49,7 +49,7 @@ mixin popup-invoice()
       +e.buttons
         +link-icon('select-arrow', 'a')._back._bold._no-shadow.__button.js-popup-depends-width(href="#" data-source="xl:#popup-invoices,md:#popup-invoices-mobile") Back to list
         +link-icon('download')(href="#")._icon_small._download-small._no-shadow._bold.__button Download as PDF
-        +button().__button Pay now
+        +button().__button.js-popup(href="#popup-payment-form") Pay now
 
 
 mixin popup-invoice-mobile()
@@ -99,4 +99,4 @@ mixin popup-invoice-mobile()
       +e.buttons
         +link-icon('select-arrow', 'a')._back._bold._no-shadow._mfz12.__button.js-popup-depends-width(href="#" data-source="xl:#popup-invoices,md:#popup-invoices-mobile") Back to list
         +link-icon('download')(href="#")._icon_small._download-small._no-shadow._bold._mfz12.__button PDF
-        +button('button')(type="submit")._smaller.__button Pay now
+        +button()._smaller.__button.js-popup(href="#popup-payment-form") Pay now

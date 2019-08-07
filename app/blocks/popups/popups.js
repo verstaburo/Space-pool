@@ -109,6 +109,9 @@ export default function popups() {
 
   $(document).on('click', '.js-popup', (evt) => {
     const self = evt.currentTarget;
+    if ($(self).attr('data-stoppropagation')) {
+      evt.stopPropagation();
+    }
     const data = $(self).attr('data-src') || $(self).attr('href');
     const popupId = `#${data.split('#').pop()}`;
     const source = $(popupId);
@@ -121,6 +124,9 @@ export default function popups() {
 
   $(document).on('click', '.js-popupj-mobile', (evt) => {
     const self = evt.currentTarget;
+    if ($(self).attr('data-stoppropagation')) {
+      evt.stopPropagation();
+    }
     const data = $(self).attr('data-src') || $(self).attr('href');
     const popupId = `#${data.split('#').pop()}`;
     const source = $(popupId);
@@ -134,6 +140,9 @@ export default function popups() {
   $(document).on('click', '.js-popup-depends-width', (evt) => {
     evt.preventDefault();
     const self = evt.currentTarget;
+    if ($(self).attr('data-stoppropagation')) {
+      evt.stopPropagation();
+    }
     const data = self.getAttribute('data-source').split(',');
     const sources = {};
     const keys = [];

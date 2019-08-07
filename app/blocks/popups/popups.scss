@@ -144,6 +144,14 @@
 
     &_border {
       border-bottom: 1px solid $color-border-light;
+
+      &_md {
+        border-bottom: none;
+
+        @include screen('md') {
+          border-bottom: 1px solid $color-border-light;
+        }
+      }
     }
 
     &_fx {
@@ -556,6 +564,61 @@
         right: auto;
 
         @include screen('md') {
+          left: 26px;
+        }
+
+        @include screen('sm') {
+          top: 8px;
+          left: 9px;
+        }
+      }
+    }
+  }
+
+  &_combined {
+    position: relative;
+    display: block;
+    max-height: 100%;
+    background-color: $color-bg;
+
+    @include screen('md') {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      max-width: none;
+    }
+
+    #{$b} {
+      &__content {
+        position: relative;
+        display: flex;
+        max-height: 100%;
+        padding: 0;
+        z-index: 1;
+
+        @include screen('md') {
+          height: 100%;
+          max-height: none;
+        }
+      }
+
+      &__header {
+        position: absolute;
+        justify-content: flex-start;
+
+        @include screen('md') {
+          justify-content: flex-end;
+        }
+      }
+
+      &__close {
+        top: 13px;
+        right: 13px;
+        width: 40px;
+        height: 40px;
+
+        @include screen('md') {
+          right: auto;
           left: 26px;
         }
 

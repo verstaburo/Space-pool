@@ -2953,7 +2953,7 @@
                             <td class="table__cell">30 Apr 2019</td>
                             <td class="table__cell table__cell_bold">1568.00 &pound;</td>
                             <td class="table__cell table__cell_bold">
-                                <a class="button button_smaller button_fz17 button_wide" href="#">
+                                <a class="button button_smaller button_fz17 button_wide js-popup" href="#popup-payment-form" data-stoppropagation="data-stoppropagation">
                                     <span class="button__text">Pay now</span>
                                 </a>
                             </td>
@@ -3164,7 +3164,7 @@
                             <div class="invoice-info__name">One Heddon Street Center</div>
                             <div class="invoice-info__describe">
                                 <div class="invoice-info__price">&pound; 1568.00</div>
-                                <a class="button button_smaller invoice-info__button" href="#">
+                                <a class="button button_smaller invoice-info__button js-popup" href="#popup-payment-form" data-stoppropagation="data-stoppropagation">
                                     <span class="button__text">Pay now</span>
                                 </a>
                             </div>
@@ -3344,7 +3344,7 @@
                             <svg class="link__icon link__icon_download"><use xlink:href="assets/images/icon.svg#icon_download"></use></svg>
                             <span class="link__text">Download as PDF</span>
                         </a>
-                        <a class="button popup-invoice__button">
+                        <a class="button popup-invoice__button js-popup" href="#popup-payment-form">
                             <span class="button__text">Pay now</span>
                         </a>
                     </div>
@@ -3462,9 +3462,9 @@
                         <svg class="link__icon link__icon_download"><use xlink:href="assets/images/icon.svg#icon_download"></use></svg>
                         <span class="link__text">PDF</span>
                     </a>
-                    <button class="button button_smaller popup-invoice__button" type="submit">
+                    <a class="button button_smaller popup-invoice__button js-popup" href="#popup-payment-form">
                         <span class="button__text">Pay now</span>
-                    </button>
+                    </a>
                 </div>
             </div>
         </div>
@@ -3501,6 +3501,18 @@
                         </button>
                     </div>
                 </form>
+            </div>
+        </div>
+        <div class="popup popup_combined popup_white popup-payment-form" id="popup-payment-form">
+            <div class="popup__content">
+                <div class="popup__header popup__header_white popup__header_border popup__header_border_md">
+                    <h3 class="popup__title">Payment form</h3>
+                </div>
+                <div class="popup__content">
+                    <div class="popup__scrollblock js-scrollbar-light">
+                        <form class="form form_white popup__inner-content" data-validated-form="data-validated-form"></form>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

@@ -49,10 +49,10 @@ block content
                 +tabs('div')._form.__tabs
                   +composite-tab()._orange.__item
                     +composite-tab-checkbox()(data-composite-checkbox)
-                      +e.INPUT.input(name="typeOffer", value="hd", checked, type="checkbox" data-composite-activator="offerHD")
+                      +e.INPUT.input(name="typeOffer", value="hd", type="checkbox" data-composite-activator="offerHD")
                       +e.SPAN.box
                         +icon('check').__icon
-                    +composite-tab-button({title: 'Hot Desk', box: '_orange _size11', plus: true, save: true}).is-active(data-composite-el="offerHD" data-src="#popup-reminder-save")
+                    +composite-tab-button({title: 'Hot Desk', box: '_orange _size11', plus: true, save: true})(data-composite-el="offerHD" data-src="#popup-reminder-save")
                   +composite-tab()._red.__item
                     +composite-tab-checkbox()(data-composite-checkbox)
                       +e.INPUT.input(name="typeOffer", value="fd", type="checkbox" data-composite-activator="offerFD")
@@ -72,7 +72,7 @@ block content
                         +icon('check').__icon
                     +composite-tab-button({title: 'Office space', box: '_green _size11', plus: true, save: true}).is-disabled(data-composite-el="offerOS" data-src="#popup-reminder-save")
               +form-section
-                +e.FIELDSET.modal.is-active(data-composite-target="offerHD")
+                +e.FIELDSET.modal.is-freeze(data-composite-target="offerHD")
                   +e.modal-top
                     +close.__modal-cross(data-src="#popup-reminder-save" data-composite-reminder-button="offerHD")
                     +e.modal-title
@@ -127,11 +127,11 @@ block content
                     +col({ xl: 9, md: 12 })
                       +form-panel._sm-pd30.__panel_border._lg-shft20.hide(data-composite-save-area)
                         +e.buttons_mgt0._center
-                          +button('button')(type="button" data-src="#popup-reminder-empty" data-textarea-save-callback="saveTextarea" data-composite-save-button)._short._mob-smaller.__button_smfull Save
+                          +button('button')(type="button" data-src="#popup-reminder-empty" data-textarea-save-callback="saveTextarea" data-composite-save-button disabled)._short._mob-smaller.__button_smfull.is-disabled Save
                             span.hide-sm &nbsp;Terms and Conditions for <span class="hide" data-changing-content="offerOS">OFFICE SPACE</span><span class="hide" data-changing-content="offerMR">MEETING ROOM</span><span class="hide" data-changing-content="offerFD">FIXED DESK</span><span data-changing-content="offerHD">HOT DESK</span>
                       +form-panel._sm-pd30.__panel_border._lg-shft20(data-composite-panel)
                         +link-icon('select-arrow', 'a')(href="#")._back._bold._no-shadow.__button Back
-                        +button('button')(type="submit" data-callback="savefull" data-src="#popup-reminder-empty" data-composite-full-save)._short._mob-smaller.__button_wide Save and continue
+                        +button('button')(type="submit" data-callback="savefull" data-src="#popup-reminder-empty" data-composite-full-save disabled)._short._mob-smaller.__button_wide.is-disabled Save and continue
 
 
 block panels
