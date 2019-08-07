@@ -45,7 +45,7 @@ export default function accordions() {
   }
 
   $(document).on('click', '.js-accordion-open', (evt) => {
-    const self = $(evt.target).is('.js-accordion-open') ? $(evt.target) : $(evt.target).closest('.js-accordion-open');
+    const self = evt.currentTarget;
     evt.preventDefault();
     openAccordion(self);
   });
