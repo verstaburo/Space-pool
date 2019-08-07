@@ -3,19 +3,23 @@ const $ = window.$;
 export default function compositeTab() {
   const compositeTabs = {
     activeEl(activator) {
-      const element = $(activator).closest('[data-composite-el]');
       const compositeName = $(activator).attr('data-composite-activator');
+      const element = $(`[data-composite-el="${compositeName}"]`);
       const textarea = $(`[data-composite-textarea="${compositeName}"]`);
       $(textarea).removeAttr('disabled', 'disabled');
       $(element).removeClass('is-disabled');
     },
     disableEl(activator) {
-      const element = $(activator).closest('[data-composite-el]');
       const compositeName = $(activator).attr('data-composite-activator');
+      const element = $(`[data-composite-el="${compositeName}"]`);
       const textarea = $(`[data-composite-textarea="${compositeName}"]`);
       $(textarea).attr('disabled', 'disabled');
       $(element).addClass('is-disabled');
-      $(element).removeClass('is-saved');
+    },
+    lastOn() {
+      const triggers = $('[data-composite-activator]');
+      const active = $(triggers).filter((i, el) => $(el).prop('checked'));
+      return active[0];
     },
     lastActive() {
       const elements = $('[data-composite-el]');
@@ -27,13 +31,19 @@ export default function compositeTab() {
       const textarea = $(`[data-composite-textarea="${compositeName}"]`);
       return ($(button).is('.is-saved') && $(textarea).val().length > 0);
     },
+    isChanged(compositeName) {
+      const textarea = $(`[data-composite-textarea="${compositeName}"]`);
+      return $(textarea).is('.is-changed');
+    },
     saveEl(compositeName) {
       const element = $(`[data-composite-el="${compositeName}"]`);
+      const textarea = $(`[data-composite-textarea="${compositeName}"]`);
       $(element).addClass('is-saved');
+      $(textarea).removeClass('is-changed');
     },
     unsaveEl(compositeName) {
       const element = $(`[data-composite-el="${compositeName}"]`);
-      $(element).addClass('is-saved');
+      $(element).removeClass('is-saved');
     },
     open(activator) {
       const el = activator;
@@ -75,45 +85,36 @@ export default function compositeTab() {
         callback(popup);
       }, 50);
     },
+    showSaveButton() {
+      const buttonArea = $('[data-composite-save-area]');
+      const formPanel = $('[data-composite-panel]');
+      $(buttonArea).removeClass('hide');
+      $(formPanel).addClass('hide');
+    },
+    hideSaveButton() {
+      const buttonArea = $('[data-composite-save-area]');
+      const formPanel = $('[data-composite-panel]');
+      $(buttonArea).addClass('hide');
+      $(formPanel).removeClass('hide');
+    },
   };
 
   // активируем переключатели вкладок
   $(document).on('change', '[data-composite-activator]', (evt) => {
     const self = evt.currentTarget;
-    const selfButton = $(self).closest('[data-composite-el]');
-    const last = compositeTabs.lastActive();
-    const compositeName = $(last).attr('data-composite-el');
-    const newCompositeName = $(self).attr('data-composite-activator');
-    const buttonArea = $(`[data-composite-save-area="${compositeName}"]`);
-    const formPanel = $('[data-hidden-panel]');
+    const compositeName = $(self).attr('data-composite-activator');
+    const selfButton = $(`[data-composite-el="${compositeName}"]`);
     if ($(self).prop('checked')) {
-      if (compositeTabs.isSaved(compositeName)) {
-        compositeTabs.activeEl(self);
-        compositeTabs.close();
-        compositeTabs.open(selfButton);
-        $(buttonArea).addClass('hide');
-        $(formPanel).removeClass('hide');
-      } else if ($(last).length > 0) {
-        const popupId = $(selfButton).attr('data-src').split('#').pop();
-        const popup = $(`#${popupId}`);
-        const btnThrowUp = $(popup).find('[data-composite-newtab]');
-        $(btnThrowUp).attr('data-composite-newtab', newCompositeName);
-        compositeTabs.popupPrepare(popup, compositeName, window.globalFunctions.openPopup);
-        compositeTabs.activeEl(self);
-        compositeTabs.close();
-        compositeTabs.open(selfButton);
-        $(buttonArea).addClass('hide');
-        $(formPanel).removeClass('hide');
-      } else {
-        compositeTabs.activeEl(self);
-        compositeTabs.close();
-        compositeTabs.open(selfButton);
-        $(buttonArea).addClass('hide');
-        $(formPanel).removeClass('hide');
-      }
+      compositeTabs.activeEl(self);
     } else if ($(selfButton).is('.is-active')) {
       compositeTabs.disableEl(self);
-      compositeTabs.close();
+      const lastOn = compositeTabs.lastOn();
+      compositeTabs.close(selfButton);
+      if (window.Modernizr.mq(`(min-width: ${window.globalOptions.sizes.sm}px)`) && lastOn) {
+        const newCompositeName = $(lastOn).attr('data-composite-activator');
+        const button = $(`[data-composite-el="${newCompositeName}"]`);
+        compositeTabs.open(button);
+      }
     } else {
       compositeTabs.disableEl(self);
     }
@@ -123,31 +124,28 @@ export default function compositeTab() {
   $(document).on('input', '[data-composite-textarea]', (evt) => {
     const self = evt.currentTarget;
     const compositeName = $(self).attr('data-composite-textarea');
-    const tab = $(`[data-composite-el="${compositeName}"]`);
-    const buttonArea = $(`[data-composite-save-area="${compositeName}"]`);
-    const formPanel = $('[data-hidden-panel]');
+    const button = $('[data-composite-save-button]');
     const value = $(self).val();
     if (value) {
-      $(tab).removeClass('is-saved');
-      $(buttonArea).removeClass('hide');
-      $(formPanel).addClass('hide');
+      compositeTabs.unsaveEl(compositeName);
+      $(button).attr('data-composite-save-button', compositeName);
+      compositeTabs.showSaveButton();
+      $(self).addClass('is-changed');
     } else {
-      $(tab).removeClass('is-saved');
-      $(buttonArea).addClass('hide');
-      $(formPanel).removeClass('hide');
+      $(self).addClass('is-changed');
+      compositeTabs.unsaveEl(compositeName);
+      compositeTabs.hideSaveButton();
     }
   });
 
   /* eslint-disable no-unused-vars */
   function textareaSave(obj) {
     return new Promise((resolve) => {
-      console.log(obj);
       resolve(true);
     });
   }
 
   function fullSave(obj) {
-    console.log(obj);
     return new Promise((resolve) => {
       resolve(true);
     });
@@ -163,18 +161,14 @@ export default function compositeTab() {
     const compositeName = $(self).attr('data-composite-save-button');
     const textarea = $(`[data-composite-textarea="${compositeName}"]`);
     const callback = $(self).attr('data-textarea-save-callback');
-    const tab = $(`[data-composite-el="${compositeName}"]`);
-    const buttonArea = $(`[data-composite-save-area="${compositeName}"]`);
-    const formPanel = $('[data-hidden-panel]');
     const popupId = $(self).attr('data-src').split('#').pop();
     const popup = $(`#${popupId}`);
     $.fancybox.close();
     if ($(textarea).val().length > 0) {
       window[callback](textarea).then((readySave) => {
         if (readySave) {
-          $(tab).addClass('is-saved');
-          $(buttonArea).addClass('hide');
-          $(formPanel).removeClass('hide');
+          compositeTabs.saveEl(compositeName);
+          compositeTabs.hideSaveButton();
           if (window.Modernizr.mq(`(max-width: ${window.globalOptions.sizes.sm - 1}px)`)) {
             compositeTabs.close();
           }
@@ -189,15 +183,12 @@ export default function compositeTab() {
   $(document).on('click', '[data-composite-reminder-button]', (evt) => {
     const self = evt.currentTarget;
     const compositeName = $(self).attr('data-composite-reminder-button');
-    const popupEmptyId = $(self).attr('data-src-empty').split('#').pop();
-    const popupEmpty = $(`#${popupEmptyId}`);
-    const popupSaveId = $(self).attr('data-src-save').split('#').pop();
+    const popupSaveId = $(self).attr('data-src').split('#').pop();
     const popupSave = $(`#${popupSaveId}`);
-    const textarea = $(`[data-composite-textarea="${compositeName}"]`);
-    if ($(textarea).val().length > 0) {
+    if (compositeTabs.isChanged(compositeName)) {
       compositeTabs.popupPrepare(popupSave, compositeName, window.globalFunctions.openPopup);
     } else {
-      compositeTabs.popupPrepare(popupEmpty, compositeName, window.globalFunctions.openPopup);
+      compositeTabs.close();
     }
   });
 
@@ -208,11 +199,13 @@ export default function compositeTab() {
     const self = evt.currentTarget;
     const callback = $(self).attr('data-callback');
     const form = $(self).closest('form');
-    const tabs = $(form).find('[data-composite-el]');
-    const tabsActive = $(tabs).filter((i, el) => {
-      const activator = $(el).find('[data-composite-activator]');
-      return $(activator).prop('checked');
-    });
+    const activators = $(form).find('[data-composite-activator]');
+    const activeBoxes = $(activators).filter((i, el) => $(el).prop('checked'));
+    const tabsActive = $(activeBoxes).map((i, el) => {
+      const compositeName = $(el).attr('data-composite-activator');
+      const tab = $(`[data-composite-el="${compositeName}"]`);
+      return tab;
+    }).get();
     const tabsUnsaved = $(tabsActive).filter((i, el) => !$(el).is('.is-saved'));
     const empty = $(tabsUnsaved).filter((i, el) => {
       const compositeName = $(el).attr('data-composite-el');
@@ -237,9 +230,14 @@ export default function compositeTab() {
     const element = $(`[data-composite-el="${compositeName}"]`);
     $(activator).prop('checked', '');
     compositeTabs.disableEl(activator);
-    $(element).removeClass('is-saved');
     if ($(element).is('.is-active')) {
+      const lastOn = compositeTabs.lastOn();
       compositeTabs.close();
+      if (window.Modernizr.mq(`(min-width: ${window.globalOptions.sizes.sm}px)`) && lastOn) {
+        const newCompositeName = $(lastOn).attr('data-composite-activator');
+        const button = $(`[data-composite-el="${newCompositeName}"]`);
+        compositeTabs.open(button);
+      }
     }
     $.fancybox.close();
   });
@@ -247,39 +245,38 @@ export default function compositeTab() {
   // переключаем вкладки
   $(document).on('click', '[data-composite-el]', (evt) => {
     const self = evt.currentTarget;
-    const source = evt.target;
-    const isChecked = $(source).is('[data-composite-checkbox]') || $(source).closest('[data-composite-checkbox]').length > 0;
     const notactive = $('[data-composite-el]').not(self);
+    const newCompositeName = $(self).attr('data-composite-el');
+    const changingElements = $('[data-changing-content]');
+    const showChangingElements = $(`[data-changing-content*="${newCompositeName}"]`);
     if (!$(self).is('.is-active')) {
       const last = compositeTabs.lastActive();
       const compositeName = $(last).attr('data-composite-el');
-      const newCompositeName = $(self).attr('data-composite-el');
-      const buttonArea = $(`[data-composite-save-area="${compositeName}"]`);
-      const formPanel = $('[data-hidden-panel]');
-      if (compositeTabs.isSaved(compositeName)) {
-        if (!$(self).is('.is-disabled') && !isChecked) {
+      if ($(last).length > 0) {
+        if (!$(self).is('.is-disabled') && compositeTabs.isChanged(compositeName)) {
+          if (window.Modernizr.mq(`(min-width: ${window.globalOptions.sizes.sm}px)`)) {
+            const popupId = $(self).attr('data-src').split('#').pop();
+            const popup = $(`#${popupId}`);
+            const btnThrowUp = $(popup).find('[data-composite-newtab]');
+            $(btnThrowUp).attr('data-composite-newtab', newCompositeName);
+            compositeTabs.popupPrepare(popup, compositeName, window.globalFunctions.openPopup);
+          }
           compositeTabs.close(notactive);
           compositeTabs.open(self);
-          $(buttonArea).addClass('hide');
-          $(formPanel).removeClass('hide');
+        } else if (!$(self).is('.is-disabled')) {
+          compositeTabs.close(notactive);
+          compositeTabs.open(self);
         }
-      } else if (!$(self).is('.is-disabled') && !isChecked) {
-        if (window.Modernizr.mq(`(min-width: ${window.globalOptions.sizes.sm}px)`)) {
-          const popupId = $(self).attr('data-src').split('#').pop();
-          const popup = $(`#${popupId}`);
-          const btnThrowUp = $(popup).find('[data-composite-newtab]');
-          $(btnThrowUp).attr('data-composite-newtab', newCompositeName);
-          compositeTabs.popupPrepare(popup, compositeName, window.globalFunctions.openPopup);
-        }
-        compositeTabs.close(notactive);
+      } else {
         compositeTabs.open(self);
-        $(buttonArea).addClass('hide');
-        $(formPanel).removeClass('hide');
       }
     } else if (window.Modernizr.mq(`(max-width: ${window.globalOptions.sizes.sm - 1}px)`)) {
       compositeTabs.close(notactive);
       compositeTabs.open(self);
     }
+    $(changingElements).addClass('hide');
+    $(showChangingElements).removeClass('hide');
+    compositeTabs.hideSaveButton();
   });
 
   // переключаем не сохраняя
