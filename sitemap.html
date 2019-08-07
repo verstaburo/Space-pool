@@ -340,8 +340,11 @@
                     <a class="link js-popup" href="#popup-add-offer-tc">
                         <span class="link__text">Popup Add rental offer with terms and conditins for one offer</span>
                     </a>
-                    <a class="link js-popup" href="#popup-payment-form">
-                        <span class="link__text">Popup payment form</span>
+                    <a class="link js-popup" href="#popup-reminder-empty">
+                        <span class="link__text">Popup empty terms and conditions</span>
+                    </a>
+                    <a class="link js-popup" href="#popup-reminder-save">
+                        <span class="link__text">Popup save terms and conditions</span>
                     </a>
                 </div>
             </div>
@@ -3814,18 +3817,6 @@
                 </form>
             </div>
         </div>
-        <div class="popup popup_combined popup_white popup-payment-form" id="popup-payment-form">
-            <div class="popup__content">
-                <div class="popup__header popup__header_white popup__header_border popup__header_border_md">
-                    <h3 class="popup__title">Payment form</h3>
-                </div>
-                <div class="popup__content">
-                    <div class="popup__scrollblock js-scrollbar-light">
-                        <form class="form form_white popup__inner-content" data-validated-form="data-validated-form"></form>
-                    </div>
-                </div>
-            </div>
-        </div>
         <div class="popup popup-add-offer" id="popup-add-offer-tc">
             <div class="popup__content">
                 <h3 class="popup__title">Add rental offer</h3>
@@ -4060,6 +4051,154 @@
                         </div>
                     </div>
                 </form>
+            </div>
+        </div>
+        <div class="popup popup_sm-cross popup_sm-full popup-reminder-empty" id="popup-reminder-empty">
+            <div class="popup__heading popup__heading_smpd popup__heading_sm-col popup__heading_sb">
+                <div class="offer-info" data-popup-element="offerHD">
+                    <div class="offer-info__head">
+                        <div class="box box_big2 box_orange"></div>
+                        <div class="offer-info__title offer-info__title_dark offer-info__title_fz24">HOT DESK</div>
+                    </div>
+                </div>
+                <div class="offer-info hide" data-popup-element="offerFD">
+                    <div class="offer-info__head">
+                        <div class="box box_big2 box_red"></div>
+                        <div class="offer-info__title offer-info__title_dark offer-info__title_fz24">FIXED DESK</div>
+                    </div>
+                </div>
+                <div class="offer-info hide" data-popup-element="offerMR">
+                    <div class="offer-info__head">
+                        <div class="box box_big2 box_blue"></div>
+                        <div class="offer-info__title offer-info__title_dark offer-info__title_fz24">MEETING ROOM</div>
+                    </div>
+                </div>
+                <div class="offer-info hide" data-popup-element="offerOS">
+                    <div class="offer-info__head">
+                        <div class="box box_big2 box_green"></div>
+                        <div class="offer-info__title offer-info__title_dark offer-info__title_fz24">OFFICE SPACE</div>
+                    </div>
+                </div>
+                <h3 class="popup__title popup__title_mfz12">Terms and conditions</h3>
+            </div>
+            <div class="popup__content">
+                <div class="note note_exclamation note_fw400 note_color note_fz20 popup-reminder-empty__note">
+                    <div class="note__mark">
+                        <svg class="note__icon note__icon_exclamation"><use xlink:href="assets/images/icon.svg#icon_exclamation"></use></svg>
+                    </div>
+                    <div class="note__text">Ooops! Looks like you forgot something</div>
+                </div>
+                <div class="note note_fz30 note_sm-pmg popup-reminder-empty__notice">
+                    <div class="note__text">
+                        <p>You have activated the
+                            <span data-popup-element="offerHD">HOT DESK</span>
+                            <span data-popup-element="offerFD" class="hide">FIXED DESK</span>
+                            <span data-popup-element="offerMR" class="hide">MEETING ROOM</span>
+                            <span data-popup-element="offerOS" class="hide">OFFICE SPACE</span> service, but have not added any Terms and Conditions.</p>
+                        <p>Please choose an option in order to continue:</p>
+                    </div>
+                </div>
+                <div class="popup-reminder-empty__buttons">
+                    <button class="button button_short button_border button_border_bg-white button_mob-smaller popup-reminder-empty__button" type="button" data-composite-disable="data-composite-disable">
+                        <span class="button__text">
+                            <span class="hide-sm">Continue without
+                                <span data-popup-element="offerHD">Hot desks</span>
+                                <span data-popup-element="offerFD" class="hide">Fixed desks</span>
+                                <span data-popup-element="offerMR" class="hide">Meeting rooms</span>
+                                <span data-popup-element="offerOS">Office spaces</span> offers</span>
+                            <span class="hide-from-sm">Continue without
+                                <span data-popup-element="offerHD">HOT DESKS</span>
+                                <span data-popup-element="offerFD" class="hide">FIXED DESKS</span>
+                                <span data-popup-element="offerMR" class="hide">MEETING ROOMS</span>
+                                <span data-popup-element="offerOS" class="hide">OFFICE SPACES</span>
+                            </span>
+                        </span>
+                    </button>
+                    <button class="button button_short button_mob-smaller popup-reminder-empty__button" type="button" data-fancybox-close="data-fancybox-close">
+                        <span class="button__text">
+                            <span class="hide-sm">Add Terms and Conditions</span>
+                            <span class="hide-from-sm">Add T&C for
+                                <span data-popup-element="offerHD">HOT DESK</span>
+                                <span data-popup-element="offerFD" class="hide">FIXED DESK</span>
+                                <span data-popup-element="offerMR" class="hide">MEETING ROOM</span>
+                                <span data-popup-element="offerOS" class="hide">OFFICE SPACE</span>
+                            </span>
+                        </span>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="popup popup_sm-cross popup_sm-full popup-reminder-save" id="popup-reminder-save">
+            <div class="popup__heading popup__heading_smpd popup__heading_sm-col popup__heading_sb">
+                <div class="offer-info" data-popup-element="offerHD">
+                    <div class="offer-info__head">
+                        <div class="box box_big2 box_orange"></div>
+                        <div class="offer-info__title offer-info__title_dark offer-info__title_fz24">HOT DESK</div>
+                    </div>
+                </div>
+                <div class="offer-info hide" data-popup-element="offerFD">
+                    <div class="offer-info__head">
+                        <div class="box box_big2 box_red"></div>
+                        <div class="offer-info__title offer-info__title_dark offer-info__title_fz24">FIXED DESK</div>
+                    </div>
+                </div>
+                <div class="offer-info hide" data-popup-element="offerMR">
+                    <div class="offer-info__head">
+                        <div class="box box_big2 box_blue"></div>
+                        <div class="offer-info__title offer-info__title_dark offer-info__title_fz24">MEETING ROOM</div>
+                    </div>
+                </div>
+                <div class="offer-info hide" data-popup-element="offerOS">
+                    <div class="offer-info__head">
+                        <div class="box box_big2 box_green"></div>
+                        <div class="offer-info__title offer-info__title_dark offer-info__title_fz24">OFFICE SPACE</div>
+                    </div>
+                </div>
+                <h3 class="popup__title popup__title_mfz12">Terms and conditions</h3>
+            </div>
+            <div class="popup__content">
+                <div class="note note_exclamation note_fw400 note_color note_fz20 popup-reminder-save__note">
+                    <div class="note__text">You’ve recently added Terms and Conditions for
+                        <span data-popup-element="offerHD">HOT DESK</span>
+                        <span data-popup-element="offerFD" class="hide">FIXED DESK</span>
+                        <span data-popup-element="offerMR" class="hide">MEETING ROOM</span>
+                        <span data-popup-element="offerOS" class="hide">OFFICE SPACE</span> offers.</div>
+                </div>
+                <div class="note note_fz30 popup-reminder-save__notice">
+                    <div class="note__text">Do you want to save Terms and Conditions for
+                        <span data-popup-element="offerHD">HOT DESK</span>
+                        <span data-popup-element="offerFD" class="hide">FIXED DESK</span>
+                        <span data-popup-element="offerMR" class="hide">MEETING ROOM</span>
+                        <span data-popup-element="offerOS" class="hide">OFFICE SPACE</span> offers and continue?</div>
+                </div>
+                <div class="popup-reminder-save__buttons">
+                    <button class="button button_short button_mob-smaller popup-reminder-save__button" type="button" data-src="#popup-reminder-empty" data-textarea-save-callback="saveTextarea" data-composite-save-button="data-composite-save-button">
+                        <span class="button__text">
+                            <span class="hide-sm">Yes, Save Terms and conditions for
+                                <span data-popup-element="offerHD">HOT DESKS</span>
+                                <span data-popup-element="offerFD" class="hide">FIXED DESKS</span>
+                                <span data-popup-element="offerMR" class="hide">MEETING ROOMS</span>
+                                <span data-popup-element="offerOS" class="hide">OFFICE SPACES</span> and continue</span>
+                            <span class="hide-from-sm">Yes, Save T&amp;C and continue</span>
+                        </span>
+                    </button>
+                    <a class="link link_underline popup-reminder-save__link" href="#" data-composite-newtab="data-composite-newtab">
+                        <span class="link__text">
+                            <span class="hide-sm">Don’t save Terms and Conditions for
+                                <span data-popup-element="offerHD">HOT DESK</span>
+                                <span data-popup-element="offerFD" class="hide">FIXED DESK</span>
+                                <span data-popup-element="offerMR" class="hide">MEETING ROOM</span>
+                                <span data-popup-element="offerOS" class="hide">OFFICE SPACE</span>
+                            </span>
+                            <span class="hide-from-sm">Don’t save T&amp;C for
+                                <span data-popup-element="offerHD">HOT DESK</span>
+                                <span data-popup-element="offerFD" class="hide">FIXED DESK</span>
+                                <span data-popup-element="offerMR" class="hide">MEETING ROOM</span>
+                                <span data-popup-element="offerOS" class="hide">OFFICE SPACE</span>
+                            </span>
+                        </span>
+                    </a>
+                </div>
             </div>
         </div>
     </div>
