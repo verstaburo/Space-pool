@@ -5,6 +5,7 @@
 import L from 'leaflet';
 
 const $ = window.$;
+window.L = L;
 
 export function maps() {
   // if (!$('#map').length) {
