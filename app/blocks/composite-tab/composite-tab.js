@@ -1,7 +1,7 @@
 const $ = window.$;
 
 export default function compositeTab() {
-  const compositeTabs = {
+  const cmpsFunc = {
     // разблокировка таба
     activeEl(activator) {
       const compositeName = $(activator).attr('data-composite-activator');
@@ -107,11 +107,19 @@ export default function compositeTab() {
       const visibleElements = $(popup).find(`[data-popup-element*="${compositeName}"]`);
       const btnContinue = $(popup).find('[data-composite-disable]');
       const btnSave = $(popup).find('[data-composite-save-button]');
+      const btnThrowUp = $(popup).find('[data-composite-newtab]');
+      const innertab = $(popup).find('[data-composite-return]');
       if ($(btnContinue).length > 0) {
         $(btnContinue).attr('data-composite-disable', compositeName);
       }
       if ($(btnSave).length > 0) {
         $(btnSave).attr('data-composite-save-button', compositeName);
+      }
+      if ($(btnThrowUp).length > 0) {
+        $(btnThrowUp).attr('data-composite-newtab', compositeName);
+      }
+      if ($(innertab).length > 0) {
+        $(innertab).attr('data-composite-return', compositeName);
       }
       $(elements).addClass('hide');
       $(visibleElements).removeClass('hide');
@@ -158,46 +166,46 @@ export default function compositeTab() {
     const self = evt.currentTarget;
     const compositeName = $(self).attr('data-composite-activator');
     const selfButton = $(`[data-composite-el="${compositeName}"]`);
-    const count = compositeTabs.howMuchCheck();
+    const count = cmpsFunc.howMuchCheck();
     if (count === 0) {
-      compositeTabs.disableEl(self);
-      compositeTabs.close(selfButton);
-      compositeTabs.freeze(compositeName);
-      compositeTabs.blockButtons();
+      cmpsFunc.disableEl(self);
+      cmpsFunc.close(selfButton);
+      cmpsFunc.freeze(compositeName);
+      cmpsFunc.blockButtons();
     } else if (count === 1) {
       if ($(self).prop('checked')) {
-        compositeTabs.activeEl(self);
-        compositeTabs.open(selfButton);
-        compositeTabs.unblockButtons();
-        compositeTabs.unfreeze();
+        cmpsFunc.activeEl(self);
+        cmpsFunc.open(selfButton);
+        cmpsFunc.unblockButtons();
+        cmpsFunc.unfreeze();
       } else {
-        compositeTabs.disableEl(self);
-        const lastOn = compositeTabs.lastOn();
-        compositeTabs.close(selfButton);
+        cmpsFunc.disableEl(self);
+        const lastOn = cmpsFunc.lastOn();
+        cmpsFunc.close(selfButton);
         if (window.Modernizr.mq(`(min-width: ${window.globalOptions.sizes.sm}px)`) && lastOn) {
           const newCompositeName = $(lastOn).attr('data-composite-activator');
           const button = $(`[data-composite-el="${newCompositeName}"]`);
-          compositeTabs.open(button);
+          cmpsFunc.open(button);
         }
-        compositeTabs.unblockButtons();
-        compositeTabs.unfreeze();
+        cmpsFunc.unblockButtons();
+        cmpsFunc.unfreeze();
       }
     } else if ($(self).prop('checked')) {
       // разблокировка таба при установке галочки
-      compositeTabs.activeEl(self);
+      cmpsFunc.activeEl(self);
     } else if ($(selfButton).is('.is-active')) {
       // блокировка таба при снятии галочки, если он активен
-      compositeTabs.disableEl(self);
-      const lastOn = compositeTabs.lastOn();
-      compositeTabs.close(selfButton);
+      cmpsFunc.disableEl(self);
+      const lastOn = cmpsFunc.lastOn();
+      cmpsFunc.close(selfButton);
       if (window.Modernizr.mq(`(min-width: ${window.globalOptions.sizes.sm}px)`) && lastOn) {
         const newCompositeName = $(lastOn).attr('data-composite-activator');
         const button = $(`[data-composite-el="${newCompositeName}"]`);
-        compositeTabs.open(button);
+        cmpsFunc.open(button);
       }
     } else {
       // блокировка таба при снятии галочки, если он не активен
-      compositeTabs.disableEl(self);
+      cmpsFunc.disableEl(self);
     }
   });
 
@@ -209,15 +217,15 @@ export default function compositeTab() {
     const value = $(self).val();
     if (value) {
       // контент добавлен в поле
-      compositeTabs.unsaveEl(compositeName);
+      cmpsFunc.unsaveEl(compositeName);
       $(button).attr('data-composite-save-button', compositeName);
-      compositeTabs.showSaveButton();
+      cmpsFunc.showSaveButton();
       $(self).addClass('is-changed');
     } else {
       // контент удален из поле
       $(self).addClass('is-changed');
-      compositeTabs.unsaveEl(compositeName);
-      compositeTabs.hideSaveButton();
+      cmpsFunc.unsaveEl(compositeName);
+      cmpsFunc.hideSaveButton();
     }
   });
 
@@ -251,16 +259,16 @@ export default function compositeTab() {
       // сохраняем при непустом поле
       window[callback](textarea).then((readySave) => {
         if (readySave) {
-          compositeTabs.saveEl(compositeName);
-          compositeTabs.hideSaveButton();
+          cmpsFunc.saveEl(compositeName);
+          cmpsFunc.hideSaveButton();
           if (window.Modernizr.mq(`(max-width: ${window.globalOptions.sizes.sm - 1}px)`)) {
-            compositeTabs.close();
+            cmpsFunc.close();
           }
         }
       });
     } else {
       // выводим предупреждение при пустом поле
-      compositeTabs.popupPrepare(popup, compositeName, window.globalFunctions.openPopup);
+      cmpsFunc.popupPrepare(popup, compositeName, window.globalFunctions.openPopup);
     }
   });
 
@@ -270,12 +278,12 @@ export default function compositeTab() {
     const compositeName = $(self).attr('data-composite-reminder-button');
     const popupSaveId = $(self).attr('data-src').split('#').pop();
     const popupSave = $(`#${popupSaveId}`);
-    if (compositeTabs.isChanged(compositeName)) {
+    if (cmpsFunc.isChanged(compositeName)) {
       // при закрытии попапа с полем предупреждаем, если были изменения
-      compositeTabs.popupPrepare(popupSave, compositeName, window.globalFunctions.openPopup);
+      cmpsFunc.popupPrepare(popupSave, compositeName, window.globalFunctions.openPopup);
     } else {
       // закрываем, если изменений не было
-      compositeTabs.close();
+      cmpsFunc.close();
     }
   });
 
@@ -303,7 +311,7 @@ export default function compositeTab() {
       // выводим предупреждение, если есть не заполненное поле при выбранной опции
       const popupId = $(self).attr('data-src').split('#').pop();
       const compositeName = $(empty[0]).attr('data-composite-el');
-      compositeTabs.popupPrepare($(`#${popupId}`), compositeName, window.globalFunctions.openPopup);
+      cmpsFunc.popupPrepare($(`#${popupId}`), compositeName, window.globalFunctions.openPopup);
     } else {
       // отправляем форму в колбэк
       window[callback](form);
@@ -319,14 +327,14 @@ export default function compositeTab() {
     const element = $(`[data-composite-el="${compositeName}"]`);
     // отключаем параметр, если был отказ
     $(activator).prop('checked', '');
-    compositeTabs.disableEl(activator);
+    cmpsFunc.disableEl(activator);
     if ($(element).is('.is-active')) {
-      const lastOn = compositeTabs.lastOn();
-      compositeTabs.close();
+      const lastOn = cmpsFunc.lastOn();
+      cmpsFunc.close();
       if (window.Modernizr.mq(`(min-width: ${window.globalOptions.sizes.sm}px)`) && lastOn) {
         const newCompositeName = $(lastOn).attr('data-composite-activator');
         const button = $(`[data-composite-el="${newCompositeName}"]`);
-        compositeTabs.open(button);
+        cmpsFunc.open(button);
       }
     }
     $.fancybox.close();
@@ -339,50 +347,82 @@ export default function compositeTab() {
     const newCompositeName = $(self).attr('data-composite-el');
     const changingElements = $('[data-changing-content]');
     const showChangingElements = $(`[data-changing-content*="${newCompositeName}"]`);
-    compositeTabs.unfreeze();
+    cmpsFunc.unfreeze();
     if (!$(self).is('.is-active')) {
       // не открываем вкладку еще раз, если она активна
-      const last = compositeTabs.lastActive();
+      const last = cmpsFunc.lastActive();
       const compositeName = $(last).attr('data-composite-el');
       if ($(last).length > 0) {
         // если существует другая активная вкладка
-        if (!$(self).is('.is-disabled') && compositeTabs.isChanged(compositeName)) {
+        if (!$(self).is('.is-disabled') && cmpsFunc.isChanged(compositeName)) {
           // если переключаетель активен и были изменения в предидущей вкладке
+          const textarea = $(`[data-composite-textarea="${compositeName}"]`);
+          const value = $(textarea).val().length;
           if (window.Modernizr.mq(`(min-width: ${window.globalOptions.sizes.sm}px)`)) {
             // только на десктопе показываем попап
-            const popupId = $(self).attr('data-src').split('#').pop();
-            const popup = $(`#${popupId}`);
-            const btnThrowUp = $(popup).find('[data-composite-newtab]');
-            $(btnThrowUp).attr('data-composite-newtab', newCompositeName);
-            compositeTabs.popupPrepare(popup, compositeName, window.globalFunctions.openPopup);
+            if (value > 0) {
+              const popupIdSave = $(self).attr('data-src-save').split('#').pop();
+              const popupSave = $(`#${popupIdSave}`);
+              cmpsFunc.popupPrepare(popupSave, compositeName, window.globalFunctions.openPopup);
+            } else {
+              const popupIdEmpty = $(self).attr('data-src-empty').split('#').pop();
+              const popupEmpty = $(`#${popupIdEmpty}`);
+              cmpsFunc.popupPrepare(popupEmpty, compositeName, window.globalFunctions.openPopup);
+            }
           }
-          compositeTabs.close(notactive);
-          compositeTabs.open(self);
+          cmpsFunc.close(notactive);
+          cmpsFunc.open(self);
         } else if (!$(self).is('.is-disabled')) {
           // если переключаетель активен и изменений не было
-          compositeTabs.close(notactive);
-          compositeTabs.open(self);
+          cmpsFunc.close(notactive);
+          cmpsFunc.open(self);
         }
       } else {
         // если других активных нет
-        compositeTabs.open(self);
+        cmpsFunc.open(self);
       }
     } else if (window.Modernizr.mq(`(max-width: ${window.globalOptions.sizes.sm - 1}px)`)) {
       // на мобильном вкладку открываем даже если она уже активна
-      compositeTabs.close(notactive);
-      compositeTabs.open(self);
+      cmpsFunc.close(notactive);
+      cmpsFunc.open(self);
     }
     // переключаем отображаемые элементы
     $(changingElements).addClass('hide');
     $(showChangingElements).removeClass('hide');
-    compositeTabs.hideSaveButton();
+    cmpsFunc.hideSaveButton();
   });
 
-  // переключаем вкладку не сохраняя
-  $(document).on('click', '[data-composite-newtab]', () => {
+  // переключаем вкладку не сохраняя и обнуляем поле
+  $(document).on('click', '[data-composite-newtab]', (evt) => {
+    const self = evt.currentTarget;
+    const compositeName = $(self).attr('data-composite-newtab');
+    const textarea = $(`[data-composite-textarea="${compositeName}"]`);
+    $(textarea).removeClass('is-changed');
+    $(textarea).val('');
     $.fancybox.close();
     if (window.Modernizr.mq(`(max-width: ${window.globalOptions.sizes.sm - 1}px)`)) {
-      compositeTabs.close();
+      cmpsFunc.close();
     }
+  });
+
+  // возврат на вкладку
+  $(document).on('click', '[data-composite-return]', (evt) => {
+    const self = evt.currentTarget;
+    const compositeName = $(self).attr('data-composite-return');
+    const tab = $(`[data-composite-el="${compositeName}"]`);
+    const notactive = $('[data-composite-el]').not(tab);
+    const changingElements = $('[data-changing-content]');
+    const showChangingElements = $(`[data-changing-content*="${compositeName}"]`);
+    const textarea = $(`[data-composite-textarea="${compositeName}"]`);
+    cmpsFunc.close(notactive);
+    cmpsFunc.open(tab);
+    $(changingElements).addClass('hide');
+    $(showChangingElements).removeClass('hide');
+    cmpsFunc.hideSaveButton();
+    if ($(textarea).val().length === 0) {
+      $(textarea).removeClass('is-changed');
+    }
+    $(textarea).focus();
+    $.fancybox.close();
   });
 }
