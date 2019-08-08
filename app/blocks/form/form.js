@@ -121,30 +121,36 @@ export default function formManipulations() {
       const hideElements = $(el).attr('data-hide-elements') !== undefined ? $(el).attr('data-hide-elements').split(',') : [];
       console.log(showElements);
       console.log(hideElements);
-      if ($(el).prop('checked')) {
-        $(hideElements).each((ix, item) => {
-          const itemElement = $(`[data-form-element="${item}"]`);
-          $(itemElement).addClass('hide');
-          const elements = $(itemElement).find('input, select, textarea');
-          $(elements).each((i, elems) => {
-            $(elems).attr('disabled', 'disabled');
-          });
-        });
-        $(showElements).each((ix, item) => {
-          const itemElement = $(`[data-form-element="${item}"]`);
-          $(itemElement).removeClass('hide is-disabled');
-          const elements = $(itemElement).find('input, select, textarea');
-          $(elements).each((i, elems) => {
-            $(elems).removeAttr('disabled');
-          });
-          if ($('[data-checker]').length > 0) {
-            $('[data-checker]').not('[disabled]').each((i, checkers) => {
-              const checker = checkers;
-              changeState(checker);
+      if ($(el).is('input')) {
+        if ($(el).prop('checked')) {
+          $(hideElements).each((ix, item) => {
+            const itemElement = $(`[data-form-element="${item}"]`);
+            $(itemElement).addClass('hide');
+            const elements = $(itemElement).find('input, select, textarea');
+            $(elements).each((i, elems) => {
+              $(elems).attr('disabled', 'disabled');
             });
-          }
-        });
+          });
+          $(showElements).each((ix, item) => {
+            const itemElement = $(`[data-form-element="${item}"]`);
+            $(itemElement).removeClass('hide is-disabled');
+            const elements = $(itemElement).find('input, select, textarea');
+            $(elements).each((i, elems) => {
+              $(elems).removeAttr('disabled');
+            });
+            if ($('[data-checker]').length > 0) {
+              $('[data-checker]').not('[disabled]').each((i, checkers) => {
+                const checker = checkers;
+                changeState(checker);
+              });
+            }
+          });
+        }
       }
+
+      // if ($(el).is('select')) {
+
+      // }
     }
   }
 

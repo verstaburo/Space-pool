@@ -3,6 +3,95 @@ mixin popup-payment-form()
     +popup-header.popup__header_white.popup__header_border.popup__header_border_md
       +popup-title Payment form
     +popup-content
-      div.popup__scrollblock.js-scrollbar-light
+      div.popup__scrollblock.js-scrollbar-light-md
         +form._white.popup__inner-content(data-validated-form)
+          +form-section._mid-mg()
+            +form-section-header._mg21
+              +form-section-title('h4')._small Choose an option:
+            +form-section-content
+              +grid.grid_mid
+                +col({xl: 7, sm: 12})
+                  +form-section-wrapper
+                    +form-box('')
+                      +select.js-select-input(name="option" data-toggle-form)
+                        option(value="debit" data-customproperties="блять" selected) Direct Debit
+                        option(value="card" data-customproperties="{\u0022show\u0022: \u0022card\u0022, \u0022hide\u0022: \u0022debit,newCard\u0022}") Credit card from list **** 0338
+                        option(value="newCard" data-customproperties="{\u0022show\u0022: \u0022newCard\u0022, \u0022hide\u0022: \u0022debit,card\u0022}") New card
+                +col({xl: 5, sm: 12})
+                  +form-section-wrapper._fxe._h100p
+                    +e.links_end
+                      +link-icon('card')._underline._no-shadow._bold._icon_right.__link_mr0 Manage Payment methods
+          +form-section._mid-mg(data-form-element="debit")
+            +form-section
+              +form-section-header
+                +e.list
+                  +b.LABEL.color-radio_full._dark._fz18.__item
+                    +e.INPUT.input(name="account", value="personal", type="radio", checked, data-show-elements="personalAccount", data-hide-elements="companyAccount", data-toggle-form)
+                    +e.SPAN.content
+                      +e.text Personal account
+                  +b.LABEL.color-radio_full._dark._fz18.__item
+                    +e.INPUT.input(name="account", value="company", type="radio", data-show-elements="companyAccount", data-hide-elements="personalAccount", data-toggle-form)
+                    +e.SPAN.content
+                      +e.text Company account
+              +form-section-content
+                +grid.grid_mid
+                  +col({xl: 6, sm: 12})(data-form-element="personalAccount")
+                    +form-section-wrapper
+                      +form-box('First name')
+                        +input(type="text" name="firstName" placeholder="First name" required)
+                  +col({xl: 6, sm: 12})(data-form-element="personalAccount")
+                    +form-section-wrapper
+                      +form-box('Last name')
+                        +input(type="text" name="lastName" placeholder="Last name" required)
+                  +col({xl: 12})(data-form-element="companyAccount")
+                    +form-section-wrapper
+                      +form-box('Company name')
+                        +input(type="text" name="companyName" placeholder="Company name" required)
+            +form-section
+              +grid.grid_mid
+                +col({xl: 6, sm: 12})
+                  +e.list
+                    +b.LABEL.color-radio_full._dark._fz18.__item
+                      +e.INPUT.input(name="bank", value="sc", type="radio", checked, data-show-elements="sortCode", data-hide-elements="iban", data-toggle-form)
+                      +e.SPAN.content
+                        +e.text Use Sort code
+                    +b.LABEL.color-radio_full._dark._fz18.__item
+                      +e.INPUT.input(name="bank", value="iban", type="radio", data-show-elements="iban", data-hide-elements="sortCode", data-toggle-form)
+                      +e.SPAN.content
+                        +e.text Use IBAN
+                +col({xl: 6, sm: 12})
+                  +form-section-wrapper
+                    +checkbox('remember', '1') Save for future payments
+                +col({xl: 6, sm: 12})(data-form-element="sortCode")
+                  +form-section-wrapper
+                    +form-box('Your Sort code')
+                      +input(type="text" name="sortCode" placeholder="Your Sort code" required)
+                +col({xl: 6, sm: 12})(data-form-element="iban")
+                  +form-section-wrapper
+                    +form-box('Your IBAN')
+                      +input(type="text" name="iban" placeholder="Your IBAN" required)
+                +col({xl: 6, sm: 12})
+                  +form-section-wrapper
+                    +form-box('Your account number')
+                      +input(type="text" name="accountNumber" placeholder="Your account number" required)
+                +col({xl: 12})
+                  +form-section-wrapper
+                    +form-box('Billing address line 1')
+                      +input(type="text" name="billingAddress1" placeholder="Billing address line 1")
+                +col({xl: 12})
+                  +form-section-wrapper
+                    +form-box('Billing address line 2')
+                      +input(type="text" name="billingAddress2" placeholder="Billing address line 2")
+                +col({xl: 6, sm: 12})
+                  +form-section-wrapper
+                    +form-box('Town or City')
+                      +input(type="text" name="location" placeholder="Town or City")
+                +col({xl: 6, sm: 12})
+                  +form-section-wrapper
+                    +form-box('Postcode')
+                      +input(type="text" name="postcode" placeholder="Postcode")
+          +form-section._mid-mg(data-form-element="card")
+          +form-section._mid-mg(data-form-element="newCard")
+          +form-section._mid-mg
+            +grid.grid_mid
           block

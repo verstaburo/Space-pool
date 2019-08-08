@@ -5,6 +5,12 @@ import 'os-scroll-chain';
 const $ = window.$;
 
 export default function scrollbar() {
+  function getScrollInstance(el) {
+    return OverlayScrollbars(el);
+  }
+
+  window.globalFunctions.getScrollInstance = getScrollInstance;
+
   function scrollbarS(el) {
     OverlayScrollbars(el, {
       className: 'os-theme-custom',
@@ -40,7 +46,6 @@ export default function scrollbar() {
   });
 
   function scrollbarDark(el) {
-    console.log(el);
     OverlayScrollbars(el, {
       className: 'os-theme-custom-dark',
     });
@@ -82,5 +87,29 @@ export default function scrollbar() {
 
   $('.js-scrollbar-wide').each((i, el) => {
     scrollbarWide(el);
+  });
+
+  function scrollbarLightOnlyMd(el) {
+    const instance = OverlayScrollbars(el);
+    if (instance === undefined) {
+      if (window.Modernizr.mq(`(max-width: ${window.globalOptions.sizes.md - 1}px)`)) {
+        OverlayScrollbars(el, {
+          className: 'os-theme-custom-light',
+        });
+      }
+    } else if (window.Modernizr.mq(`(min-width: ${window.globalOptions.sizes.md}px)`)) {
+      instance.destroy();
+    }
+  }
+  window.globalFunctions.scrollbarLightOnlyMd = scrollbarLightOnlyMd;
+
+  $('.js-scrollbar-light-md').each((i, el) => {
+    scrollbarLightOnlyMd(el);
+  });
+
+  $(window).on('resize', () => {
+    $('.js-scrollbar-light-md').each((i, el) => {
+      scrollbarLightOnlyMd(el);
+    });
   });
 }

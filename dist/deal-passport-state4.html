@@ -3568,8 +3568,192 @@
                     <h3 class="popup__title">Payment form</h3>
                 </div>
                 <div class="popup__content">
-                    <div class="popup__scrollblock js-scrollbar-light">
-                        <form class="form form_white popup__inner-content" data-validated-form="data-validated-form"></form>
+                    <div class="popup__scrollblock js-scrollbar-light-md">
+                        <form class="form form_white popup__inner-content" data-validated-form="data-validated-form">
+                            <fieldset class="form__section form__section_mid-mg">
+                                <div class="form__header form__header_mg21">
+                                    <h4 class="form__title form__title_small">Choose an option:</h4>
+                                </div>
+                                <div class="form__content">
+                                    <div class="grid grid_mid">
+                                        <div class="grid__col grid__col_xl_7 grid__col_sm_12">
+                                            <div class="form__wrapper">
+                                                <label class="form-box">
+                                                    <select class="select js-select-input" name="option" data-toggle-form="data-toggle-form">
+                                                        <option value="debit" data-customproperties="блять" selected="selected">Direct Debit</option>
+                                                        <option value="card" data-customproperties="{&quot;show&quot;: &quot;card&quot;, &quot;hide&quot;: &quot;debit,newCard&quot;}">Credit card from list **** 0338</option>
+                                                        <option value="newCard" data-customproperties="{&quot;show&quot;: &quot;newCard&quot;, &quot;hide&quot;: &quot;debit,card&quot;}">New card</option>
+                                                    </select>
+                                                </label>
+                                                <div class="error-message"></div>
+                                            </div>
+                                        </div>
+                                        <div class="grid__col grid__col_xl_5 grid__col_sm_12">
+                                            <div class="form__wrapper form__wrapper_fxe form__wrapper_h100p">
+                                                <div class="form__links form__links_end">
+                                                    <a class="link link_icon link_underline link_no-shadow link_bold link_icon_right form__link form__link_mr0">
+                                                        <svg class="link__icon link__icon_card"><use xlink:href="assets/images/icon.svg#icon_card"></use></svg>
+                                                        <span class="link__text">Manage Payment methods</span>
+                                                    </a>
+                                                </div>
+                                                <div class="error-message"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </fieldset>
+                            <fieldset class="form__section form__section_mid-mg" data-form-element="debit">
+                                <fieldset class="form__section">
+                                    <div class="form__header">
+                                        <div class="form__list">
+                                            <label class="color-radio color-radio_full color-radio_dark color-radio_fz18 form__item">
+                                                <input class="color-radio__input" name="account" value="personal" type="radio" checked="checked" data-show-elements="personalAccount" data-hide-elements="companyAccount" data-toggle-form="data-toggle-form" />
+                                                <span class="color-radio__content">
+                                                    <span class="color-radio__text">Personal account</span>
+                                                </span>
+                                            </label>
+                                            <label class="color-radio color-radio_full color-radio_dark color-radio_fz18 form__item">
+                                                <input class="color-radio__input" name="account" value="company" type="radio" data-show-elements="companyAccount" data-hide-elements="personalAccount" data-toggle-form="data-toggle-form" />
+                                                <span class="color-radio__content">
+                                                    <span class="color-radio__text">Company account</span>
+                                                </span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="form__content">
+                                        <div class="grid grid_mid">
+                                            <div class="grid__col grid__col_xl_6 grid__col_sm_12" data-form-element="personalAccount">
+                                                <div class="form__wrapper">
+                                                    <label class="form-box">
+                                                        <input class="input" type="text" name="firstName" placeholder="First name" required="required" />
+                                                        <span class="form-box__label">First name</span>
+                                                    </label>
+                                                    <div class="error-message"></div>
+                                                </div>
+                                            </div>
+                                            <div class="grid__col grid__col_xl_6 grid__col_sm_12" data-form-element="personalAccount">
+                                                <div class="form__wrapper">
+                                                    <label class="form-box">
+                                                        <input class="input" type="text" name="lastName" placeholder="Last name" required="required" />
+                                                        <span class="form-box__label">Last name</span>
+                                                    </label>
+                                                    <div class="error-message"></div>
+                                                </div>
+                                            </div>
+                                            <div class="grid__col grid__col_xl_12" data-form-element="companyAccount">
+                                                <div class="form__wrapper">
+                                                    <label class="form-box">
+                                                        <input class="input" type="text" name="companyName" placeholder="Company name" required="required" />
+                                                        <span class="form-box__label">Company name</span>
+                                                    </label>
+                                                    <div class="error-message"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </fieldset>
+                                <fieldset class="form__section">
+                                    <div class="grid grid_mid">
+                                        <div class="grid__col grid__col_xl_6 grid__col_sm_12">
+                                            <div class="form__list">
+                                                <label class="color-radio color-radio_full color-radio_dark color-radio_fz18 form__item">
+                                                    <input class="color-radio__input" name="bank" value="sc" type="radio" checked="checked" data-show-elements="sortCode" data-hide-elements="iban" data-toggle-form="data-toggle-form" />
+                                                    <span class="color-radio__content">
+                                                        <span class="color-radio__text">Use Sort code</span>
+                                                    </span>
+                                                </label>
+                                                <label class="color-radio color-radio_full color-radio_dark color-radio_fz18 form__item">
+                                                    <input class="color-radio__input" name="bank" value="iban" type="radio" data-show-elements="iban" data-hide-elements="sortCode" data-toggle-form="data-toggle-form" />
+                                                    <span class="color-radio__content">
+                                                        <span class="color-radio__text">Use IBAN</span>
+                                                    </span>
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="grid__col grid__col_xl_6 grid__col_sm_12">
+                                            <div class="form__wrapper">
+                                                <label class="checkbox">
+                                                    <input class="checkbox__input" name="remember" value="1" type="checkbox" />
+                                                    <span class="checkbox__box">
+                                                        <svg class="checkbox__icon"><use xlink:href="assets/images/icon.svg#icon_check"></use></svg>
+                                                    </span>
+                                                    <span class="checkbox__content">Save for future payments</span>
+                                                </label>
+                                                <div class="error-message"></div>
+                                            </div>
+                                        </div>
+                                        <div class="grid__col grid__col_xl_6 grid__col_sm_12" data-form-element="sortCode">
+                                            <div class="form__wrapper">
+                                                <label class="form-box">
+                                                    <input class="input" type="text" name="sortCode" placeholder="Your Sort code" required="required" />
+                                                    <span class="form-box__label">Your Sort code</span>
+                                                </label>
+                                                <div class="error-message"></div>
+                                            </div>
+                                        </div>
+                                        <div class="grid__col grid__col_xl_6 grid__col_sm_12" data-form-element="iban">
+                                            <div class="form__wrapper">
+                                                <label class="form-box">
+                                                    <input class="input" type="text" name="iban" placeholder="Your IBAN" required="required" />
+                                                    <span class="form-box__label">Your IBAN</span>
+                                                </label>
+                                                <div class="error-message"></div>
+                                            </div>
+                                        </div>
+                                        <div class="grid__col grid__col_xl_6 grid__col_sm_12">
+                                            <div class="form__wrapper">
+                                                <label class="form-box">
+                                                    <input class="input" type="text" name="accountNumber" placeholder="Your account number" required="required" />
+                                                    <span class="form-box__label">Your account number</span>
+                                                </label>
+                                                <div class="error-message"></div>
+                                            </div>
+                                        </div>
+                                        <div class="grid__col grid__col_xl_12">
+                                            <div class="form__wrapper">
+                                                <label class="form-box">
+                                                    <input class="input" type="text" name="billingAddress1" placeholder="Billing address line 1" />
+                                                    <span class="form-box__label">Billing address line 1</span>
+                                                </label>
+                                                <div class="error-message"></div>
+                                            </div>
+                                        </div>
+                                        <div class="grid__col grid__col_xl_12">
+                                            <div class="form__wrapper">
+                                                <label class="form-box">
+                                                    <input class="input" type="text" name="billingAddress2" placeholder="Billing address line 2" />
+                                                    <span class="form-box__label">Billing address line 2</span>
+                                                </label>
+                                                <div class="error-message"></div>
+                                            </div>
+                                        </div>
+                                        <div class="grid__col grid__col_xl_6 grid__col_sm_12">
+                                            <div class="form__wrapper">
+                                                <label class="form-box">
+                                                    <input class="input" type="text" name="location" placeholder="Town or City" />
+                                                    <span class="form-box__label">Town or City</span>
+                                                </label>
+                                                <div class="error-message"></div>
+                                            </div>
+                                        </div>
+                                        <div class="grid__col grid__col_xl_6 grid__col_sm_12">
+                                            <div class="form__wrapper">
+                                                <label class="form-box">
+                                                    <input class="input" type="text" name="postcode" placeholder="Postcode" />
+                                                    <span class="form-box__label">Postcode</span>
+                                                </label>
+                                                <div class="error-message"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </fieldset>
+                            </fieldset>
+                            <fieldset class="form__section form__section_mid-mg" data-form-element="card"></fieldset>
+                            <fieldset class="form__section form__section_mid-mg" data-form-element="newCard"></fieldset>
+                            <fieldset class="form__section form__section_mid-mg">
+                                <div class="grid grid_mid"></div>
+                            </fieldset>
+                        </form>
                     </div>
                 </div>
             </div>
