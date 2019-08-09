@@ -195,23 +195,31 @@ export default function formManipulations() {
     $(group).attr('data-point-last-index', nextCount);
   }
 
-  $(document).on('focus', '[data-point-object]:last input', (evt) => {
-    const self = evt.currentTarget;
-    pointsClone(self);
+  // $(document).on('focus', '[data-point-object]:last input', (evt) => {
+  //   const self = evt.currentTarget;
+  //   pointsClone(self);
+  // });
+
+  $(document).on('click', '.js-add-object', function () {
+    const input = $(this).parents('[data-point-group]').find('[data-point-object] input').eq(0);
+    pointsClone(input);
   });
 
-  $(document).on('keyup', '[data-point-object] input', (evt) => {
+  $(document).on('keydown', '[data-point-object] input', (evt) => {
     const self = evt.currentTarget;
-    console.log(evt);
-    if (evt.keyCode === 13) {
+
+    if (evt.keyCode === 13 || evt.keyCode === 9) {
       evt.preventDefault();
       const wrapper = $(self).closest('[data-point-object]');
-      const nextWrapper = $(wrapper).next();
-      console.log(nextWrapper);
-      if (nextWrapper) {
-        const point = $(nextWrapper).find('input')[0];
-        point.focus();
+      let nextWrapper = $(wrapper).next();
+
+      if (!nextWrapper.length) {
+        pointsClone(self);
+        nextWrapper = $(wrapper).next();
       }
+
+      const point = $(nextWrapper).find('input')[0];
+      point.focus();
     }
   });
 }

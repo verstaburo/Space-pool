@@ -232,6 +232,26 @@
     display: block;
     width: 100%;
     transition: opacity $ease-main;
+    position: relative;
+
+    &_extended {
+      padding-bottom: 50px;
+
+      .js-add-object {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        width: 22px;
+        height: 22px;
+        cursor: pointer;
+
+        svg {
+          fill: $color-basic;
+          width: 22px;
+          height: 22px;
+        }
+      }
+    }
 
     &.is-disabled {
       opacity: .42;
@@ -1720,11 +1740,11 @@
   }
 }
 
-[data-point-object]:last-child {
-  .form-box__delete {
-    display: none;
-  }
-}
+// [data-point-object]:last-child {
+//   .form-box__delete {
+//     display: none;
+//   }
+// }
 
 .error-message {
   @include text;
