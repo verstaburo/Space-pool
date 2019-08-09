@@ -406,6 +406,7 @@ export function selects() {
       const title = $(self).attr('data-mobile-title') || $(self).find('option[placeholder]').text() || $(self).attr('placeholder') || 'Select';
       const choices = new Choices(self, {
         // searchEnabled: false,
+        shouldSort: false, // Disable automatic sorting for js-select-input
         searchFields: ['label'],
         itemSelectText: '',
         classNames: {
