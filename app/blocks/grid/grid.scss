@@ -97,6 +97,11 @@ $new-breakpoints: map_remove($breakpoints, $default-breakpoit-name);
     }
   }
 
+  &_gap20 {
+    margin-left: -10px;
+    margin-right: -10px;
+  }
+
   &_30x40 {
     margin-top: -30px;
     margin-left: -20px;
@@ -156,6 +161,10 @@ $new-breakpoints: map_remove($breakpoints, $default-breakpoit-name);
     }
   }
 
+  &_int50 {
+    margin-top: -50px;
+  }
+
   &_reserv {
     margin-top: -60px;
   }
@@ -192,6 +201,24 @@ $new-breakpoints: map_remove($breakpoints, $default-breakpoit-name);
       }
     }
 
+    #{$b}_c14 & {
+      @for $i from 1 through 15 {
+        &_#{$default-breakpoit-name}_#{$i} {
+          width: $i * $grid14-col-width;
+        }
+      }
+
+      @each $key, $val in $new-breakpoints {
+        @for $i from 1 through 15 {
+          @include screen($key) {
+            &_#{$key}_#{$i} {
+              width: $i * $grid14-col-width;
+            }
+          }
+        }
+      }
+    }
+
     &_md-order2 {
       @include screen('md') {
         order: 2;
@@ -218,6 +245,14 @@ $new-breakpoints: map_remove($breakpoints, $default-breakpoit-name);
 
     &_flex {
       display: flex;
+    }
+
+    #{$b}_mid & {
+      padding: 30px 15px 0;
+
+      @include screen('sm') {
+        padding-top: 10px;
+      }
     }
 
     #{$b}_layout & {
@@ -280,6 +315,11 @@ $new-breakpoints: map_remove($breakpoints, $default-breakpoit-name);
       }
     }
 
+    #{$b}_gap20 & {
+      padding-left: 10px;
+      padding-right: 10px;
+    }
+
     #{$b}_30x40 & {
       padding: 30px 20px 0;
 
@@ -340,12 +380,8 @@ $new-breakpoints: map_remove($breakpoints, $default-breakpoit-name);
       }
     }
 
-    #{$b}_mid & {
-      padding: 30px 15px 0;
-
-      @include screen('sm') {
-        padding-top: 10px;
-      }
+    #{$b}_int50 & {
+      padding-top: 50px;
     }
 
     #{$b}_no-top:not(.grid_inner) &, #{$b}_notop:not(.grid_inner) & {

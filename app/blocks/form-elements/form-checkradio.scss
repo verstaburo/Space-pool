@@ -302,8 +302,8 @@
 
   &__box {
     position: absolute;
-    width: 18px;
-    height: 18px;
+    width: 20px;
+    height: 20px;
     border: 1px solid $color-form-border;
     left: 0;
     top: 50%;
@@ -660,6 +660,19 @@
     }
   }
 
+  &_thin {
+    #{$b} {
+
+      &__content {
+        &::before {
+          height: 1px;
+          top: auto;
+          bottom: .04em;
+        }
+      }
+    }
+  }
+
   &_full {
     #{$b}__content {
       border-color: transparent;
@@ -779,6 +792,29 @@
           left: 7px;
           width: calc(100% - 14px);
         }
+      }
+    }
+  }
+
+  &_fz18 {
+    text-align: center;
+
+    #{$b}__content {
+      @include text-big;
+
+      line-height: 1.2;
+      padding: 2px 7px;
+      font-weight: 700;
+
+      @include screen('sm') {
+        @include text15;
+
+        line-height: 1.2;
+      }
+
+      &::before {
+        left: 6px;
+        width: calc(100% - 14px);
       }
     }
   }
@@ -931,5 +967,3 @@
     }
   }
 }
-
-.tab-radio {}

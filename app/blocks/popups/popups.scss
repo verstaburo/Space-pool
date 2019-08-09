@@ -605,22 +605,36 @@
         @include screen('md') {
           height: 100%;
         }
+      }
 
-        // .os-content {
-        //   height: auto !important;
+      &__inner-content {
+        padding: 90px 0 70px;
+        box-sizing: border-box;
 
-        //   @include screen('md') {
-        //     height: 100% !important;
-        //   }
-        // }
+        @include screen('md') {
+          padding: 70px 0 100px;
+        }
+
+        @include screen('sm') {
+          padding: 50px 0 80px;
+        }
       }
 
       &__header {
         position: absolute;
         justify-content: flex-start;
+        padding: 30px 70px 27px;
+        height: auto;
 
         @include screen('md') {
           justify-content: flex-end;
+          height: 70px;
+          padding: 0 70px;
+        }
+
+        @include screen('sm') {
+          height: 50px;
+          padding: 0 $container-padding-mobile;
         }
       }
 
@@ -632,7 +646,7 @@
 
         @include screen('md') {
           right: auto;
-          left: 26px;
+          left: 16px;
         }
 
         @include screen('sm') {
