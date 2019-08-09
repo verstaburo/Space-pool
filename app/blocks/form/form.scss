@@ -132,6 +132,16 @@
       }
     }
 
+    &_mg55 {
+      &:not(:last-of-type) {
+        margin-bottom: 55px;
+
+        @include screen('sm') {
+          margin-bottom: 40px;
+        }
+      }
+    }
+
     &_mg58 {
       &:not(:last-of-type) {
         margin-bottom: 58px;
@@ -200,6 +210,10 @@
       }
     }
 
+    &_pb48 {
+      padding-bottom: 48px;
+    }
+
     &_pb72 {
       padding-bottom: 72px;
 
@@ -210,6 +224,10 @@
 
     &_mta {
       margin-top: auto;
+    }
+
+    &_mt-8 {
+      margin-top: -8px;
     }
 
     &_underline {
@@ -256,6 +274,12 @@
     &.is-disabled {
       opacity: .42;
     }
+
+    &_mg50 {
+      &:not(:last-child) {
+        margin-bottom: 50px;
+      }
+    }
   }
 
   &__header {
@@ -278,6 +302,10 @@
 
     &_mg14 {
       margin-bottom: 14px;
+    }
+
+    &_mg16 {
+      margin-bottom: 16px;
     }
 
     &_mg21 {
@@ -622,6 +650,12 @@
       color: $color-placeholder;
     }
 
+    &_fz12 {
+      @include text12;
+
+      line-height: 1.25;
+    }
+
     &_small {
       @include screen('sm') {
         @include text-small;
@@ -664,6 +698,14 @@
       }
     }
 
+    &_fz24 {
+      @include text24;
+
+      @include screen('sm') {
+        @include text-big;
+      }
+    }
+
     &_bold {
       font-weight: 700;
     }
@@ -672,12 +714,29 @@
       color: $color-basic;
     }
 
+    &_gray {
+      color: $color-text-gray4;
+    }
+
     &_mg-2 {
       margin-top: -2px;
 
       @include screen('sm') {
         margin-top: 0;
       }
+    }
+
+    &_mt4 {
+      margin-top: 4px;
+
+      @include screen('sm') {
+        margin-top: 0;
+      }
+    }
+
+    &_block {
+      display: block;
+      width: 100%;
     }
   }
 
@@ -767,6 +826,15 @@
       box-sizing: border-box;
 
       @include screen('md') {
+        padding-bottom: 0;
+      }
+    }
+
+    &_pb2 {
+      padding-bottom: 2px;
+      box-sizing: border-box;
+
+      @include screen('sm') {
         padding-bottom: 0;
       }
     }
@@ -1373,6 +1441,14 @@
         margin-bottom: 0;
       }
     }
+
+    &_mt4 {
+      margin-top: 4px;
+
+      @include screen('sm') {
+        margin-top: 0;
+      }
+    }
   }
 
   &__row {
@@ -1620,6 +1696,18 @@
         padding: 0;
         margin-left: -3px;
       }
+
+      &_v2 {
+        margin-left: -8px;
+        margin-right: -8px;
+        width: calc(100% + 16px);
+        padding: 0;
+        justify-content: flex-start;
+
+        @include screen('sm') {
+          flex-direction: row;
+        }
+      }
     }
 
     &_columns {
@@ -1671,6 +1759,12 @@
     #{$b}__list_line & {
       &:not(:last-child) {
         margin-right: 20px;
+      }
+    }
+
+    #{$b}__list_line_v2 & {
+      &:not(:last-child) {
+        margin-right: 9px;
       }
     }
   }

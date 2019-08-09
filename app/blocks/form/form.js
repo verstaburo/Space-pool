@@ -115,42 +115,83 @@ export default function formManipulations() {
     }
   }
 
+  function parseDataCustomProperty(el) {
+    const result = {};
+    const firstArray = el.split(';');
+    const firstArrayLength = firstArray.length;
+    for (let i = 0; i < firstArrayLength; i += 1) {
+      const arr = firstArray[i].split(':');
+      result[arr[0]] = arr[1].split(',');
+    }
+    return result;
+  }
+
+  function hideAndShow(hideElements, showElements) {
+    $(hideElements).each((ix, item) => {
+      const itemElement = $(`[data-form-element="${item}"]`);
+      $(itemElement).addClass('hide');
+      const elements = $(itemElement).find('input, select, textarea');
+      $(elements).each((i, elems) => {
+        $(elems).attr('disabled', 'disabled');
+      });
+    });
+    $(showElements).each((ix, item) => {
+      const itemElement = $(`[data-form-element="${item}"]`);
+      $(itemElement).removeClass('hide is-disabled');
+      const elements = $(itemElement).find('input, select, textarea');
+      $(elements).each((i, elems) => {
+        $(elems).removeAttr('disabled');
+      });
+      if ($('[data-checker]').length > 0) {
+        $('[data-checker]').not('[disabled]').each((i, checkers) => {
+          const checker = checkers;
+          changeState(checker);
+        });
+      }
+    });
+  }
+
   function changeType(el) {
     if ($(el).attr('data-toggle-form') !== undefined) {
-      const showElements = $(el).attr('data-show-elements') !== undefined ? $(el).attr('data-show-elements').split(',') : [];
-      const hideElements = $(el).attr('data-hide-elements') !== undefined ? $(el).attr('data-hide-elements').split(',') : [];
-      console.log(showElements);
-      console.log(hideElements);
       if ($(el).is('input')) {
+        const showElements = $(el).attr('data-show-elements') !== undefined ? $(el).attr('data-show-elements').split(',') : [];
+        const hideElements = $(el).attr('data-hide-elements') !== undefined ? $(el).attr('data-hide-elements').split(',') : [];
         if ($(el).prop('checked')) {
-          $(hideElements).each((ix, item) => {
-            const itemElement = $(`[data-form-element="${item}"]`);
-            $(itemElement).addClass('hide');
-            const elements = $(itemElement).find('input, select, textarea');
-            $(elements).each((i, elems) => {
-              $(elems).attr('disabled', 'disabled');
-            });
-          });
-          $(showElements).each((ix, item) => {
-            const itemElement = $(`[data-form-element="${item}"]`);
-            $(itemElement).removeClass('hide is-disabled');
-            const elements = $(itemElement).find('input, select, textarea');
-            $(elements).each((i, elems) => {
-              $(elems).removeAttr('disabled');
-            });
-            if ($('[data-checker]').length > 0) {
-              $('[data-checker]').not('[disabled]').each((i, checkers) => {
-                const checker = checkers;
-                changeState(checker);
-              });
-            }
-          });
+          hideAndShow(hideElements, showElements);
+          // $(hideElements).each((ix, item) => {
+          //   const itemElement = $(`[data-form-element="${item}"]`);
+          //   $(itemElement).addClass('hide');
+          //   const elements = $(itemElement).find('input, select, textarea');
+          //   $(elements).each((i, elems) => {
+          //     $(elems).attr('disabled', 'disabled');
+          //   });
+          // });
+          // $(showElements).each((ix, item) => {
+          //   const itemElement = $(`[data-form-element="${item}"]`);
+          //   $(itemElement).removeClass('hide is-disabled');
+          //   const elements = $(itemElement).find('input, select, textarea');
+          //   $(elements).each((i, elems) => {
+          //     $(elems).removeAttr('disabled');
+          //   });
+          //   if ($('[data-checker]').length > 0) {
+          //     $('[data-checker]').not('[disabled]').each((i, checkers) => {
+          //       const checker = checkers;
+          //       changeState(checker);
+          //     });
+          //   }
+          // });
         }
       }
 
-      // if ($(el).is('select')) {
-
-      // }
+      if ($(el).is('select')) {
+        const option = $(el).find('option:selected');
+        const obj = parseDataCustomProperty($(option).attr('data-custom-properties'));
+        const showElements = obj.showElements;
+        const hideElements = obj.hideElements;
+        console.log(showElements);
+        console.log(hideElements);
+        hideAndShow(hideElements, showElements);
+      }
     }
   }
 
@@ -172,7 +213,12 @@ export default function formManipulations() {
       changeType(checker);
     });
 
-    $(document).on('click', '[data-toggle-form]', (evt) => {
+    // $(document).on('click', '[data-toggle-form]', (evt) => {
+    //   const self = evt.target;
+    //   changeType(self);
+    // });
+
+    $(document).on('change', '[data-toggle-form]', (evt) => {
       const self = evt.target;
       changeType(self);
     });
