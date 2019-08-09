@@ -1,10 +1,10 @@
 extends ../../layouts/default-login-host
 
 block head
-  - var pageTitle = 'SpacePool - HOST My rental offers New Space Step 5'
+  - var pageTitle = 'SpacePool - HOST My rental offers New Space Step 5';
 
 block header
-  -var headerClass = '_border'
+  - var headerClass = '_border';
 
 block content
   +page-header._wide-lg._hpad._nowrap
@@ -36,7 +36,7 @@ block content
                 +e.row
                   +e.column_access
                     +form-section-wrapper
-                      +checkbox('access', '24hours', 'checked') 24 Hour Access
+                      +checkbox('access', '24hours') 24 Hour Access
                   +e.column_stretch
                     +grid.grid_bigger.grid_int28
                       +col({xl: 6, sm: 12})
@@ -44,35 +44,17 @@ block content
                           +form-box('Space work time from')
                             +select.js-select-input(name="workTimeFrom" required)
                               option(value="" placeholder) Space work time from
-                              option(value="1:00") 1:00
-                              option(value="2:00") 2:00
-                              option(value="3:00") 3:00
-                              option(value="4:00") 4:00
-                              option(value="5:00") 5:00
-                              option(value="6:00") 6:00
-                              option(value="7:00") 7:00
-                              option(value="8:00") 8:00
-                              option(value="9:00") 9:00
-                              option(value="10:00") 10:00
-                              option(value="11:00") 11:00
-                              option(value="12:00") 12:00
+                              - for (var i = 0; i <= 24; i++)
+                                - var time = `${i}:00`;
+                                option(value=time)= time
                       +col({xl: 6, sm: 12})
                         +form-section-wrapper
                           +form-box('Till')
                             +select.js-select-input(name="workTimeTill" required)
                               option(value="" placeholder) Till
-                              option(value="1:00") 1:00
-                              option(value="2:00") 2:00
-                              option(value="3:00") 3:00
-                              option(value="4:00") 4:00
-                              option(value="5:00") 5:00
-                              option(value="6:00") 6:00
-                              option(value="7:00") 7:00
-                              option(value="8:00") 8:00
-                              option(value="9:00") 9:00
-                              option(value="10:00") 10:00
-                              option(value="11:00") 11:00
-                              option(value="12:00") 12:00
+                              - for (var i = 0; i <= 24; i++)
+                                - var time = `${i}:00`;
+                                option(value=time)= time
               +form-section._mid-mg
                 +form-section-wrapper
                   +form-box('Basic space rules (optional)', '', '', '', '', '400')
