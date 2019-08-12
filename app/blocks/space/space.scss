@@ -356,6 +356,30 @@
     }
   }
 
+  &__links {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+  }
+
+  &__link {
+    @include text-big;
+
+    line-height: 1.2;
+
+    @include screen('sm') {
+      @include text15;
+
+      line-height: 1.2;
+    }
+
+    &:not(:last-child) {
+      margin-bottom: 10px;
+    }
+  }
+
   &_around {
     #{$b}__boxes {
       min-height: 9px;

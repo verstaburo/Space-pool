@@ -2,6 +2,7 @@ import 'polyfill-array-includes';
 import 'array-from-polyfill';
 import 'custom-event-polyfill';
 import objectassign from 'es6-object-assign';
+import find from 'array.prototype.find';
 import svg4everybody from 'svg4everybody';
 import picturefill from 'picturefill';
 import objectFitImages from 'object-fit-images';
@@ -73,6 +74,7 @@ const $ = window.$;
 
 $(() => {
   objectassign.polyfill();
+  find.shim();
   svg4everybody();
   picturefill();
   objectFitImages();
