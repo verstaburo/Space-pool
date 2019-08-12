@@ -2046,10 +2046,14 @@ block content
       +ui-section-content
         +ui-description .dots
         +dots
-          +dots-dot
-          +dots-dot
-          +dots-dot
-          +dots-dot
+          - for (var i = 0; i < 4; i++) {
+            +dots-dot
+          -}
+        +ui-description .dots star point
+        +dots
+          - for (var i = 0; i < 4; i++) {
+            +dots-dot-star._gray
+          -}
 
     //- card-mask
     +ui-section
@@ -2059,6 +2063,17 @@ block content
       +ui-section-content
         +ui-description .card-mask
         +card-mask 1234
+        +ui-description .card-mask with star
+        +card-mask-star 0338
+
+    //- credit-card
+    +ui-section
+      +ui-section-head
+        h2 credit-card
+        p Блок: block/credit-card
+      +ui-section-content
+        +ui-description .credit-card
+        +credit-card 0338
 
     //- info
     +ui-section

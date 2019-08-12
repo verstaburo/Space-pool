@@ -188,8 +188,6 @@ export default function formManipulations() {
         const obj = parseDataCustomProperty($(option).attr('data-custom-properties'));
         const showElements = obj.showElements;
         const hideElements = obj.hideElements;
-        console.log(showElements);
-        console.log(hideElements);
         hideAndShow(hideElements, showElements);
       }
     }
