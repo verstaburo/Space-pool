@@ -1919,6 +1919,30 @@ block content
           +col({xl: 4, sm: 12})
             +ui-description .request-status_green
             +request-status('check2')._green Accepted
+          +col({xl: 12})
+            +ui-description .request-status_simple
+            +request-status-simple Status: <b>Finished contract</b>
+            +ui-description .request-status_simple._orange
+            +request-status-simple._orange Status: <b>Request</b>
+            +ui-description .request-status_simple._blue
+            +request-status-simple._blue Status: <b>Upcoming event</b>
+            +ui-description .request-status_simple._green-light
+            +request-status-simple._green-light Status: <b>Active contract</b>
+
+    //- request-type
+    +ui-section
+      +ui-section-head
+        h2 request-type
+        p Блок: block/request-type
+      +ui-section-content
+        +ui-description .request-type
+        +request-type('eye') Viewing
+        +ui-description .request-type_green
+        +request-type('key2')._green Tenancy
+        +ui-description .request-type_yellow
+        +request-type('eye')._yellow Viewing
+        +ui-description .request-type_small
+        +request-type('eye')._small Viewing
 
     //- long-arrow
     +ui-section
@@ -2718,16 +2742,61 @@ block content
           +col({xl: 3, md: 12})
             +space-reserv('ARTICLE', {head: {name: 'office space', color: '_green', base: '_black'}, img: 'assets/images/space16.jpg', heart: '', boxes: [{ class: '_orange'}, {class: '_red'}, {class: '_blue'}, {class: '_green'}], title: 'One Heddon Street', location: 'EC2A, London', text: 'Floor 5 Dedicated office space. Room 54'})._dark._side
               +e.informer
+                +characteristics-table._large._normal._white._side.__table
+                  body
+                    +e.TR.row
+                      +e.TD.cell_head Order type
+                      +e.TD.cell_fz20._bold Viewing
+                    +e.TR.row
+                      +e.TD.cell_head Date
+                      +e.TD.cell_fz20._bold 28 August, 2019
+                    +e.TR.row
+                      +e.TD.cell_head Time
+                      +e.TD.cell_fz20._bold 14:00
+                +e.buttons
+                  +button()._short._mob-smaller.__button(href="#") Confirm viewing
                 +e.links
                   +link-icon('calendar2')._underline._icon_right._no-shadow._white.__link Suggest another date and time
           +col({xl: 3, md: 12})
             +space-reserv('ARTICLE', {head: {name: 'office space', color: '_green', base: '_black'}, img: 'assets/images/space16.jpg', heart: '', boxes: [{ class: '_orange'}, {class: '_red'}, {class: '_blue'}, {class: '_green'}], title: 'One Heddon Street', location: 'EC2A, London', text: 'Floor 5 Dedicated office space. Room 54'})._dark._side
               +e.informer
+                +characteristics-table._large._normal._white._side.__table
+                  body
+                    +e.TR.row
+                      +e.TD.cell_head Order type
+                      +e.TD.cell_fz20._bold Viewing
+                    +e.TR.row
+                      +e.TD.cell_head Date
+                      +e.TD.cell_fz20._bold 28 August, 2019
+                    +e.TR.row
+                      +e.TD.cell_head Time
+                      +e.TD.cell_fz20._bold 14:00
+                    +e.TR.row
+                      +e.TD.cell_head Status
+                      +e.TD.cell_fz20._bold
+                        +request-status-simple._orange._up._fz17.__status
+                          b AWAITING CONFIRMATION
                 +e.links
                   +link-icon('calendar2')._underline._icon_right._no-shadow._white.__link Suggest another date and time
           +col({xl: 3, md: 12})
             +space-reserv('ARTICLE', {head: {name: 'office space', color: '_green', base: '_black'}, img: 'assets/images/space16.jpg', heart: '', boxes: [{ class: '_orange'}, {class: '_red'}, {class: '_blue'}, {class: '_green'}], title: 'One Heddon Street', location: 'EC2A, London', text: 'Floor 5 Dedicated office space. Room 54'})._dark._side
               +e.informer
+                +characteristics-table._large._normal._white._side.__table
+                  body
+                    +e.TR.row
+                      +e.TD.cell_head Order type
+                      +e.TD.cell_fz20._bold Viewing
+                    +e.TR.row
+                      +e.TD.cell_head Date
+                      +e.TD.cell_fz20._bold 28 August, 2019
+                    +e.TR.row
+                      +e.TD.cell_head Time
+                      +e.TD.cell_fz20._bold 14:00
+                    +e.TR.row
+                      +e.TD.cell_head Status
+                      +e.TD.cell_fz20._bold
+                        +request-status-simple._dark-green._up._fz17.__status
+                          b CONFIRMED
                 +e.links
                   +link-icon('calendar2')._underline._icon_right._no-shadow._white.__link Suggest another date and time
 

@@ -99,6 +99,16 @@
     }
   }
 
+  &_dark-green {
+    #{$b}__text {
+      background-color: $color-green-dark;
+    }
+  }
+
+  &_up {
+    text-transform: uppercase;
+  }
+
   &_simple {
     display: inline-flex;
     width: auto;
@@ -117,6 +127,28 @@
 
           line-height: 17px;
           padding: 0 4px;
+        }
+
+        b {
+          font-weight: 700;
+        }
+      }
+    }
+  }
+
+  &_simple.request-status_fz17 {
+
+    #{$b} {
+      &__text {
+        @include text-mid;
+
+        line-height: 26px;
+        font-weight: 400;
+
+        @include screen('sm') {
+          @include text;
+
+          line-height: 17px;
         }
 
         b {
