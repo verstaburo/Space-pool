@@ -1,12 +1,12 @@
 const $ = window.$;
 
 export default () => {
-  const accessCheck = $('input[name="access"]');
+  const accessCheck = $('.js-access-toggle input');
 
   if (!accessCheck.length) return;
 
-  const startTime = $('select[name="workTimeFrom"]');
-  const endTime = $('select[name="workTimeTill"]');
+  const startTime = $('.js-access-from');
+  const endTime = $('.js-access-till');
 
   const accessListener = () => {
     if (accessCheck.prop('checked') === true) {
