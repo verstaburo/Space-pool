@@ -36,13 +36,13 @@ block content
                 +e.row
                   +e.column_access
                     +form-section-wrapper
-                      +checkbox('access', '24hours') 24 Hour Access
+                      +checkbox('access', '24hours').js-access-toggle 24 Hour Access
                   +e.column_stretch
                     +grid.grid_bigger.grid_int28
                       +col({xl: 6, sm: 12})
                         +form-section-wrapper._separator2
                           +form-box('Space work time from')
-                            +select.js-select-input(name="workTimeFrom" required)
+                            +select.js-select-input(name="workTimeFrom" required).js-access-from
                               option(value="" placeholder) Space work time from
                               - for (var i = 0; i <= 24; i++)
                                 - var time = `${i}:00`;
@@ -50,7 +50,7 @@ block content
                       +col({xl: 6, sm: 12})
                         +form-section-wrapper
                           +form-box('Till')
-                            +select.js-select-input(name="workTimeTill" required)
+                            +select.js-select-input(name="workTimeTill" required).js-access-till
                               option(value="" placeholder) Till
                               - for (var i = 0; i <= 24; i++)
                                 - var time = `${i}:00`;
