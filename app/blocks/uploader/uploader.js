@@ -24,77 +24,82 @@ export default function uploader() {
     let fileName;
     const counter = $('[data-file-counter]');
     const totalPreviews = $('[data-preview-item]').length;
-    for (let i = 0; i < files.length; i += 1) {
-      const file = files[i];
-      fileName = file.name;
-      if (selectedFiles[fileName] === undefined) {
-        selectedFiles[fileName] = file;
-        queue.push(file);
+    // проверяем существующее количество на превышение
+    if (totalPreviews !== conditions.maxCount) {
+      // количество загруженных файлов
+      const loadingCount = files.length;
+      // количество свободных мест
+      const freeCount = (conditions.maxCount - totalPreviews);
+      // определяем количество загружаемых файлов
+      const finalCount = (loadingCount > freeCount) ? freeCount : loadingCount;
+      for (let i = 0; i < finalCount; i += 1) {
+        const file = files[i];
+        fileName = file.name;
+        if (selectedFiles[fileName] === undefined) {
+          selectedFiles[fileName] = file;
+          queue.push(file);
+        }
       }
-    }
-    while (queue.length !== 0) {
-      const index = (queue.length + totalPreviews) - 1;
-      const file = queue.pop();
-      const name = file.name;
-      const type = file.type.split('/');
-      const ext = name.split('.').pop();
-      const size = file.size;
-      let isImage = false;
-      let errorMessage = '';
-      const outputTemplate = window.templates.templates.photoPreview;
-      // проверяем количество
-      if (totalPreviews === conditions.maxCount) {
-        break;
-      }
-      // проверяем размер файла
-      if (size < conditions.minSize) {
-        errorMessage = 'This image is really tiny.';
-      }
-      if (size > conditions.maxSize) {
-        errorMessage = 'This image is really big.';
-      }
-      // проверяем что изображение
-      if (type[0] === 'image') {
-        isImage = true;
-      } else {
-        errorMessage = 'This is not an image';
-      }
-      // проверяем расширение
-      if (conditions.formats.search(ext) === -1) {
-        isImage = false;
-        errorMessage = 'Wrong image format';
-      }
-      const newTemplate = outputTemplate.replace(/#fileIndex/g, index);
-      const preview = $(newTemplate);
-      const reader = new FileReader();
-      reader.onload = (e) => {
-        const img = new Image();
-        img.src = e.target.result;
-        img.classList.add('photo-preview__image');
-        // $(preview).find('input[type="hidden"]').val(e.target.result);
-        const inputEl = $(preview).find('input[type="hidden"]');
-        $.when($(inputEl).val(e.target.result)).then((input) => {
-          input.trigger('IMG_READY_FOR_LOAD');
-        });
-        $(preview).find('[data-preview-image]').append(img);
-        if (errorMessage.length > 0) {
+      while (queue.length !== 0) {
+        const index = (queue.length + totalPreviews) - 1;
+        const file = queue.pop();
+        const name = file.name;
+        const type = file.type.split('/');
+        const ext = name.split('.').pop();
+        const size = file.size;
+        let isImage = false;
+        let errorMessage = '';
+        const outputTemplate = window.templates.templates.photoPreview;
+        // проверяем размер файла
+        if (size < conditions.minSize) {
+          errorMessage = 'This image is really tiny.';
+        }
+        if (size > conditions.maxSize) {
+          errorMessage = 'This image is really big.';
+        }
+        // проверяем что изображение
+        if (type[0] === 'image') {
+          isImage = true;
+        } else {
+          errorMessage = 'This is not an image';
+        }
+        // проверяем расширение
+        if (conditions.formats.search(ext) === -1) {
+          isImage = false;
+          errorMessage = 'Wrong image format';
+        }
+        const newTemplate = outputTemplate.replace(/#fileIndex/g, index);
+        const preview = $(newTemplate);
+        const reader = new FileReader();
+        reader.onload = (e) => {
+          const img = new Image();
+          img.src = e.target.result;
+          img.classList.add('photo-preview__image');
+          // $(preview).find('input[type="hidden"]').val(e.target.result);
+          const inputEl = $(preview).find('input[type="hidden"]');
+          $.when($(inputEl).val(e.target.result)).then((input) => {
+            input.trigger('IMG_READY_FOR_LOAD');
+          });
+          $(preview).find('[data-preview-image]').append(img);
+          if (errorMessage.length > 0) {
+            $(preview).find('[data-preview-error-text]').text(errorMessage);
+            $(preview).find('[data-preview-item]').addClass('is-error');
+          }
+        };
+        if (isImage) {
+          reader.readAsDataURL(file);
+        } else {
           $(preview).find('[data-preview-error-text]').text(errorMessage);
           $(preview).find('[data-preview-item]').addClass('is-error');
         }
-      };
-      if (isImage) {
-        reader.readAsDataURL(file);
-      } else {
-        $(preview).find('[data-preview-error-text]').text(errorMessage);
-        $(preview).find('[data-preview-item]').addClass('is-error');
+        if (conditions.maxCount > 0) {
+          $(counter).text(`${totalPreviews + 1}/${conditions.maxCount}`);
+        }
+        $('[data-insert-preview-after]').after(preview);
+        $(preview).find('.js-select-input');
+        window.inputSelectInit($(preview).find('.js-select-input'));
+        $('.uploader-output').trigger('changeItems');
       }
-      if (conditions.maxCount > 0) {
-        $(counter).text(`${totalPreviews + 1}/${conditions.maxCount}`);
-      }
-      $('[data-insert-preview-after]').after(preview);
-      $(preview).find('.js-select-input');
-      window.inputSelectInit($(preview).find('.js-select-input'));
-      $('.uploader-output').trigger('changeItems');
     }
   }
 
@@ -178,18 +183,13 @@ export default function uploader() {
     const preview = $(self).closest('[data-preview-item]');
     const fn = $(preview).attr('data-callback');
     const previewParentCol = $(preview).closest('.grid__col');
-    if ($(preview).is('.is-error') && !$(self).is('[data-delete]')) {
-      $(preview).removeClass('is-error');
-    } else {
-      const el = previewParentCol;
-      window[fn]($(el)).then((redyDelete) => {
-        if (redyDelete) {
-          $(el).remove();
-          $('.uploader-output').trigger('changeItems');
-        }
-      });
-    }
-    $('.uploader-output').trigger('changeItems');
+    const el = previewParentCol;
+    window[fn]($(el)).then((redyDelete) => {
+      if (redyDelete) {
+        $(el).remove();
+        $('.uploader-output').trigger('changeItems');
+      }
+    });
   });
 }
 /* eslint-enable max-len */

@@ -99,6 +99,16 @@
     }
   }
 
+  &_dark-green {
+    #{$b}__text {
+      background-color: $color-green-dark;
+    }
+  }
+
+  &_up {
+    text-transform: uppercase;
+  }
+
   &_simple {
     display: inline-flex;
     width: auto;
@@ -108,6 +118,7 @@
       &__text {
         @include heading-4;
 
+        display: inline-block;
         line-height: 26px;
         padding: 0 8px;
         font-weight: 400;
@@ -122,6 +133,33 @@
         b {
           font-weight: 700;
         }
+      }
+    }
+  }
+
+  &_simple.request-status_fz17 {
+
+    #{$b} {
+      &__text {
+        @include text-mid;
+
+        line-height: 26px;
+
+        @include screen('sm') {
+          @include text;
+
+          line-height: 17px;
+        }
+      }
+    }
+  }
+
+  &_bold {
+
+    #{$b} {
+
+      &__text {
+        font-weight: 700;
       }
     }
   }
