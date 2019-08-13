@@ -118,6 +118,7 @@
       &__text {
         @include heading-4;
 
+        display: inline-block;
         line-height: 26px;
         padding: 0 8px;
         font-weight: 400;
@@ -143,17 +144,22 @@
         @include text-mid;
 
         line-height: 26px;
-        font-weight: 400;
 
         @include screen('sm') {
           @include text;
 
           line-height: 17px;
         }
+      }
+    }
+  }
 
-        b {
-          font-weight: 700;
-        }
+  &_bold {
+
+    #{$b} {
+
+      &__text {
+        font-weight: 700;
       }
     }
   }
