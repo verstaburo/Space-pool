@@ -29,12 +29,23 @@ block content
           +sidebar._dark2(data-unstick-media="md")
             +space-reserv('ARTICLE', {head: {name: 'office space', color: '_green', base: '_black'}, img: 'assets/images/space16.jpg', heart: '', boxes: [{ class: '_orange'}, {class: '_red'}, {class: '_blue'}, {class: '_green'}], title: 'One Heddon Street', location: 'EC2A, London', text: 'Floor 5 Dedicated office space. Room 54'})._dark._side
               +e.informer
-                +status-button({name: 'Order summary', status: true}).__state.js-popup-depends-width(href="#" data-source="xl:#popup-order-host,md:#popup-order-mobile-host")
-                  +state()._right._check._light Confirmed
-                +status-button({name: 'Contract', status: true}).__state.js-popup-depends-width(href="#" data-source="xl:#popup-legal-formalities,md:#popup-legal-formalities-m")
-                  +state()._right._orange._light Please sign
-                +status-button({name: 'Invoices', status: true}).is-disabled.__state.js-popup-depends-width(href="#" data-source="xl:#popup-invoices,md:#popup-invoices-mobile")
-                  +state()._right._light N/A
+                +characteristics-table._large._normal._white._side.__table
+                  body
+                    +e.TR.row
+                      +e.TD.cell_head Order type
+                      +e.TD.cell_fz20._fz20_v2._bold Viewing
+                    +e.TR.row
+                      +e.TD.cell_head Date
+                      +e.TD.cell_fz20._fz20_v2._bold 28 August, 2019
+                    +e.TR.row
+                      +e.TD.cell_head Time
+                      +e.TD.cell_fz20._fz20_v2._bold 14:00
+                    +e.TR.row
+                      +e.TD.cell_head Status
+                      +e.TD.cell_fz20._fz20_v2._bold
+                        +request-status-simple._orange._up._fz17._bold.__status AWAITING CONFIRMATION
+                +e.links_mt60
+                  +link-icon('calendar2')._underline._icon_right._icon_right_pr25._no-shadow._white._cal-v2.__link Suggest another date and time
         +content-column-main._no-ptop.hide-md
           +table-head._messages._borders
             +e.wrapper
