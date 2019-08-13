@@ -80,6 +80,16 @@
 
           line-height: (38 / 14);
         }
+
+        &_v2 {
+          line-height: (26 / 20);
+
+          @include screen('sm') {
+            @include text15;
+
+            line-height: (26 / 15);
+          }
+        }
       }
 
       &_h45 {
@@ -214,6 +224,15 @@
       flex-wrap: wrap;
       align-content: flex-start;
       min-height: 40px;
+      padding-top: 7px;
+      padding-bottom: 7px;
+      box-sizing: border-box;
+
+      @include screen('sm') {
+        min-height: 34px;
+        padding-top: 4px;
+        padding-bottom: 4px;
+      }
 
       &:last-child {
         border-bottom: 1px solid $color-border-light;
