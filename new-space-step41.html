@@ -238,7 +238,7 @@
                                     </div>
                                     <div class="uploader-output">
                                         <div class="uploader-output__empty-area">
-                                            <label class="uploader js-upload-file" data-max-size="10000000" data-min-size="300000" data-format="jpg,png,bmp" data-total-count="25" data-url-template="assets/data/templates.json">
+                                            <label class="uploader js-upload-file" data-max-size="10000000" data-min-size="300000" data-format="jpg,png,bmp" data-total-count="25" data-short-side="800" data-url-template="assets/data/templates.json">
                                                 <input class="uploader__input" type="file" multiple="multiple" />
                                                 <span class="uploader__content">
                                                     <div class="button button_icon button_icon_left button_huge button_fz24 uploader__button">
@@ -253,7 +253,7 @@
                                         <div class="uploader-output__files">
                                             <div class="grid grid_30x40 grid_t55">
                                                 <div class="grid__col grid__col_xl_4 grid__col_lg_6 grid__col_xs_12" data-insert-preview-after="data-insert-preview-after">
-                                                    <label class="uploader uploader_small js-upload-file" data-max-size="10000000" data-min-size="300000" data-format="jpg,png,bmp" data-total-count="25" data-url-template="assets/data/templates.json">
+                                                    <label class="uploader uploader_small js-upload-file" data-max-size="10000000" data-min-size="300000" data-format="jpg,png,bmp" data-total-count="25" data-short-side="800" data-url-template="assets/data/templates.json">
                                                         <input class="uploader__input" type="file" multiple="multiple" />
                                                         <span class="uploader__content">
                                                             <svg class="uploader__plus"><use xlink:href="assets/images/icon.svg#icon_plus"></use></svg>
@@ -266,26 +266,17 @@
                                                     </label>
                                                 </div>
                                                 <div class="grid__col grid__col_xl_4 grid__col_lg_6 grid__col_xs_12">
-                                                    <div class="photo-preview" data-preview-item="data-preview-item" data-callback="deleteOnBackend">
-                                                        <input type="hidden" name="photo[0]" />
+                                                    <div class="photo-preview" data-preview-item="data-preview-item" data-callback="deleteOnBackend" data-name-crop-input="photoCrop">
+                                                        <input type="hidden" name="photo[0]" data-file-source="data-file-source" />
                                                         <button class="photo-preview__delete js-delete-file" type="button">
                                                             <svg class="photo-preview__delete-icon"><use xlink:href="assets/images/icon.svg#icon_cross"></use></svg>
                                                         </button>
                                                         <label class="photo-preview__preview">
-                                                            <input class="photo-preview__main" type="radio" name="isMain" value="photo[0]" />
+                                                            <input class="photo-preview__main" type="radio" name="isMain" value="photo[0]" data-crop-starter="data-crop-starter" />
                                                             <span class="photo-preview__media" data-preview-image="data-preview-image">
-                                                                <img class="photo-preview__image" src="assets/images/photo-preview3.jpg" alt="" role="presentation" />
+                                                                <img class="photo-preview__image" src="assets/images/photo-preview3.jpg" data-crop-image="data-crop-image" alt="" role="presentation" />
                                                             </span>
                                                             <span class="photo-preview__caption">Main photo</span>
-                                                            <span class="photo-preview__croparea">
-                                                                <span class="photo-preview__hint photo-preview__hint_pt">
-                                                                    <span class="photo-preview__hint-text">Cropped area</span>
-                                                                </span>
-                                                                <span class="photo-preview__area"></span>
-                                                                <span class="photo-preview__hint">
-                                                                    <span class="photo-preview__hint-text">Cropped area</span>
-                                                                </span>
-                                                            </span>
                                                             <span class="photo-preview__label">
                                                                 <span class="link link_icon link_icon_small link_icon_sz link_underline link_no-shadow">
                                                                     <svg class="link__icon link__icon_img"><use xlink:href="assets/images/icon.svg#icon_img"></use></svg>
@@ -317,26 +308,17 @@
                                                     </div>
                                                 </div>
                                                 <div class="grid__col grid__col_xl_4 grid__col_lg_6 grid__col_xs_12">
-                                                    <div class="photo-preview" data-preview-item="data-preview-item" data-callback="deleteOnBackend">
-                                                        <input type="hidden" name="photo[1]" />
+                                                    <div class="photo-preview" data-preview-item="data-preview-item" data-callback="deleteOnBackend" data-name-crop-input="photoCrop">
+                                                        <input type="hidden" name="photo[1]" data-file-source="data-file-source" />
                                                         <button class="photo-preview__delete js-delete-file" type="button">
                                                             <svg class="photo-preview__delete-icon"><use xlink:href="assets/images/icon.svg#icon_cross"></use></svg>
                                                         </button>
                                                         <label class="photo-preview__preview">
-                                                            <input class="photo-preview__main" type="radio" name="isMain" value="photo[1]" />
+                                                            <input class="photo-preview__main" type="radio" name="isMain" value="photo[1]" data-crop-starter="data-crop-starter" />
                                                             <span class="photo-preview__media" data-preview-image="data-preview-image">
-                                                                <img class="photo-preview__image" src="assets/images/photo-preview2.jpg" alt="" role="presentation" />
+                                                                <img class="photo-preview__image" src="assets/images/photo-preview2.jpg" data-crop-image="data-crop-image" alt="" role="presentation" />
                                                             </span>
                                                             <span class="photo-preview__caption">Main photo</span>
-                                                            <span class="photo-preview__croparea">
-                                                                <span class="photo-preview__hint photo-preview__hint_pt">
-                                                                    <span class="photo-preview__hint-text">Cropped area</span>
-                                                                </span>
-                                                                <span class="photo-preview__area"></span>
-                                                                <span class="photo-preview__hint">
-                                                                    <span class="photo-preview__hint-text">Cropped area</span>
-                                                                </span>
-                                                            </span>
                                                             <span class="photo-preview__label">
                                                                 <span class="link link_icon link_icon_small link_icon_sz link_underline link_no-shadow">
                                                                     <svg class="link__icon link__icon_img"><use xlink:href="assets/images/icon.svg#icon_img"></use></svg>
@@ -368,26 +350,17 @@
                                                     </div>
                                                 </div>
                                                 <div class="grid__col grid__col_xl_4 grid__col_lg_6 grid__col_xs_12">
-                                                    <div class="photo-preview is-error" data-preview-item="data-preview-item" data-callback="deleteOnBackend">
-                                                        <input type="hidden" name="photo[2]" />
+                                                    <div class="photo-preview is-error" data-preview-item="data-preview-item" data-callback="deleteOnBackend" data-name-crop-input="photoCrop">
+                                                        <input type="hidden" name="photo[2]" data-file-source="data-file-source" />
                                                         <button class="photo-preview__delete js-delete-file" type="button">
                                                             <svg class="photo-preview__delete-icon"><use xlink:href="assets/images/icon.svg#icon_cross"></use></svg>
                                                         </button>
                                                         <label class="photo-preview__preview">
-                                                            <input class="photo-preview__main" type="radio" name="isMain" value="photo[2]" />
+                                                            <input class="photo-preview__main" type="radio" name="isMain" value="photo[2]" data-crop-starter="data-crop-starter" />
                                                             <span class="photo-preview__media" data-preview-image="data-preview-image">
-                                                                <img class="photo-preview__image" src="assets/images/photo-preview1.jpg" alt="" role="presentation" />
+                                                                <img class="photo-preview__image" src="assets/images/photo-preview1.jpg" data-crop-image="data-crop-image" alt="" role="presentation" />
                                                             </span>
                                                             <span class="photo-preview__caption">Main photo</span>
-                                                            <span class="photo-preview__croparea">
-                                                                <span class="photo-preview__hint photo-preview__hint_pt">
-                                                                    <span class="photo-preview__hint-text">Cropped area</span>
-                                                                </span>
-                                                                <span class="photo-preview__area"></span>
-                                                                <span class="photo-preview__hint">
-                                                                    <span class="photo-preview__hint-text">Cropped area</span>
-                                                                </span>
-                                                            </span>
                                                             <span class="photo-preview__label">
                                                                 <span class="link link_icon link_icon_small link_icon_sz link_underline link_no-shadow">
                                                                     <svg class="link__icon link__icon_img"><use xlink:href="assets/images/icon.svg#icon_img"></use></svg>
@@ -419,26 +392,17 @@
                                                     </div>
                                                 </div>
                                                 <div class="grid__col grid__col_xl_4 grid__col_lg_6 grid__col_xs_12">
-                                                    <div class="photo-preview" data-preview-item="data-preview-item" data-callback="deleteOnBackend">
-                                                        <input type="hidden" name="photo[3]" />
+                                                    <div class="photo-preview" data-preview-item="data-preview-item" data-callback="deleteOnBackend" data-name-crop-input="photoCrop">
+                                                        <input type="hidden" name="photo[3]" data-file-source="data-file-source" />
                                                         <button class="photo-preview__delete js-delete-file" type="button">
                                                             <svg class="photo-preview__delete-icon"><use xlink:href="assets/images/icon.svg#icon_cross"></use></svg>
                                                         </button>
                                                         <label class="photo-preview__preview">
-                                                            <input class="photo-preview__main" type="radio" name="isMain" value="photo[3]" />
+                                                            <input class="photo-preview__main" type="radio" name="isMain" value="photo[3]" data-crop-starter="data-crop-starter" />
                                                             <span class="photo-preview__media" data-preview-image="data-preview-image">
-                                                                <img class="photo-preview__image" src="assets/images/photo-preview4.jpg" alt="" role="presentation" />
+                                                                <img class="photo-preview__image" src="assets/images/photo-preview4.jpg" data-crop-image="data-crop-image" alt="" role="presentation" />
                                                             </span>
                                                             <span class="photo-preview__caption">Main photo</span>
-                                                            <span class="photo-preview__croparea">
-                                                                <span class="photo-preview__hint photo-preview__hint_pt">
-                                                                    <span class="photo-preview__hint-text">Cropped area</span>
-                                                                </span>
-                                                                <span class="photo-preview__area"></span>
-                                                                <span class="photo-preview__hint">
-                                                                    <span class="photo-preview__hint-text">Cropped area</span>
-                                                                </span>
-                                                            </span>
                                                             <span class="photo-preview__label">
                                                                 <span class="link link_icon link_icon_small link_icon_sz link_underline link_no-shadow">
                                                                     <svg class="link__icon link__icon_img"><use xlink:href="assets/images/icon.svg#icon_img"></use></svg>
@@ -470,26 +434,17 @@
                                                     </div>
                                                 </div>
                                                 <div class="grid__col grid__col_xl_4 grid__col_lg_6 grid__col_xs_12">
-                                                    <div class="photo-preview" data-preview-item="data-preview-item" data-callback="deleteOnBackend">
-                                                        <input type="hidden" name="photo[4]" />
+                                                    <div class="photo-preview" data-preview-item="data-preview-item" data-callback="deleteOnBackend" data-name-crop-input="photoCrop">
+                                                        <input type="hidden" name="photo[4]" data-file-source="data-file-source" />
                                                         <button class="photo-preview__delete js-delete-file" type="button">
                                                             <svg class="photo-preview__delete-icon"><use xlink:href="assets/images/icon.svg#icon_cross"></use></svg>
                                                         </button>
                                                         <label class="photo-preview__preview">
-                                                            <input class="photo-preview__main" type="radio" name="isMain" value="photo[4]" checked="checked" />
+                                                            <input class="photo-preview__main" type="radio" name="isMain" value="photo[4]" checked="checked" data-crop-starter="data-crop-starter" />
                                                             <span class="photo-preview__media" data-preview-image="data-preview-image">
-                                                                <img class="photo-preview__image" src="assets/images/photo-preview1.jpg" alt="" role="presentation" />
+                                                                <img class="photo-preview__image" src="assets/images/photo-preview1.jpg" data-crop-image="data-crop-image" alt="" role="presentation" />
                                                             </span>
                                                             <span class="photo-preview__caption">Main photo</span>
-                                                            <span class="photo-preview__croparea">
-                                                                <span class="photo-preview__hint photo-preview__hint_pt">
-                                                                    <span class="photo-preview__hint-text">Cropped area</span>
-                                                                </span>
-                                                                <span class="photo-preview__area"></span>
-                                                                <span class="photo-preview__hint">
-                                                                    <span class="photo-preview__hint-text">Cropped area</span>
-                                                                </span>
-                                                            </span>
                                                             <span class="photo-preview__label">
                                                                 <span class="link link_icon link_icon_small link_icon_sz link_underline link_no-shadow">
                                                                     <svg class="link__icon link__icon_img"><use xlink:href="assets/images/icon.svg#icon_img"></use></svg>
@@ -521,26 +476,17 @@
                                                     </div>
                                                 </div>
                                                 <div class="grid__col grid__col_xl_4 grid__col_lg_6 grid__col_xs_12">
-                                                    <div class="photo-preview" data-preview-item="data-preview-item" data-callback="deleteOnBackend">
-                                                        <input type="hidden" name="photo[5]" />
+                                                    <div class="photo-preview" data-preview-item="data-preview-item" data-callback="deleteOnBackend" data-name-crop-input="photoCrop">
+                                                        <input type="hidden" name="photo[5]" data-file-source="data-file-source" />
                                                         <button class="photo-preview__delete js-delete-file" type="button">
                                                             <svg class="photo-preview__delete-icon"><use xlink:href="assets/images/icon.svg#icon_cross"></use></svg>
                                                         </button>
                                                         <label class="photo-preview__preview">
-                                                            <input class="photo-preview__main" type="radio" name="isMain" value="photo[5]" />
+                                                            <input class="photo-preview__main" type="radio" name="isMain" value="photo[5]" data-crop-starter="data-crop-starter" />
                                                             <span class="photo-preview__media" data-preview-image="data-preview-image">
-                                                                <img class="photo-preview__image" src="assets/images/photo-preview5.jpg" alt="" role="presentation" />
+                                                                <img class="photo-preview__image" src="assets/images/photo-preview5.jpg" data-crop-image="data-crop-image" alt="" role="presentation" />
                                                             </span>
                                                             <span class="photo-preview__caption">Main photo</span>
-                                                            <span class="photo-preview__croparea">
-                                                                <span class="photo-preview__hint photo-preview__hint_pt">
-                                                                    <span class="photo-preview__hint-text">Cropped area</span>
-                                                                </span>
-                                                                <span class="photo-preview__area"></span>
-                                                                <span class="photo-preview__hint">
-                                                                    <span class="photo-preview__hint-text">Cropped area</span>
-                                                                </span>
-                                                            </span>
                                                             <span class="photo-preview__label">
                                                                 <span class="link link_icon link_icon_small link_icon_sz link_underline link_no-shadow">
                                                                     <svg class="link__icon link__icon_img"><use xlink:href="assets/images/icon.svg#icon_img"></use></svg>
