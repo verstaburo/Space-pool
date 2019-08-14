@@ -62,7 +62,9 @@ export default function photoPreview() {
   $(document).on('change', '[data-crop-starter]', (evt) => {
     const self = evt.currentTarget;
     const lastCropped = $('.is-cropper-active')[0];
-    removeCropper(lastCropped);
+    if (lastCropped) {
+      removeCropper(lastCropped);
+    }
     initCrop(self);
   });
 }

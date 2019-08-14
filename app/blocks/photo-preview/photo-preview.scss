@@ -46,10 +46,11 @@
   &__delete {
     position: absolute;
     display: block;
-    top: 0;
-    right: 0;
+    top: 1px;
+    right: 1px;
     width: 32px;
     height: 32px;
+    box-sizing: border-box;
     opacity: 0;
     background-color: rgba($color-hint-bg, .57);
     transition: background $ease-main, opacity $ease-main;
@@ -174,11 +175,14 @@
   &__caption {
     @include text-big;
 
-    display: block;
     top: 0;
     left: 0;
     width: 100%;
-    padding: 4px 5px;
+    height: 32px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2px 5px;
     box-sizing: border-box;
     font-weight: 700;
     color: $color-white;
@@ -371,21 +375,21 @@
       &::before {
         bottom: 100%;
         left: 0;
-        padding-bottom: 11px;
+        // padding-bottom: 3px;
 
-        @include screen('sm') {
-          padding-bottom: 5px;
-        }
+        // @include screen('sm') {
+        //   padding-bottom: 5px;
+        // }
       }
 
       &::after {
         top: 100%;
         left: 0;
-        padding-top: 11px;
+        // padding-top: 3px;
 
-        @include screen('sm') {
-          padding-top: 5px;
-        }
+        // @include screen('sm') {
+        //   padding-top: 5px;
+        // }
       }
     }
 
