@@ -704,19 +704,19 @@
                 <form class="form form_white" data-validated-form="data-validated-form">
                     <div class="tabs popup-add-offer__tabs">
                         <label class="tab-radio tab-radio_orange">
-                            <input class="tab-radio__input" name="addOffer" value="1" type="radio" checked="checked" data-show-elements="hotDesk" data-hide-elements="dedicatedDesk,meetingRoom,officeSpace" data-toggle-form="data-toggle-form" />
+                            <input class="tab-radio__input" name="addOffer" value="1" type="radio" checked="checked" data-show-elements="hotDesk,hotFixedOffice" data-hide-elements="fixedDesk,meetingRoom,officeSpace" data-toggle-form="data-toggle-form" />
                             <span class="tab-radio__label">Hot Desk</span>
                         </label>
                         <label class="tab-radio tab-radio_red">
-                            <input class="tab-radio__input" name="addOffer" value="2" type="radio" disabled="disabled" data-show-elements="dedicatedDesk" data-hide-elements="hotDesk,meetingRoom,officeSpace" data-toggle-form="data-toggle-form" />
-                            <span class="tab-radio__label">Dedicated desk</span>
+                            <input class="tab-radio__input" name="addOffer" value="2" type="radio" data-show-elements="fixedDesk,hotFixedOffice" data-hide-elements="hotDesk,meetingRoom,officeSpace" data-toggle-form="data-toggle-form" />
+                            <span class="tab-radio__label">Fixed Desk</span>
                         </label>
                         <label class="tab-radio tab-radio_blue">
-                            <input class="tab-radio__input" name="addOffer" value="3" type="radio" data-show-elements="meetingRoom" data-hide-elements="hotDesk,dedicatedDesk,officeSpace" data-toggle-form="data-toggle-form" />
+                            <input class="tab-radio__input" name="addOffer" value="3" type="radio" data-show-elements="meetingRoom" data-hide-elements="hotDesk,fixedDesk,officeSpace,hotFixedOffice" data-toggle-form="data-toggle-form" />
                             <span class="tab-radio__label">Meeting room</span>
                         </label>
                         <label class="tab-radio tab-radio_green">
-                            <input class="tab-radio__input" name="addOffer" value="4" type="radio" data-show-elements="officeSpace" data-hide-elements="hotDesk,dedicatedDesk,meetingRoom" data-toggle-form="data-toggle-form" />
+                            <input class="tab-radio__input" name="addOffer" value="4" type="radio" data-show-elements="officeSpace,hotFixedOffice" data-hide-elements="hotDesk,fixedDesk,meetingRoom" data-toggle-form="data-toggle-form" />
                             <span class="tab-radio__label">Office space</span>
                         </label>
                     </div>
@@ -742,31 +742,105 @@
                                         <div class="error-message"></div>
                                     </div>
                                 </div>
-                                <div class="grid__col grid__col_xl_6 grid__col_sm_7">
+                                <div class="grid__col grid__col_xl_8 grid__col_sm_12" data-form-element="meetingRoom">
+                                    <fieldset class="form__section form__section_mid-mg">
+                                        <div class="form__header form__header_mg21">
+                                            <h4 class="form__title form__title_small">Prices (Mark the positions and fill the Price)</h4>
+                                            <div class="form__content">
+                                                <div class="form__wrapper form__wrapper_mg29">
+                                                    <div class="check-input">
+                                                        <label class="checkbox js-check-input-toggle">
+                                                            <input class="checkbox__input" name="" value="" checked="checked" type="checkbox" />
+                                                            <span class="checkbox__box">
+                                                                <svg class="checkbox__icon"><use xlink:href="assets/images/icon.svg#icon_check"></use></svg>
+                                                            </span>
+                                                            <span class="checkbox__content"></span>
+                                                        </label>
+                                                        <div class="check-input__content">
+                                                            <label class="form-box form-box_icon form-box_icon_left">
+                                                                <input class="input" type="text" />
+                                                                <span class="form-box__label">Price</span>
+                                                                <span class="form-box__icon form-box__icon_text">&pound;</span>
+                                                            </label>
+                                                            <span class="check-input__text">Per Hour</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="error-message"></div>
+                                                </div>
+                                                <div class="form__wrapper form__wrapper_mg29">
+                                                    <div class="check-input">
+                                                        <label class="checkbox js-check-input-toggle">
+                                                            <input class="checkbox__input" name="" value="" type="checkbox" />
+                                                            <span class="checkbox__box">
+                                                                <svg class="checkbox__icon"><use xlink:href="assets/images/icon.svg#icon_check"></use></svg>
+                                                            </span>
+                                                            <span class="checkbox__content"></span>
+                                                        </label>
+                                                        <div class="check-input__content">
+                                                            <label class="form-box form-box_icon form-box_icon_left">
+                                                                <input class="input" type="text" />
+                                                                <span class="form-box__label">Price</span>
+                                                                <span class="form-box__icon form-box__icon_text">&pound;</span>
+                                                            </label>
+                                                            <span class="check-input__text">Per Half a day</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="error-message"></div>
+                                                </div>
+                                                <div class="form__wrapper form__wrapper_mg29">
+                                                    <div class="check-input">
+                                                        <label class="checkbox js-check-input-toggle">
+                                                            <input class="checkbox__input" name="" value="" type="checkbox" />
+                                                            <span class="checkbox__box">
+                                                                <svg class="checkbox__icon"><use xlink:href="assets/images/icon.svg#icon_check"></use></svg>
+                                                            </span>
+                                                            <span class="checkbox__content"></span>
+                                                        </label>
+                                                        <div class="check-input__content">
+                                                            <label class="form-box form-box_icon form-box_icon_left">
+                                                                <input class="input" type="text" />
+                                                                <span class="form-box__label">Price</span>
+                                                                <span class="form-box__icon form-box__icon_text">&pound;</span>
+                                                            </label>
+                                                            <span class="check-input__text">Per day</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="error-message"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </fieldset>
+                                </div>
+                                <div class="grid__col grid__col_xl_6 grid__col_sm_7" data-form-element="hotFixedOffice">
                                     <div class="form__wrapper form__wrapper_negative-mg form__wrapper_separator">
-                                        <label class="form-box form-box_icon form-box_icon">
+                                        <label class="form-box form-box_icon form-box_icon_left form__count">
                                             <input class="input" type="text" name="price" placeholder="Price" required="required" />
                                             <span class="form-box__label">Price </span>
                                             <span class="form-box__icon form-box__icon_text">&pound;</span>
                                         </label>
-                                        <div class="error-message"></div>
-                                    </div>
-                                </div>
-                                <div class="grid__col grid__col_xl_6 grid__col_sm_5">
-                                    <div class="form__wrapper form__wrapper_negative-mg">
-                                        <label class="form-box">
-                                            <select class="select js-select-input" name="shedule">
-                                                <option value="Per month" selected="selected">Per month</option>
-                                                <option value="per day">Per day</option>
-                                                <option value="per week">Per week</option>
-                                                <option value="per year">Per year</option>
+                                        <label class="form-box form__mesure">
+                                            <select class="select js-select-input">
+                                                <option value="Days" selected="selected">Days</option>
+                                                <option value="Week">Weeks</option>
+                                                <option value="Month">Months</option>
+                                                <option value="Year">Years</option>
                                             </select>
                                         </label>
                                         <div class="error-message"></div>
                                     </div>
                                 </div>
-                                <div class="grid__col grid__col_xl_12">
-                                    <div class="form__wrapper form__wrapper_noflex">
+                                <div class="grid__col grid__col_xl_6 grid__col_sm_5" data-form-element="hotFixedOffice">
+                                    <div class="form__wrapper form__wrapper_negative-mg">
+                                        <label class="form-box form-box_icon form-box_icon_left">
+                                            <input class="input" type="text" placeholder="Deposit" value="0.2" />
+                                            <span class="form-box__label">Deposit</span>
+                                            <span class="form-box__icon form-box__icon_text">&pound;</span>
+                                        </label>
+                                        <div class="error-message"></div>
+                                    </div>
+                                </div>
+                                <div class="grid__col grid__col_xl_6 grid__col_sm_12">
+                                    <div class="form__wrapper form__wrapper_negative-mg">
                                         <div class="form-box">
                                             <div class="input-numbers">
                                                 <input class="input input-numbers__input js-numberbox-input" type="text" name="quantity" placeholder="Available Quantity" data-min="1" />
@@ -781,19 +855,18 @@
                                         <div class="error-message"></div>
                                     </div>
                                 </div>
-                                <div class="grid__col grid__col_xl_12" data-form-element="meetingRoom">
+                                <div class="grid__col grid__col_xl_6 grid__col_sm_12">
                                     <div class="form__wrapper form__wrapper_noflex form__wrapper_negative-mg">
-                                        <div class="form-box">
-                                            <div class="input-numbers">
-                                                <input class="input input-numbers__input js-numberbox-input" type="text" name="seats" placeholder="Number of seats" data-min="1" />
-                                                <div class="input-numbers__buttons">
-                                                    <div class="input-numbers__button js-numberbox-minus"></div>
-                                                    <div class="input-numbers__button js-numberbox-plus"></div>
-                                                </div>
-                                            </div>
-                                            <div class="form-box__label">Number of seats</div>
-                                        </div>
-                                        <div class="form__text form__text_light">Overal ammount of available seats for one particular Meeting Rooms</div>
+                                        <label class="form-box">
+                                            <select class="select js-select-input">
+                                                <option value="16" selected="selected">16 July 2019 (Today)</option>
+                                                <option value="17">17 July 2019</option>
+                                                <option value="18">18 July 2019</option>
+                                                <option value="19">19 July 2019</option>
+                                            </select>
+                                            <span class="form-box__label">Available from</span>
+                                        </label>
+                                        <div class="form__text form__text_light">Offer will be visible even if it’s not available now</div>
                                         <div class="error-message"></div>
                                     </div>
                                 </div>
@@ -809,7 +882,7 @@
                                             </div>
                                             <div class="form-box__label">Number of Desks</div>
                                         </div>
-                                        <div class="form__text form__text_light">Existing desks or office capability</div>
+                                        <div class="form__text form__text_light">Office capacity</div>
                                         <div class="error-message"></div>
                                     </div>
                                 </div>
@@ -822,11 +895,10 @@
                                                 <sup>2</sup>
                                             </span>
                                         </label>
-                                        <div class="form__text form__text_light">Without supply rooms</div>
                                         <div class="error-message"></div>
                                     </div>
                                 </div>
-                                <div class="grid__col grid__col_xl_6 grid__col_sm_12">
+                                <div class="grid__col grid__col_xl_6 grid__col_sm_12" data-form-element="hotFixedOffice">
                                     <div class="form__wrapper form__wrapper_negative-mg">
                                         <label class="form-box form__count">
                                             <input class="input" type="text" name="durationRentMin" placeholder="Minimum rent period" required="required" />
@@ -843,7 +915,7 @@
                                         <div class="error-message"></div>
                                     </div>
                                 </div>
-                                <div class="grid__col grid__col_xl_6 grid__col_sm_12">
+                                <div class="grid__col grid__col_xl_6 grid__col_sm_12" data-form-element="hotFixedOffice">
                                     <div class="form__wrapper form__wrapper_negative-mg">
                                         <label class="form-box form__count">
                                             <input class="input" type="text" name="durationRentMax" placeholder="Maximum rent period" />
@@ -860,30 +932,92 @@
                                         <div class="error-message"></div>
                                     </div>
                                 </div>
+                                <div class="grid__col grid__col_xl_12" data-form-element="meetingRoom">
+                                    <div class="form__wrapper">
+                                        <div class="form-box">
+                                            <div class="input-numbers">
+                                                <input class="input input-numbers__input js-numberbox-input" type="text" name="seats" placeholder="Number of Seats" data-min="1" />
+                                                <div class="input-numbers__buttons">
+                                                    <div class="input-numbers__button js-numberbox-minus"></div>
+                                                    <div class="input-numbers__button js-numberbox-plus"></div>
+                                                </div>
+                                            </div>
+                                            <div class="form-box__label">Number of Seats</div>
+                                        </div>
+                                        <div class="form__text form__text_light">Overal ammount of available seats for one particular Meeting Rooms</div>
+                                        <div class="error-message"></div>
+                                    </div>
+                                </div>
                             </div>
                         </fieldset>
-                        <fieldset class="form__section form__section_mid-mg" data-deleted-group="data-deleted-group" data-point-group="data-point-group">
+                        <fieldset class="form__section form__section_mg43" data-deleted-group="data-deleted-group" data-point-group="data-point-group">
                             <div class="form__header form__header_mg21">
-                                <h4 class="form__title form__title_small">Points to know about this offer. (optional)</h4>
+                                <h4 class="form__title form__title_small">Offer highlights (optional)</h4>
                             </div>
-                            <div class="form__wrapper form__wrapper_sm-mg" data-deleted-object="data-deleted-object" data-point-object="data-point-object">
-                                <label class="form-box form-box_icon">
-                                    <input class="input input_points" type="text" name="points[0]" placeholder="Point" />
-                                    <span class="form-box__point"></span>
-                                    <button class="form-box__delete js-delete-object-except-last" type="button">
-                                        <svg class="form-box__icon form-box__icon_cross"><use xlink:href="assets/images/icon.svg#icon_cross"></use></svg>
-                                    </button>
+                            <div class="form__content form__content_extended" data-deleted-group="data-deleted-group" data-point-group="data-point-group">
+                                <a class="button-plus-thin js-add-object" href="javascript:;">
+                                    <svg><use xlink:href="assets/images/icon.svg#icon_plus-thin"></use></svg>
+                                </a>
+                                <div class="form__wrapper form__wrapper_mg29" data-deleted-object="data-deleted-object" data-point-object="data-point-object">
+                                    <label class="form-box form-box_icon">
+                                        <input class="input input_points" type="text" name="points[0]" placeholder="Point" />
+                                        <span class="form-box__point"></span>
+                                        <button class="form-box__delete js-delete-object-except-last" type="button">
+                                            <svg class="form-box__icon form-box__icon_cross"><use xlink:href="assets/images/icon.svg#icon_cross"></use></svg>
+                                        </button>
+                                    </label>
+                                    <div class="error-message"></div>
+                                </div>
+                            </div>
+                        </fieldset>
+                        <fieldset class="form__section form__section_mid-mg" data-form-element="hotFixedOffice">
+                            <div class="form__header form__header_mg21">
+                                <h4 class="form__title form__title_small">Notice period</h4>
+                            </div>
+                            <div class="form__wrapper form__wrapper_fxe form__wrapper_no-mg">
+                                <label class="form-box form__count">
+                                    <input class="input" type="text" placeholder="Notice period (numeric value)" />
+                                    <span class="form-box__label">Notice period (numeric value)</span>
+                                </label>
+                                <label class="form-box form__mesure">
+                                    <select class="select js-select-input">
+                                        <option value="Days" selected="selected">Days</option>
+                                        <option value="Week">Week</option>
+                                        <option value="Month">Month</option>
+                                        <option value="Year">Year</option>
+                                    </select>
                                 </label>
                                 <div class="error-message"></div>
                             </div>
+                            <div class="form__text form__text_light">Specify the time at which notice should be given before the contract termination</div>
+                        </fieldset>
+                        <fieldset class="form__section form__section_mid-mg hide" data-form-element="meetingRoom">
+                            <div class="form__header form__header_mg21">
+                                <h4 class="form__title form__title_small">Cancellation period</h4>
+                            </div>
+                            <div class="form__wrapper form__wrapper_fxe form__wrapper_no-mg">
+                                <label class="form-box form__count">
+                                    <input class="input" type="text" placeholder="Cancellation period (numeric value)" />
+                                    <span class="form-box__label">Cancellation period (numeric value)</span>
+                                </label>
+                                <label class="form-box form__mesure">
+                                    <select class="select js-select-input">
+                                        <option value="Days" selected="selected">Days</option>
+                                        <option value="Week">Week</option>
+                                        <option value="Month">Month</option>
+                                        <option value="Year">Year</option>
+                                    </select>
+                                </label>
+                                <div class="error-message"></div>
+                            </div>
+                            <div class="form__text form__text_light">Specify the time at which notice should be given before the contract termination</div>
                         </fieldset>
                         <fieldset class="form__section form__section_sm-mg">
                             <div class="form__wrapper form__wrapper_noflex">
                                 <label class="form-box">
-                                    <textarea class="textarea" type="text" name="comment" placeholder="Comment (Only you can see it)" rows="1"></textarea>
+                                    <textarea class="textarea" type="text" name="comment" placeholder="Notes (Only you can see it)" rows="1"></textarea>
                                     <span class="form-box__label">Comment (Only you can see it)</span>
                                 </label>
-                                <div class="form__text form__text_light">This comment helps you to recognize this particular offer inbetween other offers</div>
                                 <div class="error-message"></div>
                             </div>
                         </fieldset>
@@ -891,7 +1025,7 @@
                             <button class="button button_short button_wide" type="submit">
                                 <span class="button__text">Add
                                     <span data-form-element="hotDesk">Hot Desk</span>
-                                    <span data-form-element="dedicatedDesk">Dedicated Desk</span>
+                                    <span data-form-element="fixedDesk">Fixed Desk</span>
                                     <span data-form-element="meetingRoom">Meeting Room</span>
                                     <span data-form-element="officeSpace">Office space</span> rental offer</span>
                             </button>
@@ -906,7 +1040,7 @@
                 <form class="form form_white" data-validated-form="data-validated-form">
                     <div class="tabs popup-add-offer__tabs">
                         <label class="tab-radio tab-radio_orange">
-                            <input class="tab-radio__input" name="addOffer" value="1" type="radio" data-show-elements="hotDesk,main" data-hide-elements="dedicatedDesk,meetingRoom,officeSpace,tc" data-toggle-form="data-toggle-form" />
+                            <input class="tab-radio__input" name="addOffer" value="1" type="radio" checked="checked" data-show-elements="hotDesk,main" data-hide-elements="dedicatedDesk,meetingRoom,officeSpace,tc" data-toggle-form="data-toggle-form" />
                             <span class="tab-radio__label">Hot Desk</span>
                         </label>
                         <label class="tab-radio tab-radio_red">
@@ -914,7 +1048,7 @@
                             <span class="tab-radio__label">Dedicated desk</span>
                         </label>
                         <label class="tab-radio tab-radio_blue">
-                            <input class="tab-radio__input" name="addOffer" value="3" type="radio" checked="checked" data-show-elements="meetingRoom,tc" data-hide-elements="hotDesk,dedicatedDesk,officeSpace,main" data-toggle-form="data-toggle-form" />
+                            <input class="tab-radio__input" name="addOffer" value="3" type="radio" data-show-elements="meetingRoom,tc" data-hide-elements="hotDesk,dedicatedDesk,officeSpace,main" data-toggle-form="data-toggle-form" />
                             <span class="tab-radio__label">Meeting room</span>
                         </label>
                         <label class="tab-radio tab-radio_green">
