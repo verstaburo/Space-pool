@@ -64,8 +64,31 @@
     }
   }
 
+  &__check {
+    position: absolute;
+    width: 21px;
+    height: 18px;
+    fill: url('#main-gradient-vi');
+    top: 22px;
+    right: 24px;
+    opacity: 0;
+    transition: opacity $ease-main;
+
+    @include screen('sm') {
+      width: 15px;
+      height: 15px;
+      right: 10px;
+      top: 10px;
+    }
+
+    #{$b}__input:checked ~ #{$b}__content & {
+      opacity: 1;
+    }
+  }
+
   &__title {
     @include heading-1-lg;
+    @include ellipsis(100%);
 
     font-weight: 700;
     color: $color-basic;
@@ -118,6 +141,43 @@
 
     @include screen('sm') {
       margin-bottom: 5px;
+    }
+  }
+
+  &_v2 {
+    margin-top: 0;
+
+    #{$b} {
+
+      &__content {
+        padding-bottom: 26px;
+
+        @include screen('md') {
+          padding-bottom: 30px;
+        }
+
+        @include screen('sm') {
+          padding-bottom: 20px;
+        }
+      }
+
+      &__subtitle {
+        padding-right: 25px;
+
+        @include screen('sm') {
+          padding-right: 20px;
+        }
+      }
+
+      &__title {
+        margin-bottom: 56px;
+        padding-right: 25px;
+
+        @include screen('sm') {
+          padding-right: 20px;
+          margin-bottom: 25px;
+        }
+      }
     }
   }
 }

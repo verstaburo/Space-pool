@@ -62,6 +62,13 @@ $new-breakpoints: map_remove($breakpoints, $default-breakpoit-name);
     margin-left: -$grid-gap-big / 2;
     margin-right: -$grid-gap-big / 2;
     margin-top: -$grid-gap-vertical-big;
+
+    &_sm-gap20 {
+      @include screen('sm') {
+        margin-left: -10px;
+        margin-right: -10px;
+      }
+    }
   }
 
   &_bigger {
@@ -289,6 +296,13 @@ $new-breakpoints: map_remove($breakpoints, $default-breakpoit-name);
 
     #{$b}_big & {
       padding: $grid-gap-vertical-big $grid-gap-big / 2 0;
+    }
+
+    #{$b}_big_sm-gap20 & {
+      @include screen('sm') {
+        padding-left: 10px;
+        padding-right: 10px;
+      }
     }
 
     #{$b}_bigger & {
