@@ -157,4 +157,46 @@
       }
     }
   }
+
+  &_cat {
+
+    #{$b} {
+
+      &__head {
+        padding-right: 10px;
+      }
+
+      &__dropdown {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+
+        @include screen('md') {
+          justify-content: space-between;
+          flex-wrap: wrap;
+        }
+
+        @include screen('sm') {
+          flex-direction: column;
+          justify-content: flex-start;
+          align-items: flex-start;
+          padding-bottom: 0;
+        }
+      }
+
+      &__item {
+        &:not(:last-child) {
+          margin-right: 31px;
+
+          @include screen('md') {
+            margin-right: 10px;
+          }
+
+          @include screen('sm') {
+            margin-right: 0;
+          }
+        }
+      }
+    }
+  }
 }

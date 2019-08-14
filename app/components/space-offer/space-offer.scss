@@ -85,6 +85,14 @@
       width: 100%;
       padding-left: 0;
     }
+
+    #{$b}.is-unfinished & {
+      background-color: $color-white;
+
+      @include screen('sm') {
+        background-color: transparent;
+      }
+    }
   }
 
   &__describe {
@@ -110,6 +118,15 @@
     @include screen('sm') {
       width: 100%;
       padding-left: 0;
+    }
+
+    #{$b}.is-unfinished & {
+      padding-top: 22px;
+      margin-top: 0;
+
+      @include screen('md') {
+        padding-top: 0;
+      }
     }
   }
 
@@ -214,6 +231,33 @@
     @include screen('sm') {
       order: 1;
     }
+
+    &_big {
+      @include heading-1-sm;
+
+      line-height: 1;
+
+      @include screen('sm') {
+        @include heading-3;
+
+        line-height: (30 / 25);
+      }
+    }
+
+    #{$b}.is-unfinished & {
+      max-width: 580px;
+      box-sizing: border-box;
+      padding-right: 20px;
+
+
+      @include screen('lg') {
+        max-width: none;
+      }
+
+      @include screen('sm') {
+        padding-right: 0;
+      }
+    }
   }
 
   &__switch {
@@ -260,6 +304,29 @@
       order: 5;
       margin-top: 24px;
     }
+
+    &_big {
+      @include heading-4;
+
+      margin-top: 34px;
+
+      @include screen('md') {
+        margin-top: 20px;
+      }
+
+      @include screen('sm') {
+        @include text16;
+      }
+    }
+
+    #{$b}.is-unfinished & {
+      box-sizing: border-box;
+      padding-right: 20px;
+
+      @include screen('sm') {
+        padding-right: 0;
+      }
+    }
   }
 
   &__media {
@@ -298,14 +365,14 @@
         pointer-events: auto;
       }
 
-      #{$b}.is-empty & {
+      #{$b}.is-empty &, #{$b}.is-unfinished & {
         @include screen('md') {
           opacity: 0;
           pointer-events: none;
         }
       }
 
-      #{$b}:not(.is-empty):hover & {
+      #{$b}:not(.is-empty):hover &, #{$b}:not(.is-unfinished):hover & {
         opacity: 1;
         pointer-events: auto;
       }
@@ -329,6 +396,12 @@
       opacity: 1;
       pointer-events: auto;
     }
+
+    #{$b}.is-unfinished & {
+      opacity: 1;
+      pointer-events: auto;
+      background-color: $color-status-bg;
+    }
   }
 
   &__buttons {
@@ -351,6 +424,10 @@
       flex-direction: column;
       align-items: flex-start;
     }
+
+    &_sb {
+      justify-content: space-between;
+    }
   }
 
   &__button {
@@ -364,6 +441,22 @@
 
       @include screen('sm') {
         margin-right: 0;
+      }
+    }
+
+    &_sm-wide {
+
+      @include screen('sm') {
+        width: 100%;
+      }
+    }
+
+    .button {
+      min-width: 298px;
+
+      @include screen('sm') {
+        min-width: 0;
+        width: 100%;
       }
     }
   }

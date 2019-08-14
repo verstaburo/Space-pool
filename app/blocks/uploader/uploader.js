@@ -73,18 +73,31 @@ export default function uploader() {
         const reader = new FileReader();
         reader.onload = (e) => {
           const img = new Image();
-          img.src = e.target.result;
-          img.classList.add('photo-preview__image');
-          // $(preview).find('input[type="hidden"]').val(e.target.result);
-          const inputEl = $(preview).find('input[type="hidden"]');
-          $.when($(inputEl).val(e.target.result)).then((input) => {
-            input.trigger('IMG_READY_FOR_LOAD');
-          });
-          $(preview).find('[data-preview-image]').append(img);
-          if (errorMessage.length > 0) {
-            $(preview).find('[data-preview-error-text]').text(errorMessage);
-            $(preview).find('[data-preview-item]').addClass('is-error');
-          }
+          const imgEtalon = new Image();
+          imgEtalon.onload = function () {
+            const width = this.width;
+            const height = this.height;
+            if (width < conditions.shortSide || height < conditions.shortSide) {
+              errorMessage = 'Image must be at least 800px on the shortest side';
+              $(preview).find('[data-preview-error-text]').text(errorMessage);
+              $(preview).find('[data-preview-item]').addClass('is-error');
+            } else {
+              img.src = e.target.result;
+              img.classList.add('photo-preview__image');
+              img.setAttribute('data-crop-image', 'data-crop-image');
+              // $(preview).find('input[type="hidden"]').val(e.target.result);
+              const inputEl = $(preview).find('input[type="hidden"]');
+              $.when($(inputEl).val(e.target.result)).then((input) => {
+                input.trigger('IMG_READY_FOR_LOAD');
+              });
+              $(preview).find('[data-preview-image]').append(img);
+              if (errorMessage.length > 0) {
+                $(preview).find('[data-preview-error-text]').text(errorMessage);
+                $(preview).find('[data-preview-item]').addClass('is-error');
+              }
+            }
+          };
+          imgEtalon.src = e.target.result;
         };
         if (isImage) {
           reader.readAsDataURL(file);
@@ -121,6 +134,7 @@ export default function uploader() {
       const url = $(self).attr('data-url-template');
       loadTemplate(url);
       const conditions = {};
+      conditions.shortSide = parseInt($(self).attr('data-short-side'), 10) || 0;
       conditions.minSize = parseInt($(self).attr('data-min-size'), 10) || 0;
       conditions.maxSize = parseInt($(self).attr('data-max-size'), 10) || '1000000000000';
       conditions.formats = $(self).attr('data-format');
@@ -135,6 +149,7 @@ export default function uploader() {
     loadTemplate(url);
     const files = evt.target.files;
     const conditions = {};
+    conditions.shortSide = parseInt($(self).attr('data-short-side'), 10) || 0;
     conditions.minSize = parseInt($(self).attr('data-min-size'), 10) || 0;
     conditions.maxSize = parseInt($(self).attr('data-max-size'), 10) || '1000000000000';
     conditions.formats = $(self).attr('data-format');

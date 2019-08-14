@@ -12,8 +12,23 @@
     padding: 25px 20px 10px;
   }
 
+  &_fe {
+    padding-bottom: 24px;
+  }
+
   &__content {
     width: 100%;
+  }
+
+  .note {
+
+    &__mark {
+      margin-bottom: 22px;
+
+      @include screen('sm') {
+        margin-bottom: 10px;
+      }
+    }
   }
 
   &__bottom {
@@ -21,9 +36,14 @@
     justify-content: space-between;
     align-items: center;
     width: 100%;
+    margin-top: 15px;
 
     @include screen('md') {
       display: none;
+    }
+
+    #{$b}_fe & {
+      align-items: flex-end;
     }
   }
 
@@ -35,6 +55,10 @@
 
     @include screen('md') {
       transform: rotate(0);
+    }
+
+    #{$b}_fe & {
+      margin-bottom: 6px;
     }
   }
 

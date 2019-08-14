@@ -28,28 +28,39 @@ block content
             +space-offer(class=item.status)
               +space-offer-side.hide-md(data-slot-id=item.id data-slot-res="xl")
               +space-offer-content
-                +e.media-wrapper_lg.hide-from-md.hide-sm(data-slot-id=item.id data-slot-res="md")
-                +e.describe
-                  +space-offer-info
-                    if item.offerBoxes
-                      +boxes.__boxes
-                        each box in item.offerBoxes
-                          +box(class="_size9 " + box)
-                    - if (item.status === "is-empty") {
-                      +status.__status NOT LISTED
-                    - }
-                    +e.address!= item.address
-                  +space-offer-switch(item.switch.name, item.switch.value, item.switch.checked)
-                  +space-offer-title!= item.title
-                  +e.media-wrapper_sm.hide-from-sm(data-slot-id=item.id data-slot-res="sm")
-                    +space-offer-media(item.status)(data-target-slot=item.id)
-                      +slider-gallery-bold(true, false)._dark2._gallery_inner.js-slider-gallery.__gallery
-                        each slider in item.slider
-                          +e.IMG.slide.swiper-slide(src=slider)
-                  +space-offer-text!= item.describe
-                +e.controls
-                  +space-offer-buttons
-                  +space-offer-bottom(item.offers)
+                - if (item.status === 'is-unfinished') {
+                  +e.media-wrapper_lg.hide-from-md.hide-sm(data-slot-id=item.id data-slot-res="md")
+                  +e.describe
+                    +space-offer-title._big!= item.title
+                    +e.media-wrapper_sm.hide-from-sm(data-slot-id=item.id data-slot-res="sm")
+                      +space-offer-media(item.status)(data-target-slot=item.id)
+                    +space-offer-text._big!= item.describe
+                  +e.controls
+                    +space-offer-buttons2._sb
+                - } else {
+                  +e.media-wrapper_lg.hide-from-md.hide-sm(data-slot-id=item.id data-slot-res="md")
+                  +e.describe
+                    +space-offer-info
+                      if item.offerBoxes
+                        +boxes.__boxes
+                          each box in item.offerBoxes
+                            +box(class="_size9 " + box)
+                      - if (item.status === "is-empty") {
+                        +status.__status NOT LISTED
+                      - }
+                      +e.address!= item.address
+                    +space-offer-switch(item.switch.name, item.switch.value, item.switch.checked)
+                    +space-offer-title!= item.title
+                    +e.media-wrapper_sm.hide-from-sm(data-slot-id=item.id data-slot-res="sm")
+                      +space-offer-media(item.status)(data-target-slot=item.id)
+                        +slider-gallery-bold(true, false)._dark2._gallery_inner.js-slider-gallery.__gallery
+                          each slider in item.slider
+                            +e.IMG.slide.swiper-slide(src=slider)
+                    +space-offer-text!= item.describe
+                  +e.controls
+                    +space-offer-buttons
+                    +space-offer-bottom(item.offers)
+                - }
 
 
 block panels

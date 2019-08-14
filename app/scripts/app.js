@@ -70,6 +70,7 @@ import compositeTab from '../blocks/composite-tab/composite-tab';
 import newSpaceStep6 from '../pages/new-space/new-space-step8';
 import newSpaceStep5 from '../pages/new-space/new-space-step5';
 import checkInput from '../blocks/form-elements/check-input';
+import photoPreview from '../blocks/photo-preview/photo-preview';
 
 const $ = window.$;
 
@@ -129,4 +130,5 @@ $(() => {
   newSpaceStep6();
   newSpaceStep5();
   checkInput();
+  photoPreview();
 });

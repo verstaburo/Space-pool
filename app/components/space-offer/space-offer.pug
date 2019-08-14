@@ -29,8 +29,11 @@ mixin space-offer-text()
 mixin space-offer-media(empty)
   +e.media&attributes(attributes)
     block
-    if empty
+    - if (empty === 'is-empty') {
       +hint.__hint
+    - } else if (empty === 'is-unfinished') {
+      +hint2._fe.__hint
+    - }
 
 mixin space-offer-bottom(offers)
   +e.bottom&attributes(attributes)
@@ -45,3 +48,10 @@ mixin space-offer-buttons()
       +link-icon('pan')._icon_mid-small._bold._light-underline._icon_dark._no-shadow(href="#") Edit Space
     +e.button
       +link-icon('round-cross')._icon_mid-small._bold._light-underline._gray-light._no-shadow.js-delete-object(href="#") Delete this Space
+
+mixin space-offer-buttons2()
+  +e.buttons&attributes(attributes)
+    +e.button
+      +link-icon('round-cross')._icon_mid-small._bold._light-underline._gray-light._no-shadow.js-delete-object(href="#") Delete this Space
+    +e.button_sm-wide
+      +button('a')._short._mob-smaller(href="#") Continue adding this space

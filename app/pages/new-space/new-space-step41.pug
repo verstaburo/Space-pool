@@ -44,7 +44,7 @@ block content
                       - var addClass = (item.isError) ? 'is-error' : ''
                       +photo-preview(item.name)(class=addClass)
                         +photo-preview-preview(item.isMain, item.mainValue)
-                          +e.IMG.image(src=item.img)
+                          +e.IMG.image(src=item.img data-crop-image)
                         +photo-preview-error
                         +photo-preview-description(item.select)
                           option(placeholder value="") What’s on photo?
