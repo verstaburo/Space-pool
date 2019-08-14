@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimal-ui">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>SpacePool - Sign Up host important info</title>
+    <title>SpacePool - Sign Up guest important info</title>
     <meta name="description" content="">
     <meta name="keywords" content="">
     <link href="favicon.ico" rel="shortcut icon">
@@ -203,7 +203,7 @@
                                     <div class="steps__text steps__text_sub">YOU ARE HERE</div>
                                 </div>
                                 <div class="steps__line">
-                                    <div class="steps__text">Add Space (optional)</div>
+                                    <div class="steps__text">Start tenancy</div>
                                     <svg class="steps__check"><use xlink:href="assets/images/icon.svg#icon_check"></use></svg>
                                 </div>
                             </div>
@@ -211,18 +211,141 @@
                     </div>
                     <div class="grid__col grid__col_xl_8 grid__col_lg_10 grid__col_md_12">
                         <form class="form" data-validated-form="data-validated-form">
-                            <fieldset class="form__section form__section_mg50">
+                            <fieldset class="form__section form__section_mg65">
                                 <div class="form__header form__header_mg0">
                                     <h3 class="form__title form__title_big form__title_mg48">Please take a moment to complete your host account with important information:</h3>
                                     <div class="form__text">Fill all the field in this form. This information will be used to create rental contracts aswell it is a part of financial service KYC protocol</div>
                                 </div>
                             </fieldset>
-                            <fieldset class="form__section form__section_mg88">
+                            <fieldset class="form__section form__section_mg82">
                                 <div class="form__content">
-                                    <div class="form__header form__header_mg62">
-                                        <h4 class="form__title">Company information</h4>
+                                    <div class="form__header form__header_mg42">
+                                        <h4 class="form__title">Please choose an option</h4>
+                                    </div>
+                                    <div class="grid grid_big grid_big_sm-gap20 grid_int59">
+                                        <div class="grid__col grid__col_xl_6">
+                                            <label class="form-toggle form-toggle_v2 form__switch">
+                                                <input class="form-toggle__input" type="radio" name="personType" value="privatePerson" data-hide-elements="entity" data-show-elements="person" data-toggle-form="data-toggle-form" checked="checked" />
+                                                <span class="form-toggle__content">
+                                                    <svg class="form-toggle__check"><use xlink:href="assets/images/icon.svg#icon_check"></use></svg>
+                                                    <span class="form-toggle__subtitle">Continues registration as&nbsp;a </span>
+                                                    <span class="form-toggle__title">Private person</span>
+                                                    <span class="form-toggle__text">If you are a freelancer, an individual employee or rent an office for yourself privately. Then this option is for you!</span>
+                                                </span>
+                                            </label>
+                                        </div>
+                                        <div class="grid__col grid__col_xl_6">
+                                            <label class="form-toggle form-toggle_v2 form__switch">
+                                                <input class="form-toggle__input" type="radio" name="personType" value="legalEntity" data-hide-elements="person" data-show-elements="entity" data-toggle-form="data-toggle-form" />
+                                                <span class="form-toggle__content">
+                                                    <svg class="form-toggle__check"><use xlink:href="assets/images/icon.svg#icon_check"></use></svg>
+                                                    <span class="form-toggle__subtitle">Continues registration as&nbsp;a </span>
+                                                    <span class="form-toggle__title">Legal entity</span>
+                                                    <span class="form-toggle__text">Register as a legal entity if you plan to rent an office for your company or the company you work for.</span>
+                                                </span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </fieldset>
+                            <fieldset class="form__section form__section_mg88" data-form-element="person">
+                                <div class="form__header form__header_mg62">
+                                    <h3 class="form__title">Please fill the form to continue</h3>
+                                </div>
+                                <div class="grid grid_big grid_int59">
+                                    <div class="grid__col grid__col_xl_6 grid__col_md_12">
+                                        <div class="form__wrapper">
+                                            <label class="form-box">
+                                                <input class="input" type="text" name="firstName" value="Eugene" placeholder="First name" />
+                                                <span class="form-box__label">First name</span>
+                                            </label>
+                                            <div class="error-message"></div>
+                                        </div>
+                                    </div>
+                                    <div class="grid__col grid__col_xl_6 grid__col_md_12">
+                                        <div class="form__wrapper">
+                                            <label class="form-box">
+                                                <input class="input" type="text" name="lastName" value="Sheeleen" placeholder="Last name" />
+                                                <span class="form-box__label">Last name</span>
+                                            </label>
+                                            <div class="error-message"></div>
+                                        </div>
+                                    </div>
+                                    <div class="grid__col grid__col_xl_6 grid__col_md_12">
+                                        <div class="form__wrapper">
+                                            <label class="form-box form-box_icon">
+                                                <input class="input js-datepicker" type="text" name="birthDate" placeholder="Date of birth" readonly="readonly" />
+                                                <span class="form-box__label">Date of birth</span>
+                                                <svg class="form-box__icon"><use xlink:href="assets/images/icon.svg#icon_calendar2"></use></svg>
+                                            </label>
+                                            <div class="error-message"></div>
+                                        </div>
+                                    </div>
+                                    <div class="grid__col grid__col_xl_3 grid__col_md_6 grid__col_sm_12">
+                                        <div class="form__wrapper">
+                                            <label class="form-box">
+                                                <select class="select js-select-input" name="nationality">
+                                                    <option value="" placeholder>Nationality</option>
+                                                    <option value="eng">English</option>
+                                                    <option value="rus">Russians</option>
+                                                    <option value="ger">Germans</option>
+                                                    <option value="lat">Latvians</option>
+                                                </select>
+                                                <span class="form-box__label">Nationality</span>
+                                            </label>
+                                            <div class="error-message"></div>
+                                        </div>
+                                    </div>
+                                    <div class="grid__col grid__col_xl_3 grid__col_md_6 grid__col_sm_12">
+                                        <div class="form__wrapper">
+                                            <label class="form-box">
+                                                <select class="select js-select-input" name="countryResidence">
+                                                    <option value="" placeholder>Country of Residence</option>
+                                                    <option value="lv">Latvia</option>
+                                                    <option value="ru">Russia</option>
+                                                    <option value="de">Germany</option>
+                                                    <option value="fr">France</option>
+                                                </select>
+                                                <span class="form-box__label">Country of Residence</span>
+                                            </label>
+                                            <div class="error-message"></div>
+                                        </div>
+                                    </div>
+                                    <div class="grid__col grid__col_xl_6 grid__col_md_12"></div>
+                                    <div class="grid__col grid__col_xl_6 grid__col_md_12">
+                                        <div class="form__wrapper">
+                                            <button class="button button_wide button_short" type="submit">
+                                                <span class="button__text">Finish registration</span>
+                                            </button>
+                                            <div class="error-message"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </fieldset>
+                            <fieldset class="form__section form__section_mg121 hide" data-form-element="entity">
+                                <div class="form__content">
+                                    <div class="form__header form__header_mg44">
+                                        <h4 class="form__title">Fill the form to continue</h4>
                                     </div>
                                     <div class="grid grid_big grid_int59">
+                                        <div class="grid__col grid__col_xl_6 grid__col_md_12">
+                                            <div class="form__wrapper">
+                                                <label class="form-box">
+                                                    <input class="input" type="text" name="entityName" placeholder="Your name" required="required" />
+                                                    <span class="form-box__label">Your name</span>
+                                                </label>
+                                                <div class="error-message"></div>
+                                            </div>
+                                        </div>
+                                        <div class="grid__col grid__col_xl_6 grid__col_md_12">
+                                            <div class="form__wrapper">
+                                                <label class="form-box">
+                                                    <input class="input" type="text" name="entitySurname" placeholder="Your Surname" required="required" />
+                                                    <span class="form-box__label">Your Surname</span>
+                                                </label>
+                                                <div class="error-message"></div>
+                                            </div>
+                                        </div>
                                         <div class="grid__col grid__col_xl_12">
                                             <div class="form__wrapper">
                                                 <label class="form-box">
@@ -304,7 +427,7 @@
                                     </div>
                                 </div>
                             </fieldset>
-                            <fieldset class="form__section form__section_mg88">
+                            <fieldset class="form__section form__section_mg88 hide" data-form-element="entity">
                                 <div class="form__header form__header_mg62">
                                     <h3 class="form__title">Legal representative information</h3>
                                 </div>
@@ -421,7 +544,7 @@
                                     <div class="grid__col grid__col_xl_6 grid__col_md_12">
                                         <div class="form__wrapper">
                                             <button class="button button_wide button_short" type="submit">
-                                                <span class="button__text">Continue</span>
+                                                <span class="button__text">Finish registration</span>
                                             </button>
                                             <div class="error-message"></div>
                                         </div>
