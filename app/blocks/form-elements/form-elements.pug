@@ -95,3 +95,13 @@ mixin range(output)
         +e.value_min Min. <span data-range-min></span> &pound;/mo
         +e.value_max Max. <span data-range-max></span> &pound;/mo
     block
+
+mixin check-input(isChecked)
+  +b.check-input&attributes(attributes)
+    +checkbox('', '', isChecked).js-check-input-toggle
+    +e.content
+      +form-box('Price', '', '', '&pound;')._icon_left
+        +input(type="text")
+      if block
+        +e.SPAN.text
+          block
