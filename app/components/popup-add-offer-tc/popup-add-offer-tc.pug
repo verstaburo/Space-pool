@@ -4,13 +4,13 @@ mixin popup-add-offer-tc()
     +form._white(data-validated-form)
       +tabs('div').popup-add-offer__tabs
         +b.LABEL.tab-radio_orange
-          +e.INPUT.input(name='addOffer', value='1', type="radio", data-show-elements="hotDesk,main", data-hide-elements="dedicatedDesk,meetingRoom,officeSpace,tc", data-toggle-form)
+          +e.INPUT.input(name='addOffer', value='1', type="radio", checked, data-show-elements="hotDesk,main", data-hide-elements="dedicatedDesk,meetingRoom,officeSpace,tc", data-toggle-form)
           +e.label Hot Desk
         +b.LABEL.tab-radio_red
           +e.INPUT.input(name='addOffer', value='2', type="radio", disabled="disabled", data-show-elements="dedicatedDesk,main", data-hide-elements="hotDesk,meetingRoom,officeSpace,tc", data-toggle-form)
           +e.label Dedicated desk
         +b.LABEL.tab-radio_blue
-          +e.INPUT.input(name='addOffer', value='3', type="radio", checked="checked", data-show-elements="meetingRoom,tc", data-hide-elements="hotDesk,dedicatedDesk,officeSpace,main", data-toggle-form)
+          +e.INPUT.input(name='addOffer', value='3', type="radio", data-show-elements="meetingRoom,tc", data-hide-elements="hotDesk,dedicatedDesk,officeSpace,main", data-toggle-form)
           +e.label Meeting room
         +b.LABEL.tab-radio_green
           +e.INPUT.input(name='addOffer', value='4', type="radio", data-show-elements="officeSpace,main", data-hide-elements="hotDesk,dedicatedDesk,meetingRoom,tc", data-toggle-form)
