@@ -31,14 +31,15 @@ export default function photoPreview() {
         const imgfinal = img.toDataURL('image/jpeg');
         let input = $(preview).find('[data-file-crop]');
         if ($(input).length > 0) {
-          $(input).val(imgfinal);
+          $.when($(input).val(imgfinal)).then(inp => $(inp).trigger('change'));
         } else {
           input = document.createElement('input');
           input.setAttribute('type', 'hidden');
           input.setAttribute('name', inputName);
           input.setAttribute('data-file-crop', 'data-file-crop');
-          input.value = imgfinal;
           $(preview).append(input);
+          const newInput = $(preview).find('[data-file-crop]');
+          $.when($(newInput).val(imgfinal)).then(inp => $(inp).trigger('change'));
         }
       },
     });
