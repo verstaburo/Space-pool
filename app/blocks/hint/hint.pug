@@ -2,9 +2,20 @@ mixin hint()
   +b.hint&attributes(attributes)
     +e.content
       +note()._color._big
-          p
-            b This space is not listed yet.
-          p You need to add at least one rental offer within the space.
+        p
+          b This space is not listed yet.
+        p You need to add at least one rental offer within the space.
     +e.bottom
       +e.text Manage rental offers for this space here
+      +icon('arrow').icon
+
+mixin hint2()
+  +b.hint&attributes(attributes)
+    +e.content
+      +note()._color._big
+        p Unfinished Space
+    +e.bottom
+      +e.text You’ve stopped adding space.
+        br
+        b Please Choose an option to continue.
       +icon('arrow').icon
