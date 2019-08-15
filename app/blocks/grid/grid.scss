@@ -226,6 +226,24 @@ $new-breakpoints: map_remove($breakpoints, $default-breakpoit-name);
       }
     }
 
+    #{$b}_c9 & {
+      @for $i from 1 through 15 {
+        &_#{$default-breakpoit-name}_#{$i} {
+          width: $i * $grid9-col-width;
+        }
+      }
+
+      @each $key, $val in $new-breakpoints {
+        @for $i from 1 through 15 {
+          @include screen($key) {
+            &_#{$key}_#{$i} {
+              width: $i * $grid9-col-width;
+            }
+          }
+        }
+      }
+    }
+
     &_md-order2 {
       @include screen('md') {
         order: 2;

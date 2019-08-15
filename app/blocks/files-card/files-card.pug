@@ -1,0 +1,17 @@
+mixin files-card(data)
+  +b.files-card&attributes(attributes)
+    if data.check
+      +icon('check').__check
+    if data.subtitle
+      +e.subtitle!= data.subtitle
+    if data.title
+      +e.H3.title!= data.title
+    if data.status
+      +e.status
+        each status in data.status
+          +processing-status(status)
+    if data.uploader
+      +file-uploader()(class=data.uploader)
+    if data.describe
+      +e.describe!= data.describe
+    block

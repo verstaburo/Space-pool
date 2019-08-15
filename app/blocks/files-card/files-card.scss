@@ -1,0 +1,82 @@
+.files-card {
+  $b: &;
+
+  display: flex;
+  flex-direction: column;
+  min-height: 408px;
+  border-radius: 3px;
+  border: 1px solid $color-border-light;
+  transition: background $ease-main, border $ease-main, box-shadow $ease-main;
+  padding: 30px 40px;
+  box-sizing: border-box;
+
+  &.is-confirmed {
+    background-color: $color-white;
+    box-shadow: inset 0 0 1px $color-basic;
+    border-color: $color-basic;
+  }
+
+  &__check {
+    position: absolute;
+    width: 21px;
+    height: 18px;
+    fill: url('#main-gradient-vi');
+    top: 22px;
+    right: 24px;
+    opacity: 0;
+    transition: opacity $ease-main;
+
+    @include screen('sm') {
+      width: 15px;
+      height: 15px;
+      right: 10px;
+      top: 10px;
+    }
+
+    #{$b}.is-confirmed & {
+      opacity: 1;
+    }
+  }
+
+  &__subtitle, &__describe {
+    @include text-mid;
+
+    display: block;
+    width: 100%;
+
+    @include screen('sm') {
+      @include text10;
+
+      line-height: 1.2;
+    }
+  }
+
+  &__subtitle {
+    font-weight: 700;
+    padding-right: 20px;
+  }
+
+  &__describe {
+    margin-top: auto;
+  }
+
+  &__title {
+    @include heading-1-sm;
+    @include ellipsis(100%);
+
+    font-weight: 700;
+    color: $color-basic;
+    transition: color $ease-main, border $ease-main;
+    display: inline-block;
+    margin-bottom: 34px;
+    box-sizing: border-box;
+    padding-right: 20px;
+
+    @include screen('sm') {
+      @include heading-4;
+
+      line-height: 1;
+      margin-bottom: 16px;
+    }
+  }
+}

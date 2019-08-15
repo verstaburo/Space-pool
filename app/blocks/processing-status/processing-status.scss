@@ -1,0 +1,36 @@
+.processing-status {
+  $b: &;
+
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+
+  &__note {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+  }
+
+  &__icon {
+    width: 30px;
+    height: 30px;
+
+    &:not(:last-child) {
+      margin-right: 12px;
+    }
+  }
+
+  &__text {
+    @include text-mid;
+
+    display: block;
+    width: 100%;
+    font-weight: 700;
+
+    @include screen('sm') {
+      @include text10;
+
+      line-height: 1.2;
+    }
+  }
+}

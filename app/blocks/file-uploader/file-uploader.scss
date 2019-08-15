@@ -1,0 +1,45 @@
+.file-uploader {
+  $b: &;
+
+  display: block;
+
+  &__buttons {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+
+  &__label {
+
+    .button {
+
+      &__icon {
+        display: none;
+      }
+
+      &__text {
+        display: block;
+      }
+    }
+
+    #{$b}.is-ready & {
+      max-width: 60px;
+    }
+
+    #{$b}.is-ready & .button__icon {
+      display: inline-block;
+    }
+
+    #{$b}.is-ready & .button__text {
+      color: transparent;
+    }
+  }
+
+  &__button {
+    display: none;
+
+    #{$b}.is-ready & {
+      display: inline-block;
+    }
+  }
+}

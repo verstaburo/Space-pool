@@ -1,0 +1,10 @@
+mixin file-uploader()
+  +b.FORM.file-uploader&attributes(attributes)
+    +e.output(data-files-output)
+      //- +file Passport Inside Page 1.jpg
+      //- +file Passport Inside Page 2.jpg
+      //- +file Back of an ID.jpg
+    +e.buttons
+      +button-icon('label', 'folder')._border._short.__label Browse...
+      +button('button')(type="submit")._short.__button Send Files
+    block
