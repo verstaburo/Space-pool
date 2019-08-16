@@ -1,0 +1,58 @@
+extends ../../layouts/default-login
+
+block head
+  - var pageTitle = 'SpacePool - Profile | Company details'
+
+block header
+  -var headerClass = '_border'
+
+block content
+  +content-origin._reverse
+    .container
+      +e.wrapper
+        +content-column-aside._ptop.hide-lg
+          +side-navigation('Change your personal info, password and notification options here')
+            +nav-list-sidebar(getData('side-menu-host2.json'), 'Profile & Settings').__navigation
+        +content-column-main
+          +filter-select.__filter.js-offer-select
+            +filter-select-head.hide-from-sm
+              +filter-select-label.color-radio_full._dark._fz25._sm-noundr
+                div.color-radio__content KYC
+            +filter-select-dropdown
+              +filter-select-header.hide-from-sm Settings
+              +filter-select-item._mr56
+                +b.A.link_light-underline._mark.__link(href="#" data-select-value)
+                  +e.SPAN.text Basic account information
+              +filter-select-item._mr56
+                +b.A.link_light-underline._mark.__link.is-new(href="#" data-select-value)
+                  +e.SPAN.text Company details
+                  +indicator._sm-small.__marker 1
+              +filter-select-item._mr56
+                +b.A.link_light-underline._mark.__link.is-select(href="#" data-select-value)
+                  +e.SPAN.text KYC
+                  +indicator._sm-small.__marker 1
+          +section._mt-21._mgb205
+            +section-header._mgb50
+              +e.text_fz14._gray Provide information about your company. All images must be of sufficient resolution and quality to ensure that the information is legible and not misread.
+            +section-content
+              +grid.grid_big.grid_int59
+                +col({xl: 4, sm: 12})
+                  +files-card({check: true, subtitle: 'Upload', title: 'Identity proof', uploader: 'is-ready', describe: 'Document should refer to the individual duly empowered to act on behalf of the legal entity. ID card: Front AND Back (Valid) OR Passport (Valid)', status: [{class: '_awaiting', note: {icon: 'clock', text: "Files successfully sent"}, status: {class: '_orange', text: 'AWAITING CONFIRMATION'}}, {class: '_refused', status: {class: '_light-red', text: 'REFUSED'}, reason: 'Reason: Information is Unreadable. Please provide readable scan of your Articles of association'}, {class: '_confirmed', note: {icon: 'round-check', text: 'Files successfully checked'}, status: {class: '_dark-green', text: 'CONFIRMED'}}]}).is-awaiting
+                +col({xl: 4, sm: 12})
+                  +files-card({check: true, subtitle: 'Upload', title: 'Articles of Association', uploader: ' ', describe: 'Certified articles of association (Statute) - formal memorandum stated by the entrepreneurs, in which the following information is mentioned: business name, activity, registered address, shareholding…', status: [{class: '_awaiting', note: {icon: 'clock', text: "Files successfully sent"}, status: {class: '_orange', text: 'AWAITING CONFIRMATION'}}, {class: '_refused', status: {class: '_light-red', text: 'REFUSED'}, reason: 'Reason: Information is Unreadable. Please provide readable scan of your Articles of association'}, {class: '_confirmed', note: {icon: 'round-check', text: 'Files successfully checked'}, status: {class: '_dark-green', text: 'CONFIRMED'}}]}).is-refused
+                +col({xl: 4, sm: 12})
+                  +files-card({check: true, subtitle: 'Upload', title: 'Registration Proof', uploader: ' ', describe: 'Extract from the Company Register issued within the last three months', status: [{class: '_awaiting', note: {icon: 'clock', text: "Files successfully sent"}, status: {class: '_orange', text: 'AWAITING CONFIRMATION'}}, {class: '_refused', status: {class: '_light-red', text: 'REFUSED'}, reason: 'Reason: Information is Unreadable. Please provide readable scan of your Articles of association'}, {class: '_confirmed', note: {icon: 'round-check', text: 'Files successfully checked'}, status: {class: '_dark-green', text: 'CONFIRMED'}}]}).is-confirmed
+          +section
+            +section-header._mgb37
+              +e.text_fz14._gray You must add information about <b>at least one</b> Ultimate Beneficial Owner (UBO) - Maximum 4 UBO’s
+            +section-content
+              +ubo-card.__ubo.is-confirmed
+
+
+
+block panels
+  +main-menu-inner
+    +nav-list(getData('main-menu-host2.json'))
+
+block popups
+  +popup-password-change#popup-password-change

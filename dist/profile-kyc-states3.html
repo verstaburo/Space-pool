@@ -249,7 +249,7 @@
                             <div class="section__content">
                                 <div class="grid grid_big grid_int59">
                                     <div class="grid__col grid__col_xl_4 grid__col_sm_12">
-                                        <div class="files-card" data-uploader-status="data-uploader-status">
+                                        <div class="files-card is-awaiting" data-uploader-status="data-uploader-status">
                                             <svg class="files-card__check"><use xlink:href="assets/images/icon.svg#icon_check"></use></svg>
                                             <div class="files-card__subtitle">Upload</div>
                                             <h3 class="files-card__title">Identity proof</h3>
@@ -279,7 +279,7 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <form class="file-uploader files-card__uploader" data-uploader-block="data-uploader-block">
+                                            <form class="file-uploader is-ready files-card__uploader" data-uploader-block="data-uploader-block">
                                                 <div class="file-uploader__output" data-files-output="data-files-output"></div>
                                                 <div class="file-uploader__buttons">
                                                     <label class="button button_icon button_border button_short file-uploader__label">
@@ -300,7 +300,7 @@
                                         </div>
                                     </div>
                                     <div class="grid__col grid__col_xl_4 grid__col_sm_12">
-                                        <div class="files-card" data-uploader-status="data-uploader-status">
+                                        <div class="files-card is-refused" data-uploader-status="data-uploader-status">
                                             <svg class="files-card__check"><use xlink:href="assets/images/icon.svg#icon_check"></use></svg>
                                             <div class="files-card__subtitle">Upload</div>
                                             <h3 class="files-card__title">Articles of Association</h3>
@@ -351,7 +351,7 @@
                                         </div>
                                     </div>
                                     <div class="grid__col grid__col_xl_4 grid__col_sm_12">
-                                        <div class="files-card" data-uploader-status="data-uploader-status">
+                                        <div class="files-card is-confirmed" data-uploader-status="data-uploader-status">
                                             <svg class="files-card__check"><use xlink:href="assets/images/icon.svg#icon_check"></use></svg>
                                             <div class="files-card__subtitle">Upload</div>
                                             <h3 class="files-card__title">Registration Proof</h3>
@@ -410,165 +410,113 @@
                                     <b>at least one</b> Ultimate Beneficial Owner (UBO) - Maximum 4 UBO’s</div>
                             </div>
                             <div class="section__content">
-                                <form class="form form_pb form_negative-mg js-form-with-hidden-panel" data-validated-form="data-validated-form">
-                                    <fieldset class="form__section form__section_sm-mg" data-ubo-element="data-ubo-element">
-                                        <div class="form__header form__header_mg67">
-                                            <h3 class="form__title form__title_fz24">UBO
-                                                <span data-ubo-number>1
-                                                    <span> (Ultimate Beneficial Owner)</h3>
+                                <div class="ubo-card section__ubo is-refused">
+                                    <div class="ubo-card__content">
+                                        <div class="ubo-card__header">
+                                            <div class="ubo-card__title">UBO
+                                                <span data-ubo-id>1</span> (Ultimate Beneficial Owner)</div>
+                                            <svg class="ubo-card__check"><use xlink:href="assets/images/icon.svg#icon_check"></use></svg>
                                         </div>
-                                        <div class="grid grid_big grid_int59 grid_c9">
-                                            <div class="grid__col grid__col_xl_4 grid__col_md_9">
-                                                <div class="form__wrapper">
-                                                    <label class="form-box">
-                                                        <input class="input" type="text" name="ubo-1[firstName]" value="Eugene" placeholder="First name" />
-                                                        <span class="form-box__label">First name</span>
-                                                    </label>
-                                                    <div class="error-message"></div>
+                                        <div class="ubo-card__statuses-wrapper hide-from-sm" data-slot-id="statuses" data-slot-res="sm"></div>
+                                        <table class="table characteristics-table characteristics-table_dark characteristics-table_normal characteristics-table_large characteristics-table_wrap ubo-card__table">
+
+                                            <body>
+                                                <tr class="characteristics-table__row">
+                                                    <td class="characteristics-table__cell">First name</td>
+                                                    <td class="characteristics-table__cell characteristics-table__cell_bold characteristics-table__cell_darker">Eugene</td>
+                                                </tr>
+                                                <tr class="characteristics-table__row">
+                                                    <td class="characteristics-table__cell">Last name</td>
+                                                    <td class="characteristics-table__cell characteristics-table__cell_bold characteristics-table__cell_darker">Sheeleen</td>
+                                                </tr>
+                                                <tr class="characteristics-table__row">
+                                                    <td class="characteristics-table__cell">Date of birth</td>
+                                                    <td class="characteristics-table__cell characteristics-table__cell_bold characteristics-table__cell_darker">31 August 1986</td>
+                                                </tr>
+                                                <tr class="characteristics-table__row">
+                                                    <td class="characteristics-table__cell">Nationality</td>
+                                                    <td class="characteristics-table__cell characteristics-table__cell_bold characteristics-table__cell_darker">Russian</td>
+                                                </tr>
+                                                <tr class="characteristics-table__row">
+                                                    <td class="characteristics-table__cell">Birthplace country</td>
+                                                    <td class="characteristics-table__cell characteristics-table__cell_bold characteristics-table__cell_darker">Latvia</td>
+                                                </tr>
+                                                <tr class="characteristics-table__row">
+                                                    <td class="characteristics-table__cell">Birthplace city</td>
+                                                    <td class="characteristics-table__cell characteristics-table__cell_bold characteristics-table__cell_darker">Riga</td>
+                                                </tr>
+                                                <tr class="characteristics-table__row">
+                                                    <td class="characteristics-table__cell">Legal adress line 1</td>
+                                                    <td class="characteristics-table__cell characteristics-table__cell_bold characteristics-table__cell_darker">Central park Street 99 - 55</td>
+                                                </tr>
+                                                <tr class="characteristics-table__row">
+                                                    <td class="characteristics-table__cell">Legal adress line 2</td>
+                                                    <td class="characteristics-table__cell characteristics-table__cell_bold characteristics-table__cell_darker">Wemley stadium 6-th tribune</td>
+                                                </tr>
+                                                <tr class="characteristics-table__row">
+                                                    <td class="characteristics-table__cell">Country</td>
+                                                    <td class="characteristics-table__cell characteristics-table__cell_bold characteristics-table__cell_darker">Latvia</td>
+                                                </tr>
+                                                <tr class="characteristics-table__row">
+                                                    <td class="characteristics-table__cell">City</td>
+                                                    <td class="characteristics-table__cell characteristics-table__cell_bold characteristics-table__cell_darker">Riga</td>
+                                                </tr>
+                                                <tr class="characteristics-table__row">
+                                                    <td class="characteristics-table__cell">Borough</td>
+                                                    <td class="characteristics-table__cell characteristics-table__cell_bold characteristics-table__cell_darker">Central Disctrict</td>
+                                                </tr>
+                                                <tr class="characteristics-table__row">
+                                                    <td class="characteristics-table__cell">Postcode</td>
+                                                    <td class="characteristics-table__cell characteristics-table__cell_bold characteristics-table__cell_darker">LV-1069</td>
+                                                </tr>
+                                            </body>
+                                        </table>
+                                    </div>
+                                    <div class="ubo-card__aside hide-sm" data-slot-id="statuses" data-slot-res="xl">
+                                        <div class="ubo-card__statuses" data-target-slot="statuses">
+                                            <div class="ubo-card__status ubo-card__status_confirmed">
+                                                <div class="processing-status">
+                                                    <div class="processing-status__note">
+                                                        <svg class="processing-status__icon processing-status__icon_round-check"><use xlink:href="assets/images/icon.svg#icon_round-check"></use></svg>
+                                                        <div class="processing-status__text">Information successfully checked</div>
+                                                    </div>
+                                                    <div class="request-status request-status_simple request-status_up request-status_fz17 request-status_bold request-status_dark-green processing-status__status">
+                                                        <div class="request-status__text">CONFIRMED</div>
+                                                    </div>
                                                 </div>
                                             </div>
-                                            <div class="grid__col grid__col_xl_5 grid__col_md_9">
-                                                <div class="form__wrapper">
-                                                    <label class="form-box">
-                                                        <input class="input" type="text" name="ubo-1[lastName]" value="Sheeleen" placeholder="Last name" />
-                                                        <span class="form-box__label">Last name</span>
-                                                    </label>
-                                                    <div class="error-message"></div>
+                                            <div class="ubo-card__status ubo-card__status_refused">
+                                                <div class="processing-status">
+                                                    <div class="processing-status__note">
+                                                        <svg class="processing-status__icon processing-status__icon_clock"><use xlink:href="assets/images/icon.svg#icon_clock"></use></svg>
+                                                        <div class="processing-status__text">UBO Statement status:</div>
+                                                    </div>
+                                                    <div class="request-status request-status_simple request-status_up request-status_fz17 request-status_bold request-status_light-red processing-status__status">
+                                                        <div class="request-status__text">REFUSED</div>
+                                                    </div>
+                                                    <div class="processing-status__text">Reason: The information about UBO does not correspond to the actual information in the register of companies.</div>
                                                 </div>
                                             </div>
-                                            <div class="grid__col grid__col_xl_2 grid__col_md_4 grid__col_sm_9">
-                                                <div class="form__wrapper">
-                                                    <label class="form-box form-box_icon">
-                                                        <input class="input js-datepicker" type="text" name="ubo-1[birthDate]" placeholder="Date of birth" readonly="readonly" />
-                                                        <span class="form-box__label">Date of birth</span>
-                                                        <svg class="form-box__icon"><use xlink:href="assets/images/icon.svg#icon_calendar2"></use></svg>
-                                                    </label>
-                                                    <div class="error-message"></div>
+                                            <div class="ubo-card__status ubo-card__status_awaiting">
+                                                <div class="processing-status">
+                                                    <div class="processing-status__note">
+                                                        <svg class="processing-status__icon processing-status__icon_clock"><use xlink:href="assets/images/icon.svg#icon_clock"></use></svg>
+                                                        <div class="processing-status__text">UBO Statement sent</div>
+                                                    </div>
+                                                    <div class="request-status request-status_simple request-status_up request-status_fz17 request-status_bold request-status_orange processing-status__status">
+                                                        <div class="request-status__text">AWAITING CONFIRMATION</div>
+                                                    </div>
                                                 </div>
                                             </div>
-                                            <div class="grid__col grid__col_xl_2 grid__col_md_5 grid__col_sm_9">
-                                                <div class="form__wrapper">
-                                                    <label class="form-box">
-                                                        <select class="select js-select-input" name="ubo-1[nationality]">
-                                                            <option value="" placeholder>Nationality</option>
-                                                            <option value="eng">English</option>
-                                                            <option value="rus">Russians</option>
-                                                            <option value="ger">Germans</option>
-                                                            <option value="lat">Latvians</option>
-                                                        </select>
-                                                        <span class="form-box__label">Nationality</span>
-                                                    </label>
-                                                    <div class="error-message"></div>
-                                                </div>
-                                            </div>
-                                            <div class="grid__col grid__col_xl_2 grid__col_md_4 grid__col_sm_9">
-                                                <div class="form__wrapper">
-                                                    <label class="form-box">
-                                                        <select class="select js-select-input" name="ubo-1[birthplaceCountry]">
-                                                            <option value="" placeholder>Birthplace country</option>
-                                                            <option value="lv">Latvia</option>
-                                                            <option value="ru">Russia</option>
-                                                            <option value="de">Germany</option>
-                                                            <option value="fr">France</option>
-                                                        </select>
-                                                        <span class="form-box__label">Birthplace country</span>
-                                                    </label>
-                                                    <div class="error-message"></div>
-                                                </div>
-                                            </div>
-                                            <div class="grid__col grid__col_xl_3 grid__col_md_5 grid__col_sm_9">
-                                                <div class="form__wrapper">
-                                                    <label class="form-box">
-                                                        <input class="input" type="text" name="ubo-1[birthplaceCity]" placeholder="Birthplace city" />
-                                                        <span class="form-box__label">Birthplace city</span>
-                                                    </label>
-                                                    <div class="error-message"></div>
-                                                </div>
-                                            </div>
-                                            <div class="grid__col grid__col_xl_4 grid__col_md_9">
-                                                <div class="form__wrapper">
-                                                    <label class="form-box">
-                                                        <input class="input" type="text" name="ubo-1[legalAdressL1]" placeholder="Legal Adress Line 1" />
-                                                        <span class="form-box__label">Legal Adress Line 1</span>
-                                                    </label>
-                                                    <div class="error-message"></div>
-                                                </div>
-                                            </div>
-                                            <div class="grid__col grid__col_xl_5 grid__col_md_9">
-                                                <div class="form__wrapper">
-                                                    <label class="form-box">
-                                                        <input class="input" type="text" name="ubo-1[legalAdressL2]" placeholder="Legal Adress Line 2" />
-                                                        <span class="form-box__label">Legal Adress Line 2</span>
-                                                    </label>
-                                                    <div class="error-message"></div>
-                                                </div>
-                                            </div>
-                                            <div class="grid__col grid__col_xl_4 grid__col_md_9">
-                                                <div class="form__wrapper">
-                                                    <label class="form-box">
-                                                        <select class="select js-select-input" name="ubo-1[country]">
-                                                            <option value="" placeholder>Country</option>
-                                                            <option value="lv">Latvia</option>
-                                                            <option value="ru">Russia</option>
-                                                            <option value="de">Germany</option>
-                                                            <option value="fr">France</option>
-                                                        </select>
-                                                        <span class="form-box__label">Country</span>
-                                                    </label>
-                                                    <div class="error-message"></div>
-                                                </div>
-                                            </div>
-                                            <div class="grid__col grid__col_xl_5 grid__col_md_9">
-                                                <div class="form__wrapper">
-                                                    <label class="form-box">
-                                                        <input class="input" type="text" name="ubo-1[city]" placeholder="City" />
-                                                        <span class="form-box__label">City</span>
-                                                    </label>
-                                                    <div class="error-message"></div>
-                                                </div>
-                                            </div>
-                                            <div class="grid__col grid__col_xl_4 grid__col_md_9">
-                                                <div class="form__wrapper">
-                                                    <label class="form-box">
-                                                        <input class="input" type="text" name="ubo-1[borough]" placeholder="Borough" />
-                                                        <span class="form-box__label">Borough</span>
-                                                    </label>
-                                                    <div class="error-message"></div>
-                                                </div>
-                                            </div>
-                                            <div class="grid__col grid__col_xl_5 grid__col_md_9">
-                                                <div class="form__wrapper">
-                                                    <label class="form-box">
-                                                        <input class="input" type="text" name="ubo-1[postCode]" placeholder="Postcode" />
-                                                        <span class="form-box__label">Postcode</span>
-                                                    </label>
-                                                    <div class="error-message"></div>
-                                                </div>
+                                            <div class="ubo-card__describe">Our Payment providers are now checking provided information. This can take a while. Usually we get confirmation within less than 24&nbsp;Hours.</div>
+                                            <div class="ubo-card__buttons">
+                                                <a class="button button_border button_short button_wide ubo-card__button" href="#">
+                                                    <span class="button__text">Try Again</span>
+                                                </a>
                                             </div>
                                         </div>
-                                    </fieldset>
-                                    <fieldset class="form__section form__section_mg90">
-                                        <div class="grid grid_big grid_int59 grid_c9">
-                                            <div class="grid__col grid__col_xl_4 grid__col_md_9">
-                                                <div class="form__wrapper form__wrapper_aie form__wrapper_h100p">
-                                                    <a class="link link_icon link_underline link_bold link_icon_right link_icon_right_pr50 link_no-shadow form__link form__link_fz25">
-                                                        <svg class="link__icon link__icon_plus-thin"><use xlink:href="assets/images/icon.svg#icon_plus-thin"></use></svg>
-                                                        <span class="link__text">Add one more UBO</span>
-                                                    </a>
-                                                    <div class="error-message"></div>
-                                                </div>
-                                            </div>
-                                            <div class="grid__col grid__col_xl_5 grid__col_md_9">
-                                                <div class="form__wrapper form__wrapper_aie form__wrapper_h100p">
-                                                    <button class="button button_short button_wide form__button form__button_mxw368" type="submit">
-                                                        <span class="button__text">Send UBO Statement</span>
-                                                    </button>
-                                                    <div class="error-message"></div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </fieldset>
-                                </form>
+                                    </div>
+                                </div>
                             </div>
                         </section>
                     </div>

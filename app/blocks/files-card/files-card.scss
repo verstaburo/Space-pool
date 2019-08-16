@@ -7,8 +7,18 @@
   border-radius: 3px;
   border: 1px solid $color-border-light;
   transition: background $ease-main, border $ease-main, box-shadow $ease-main;
-  padding: 30px 40px;
+  padding: 27px 24px 36px 39px;
   box-sizing: border-box;
+  position: relative;
+
+  @include screen('md') {
+    padding: 27px 20px 30px 20px;
+  }
+
+  @include screen('sm') {
+    min-height: 0;
+    padding: 15px 10px;
+  }
 
   &.is-confirmed {
     background-color: $color-white;
@@ -16,13 +26,31 @@
     border-color: $color-basic;
   }
 
+  &.is-refused::before {
+    @include pseudo;
+
+    top: 17px;
+    right: 17px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: $color-yellow;
+
+    @include screen('sm') {
+      top: 10px;
+      right: 10px;
+      width: 8px;
+      height: 8px;
+    }
+  }
+
   &__check {
     position: absolute;
     width: 21px;
     height: 18px;
     fill: url('#main-gradient-vi');
-    top: 22px;
-    right: 24px;
+    top: 18px;
+    right: 16px;
     opacity: 0;
     transition: opacity $ease-main;
 
@@ -43,6 +71,8 @@
 
     display: block;
     width: 100%;
+    // padding-right: 20px;
+    box-sizing: border-box;
 
     @include screen('sm') {
       @include text10;
@@ -53,30 +83,115 @@
 
   &__subtitle {
     font-weight: 700;
-    padding-right: 20px;
+    padding-right: 10px;
   }
 
   &__describe {
     margin-top: auto;
+    line-height: 1.5;
+    box-sizing: border-box;
+    padding-top: 15px;
+
+    @include screen('sm') {
+      line-height: 1.2;
+    }
   }
 
   &__title {
     @include heading-1-sm;
-    @include ellipsis(100%);
 
     font-weight: 700;
     color: $color-basic;
     transition: color $ease-main, border $ease-main;
-    display: inline-block;
-    margin-bottom: 34px;
+    padding-right: 10px;
+    width: 100%;
     box-sizing: border-box;
-    padding-right: 20px;
+    display: block;
 
     @include screen('sm') {
       @include heading-4;
 
       line-height: 1;
-      margin-bottom: 16px;
+    }
+
+    &:not(:first-child) {
+      margin-top: 9px;
+    }
+  }
+
+  &__uploader {
+    box-sizing: border-box;
+    padding-right: 15px;
+    width: 100%;
+
+    @include screen('md') {
+      padding-right: 0;
+    }
+
+    &:not(:first-child) {
+      margin-top: 40px;
+
+      @include screen('sm') {
+        margin-top: 20px;
+      }
+    }
+
+    &:not(:last-child) {
+      margin-bottom: 21px;
+    }
+
+    #{$b}.is-refused &:not(:first-child) {
+      margin-top: 28px;
+    }
+
+    #{$b}.is-confirmed &,#{$b}.is-awaiting & {
+      display: none;
+    }
+  }
+
+  &__status {
+    display: none;
+
+    &:not(:first-child) {
+      margin-top: 39px;
+
+      @include screen('sm') {
+        margin-top: 20px;
+      }
+    }
+
+    #{$b}.is-refused &:not(:first-child) {
+      margin-top: 25px;
+
+      @include screen('sm') {
+        margin-top: 20px;
+      }
+    }
+
+    #{$b}.is-confirmed &,#{$b}.is-refused &,#{$b}.is-awaiting & {
+      display: block;
+    }
+  }
+
+  &__status-item {
+    display: none;
+
+    &_confirmed {
+      #{$b}.is-confirmed & {
+        display: block;
+      }
+    }
+
+    &_refused {
+      #{$b}.is-refused & {
+        display: block;
+      }
+    }
+
+    &_awaiting {
+      #{$b}.is-awaiting & {
+        display: block;
+      }
     }
   }
 }

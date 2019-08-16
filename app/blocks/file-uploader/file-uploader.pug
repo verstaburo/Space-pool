@@ -1,10 +1,10 @@
 mixin file-uploader()
-  +b.FORM.file-uploader&attributes(attributes)
+  +b.FORM.file-uploader&attributes(attributes)(data-uploader-block)
     +e.output(data-files-output)
-      //- +file Passport Inside Page 1.jpg
-      //- +file Passport Inside Page 2.jpg
-      //- +file Back of an ID.jpg
     +e.buttons
       +button-icon('label', 'folder')._border._short.__label Browse...
-      +button('button')(type="submit")._short.__button Send Files
+        +input(type="file" multiple="multiple").hide.js-file-upload
+      +button('button')(type="submit" data-server-callback="uploadFiles")._short.__button.js-file-send Send Files
+    +e.preloader
+      +loader
     block

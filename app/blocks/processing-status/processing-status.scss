@@ -1,7 +1,6 @@
 .processing-status {
   $b: &;
 
-  display: block;
   width: 100%;
   box-sizing: border-box;
 
@@ -12,11 +11,23 @@
   }
 
   &__icon {
+    min-width: 30px;
     width: 30px;
     height: 30px;
+    fill: $color-icon-gray-another;
+
+    @include screen('sm') {
+      min-width: 20px;
+      width: 20px;
+      height: 20px;
+    }
 
     &:not(:last-child) {
       margin-right: 12px;
+
+      @include screen('sm') {
+        margin-right: 6px;
+      }
     }
   }
 
@@ -31,6 +42,22 @@
       @include text10;
 
       line-height: 1.2;
+    }
+  }
+
+  &__status {
+    min-width: 106px;
+
+    &:not(:first-child) {
+      margin-top: 21px;
+
+      @include screen('sm') {
+        margin-top: 11px;
+      }
+    }
+
+    &:not(:last-child) {
+      margin-bottom: 11px;
     }
   }
 }

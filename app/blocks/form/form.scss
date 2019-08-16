@@ -876,6 +876,11 @@
       align-content: flex-end;
     }
 
+    &_aie {
+      align-items: flex-end;
+      align-content: flex-end;
+    }
+
     &_pb {
       padding-bottom: 5px;
       box-sizing: border-box;
@@ -1190,6 +1195,16 @@
       }
     }
 
+    &_fz25 {
+      @include heading-3;
+
+      line-height: (26 / 25);
+
+      @include screen('sm') {
+        @include heading-4;
+      }
+    }
+
     &_mt {
       margin-top: 13px;
     }
@@ -1493,6 +1508,14 @@
   &__button {
     &_mxw300 {
       max-width: 300px;
+
+      @include screen('lg') {
+        max-width: 100%;
+      }
+    }
+
+    &_mxw368 {
+      max-width: 368px;
 
       @include screen('lg') {
         max-width: 100%;

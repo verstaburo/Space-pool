@@ -71,6 +71,8 @@ import newSpaceStep6 from '../pages/new-space/new-space-step8';
 import newSpaceStep5 from '../pages/new-space/new-space-step5';
 import checkInput from '../blocks/form-elements/check-input';
 import photoPreview from '../blocks/photo-preview/photo-preview';
+import fileUploader from '../blocks/file-uploader/file-uploader';
+import fileRemove from '../blocks/file/file';
 
 const $ = window.$;
 
@@ -131,4 +133,6 @@ $(() => {
   newSpaceStep5();
   checkInput();
   photoPreview();
+  fileRemove();
+  fileUploader();
 });

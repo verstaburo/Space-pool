@@ -1,0 +1,235 @@
+.ubo-card {
+  $b: &;
+
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  box-sizing: border-box;
+  padding: 33px 40px 33px 42px;
+  border-radius: 3px;
+  border: 1px solid $color-border-light;
+
+  @include screen('md') {
+    padding: 30px 20px;
+  }
+
+  @include screen('sm') {
+    padding: 15px 10px;
+  }
+
+  &.is-refused {
+    &::before {
+      @include pseudo;
+
+      top: 15px;
+      right: 15px;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background-color: $color-yellow;
+
+      @include screen('sm') {
+        top: 10px;
+        right: 10px;
+        width: 8px;
+        height: 8px;
+      }
+    }
+  }
+
+  &__content {
+    margin-right: 90px;
+    flex: 1;
+
+    @include screen('md') {
+      margin-right: 20px;
+    }
+
+    @include screen('sm') {
+      margin-right: 0;
+      flex: none;
+      width: 100%;
+    }
+  }
+
+  &__statuses {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    box-sizing: border-box;
+    width: 100%;
+
+    &-wrapper {
+      width: 100%;
+
+      &:not(:first-child) {
+        margin-top: 30px;
+      }
+    }
+  }
+
+  &__aside {
+    width: 25.8%;
+    min-width: 25.8%;
+    box-sizing: border-box;
+    padding-top: 10px;
+
+    @include screen('md') {
+      width: 25%;
+      min-width: 25%;
+    }
+  }
+
+  &__header {
+    position: relative;
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    padding-right: 30px;
+  }
+
+  &__title {
+    @include text24;
+
+    font-weight: 700;
+    display: block;
+    width: 100%;
+    transition: color $ease-main;
+
+    @include screen('sm') {
+      @include heading-4;
+    }
+
+    #{$b}.is-refused & {
+      color: $color-red;
+    }
+  }
+
+  &__check {
+    position: absolute;
+    width: 21px;
+    height: 18px;
+    fill: url('#main-gradient-vi');
+    top: 5px;
+    right: -2px;
+    opacity: 0;
+    transition: opacity $ease-main;
+
+    @include screen('sm') {
+      width: 15px;
+      height: 15px;
+      right: 0px;
+      top: 0px;
+    }
+
+    #{$b}.is-confirmed & {
+      opacity: 1;
+    }
+  }
+
+  &__describe {
+    @include text;
+
+    display: block;
+    width: 100%;
+    line-height: (19 / 14);
+    color: $color-basic-light;
+
+    @include screen('sm') {
+      @include text10;
+
+      line-height: (15 / 10);
+    }
+
+    &:not(:first-child) {
+      margin-top: 40px;
+
+      @include screen('sm') {
+        margin-top: 25px;
+      }
+    }
+
+    #{$b}.is-refused & {
+      display: none;
+    }
+  }
+
+  &__table {
+    width: 100%;
+
+    &:not(:first-child) {
+      margin-top: 40px;
+    }
+
+    &.table tr {
+      box-sizing: border-box;
+      padding: 8px 0 9px;
+    }
+  }
+
+  &__status {
+    display: none;
+
+    &_awaiting {
+      display: block;
+
+      #{$b}.is-refused &, #{$b}.is-confirmed & {
+        display: none;
+      }
+    }
+
+    &_refused {
+
+      #{$b}.is-refused & {
+        display: block;
+      }
+    }
+
+    &_confirmed {
+      #{$b}.is-confirmed & {
+        display: block;
+      }
+    }
+
+    .processing-status {
+
+      &__status {
+
+        &:not(:last-child) {
+          margin-bottom: 19px;
+
+          @include screen('sm') {
+            margin-bottom: 11px;
+          }
+        }
+      }
+    }
+  }
+
+  &__buttons {
+    display: none;
+    width: 100%;
+
+    &:not(:first-child) {
+      margin-top: 45px;
+
+      @include screen('sm') {
+        margin-top: 25px;
+      }
+    }
+
+    #{$b}.is-refused & {
+      display: block;
+    }
+  }
+
+  &__button {
+    max-width: 170px;
+
+    @include screen('sm') {
+      max-width: none;
+    }
+  }
+}

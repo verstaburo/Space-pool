@@ -1,0 +1,57 @@
+mixin ubo-card()
+  +b.ubo-card&attributes(attributes)
+    +e.content
+      +e.header
+        +e.title UBO <span data-ubo-id>1</span> (Ultimate Beneficial Owner)
+        +icon('check').__check
+      +e.statuses-wrapper.hide-from-sm(data-slot-id='statuses' data-slot-res='sm')
+      +characteristics-table._dark._normal._large._wrap.__table
+        body
+          +e.TR.row
+            +e.TD.cell First name
+            +e.TD.cell_bold._darker Eugene
+          +e.TR.row
+            +e.TD.cell Last name
+            +e.TD.cell_bold._darker Sheeleen
+          +e.TR.row
+            +e.TD.cell Date of birth
+            +e.TD.cell_bold._darker 31 August 1986
+          +e.TR.row
+            +e.TD.cell Nationality
+            +e.TD.cell_bold._darker Russian
+          +e.TR.row
+            +e.TD.cell Birthplace country
+            +e.TD.cell_bold._darker Latvia
+          +e.TR.row
+            +e.TD.cell Birthplace city
+            +e.TD.cell_bold._darker Riga
+          +e.TR.row
+            +e.TD.cell Legal adress line 1
+            +e.TD.cell_bold._darker Central park Street 99 - 55
+          +e.TR.row
+            +e.TD.cell Legal adress line 2
+            +e.TD.cell_bold._darker Wemley stadium 6-th tribune
+          +e.TR.row
+            +e.TD.cell Country
+            +e.TD.cell_bold._darker Latvia
+          +e.TR.row
+            +e.TD.cell City
+            +e.TD.cell_bold._darker Riga
+          +e.TR.row
+            +e.TD.cell Borough
+            +e.TD.cell_bold._darker Central Disctrict
+          +e.TR.row
+            +e.TD.cell Postcode
+            +e.TD.cell_bold._darker LV-1069
+    +e.aside.hide-sm(data-slot-id='statuses' data-slot-res='xl')
+      +e.statuses(data-target-slot='statuses')
+        +e.status_confirmed
+          +processing-status({note: {icon: 'round-check', text: 'Information successfully checked'}, status: {class: '_dark-green', text: 'CONFIRMED'}})
+        +e.status_refused
+          +processing-status({note: {icon: 'clock', text: "UBO Statement status:"}, status: {class: '_light-red', text: 'REFUSED'}, reason: 'Reason: The information about UBO does not correspond to the actual information in the register of companies.'})
+        +e.status_awaiting
+          +processing-status({note: {icon: 'clock', text: "UBO Statement sent"}, status: {class: '_orange', text: 'AWAITING CONFIRMATION'}})
+        +e.describe Our Payment providers are now checking provided information. This can take a while. Usually we get confirmation within less than 24&nbsp;Hours.
+        +e.buttons
+          +button('a')._border._short._wide.__button(href="#") Try Again
+    block
