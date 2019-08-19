@@ -1,7 +1,10 @@
-mixin button(newtag)
+mixin button(newtag, loader)
   +b(newtag || 'a').button&attributes(attributes)
     +e.SPAN.text
       block
+    if loader
+      +e.preloader
+        +loader._small
 
 mixin button-icon(newtag, icon)
   +b(newtag || 'a').button_icon&attributes(attributes)

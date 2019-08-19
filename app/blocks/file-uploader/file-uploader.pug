@@ -4,7 +4,5 @@ mixin file-uploader()
     +e.buttons
       +button-icon('label', 'folder')._border._short.__label Browse...
         +input(type="file" multiple="multiple").hide.js-file-upload
-      +button('button')(type="submit" data-server-callback="uploadFiles")._short.__button.js-file-send Send Files
-    +e.preloader
-      +loader
+      +button('button', true)(type="submit" data-server-callback="uploadFiles")._short.__button.js-file-send Send Files
     block

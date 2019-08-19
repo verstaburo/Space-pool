@@ -73,6 +73,7 @@ import checkInput from '../blocks/form-elements/check-input';
 import photoPreview from '../blocks/photo-preview/photo-preview';
 import fileUploader from '../blocks/file-uploader/file-uploader';
 import fileRemove from '../blocks/file/file';
+import profile from '../pages/profile/profile';
 
 const $ = window.$;
 
@@ -135,4 +136,5 @@ $(() => {
   photoPreview();
   fileRemove();
   fileUploader();
+  profile();
 });

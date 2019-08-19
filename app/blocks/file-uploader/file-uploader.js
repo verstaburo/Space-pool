@@ -85,13 +85,14 @@ export default function fileUploader() {
     const uploaderBlock = $(self).closest('[data-uploader-block]');
     const card = $(self).closest('[data-uploader-status]');
     const fn = $(self).attr('data-server-callback');
-    $(uploaderBlock).addClass('is-loading');
+    $(self).addClass('is-loading');
     window[fn](form[0]).then((redyLoad) => {
       if (redyLoad) {
-        $(uploaderBlock).removeClass('is-ready, is-loading');
+        $(uploaderBlock).removeClass('is-ready');
+        $(self).removeClass('is-loading');
         $(card).addClass('is-awaiting');
       } else {
-        $(uploaderBlock).removeClass('is-loading');
+        $(self).removeClass('is-loading');
       }
     });
   });

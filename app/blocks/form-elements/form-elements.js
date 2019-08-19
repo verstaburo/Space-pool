@@ -589,6 +589,34 @@ export function datepicker() {
     return `${year}-${month}-${day}`;
   }
 
+  function simpleDatepickerInit(el) {
+    const disabledDates = $(el).attr('data-disabled-dates') ? $(el).attr('data-disabled-dates').split(',') : [];
+
+    el.datepicker({
+      language: 'en',
+      dateFormat: 'dd MM yyyy',
+      autoClose: true,
+      onSelect(a, b, inst) {
+        const self = inst.el;
+        $(self).trigger('change');
+      },
+      onRenderCell(d, type) {
+        let disabled = false;
+        const formatted = getFormattedDate(d);
+
+        if (type === 'day') {
+          disabled = disabledDates.filter(date => (date === formatted)).length;
+        }
+
+        return {
+          disabled,
+        };
+      },
+    });
+  }
+
+  window.simpleDatepickerInit = simpleDatepickerInit;
+
   $('.js-datepicker').each(function () {
     const el = $(this);
     const disabledDates = $(el).attr('data-disabled-dates') ? $(el).attr('data-disabled-dates').split(',') : [];
