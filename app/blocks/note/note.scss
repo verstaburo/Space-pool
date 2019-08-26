@@ -151,6 +151,18 @@
         }
       }
     }
+
+    &_lh42 {
+      #{$b} {
+        &__text {
+          line-height: (42 / 30);
+
+          @include screen('sm') {
+            line-height: (25 / 20);
+          }
+        }
+      }
+    }
   }
 
   &_sm-pmg {
@@ -178,6 +190,10 @@
   &_fw400 {
     #{$b}__text {
       font-weight: 400;
+
+      p {
+        font-weight: inherit;
+      }
     }
   }
 
@@ -202,6 +218,23 @@
 
         @include screen('sm') {
           @include text-big;
+        }
+      }
+    }
+  }
+
+  &_strong {
+    #{$b} {
+
+      &__text {
+        display: inline-block;
+        box-sizing: border-box;
+        padding: 0 9px;
+        color: $color-white;
+        background-color: $color-basic;
+
+        @include screen('sm') {
+          padding: 2px 4px;
         }
       }
     }
