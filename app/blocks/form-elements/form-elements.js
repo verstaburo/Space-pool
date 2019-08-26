@@ -589,13 +589,33 @@ export function datepicker() {
     return `${year}-${month}-${day}`;
   }
 
+  function setFormattedDate(date) {
+    let result = '';
+    if (date) {
+      const parts = date.split('-');
+      const year = parts[0];
+      const month = parts[1] - 1;
+      const day = parts[2];
+      result = new Date(year, month, day, 0, 0);
+    }
+
+    return result;
+  }
+
   function simpleDatepickerInit(el) {
     const disabledDates = $(el).attr('data-disabled-dates') ? $(el).attr('data-disabled-dates').split(',') : [];
+    const minDateParam = $(el).attr('data-mindate');
+    const maxDateParam = $(el).attr('data-maxdate');
+    const minDate = minDateParam !== undefined ? setFormattedDate(minDateParam) : new Date();
+    const maxDate = maxDateParam !== undefined ? setFormattedDate(maxDateParam) : '';
 
     el.datepicker({
       language: 'en',
       dateFormat: 'dd MM yyyy',
       autoClose: true,
+      disableNavWhenOutOfRange: true,
+      minDate,
+      maxDate,
       onSelect(a, b, inst) {
         const self = inst.el;
         $(self).trigger('change');
@@ -620,11 +640,17 @@ export function datepicker() {
   $('.js-datepicker').each(function () {
     const el = $(this);
     const disabledDates = $(el).attr('data-disabled-dates') ? $(el).attr('data-disabled-dates').split(',') : [];
+    const minDateParam = $(el).attr('data-mindate');
+    const maxDateParam = $(el).attr('data-maxdate');
+    const minDate = minDateParam !== undefined ? setFormattedDate(minDateParam) : new Date();
+    const maxDate = maxDateParam !== undefined ? setFormattedDate(maxDateParam) : '';
 
     el.datepicker({
       language: 'en',
       dateFormat: 'dd MM yyyy',
       autoClose: true,
+      minDate,
+      maxDate,
       onSelect(a, b, inst) {
         const self = inst.el;
         $(self).trigger('change');
@@ -647,11 +673,17 @@ export function datepicker() {
   $('.js-datepicker2').each(function () {
     const el = $(this);
     const disabledDates = $(el).attr('data-disabled-dates') ? $(el).attr('data-disabled-dates').split(',') : [];
+    const minDateParam = $(el).attr('data-mindate');
+    const maxDateParam = $(el).attr('data-maxdate');
+    const minDate = minDateParam !== undefined ? setFormattedDate(minDateParam) : new Date();
+    const maxDate = maxDateParam !== undefined ? setFormattedDate(maxDateParam) : '';
 
     el.datepicker({
       language: 'en',
       dateFormat: 'MM d, yyyy',
       autoClose: true,
+      minDate,
+      maxDate,
       onSelect(a, b, inst) {
         const self = inst.el;
         $(self).trigger('change');
@@ -673,6 +705,10 @@ export function datepicker() {
 
   $('.js-change-date').each((i, el) => {
     const disabledDates = $(el).attr('data-disabled-dates') ? $(el).attr('data-disabled-dates').split(',') : [];
+    const minDateParam = $(el).attr('data-mindate');
+    const maxDateParam = $(el).attr('data-maxdate');
+    const minDate = minDateParam !== undefined ? setFormattedDate(minDateParam) : new Date();
+    const maxDate = maxDateParam !== undefined ? setFormattedDate(maxDateParam) : '';
 
     $(el).datepicker({
       language: 'en',
@@ -681,6 +717,8 @@ export function datepicker() {
       position: 'bottom right',
       showEvent: 'click',
       classes: 'datepicker_fancybox',
+      minDate,
+      maxDate,
       onSelect(a, b, inst) {
         const date = b;
         const self = inst.el;
@@ -706,12 +744,18 @@ export function datepicker() {
   $('.js-days-calendar').each(function () {
     const el = $(this);
     const disabledDates = $(el).attr('data-disabled-dates') ? $(el).attr('data-disabled-dates').split(',') : [];
+    const minDateParam = $(el).attr('data-mindate');
+    const maxDateParam = $(el).attr('data-maxdate');
+    const minDate = minDateParam !== undefined ? setFormattedDate(minDateParam) : new Date();
+    const maxDate = maxDateParam !== undefined ? setFormattedDate(maxDateParam) : '';
     /* eslint-disable consistent-return */
     el.datepicker({
       classes: 'calendar__grid',
       language: 'en',
       dateFormat: 'dd MM yyyy',
       inline: true,
+      minDate,
+      maxDate,
       navTitles: {
         days: '<span data-month="data-month">m</span><span data-year="data-year">yyyy</span>',
       },

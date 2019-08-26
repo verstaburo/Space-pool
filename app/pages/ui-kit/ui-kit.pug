@@ -416,10 +416,13 @@ block content
             +form-box('Выберите дату', 'calendar2')
               +input(placeholder="Выберите дату" readonly).js-datepicker
           +col(6)
-            +ui-description .js-datepicker2<br> Параметры задаются через дата-атрибуты
+            +ui-description .js-datepicker2<br> Параметры задаются через дата-атрибуты data-disabled-dates - принимает перечисленные через запятую даты для отключения, data-min-date - минимально допустимая дата, data-max-date - максимально допустимая дата
             br
             +form-box('Выберите дату', 'calendar3')
-              +input(placeholder="Выберите дату" readonly data-disabled-dates="2019-8-2,2019-8-5,2019-8-20,2019-8-14").js-datepicker2
+              +input(placeholder="Выберите дату" readonly data-disabled-dates="2019-8-2,2019-8-5,2019-8-20,2019-8-14" data-mindate='').js-datepicker2
+            br
+            +form-box('Выберите дату', 'calendar2')
+              +input(placeholder="Выберите дату" data-mindate="2019-8-30" data-maxdate="2020-8-30" readonly).js-datepicker
           +col(6)
             +ui-description Поле ввода номера телефона.<br> Маска привязана через атрибут data-tel-code и data-tel-number
             br
