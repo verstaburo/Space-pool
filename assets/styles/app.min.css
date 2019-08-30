@@ -6728,15 +6728,26 @@ hr{
 .button-plus-thin{
   width:22px;
   height:22px;
-  cursor:pointer; }
-.button-plus-thin svg{
-    fill:#525a65;
-    width:22px;
-    height:22px;
-    -webkit-transition:fill 0.3s ease;
-    transition:fill 0.3s ease; }
-.button-plus-thin:hover svg{
-    fill:#121615; }
+  cursor:pointer;
+  position:relative; }
+.button-plus-thin::before, .button-plus-thin::after{
+    content:'';
+    position:absolute;
+    width:2px;
+    height:100%;
+    top:0;
+    bottom:0;
+    left:0;
+    right:0;
+    margin:auto;
+    background-color:#525a65;
+    -webkit-transition:background-color 0.3s ease;
+    transition:background-color 0.3s ease; }
+.button-plus-thin::after{
+    -webkit-transform:rotate(90deg);
+            transform:rotate(90deg); }
+.button-plus-thin:hover::before, .button-plus-thin:hover::after{
+    background-color:#121615; }
 .button-heart{
   display:block;
   position:relative;
@@ -7341,15 +7352,26 @@ hr{
 .button-plus-thin{
   width:22px;
   height:22px;
-  cursor:pointer; }
-.button-plus-thin svg{
-    fill:#525a65;
-    width:22px;
-    height:22px;
-    -webkit-transition:fill 0.3s ease;
-    transition:fill 0.3s ease; }
-.button-plus-thin:hover svg{
-    fill:#121615; }
+  cursor:pointer;
+  position:relative; }
+.button-plus-thin::before, .button-plus-thin::after{
+    content:'';
+    position:absolute;
+    width:2px;
+    height:100%;
+    top:0;
+    bottom:0;
+    left:0;
+    right:0;
+    margin:auto;
+    background-color:#525a65;
+    -webkit-transition:background-color 0.3s ease;
+    transition:background-color 0.3s ease; }
+.button-plus-thin::after{
+    -webkit-transform:rotate(90deg);
+            transform:rotate(90deg); }
+.button-plus-thin:hover::before, .button-plus-thin:hover::after{
+    background-color:#121615; }
 .calendar{
   display:block;
   width:100%; }
