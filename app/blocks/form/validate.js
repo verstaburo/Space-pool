@@ -53,7 +53,7 @@ $('[data-validated-form]').parsley({
   trigger: 'submit',
   errorClass: 'is-error',
   successClass: 'is-valid',
-  excluded: 'input[type=button], input[type = submit], input[type = reset], input[type = hidden], [disabled]',
+  excluded: 'input[type=button], input[type = submit], input[type = reset], input[type = hidden], [disabled], [data-not-verified]',
   classHandler(el) {
     return $(el.element).closest('.form__wrapper');
   },

@@ -38,17 +38,23 @@ mixin popup-add-offer()
                       +check-input Per Half a day
                     +form-section-wrapper._mg29
                       +check-input Per day
-            +col({xl: 6, sm: 7})(data-form-element="hotFixedOffice")
-              +form-section-wrapper._negative-mg._separator
-                +form-box('Price ', '', '', '&pound;')._icon_left.__count
-                  +input(type="text" name="price" placeholder="Price" required)
-                +form-box.__mesure
-                  +select.js-select-input
-                    option(value="Days" selected) Days
-                    option(value="Week") Weeks
-                    option(value="Month") Months
-                    option(value="Year") Years
-            +col({xl: 6, sm: 5})(data-form-element="hotFixedOffice")
+            +col({xl: 6, sm: 12})(data-form-element="hotFixedOffice")
+              +e.field
+                +form-section-wrapper._negative-mg.__count
+                  +form-box('Price ', '', '', '&pound;')._icon_left
+                    +input(type="text" name="price" placeholder="Price" required)
+                +form-section-wrapper._negative-mg.__mesure
+                  +form-box
+                    +select.js-select-input(name="pricePeriod")
+                      option(value="Days" selected) Days
+                      option(value="Week") Weeks
+                      option(value="Month") Months
+                      option(value="Year") Years
+                      option(value="per day") Per Day
+                      option(value="per week") Per Week
+                      option(value="per month") Per Month
+                      option(value="per year") Per Year
+            +col({xl: 6, sm: 12})(data-form-element="hotFixedOffice")
               +form-section-wrapper._negative-mg
                 +form-box('Deposit', '', '', '&pound;')._icon_left
                   +input(type="text" placeholder="Deposit", value='0.2')
@@ -76,26 +82,26 @@ mixin popup-add-offer()
                 +form-box('Floor area ', '', '', '', 'ft<sup>2</sup>')._icon
                   +input(type="text" name="area" placeholder="Floor area" required)
                 //- +form-section-text._light Without supply rooms
-            +col({xl: 6, sm: 12})(data-form-element="hotFixedOffice")
-              +form-section-wrapper._negative-mg
-                +form-box('Minimum rent period').__count
-                  +input(type="text" name="durationRentMin" placeholder="Minimum rent period" required)
-                +form-box('').__mesure
-                  +select.js-select-input(name="mesuresPeriodMin")
-                    option(value="Days" selected) Days
-                    option(value="Week") Weeks
-                    option(value="Month") Months
-                    option(value="Year") Years
-            +col({xl: 6, sm: 12})(data-form-element="hotFixedOffice")
-              +form-section-wrapper._negative-mg
-                +form-box('Maximum rent period').__count
-                  +input(type="text" name="durationRentMax" placeholder="Maximum rent period")
-                +form-box('').__mesure
-                  +select.js-select-input(name="mesuresPeriodMax")
-                    option(value="Days" selected) Days
-                    option(value="Week") Week
-                    option(value="Month") Month
-                    option(value="Year") Year
+            //- +col({xl: 6, sm: 12})(data-form-element="hotFixedOffice")
+            //-   +form-section-wrapper._negative-mg
+            //-     +form-box('Minimum rent period').__count
+            //-       +input(type="text" name="durationRentMin" placeholder="Minimum rent period" required)
+            //-     +form-box('').__mesure
+            //-       +select.js-select-input(name="mesuresPeriodMin")
+            //-         option(value="Days" selected) Days
+            //-         option(value="Week") Weeks
+            //-         option(value="Month") Months
+            //-         option(value="Year") Years
+            //- +col({xl: 6, sm: 12})(data-form-element="hotFixedOffice")
+            //-   +form-section-wrapper._negative-mg
+            //-     +form-box('Maximum rent period').__count
+            //-       +input(type="text" name="durationRentMax" placeholder="Maximum rent period")
+            //-     +form-box('').__mesure
+            //-       +select.js-select-input(name="mesuresPeriodMax")
+            //-         option(value="Days" selected) Days
+            //-         option(value="Week") Week
+            //-         option(value="Month") Month
+            //-         option(value="Year") Year
             +col({xl: 12})(data-form-element="meetingRoom")
               +form-section-wrapper
                 +form-box('Number of Seats', '', 'div')
@@ -114,7 +120,7 @@ mixin popup-add-offer()
             +form-section-title('h4')._small Notice period
           +form-section-wrapper._fxe._no-mg
             +form-box('Notice period (numeric value)').__count
-              +input(type="text" placeholder="Notice period (numeric value)")
+              +input(type="text" placeholder="Notice period (numeric value)").js-numberbox-input
             +form-box.__mesure
               +select.js-select-input
                 option(value="Days" selected) Days

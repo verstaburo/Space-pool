@@ -46,8 +46,11 @@ export default function accordions() {
 
   $(document).on('click', '.js-accordion-open', (evt) => {
     const self = evt.currentTarget;
-    evt.preventDefault();
-    openAccordion(self);
+    const source = evt.target;
+    if (!($(source).is('.offer-short__buttons') || $(source).closest('.offer-short__buttons').length > 0)) {
+      evt.preventDefault();
+      openAccordion(self);
+    }
   });
 }
 
