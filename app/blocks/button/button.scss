@@ -617,15 +617,29 @@
   width: 22px;
   height: 22px;
   cursor: pointer;
+  position: relative;
 
-  svg {
-    fill: $color-basic;
-    width: 22px;
-    height: 22px;
-    transition: fill $ease-main;
+  &::before, &::after {
+    content: '';
+    position: absolute;
+    width: 2px;
+    height: 100%;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    background-color: $color-basic;
+    transition: background-color $ease-main;
   }
 
-  &:hover svg {
-    fill: $color-basic-dark;
+  &::after {
+    transform: rotate(90deg);
+  }
+
+  &:hover {
+    &::before, &::after {
+      background-color: $color-basic-dark;
+    }
   }
 }
