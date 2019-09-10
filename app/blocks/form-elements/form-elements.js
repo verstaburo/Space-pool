@@ -637,6 +637,46 @@ export function datepicker() {
 
   window.simpleDatepickerInit = simpleDatepickerInit;
 
+  function changedDatepickerInit(el) {
+    const disabledDates = $(el).attr('data-disabled-dates') ? $(el).attr('data-disabled-dates').split(',') : [];
+    const minDateParam = $(el).attr('data-mindate');
+    const maxDateParam = $(el).attr('data-maxdate');
+    const minDate = minDateParam !== undefined ? setFormattedDate(minDateParam) : new Date();
+    const maxDate = maxDateParam !== undefined ? setFormattedDate(maxDateParam) : '';
+
+    $(el).datepicker({
+      language: 'en',
+      dateFormat: 'yyyy-mm-dd',
+      autoClose: true,
+      position: 'bottom right',
+      showEvent: 'click',
+      classes: 'datepicker_fancybox',
+      minDate,
+      maxDate,
+      onSelect(a, b, inst) {
+        const date = b;
+        const self = inst.el;
+        const copyfield = $(el).siblings('[data-copy-date]');
+        const stringDate = `${date.getDate()} ${$.fn.datepicker.language.en.monthsShort[date.getMonth()]} ${date.getFullYear()}`;
+        $(copyfield).text(stringDate);
+        $(self).trigger('change');
+      },
+      onRenderCell(d, type) {
+        let disabled = false;
+        const formatted = getFormattedDate(d);
+        if (type === 'day') {
+          disabled = disabledDates.filter(date => (date === formatted)).length;
+        }
+
+        return {
+          disabled,
+        };
+      },
+    });
+  }
+
+  window.changedDatepickerInit = changedDatepickerInit;
+
   $('.js-datepicker').each(function () {
     const el = $(this);
     const disabledDates = $(el).attr('data-disabled-dates') ? $(el).attr('data-disabled-dates').split(',') : [];
@@ -704,41 +744,7 @@ export function datepicker() {
   });
 
   $('.js-change-date').each((i, el) => {
-    const disabledDates = $(el).attr('data-disabled-dates') ? $(el).attr('data-disabled-dates').split(',') : [];
-    const minDateParam = $(el).attr('data-mindate');
-    const maxDateParam = $(el).attr('data-maxdate');
-    const minDate = minDateParam !== undefined ? setFormattedDate(minDateParam) : new Date();
-    const maxDate = maxDateParam !== undefined ? setFormattedDate(maxDateParam) : '';
-
-    $(el).datepicker({
-      language: 'en',
-      dateFormat: 'yyyy-mm-dd',
-      autoClose: true,
-      position: 'bottom right',
-      showEvent: 'click',
-      classes: 'datepicker_fancybox',
-      minDate,
-      maxDate,
-      onSelect(a, b, inst) {
-        const date = b;
-        const self = inst.el;
-        const copyfield = $(el).siblings('[data-copy-date]');
-        const stringDate = `${date.getDate()} ${$.fn.datepicker.language.en.monthsShort[date.getMonth()]} ${date.getFullYear()}`;
-        $(copyfield).text(stringDate);
-        $(self).trigger('change');
-      },
-      onRenderCell(d, type) {
-        let disabled = false;
-        const formatted = getFormattedDate(d);
-        if (type === 'day') {
-          disabled = disabledDates.filter(date => (date === formatted)).length;
-        }
-
-        return {
-          disabled,
-        };
-      },
-    });
+    changedDatepickerInit(el);
   });
 
   $('.js-days-calendar').each(function () {
