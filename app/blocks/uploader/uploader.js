@@ -40,6 +40,9 @@ export default function uploader() {
           queue.push(file);
         }
       }
+      if (finalCount === freeCount) {
+        $('.uploader-output').addClass('is-limit');
+      }
       while (queue.length !== 0) {
         const index = (queue.length + totalPreviews) - 1;
         const file = queue.pop();
@@ -172,6 +175,11 @@ export default function uploader() {
       if (!errors > 0) {
         $('[type="submit"]').removeAttr('disabled');
         $('[type="submit"]').removeClass('is-disabled');
+      }
+      if (totalPreviews >= maxCount) {
+        $('.uploader-output').addClass('is-limit');
+      } else {
+        $('.uploader-output').removeClass('is-limit');
       }
       $(self).removeClass('is-empty');
     }

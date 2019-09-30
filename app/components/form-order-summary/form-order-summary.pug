@@ -28,10 +28,10 @@ mixin form-order-summary(editable)
         +info-editable-name Rent period start:
         - if (editable) {
           +info-editable-field._date
-            +e.text(data-copy-date) 26 May 2019
-            +e.INPUT.date.js-change-date(type="text" name="rentStart" value="2019-05-26" readonly)
+            +e.text(data-copy-date) 26 October 2019
+            +e.INPUT.date.js-change-date(type="text" name="rentStart" value="2019-10-26" readonly data-period-start="rent1")
         - } else {
-          +info-editable-field 26 May 2019
+          +info-editable-field 26 October 2019
         - }
       +e.dates-icon
         +icon('download').dates-arrow
@@ -39,10 +39,10 @@ mixin form-order-summary(editable)
         +info-editable-name Rent period end:
         - if (editable) {
           +info-editable-field._date
-            +e.text(data-copy-date) 26 May 2020
-            +e.INPUT.date.js-change-date(type="text" name="rentEnd" value="2020-05-26" readonly)
+            +e.text(data-copy-date) 26 October 2020
+            +e.INPUT.date.js-change-date(type="text" name="rentEnd" value="2020-10-26" readonly data-period-end="rent1" data-mindate="2019-10-26")
         - } else {
-          +info-editable-field 26 May 2020
+          +info-editable-field 26 October 2020
         - }
     div.form-order-summary__section
       +info-editable.__line
@@ -119,10 +119,10 @@ mixin form-order-summary-mobile(editable)
             +info-editable-name Rent period start:
             - if (editable) {
               +info-editable-field._date
-                +e.text(data-copy-date) 26 May 2019
-                +e.INPUT.date.js-change-date(type="text" name="rentStart" value="2019-05-26" readonly)
+                +e.text(data-copy-date) 26 October 2019
+                +e.INPUT.date.js-change-date(type="text" name="rentStart" value="2019-10-26" readonly data-period-start="rent2")
             - } else {
-              +info-editable-field 26 May 2019
+              +info-editable-field 26 October 2019
             - }
           +e.dates-icon
             +icon('download').dates-arrow
@@ -130,10 +130,10 @@ mixin form-order-summary-mobile(editable)
             +info-editable-name Rent period end:
             - if (editable) {
               +info-editable-field._date
-                +e.text(data-copy-date) 26 May 2020
-                +e.INPUT.date.js-change-date(type="text" name="rentEnd" value="2020-05-26" readonly)
+                +e.text(data-copy-date) 26 October 2020
+                +e.INPUT.date.js-change-date(type="text" name="rentEnd" value="2020-10-26" readonly data-period-end="rent2" data-mindate="2019-10-26")
             - } else {
-              +info-editable-field 26 May 2020
+              +info-editable-field 26 October 2020
             - }
         div.form-order-summary__section
           +info-editable.__line

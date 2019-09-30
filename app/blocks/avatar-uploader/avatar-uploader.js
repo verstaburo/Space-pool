@@ -21,11 +21,14 @@ function uploadImage(target) {
     $(image).attr('src', e.target.result);
   };
 
-  const file = self.files[0];
-  const type = file.type.split('/');
+  if (self.files[0]) {
+    const file = self.files[0];
+    const type = file.type.split('/');
 
-  if (type[0] === 'image') {
-    reader.readAsDataURL(self.files[0]);
+    // if (self.files[0]) {
+    if (type[0] === 'image') {
+      reader.readAsDataURL(self.files[0]);
+    }
   }
 }
 

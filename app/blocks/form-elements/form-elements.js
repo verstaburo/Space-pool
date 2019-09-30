@@ -798,6 +798,23 @@ export function datepicker() {
     });
     /* eslint-enable consistent-return */
   });
+
+  $(document).on('change', '[data-period-start]', (evt) => {
+    const self = evt.currentTarget;
+    const name = $(self).attr('data-period-start');
+    const end = $(`[data-period-end="${name}"]`);
+    const datepickerstart = $(self).datepicker().data('datepicker');
+    const datepickerend = $(end).datepicker().data('datepicker');
+    const newStart = datepickerstart.selectedDates[0];
+    $(end).attr('data-mindate', `${newStart.getFullYear()}-${newStart.getMonth() + 1}-${newStart.getDate()}`);
+    datepickerend.update({
+      minDate: newStart,
+    });
+    $(end).val('');
+    $(end).trigger('change');
+    window.setLabelPosition(end);
+    $(end).siblings('[data-copy-date]').text('');
+  });
 }
 
 export function numberinput() {
