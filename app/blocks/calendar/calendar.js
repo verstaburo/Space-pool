@@ -26,6 +26,23 @@ export default function calendar() {
   setCurrentDate();
   window.setCurrentDateInPopup = setCurrentDate;
 
+  function chooseMonth(el) {
+    const self = el;
+    const calendarBlock = $(self).closest('[data-calendar]');
+    const dpLink = $(calendarBlock).find('.js-days-calendar');
+    const dp = $(dpLink).datepicker().data('datepicker');
+    const otherMonths = $(calendarBlock).find('[data-calendar-month]').not(self);
+    const month = parseInt($(self).attr('data-calendar-month'), 10);
+    const yearBlock = $(calendarBlock).find('[data-calendar-year]');
+    const year = parseInt($(yearBlock).val(), 10);
+    $(otherMonths).removeClass('is-active');
+    $(self).addClass('is-active');
+    const date = new Date(year, month);
+    dp.date = date;
+  }
+
+  window.chooseMonth = chooseMonth;
+
   $(document).on('click', '[data-calendar-month]', (evt) => {
     evt.preventDefault();
     const self = evt.target;

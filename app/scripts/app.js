@@ -88,12 +88,13 @@ $(() => {
   scrollbar();
   selects();
   sliders();
+  datepicker();
   popups();
   header();
+  calendar();
   slider();
   tooltips();
   tabs();
-  datepicker();
   numberinput();
   maps();
   mapsTwo();
@@ -119,7 +120,6 @@ $(() => {
   setBlogNewsTitlesHeight();
   stickyMessage();
   blockHeightRounding();
-  calendar();
   uploader();
   mapManipulations();
   truncateBlocks();

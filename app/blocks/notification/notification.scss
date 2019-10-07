@@ -9,6 +9,10 @@
   max-width: 577px;
   border-radius: 3px;
 
+  &_short {
+    max-width: 488px;
+  }
+
   &_white {
     background-color: $color-white;
     color: $color-basic;
@@ -58,6 +62,10 @@
       padding: 19px 15px 10px;
     }
 
+    &_ai-center {
+      align-items: center;
+    }
+
     &_spd {
       padding-top: 19px;
 
@@ -70,6 +78,26 @@
 
         @include screen('sm') {
           margin-top: 8px;
+        }
+      }
+    }
+
+    #{$b}_sys & {
+      padding: 28px 20px 10px;
+
+      @include screen('sm') {
+        padding: 20px 16px 10px;
+      }
+    }
+
+    &_bordered {
+      border-bottom: 1px solid $color-gray-light-2;
+
+      #{$b}_sys & {
+        padding-bottom: 26px;
+
+        @include screen('sm') {
+          padding-bottom: 20px;
         }
       }
     }
@@ -122,6 +150,18 @@
 
       @include screen('sm') {
         padding: 11px 16px;
+      }
+    }
+
+    #{$b}_sys & {
+      padding: 11px 23px 42px;
+
+      @include screen('sm') {
+        padding: 11px 16px;
+      }
+
+      &:not(:last-child) {
+        padding-bottom: 11px;
       }
     }
 
@@ -240,11 +280,23 @@
     @include screen('sm') {
       font-size: 21px;
       line-height: 1.2;
-      letter-spacing: -0.03em;
+      letter-spacing: -.03em;
     }
 
     &:not(:first-child) {
       margin-top: 22px;
+    }
+
+    &_fz29 {
+      font-size: 29px;
+      line-height: 1;
+      letter-spacing: -.01em;
+
+      @include screen('sm') {
+        font-size: 21px;
+        line-height: 1.2;
+        letter-spacing: -.03em;
+      }
     }
 
     &_fz40 {
@@ -333,12 +385,12 @@
     position: relative;
     display: flex;
     width: 100%;
+    flex-wrap: wrap;
     box-sizing: border-box;
     margin-top: -11px;
 
     @include screen('sm') {
       flex-direction: column-reverse;
-      flex-wrap: wrap;
     }
 
     &_center {
@@ -365,6 +417,20 @@
       }
     }
 
+    #{$b}__buttons_3btn & {
+      &:not(:last-child) {
+        margin-right: 0;
+      }
+
+      &:not(:first-child) {
+        margin-left: 28px;
+
+        @include screen('sm') {
+          margin-left: 0;
+        }
+      }
+    }
+
     .button__text {
       padding-left: 10px;
       padding-right: 10px;
@@ -377,6 +443,13 @@
 
       &:not(:last-child) {
         margin-right: 0;
+      }
+
+      #{$b}__buttons_3btn & {
+
+        &:not(:first-child) {
+          margin-left: 0;
+        }
       }
     }
 
@@ -556,6 +629,22 @@
     b {
       color: $color-confirm;
     }
+
+    &_green {
+      color: $color-green-dark;
+    }
+
+    &_peach {
+      color: $color-peach;
+    }
+
+    #{$b}_sys & {
+      line-height: (23.4 / 20);
+
+      @include screen('sm') {
+        line-height: (20 / 13);
+      }
+    }
   }
 
   &__text {
@@ -576,6 +665,18 @@
       @include heading-4;
 
       font-weight: 400;
+      line-height: 1;
+
+      @include screen('sm') {
+        @include text13;
+
+        line-height: (20 / 13);
+      }
+    }
+
+    &_fz14 {
+      @include text;
+
       line-height: 1;
 
       @include screen('sm') {
@@ -631,6 +732,56 @@
         @include screen('sm') {
           margin-bottom: 25px;
         }
+      }
+    }
+  }
+
+  &__list {
+    &:not(:first-child) {
+      margin-top: 24px;
+    }
+
+    li {
+      @include text;
+
+      line-height: 1;
+      position: relative;
+      display: block;
+      box-sizing: border-box;
+      padding-left: 15px;
+
+      @include screen('sm') {
+        @include text13;
+
+        line-height: (14 / 13);
+        padding-left: 10px;
+      }
+
+      b {
+        font-weight: 700;
+      }
+
+      a {
+        text-decoration: underline;
+
+        &:hover {
+          color: $color-basic-dark;
+        }
+      }
+
+      &:not(:last-child) {
+        margin-bottom: 18px;
+      }
+
+      &::before {
+        @include pseudo;
+
+        left: 3px;
+        top: 3px;
+        width: 4px;
+        height: 4px;
+        border-radius: 50%;
+        background-color: currentColor;
       }
     }
   }

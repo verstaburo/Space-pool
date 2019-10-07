@@ -23,6 +23,25 @@ export default function popups() {
     afterLoad() {
       freeze();
     },
+    beforeShow(i) {
+      const popup = $(i.slides[0].src);
+      if ($(popup).is('.popup-arrange-viewing')) {
+        const sections = $('[data-record-step]');
+        const sectionFirst = $('[data-record-step="1"]');
+        const slider = $(popup).find('.js-slider-container');
+        $(sections).removeClass('is-active');
+        $(sectionFirst).addClass('is-active');
+        window.setCurrentDateInPopup();
+        const sw = slider[0].swiper;
+        const it = sw.el;
+        const currMonth = (new Date()).getMonth();
+        const item = $(it).find(`[data-calendar-month=${currMonth}]`)[0];
+        sw.slideTo(currMonth, 0, false);
+        setTimeout(() => {
+          window.chooseMonth(item);
+        }, 50);
+      }
+    },
     afterShow(i) {
       const popup = $(i.slides[0].src);
       $(popup).trigger('POPUP_SHOW');
@@ -33,21 +52,10 @@ export default function popups() {
       const stage = i.$refs.container;
       $(stage).removeClass('is-fancybox-animation-show');
     },
-    afterClose(i) {
+    afterClose() {
       const panel = $('.panel');
       if (!($(panel).length > 0 && $(panel).is('.is-open'))) {
         unfreeze();
-      }
-      const popup = $(i.slides[0].src);
-      if ($(popup).is('.popup-arrange-viewing')) {
-        const sections = $('[data-record-step]');
-        const sectionFirst = $('[data-record-step="1"]');
-        const slider = $(popup).find('.js-slider-container');
-        $(sections).removeClass('is-active');
-        $(sectionFirst).addClass('is-active');
-        window.setCurrentDateInPopup();
-        const currMonth = (new Date()).getMonth();
-        slider[0].swiper.slideTo(currMonth, 0);
       }
     },
     btnTpl: {
@@ -68,6 +76,25 @@ export default function popups() {
     },
     onActivate() {
       freeze();
+    },
+    beforeShow(i) {
+      const popup = $(i.slides[0].src);
+      if ($(popup).is('.popup-arrange-viewing')) {
+        const sections = $('[data-record-step]');
+        const sectionFirst = $('[data-record-step="1"]');
+        const slider = $(popup).find('.js-slider-container');
+        $(sections).removeClass('is-active');
+        $(sectionFirst).addClass('is-active');
+        window.setCurrentDateInPopup();
+        const sw = slider[0].swiper;
+        const it = sw.el;
+        const currMonth = (new Date()).getMonth();
+        const item = $(it).find(`[data-calendar-month=${currMonth}]`)[0];
+        sw.slideTo(currMonth, 0, false);
+        setTimeout(() => {
+          window.chooseMonth(item);
+        }, 50);
+      }
     },
     afterLoad() {
       freeze();
@@ -108,6 +135,7 @@ export default function popups() {
     autoFocus: false,
     animationDuration: 400,
     transitionDuration: 400,
+    baseClass: 'is-top',
     onDeactivate(i) {
       i.close();
     },
@@ -116,6 +144,25 @@ export default function popups() {
     },
     afterLoad() {
       freeze();
+    },
+    beforeShow(i) {
+      const popup = $(i.slides[0].src);
+      if ($(popup).is('.popup-arrange-viewing')) {
+        const sections = $('[data-record-step]');
+        const sectionFirst = $('[data-record-step="1"]');
+        const slider = $(popup).find('.js-slider-container');
+        $(sections).removeClass('is-active');
+        $(sectionFirst).addClass('is-active');
+        window.setCurrentDateInPopup();
+        const sw = slider[0].swiper;
+        const it = sw.el;
+        const currMonth = (new Date()).getMonth();
+        const item = $(it).find(`[data-calendar-month=${currMonth}]`)[0];
+        sw.slideTo(currMonth, 0, false);
+        setTimeout(() => {
+          window.chooseMonth(item);
+        }, 50);
+      }
     },
     afterShow(i) {
       const popup = $(i.slides[0].src);
@@ -127,37 +174,16 @@ export default function popups() {
       const stage = i.$refs.container;
       $(stage).removeClass('is-fancybox-animation-show');
     },
-    afterClose(i) {
+    afterClose() {
       const panel = $('.panel');
       if (!($(panel).length > 0 && $(panel).is('.is-open'))) {
         unfreeze();
-      }
-      const popup = $(i.slides[0].src);
-      if ($(popup).is('.popup-arrange-viewing')) {
-        const sections = $('[data-record-step]');
-        const sectionFirst = $('[data-record-step="1"]');
-        const slider = $(popup).find('.js-slider-container');
-        $(sections).removeClass('is-active');
-        $(sectionFirst).addClass('is-active');
-        window.setCurrentDateInPopup();
-        const currMonth = (new Date()).getMonth();
-        slider[0].swiper.slideTo(currMonth, 0);
       }
     },
     btnTpl: {
       smallBtn: '<button type="button" data-fancybox-close class="fancybox-button popup__close" title="{{CLOSE}}"><svg class="popup__close-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15.36 15.36"><rect x="-2.43" y="6.94" width="20.23" height="1.49" transform="translate(18.55 7.68) rotate(135)"/><rect x="-2.43" y="6.94" width="20.23" height="1.49" transform="translate(7.68 -3.18) rotate(45)"/></svg></button>',
     },
     touch: false,
-    baseTpl: '<div class="fancybox-container fancybox-container_nocenter" role="dialog" tabindex="-1">' +
-      '<div class="fancybox-bg"></div>' +
-      '<div class="fancybox-inner">' +
-      '<div class="fancybox-infobar"><span data-fancybox-index></span>&nbsp;/&nbsp;<span data-fancybox-count></span></div>' +
-      '<div class="fancybox-toolbar">{{buttons}}</div>' +
-      '<div class="fancybox-navigation">{{arrows}}</div>' +
-      '<div class="fancybox-stage"></div>' +
-      '<div class="fancybox-caption"></div>' +
-      '</div' +
-      '</div>',
   };
 
   // $('.js-popup').fancybox(optionsStPopup);

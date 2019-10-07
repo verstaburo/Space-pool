@@ -1,0 +1,278 @@
+extends ../../layouts/default-login
+
+block head
+  - var pageTitle = 'SpacePool - System messaages'
+
+block content
+  +content-origin._reverse
+    .container
+      +e.wrapper
+        +content-column-aside
+        +content-column-main
+          +dialog4
+            +e.head_mg
+              +e.date host
+            +e.UL.list
+              +bubble('li', '15:45', "2018-10-29T15:45")._mxw488._notification._mob-notime.__item_wide
+                +notification._sys
+                  +notification-head('', '', 'Tenancy will continue')._bordered._ai-center
+                    +offer-info
+                      +box._size16._orange
+                      +e.title._fz13._dark2 HOT DESK
+                  +notification-content
+                    +e.subtitle What happens next?
+                    +e.UL.list
+                      li Tenancy will continue with previous terms till you change something
+                      li You will be able to change order summary in future
+                      li If order summary changed and accepted by tenant terms will be locked till the end of tenancy period
+                      li You still are able to <a href="#">terminate the contract</a> at any time
+              +bubble('li', '15:45', "2018-10-29T15:45")._mxw488._notification._mob-notime.__item_wide
+                +notification._sys
+                  +notification-head('', '', 'Tenancy will end up soon')._ai-center
+                    +offer-info
+                      +box._size16._orange
+                      +e.title._fz13._dark2 HOT DESK
+                  +notification-content
+                    +e.text_fz14
+                      p Agreement number:
+                        b SP6789-1
+                      p Client:
+                        b Horstiler and Fishmen Inc.
+                      p Tenancy period end at:
+                        b 30 October 2019
+                  +notification-footer
+                    +e.subtitle You can now continue tenancy on the existing condition or create new order summary with different tenancy terms.
+                    +e.buttons
+                      +button()._thin-border._thin-border_bg-white._shorter._smaller._fz14.__button Continue without changes
+                      +button()._shorter._smaller._fz14.__button Make new offer
+                    +e.links
+                      +link._underline Terminate the contract after tenancy period ends
+              +bubble('li', '15:45', "2018-10-29T15:45")._mxw488._notification._mob-notime.__item_wide
+                +notification._sys
+                  +notification-head('', '', 'New offer sent to tenant')._ai-center
+                    +offer-info
+                      +box._size16._orange
+                      +e.title._fz13._dark2 HOT DESK
+                  +notification-content
+                    +time-origin._sb.__time
+                      +time-text._fz14 From:
+                        +time-time._fz14(datetime="2018-10-30") 30 October 2018
+                      +long-arrow._big.__divider_dark
+                      +time-text._fz14 Till
+                        +time-time._fz14(datetime="2019-10-30") 30 October 2019
+                  +informer._sb._fz20._gray.__informer
+                    +e.text
+                      b Waiting for tenant to confirm new Order Summary
+              +bubble('li', '15:45', "2018-10-29T15:45")._mxw488._notification._mob-notime.__item_wide
+                +notification._sys
+                  +notification-head('', '', 'Tenancy accepted')._ai-center
+                    +offer-info
+                      +box._size16._orange
+                      +e.title._fz13._dark2 HOT DESK
+                  +notification-content
+                    +time-origin._sb.__time
+                      +time-text._fz14 From:
+                        +time-time._fz14(datetime="2018-10-30") 30 October 2018
+                      +long-arrow._big.__divider_dark
+                      +time-text._fz14 Till
+                        +time-time._fz14(datetime="2019-10-30") 30 October 2019
+                    +e.info
+                      +e.item
+                        +e.text_fz14 Amount:
+                          b 1
+                      +e.item
+                        +e.text_fz14 New price:
+                          b &pound; 620.00 mo
+                      +e.item
+                        +e.text_fz12 Old price: &pound; 590.00 mo
+                  +notification-footer
+                    +e.subtitle_green Tenant accepted your new tenancy offer.
+                      +icon('check3').__check
+              +bubble('li', '15:45', "2018-10-29T15:45")._mxw488._notification._mob-notime.__item_wide
+                +notification._sys
+                  +notification-head('', '', 'Tenancy offer declined')._ai-center
+                    +offer-info
+                      +box._size16._orange
+                      +e.title._fz13._dark2 HOT DESK
+                  +notification-content
+                    +time-origin._sb.__time
+                      +time-text._fz14 From:
+                        +time-time._fz14(datetime="2018-10-30") 30 October 2018
+                      +long-arrow._big.__divider_dark
+                      +time-text._fz14 Till
+                        +time-time._fz14(datetime="2019-10-30") 30 October 2019
+                    +e.info
+                      +e.item
+                        +e.text_fz14 Amount:
+                          b 1
+                      +e.item
+                        +e.text_fz14 New price:
+                          b &pound; 620.00 mo
+                      +e.item
+                        +e.text_fz12 Old price: &pound; 590.00 mo
+                  +notification-footer
+                    +e.subtitle_peach Tenant declined new tenancy offer
+                    +e.buttons_3btn
+                      +button()._thin-border._thin-border_bg-white._shorter._smaller._fz14.__button Continue without changes
+                      +button()._thin-border._thin-border_bg-white._shorter._smaller._fz14.__button Make new offer
+                      +button()._shorter._smaller._fz14.__button_wide Serve Notice to end contract
+              +bubble('li', '15:45', "2018-10-29T15:45")._mxw488._notification._mob-notime.__item_wide
+                +notification._sys
+                  +notification-head('', '', 'Tenancy ending')._ai-center
+                    +offer-info
+                      +box._size16._orange
+                      +e.title._fz13._dark2 HOT DESK
+                  +notification-content
+                    +e.text_fz14
+                      p Current tenancy end date
+                        b 30 October 2019
+                  +informer._sb._fz20._gray.__informer
+                    +e.text
+                      b The tenant intends to terminate the lease at the end of the period
+              +bubble('li', '15:45', "2018-10-29T15:45")._mxw488._notification._mob-notime.__item_wide
+                +notification._sys
+                  +notification-head('', '', 'Notice')._bordered._ai-center
+                    +offer-info
+                      +box._size16._orange
+                      +e.title._fz13._dark2 HOT DESK
+                  +notification-content
+                    +e.subtitle The tenant refused to continue tenancy and will leave right after 3 months notice period
+                    +e.UL.list
+                      li Existing tenancy contract will be active for <b>3 months till now.</b>
+                      li After the end of the lease period, the tenant is required to leave the premises
+              +bubble('li', '15:45', "2018-10-29T15:45")._mxw488._notification._mob-notime.__item_wide
+                +notification._sys
+                  +notification-head('', '', 'Notice was sent')._bordered._ai-center
+                    +offer-info
+                      +box._size16._orange
+                      +e.title._fz13._dark2 HOT DESK
+                  +notification-content
+                    +e.subtitle Looks like you have sent Notice to end contract
+                    +e.UL.list
+                      li Existing tenancy contract will be active for <b>3 months till now.</b>
+                      li After the end of the lease period, the tenant is required to leave the premises
+            +e.head_mg
+              +e.date tenant
+            +e.UL.list
+              +bubble('li', '15:45', "2018-10-29T15:45")._mxw488._notification._mob-notime.__item_wide
+                +notification._sys
+                  +notification-head('', '', 'Your tenancy ends up soon')._ai-center
+                    +offer-info
+                      +box._size16._orange
+                      +e.title._fz13._dark2 HOT DESK
+                  +notification-content
+                    +e.text_fz14
+                      p Agreement number:
+                        b SP6789-1
+                      p Tenancy period end at:
+                        b 30 October 2019
+              +bubble('li', '15:45', "2018-10-29T15:45")._mxw488._notification._mob-notime.__item_wide
+                +notification._sys
+                  +notification-head('', '', 'Your tenancy ends up soon')._ai-center
+                    +offer-info
+                      +box._size16._orange
+                      +e.title._fz13._dark2 HOT DESK
+                  +notification-content
+                    +e.text_fz14
+                      p Agreement number:
+                        b SP6789-1
+                      p Tenancy period end at:
+                        b 30 October 2019
+                  +notification-footer
+                    +e.subtitle Blooming founders Kethsinton Street representative created a new tenancy offer for next period. What whould you like to do?
+                    +e.buttons
+                      +button()._thin-border._thin-border_bg-white._shorter._smaller._fz14.__button Leaving when tenancy ends
+                      +button()._shorter._smaller._fz14.__button Make new offer
+              +bubble('li', '15:45', "2018-10-29T15:45")._mxw488._notification._mob-notime.__item_wide
+                +notification._sys
+                  +notification-head('', '', 'Your tenancy ends up soon')._ai-center
+                    +offer-info
+                      +box._size16._orange
+                      +e.title._fz13._dark2 HOT DESK
+                  +notification-content
+                    +e.text_fz14
+                      p Agreement number:
+                        b SP6789-1
+                      p Tenancy period end at:
+                        b 30 October 2019
+                  +notification-footer
+                    +e.subtitle Blooming founders Kethsinton Street representative created a new tenancy offer for next period. What whould you like to do?
+                    +e.buttons
+                      +button()._thin-border._thin-border_bg-white._shorter._smaller._fz14.__button Leaving when tenancy ends
+                      +button()._shorter._smaller._fz14.__button Make new offer
+                  +informer._fz14._gray.__informer
+                    +icon('exclamation').__icon_exc
+                    +e.text Please note that at the en of this tenancy period you must leave space in case you don’t accept new tenancy offer.
+              +bubble('li', '15:45', "2018-10-29T15:45")._mxw488._notification._mob-notime.__item_wide
+                +notification._sys
+                  +notification-head('', '', 'Last 3 months')._bordered._ai-center
+                    +offer-info
+                      +box._size16._orange
+                      +e.title._fz13._dark2 HOT DESK
+                  +notification-content
+                    +e.subtitle What’s next?
+                    +e.text_fz14
+                      p Your tenancy period will end up at: <b>30 May 2020</b>
+                      p You are always welcome to search for new workspace at Spacepool
+                      p Feel free to discuss all tenancy questions using this chat
+              +bubble('li', '15:45', "2018-10-29T15:45")._mxw488._notification._mob-notime.__item_wide
+                +notification._sys
+                  +notification-head('', '', 'You declined offer')._ai-center
+                    +offer-info
+                      +box._size16._orange
+                      +e.title._fz13._dark2 HOT DESK
+                  +notification-content
+                    +e.subtitle What’s next?
+                    +e.text_fz14
+                      p Feel free to discuss the terms of the contract with the manager
+                      p The existing lease contract will be active up to <b>30 May 2020</b>
+              +bubble('li', '15:45', "2018-10-29T15:45")._mxw488._notification._mob-notime.__item_wide
+                +notification._sys
+                  +notification-head('', '', 'Notice')._bordered._ai-center
+                    +offer-info
+                      +box._size16._orange
+                      +e.title._fz13._dark2 HOT DESK
+                  +informer._fz20._gray.__informer
+                    +icon('exclamation').__icon_exc
+                    +e.text The host sent you an tenancy ending notice.
+                  +notification-content
+                    +e.text_fz14
+                      p The current lease is valid for the <b>next 3 months, starting from that point.</b>
+                      p You are obliged to leave the rented premises on 24 December 2019.
+              +bubble('li', '15:45', "2018-10-29T15:45")._mxw488._notification._mob-notime.__item_wide
+                +notification._sys
+                  +notification-head('', '', 'Tenancy accepted')._ai-center
+                    +offer-info
+                      +box._size16._orange
+                      +e.title._fz13._dark2 HOT DESK
+                  +notification-content
+                    +time-origin._sb.__time
+                      +time-text._fz14 From:
+                        +time-time._fz14(datetime="2018-10-30") 30 October 2018
+                      +long-arrow._big.__divider_dark
+                      +time-text._fz14 Till
+                        +time-time._fz14(datetime="2019-10-30") 30 October 2019
+                    +e.info
+                      +e.item
+                        +e.text_fz14 Amount:
+                          b 1
+                      +e.item
+                        +e.text_fz14 Price:
+                          b &pound; 620.00 mo
+                  +notification-footer
+                    +e.subtitle_green You accepted new tenancy terms
+                      +icon('check3').__check
+              +bubble('li', '15:45', "2018-10-29T15:45")._mxw488._notification._mob-notime.__item_wide
+                +notification._sys
+                  +notification-head('', '', 'Thank you!')._ai-center
+                    +offer-info
+                      +box._size16._orange
+                      +e.title._fz13._dark2 HOT DESK
+                  +notification-content
+                    +e.subtitle
+                      p Your tenancy period has ended.
+                      p We sincerely hope that we have been useful to you all this time. We appreciate you using Spacepool services.
+                    +e.text_fz14
+                      p Remember that you can always find a new place for your business.
+                    +e.buttons
+                      +button()._shorter._smaller._fz14.__button_wide Go find new Space

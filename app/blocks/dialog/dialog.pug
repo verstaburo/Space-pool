@@ -762,3 +762,384 @@ mixin dialog3()
               +e.buttons
                 +button()._shorter._mob-smaller.__button_wide Close this deal
               +e.text_fz18._mt._tacenter Or you can just close it later and keep conversation with your potential tenant.
+
+mixin dialog4()
+  +b.UL.dialog&attributes(attributes)
+    +e.LI.block
+      +e.UL.list
+        +bubble('li', '15:45', "2018-10-29T15:45")._notification.__item_wide
+          +notification
+            +notification-head('Action required:')
+              +offer-info
+                +box._big._green
+                +e.title_dark._fz16 OFFICE SPACE
+            +notification-content
+              +notification-title Please sign the contract
+              +notification-timer('Estimated time:')
+            +notification-footer
+              +notification-buttons
+                +button()._border._border_bg-white._short.__button Decline reservation
+                +button()._short.__button Open contract
+        +bubble('li', '15:45', "2018-10-29T15:45")._notification._mob-notime.__item_wide
+          +notification
+            +notification-head('', 'You’ve requested Tenancy')
+              +offer-info
+                +box._big._orange
+                +e.title._fz16 HOT DESK
+            +notification-content._spd
+              +notification-time('30 October 2018', '2018-10-30', '30 October 2019', '2010-10-30')._dark
+            +notification-table
+              +e.TR.row
+                +e.TD.cell_w38
+                  +short-info('Price:')
+                    +e.text &pound; 560.90 mo
+                +e.TD.cell_w62
+                  +short-info('Reservation status:')._taright
+                    +e.text_bold._red Rejected
+            +informer.__informer
+              +e.text Reason:&nbsp;
+                b This offer is not available for specified dates.
+        +bubble('li', '15:45', "2018-10-29T15:45")._notification._mob-notime.__item_wide
+          +notification
+            +notification-head('', 'You’ve requested Tenancy')
+              +offer-info
+                +box._big._orange
+                +e.title._fz16 HOT DESK
+            +notification-content._spd
+              +notification-time('30 October 2018', '2018-10-30', '30 October 2019', '2010-10-30')._dark
+            +notification-table
+              +e.TR.row
+                +e.TD.cell_w38
+                  +short-info('Price:')
+                    +e.text &pound; 560.90 mo
+                +e.TD.cell_w62
+                  +short-info('Reservation status:')._taright
+                    +e.text Awating confirmation
+        +bubble('li', '15:45', "2018-10-29T15:45")._notification._mob-notime.__item_wide
+          +notification
+            +notification-head('', 'You’ve requested Tenancy')
+              +offer-info
+                +box._big._orange
+                +e.title._fz16 HOT DESK
+            +notification-content._spd
+              +notification-time('30 October 2018', '2018-10-30', '30 October 2019', '2010-10-30')._dark
+            +notification-table
+              +e.TR.row
+                +e.TD.cell_w38
+                  +short-info('Price:')
+                    +e.text &pound; 560.90 mo
+                +e.TD.cell_w62
+                  +short-info('Reservation status:')._taright
+                    +e.text_bold._green Confirmed
+        +bubble('li', '15:45', "2018-10-29T15:45")._notification._mob-notime.__item_wide
+          +notification
+            +notification-head('', 'You’ve requested Tenancy')
+              +offer-info
+                +box._big._orange
+                +e.title._fz16 HOT DESK
+            +notification-content._spd
+              +notification-time('30 October 2018', '2018-10-30', '30 October 2019', '2010-10-30')._dark
+            +notification-table
+              +e.TR.row
+                +e.TD.cell_w38
+                  +short-info('Price:')
+                    +e.text &pound; 560.90 mo
+                +e.TD.cell_w62
+                  +short-info('Reservation status:')._taright
+                    +e.text_bold._green Confirmed
+        +bubble('li', '15:45', "2018-10-29T15:45")._notification._mob-notime._peach.__item_wide
+          +notification
+            +notification-head('Reservation info')
+              +offer-info
+                +box._big._orange
+                +e.title._fz16 HOT DESK
+            +notification-content._otpd
+              +notification-title._icon
+                +icon('block-cross').__icon_cross
+                +e.title-text This reservation was canceled
+        +bubble('li', '15:45', "2018-10-29T15:45")._notification._mob-notime.__item_wide
+          +notification
+            +notification-head('Action required:')
+              +offer-info
+                +box._big._orange
+                +e.title._fz16 HOT DESK
+            +notification-content
+              +notification-title Host changed dates in Order&nbsp;Summary.
+            +informer._sb._fz20.__informer
+              +e.text
+                b Please check order summary and confirm again.
+              +state._empty._orange
+            +notification-footer._noborder
+              +notification-buttons
+                +button()._border._border_bg-white._short._mob-smaller.__button Decline reservation
+                +button()._short._mob-smaller.__button Open Order Summary
+        +bubble('li', '15:45', "2018-10-29T15:45")._notification._mob-notime.__item_wide
+          +notification
+            +notification-head('', 'Order summary')
+              +offer-info
+                +box._big._orange
+                +e.title._fz16 HOT DESK
+            +notification-content._ipd._nobpd
+              +short-info('Status')._line._line_bordered
+                +state()._right._check._bold._fz17 Order Summary confirmed by Host
+            +notification-footer._noborder
+              +notification-buttons
+                +button()._border._border_bg-white._mob-smaller._short.__button Decline reservation
+                +button()._short._mob-smaller.__button Open Order Summary
+        +bubble('li', '15:45', "2018-10-29T15:45")._notification._mob-notime.__item_wide
+          +notification
+            +notification-head('', 'Order summary')
+              +offer-info
+                +box._big._orange
+                +e.title._fz16 HOT DESK
+            +notification-content._ipd
+              +short-info('Status')._line._line_bordered
+                +state()._right._dcheck._bold._fz17 Order Summary confirmed both sides
+        +bubble('li', '15:45', "2018-10-29T15:45")._notification._mob-notime.__item_wide
+          +notification
+            +notification-head('', 'Contract')
+              +offer-info
+                +box._big._orange
+                +e.title._fz16 HOT DESK
+            +notification-content._ipd
+              +short-info('Status')._line._line_bordered
+                +state()._right._check._bold._fz17 Contract signed by the Host
+        +bubble('li', '15:45', "2018-10-29T15:45")._notification._mob-notime.__item_wide
+          +notification
+            +notification-head('', 'Contract')
+              +offer-info
+                +box._big._orange
+                +e.title._fz16 HOT DESK
+            +notification-content._ipd
+              +short-info('Status')._line._line_bordered
+                +state()._right._check._bold._fz17 Contract signed by the Guest
+        +bubble('li', '15:45', "2018-10-29T15:45")._notification._mob-notime.__item_wide
+          +notification
+            +notification-head('', 'Contract signed')
+              +offer-info
+                +box._big._orange
+                +e.title._fz16 HOT DESK
+            +notification-content._ipd
+              +short-info('Status')._line._line_bordered
+                +state()._right._dcheck._bold._fz17 Contract signed both Sides
+        +bubble('li', '15:45', "2018-10-29T15:45")._notification._mob-notime.__item_wide
+          +notification
+            +notification-head('Friendly reminder:')
+              +offer-info
+                +box._big._orange
+                +e.title._fz16 HOT DESK
+            +notification-content
+              +notification-title Payment required
+            +notification-table._mt
+              +e.TR.row
+                +e.TD.cell_w59
+                  +short-info('Payment Subject:')
+                    +e.text Monthly payment for January 2019
+                +e.TD.cell_w41
+                  +short-info('Amount to pay:')
+                    +e.text &pound; 560.90
+            +notification-footer._tbl
+              +e.buttons
+                +button()._border._border_bg-white._short._mob-smaller.__button View/Print Invoice
+                +link-icon('download')(href="#")._icon_small._download-small._no-shadow._bold.__link PDF
+                +button()._short._mob-smaller.__button Pay now
+        +bubble('li', '15:45', "2018-10-29T15:45")._notification._mob-notime.__item_wide
+          +notification
+            +notification-head('Billing information:')
+              +offer-info
+                +box._big._orange
+                +e.title._fz16 HOT DESK
+            +notification-content
+              +notification-title Payment received
+            +notification-table._mt
+              +e.TR.row
+                +e.TD.cell_w59
+                  +short-info('Payment Subject:')
+                    +e.text Monthly payment for January 2019
+                +e.TD.cell_w41
+                  +short-info('Amount to pay:')
+                    +e.text &pound; 560.90
+              +e.TR.row
+                +e.TD.cell_w59._ft
+                  +short-info('Invoice number:')._mb15
+                    +e.text_bold._up SP1254-1757
+                +e.TD.cell_w41._ft
+                  +short-info('Status:')._mb15
+                    +state()._check._big._bold Invoice Paid
+        +bubble('li', '15:45', "2018-10-29T15:45")._notification._mob-notime.__item_wide
+          +notification
+            +notification-head('Payment status:')
+              +offer-info
+                +box._big._orange
+                +e.title._fz16 HOT DESK
+            +notification-content._spt
+              +notification-title Your payment was received
+            +notification-footer._txt
+              +short-info('Payment status:')._line
+                +state()._check._big._bold Received
+        +bubble('li', '15:45', "2018-10-29T15:45")._notification._mob-notime.__item_wide
+          +notification
+            +notification-head('Rental period due:')
+              +offer-info
+                +box._big._orange
+                +e.title._fz16 HOT DESK
+            +notification-content
+              +notification-title Rental period will end up soon.
+              +notification-time-small('30 October 2018', '2018-10-30', '30 February 2019', '2019-02-30', true)._mgt
+            +notification-footer._st
+              +e.text_big Please choose one of the following options:
+              +notification-buttons
+                +button()._border._border_bg-white._short._mob-smaller.__button It’s okay. I am leaving
+                +button()._short._mob-smaller.__button Request new reservation
+        +bubble('li', '15:45', "2018-10-29T15:45")._notification._mob-notime.__item_wide
+          +notification
+            +notification-head('', 'Contract <br> termination request')
+              +offer-info
+                +box._big._orange
+                +e.title._fz16 HOT DESK
+            +notification-content._txt
+              +e.text You have requested contract termination for:
+                br
+                b Heddonism Workspace Co-working area / 5th floor Co-working HOT DESKS
+              +notification-timer2('Current contract is Active Till:') 30 October 2020
+            +notification-footer._smpd
+              +notification-buttons._center
+                +button()._border._border_bg-white._short._mob-smaller.__button Cancel Request
+        +bubble('li', '15:45', "2018-10-29T15:45")._notification._mob-notime._darker.__item_wide
+          +notification
+            +notification-head('Well that\'s it')
+              +offer-info
+                +box._big._orange
+                +e.title._fz16 HOT DESK
+            +notification-content._otpd
+              +notification-title._icon
+                +icon('block-cross').__icon_cross
+                +e.title-text Contract was terminated
+        +bubble('li', '15:45', "2018-10-29T15:45")._notification._mob-notime.__item_wide
+          +notification
+            +notification-head('Informative message:')
+              +offer-info
+                +box._big._orange
+                +e.title._fz16 HOT DESK
+            +notification-content
+              +e.subtitle You’ve requested viewing at:
+              +notification-title._fz40._mt0 2019 July9 14:30
+            +notification-footer._txt
+              +short-info('Viewing request status:')._line
+                +e.text_bold._red Rejected
+            +informer.__informer_mt0
+              +e.text Reason:&nbsp;
+                b This offer is no longer available. Sorry about that.
+        +bubble('li', '15:45', "2018-10-29T15:45")._notification._mob-notime.__item_wide
+          +notification
+            +notification-head('Informative message:')
+              +offer-info
+                +box._big._orange
+                +e.title._fz16 HOT DESK
+            +notification-content
+              +e.subtitle You’ve requested viewing at:
+              +notification-title._fz40._mt0 2019 July9 14:30
+            +notification-footer._txt
+              +short-info('Viewing request status:')._line
+                +e.text Awating confirmation
+        +bubble('li', '15:45', "2018-10-29T15:45")._notification._mob-notime.__item_wide
+          +notification
+            +notification-head('Informative message:')
+              +offer-info
+                +box._big._orange
+                +e.title._fz16 HOT DESK
+            +notification-content
+              +e.subtitle You’ve requested viewing at:
+              +notification-title._fz40._mt0 2019 July9 14:30
+            +notification-footer._txt
+              +short-info('Viewing request status:')._line
+                +state()._check._big._bold Viewing Confirmed
+        +bubble('li', '15:45', "2018-10-29T15:45")._notification._mob-notime.__item_wide
+          +notification
+            +notification-head('Friendly reminder:')
+              +offer-info
+                +box._big._orange
+                +e.title._fz16 HOT DESK
+            +notification-content
+              +e.subtitle You have workplace viewing <b>Tommorow</b>
+              +notification-title._mt-4 June 20, 14:00
+            +short-space.__space
+              +short-space-media
+                +e.IMG.image(src="assets/images/space5.jpg")
+              +short-space-content
+                +e.title Central Working - City
+                +e.text 4 Crown Pl, London EC2A 4BT,
+            +notification-footer._txt
+              +e.buttons_sps
+                +button()._border._border_bg-white._shorter._mob-smaller.__button Decline viewing
+                +button()._shorter._mob-smaller.__button Ok expect me
+        +bubble('li', '15:45', "2018-10-29T15:45")._notification._mob-notime.__item_wide
+          +notification
+            +notification-head('So, will we continue ?')
+              +offer-info
+                +box._big._orange
+                +e.title._fz16 HOT DESK
+            +notification-content
+              +e.subtitle You had workplace viewing at
+              +notification-title._mt-4 June 20, 14:00
+            +short-space.__space
+              +short-space-media
+                +e.IMG.image(src="assets/images/space5.jpg")
+              +short-space-content
+                +e.title Central Working - City
+                +e.text 4 Crown Pl, London EC2A 4BT,
+            +notification-footer._txt
+              +e.buttons
+                +button()._shorter._mob-smaller.__button_wide Go to Space Page to make tenancy request
+        +bubble('li', '15:45', "2018-10-29T15:45")._notification._mob-notime.__item_wide
+          +notification
+            +notification-head('Viewing Request:')
+            +notification-content
+              +e.subtitle You have new workplace viewing request
+              +notification-title._mt-4 June 20, 14:00
+            +short-space.__space
+              +short-space-media
+                +e.IMG.image(src="assets/images/space5.jpg")
+              +short-space-content
+                +e.title Central Working - City
+                +e.info
+                  +offer-info.__offer
+                    +box._big._orange
+                    +e.title._fz16 HOT DESK
+                  +e.text 5th Floor Co-working area HOT desks
+            +notification-footer._txt
+              +e.buttons_sps
+                +button()._border._border_bg-white._shorter._mob-smaller.__button Decline
+                +button()._shorter._mob-smaller.__button Accept request
+        +bubble('li', '15:45', "2018-10-29T15:45")._notification._mob-notime.__item_wide
+          +notification
+            +notification-head('Friendly reminder:')
+            +notification-content
+              +e.subtitle You have workplace viewing <b>Tommorow</b>
+              +notification-title._mt-4 June 20, 14:00
+            +short-space.__space_last
+              +short-space-media
+                +e.IMG.image(src="assets/images/space5.jpg")
+              +short-space-content
+                +e.title Central Working - City
+                +e.info
+                  +offer-info.__offer
+                    +box._big._orange
+                    +e.title._fz16 HOT DESK
+                  +e.text 5th Floor Co-working area HOT desks
+        +bubble('li', '15:45', "2018-10-29T15:45")._notification._mob-notime.__item_wide
+          +notification
+            +notification-head('Afterwards')
+            +notification-content
+              +e.subtitle You had workplace viewing at
+              +notification-title._mt-4 June 20, 14:00
+            +notification-footer._txt2
+              +e.buttons
+                +button()._shorter._mob-smaller.__button_wide Close this deal
+              +e.text_fz18._mt._tacenter Or you can just close it later and keep conversation with your potential tenant.
+      +e.head_mg
+        +e.TIME.date(datetime="2018-10-29") Few minutes ago
+      +e.UL.list
+        +bubble('li', '15:45', "2018-10-27T15:45", true)._dark.__item I have ordered HOT DESK in your Building in East London. o the question is if i am able to have an access to your sports area when im ordering HOT DESK?
+        +bubble('li', '15:45', "2018-10-27T15:45", true)._dark.__item Hello. Well, let me think a little..
+      block

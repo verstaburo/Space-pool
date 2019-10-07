@@ -243,6 +243,7 @@ export default function slider() {
       const currDate = new Date();
       const currMonth = currDate.getMonth();
       const newslider = new Swiper(sliderContainer, {
+        // loop: true,
         speed: 500,
         slidesPerView: 4,
         slidesPerGroup: 1,
@@ -251,16 +252,20 @@ export default function slider() {
         observeParents: true,
         initialSlide: currMonth,
         slideToClickedSlide: true,
+        // runCallbacksOnInit: true,
         navigation: {
           nextEl: btnNext,
           prevEl: btnPrev,
         },
         on: {
-          slideChange(inst) {
+          transitionStart() {
+            const it = this.el;
             const slides = this.slides;
             const activeIndex = this.activeIndex;
             const activeSlide = slides[activeIndex];
-            $(activeSlide).find('[data-calendar-month]').trigger('click');
+            const item = $(it).find(`[data-calendar-month=${activeIndex}]`);
+            window.chooseMonth(item);
+            // $(activeSlide).find('[data-calendar-month]').trigger('click');
           },
         },
       });

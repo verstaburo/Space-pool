@@ -3,7 +3,7 @@ mixin notification()
     +e.marker
     block
 
-mixin notification-head(name, title)
+mixin notification-head(name, title, titleSmall)
   - var addClass = '';
   - if (title) {addClass = '_spd'}
   +e.SECTION.head(class=addClass)&attributes(attributes)
@@ -11,6 +11,8 @@ mixin notification-head(name, title)
       +e.name!= name
     if title
       +e.title!= title
+    if titleSmall
+      +e.title_fz29!=titleSmall
     +e.target
       block
 
