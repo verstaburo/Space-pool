@@ -3,9 +3,6 @@
 
   position: relative;
   display: inline-block;
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
   vertical-align: middle;
   box-sizing: border-box;
   color: $color-white;
@@ -77,7 +74,9 @@
 
   &__text {
     position: relative;
-    display: block;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
     box-sizing: border-box;
     padding: 8px 57px;
     z-index: 1;
@@ -627,6 +626,27 @@
     #{$b}__text {
       padding-left: 35px;
       padding-right: 20px;
+    }
+  }
+
+  &_mh35 {
+    #{$b}__text {
+      box-sizing: border-box;
+      height: 35px;
+    }
+
+    &#{$b}_border {
+      #{$b}__text {
+        box-sizing: border-box;
+        height: 29px;
+      }
+    }
+
+    &#{$b}_thin-border {
+      #{$b}__text {
+        box-sizing: border-box;
+        height: 31px;
+      }
     }
   }
 }

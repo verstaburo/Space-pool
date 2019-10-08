@@ -24,8 +24,24 @@
     background-color: $color-basic;
   }
 
+  &_fs {
+    justify-content: flex-start;
+  }
+
   &_sb {
     justify-content: space-between;
+  }
+
+  &_fz14 {
+    @include text;
+
+    line-height: 1;
+
+    @include screen('sm') {
+      @include text12;
+
+      line-height: (14 / 12);
+    }
   }
 
   &_fz20 {
@@ -39,6 +55,14 @@
       line-height: (17 / 12);
       padding: 3px 17px 4px;
     }
+
+    .notification_sys & {
+      line-height: (23.4 / 20);
+
+      @include screen('sm') {
+        line-height: (17 / 12);
+      }
+    }
   }
 
   &__text {
@@ -46,6 +70,17 @@
 
     b {
       font-weight: 700;
+    }
+  }
+
+  &__icon {
+    min-width: 16px;
+    width: 16px;
+    height: 20px;
+    fill: $color-yellow;
+
+    &:not(:last-child) {
+      margin-right: 15px;
     }
   }
 

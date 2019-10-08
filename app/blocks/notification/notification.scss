@@ -64,6 +64,10 @@
 
     &_ai-center {
       align-items: center;
+
+      @include screen('sm') {
+        align-items: baseline;
+      }
     }
 
     &_spd {
@@ -154,14 +158,66 @@
     }
 
     #{$b}_sys & {
-      padding: 11px 23px 42px;
+      padding: 16px 20px 42px;
 
       @include screen('sm') {
-        padding: 11px 16px;
+        padding: 11px 16px 25px;
       }
 
       &:not(:last-child) {
-        padding-bottom: 11px;
+        padding-bottom: 16px;
+
+        @include screen('sm') {
+          padding-bottom: 11px;
+        }
+      }
+
+      &_bpt {
+        padding-top: 30px;
+
+        @include screen('sm') {
+          padding-top: 25px;
+        }
+      }
+
+      &_spt {
+        padding-top: 10px;
+
+        @include screen('sm') {
+          padding-top: 11px;
+        }
+      }
+
+      &_mpt {
+        padding-top: 21px;
+
+        @include screen('sm') {
+          padding-top: 11px;
+        }
+      }
+
+      &_mpb {
+        padding-bottom: 28px;
+
+        @include screen('sm') {
+          padding-bottom: 16px;
+        }
+      }
+
+      &_bpb {
+        padding-bottom: 35px;
+
+        @include screen('sm') {
+          padding-bottom: 25px;
+        }
+
+        &:not(:last-child) {
+          padding-bottom: 21px;
+
+          @include screen('sm') {
+            padding-bottom: 16px;
+          }
+        }
       }
     }
 
@@ -247,6 +303,34 @@
         padding-top: 16px;
       }
     }
+
+    #{$b}_sys & {
+      padding: 11px 20px 28px;
+
+      @include screen('sm') {
+        padding: 16px 16px 22px;
+      }
+
+      &_bpt {
+        padding-top: 20px;
+
+        @include screen('sm') {
+          padding-top: 16px;
+        }
+      }
+
+      &_spb {
+        padding-bottom: 22px;
+      }
+
+      &_bpb {
+        padding-bottom: 34px;
+
+        @include screen('sm') {
+          padding-bottom: 25px;
+        }
+      }
+    }
   }
 
   &__name {
@@ -269,6 +353,10 @@
 
     &:not(:first-child) {
       margin-left: 20px;
+
+      #{$b}_sys & {
+        margin-left: 10px;
+      }
     }
   }
 
@@ -396,6 +484,18 @@
     &_center {
       justify-content: center;
     }
+
+    #{$b}_sys & {
+      margin-top: 10px;
+
+      &_3btn {
+        margin-top: 6px;
+      }
+
+      &_smgt {
+        margin-top: 5px;
+      }
+    }
   }
 
   &__button {
@@ -409,11 +509,27 @@
       max-width: none;
     }
 
+    #{$b}_sys & {
+      margin-top: 23px;
+
+      @include screen('sm') {
+        margin-top: 11px;
+      }
+    }
+
     &:not(:last-child) {
       margin-right: 28px;
 
       @include screen('sm') {
         margin-right: 0;
+      }
+
+      #{$b}_sys & {
+        margin-right: 26px;
+
+        @include screen('sm') {
+          margin-right: 0;
+        }
       }
     }
 
@@ -490,6 +606,21 @@
     }
   }
 
+  &__links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+
+    &:not(:first-child) {
+      margin-top: 24px;
+
+      @include screen('sm') {
+        margin-top: 5px;
+      }
+    }
+  }
+
   &__link {
     @include text-mid;
 
@@ -506,6 +637,18 @@
 
       @include screen('sm') {
         margin-right: 0;
+      }
+    }
+
+    &_fz14 {
+      @include text;
+
+      line-height: 1;
+
+      @include screen('sm') {
+        @include text12;
+
+        line-height: 1.2;
       }
     }
   }
@@ -600,6 +743,46 @@
     }
   }
 
+  &__info {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: baseline;
+    flex-wrap: wrap;
+    align-content: flex-start;
+
+    &:not(:first-child) {
+      margin-top: 30px;
+
+      @include screen('sm') {
+        margin-top: 20px;
+      }
+    }
+  }
+
+  &__item {
+    display: inline-block;
+
+    &:not(:last-child) {
+      margin-right: 36px;
+
+      @include screen('sm') {
+        margin-right: 20px;
+      }
+    }
+
+    &:not(:first-child) {
+      @include screen('sm') {
+        margin-right: 0;
+        margin-left: auto;
+      }
+    }
+
+    &:last-child {
+      margin-left: auto;
+    }
+  }
+
   &__informer {
     border-radius: 3px;
     margin-top: -6px;
@@ -610,6 +793,31 @@
 
     &_mt0 {
       margin-top: 0;
+    }
+
+    #{$b}_sys & {
+      margin-top: 0;
+      padding: 24px;
+
+      @include screen('sm') {
+        padding: 18px 16px;
+      }
+
+      &_pd20 {
+        padding: 20px;
+
+        @include screen('sm') {
+          padding: 15px 16px;
+        }
+      }
+
+      &_smpd {
+        padding: 20px 20px 24px;
+
+        @include screen('sm') {
+          padding: 15px 16px;
+        }
+      }
     }
   }
 
@@ -638,11 +846,28 @@
       color: $color-peach;
     }
 
+    &_sb {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
     #{$b}_sys & {
+      margin-top: 8px;
       line-height: (23.4 / 20);
 
       @include screen('sm') {
         line-height: (20 / 13);
+      }
+
+      p {
+        &:not(:first-child) {
+          margin-top: 25px;
+
+          @include screen('sm') {
+            margin-top: 20px;
+          }
+        }
       }
     }
   }
@@ -672,6 +897,12 @@
 
         line-height: (20 / 13);
       }
+    }
+
+    &_fz12 {
+      @include text12;
+
+      line-height: (14 / 12);
     }
 
     &_fz14 {
@@ -725,6 +956,26 @@
       margin-bottom: 10px;
     }
 
+    #{$b}_sys & {
+      &:not(:first-child) {
+        margin-top: 24px;
+
+        @include screen('sm') {
+          margin-top: 20px;
+        }
+      }
+
+      p {
+        &:not(:first-child) {
+          margin-top: 13px;
+
+          @include screen('sm') {
+            margin-top: 8px;
+          }
+        }
+      }
+    }
+
     #{$b}__footer & {
       &:not(:last-child) {
         margin-bottom: 40px;
@@ -736,9 +987,27 @@
     }
   }
 
+  &__check {
+    display: block;
+    font-size: 0;
+    line-height: 0;
+    fill: $color-basic;
+    min-width: 20px;
+    width: 20px;
+    height: 15px;
+
+    &:not(:first-child) {
+      margin-left: 20px;
+    }
+  }
+
   &__list {
     &:not(:first-child) {
-      margin-top: 24px;
+      margin-top: 32px;
+
+      @include screen('sm') {
+        margin-top: 25px;
+      }
     }
 
     li {
@@ -754,7 +1023,7 @@
         @include text13;
 
         line-height: (14 / 13);
-        padding-left: 10px;
+        padding-left: 12px;
       }
 
       b {
@@ -771,6 +1040,10 @@
 
       &:not(:last-child) {
         margin-bottom: 18px;
+
+        @include screen('sm') {
+          margin-bottom: 12px;
+        }
       }
 
       &::before {
