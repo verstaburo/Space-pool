@@ -236,7 +236,7 @@
                                                         <a class="button button_thin-border button_thin-border_bg-white button_shorter button_smaller button_fz14 button_mh35 notification__button">
                                                             <span class="button__text">Continue without changes</span>
                                                         </a>
-                                                        <a class="button button_shorter button_smaller button_fz14 button_mh35 notification__button">
+                                                        <a class="button button_shorter button_smaller button_fz14 button_mh35 notification__button js-popup" href="#popup-new-offer">
                                                             <span class="button__text">Make new offer</span>
                                                         </a>
                                                     </div>
@@ -412,7 +412,7 @@
                                                         <a class="button button_thin-border button_thin-border_bg-white button_shorter button_smaller button_fz14 button_mh35 notification__button">
                                                             <span class="button__text">Continue without changes</span>
                                                         </a>
-                                                        <a class="button button_thin-border button_thin-border_bg-white button_shorter button_smaller button_fz14 button_mh35 notification__button">
+                                                        <a class="button button_thin-border button_thin-border_bg-white button_shorter button_smaller button_fz14 button_mh35 notification__button js-popup" href="#popup-new-offer">
                                                             <span class="button__text">Make new offer</span>
                                                         </a>
                                                         <a class="button button_shorter button_smaller button_fz14 button_mh35 notification__button notification__button_wide">
@@ -585,8 +585,8 @@
                                                         <a class="button button_thin-border button_thin-border_bg-white button_shorter button_smaller button_fz14 button_mh35 notification__button">
                                                             <span class="button__text">Leaving when tenancy ends</span>
                                                         </a>
-                                                        <a class="button button_shorter button_smaller button_fz14 button_mh35 notification__button">
-                                                            <span class="button__text">Make new offer</span>
+                                                        <a class="button button_shorter button_smaller button_fz14 button_mh35 notification__button js-popup" href="#popup-new-offer-g">
+                                                            <span class="button__text">Open new tenancy offer</span>
                                                         </a>
                                                     </div>
                                                 </section>
@@ -626,8 +626,8 @@
                                                         <a class="button button_thin-border button_thin-border_bg-white button_shorter button_smaller button_fz14 button_mh35 notification__button">
                                                             <span class="button__text">Leaving when tenancy ends</span>
                                                         </a>
-                                                        <a class="button button_shorter button_smaller button_fz14 button_mh35 notification__button">
-                                                            <span class="button__text">Make new offer</span>
+                                                        <a class="button button_shorter button_smaller button_fz14 button_mh35 notification__button js-popup" href="#popup-new-offer-g">
+                                                            <span class="button__text">Open new tenancy offer</span>
                                                         </a>
                                                     </div>
                                                 </section>
@@ -889,6 +889,165 @@
                         <div class="popup-signin__links">
                             <a class="link link_white link_underline popup-signin__link" href="#">
                                 <span class="link__text">Sign up Here</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="popup popup_big popup-new-offer" id="popup-new-offer">
+            <div class="popup__content">
+                <div class="popup__heading">
+                    <h3 class="popup__title">New Tenancy offer for</h3>
+                </div>
+                <div class="offer-space popup-new-offer__space">
+                    <div class="offer-space__media">
+                        <div class="offer-space__image">
+                            <img class="offer-space__img" src="assets/images/space2.jpg" alt="" role="presentation" />
+                        </div>
+                    </div>
+                    <div class="offer-space__describe">
+                        <div class="offer-info offer-space__offer">
+                            <div class="offer-info__head">
+                                <div class="box box_size16 box_orange"></div>
+                                <div class="offer-info__title offer-info__title_fz13 offer-info__title_dark2">HOT DESK</div>
+                            </div>
+                        </div>
+                        <div class="offer-space__title">Blooming Founders One Heddon Street</div>
+                        <div class="offer-space__text">Co-Working area Floor 5</div>
+                    </div>
+                </div>
+                <div class="popup-new-offer__conditions">
+                    <div class="popup-new-offer__old">
+                        <div class="popup-new-offer__subtitle">Current terms:</div>
+                        <div class="popup-new-offer__list">
+                            <p>Existing price: £ 590.00 mo</p>
+                            <p>From: 30 October 2019</p>
+                            <p>Till: 30 October 2019</p>
+                        </div>
+                    </div>
+                    <div class="popup-new-offer__new">
+                        <form class="form popup-new-offer__form">
+                            <div class="form__info form__info_nowrap">
+                                <div class="form__info-cell form__info-cell_big form__info-cell_no-sm-top">
+                                    <div class="form__wrapper">
+                                        <label class="form-box">
+                                            <input class="input input_dark" type="text" name="price" placeholder="Tenancy price" />
+                                            <span class="form-box__label">New tenancy price</span>
+                                        </label>
+                                        <div class="error-message"></div>
+                                    </div>
+                                </div>
+                                <div class="form__info-cell form__info-cell_no-sm-top">
+                                    <div class="form__wrapper form__wrapper_aie form__wrapper_h100p">
+                                        <div class="form__imitation form__imitation_tar">Per month</div>
+                                        <div class="error-message"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form__info">
+                                <div class="form__info-cell">
+                                    <div class="form__wrapper">
+                                        <label class="form-box form-box_icon form-box_icon_small form-box_bold form-box_lbl-small">
+                                            <input class="input input_dark js-datepicker" type="text" name="startDate" value="1 November 2019" placeholder="Rent start date:" data-period-start="rent" readonly="readonly" />
+                                            <span class="form-box__label">Tenancy start at</span>
+                                            <svg class="form-box__icon"><use xlink:href="assets/images/icon.svg#icon_calendar2"></use></svg>
+                                        </label>
+                                        <div class="error-message"></div>
+                                    </div>
+                                </div>
+                                <div class="long-arrow long-arrow_h16 long-arrow_short long-arrow_dark form__info-arrow">
+                                    <div class="long-arrow__wrapper">
+                                        <svg class="long-arrow__icon"><use xlink:href="assets/images/icon.svg#icon_long-arrow"></use></svg>
+                                    </div>
+                                </div>
+                                <div class="form__info-cell">
+                                    <div class="form__wrapper">
+                                        <label class="form-box form-box_icon form-box_icon_small form-box_bold form-box_lbl-small">
+                                            <input class="input input_dark js-datepicker" type="text" name="endDate" value="1 November 2020" placeholder="Rent end date:" data-period-end="rent" data-mindate="2019-11-1" readonly="readonly" />
+                                            <span class="form-box__label">Tenancy ends</span>
+                                            <svg class="form-box__icon"><use xlink:href="assets/images/icon.svg#icon_calendar2"></use></svg>
+                                        </label>
+                                        <div class="error-message"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form__info form__info_btn">
+                                <div class="form__info-cell form__info-cell_big form__info-cell_no-sm-top"></div>
+                                <div class="form__info-cell form__info-cell_no-sm-top">
+                                    <a class="button button_shorter button_smaller button_fz14 button_mh35 button_wide form__button">
+                                        <span class="button__text">Make new offer</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="popup popup_big popup-new-offer" id="popup-new-offer-g">
+            <div class="popup__content">
+                <div class="popup__heading">
+                    <h3 class="popup__title">New Tenancy offer for</h3>
+                </div>
+                <div class="offer-space popup-new-offer__space">
+                    <div class="offer-space__media">
+                        <div class="offer-space__image">
+                            <img class="offer-space__img" src="assets/images/space2.jpg" alt="" role="presentation" />
+                        </div>
+                    </div>
+                    <div class="offer-space__describe">
+                        <div class="offer-info offer-space__offer">
+                            <div class="offer-info__head">
+                                <div class="box box_size16 box_orange"></div>
+                                <div class="offer-info__title offer-info__title_fz13 offer-info__title_dark2">HOT DESK</div>
+                            </div>
+                        </div>
+                        <div class="offer-space__title">Blooming Founders One Heddon Street</div>
+                        <div class="offer-space__text">Co-Working area Floor 5</div>
+                    </div>
+                </div>
+                <div class="popup-new-offer__conditions">
+                    <div class="popup-new-offer__old">
+                        <div class="popup-new-offer__subtitle">Current terms:</div>
+                        <div class="popup-new-offer__list">
+                            <p>Existing price: £ 590.00 mo</p>
+                            <p>From: 30 October 2019</p>
+                            <p>Till: 30 October 2019</p>
+                        </div>
+                    </div>
+                    <div class="popup-new-offer__new">
+                        <div class="info info_input popup-new-offer__info">
+                            <div class="info__cell info__cell_fz16">New Tenancy Price</div>
+                            <div class="info__cell info__cell_fz16 info__cell_fw400"> &pound; 620.00
+                                <b>per month</b>
+                            </div>
+                        </div>
+                        <div class="time time_sb time_fields popup-new-offer__time">
+                            <div class="time__text time__text_fz18">
+                                <div class="time__text time__text_fz13 time__text_abs">
+                                    <b>Tenancy start at</b>
+                                </div>
+                                <time class="time__time time__time_fz18_sm16 time__time_dark">1 November 2019</time>
+                            </div>
+                            <div class="long-arrow long-arrow_h16 long-arrow_dark long-arrow_long time__divider">
+                                <div class="long-arrow__wrapper">
+                                    <svg class="long-arrow__icon"><use xlink:href="assets/images/icon.svg#icon_long-arrow"></use></svg>
+                                </div>
+                            </div>
+                            <div class="time__text time__text_fz18">
+                                <div class="time__text time__text_fz13 time__text_abs time__text_abs_right">
+                                    <b>Tenancy end date:</b>
+                                </div>
+                                <time class="time__time time__time_fz18_sm16 time__time_dark">1 November 2020</time>
+                            </div>
+                        </div>
+                        <div class="popup-new-offer__buttons">
+                            <a class="button button_thin-border button_thin-border_bg-white button_shorter button_smaller button_fz14 button_mh35 popup-new-offer__button" href="#">
+                                <span class="button__text">Decline offer</span>
+                            </a>
+                            <a class="button button_shorter button_smaller button_fz14 button_mh35 popup-new-offer__button popup-new-offer__button_big" href="#">
+                                <span class="button__text">Apply new tenancy period</span>
                             </a>
                         </div>
                     </div>
@@ -1229,6 +1388,117 @@
                     <a class="button button_border button_border_bg-white sticky-message__button js-close-message" href="#">
                         <span class="button__text">I agree</span>
                     </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="main-menu main-menu_inner">
+        <div class="main-menu__wrapper">
+            <div class="main-menu__block">
+                <div class="main-menu__top">
+                    <button class="burger js-open-navigation">
+                        <div class="burger__image">
+                            <div class="burger__line"></div>
+                        </div>
+                    </button>
+                </div>
+                <div class="main-menu__scrollblock js-scrollbar-light">
+                    <div class="main-menu__content">
+                        <div class="main-menu__top-menu">
+                            <ul class="nav-list">
+                                <li class="nav-list__item">
+                                    <a class="link" href="#">
+                                        <span class="link__text">My Reseravtions</span>
+                                    </a>
+                                </li>
+                                <li class="nav-list__item">
+                                    <a class="link" href="#">
+                                        <span class="link__text">History of Booking</span>
+                                    </a>
+                                </li>
+                                <li class="nav-list__item">
+                                    <a class="link" href="#">
+                                        <span class="link__text">Messages</span>
+                                    </a>
+                                </li>
+                                <li class="nav-list__item">
+                                    <a class="link" href="#">
+                                        <span class="link__text">Favourites</span>
+                                    </a>
+                                </li>
+                                <li class="nav-list__item">
+                                    <a class="link" href="#">
+                                        <span class="link__text">Profile & Settings</span>
+                                    </a>
+                                </li>
+                                <li class="nav-list__item">
+                                    <a class="link" href="#">
+                                        <span class="link__text">Sign out</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <hr class="divider" />
+                        <div class="main-menu__bottom-menu">
+                            <ul class="nav-list">
+                                <li class="nav-list__item">
+                                    <a class="link" href="#">
+                                        <span class="link__text">About the project</span>
+                                    </a>
+                                </li>
+                                <li class="nav-list__item">
+                                    <a class="link" href="#">
+                                        <span class="link__text">Become a host</span>
+                                    </a>
+                                </li>
+                                <li class="nav-list__item">
+                                    <a class="link" href="#">
+                                        <span class="link__text">Help &amp; Support</span>
+                                    </a>
+                                </li>
+                                <li class="nav-list__item">
+                                    <a class="link" href="#">
+                                        <span class="link__text">News</span>
+                                    </a>
+                                </li>
+                                <li class="nav-list__item">
+                                    <a class="link" href="#">
+                                        <span class="link__text">Terms and Policies</span>
+                                    </a>
+                                </li>
+                            </ul>
+                            <ul class="socials">
+                                <li class="socials__item">
+                                    <a class="social social_fb" target="_blank" href="#" title="facebook">
+                                        <svg class="social__icon"><use xlink:href="assets/images/icon.svg#icon_sc-fb"></use></svg>
+                                    </a>
+                                </li>
+                                <li class="socials__item">
+                                    <a class="social social_ln" target="_blank" href="#" title="linkedIn">
+                                        <svg class="social__icon"><use xlink:href="assets/images/icon.svg#icon_sc-ln"></use></svg>
+                                    </a>
+                                </li>
+                                <li class="socials__item">
+                                    <a class="social social_tw" target="_blank" href="#" title="twitter">
+                                        <svg class="social__icon"><use xlink:href="assets/images/icon.svg#icon_sc-tw"></use></svg>
+                                    </a>
+                                </li>
+                                <li class="socials__item">
+                                    <a class="social social_inst" target="_blank" href="#" title="instagram">
+                                        <svg class="social__icon"><use xlink:href="assets/images/icon.svg#icon_sc-inst"></use></svg>
+                                    </a>
+                                </li>
+                            </ul>
+                            <div class="main-menu__links">
+                                <a class="link" href="mailto:info@spacepool.com">
+                                    <span class="link__text">info@spacepool.com</span>
+                                </a>
+                                <a class="link" href="tel:+4471478129419">
+                                    <span class="link__text">+44 714 781 294 19</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
