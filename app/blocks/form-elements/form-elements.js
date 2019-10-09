@@ -616,6 +616,7 @@ export function datepicker() {
       disableNavWhenOutOfRange: true,
       minDate,
       maxDate,
+      classes: 'datepicker_fancybox',
       onSelect(a, b, inst) {
         const self = inst.el;
         $(self).trigger('change');
@@ -691,6 +692,7 @@ export function datepicker() {
       autoClose: true,
       minDate,
       maxDate,
+      classes: 'datepicker_fancybox',
       onSelect(a, b, inst) {
         const self = inst.el;
         $(self).trigger('change');
@@ -724,6 +726,7 @@ export function datepicker() {
       autoClose: true,
       minDate,
       maxDate,
+      classes: 'datepicker_fancybox',
       onSelect(a, b, inst) {
         const self = inst.el;
         $(self).trigger('change');

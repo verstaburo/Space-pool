@@ -44,7 +44,7 @@ block content
                     +e.subtitle You can now continue tenancy on the existing condition or create new order summary with different tenancy terms.
                     +e.buttons
                       +button()._thin-border._thin-border_bg-white._shorter._smaller._fz14._mh35.__button Continue without changes
-                      +button()._shorter._smaller._fz14._mh35.__button Make new offer
+                      +button()._shorter._smaller._fz14._mh35.__button.js-popup(href="#popup-new-offer") Make new offer
                     +e.links
                       +link._underline.__link_fz14 Terminate the contract after tenancy period ends
               +bubble('li', '15:45', "2018-10-29T15:45")._mxw488._notification._mob-notime.__item_wide
@@ -123,7 +123,7 @@ block content
                     +e.subtitle_peach Tenant declined new tenancy offer
                     +e.buttons_3btn
                       +button()._thin-border._thin-border_bg-white._shorter._smaller._fz14._mh35.__button Continue without changes
-                      +button()._thin-border._thin-border_bg-white._shorter._smaller._fz14._mh35.__button Make new offer
+                      +button()._thin-border._thin-border_bg-white._shorter._smaller._fz14._mh35.__button.js-popup(href="#popup-new-offer") Make new offer
                       +button()._shorter._smaller._fz14._mh35.__button_wide Serve Notice to end contract
               +bubble('li', '15:45', "2018-10-29T15:45")._mxw488._notification._mob-notime.__item_wide
                 +notification._sys
@@ -193,7 +193,7 @@ block content
                     +e.subtitle Blooming founders Kethsinton Street representative created a new tenancy offer for next period. What whould you like to do?
                     +e.buttons._smgt
                       +button()._thin-border._thin-border_bg-white._shorter._smaller._fz14._mh35.__button Leaving when tenancy ends
-                      +button()._shorter._smaller._fz14._mh35.__button Make new offer
+                      +button()._shorter._smaller._fz14._mh35.__button.js-popup(href="#popup-new-offer-g") Open new tenancy offer
               +bubble('li', '15:45', "2018-10-29T15:45")._mxw488._notification._mob-notime.__item_wide
                 +notification._sys
                   +notification-head('', '', 'Your tenancy ends up soon')._ai-center
@@ -210,7 +210,7 @@ block content
                     +e.subtitle Blooming founders Kethsinton Street representative created a new tenancy offer for next period. What whould you like to do?
                     +e.buttons._smgt
                       +button()._thin-border._thin-border_bg-white._shorter._smaller._fz14._mh35.__button Leaving when tenancy ends
-                      +button()._shorter._smaller._fz14._mh35.__button Make new offer
+                      +button()._shorter._smaller._fz14._mh35.__button.js-popup(href="#popup-new-offer-g") Open new tenancy offer
                   +informer._fs._fz14._gray.__informer_smpd
                     +icon('exclamation').__icon_exc
                     +e.text Please note that at the en of this tenancy period you must leave space in case you don’t accept new tenancy offer.
@@ -286,3 +286,11 @@ block content
                       p Remember that you can always find a new place for your business.
                     +e.buttons._smgt
                       +button()._shorter._smaller._fz14._mh35.__button_wide Go find new Space
+
+block panels
+  +main-menu-inner
+    +nav-list(getData('main-menu-user.json'))
+
+block popups
+  +popup-new-offer#popup-new-offer
+  +popup-new-offer-g#popup-new-offer-g

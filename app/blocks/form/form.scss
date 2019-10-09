@@ -1922,6 +1922,113 @@
     height: 100%;
   }
 
+  &__info {
+    position: relative;
+    display: flex;
+    justify-content: flex-start;
+    align-content: flex-start;
+    flex-wrap: wrap;
+    width: 100%;
+
+    &:not(:first-child) {
+      margin-top: 30px;
+    }
+
+    &_btn {
+      &:not(:first-child) {
+        margin-top: 40px;
+      }
+    }
+
+    &_nowrap {
+      flex-wrap: nowrap;
+    }
+
+    &-cell {
+      position: relative;
+      box-sizing: border-box;
+      display: block;
+      flex: 1;
+
+      @include screen('sm') {
+        flex: none;
+        width: 100%;
+      }
+
+      &_big {
+        flex: 1.43;
+
+        @include screen('sm') {
+          flex: none;
+          width: 100%;
+        }
+      }
+
+      &:not(:first-child) {
+        @include screen('sm') {
+          margin-top: 30px;
+        }
+      }
+
+      &_no-sm-top:not(:first-child) {
+        @include screen('sm') {
+          margin-top: 0;
+        }
+      }
+
+      #{$b}__info_nowrap & {
+        @include screen('sm') {
+          flex: 1;
+          width: auto;
+        }
+
+        &_big {
+          @include screen('sm') {
+            flex: 1.43;
+            width: auto;
+          }
+        }
+      }
+    }
+
+    &-arrow {
+      flex: .43;
+      align-self: center;
+
+      @include screen('sm') {
+        position: absolute;
+        flex: none;
+        width: 20px;
+        transform-origin: 50% 50% 0;
+        top: 40px;
+        right: -5px;
+        transform: rotate(90deg);
+        z-index: 2;
+        background-color: $color-white;
+      }
+    }
+  }
+
+  &__imitation {
+    @include text-big;
+
+    font-weight: 400;
+    line-height: (26 / 18);
+    border-bottom: 1px solid $color-form-border;
+    width: 100%;
+    box-sizing: border-box;
+    color: $color-placeholder;
+    padding-bottom: 8px;
+
+    @include screen('sm') {
+      @include text16;
+    }
+
+    &_tar {
+      text-align: right;
+    }
+  }
+
   &_lg-shft20 {
     @include screen('lg') {
       margin-left: -20px;

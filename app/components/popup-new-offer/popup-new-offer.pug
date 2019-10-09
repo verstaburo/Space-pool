@@ -1,0 +1,69 @@
+mixin popup-new-offer()
+  +popup._big.popup-new-offer__&attributes(attributes)
+    div.popup__heading
+      +popup-title New Tenancy offer for
+    +offer-space.__space
+    +e.conditions
+      +e.old
+        +e.subtitle Current terms:
+        +e.list
+          p Existing price: £ 590.00 mo
+          p From: 30 October 2019
+          p Till: 30 October 2019
+      +e.new
+        +form.__form
+          +e.info_nowrap
+            +e.info-cell._big._no-sm-top
+              +form-section-wrapper
+                +form-box('New tenancy price')
+                  +input.input_dark(type="text" name="price" placeholder="Tenancy price")
+            +e.info-cell._no-sm-top
+              +form-section-wrapper._aie._h100p
+                +e.imitation_tar Per month
+          +e.info
+            +e.info-cell
+              +form-section-wrapper
+                +form-box('Tenancy start at', 'calendar2')._icon._icon_small._bold._lbl-small
+                  +input.input_dark.js-datepicker(type="text" name="startDate" value="1 November 2019" placeholder="Rent start date:" data-period-start="rent" readonly)
+            +long-arrow._h16._short._dark.__info-arrow
+            +e.info-cell
+              +form-section-wrapper
+                +form-box('Tenancy ends', 'calendar2')._icon._icon_small._bold._lbl-small
+                  +input.input_dark.js-datepicker(type="text" name="endDate" value="1 November 2020" placeholder="Rent end date:" data-period-end="rent" data-mindate="2019-11-1" readonly)
+          +e.info_btn
+            +e.info-cell._big._no-sm-top
+            +e.info-cell._no-sm-top
+              +button()._shorter._smaller._fz14._mh35._wide.__button Make new offer
+
+    block
+
+mixin popup-new-offer-g()
+  +popup._big.popup-new-offer__&attributes(attributes)
+    div.popup__heading
+      +popup-title New Tenancy offer for
+    +offer-space.__space
+    +e.conditions
+      +e.old
+        +e.subtitle Current terms:
+        +e.list
+          p Existing price: £ 590.00 mo
+          p From: 30 October 2019
+          p Till: 30 October 2019
+      +e.new
+        +info._input.__info
+          +e.cell_fz16 New Tenancy Price
+          +e.cell_fz16._fw400  &pound; 620.00 <b>per month</b>
+        +time-origin._sb._fields.__time
+          +time-text._fz18
+            +time-text._fz13._abs
+              b Tenancy start at
+            +time-time._fz18_sm16._dark 1 November 2019
+          +long-arrow._h16._dark._long.__divider
+          +time-text._fz18
+            +time-text._fz13._abs._abs_right
+              b Tenancy end date:
+            +time-time._fz18_sm16._dark 1 November 2020
+        +e.buttons
+          +button()._thin-border._thin-border_bg-white._shorter._smaller._fz14._mh35.__button(href="#") Decline offer
+          +button()._shorter._smaller._fz14._mh35.__button_big(href="#") Apply new tenancy period
+    block

@@ -14,6 +14,7 @@
 
     font-weight: 400;
     display: inline-block;
+    position: relative;
 
     @include screen('sm') {
       @include text12;
@@ -25,6 +26,12 @@
       color: $color-peach;
     }
 
+    &_fz13 {
+      @include text13;
+
+      line-height: (20 / 13);
+    }
+
     &_fz14 {
       @include text;
 
@@ -34,6 +41,34 @@
         @include text12;
 
         line-height: (20 / 12);
+      }
+    }
+
+    &_fz18 {
+      @include text-big;
+
+      line-height: (20 / 18);
+
+      @include screen('sm') {
+        @include text16;
+
+        line-height: (20 / 16);
+      }
+    }
+
+    &_abs {
+      position: absolute;
+      bottom: 28px;
+      left: 0;
+
+      &_right {
+        left: auto;
+        right: 0;
+
+        @include screen('sm') {
+          right: auto;
+          left: 0;
+        }
       }
     }
   }
@@ -73,6 +108,20 @@
 
         line-height: (15 / 12);
       }
+    }
+
+    &_fz18_sm16 {
+      @include text-big;
+
+      @include screen('sm') {
+        @include text16;
+
+        line-height: (20 / 16);
+      }
+    }
+
+    &_dark {
+      color: $color-input-dark;
     }
 
     &_wrap {
@@ -127,6 +176,38 @@
 
     &_grad {
       fill: url('#main-gradient');
+    }
+  }
+
+  &_fields {
+    @include screen('sm') {
+      flex-wrap: wrap;
+    }
+
+    #{$b} {
+
+      &__text {
+        @include screen('sm') {
+          width: 100%;
+        }
+
+        &:not(:first-child) {
+          @include screen('sm') {
+            margin-top: 30px;
+          }
+        }
+      }
+
+      &__divider {
+        @include screen('sm') {
+          width: 20px;
+          transform-origin: 50% 50% 0;
+          transform: rotate(90deg);
+          background-color: $color-white;
+          flex: none;
+          margin: 5px 0 5px -5px;
+        }
+      }
     }
   }
 

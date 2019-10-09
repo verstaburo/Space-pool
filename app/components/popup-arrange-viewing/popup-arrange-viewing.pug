@@ -19,27 +19,17 @@ mixin popup-arrange-viewing()
             +form-section-header._mg21
               +form-section-title('h4')._smaller Please set time:
             +grid.grid_bigger
-              +col({xl: 6, sm: 12})
+              +col({xl: 12})
                 +form-section-wrapper
                   +form-box('')
                     +select.js-select-input(name="time")
-                      option(value="1:00") 1:00
-                      option(value="2:00") 2:00
-                      option(value="3:00") 3:00
-                      option(value="4:00") 4:00
-                      option(value="5:00") 5:00
-                      option(value="6:00") 6:00
-                      option(value="7:00") 7:00
-                      option(value="8:00" selected) 8:00
-                      option(value="9:00") 9:00
-                      option(value="10:00") 10:00
-                      option(value="11:00") 11:00
-                      option(value="12:00") 12:00
-              +col({xl: 6, sm: 12})
-                +form-section-wrapper
-                  +form-box('')
-                    +select.js-select-input(name="dayPart")
-                      option(value="AM" selected) AM
-                      option(value="PM") PM
+                      - for (var i = 0; i < 24; i++) {
+                        if (i === 8)
+                          option(value=i + ':00' selected)!=(i + ':00')
+                          option(value=i + ':30')!=(i + ':30')
+                        else
+                          option(value=i + ':00')!=(i + ':00')
+                          option(value=i + ':30')!=(i + ':30')
+                      - }
             +e.buttons
               +button('button')(type="submit")._short._wide Request viewing

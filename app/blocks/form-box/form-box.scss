@@ -24,6 +24,11 @@
       @include text16;
     }
 
+    #{$b}_tar & {
+      right: 0;
+      left: auto;
+    }
+
     #{$b}_fz17 & {
       @include text-mid;
 
@@ -72,6 +77,15 @@
       .is-error & {
         color: $color-error;
       }
+    }
+
+    #{$b}_lbl-small.is-top &,
+    #{$b}_lbl-small .choices.is-item-select~&,
+    #{$b}_lbl-small .choices.is-open~& {
+      @include text13;
+
+      line-height: (26 / 13);
+      transform: translate3d(0, -23px, 0);
     }
 
     #{$b}_invis .choices.is-item-select ~ &, #{$b}_invis .choices.is-open ~ & {
@@ -126,6 +140,13 @@
 
     @include screen('sm') {
       right: 9px;
+    }
+
+    #{$b}_icon_small & {
+      width: 10px;
+      height: 10px;
+      right: 0;
+      bottom: 17px;
     }
 
     &_text {
@@ -255,6 +276,12 @@
 
     &:hover #{$b}__icon {
       fill: $color-basic;
+    }
+  }
+
+  &_tar {
+    input {
+      text-align: right;
     }
   }
 
