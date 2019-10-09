@@ -88,6 +88,19 @@
       transform: translate3d(0, -23px, 0);
     }
 
+    #{$b}_lbl-nochange.is-top &,#{$b}_lbl-nochange .choices.is-item-select ~ &,#{$b}_lbl-nochange .choices.is-open ~ & {
+      @include text-big;
+
+      line-height: (26 / 18);
+      transform: translate3d(0, -39px, 0);
+
+      @include screen('sm') {
+        @include text16;
+
+        transform: translate3d(0, -30px, 0);
+      }
+    }
+
     #{$b}_invis .choices.is-item-select ~ &, #{$b}_invis .choices.is-open ~ & {
       color: transparent;
     }
@@ -147,6 +160,12 @@
       height: 10px;
       right: 0;
       bottom: 17px;
+    }
+
+    #{$b}_icon_s15 & {
+      width: 15px;
+      height: 15px;
+      right: 0;
     }
 
     &_text {

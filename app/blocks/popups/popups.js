@@ -231,7 +231,7 @@ export default function popups() {
     });
   });
 
-  $(document).on('click', '.js-popupj-mobile', (evt) => {
+  $(document).on('click', '.js-popup-mobile', (evt) => {
     const self = evt.currentTarget;
     if ($(self).attr('data-stoppropagation')) {
       evt.stopPropagation();
