@@ -1,0 +1,23 @@
+extends ../../layouts/default
+
+block head
+  - var pageTitle = 'SpacePool - Privacy policy'
+
+block content
+  +page-header._wide-lg._mcpad
+    .container
+      +grid.grid_layout
+        +col({ lg:12, xl: 2})
+          +link-icon('select-arrow')._no-shadow._back._bold.__back(href="./") Back to home
+        +col({ lg:12, xl: 8}).hide-lg
+          +breadcrumbs(['Home', 'Privacy policy'])
+        +col({ lg:12, xl: 2}).hide-lg
+  +content-origin._reverse._last
+    .container
+      +grid.grid_layout
+        +col({ lg:12, xl: 2}).hide-lg
+        +col({ lg:12, xl: 8})
+          +policy
+        +col({ lg:12, xl: 2}).hide-lg
+block panels
+  +main-menu
