@@ -1,154 +1,151 @@
 mixin popup-add-offer-tc()
-  +popup.popup-add-offer__&attributes(attributes)
-    +popup-title Add rental offer
-    +form._white(data-validated-form)
-      +tabs('div').popup-add-offer__tabs
-        +b.LABEL.tab-radio_orange
-          +e.INPUT.input(name='addOffer', value='1', type="radio", checked, data-show-elements="hotDesk,main,hotFixedOffice", data-hide-elements="dedicatedDesk,meetingRoom,officeSpace,tc", data-toggle-form)
-          +e.label Hot Desk
-        +b.LABEL.tab-radio_red
-          +e.INPUT.input(name='addOffer', value='2', type="radio", disabled="disabled", data-show-elements="dedicatedDesk,main,hotFixedOffice", data-hide-elements="hotDesk,meetingRoom,officeSpace,tc", data-toggle-form)
-          +e.label Dedicated desk
-        +b.LABEL.tab-radio_blue
-          +e.INPUT.input(name='addOffer', value='3', type="radio", data-show-elements="tc", data-hide-elements="hotDesk,dedicatedDesk,officeSpace,main,meetingRoom,hotFixedOffice", data-toggle-form)
-          +e.label Meeting room
-        +b.LABEL.tab-radio_green
-          +e.INPUT.input(name='addOffer', value='4', type="radio", data-show-elements="officeSpace,main,hotFixedOffice", data-hide-elements="hotDesk,dedicatedDesk,meetingRoom,tc", data-toggle-form)
-          +e.label Office space
-      +e.content
-        +form-section._mg58(data-form-element="tc")
-          +note-exclamation()._color._fz30._exclamation_vert.__note In order to add <span data-form-element="hotDesk">Hot Desk</span><span data-form-element="dedicatedDesk">Dedicated Desk</span><span data-form-element="meetingRoom">Meeting Room</span><span data-form-element="officeSpace">Office Space</span> offer for this space you should provide Terms and Conditions for <span data-form-element="hotDesk">Hot Desks</span><span data-form-element="dedicatedDesk">Dedicated Desks</span><span data-form-element="meetingRoom">Meeting Rooms</span><span data-form-element="officeSpace">Office Spaces</span>.
-          +note(true)._fw400._fz20._fz20_lh30.__notice By pushing the button below you will enter <b>Blooming Founders Ofice Space</b> setting section where you should Activate <span data-form-element="hotDesk">Hot Desk</span><span data-form-element="dedicatedDesk">Dedicated Desk</span><span data-form-element="meetingRoom">Meeting Room</span><span data-form-element="officeSpace">Office Space</span> section and provide Terms and condition text which will be used to generate Rental agreement.
-        +form-section._mid-mg(data-form-element="main")
-          +grid.grid_layout.grid_bigger
-            +col({xl: 12})
-              +form-section-wrapper
-                +form-box('Offer title')
-                  +input(type="text" name="offerTitle" placeholder="Offer title" required)
-            +col({xl: 12})
-              +form-section-wrapper._noflex
-                +form-box('Offer Description')
-                  +input(type="text" name="offerDescription" placeholder="Offer Description" required)
-                +form-section-text._light Any information, rules, restrictions and additional features for this offer
-            +col({xl: 8, sm: 12})(data-form-element="meetingRoom")
-              +form-section._mid-mg
-                +form-section-header._mg21
-                  +form-section-title('h4')._small Prices (Mark the positions and fill the Price)
-                  +form-section-content
-                    +form-section-wrapper._mg29
-                      +check-input(true) Per Hour
-                    +form-section-wrapper._mg29
-                      +check-input Per Half a day
-                    +form-section-wrapper._mg29
-                      +check-input Per day
-            +col({xl: 6, sm: 12})(data-form-element="hotFixedOffice")
-              +e.field
-                +form-section-wrapper._negative-mg.__count
-                  +form-box('Price ', '', '', '&pound;')._icon_left
-                    +input(type="text" name="price" placeholder="Price" required)
-                +form-section-wrapper._negative-mg.__mesure
-                  +form-box
-                    +select.js-select-input(name="pricePeriod")
-                      option(value="Days" selected) Days
-                      option(value="Week") Weeks
-                      option(value="Month") Months
-                      option(value="Year") Years
-                      option(value="per day") Per Day
-                      option(value="per week") Per Week
-                      option(value="per month") Per Month
-                      option(value="per year") Per Year
-            +col({xl: 6, sm: 12})(data-form-element="hotFixedOffice")
-              +form-section-wrapper._negative-mg
-                +form-box('Deposit', '', '', '&pound;')._icon_left
-                  +input(type="text" placeholder="Deposit", value='0.2')
-            +col({xl: 6, sm: 12})
-              +form-section-wrapper._negative-mg
-                +form-box('Available Quantity', '', 'div')
-                  +input-numbers('quantity', 'Available Quantity', 1)
-                +form-section-text._light Provide overal ammount of this particular offer.
-            +col({xl: 6, sm: 12})
-              +form-section-wrapper._noflex._negative-mg
-                +form-box('Available from')
-                  +select.js-select-input
-                    option(value="16", selected) 16 July 2019 (Today)
-                    option(value="17") 17 July 2019
-                    option(value="18") 18 July 2019
-                    option(value="19") 19 July 2019
-                +form-section-text._light Offer will be visible even if it’s not available now
-            +col({xl: 6, sm: 12})(data-form-element="officeSpace")
-              +form-section-wrapper._noflex._negative-mg
-                +form-box('Number of Desks', '', 'div')
-                  +input-numbers('desks', 'Number of Desks', 1)
-                +form-section-text._light Office capacity
-            +col({xl: 6, sm: 12})(data-form-element="officeSpace")
-              +form-section-wrapper._noflex._negative-mg
-                +form-box('Floor area ', '', '', '', 'ft<sup>2</sup>')._icon
-                  +input(type="text" name="area" placeholder="Floor area" required)
-                //- +form-section-text._light Without supply rooms
-            //- +col({xl: 6, sm: 12})(data-form-element="hotFixedOffice")
-            //-   +form-section-wrapper._negative-mg
-            //-     +form-box('Minimum rent period').__count
-            //-       +input(type="text" name="durationRentMin" placeholder="Minimum rent period" required)
-            //-     +form-box('').__mesure
-            //-       +select.js-select-input(name="mesuresPeriodMin")
-            //-         option(value="Days" selected) Days
-            //-         option(value="Week") Weeks
-            //-         option(value="Month") Months
-            //-         option(value="Year") Years
-            //- +col({xl: 6, sm: 12})(data-form-element="hotFixedOffice")
-            //-   +form-section-wrapper._negative-mg
-            //-     +form-box('Maximum rent period').__count
-            //-       +input(type="text" name="durationRentMax" placeholder="Maximum rent period")
-            //-     +form-box('').__mesure
-            //-       +select.js-select-input(name="mesuresPeriodMax")
-            //-         option(value="Days" selected) Days
-            //-         option(value="Week") Week
-            //-         option(value="Month") Month
-            //-         option(value="Year") Year
-            +col({xl: 12})(data-form-element="meetingRoom")
-              +form-section-wrapper
-                +form-box('Number of Seats', '', 'div')
-                  +input-numbers('seats', 'Number of Seats', 1)
-                +form-section-text._light Overal ammount of available seats for one particular Meeting Rooms
-        +form-section._mg43(data-deleted-group data-point-group data-form-element="main")
-          +form-section-header._mg21
-            +form-section-title('h4')._small Offer highlights (optional)
-          +form-section-content()(data-deleted-group data-point-group)._extended
-            +button-plus-thin.js-add-object
-            +form-section-wrapper()._mg29(data-deleted-object data-point-object)
-              +form-box-removable('')._icon
-                +input(type="text" name="points[0]" placeholder="Point").input_points
-        +form-section._mid-mg(data-form-element="hotFixedOffice")
-          +form-section-header._mg21
-            +form-section-title('h4')._small Notice period
-          +form-section-wrapper._fxe._no-mg
-            +form-box('Notice period (numeric value)').__count
-              +input(type="text" placeholder="Notice period (numeric value)").js-numberbox-input
-            +form-box.__mesure
-              +select.js-select-input
-                option(value="Days" selected) Days
-                option(value="Week") Week
-                option(value="Month") Month
-                option(value="Year") Year
-          +form-section-text._light Specify the time at which notice should be given before the contract termination
-        +form-section._mid-mg(data-form-element="meetingRoom").hide
-          +form-section-header._mg21
-            +form-section-title('h4')._small Cancellation period
-          +form-section-wrapper._fxe._no-mg
-            +form-box('Cancellation period (numeric value)').__count
-              +input(type="text" placeholder="Cancellation period (numeric value)")
-            +form-box.__mesure
-              +select.js-select-input
-                option(value="Days" selected) Days
-                option(value="Week") Week
-                option(value="Month") Month
-                option(value="Year") Year
-          +form-section-text._light Specify the time at which notice should be given before the contract termination
-        +form-section._sm-mg(data-form-element="main")
-          +form-section-wrapper._noflex
-            +form-box('Comment (Only you can see it)')
-              +textarea(type="text" name="comment" placeholder="Notes (Only you can see it)" rows="1")
-            //- +form-section-text._light This comment helps you to recognize this particular offer inbetween other offers
-        +e.buttons
-          +button('button')(type="submit" data-form-element="main")._short._wide Add <span data-form-element="hotDesk">Hot Desk</span><span data-form-element="dedicatedDesk">Dedicated Desk</span><span data-form-element="meetingRoom">Meeting Room</span><span data-form-element="officeSpace">Office space</span> rental offer
-          +button('button')(type="button" data-form-element="tc")._short._wide Provide <span class="hide-sm">Terms and Conditions</span><span class="hide-from-sm">T&amp;C</span> for <span data-form-element="hotDesk">hot desks</span><span data-form-element="dedicatedDesk">dedicated desks</span><span data-form-element="tc">meeting rooms</span><span data-form-element="officeSpace">office spaces</span>
+  .popup-wrapper&attributes(attributes)
+    +popup(true).popup-add-offer__&attributes(attributes)
+      +popup-title Add rental offer
+      +form._white(data-validated-form)
+        +tabs('div').popup-add-offer__tabs
+          +b.LABEL.tab-radio_orange
+            +e.INPUT.input(name='addOffer', value='1', type="radio", checked, data-show-elements="hotDesk,main,hotFixedOffice", data-hide-elements="dedicatedDesk,meetingRoom,officeSpace,tc", data-toggle-form)
+            +e.label Hot Desk
+          +b.LABEL.tab-radio_red
+            +e.INPUT.input(name='addOffer', value='2', type="radio", disabled="disabled", data-show-elements="dedicatedDesk,main,hotFixedOffice", data-hide-elements="hotDesk,meetingRoom,officeSpace,tc", data-toggle-form)
+            +e.label Dedicated desk
+          +b.LABEL.tab-radio_blue
+            +e.INPUT.input(name='addOffer', value='3', type="radio", data-show-elements="tc", data-hide-elements="hotDesk,dedicatedDesk,officeSpace,main,meetingRoom,hotFixedOffice", data-toggle-form)
+            +e.label Meeting room
+          +b.LABEL.tab-radio_green
+            +e.INPUT.input(name='addOffer', value='4', type="radio", data-show-elements="officeSpace,main,hotFixedOffice", data-hide-elements="hotDesk,dedicatedDesk,meetingRoom,tc", data-toggle-form)
+            +e.label Office space
+        +e.content
+          +form-section._mg58(data-form-element="tc")
+            +note-exclamation()._color._fz30._exclamation_vert.__note In order to add <span data-form-element="hotDesk">Hot Desk</span><span data-form-element="dedicatedDesk">Dedicated Desk</span><span data-form-element="meetingRoom">Meeting Room</span><span data-form-element="officeSpace">Office Space</span> offer for this space you should provide Terms and Conditions for <span data-form-element="hotDesk">Hot Desks</span><span data-form-element="dedicatedDesk">Dedicated Desks</span><span data-form-element="meetingRoom">Meeting Rooms</span><span data-form-element="officeSpace">Office Spaces</span>.
+            +note(true)._fw400._fz20._fz20_lh30.__notice By pushing the button below you will enter <b>Blooming Founders Ofice Space</b> setting section where you should Activate <span data-form-element="hotDesk">Hot Desk</span><span data-form-element="dedicatedDesk">Dedicated Desk</span><span data-form-element="meetingRoom">Meeting Room</span><span data-form-element="officeSpace">Office Space</span> section and provide Terms and condition text which will be used to generate Rental agreement.
+          +form-section._mid-mg(data-form-element="main")
+            +grid.grid_layout.grid_bigger
+              +col({xl: 12})
+                +form-section-wrapper
+                  +form-box('Offer title')
+                    +input(type="text" name="offerTitle" placeholder="Offer title" required)
+              +col({xl: 12})
+                +form-section-wrapper._noflex
+                  +form-box('Offer Description')
+                    +input(type="text" name="offerDescription" placeholder="Offer Description" required)
+                  +form-section-text._light Any information, rules, restrictions and additional features for this offer
+              //- +col({xl: 8, sm: 12})(data-form-element="meetingRoom")
+              //-   +form-section._mid-mg
+              //-     +form-section-header._mg21
+              //-       +form-section-title('h4')._small Prices (Mark the positions and fill the Price)
+              //-       +form-section-content
+              //-         +form-section-wrapper._mg29
+              //-           +check-input(true) Per Hour
+              //-         +form-section-wrapper._mg29
+              //-           +check-input Per Half a day
+              //-         +form-section-wrapper._mg29
+              //-           +check-input Per day
+              +col({xl: 6, sm: 12})(data-form-element="hotFixedOffice")
+                +e.field
+                  +form-section-wrapper._negative-mg.__count
+                    +form-box('Price ', '', '', '&pound;')._icon_left
+                      +input(type="text" name="price" placeholder="Price" required)
+                  +form-section-wrapper._negative-mg.__mesure
+                    +form-box
+                      +select.js-select-input(name="pricePeriod")
+                        option(value="Days" selected) Days
+                        option(value="Week") Weeks
+                        option(value="Month") Months
+                        option(value="Year") Years
+                        option(value="per day") Per Day
+                        option(value="per week") Per Week
+                        option(value="per month") Per Month
+                        option(value="per year") Per Year
+              +col({xl: 6, sm: 12})(data-form-element="hotFixedOffice")
+                +form-section-wrapper._negative-mg
+                  +form-box('Deposit', '', '', '&pound;')._icon_left
+                    +input(type="text" placeholder="Deposit", value='0.2')
+              +col({xl: 6, sm: 12})
+                +form-section-wrapper._negative-mg
+                  +form-box('Available Quantity', '', 'div')
+                    +input-numbers('quantity', 'Available Quantity', 1)
+                  +form-section-text._light Provide overal ammount of this particular offer.
+              +col({xl: 6, sm: 12})
+                +form-section-wrapper._noflex._negative-mg
+                  +form-box('Available from')
+                    +input.js-datepicker(type="text" name="availableFrom" value="16 July 2019" placeholder="Available from" readonly)
+                  +form-section-text._light Offer will be visible even if it’s not available now
+              +col({xl: 6, sm: 12})(data-form-element="officeSpace")
+                +form-section-wrapper._noflex._negative-mg
+                  +form-box('Number of Desks', '', 'div')
+                    +input-numbers('desks', 'Number of Desks', 1)
+                  +form-section-text._light Office capacity
+              +col({xl: 6, sm: 12})(data-form-element="officeSpace")
+                +form-section-wrapper._noflex._negative-mg
+                  +form-box('Floor area ', '', '', '', 'ft<sup>2</sup>')._icon
+                    +input(type="text" name="area" placeholder="Floor area" required)
+                  //- +form-section-text._light Without supply rooms
+              //- +col({xl: 6, sm: 12})(data-form-element="hotFixedOffice")
+              //-   +form-section-wrapper._negative-mg
+              //-     +form-box('Minimum rent period').__count
+              //-       +input(type="text" name="durationRentMin" placeholder="Minimum rent period" required)
+              //-     +form-box('').__mesure
+              //-       +select.js-select-input(name="mesuresPeriodMin")
+              //-         option(value="Days" selected) Days
+              //-         option(value="Week") Weeks
+              //-         option(value="Month") Months
+              //-         option(value="Year") Years
+              //- +col({xl: 6, sm: 12})(data-form-element="hotFixedOffice")
+              //-   +form-section-wrapper._negative-mg
+              //-     +form-box('Maximum rent period').__count
+              //-       +input(type="text" name="durationRentMax" placeholder="Maximum rent period")
+              //-     +form-box('').__mesure
+              //-       +select.js-select-input(name="mesuresPeriodMax")
+              //-         option(value="Days" selected) Days
+              //-         option(value="Week") Week
+              //-         option(value="Month") Month
+              //-         option(value="Year") Year
+              +col({xl: 12})(data-form-element="meetingRoom")
+                +form-section-wrapper
+                  +form-box('Number of Seats', '', 'div')
+                    +input-numbers('seats', 'Number of Seats', 1)
+                  +form-section-text._light Overal ammount of available seats for one particular Meeting Rooms
+          +form-section._mg43(data-deleted-group data-point-group data-form-element="main")
+            +form-section-header._mg21
+              +form-section-title('h4')._small Offer highlights (optional)
+            +form-section-content()(data-deleted-group data-point-group)._extended
+              +button-plus-thin.js-add-object
+              +form-section-wrapper()._mg29(data-deleted-object data-point-object)
+                +form-box-removable('')._icon
+                  +input(type="text" name="points[0]" placeholder="Point").input_points
+          +form-section._mid-mg(data-form-element="hotFixedOffice")
+            +form-section-header._mg21
+              +form-section-title('h4')._small Notice period
+            +form-section-wrapper._fxe._no-mg
+              +form-box('Notice period (numeric value)').__count
+                +input(type="text" placeholder="Notice period (numeric value)").js-numberbox-input
+              +form-box.__mesure
+                +select.js-select-input
+                  option(value="Days" selected) Days
+                  option(value="Week") Week
+                  option(value="Month") Month
+                  option(value="Year") Year
+            +form-section-text._light Specify the time at which notice should be given before the contract termination
+          +form-section._mid-mg(data-form-element="meetingRoom").hide
+            +form-section-header._mg21
+              +form-section-title('h4')._small Cancellation period
+            +form-section-wrapper._fxe._no-mg
+              +form-box('Cancellation period (numeric value)').__count
+                +input(type="text" placeholder="Cancellation period (numeric value)")
+              +form-box.__mesure
+                +select.js-select-input
+                  option(value="Days" selected) Days
+                  option(value="Week") Week
+                  option(value="Month") Month
+                  option(value="Year") Year
+            +form-section-text._light Specify the time at which notice should be given before the contract termination
+          +form-section._sm-mg(data-form-element="main")
+            +form-section-wrapper._noflex
+              +form-box('Comment (Only you can see it)')
+                +textarea(type="text" name="comment" placeholder="Notes (Only you can see it)" rows="1")
+              //- +form-section-text._light This comment helps you to recognize this particular offer inbetween other offers
+          +e.buttons
+            +button('button')(type="submit" data-form-element="main")._short._wide Add <span data-form-element="hotDesk">Hot Desk</span><span data-form-element="dedicatedDesk">Dedicated Desk</span><span data-form-element="meetingRoom">Meeting Room</span><span data-form-element="officeSpace">Office space</span> rental offer
+            +button('button')(type="button" data-form-element="tc")._short._wide Provide <span class="hide-sm">Terms and Conditions</span><span class="hide-from-sm">T&amp;C</span> for <span data-form-element="hotDesk">hot desks</span><span data-form-element="dedicatedDesk">dedicated desks</span><span data-form-element="tc">meeting rooms</span><span data-form-element="officeSpace">office spaces</span>

@@ -1,35 +1,36 @@
 mixin popup-arrange-viewing()
-  +popup.popup-arrange-viewing__&attributes(attributes)
-    +e.section(data-record-step="1").is-active
-      +calendar('Arrange viewing')
-    +e.section(data-record-step="2")
-      +e.heading
-        +popup-title Arrange viewing
-      +e.content
-        +form._white
-          +form-section._mg33
-            +form-section-header._mg9
-              +form-section-title('h4')._mid You are about to arrange viewing for
-            +info._light-border._xs-reverse
-              +e.cell
-                +e.INPUT.input_big(type="text" name="date" data-calendar-output readonly="readonly")
-              +e.cell_afend
-                +link-icon('calendar2')(href="#" data-record-step-target="1")._icon_smaller._icon_gray-dark._no-shadow.__link.js-switch-record-step Change date
-          +form-section
-            +form-section-header._mg21
-              +form-section-title('h4')._smaller Please set time:
-            +grid.grid_bigger
-              +col({xl: 12})
-                +form-section-wrapper
-                  +form-box('')
-                    +select.js-select-input(name="time")
-                      - for (var i = 0; i < 24; i++) {
-                        if (i === 8)
-                          option(value=i + ':00' selected)!=(i + ':00')
-                          option(value=i + ':30')!=(i + ':30')
-                        else
-                          option(value=i + ':00')!=(i + ':00')
-                          option(value=i + ':30')!=(i + ':30')
-                      - }
-            +e.buttons
-              +button('button')(type="submit")._short._wide Request viewing
+  .popup-wrapper&attributes(attributes)
+    +popup(true).popup-arrange-viewing__
+      +e.section(data-record-step="1").is-active
+        +calendar('Arrange viewing')
+      +e.section(data-record-step="2")
+        +e.heading
+          +popup-title Arrange viewing
+        +e.content
+          +form._white
+            +form-section._mg33
+              +form-section-header._mg9
+                +form-section-title('h4')._mid You are about to arrange viewing for
+              +info._light-border._xs-reverse
+                +e.cell
+                  +e.INPUT.input_big(type="text" name="date" data-calendar-output readonly="readonly")
+                +e.cell_afend
+                  +link-icon('calendar2')(href="#" data-record-step-target="1")._icon_smaller._icon_gray-dark._no-shadow.__link.js-switch-record-step Change date
+            +form-section
+              +form-section-header._mg21
+                +form-section-title('h4')._smaller Please set time:
+              +grid.grid_bigger
+                +col({xl: 12})
+                  +form-section-wrapper
+                    +form-box('')
+                      +select.js-select-input(name="time")
+                        - for (var i = 0; i < 24; i++) {
+                          if (i === 8)
+                            option(value=i + ':00' selected)!=(i + ':00')
+                            option(value=i + ':30')!=(i + ':30')
+                          else
+                            option(value=i + ':00')!=(i + ':00')
+                            option(value=i + ':30')!=(i + ':30')
+                        - }
+              +e.buttons
+                +button('button')(type="submit")._short._wide Request viewing

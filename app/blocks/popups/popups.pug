@@ -2,13 +2,17 @@ mixin popups()
   +b.popups&attributes(attributes)
     block
 
-mixin popup()
+mixin popup(fancybutton)
   +b.popup&attributes(attributes)
+    if fancybutton
+      +popup-fancy-close
     div.popup__content
       block
 
-mixin popup-free()
+mixin popup-free(fancybutton)
   +b.popup&attributes(attributes)
+    if fancybutton
+      +popup-fancy-close
     block
 
 mixin popup-heading()
@@ -30,8 +34,10 @@ mixin popup-title()
   h3.popup__title&attributes(attributes)
     block
 
-mixin popup-origin()
+mixin popup-origin(fancybutton)
   +b.popup&attributes(attributes)
+    if fancybutton
+      +popup-fancy-close
     block
 
 mixin popup-content()
@@ -55,3 +61,9 @@ mixin popup-with-heading(title)
 mixin popup-mobile()
   +b.popup_mobile&attributes(attributes)
     block
+
+mixin popup-fancy-close()
+  button.fancybox-button.popup__close(title="Close" data-fancybox-close)
+    svg.popup__close-icon(xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15.36 15.36")
+      rect(x="-2.43" y="6.94" width="20.23" height="1.49" transform="translate(18.55 7.68) rotate(135)")
+      rect(x="-2.43" y="6.94" width="20.23" height="1.49" transform="translate(7.68 -3.18) rotate(45)")

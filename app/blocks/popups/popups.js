@@ -139,6 +139,7 @@ export default function popups() {
     transitionDuration: 400,
     baseClass: 'is-top',
     clickSlide: false,
+    hash: false,
     onDeactivate(i) {
       i.close();
     },
@@ -150,7 +151,7 @@ export default function popups() {
     },
     beforeShow(i) {
       const popup = $(i.slides[0].src);
-      if ($(popup).is('.popup-arrange-viewing')) {
+      if ($(popup).find('.popup-arrange-viewing').length) {
         const sections = $('[data-record-step]');
         const sectionFirst = $('[data-record-step="1"]');
         const slider = $(popup).find('.js-slider-container');
@@ -184,7 +185,7 @@ export default function popups() {
       }
     },
     btnTpl: {
-      smallBtn: '<button type="button" data-fancybox-close class="fancybox-button popup__close" title="{{CLOSE}}"><svg class="popup__close-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15.36 15.36"><rect x="-2.43" y="6.94" width="20.23" height="1.49" transform="translate(18.55 7.68) rotate(135)"/><rect x="-2.43" y="6.94" width="20.23" height="1.49" transform="translate(7.68 -3.18) rotate(45)"/></svg></button>',
+      smallBtn: '',
     },
     touch: false,
   };

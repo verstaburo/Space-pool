@@ -3749,89 +3749,436 @@
                 </form>
             </div>
         </div>
-        <div class="popup popup_combined popup_white popup-payment-form" id="popup-payment-form">
-            <div class="popup__content">
-                <div class="popup__header popup__header_white popup__header_border popup__header_border_md">
-                    <h3 class="popup__title">Payment form</h3>
-                </div>
+        <div class="popup-wrapper" id="popup-payment-form">
+            <div class="popup popup_combined popup_white popup-payment-form">
+                <button class="fancybox-button popup__close" title="Close" data-fancybox-close="data-fancybox-close">
+                    <svg class="popup__close-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15.36 15.36">
+                        <rect x="-2.43" y="6.94" width="20.23" height="1.49" transform="translate(18.55 7.68) rotate(135)"></rect>
+                        <rect x="-2.43" y="6.94" width="20.23" height="1.49" transform="translate(7.68 -3.18) rotate(45)"></rect>
+                    </svg>
+                </button>
                 <div class="popup__content">
-                    <div class="popup__scrollblock js-scrollbar-light-md">
-                        <form class="form form_white popup__inner-content" data-validated-form="data-validated-form">
-                            <fieldset class="form__section form__section_mg55 form__section_pb48 form__section_border">
-                                <div class="form__header form__header_mg16">
-                                    <h4 class="form__title form__title_small">Choose an option:</h4>
-                                </div>
-                                <div class="form__content">
-                                    <div class="grid grid_c14 grid_layout grid_int50">
-                                        <div class="grid__col grid__col_xl_8 grid__col_sm_14">
-                                            <div class="form__wrapper">
-                                                <label class="form-box">
-                                                    <select class="select js-select-input" name="option" data-toggle-form="data-toggle-form">
-                                                        <option value="debit" data-custom-properties="showElements:debit;hideElements:card,newCard" selected="selected">Direct Debit</option>
-                                                        <option value="card" data-custom-properties="showElements:card;hideElements:debit,newCard">Credit card from list **** 0338</option>
-                                                        <option value="newCard" data-custom-properties="showElements:newCard;hideElements:debit,card">New card</option>
-                                                    </select>
-                                                </label>
-                                                <div class="error-message"></div>
-                                            </div>
-                                        </div>
-                                        <div class="grid__col grid__col_xl_6 grid__col_sm_14">
-                                            <div class="form__wrapper form__wrapper_fxe form__wrapper_h100p form__wrapper_pb2">
-                                                <div class="form__links form__links_end">
-                                                    <a class="link link_icon link_underline link_no-shadow link_bold link_icon_right link_icon_right_pr44 form__link form__link_mr0">
-                                                        <svg class="link__icon link__icon_card"><use xlink:href="assets/images/icon.svg#icon_card"></use></svg>
-                                                        <span class="link__text">Manage Payment options</span>
-                                                    </a>
+                    <div class="popup__header popup__header_white popup__header_border popup__header_border_md">
+                        <h3 class="popup__title">Payment form</h3>
+                    </div>
+                    <div class="popup__content">
+                        <div class="popup__scrollblock js-scrollbar-light-md">
+                            <form class="form form_white popup__inner-content" data-validated-form="data-validated-form">
+                                <fieldset class="form__section form__section_mg55 form__section_pb48 form__section_border">
+                                    <div class="form__header form__header_mg16">
+                                        <h4 class="form__title form__title_small">Choose an option:</h4>
+                                    </div>
+                                    <div class="form__content">
+                                        <div class="grid grid_c14 grid_layout grid_int50">
+                                            <div class="grid__col grid__col_xl_8 grid__col_sm_14">
+                                                <div class="form__wrapper">
+                                                    <label class="form-box">
+                                                        <select class="select js-select-input" name="option" data-toggle-form="data-toggle-form">
+                                                            <option value="debit" data-custom-properties="showElements:debit;hideElements:card,newCard" selected="selected">Direct Debit</option>
+                                                            <option value="card" data-custom-properties="showElements:card;hideElements:debit,newCard">Credit card from list **** 0338</option>
+                                                            <option value="newCard" data-custom-properties="showElements:newCard;hideElements:debit,card">New card</option>
+                                                        </select>
+                                                    </label>
+                                                    <div class="error-message"></div>
                                                 </div>
-                                                <div class="error-message"></div>
+                                            </div>
+                                            <div class="grid__col grid__col_xl_6 grid__col_sm_14">
+                                                <div class="form__wrapper form__wrapper_fxe form__wrapper_h100p form__wrapper_pb2">
+                                                    <div class="form__links form__links_end">
+                                                        <a class="link link_icon link_underline link_no-shadow link_bold link_icon_right link_icon_right_pr44 form__link form__link_mr0">
+                                                            <svg class="link__icon link__icon_card"><use xlink:href="assets/images/icon.svg#icon_card"></use></svg>
+                                                            <span class="link__text">Manage Payment options</span>
+                                                        </a>
+                                                    </div>
+                                                    <div class="error-message"></div>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                            </fieldset>
-                            <fieldset class="form__section form__section_mid-mg" data-form-element="debit">
-                                <fieldset class="form__section form__section_mg80">
-                                    <div class="form__header form__header_mg35">
-                                        <div class="form__list form__list_line form__list_line_v2">
-                                            <label class="color-radio color-radio_full color-radio_dark color-radio_fz18 color-radio_thin form__item">
-                                                <input class="color-radio__input" name="account" value="personal" type="radio" checked="checked" data-show-elements="personalAccount" data-hide-elements="companyAccount" data-toggle-form="data-toggle-form" />
-                                                <span class="color-radio__content">
-                                                    <span class="color-radio__text">Personal account</span>
-                                                </span>
-                                            </label>
-                                            <label class="color-radio color-radio_full color-radio_dark color-radio_fz18 color-radio_thin form__item">
-                                                <input class="color-radio__input" name="account" value="company" type="radio" data-show-elements="companyAccount" data-hide-elements="personalAccount" data-toggle-form="data-toggle-form" />
-                                                <span class="color-radio__content">
-                                                    <span class="color-radio__text">Company account</span>
-                                                </span>
-                                            </label>
+                                </fieldset>
+                                <fieldset class="form__section form__section_mid-mg" data-form-element="debit">
+                                    <fieldset class="form__section form__section_mg80">
+                                        <div class="form__header form__header_mg35">
+                                            <div class="form__list form__list_line form__list_line_v2">
+                                                <label class="color-radio color-radio_full color-radio_dark color-radio_fz18 color-radio_thin form__item">
+                                                    <input class="color-radio__input" name="account" value="personal" type="radio" checked="checked" data-show-elements="personalAccount" data-hide-elements="companyAccount" data-toggle-form="data-toggle-form"
+                                                    />
+                                                    <span class="color-radio__content">
+                                                        <span class="color-radio__text">Personal account</span>
+                                                    </span>
+                                                </label>
+                                                <label class="color-radio color-radio_full color-radio_dark color-radio_fz18 color-radio_thin form__item">
+                                                    <input class="color-radio__input" name="account" value="company" type="radio" data-show-elements="companyAccount" data-hide-elements="personalAccount" data-toggle-form="data-toggle-form" />
+                                                    <span class="color-radio__content">
+                                                        <span class="color-radio__text">Company account</span>
+                                                    </span>
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="form__content">
+                                            <div class="grid grid_mid grid_int50">
+                                                <div class="grid__col grid__col_xl_6 grid__col_sm_12" data-form-element="personalAccount">
+                                                    <div class="form__wrapper">
+                                                        <label class="form-box">
+                                                            <input class="input" type="text" name="firstName" placeholder="First name" required="required" />
+                                                            <span class="form-box__label">First name</span>
+                                                        </label>
+                                                        <div class="error-message"></div>
+                                                    </div>
+                                                </div>
+                                                <div class="grid__col grid__col_xl_6 grid__col_sm_12" data-form-element="personalAccount">
+                                                    <div class="form__wrapper">
+                                                        <label class="form-box">
+                                                            <input class="input" type="text" name="lastName" placeholder="Last name" required="required" />
+                                                            <span class="form-box__label">Last name</span>
+                                                        </label>
+                                                        <div class="error-message"></div>
+                                                    </div>
+                                                </div>
+                                                <div class="grid__col grid__col_xl_12" data-form-element="companyAccount">
+                                                    <div class="form__wrapper">
+                                                        <label class="form-box">
+                                                            <input class="input" type="text" name="companyName" placeholder="Company name" required="required" />
+                                                            <span class="form-box__label">Company name</span>
+                                                        </label>
+                                                        <div class="error-message"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </fieldset>
+                                    <fieldset class="form__section form__section_mg80">
+                                        <div class="grid grid_mid grid_int50">
+                                            <div class="grid__col grid__col_xl_6 grid__col_sm_12">
+                                                <div class="form__list form__list_line form__list_line_v2">
+                                                    <label class="color-radio color-radio_full color-radio_dark color-radio_fz18 color-radio_thin form__item">
+                                                        <input class="color-radio__input" name="bank" value="sc" type="radio" checked="checked" data-show-elements="sortCode" data-hide-elements="iban" data-toggle-form="data-toggle-form" />
+                                                        <span class="color-radio__content">
+                                                            <span class="color-radio__text">Use Sort code</span>
+                                                        </span>
+                                                    </label>
+                                                    <label class="color-radio color-radio_full color-radio_dark color-radio_fz18 color-radio_thin form__item">
+                                                        <input class="color-radio__input" name="bank" value="iban" type="radio" data-show-elements="iban" data-hide-elements="sortCode" data-toggle-form="data-toggle-form" />
+                                                        <span class="color-radio__content">
+                                                            <span class="color-radio__text">Use IBAN</span>
+                                                        </span>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            <div class="grid__col grid__col_xl_6 grid__col_sm_12">
+                                                <div class="form__wrapper form__wrapper_fxe form__wrapper_h100p">
+                                                    <label class="checkbox">
+                                                        <input class="checkbox__input" name="rememberDebit" value="1" type="checkbox" />
+                                                        <span class="checkbox__box">
+                                                            <svg class="checkbox__icon"><use xlink:href="assets/images/icon.svg#icon_check"></use></svg>
+                                                        </span>
+                                                        <span class="checkbox__content">Save for future payments</span>
+                                                    </label>
+                                                    <div class="error-message"></div>
+                                                </div>
+                                            </div>
+                                            <div class="grid__col grid__col_xl_6 grid__col_sm_12" data-form-element="sortCode">
+                                                <div class="form__wrapper">
+                                                    <label class="form-box">
+                                                        <input class="input" type="text" name="sortCode" placeholder="Your Sort code" required="required" />
+                                                        <span class="form-box__label">Your Sort code</span>
+                                                    </label>
+                                                    <div class="error-message"></div>
+                                                </div>
+                                            </div>
+                                            <div class="grid__col grid__col_xl_6 grid__col_sm_12" data-form-element="iban">
+                                                <div class="form__wrapper">
+                                                    <label class="form-box">
+                                                        <input class="input" type="text" name="iban" placeholder="Your IBAN" required="required" />
+                                                        <span class="form-box__label">Your IBAN</span>
+                                                    </label>
+                                                    <div class="error-message"></div>
+                                                </div>
+                                            </div>
+                                            <div class="grid__col grid__col_xl_6 grid__col_sm_12">
+                                                <div class="form__wrapper">
+                                                    <label class="form-box">
+                                                        <input class="input" type="text" name="accountNumber" placeholder="Your account number" required="required" />
+                                                        <span class="form-box__label">Your account number</span>
+                                                    </label>
+                                                    <div class="error-message"></div>
+                                                </div>
+                                            </div>
+                                            <div class="grid__col grid__col_xl_12">
+                                                <div class="form__wrapper">
+                                                    <label class="form-box">
+                                                        <input class="input" type="text" name="billingAddress1" placeholder="Billing address line 1" />
+                                                        <span class="form-box__label">Billing address line 1</span>
+                                                    </label>
+                                                    <div class="error-message"></div>
+                                                </div>
+                                            </div>
+                                            <div class="grid__col grid__col_xl_12">
+                                                <div class="form__wrapper">
+                                                    <label class="form-box">
+                                                        <input class="input" type="text" name="billingAddress2" placeholder="Billing address line 2" />
+                                                        <span class="form-box__label">Billing address line 2</span>
+                                                    </label>
+                                                    <div class="error-message"></div>
+                                                </div>
+                                            </div>
+                                            <div class="grid__col grid__col_xl_6 grid__col_sm_12">
+                                                <div class="form__wrapper">
+                                                    <label class="form-box">
+                                                        <input class="input" type="text" name="location" placeholder="Town or City" />
+                                                        <span class="form-box__label">Town or City</span>
+                                                    </label>
+                                                    <div class="error-message"></div>
+                                                </div>
+                                            </div>
+                                            <div class="grid__col grid__col_xl_6 grid__col_sm_12">
+                                                <div class="form__wrapper">
+                                                    <label class="form-box">
+                                                        <input class="input" type="text" name="postcode" placeholder="Postcode" />
+                                                        <span class="form-box__label">Postcode</span>
+                                                    </label>
+                                                    <div class="error-message"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </fieldset>
+                                </fieldset>
+                                <fieldset class="form__section form__section_mg70" data-form-element="card">
+                                    <div class="credit-card form__card">
+                                        <div class="credit-card__chip"></div>
+                                        <div class="card-mask card-mask_star credit-card__mask">
+                                            <div class="card-mask__item">
+                                                <div class="dots">
+                                                    <div class="dots__dot dots__dot_star dots__dot_gray">
+                                                        <svg class="dots__icon"><use xlink:href="assets/images/icon.svg#icon_star"></use></svg>
+                                                    </div>
+                                                    <div class="dots__dot dots__dot_star dots__dot_gray">
+                                                        <svg class="dots__icon"><use xlink:href="assets/images/icon.svg#icon_star"></use></svg>
+                                                    </div>
+                                                    <div class="dots__dot dots__dot_star dots__dot_gray">
+                                                        <svg class="dots__icon"><use xlink:href="assets/images/icon.svg#icon_star"></use></svg>
+                                                    </div>
+                                                    <div class="dots__dot dots__dot_star dots__dot_gray">
+                                                        <svg class="dots__icon"><use xlink:href="assets/images/icon.svg#icon_star"></use></svg>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="card-mask__item">
+                                                <div class="dots">
+                                                    <div class="dots__dot dots__dot_star dots__dot_gray">
+                                                        <svg class="dots__icon"><use xlink:href="assets/images/icon.svg#icon_star"></use></svg>
+                                                    </div>
+                                                    <div class="dots__dot dots__dot_star dots__dot_gray">
+                                                        <svg class="dots__icon"><use xlink:href="assets/images/icon.svg#icon_star"></use></svg>
+                                                    </div>
+                                                    <div class="dots__dot dots__dot_star dots__dot_gray">
+                                                        <svg class="dots__icon"><use xlink:href="assets/images/icon.svg#icon_star"></use></svg>
+                                                    </div>
+                                                    <div class="dots__dot dots__dot_star dots__dot_gray">
+                                                        <svg class="dots__icon"><use xlink:href="assets/images/icon.svg#icon_star"></use></svg>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="card-mask__item">
+                                                <div class="dots">
+                                                    <div class="dots__dot dots__dot_star dots__dot_gray">
+                                                        <svg class="dots__icon"><use xlink:href="assets/images/icon.svg#icon_star"></use></svg>
+                                                    </div>
+                                                    <div class="dots__dot dots__dot_star dots__dot_gray">
+                                                        <svg class="dots__icon"><use xlink:href="assets/images/icon.svg#icon_star"></use></svg>
+                                                    </div>
+                                                    <div class="dots__dot dots__dot_star dots__dot_gray">
+                                                        <svg class="dots__icon"><use xlink:href="assets/images/icon.svg#icon_star"></use></svg>
+                                                    </div>
+                                                    <div class="dots__dot dots__dot_star dots__dot_gray">
+                                                        <svg class="dots__icon"><use xlink:href="assets/images/icon.svg#icon_star"></use></svg>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="card-mask__item">
+                                                <div class="card-mask__text card-mask__text_fw400">0338</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </fieldset>
+                                <fieldset class="form__section form__section_mg66 form__section_mt-8" data-form-element="newCard">
+                                    <div class="form__header form__header_mg30">
+                                        <h4 class="form__title form__title_small">Fill the form to continue</h4>
+                                    </div>
+                                    <div class="form__content form__content_mg50">
+                                        <div class="grid grid_c14 grid_layout">
+                                            <div class="grid__col grid__col_xl_8 grid__col_sm_14">
+                                                <div class="form__wrapper">
+                                                    <label class="form-box">
+                                                        <input class="input" type="text" name="cardNumber" placeholder="Card Number" required="required" />
+                                                        <span class="form-box__label">Card Number</span>
+                                                    </label>
+                                                    <div class="error-message"></div>
+                                                </div>
+                                            </div>
+                                            <div class="grid__col grid__col_xl_6 grid__col_sm_14">
+                                                <div class="form__wrapper form__wrapper_fxe form__wrapper_h100p">
+                                                    <label class="checkbox">
+                                                        <input class="checkbox__input" name="rememberCard" value="1" type="checkbox" />
+                                                        <span class="checkbox__box">
+                                                            <svg class="checkbox__icon"><use xlink:href="assets/images/icon.svg#icon_check"></use></svg>
+                                                        </span>
+                                                        <span class="checkbox__content">Save this card</span>
+                                                    </label>
+                                                    <div class="error-message"></div>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                     <div class="form__content">
-                                        <div class="grid grid_mid grid_int50">
-                                            <div class="grid__col grid__col_xl_6 grid__col_sm_12" data-form-element="personalAccount">
-                                                <div class="form__wrapper">
+                                        <div class="form__text form__text_bold form__text_fz12 form__text_light">Expiry date</div>
+                                        <div class="grid grid_c14 grid_layout grid_int50">
+                                            <div class="grid__col grid__col_xl_8 grid__col_sm_14">
+                                                <div class="grid grid_c14 grid_int50 grid_gap20">
+                                                    <div class="grid__col grid__col_xl_7 grid__col_sm_14">
+                                                        <label class="form-box form-box_invis">
+                                                            <select class="select js-select-input" name="month">
+                                                                <option value="" placeholder="placeholder">Month</option>
+                                                                <option value="1">01</option>
+                                                                <option value="2">02</option>
+                                                                <option value="3">03</option>
+                                                                <option value="4">04</option>
+                                                                <option value="5">05</option>
+                                                                <option value="6">06</option>
+                                                                <option value="7">07</option>
+                                                                <option value="8">08</option>
+                                                                <option value="9">09</option>
+                                                                <option value="10">10</option>
+                                                                <option value="11">11</option>
+                                                                <option value="12">12</option>
+                                                            </select>
+                                                            <span class="form-box__label">Month</span>
+                                                        </label>
+                                                    </div>
+                                                    <div class="grid__col grid__col_xl_7 grid__col_sm_14">
+                                                        <label class="form-box form-box_invis">
+                                                            <select class="select js-select-input" name="year">
+                                                                <option value="" placeholder="placeholder">Year</option>
+                                                                <option value="0">00</option>
+                                                                <option value="1">01</option>
+                                                                <option value="2">02</option>
+                                                                <option value="3">03</option>
+                                                                <option value="4">04</option>
+                                                                <option value="5">05</option>
+                                                                <option value="6">06</option>
+                                                                <option value="7">07</option>
+                                                                <option value="8">08</option>
+                                                                <option value="9">09</option>
+                                                                <option value="10">10</option>
+                                                                <option value="11">11</option>
+                                                                <option value="12">12</option>
+                                                                <option value="13">13</option>
+                                                                <option value="14">14</option>
+                                                                <option value="15">15</option>
+                                                                <option value="16">16</option>
+                                                                <option value="17">17</option>
+                                                                <option value="18">18</option>
+                                                                <option value="19">19</option>
+                                                                <option value="20">20</option>
+                                                                <option value="21">21</option>
+                                                                <option value="22">22</option>
+                                                                <option value="23">23</option>
+                                                                <option value="24">24</option>
+                                                                <option value="25">25</option>
+                                                                <option value="26">26</option>
+                                                                <option value="27">27</option>
+                                                                <option value="28">28</option>
+                                                                <option value="29">29</option>
+                                                                <option value="30">30</option>
+                                                                <option value="31">31</option>
+                                                                <option value="32">32</option>
+                                                                <option value="33">33</option>
+                                                                <option value="34">34</option>
+                                                                <option value="35">35</option>
+                                                                <option value="36">36</option>
+                                                                <option value="37">37</option>
+                                                                <option value="38">38</option>
+                                                                <option value="39">39</option>
+                                                                <option value="40">40</option>
+                                                                <option value="41">41</option>
+                                                                <option value="42">42</option>
+                                                                <option value="43">43</option>
+                                                                <option value="44">44</option>
+                                                                <option value="45">45</option>
+                                                                <option value="46">46</option>
+                                                                <option value="47">47</option>
+                                                                <option value="48">48</option>
+                                                                <option value="49">49</option>
+                                                                <option value="50">50</option>
+                                                                <option value="51">51</option>
+                                                                <option value="52">52</option>
+                                                                <option value="53">53</option>
+                                                                <option value="54">54</option>
+                                                                <option value="55">55</option>
+                                                                <option value="56">56</option>
+                                                                <option value="57">57</option>
+                                                                <option value="58">58</option>
+                                                                <option value="59">59</option>
+                                                                <option value="60">60</option>
+                                                                <option value="61">61</option>
+                                                                <option value="62">62</option>
+                                                                <option value="63">63</option>
+                                                                <option value="64">64</option>
+                                                                <option value="65">65</option>
+                                                                <option value="66">66</option>
+                                                                <option value="67">67</option>
+                                                                <option value="68">68</option>
+                                                                <option value="69">69</option>
+                                                                <option value="70">70</option>
+                                                                <option value="71">71</option>
+                                                                <option value="72">72</option>
+                                                                <option value="73">73</option>
+                                                                <option value="74">74</option>
+                                                                <option value="75">75</option>
+                                                                <option value="76">76</option>
+                                                                <option value="77">77</option>
+                                                                <option value="78">78</option>
+                                                                <option value="79">79</option>
+                                                                <option value="80">80</option>
+                                                                <option value="81">81</option>
+                                                                <option value="82">82</option>
+                                                                <option value="83">83</option>
+                                                                <option value="84">84</option>
+                                                                <option value="85">85</option>
+                                                                <option value="86">86</option>
+                                                                <option value="87">87</option>
+                                                                <option value="88">88</option>
+                                                                <option value="89">89</option>
+                                                                <option value="90">90</option>
+                                                                <option value="91">91</option>
+                                                                <option value="92">92</option>
+                                                                <option value="93">93</option>
+                                                                <option value="94">94</option>
+                                                                <option value="95">95</option>
+                                                                <option value="96">96</option>
+                                                                <option value="97">97</option>
+                                                                <option value="98">98</option>
+                                                                <option value="99">99</option>
+                                                            </select>
+                                                            <span class="form-box__label">Year</span>
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="grid__col grid__col_xl_6 grid__col_sm_14">
+                                                <div class="form__wrapper form__wrapper_fxe form__wrapper_h100p">
                                                     <label class="form-box">
-                                                        <input class="input" type="text" name="firstName" placeholder="First name" required="required" />
-                                                        <span class="form-box__label">First name</span>
+                                                        <input class="input" type="text" name="cvc" placeholder="CVС code" required="required" />
+                                                        <span class="form-box__label">CVС code</span>
                                                     </label>
                                                     <div class="error-message"></div>
                                                 </div>
                                             </div>
-                                            <div class="grid__col grid__col_xl_6 grid__col_sm_12" data-form-element="personalAccount">
+                                            <div class="grid__col grid__col_xl_14">
                                                 <div class="form__wrapper">
                                                     <label class="form-box">
-                                                        <input class="input" type="text" name="lastName" placeholder="Last name" required="required" />
-                                                        <span class="form-box__label">Last name</span>
-                                                    </label>
-                                                    <div class="error-message"></div>
-                                                </div>
-                                            </div>
-                                            <div class="grid__col grid__col_xl_12" data-form-element="companyAccount">
-                                                <div class="form__wrapper">
-                                                    <label class="form-box">
-                                                        <input class="input" type="text" name="companyName" placeholder="Company name" required="required" />
-                                                        <span class="form-box__label">Company name</span>
+                                                        <input class="input" type="text" name="ownerName" placeholder="Name on card" required="required" />
+                                                        <span class="form-box__label">Name on card</span>
                                                     </label>
                                                     <div class="error-message"></div>
                                                 </div>
@@ -3839,362 +4186,24 @@
                                         </div>
                                     </div>
                                 </fieldset>
-                                <fieldset class="form__section form__section_mg80">
-                                    <div class="grid grid_mid grid_int50">
-                                        <div class="grid__col grid__col_xl_6 grid__col_sm_12">
-                                            <div class="form__list form__list_line form__list_line_v2">
-                                                <label class="color-radio color-radio_full color-radio_dark color-radio_fz18 color-radio_thin form__item">
-                                                    <input class="color-radio__input" name="bank" value="sc" type="radio" checked="checked" data-show-elements="sortCode" data-hide-elements="iban" data-toggle-form="data-toggle-form" />
-                                                    <span class="color-radio__content">
-                                                        <span class="color-radio__text">Use Sort code</span>
-                                                    </span>
-                                                </label>
-                                                <label class="color-radio color-radio_full color-radio_dark color-radio_fz18 color-radio_thin form__item">
-                                                    <input class="color-radio__input" name="bank" value="iban" type="radio" data-show-elements="iban" data-hide-elements="sortCode" data-toggle-form="data-toggle-form" />
-                                                    <span class="color-radio__content">
-                                                        <span class="color-radio__text">Use IBAN</span>
-                                                    </span>
-                                                </label>
-                                            </div>
-                                        </div>
-                                        <div class="grid__col grid__col_xl_6 grid__col_sm_12">
-                                            <div class="form__wrapper form__wrapper_fxe form__wrapper_h100p">
-                                                <label class="checkbox">
-                                                    <input class="checkbox__input" name="rememberDebit" value="1" type="checkbox" />
-                                                    <span class="checkbox__box">
-                                                        <svg class="checkbox__icon"><use xlink:href="assets/images/icon.svg#icon_check"></use></svg>
-                                                    </span>
-                                                    <span class="checkbox__content">Save for future payments</span>
-                                                </label>
-                                                <div class="error-message"></div>
-                                            </div>
-                                        </div>
-                                        <div class="grid__col grid__col_xl_6 grid__col_sm_12" data-form-element="sortCode">
-                                            <div class="form__wrapper">
-                                                <label class="form-box">
-                                                    <input class="input" type="text" name="sortCode" placeholder="Your Sort code" required="required" />
-                                                    <span class="form-box__label">Your Sort code</span>
-                                                </label>
-                                                <div class="error-message"></div>
-                                            </div>
-                                        </div>
-                                        <div class="grid__col grid__col_xl_6 grid__col_sm_12" data-form-element="iban">
-                                            <div class="form__wrapper">
-                                                <label class="form-box">
-                                                    <input class="input" type="text" name="iban" placeholder="Your IBAN" required="required" />
-                                                    <span class="form-box__label">Your IBAN</span>
-                                                </label>
-                                                <div class="error-message"></div>
-                                            </div>
-                                        </div>
-                                        <div class="grid__col grid__col_xl_6 grid__col_sm_12">
-                                            <div class="form__wrapper">
-                                                <label class="form-box">
-                                                    <input class="input" type="text" name="accountNumber" placeholder="Your account number" required="required" />
-                                                    <span class="form-box__label">Your account number</span>
-                                                </label>
-                                                <div class="error-message"></div>
-                                            </div>
-                                        </div>
-                                        <div class="grid__col grid__col_xl_12">
-                                            <div class="form__wrapper">
-                                                <label class="form-box">
-                                                    <input class="input" type="text" name="billingAddress1" placeholder="Billing address line 1" />
-                                                    <span class="form-box__label">Billing address line 1</span>
-                                                </label>
-                                                <div class="error-message"></div>
-                                            </div>
-                                        </div>
-                                        <div class="grid__col grid__col_xl_12">
-                                            <div class="form__wrapper">
-                                                <label class="form-box">
-                                                    <input class="input" type="text" name="billingAddress2" placeholder="Billing address line 2" />
-                                                    <span class="form-box__label">Billing address line 2</span>
-                                                </label>
-                                                <div class="error-message"></div>
-                                            </div>
-                                        </div>
-                                        <div class="grid__col grid__col_xl_6 grid__col_sm_12">
-                                            <div class="form__wrapper">
-                                                <label class="form-box">
-                                                    <input class="input" type="text" name="location" placeholder="Town or City" />
-                                                    <span class="form-box__label">Town or City</span>
-                                                </label>
-                                                <div class="error-message"></div>
-                                            </div>
-                                        </div>
-                                        <div class="grid__col grid__col_xl_6 grid__col_sm_12">
-                                            <div class="form__wrapper">
-                                                <label class="form-box">
-                                                    <input class="input" type="text" name="postcode" placeholder="Postcode" />
-                                                    <span class="form-box__label">Postcode</span>
-                                                </label>
-                                                <div class="error-message"></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </fieldset>
-                            </fieldset>
-                            <fieldset class="form__section form__section_mg70" data-form-element="card">
-                                <div class="credit-card form__card">
-                                    <div class="credit-card__chip"></div>
-                                    <div class="card-mask card-mask_star credit-card__mask">
-                                        <div class="card-mask__item">
-                                            <div class="dots">
-                                                <div class="dots__dot dots__dot_star dots__dot_gray">
-                                                    <svg class="dots__icon"><use xlink:href="assets/images/icon.svg#icon_star"></use></svg>
-                                                </div>
-                                                <div class="dots__dot dots__dot_star dots__dot_gray">
-                                                    <svg class="dots__icon"><use xlink:href="assets/images/icon.svg#icon_star"></use></svg>
-                                                </div>
-                                                <div class="dots__dot dots__dot_star dots__dot_gray">
-                                                    <svg class="dots__icon"><use xlink:href="assets/images/icon.svg#icon_star"></use></svg>
-                                                </div>
-                                                <div class="dots__dot dots__dot_star dots__dot_gray">
-                                                    <svg class="dots__icon"><use xlink:href="assets/images/icon.svg#icon_star"></use></svg>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="card-mask__item">
-                                            <div class="dots">
-                                                <div class="dots__dot dots__dot_star dots__dot_gray">
-                                                    <svg class="dots__icon"><use xlink:href="assets/images/icon.svg#icon_star"></use></svg>
-                                                </div>
-                                                <div class="dots__dot dots__dot_star dots__dot_gray">
-                                                    <svg class="dots__icon"><use xlink:href="assets/images/icon.svg#icon_star"></use></svg>
-                                                </div>
-                                                <div class="dots__dot dots__dot_star dots__dot_gray">
-                                                    <svg class="dots__icon"><use xlink:href="assets/images/icon.svg#icon_star"></use></svg>
-                                                </div>
-                                                <div class="dots__dot dots__dot_star dots__dot_gray">
-                                                    <svg class="dots__icon"><use xlink:href="assets/images/icon.svg#icon_star"></use></svg>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="card-mask__item">
-                                            <div class="dots">
-                                                <div class="dots__dot dots__dot_star dots__dot_gray">
-                                                    <svg class="dots__icon"><use xlink:href="assets/images/icon.svg#icon_star"></use></svg>
-                                                </div>
-                                                <div class="dots__dot dots__dot_star dots__dot_gray">
-                                                    <svg class="dots__icon"><use xlink:href="assets/images/icon.svg#icon_star"></use></svg>
-                                                </div>
-                                                <div class="dots__dot dots__dot_star dots__dot_gray">
-                                                    <svg class="dots__icon"><use xlink:href="assets/images/icon.svg#icon_star"></use></svg>
-                                                </div>
-                                                <div class="dots__dot dots__dot_star dots__dot_gray">
-                                                    <svg class="dots__icon"><use xlink:href="assets/images/icon.svg#icon_star"></use></svg>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="card-mask__item">
-                                            <div class="card-mask__text card-mask__text_fw400">0338</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </fieldset>
-                            <fieldset class="form__section form__section_mg66 form__section_mt-8" data-form-element="newCard">
-                                <div class="form__header form__header_mg30">
-                                    <h4 class="form__title form__title_small">Fill the form to continue</h4>
-                                </div>
-                                <div class="form__content form__content_mg50">
-                                    <div class="grid grid_c14 grid_layout">
-                                        <div class="grid__col grid__col_xl_8 grid__col_sm_14">
-                                            <div class="form__wrapper">
-                                                <label class="form-box">
-                                                    <input class="input" type="text" name="cardNumber" placeholder="Card Number" required="required" />
-                                                    <span class="form-box__label">Card Number</span>
-                                                </label>
-                                                <div class="error-message"></div>
-                                            </div>
-                                        </div>
-                                        <div class="grid__col grid__col_xl_6 grid__col_sm_14">
-                                            <div class="form__wrapper form__wrapper_fxe form__wrapper_h100p">
-                                                <label class="checkbox">
-                                                    <input class="checkbox__input" name="rememberCard" value="1" type="checkbox" />
-                                                    <span class="checkbox__box">
-                                                        <svg class="checkbox__icon"><use xlink:href="assets/images/icon.svg#icon_check"></use></svg>
-                                                    </span>
-                                                    <span class="checkbox__content">Save this card</span>
-                                                </label>
-                                                <div class="error-message"></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="form__content">
-                                    <div class="form__text form__text_bold form__text_fz12 form__text_light">Expiry date</div>
+                                <fieldset class="form__section form__section_mid-mg">
                                     <div class="grid grid_c14 grid_layout grid_int50">
-                                        <div class="grid__col grid__col_xl_8 grid__col_sm_14">
-                                            <div class="grid grid_c14 grid_int50 grid_gap20">
-                                                <div class="grid__col grid__col_xl_7 grid__col_sm_14">
-                                                    <label class="form-box form-box_invis">
-                                                        <select class="select js-select-input" name="month">
-                                                            <option value="" placeholder="placeholder">Month</option>
-                                                            <option value="1">01</option>
-                                                            <option value="2">02</option>
-                                                            <option value="3">03</option>
-                                                            <option value="4">04</option>
-                                                            <option value="5">05</option>
-                                                            <option value="6">06</option>
-                                                            <option value="7">07</option>
-                                                            <option value="8">08</option>
-                                                            <option value="9">09</option>
-                                                            <option value="10">10</option>
-                                                            <option value="11">11</option>
-                                                            <option value="12">12</option>
-                                                        </select>
-                                                        <span class="form-box__label">Month</span>
-                                                    </label>
-                                                </div>
-                                                <div class="grid__col grid__col_xl_7 grid__col_sm_14">
-                                                    <label class="form-box form-box_invis">
-                                                        <select class="select js-select-input" name="year">
-                                                            <option value="" placeholder="placeholder">Year</option>
-                                                            <option value="0">00</option>
-                                                            <option value="1">01</option>
-                                                            <option value="2">02</option>
-                                                            <option value="3">03</option>
-                                                            <option value="4">04</option>
-                                                            <option value="5">05</option>
-                                                            <option value="6">06</option>
-                                                            <option value="7">07</option>
-                                                            <option value="8">08</option>
-                                                            <option value="9">09</option>
-                                                            <option value="10">10</option>
-                                                            <option value="11">11</option>
-                                                            <option value="12">12</option>
-                                                            <option value="13">13</option>
-                                                            <option value="14">14</option>
-                                                            <option value="15">15</option>
-                                                            <option value="16">16</option>
-                                                            <option value="17">17</option>
-                                                            <option value="18">18</option>
-                                                            <option value="19">19</option>
-                                                            <option value="20">20</option>
-                                                            <option value="21">21</option>
-                                                            <option value="22">22</option>
-                                                            <option value="23">23</option>
-                                                            <option value="24">24</option>
-                                                            <option value="25">25</option>
-                                                            <option value="26">26</option>
-                                                            <option value="27">27</option>
-                                                            <option value="28">28</option>
-                                                            <option value="29">29</option>
-                                                            <option value="30">30</option>
-                                                            <option value="31">31</option>
-                                                            <option value="32">32</option>
-                                                            <option value="33">33</option>
-                                                            <option value="34">34</option>
-                                                            <option value="35">35</option>
-                                                            <option value="36">36</option>
-                                                            <option value="37">37</option>
-                                                            <option value="38">38</option>
-                                                            <option value="39">39</option>
-                                                            <option value="40">40</option>
-                                                            <option value="41">41</option>
-                                                            <option value="42">42</option>
-                                                            <option value="43">43</option>
-                                                            <option value="44">44</option>
-                                                            <option value="45">45</option>
-                                                            <option value="46">46</option>
-                                                            <option value="47">47</option>
-                                                            <option value="48">48</option>
-                                                            <option value="49">49</option>
-                                                            <option value="50">50</option>
-                                                            <option value="51">51</option>
-                                                            <option value="52">52</option>
-                                                            <option value="53">53</option>
-                                                            <option value="54">54</option>
-                                                            <option value="55">55</option>
-                                                            <option value="56">56</option>
-                                                            <option value="57">57</option>
-                                                            <option value="58">58</option>
-                                                            <option value="59">59</option>
-                                                            <option value="60">60</option>
-                                                            <option value="61">61</option>
-                                                            <option value="62">62</option>
-                                                            <option value="63">63</option>
-                                                            <option value="64">64</option>
-                                                            <option value="65">65</option>
-                                                            <option value="66">66</option>
-                                                            <option value="67">67</option>
-                                                            <option value="68">68</option>
-                                                            <option value="69">69</option>
-                                                            <option value="70">70</option>
-                                                            <option value="71">71</option>
-                                                            <option value="72">72</option>
-                                                            <option value="73">73</option>
-                                                            <option value="74">74</option>
-                                                            <option value="75">75</option>
-                                                            <option value="76">76</option>
-                                                            <option value="77">77</option>
-                                                            <option value="78">78</option>
-                                                            <option value="79">79</option>
-                                                            <option value="80">80</option>
-                                                            <option value="81">81</option>
-                                                            <option value="82">82</option>
-                                                            <option value="83">83</option>
-                                                            <option value="84">84</option>
-                                                            <option value="85">85</option>
-                                                            <option value="86">86</option>
-                                                            <option value="87">87</option>
-                                                            <option value="88">88</option>
-                                                            <option value="89">89</option>
-                                                            <option value="90">90</option>
-                                                            <option value="91">91</option>
-                                                            <option value="92">92</option>
-                                                            <option value="93">93</option>
-                                                            <option value="94">94</option>
-                                                            <option value="95">95</option>
-                                                            <option value="96">96</option>
-                                                            <option value="97">97</option>
-                                                            <option value="98">98</option>
-                                                            <option value="99">99</option>
-                                                        </select>
-                                                        <span class="form-box__label">Year</span>
-                                                    </label>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="grid__col grid__col_xl_6 grid__col_sm_14">
-                                            <div class="form__wrapper form__wrapper_fxe form__wrapper_h100p">
-                                                <label class="form-box">
-                                                    <input class="input" type="text" name="cvc" placeholder="CVС code" required="required" />
-                                                    <span class="form-box__label">CVС code</span>
-                                                </label>
-                                                <div class="error-message"></div>
-                                            </div>
-                                        </div>
-                                        <div class="grid__col grid__col_xl_14">
+                                        <div class="grid__col grid__col_xl_5 grid__col_sm_14">
                                             <div class="form__wrapper">
-                                                <label class="form-box">
-                                                    <input class="input" type="text" name="ownerName" placeholder="Name on card" required="required" />
-                                                    <span class="form-box__label">Name on card</span>
-                                                </label>
+                                                <div class="form__text form__text_bold form__text_fz24 form__text_dark form__text_block">Total: &pound; 1,568.90</div>
+                                                <div class="form__text form__text_gray form__text_block form__text_mt4">VAT included</div>
                                                 <div class="error-message"></div>
                                             </div>
                                         </div>
-                                    </div>
-                                </div>
-                            </fieldset>
-                            <fieldset class="form__section form__section_mid-mg">
-                                <div class="grid grid_c14 grid_layout grid_int50">
-                                    <div class="grid__col grid__col_xl_5 grid__col_sm_14">
-                                        <div class="form__wrapper">
-                                            <div class="form__text form__text_bold form__text_fz24 form__text_dark form__text_block">Total: &pound; 1,568.90</div>
-                                            <div class="form__text form__text_gray form__text_block form__text_mt4">VAT included</div>
-                                            <div class="error-message"></div>
+                                        <div class="grid__col grid__col_xl_9 grid__col_sm_14">
+                                            <button class="button button_short button_wide form__button form__button_mt4" type="submit">
+                                                <span class="button__text">Pay now</span>
+                                            </button>
                                         </div>
                                     </div>
-                                    <div class="grid__col grid__col_xl_9 grid__col_sm_14">
-                                        <button class="button button_short button_wide form__button form__button_mt4" type="submit">
-                                            <span class="button__text">Pay now</span>
-                                        </button>
-                                    </div>
-                                </div>
-                            </fieldset>
-                        </form>
+                                </fieldset>
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>
