@@ -25,12 +25,13 @@ mixin popup-arrange-viewing()
                     +form-box('')
                       +select.js-select-input(name="time")
                         - for (var i = 0; i < 24; i++) {
+                          - var zeroi = (`0${i}`).slice(-2);
                           if (i === 8)
-                            option(value=i + ':00' selected)!=(i + ':00')
-                            option(value=i + ':30')!=(i + ':30')
+                            option(value=zeroi + ':00')!=(zeroi + ':00')
+                            option(value=zeroi + ':30' selected)!=(zeroi + ':30')
                           else
-                            option(value=i + ':00')!=(i + ':00')
-                            option(value=i + ':30')!=(i + ':30')
+                            option(value=zeroi + ':00')!=(zeroi + ':00')
+                            option(value=zeroi + ':30')!=(zeroi + ':30')
                         - }
               +e.buttons
                 +button('button')(type="submit")._short._wide Request viewing

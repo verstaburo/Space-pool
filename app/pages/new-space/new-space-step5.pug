@@ -45,7 +45,8 @@ block content
                             +select.js-select-input(name="workTimeFrom" required).js-access-from
                               option(value="" placeholder) Space work time from
                               - for (var i = 0; i <= 24; i++)
-                                - var time = `${i}:00`;
+                                - var zeroi = (`0${i}`).slice(-2);
+                                - var time = `${zeroi}:00`;
                                 option(value=time)= time
                       +col({xl: 6, sm: 12})
                         +form-section-wrapper
@@ -53,7 +54,8 @@ block content
                             +select.js-select-input(name="workTimeTill" required).js-access-till
                               option(value="" placeholder) Till
                               - for (var i = 0; i <= 24; i++)
-                                - var time = `${i}:00`;
+                                - var zeroi = (`0${i}`).slice(-2);
+                                - var time = `${zeroi}:00`;
                                 option(value=time)= time
               +form-section._mid-mg
                 +form-section-wrapper

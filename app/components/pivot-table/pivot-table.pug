@@ -1,4 +1,4 @@
-mixin pivot-table()
+mixin pivot-table(time)
   +b.pivot-table&attributes(attributes)
     +form
       +form-section
@@ -6,13 +6,53 @@ mixin pivot-table()
           +form-section-title Order summary
         +grid.grid_big
           +col({xl: 6, sm:12 })
-            +form-section-wrapper
-              +form-box('Rent start date:', 'calendar2')._icon
-                +input.js-datepicker(type="text" name="startDate" value="29 October 2019" placeholder="Rent start date:" data-period-start="rent")
+            if time
+              +e.line_flex
+                +e.dates-cell_big
+                  +form-section-wrapper
+                    +form-box('Rent start date:', 'calendar2')._icon
+                      +input.js-datepicker(type="text" name="startDate" value="29 October 2019" placeholder="Rent start date:" data-period-start="rent")
+                +e.dates-cell
+                  +form-section-wrapper
+                    +form-box('', 'time-3h')._icon
+                      +select.js-select-input(name="startTime" data-mobile-title="Start time" data-choices-classes="choices_notoggle")
+                        - for (var i = 0; i < 24; i++) {
+                          - var zeroi = (`0${i}`).slice(-2);
+                          if (i === 14)
+                            option(value=zeroi + ':00')!=(zeroi + ':00')
+                            option(value=zeroi + ':30' selected)!=(zeroi + ':30')
+                          else
+                            option(value=zeroi + ':00')!=(zeroi + ':00')
+                            option(value=zeroi + ':30')!=(zeroi + ':30')
+                        - }
+            else
+              +form-section-wrapper
+                +form-box('Rent start date:', 'calendar2')._icon
+                  +input.js-datepicker(type="text" name="startDate" value="29 October 2019" placeholder="Rent start date:" data-period-start="rent")
           +col({xl: 6, sm:12 })
-            +form-section-wrapper
-              +form-box('Rent end date:', 'calendar2')._icon
-                +input.js-datepicker(type="text" name="endDate" value="29 October 2020" placeholder="Rent end date:" data-period-end="rent" data-mindate="2019-10-29")
+            if time
+              +e.line_flex
+                +e.dates-cell_big
+                  +form-section-wrapper
+                    +form-box('Rent end date:', 'calendar2')._icon
+                      +input.js-datepicker(type="text" name="endDate" value="29 October 2020" placeholder="Rent end date:" data-period-end="rent" data-mindate="2019-10-29")
+                +e.dates-cell
+                  +form-section-wrapper
+                    +form-box('', 'time-3h')._icon
+                      +select.js-select-input(name="endTime" data-mobile-title="End time" data-choices-classes="choices_notoggle")
+                        - for (var i = 0; i < 24; i++) {
+                          - var zeroi = (`0${i}`).slice(-2);
+                          if (i === 16)
+                            option(value=zeroi + ':00')!=(zeroi + ':00')
+                            option(value=zeroi + ':30' selected)!=(zeroi + ':30')
+                          else
+                            option(value=zeroi + ':00')!=(zeroi + ':00')
+                            option(value=zeroi + ':30')!=(zeroi + ':30')
+                        - }
+            else
+              +form-section-wrapper
+                +form-box('Rent end date:', 'calendar2')._icon
+                  +input.js-datepicker(type="text" name="endDate" value="29 October 2020" placeholder="Rent end date:" data-period-end="rent" data-mindate="2019-10-29")
       +characteristics-table._normal._large._dark._pivot.__table
         body
           +e.TR.row

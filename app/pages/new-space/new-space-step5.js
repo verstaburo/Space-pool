@@ -10,7 +10,7 @@ export default () => {
 
   const accessListener = () => {
     if (accessCheck.prop('checked') === true) {
-      startTime[0].choices.setChoiceByValue('0:00').disable();
+      startTime[0].choices.setChoiceByValue('00:00').disable();
       startTime.trigger('change');
       endTime[0].choices.setChoiceByValue('24:00').disable();
       endTime.trigger('change');

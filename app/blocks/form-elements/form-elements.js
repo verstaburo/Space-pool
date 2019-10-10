@@ -15,13 +15,15 @@ const $ = window.$;
 export function selects() {
   /* eslint-disable no-unused-vars */
   function inputSelectInit(select) {
-    const self = select[0];
+    const self = select;
+    const additionalClasses = $(self).attr('data-choices-classes') || '';
+    const containerClasses = `choices choices_input choices_popup ${additionalClasses}`;
     const title = $(self).attr('data-mobile-title') || $(self).find('option[placeholder]').text() || $(self).attr('placeholder') || 'Select';
     const choices = new Choices(self, {
       searchEnabled: false,
       itemSelectText: '',
       classNames: {
-        containerOuter: 'choices choices_input choices_popup',
+        containerOuter: containerClasses,
         titleText: title,
       },
       callbackOnCreateTemplates(template) {
@@ -63,12 +65,14 @@ export function selects() {
 
   function input2SelectInit(select) {
     const self = select[0];
+    const additionalClasses = $(self).attr('data-choices-classes') || '';
+    const containerClasses = `choices choices_input2 choices_popup ${additionalClasses}`;
     const title = $(self).attr('data-mobile-title') || $(self).find('option[placeholder]').text() || $(self).attr('placeholder') || 'Select';
     const choices = new Choices(self, {
       searchEnabled: false,
       itemSelectText: '',
       classNames: {
-        containerOuter: 'choices choices_input2 choices_popup',
+        containerOuter: additionalClasses,
         titleText: title,
       },
       callbackOnCreateTemplates(template) {
@@ -402,51 +406,7 @@ export function selects() {
 
   if ($('.js-select-input').length) {
     $('.js-select-input').each((i, el) => {
-      const self = el;
-      const title = $(self).attr('data-mobile-title') || $(self).find('option[placeholder]').text() || $(self).attr('placeholder') || 'Select';
-      const choices = new Choices(self, {
-        // searchEnabled: false,
-        shouldSort: false, // Disable automatic sorting for js-select-input
-        searchFields: ['label'],
-        itemSelectText: '',
-        classNames: {
-          containerOuter: 'choices choices_input choices_popup',
-          titleText: title,
-        },
-        callbackOnCreateTemplates(template) {
-          const classNames = this.config.classNames;
-          return {
-            containerInner: () => template(`
-            <div class="${classNames.containerInner}"><div class="choices__toggle"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16.31 9.16"><line x1="15.31" y1="1" x2="8.16" y2="8.16"/><path d="M8.16,9.16a1,1,0,0,1-.71-.3,1,1,0,0,1,0-1.41L14.61.29A1,1,0,0,1,16,.29a1,1,0,0,1,0,1.42L8.86,8.86A1,1,0,0,1,8.16,9.16Z"/><line x1="8.16" y1="8.16" x2="1" y2="1"/><path d="M8.16,9.16a1,1,0,0,1-.71-.3L.29,1.71A1,1,0,0,1,1.71.29L8.86,7.45a1,1,0,0,1,0,1.41A1,1,0,0,1,8.16,9.16Z"/></svg></div></div>
-          `),
-            dropdown: () => template(`
-            <div class="${classNames.list} ${classNames.listDropdown}" aria-expanded="false"><div class="choices__header"><div class="choices__close close js-select-close"><svg class="close__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15.36 15.36"><rect x="-2.43" y="6.94" width="20.23" height="1.49" transform="translate(18.55 7.68) rotate(135)"/><rect x="-2.43" y="6.94" width="20.23" height="1.49" transform="translate(7.68 -3.18) rotate(45)"/></svg></div><div class="choices__header-title">${classNames.titleText}</div></div></div>
-          `),
-          };
-        },
-        callbackOnInit() {
-          const select = this.passedElement.element;
-          const main = this.containerOuter.element;
-          const formbox = $(select).closest('label');
-          const choiceList = this.choiceList.element;
-          const dropdown = this.dropdown.element;
-          const scrollWrapper = document.createElement('div');
-          scrollWrapper.classList.add('choices__scrollblock');
-          $(choiceList).wrap(scrollWrapper);
-          const newScrollWrapper = $(dropdown).find('.choices__scrollblock');
-          window.globalFunctions.scrollbarLightGray(newScrollWrapper);
-          if ($(select).attr('readonly') !== undefined) {
-            $(main).addClass('is-readonly');
-            $(formbox).addClass('is-readonly');
-          }
-        },
-      });
-
-      self.choices = choices;
-      const cross = $(choices.dropdown.element).find('.js-select-close')[0];
-      cross.choices = choices;
-      const defaultValue = el.value;
-      self.defaultSelectedValue = defaultValue;
+      inputSelectInit(el);
     });
   }
 

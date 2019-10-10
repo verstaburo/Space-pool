@@ -32,8 +32,17 @@ mixin form-order-summary(editable)
                 +input.input_underline-light.input_normal.js-datepicker(type="text" name="startDate" value="26 May 2020" placeholder="Rent period start:" data-period-start="rent" readonly)
           +e.dates-cell
             +form-section-wrapper
-              +form-box('', 'time-3h')._icon._icon_s15._lbl-nochange
-                +input.input_underline-light.input_normal(type="text" name="startTime" value="14:30" placeholder="Time" data-period-start="rent")
+              +form-box('', 'time-3h')._icon._icon_s15
+                +select.js-select-input(name="startTime" data-mobile-title="Start time" data-choices-classes="choices_notoggle choices_input_underline-light choices_input_normal")
+                  - for (var i = 0; i < 24; i++) {
+                    - var zeroi = (`0${i}`).slice(-2);
+                    if (i === 14)
+                      option(value=zeroi + ':00')!=(zeroi + ':00')
+                      option(value=zeroi + ':30' selected)!=(zeroi + ':30')
+                    else
+                      option(value=zeroi + ':00')!=(zeroi + ':00')
+                      option(value=zeroi + ':30')!=(zeroi + ':30')
+                  - }
         +e.dates-icon_mg-big
           +icon('download').dates-arrow
         +e.line_flex._sm-mg30
@@ -43,8 +52,17 @@ mixin form-order-summary(editable)
                 +input.input_underline-light.input_normal.js-datepicker(type="text" name="endDate" value="26 May 2020" placeholder="Rent end date:" data-period-end="rent" data-mindate="2020-5-26" readonly)
           +e.dates-cell
             +form-section-wrapper
-              +form-box('', 'time-3h')._icon._icon_s15._lbl-nochange
-                +input.input_underline-light.input_normal(type="text" name="endTime" value="16:30" placeholder="Time")
+              +form-box('', 'time-3h')._icon._icon_s15
+                +select.js-select-input(name="endTime" data-mobile-title="End time" data-choices-classes="choices_notoggle choices_input_underline-light choices_input_normal")
+                  - for (var i = 0; i < 24; i++) {
+                    - var zeroi = (`0${i}`).slice(-2);
+                    if (i === 16)
+                      option(value=zeroi + ':00')!=(zeroi + ':00')
+                      option(value=zeroi + ':30' selected)!=(zeroi + ':30')
+                    else
+                      option(value=zeroi + ':00')!=(zeroi + ':00')
+                      option(value=zeroi + ':30')!=(zeroi + ':30')
+                  - }
       else
         +info-editable._date.__line
           +info-editable-name Rent period start:
@@ -138,7 +156,16 @@ mixin form-order-summary-mobile(editable)
               +e.dates-cell
                 +form-section-wrapper
                   +form-box('', 'time-3h')._icon._icon_s15._lbl-nochange
-                    +input.input_underline-light.input_normal(type="text" name="startTime" value="14:30" placeholder="Time" data-period-start="rentMobile")
+                    +select.js-select-input(name="startTime" data-mobile-title="Start time" data-choices-classes="choices_notoggle choices_input_underline-light choices_input_normal")
+                      - for (var i = 0; i < 24; i++) {
+                        - var zeroi = (`0${i}`).slice(-2);
+                        if (i === 14)
+                          option(value=zeroi + ':00')!=(zeroi + ':00')
+                          option(value=zeroi + ':30' selected)!=(zeroi + ':30')
+                        else
+                          option(value=zeroi + ':00')!=(zeroi + ':00')
+                          option(value=zeroi + ':30')!=(zeroi + ':30')
+                      - }
             +e.dates-icon_mg-big
               +icon('download').dates-arrow
             +e.line_flex._sm-mg30
@@ -149,7 +176,16 @@ mixin form-order-summary-mobile(editable)
               +e.dates-cell
                 +form-section-wrapper
                   +form-box('', 'time-3h')._icon._icon_s15._lbl-nochange
-                    +input.input_underline-light.input_normal(type="text" name="endTime" value="16:30" placeholder="Time")
+                    +select.js-select-input(name="endTime" data-mobile-title="End time" data-choices-classes="choices_notoggle choices_input_underline-light choices_input_normal")
+                      - for (var i = 0; i < 24; i++) {
+                        - var zeroi = (`0${i}`).slice(-2);
+                        if (i === 16)
+                          option(value=zeroi + ':00')!=(zeroi + ':00')
+                          option(value=zeroi + ':30' selected)!=(zeroi + ':30')
+                        else
+                          option(value=zeroi + ':00')!=(zeroi + ':00')
+                          option(value=zeroi + ':30')!=(zeroi + ':30')
+                      - }
           else
             +info-editable._date.__line
               +info-editable-name Rent period start:
