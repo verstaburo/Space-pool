@@ -47,16 +47,20 @@ mixin popup-add-offer-tc()
                   +form-section-wrapper._negative-mg.__count
                     +form-box('Price ', '', '', '&pound;')._icon_left
                       +input(type="text" name="price" placeholder="Price" required)
-                  +form-section-wrapper._negative-mg.__mesure
-                    +form-box
+                  +form-section-wrapper._negative-mg._aie.__mesure
+                    +form-box('')(data-form-element="hotFixedOffice")
                       +select.js-select-input(name="pricePeriod")
                         option(value="Days" selected) Days
                         option(value="Week") Weeks
                         option(value="Month") Months
                         option(value="Year") Years
+                        option(value="per hour") Per Hour
                         option(value="per day") Per Day
                         option(value="per week") Per Week
                         option(value="per month") Per Month
+                        option(value="per year") Per Year
+                    +e.imitation(data-form-element="meetingRoom") Per Hour
+                      +input(type="hidden" name="pricePeriod" value="per hour")
                         option(value="per year") Per Year
               +col({xl: 6, sm: 12})
                 +form-section-wrapper._negative-mg
