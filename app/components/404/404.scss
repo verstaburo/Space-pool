@@ -1,0 +1,149 @@
+.error404 {
+  $b: &;
+
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-top: -10px;
+  padding-bottom: 47px;
+
+  @include screen('md') {
+    margin-top: 0;
+  }
+
+  @include screen('sm') {
+    padding-bottom: 25px;
+  }
+
+  &__column {
+    display: block;
+    box-sizing: border-box;
+
+    @include screen('md') {
+      width: 100%;
+    }
+
+    &_left {
+      flex: 1;
+      box-sizing: border-box;
+      padding-right: 50px;
+
+      @include screen('md') {
+        padding-right: 0;
+        flex: none;
+      }
+    }
+
+    &_right {
+      width: 57%;
+
+      @include screen('md') {
+        width: 100%;
+        margin-top: 50px;
+      }
+    }
+  }
+
+  &__wrapper {
+    display: block;
+    width: 100%;
+    margin-left: -11px;
+    padding-bottom: 35px;
+
+    @include screen('lg') {
+      margin-left: 0;
+    }
+
+    @include screen('md') {
+      text-align: center;
+      padding-bottom: 0;
+    }
+  }
+
+  &__title {
+    font-size: 170px;
+    font-weight: 400;
+    line-height: 1;
+    letter-spacing: -.02;
+
+    @include screen('sm') {
+      font-size: 80px;
+    }
+  }
+
+  &__subtitle {
+    @include heading-1-sm;
+
+    font-weight: 700;
+    line-height: (39 / 30);
+
+    @include screen('sm') {
+      @include heading-3;
+    }
+
+    &:not(:first-child) {
+      margin-top: 10px;
+    }
+  }
+
+  &__text {
+    @include heading-4;
+
+    line-height: (32/20);
+    max-width: 347px;
+    width: 100%;
+    display: block;
+
+    @include screen('md') {
+      max-width: 610px;
+      margin: 0 auto;
+    }
+
+    @include screen('sm') {
+      @include text16;
+      max-width: none;
+    }
+
+    a {
+      transition: color $ease-main;
+      // white-space: nowrap;
+      border-bottom: 1px solid currentColor;
+
+      &:hover {
+        color: $color-basic-dark;
+      }
+    }
+
+    &:not(:first-child) {
+      margin-top: 105px;
+
+      @include screen('md') {
+        margin-top: 50px;
+      }
+
+      @include screen('sm') {
+        margin-top: 30px;
+      }
+    }
+  }
+
+  &__image {
+    display: block;
+    font-size: 0;
+    line-height: 0;
+    width: 100%;
+    height: auto;
+    transform-origin: 50% 50% 0;
+    transform: translate3d(24px, 0, 0);
+
+    @include screen('lg') {
+      transform: translate3d(0, 0, 0);
+    }
+
+    @include screen('md') {
+      max-width: 610px;
+      margin: 0 auto;
+    }
+  }
+}
