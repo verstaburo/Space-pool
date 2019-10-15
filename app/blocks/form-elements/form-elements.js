@@ -566,8 +566,14 @@ export function datepicker() {
     const disabledDates = $(el).attr('data-disabled-dates') ? $(el).attr('data-disabled-dates').split(',') : [];
     const minDateParam = $(el).attr('data-mindate');
     const maxDateParam = $(el).attr('data-maxdate');
-    const minDate = minDateParam !== undefined ? setFormattedDate(minDateParam) : new Date();
+    let minDate = new Date();
+    if (minDateParam === 'all') {
+      minDate = '';
+    } else if (minDateParam !== undefined) {
+      minDate = setFormattedDate(minDateParam);
+    }
     const maxDate = maxDateParam !== undefined ? setFormattedDate(maxDateParam) : '';
+    const addClasses = $(el).closest('.popup').length > 0 ? 'datepicker_fancybox' : '';
 
     el.datepicker({
       language: 'en',
@@ -576,10 +582,11 @@ export function datepicker() {
       disableNavWhenOutOfRange: true,
       minDate,
       maxDate,
-      classes: 'datepicker_fancybox',
+      classes: addClasses,
       onSelect(a, b, inst) {
         const self = inst.el;
         $(self).trigger('change');
+        window.setLabelPosition(self);
       },
       onRenderCell(d, type) {
         let disabled = false;
@@ -602,8 +609,14 @@ export function datepicker() {
     const disabledDates = $(el).attr('data-disabled-dates') ? $(el).attr('data-disabled-dates').split(',') : [];
     const minDateParam = $(el).attr('data-mindate');
     const maxDateParam = $(el).attr('data-maxdate');
-    const minDate = minDateParam !== undefined ? setFormattedDate(minDateParam) : new Date();
+    let minDate = new Date();
+    if (minDateParam === 'all') {
+      minDate = '';
+    } else if (minDateParam !== undefined) {
+      minDate = setFormattedDate(minDateParam);
+    }
     const maxDate = maxDateParam !== undefined ? setFormattedDate(maxDateParam) : '';
+    const addClasses = $(el).closest('.popup').length > 0 ? 'datepicker_fancybox' : '';
 
     $(el).datepicker({
       language: 'en',
@@ -611,7 +624,7 @@ export function datepicker() {
       autoClose: true,
       position: 'bottom right',
       showEvent: 'click',
-      classes: 'datepicker_fancybox',
+      classes: addClasses,
       minDate,
       maxDate,
       onSelect(a, b, inst) {
@@ -621,6 +634,7 @@ export function datepicker() {
         const stringDate = `${date.getDate()} ${$.fn.datepicker.language.en.monthsShort[date.getMonth()]} ${date.getFullYear()}`;
         $(copyfield).text(stringDate);
         $(self).trigger('change');
+        window.setLabelPosition(self);
       },
       onRenderCell(d, type) {
         let disabled = false;
@@ -643,8 +657,14 @@ export function datepicker() {
     const disabledDates = $(el).attr('data-disabled-dates') ? $(el).attr('data-disabled-dates').split(',') : [];
     const minDateParam = $(el).attr('data-mindate');
     const maxDateParam = $(el).attr('data-maxdate');
-    const minDate = minDateParam !== undefined ? setFormattedDate(minDateParam) : new Date();
+    let minDate = new Date();
+    if (minDateParam === 'all') {
+      minDate = '';
+    } else if (minDateParam !== undefined) {
+      minDate = setFormattedDate(minDateParam);
+    }
     const maxDate = maxDateParam !== undefined ? setFormattedDate(maxDateParam) : '';
+    const addClasses = $(el).closest('.popup').length > 0 ? 'datepicker_fancybox' : '';
 
     el.datepicker({
       language: 'en',
@@ -652,10 +672,11 @@ export function datepicker() {
       autoClose: true,
       minDate,
       maxDate,
-      classes: 'datepicker_fancybox',
+      classes: addClasses,
       onSelect(a, b, inst) {
         const self = inst.el;
         $(self).trigger('change');
+        window.setLabelPosition(self);
       },
       onRenderCell(d, type) {
         let disabled = false;
@@ -677,8 +698,14 @@ export function datepicker() {
     const disabledDates = $(el).attr('data-disabled-dates') ? $(el).attr('data-disabled-dates').split(',') : [];
     const minDateParam = $(el).attr('data-mindate');
     const maxDateParam = $(el).attr('data-maxdate');
-    const minDate = minDateParam !== undefined ? setFormattedDate(minDateParam) : new Date();
+    let minDate = new Date();
+    if (minDateParam === 'all') {
+      minDate = '';
+    } else if (minDateParam !== undefined) {
+      minDate = setFormattedDate(minDateParam);
+    }
     const maxDate = maxDateParam !== undefined ? setFormattedDate(maxDateParam) : '';
+    const addClasses = $(el).closest('.popup').length > 0 ? 'datepicker_fancybox' : '';
 
     el.datepicker({
       language: 'en',
@@ -686,10 +713,11 @@ export function datepicker() {
       autoClose: true,
       minDate,
       maxDate,
-      classes: 'datepicker_fancybox',
+      classes: addClasses,
       onSelect(a, b, inst) {
         const self = inst.el;
         $(self).trigger('change');
+        window.setLabelPosition(self);
       },
       onRenderCell(d, type) {
         let disabled = false;
@@ -715,7 +743,12 @@ export function datepicker() {
     const disabledDates = $(el).attr('data-disabled-dates') ? $(el).attr('data-disabled-dates').split(',') : [];
     const minDateParam = $(el).attr('data-mindate');
     const maxDateParam = $(el).attr('data-maxdate');
-    const minDate = minDateParam !== undefined ? setFormattedDate(minDateParam) : new Date();
+    let minDate = new Date();
+    if (minDateParam === 'all') {
+      minDate = '';
+    } else if (minDateParam !== undefined) {
+      minDate = setFormattedDate(minDateParam);
+    }
     const maxDate = maxDateParam !== undefined ? setFormattedDate(maxDateParam) : '';
     /* eslint-disable consistent-return */
     el.datepicker({
