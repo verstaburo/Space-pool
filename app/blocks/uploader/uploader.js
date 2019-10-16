@@ -113,8 +113,8 @@ export default function uploader() {
         }
         $('[data-insert-preview-after]').after(preview);
         $(preview).find('.js-select-input');
-        window.inputSelectInit($(preview).find('.js-select-input'));
         $('.uploader-output').trigger('changeItems');
+        window.inputSelectInit($(preview).find('.js-select-input')[0]);
       }
     }
   }
