@@ -320,6 +320,15 @@
     #{$check}.is-disabled & {
       opacity: .51;
     }
+
+    #{$check}_top & {
+      top: -1px;
+      transform: translate3d(0, 0, 0);
+
+      @include screen('sm') {
+        top: 0;
+      }
+    }
   }
 
   &__icon {
@@ -339,6 +348,22 @@
     @include text-big;
 
     color: $color-basic;
+
+    #{$check}_white & {
+      color: $color-white;
+    }
+
+    #{$check}_fz17 & {
+      @include text-mid;
+
+      line-height: 1.2;
+
+      @include screen('sm') {
+        @include text;
+
+        line-height: 1.2;
+      }
+    }
   }
 
   &_notext {

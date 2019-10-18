@@ -89,6 +89,8 @@ block content
         +link(href="#popup-warning").js-popup Popup warning
         +link(href="#popup-new-offer-h").js-popup Popup New Tenancy offer HOST
         +link(href="#popup-new-offer-g").js-popup Popup New Tenancy offer GUSET
+        +link.js-popup-depends-width(href="#" data-source="xl:#popup-agreement,md:#popup-agreement-m") Popup Terms and Conditions
+        +link.js-popup-depends-width(href="#" data-source="xl:#popup-agreement-accepted,md:#popup-agreement-accepted-m") Popup Terms and Conditions accepted
 
 block panels
   +main-menu
@@ -130,3 +132,7 @@ block popups
   +popup-warning#popup-warning
   +popup-new-offer#popup-new-offer-h
   +popup-new-offer-g#popup-new-offer-g
+  +popup-agreement(getData('agreement-popup')[0])#popup-agreement
+  +popup-agreement-mobile(getData('agreement-popup')[0])#popup-agreement-m
+  +popup-agreement(getData('agreement-popup')[1])#popup-agreement-accepted
+  +popup-agreement-mobile(getData('agreement-popup')[1])#popup-agreement-accepted-m

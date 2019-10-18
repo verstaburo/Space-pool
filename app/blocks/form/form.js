@@ -90,14 +90,14 @@ export default function formManipulations() {
   const stateElements = {
     disabled(section) {
       $(section).addClass('is-disabled');
-      const elements = $(section).find('input, select, textarea');
+      const elements = $(section).find('input, select, textarea, button');
       $(elements).each((i, el) => {
         $(el).attr('disabled', 'disabled');
       });
     },
     enabled(section) {
       $(section).removeClass('is-disabled');
-      const elements = $(section).find('input, select, textarea');
+      const elements = $(section).find('input, select, textarea, button');
       $(elements).each((i, el) => {
         $(el).removeAttr('disabled', 'disabled');
       });
