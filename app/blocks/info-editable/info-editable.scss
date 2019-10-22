@@ -160,35 +160,50 @@
 
     #{$b} {
       &__name {
-        &:not(:last-child) {
-          margin-right: 30px;
+        @include screen('md') {
+          width: 100%;
+        }
 
-          @include screen('md') {
-            margin-right: 15px;
-          }
+        &:not(:last-child) {
+          margin-right: 0;
+          // margin-right: 30px;
+
+          // @include screen('md') {
+          //   margin-right: 15px;
+          // }
         }
       }
 
       &__field {
         flex: 1;
         margin-left: 0;
-        flex-wrap: wrap;
+        // flex-wrap: wrap;
         justify-content: flex-end;
         align-items: flex-start;
+
+        @include screen('md') {
+          width: 100%;
+          flex: none;
+          justify-content: flex-start;
+        }
       }
 
       &__item {
+        margin-left: auto;
+
         @include screen('md') {
-          display: block;
-          width: 100%;
-          text-align: right;
+          // display: block;
+          // width: 100%;
+          text-align: left;
+          margin-left: 0;
         }
 
         &:not(:first-child) {
-          margin-left: 43px;
+          // margin-left: 43px;
+          margin-left: auto;
 
           @include screen('md') {
-            margin-left: 0;
+            margin-left: 15px;
           }
         }
       }
