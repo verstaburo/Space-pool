@@ -45,6 +45,11 @@ export default function slider() {
             spaceBetween: 10,
           },
         },
+        on: {
+          init() {
+            $(sliderContainer).addClass('is-visible');
+          },
+        },
       });
 
       function setBtnContainerHeight() {
@@ -92,6 +97,11 @@ export default function slider() {
           767: {
             slidesPerView: 1,
             spaceBetween: 10,
+          },
+        },
+        on: {
+          init() {
+            $(sliderContainer).addClass('is-visible');
           },
         },
       });
@@ -143,6 +153,11 @@ export default function slider() {
             spaceBetween: 10,
           },
         },
+        on: {
+          init() {
+            $(sliderContainer).addClass('is-visible');
+          },
+        },
       });
 
       function setBtnContainerHeight() {
@@ -188,6 +203,11 @@ export default function slider() {
             spaceBetween: 30,
           },
         },
+        on: {
+          init() {
+            $(sliderContainer).addClass('is-visible');
+          },
+        },
       });
 
       function setBtnContainerHeight() {
@@ -224,6 +244,11 @@ export default function slider() {
           nextEl: btnNext,
           prevEl: btnPrev,
         },
+        on: {
+          init() {
+            $(sliderContainer).addClass('is-visible');
+          },
+        },
       });
 
       $(document).on('isCloseMap', '.map', () => {
@@ -258,6 +283,9 @@ export default function slider() {
           prevEl: btnPrev,
         },
         on: {
+          init() {
+            $(sliderContainer).addClass('is-visible');
+          },
           transitionStart() {
             const it = this.el;
             const slides = this.slides;
@@ -299,6 +327,11 @@ export default function slider() {
         fadeEffect: {
           crossFade: true,
         },
+        on: {
+          init() {
+            $(sliderContainer).addClass('is-visible');
+          },
+        },
       });
     });
   }
@@ -327,6 +360,9 @@ export default function slider() {
           crossFade: true,
         },
         on: {
+          init() {
+            $(sliderContainer).addClass('is-visible');
+          },
           slideChange() {
             const sw = this;
             const activeIndex = sw.realIndex;
