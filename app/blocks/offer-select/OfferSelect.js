@@ -10,11 +10,16 @@ export default class OfferSelect {
     this.cross = this.el.find('[data-select-close]');
     this.compensateWrap = $('.js-compensate-wrap');
     this.dropHeight = this.el.find('.offer-select__dropdown').outerHeight();
+    this.init = this.init.bind(this);
   }
   init() {
     const t = this;
-    t.preset();
-    t.linkPreset();
+    if (t.links.length <= 0) {
+      t.preset();
+    } else {
+      t.linkPreset();
+    }
+
     $(document).on('click', t.head, (evt) => {
       const self = evt.target;
       if ($(self).is(t.head) || $(self).closest(t.head).length > 0) {
@@ -29,8 +34,18 @@ export default class OfferSelect {
         t.close();
       }
     });
+
     $(document).on('change', t.inputs, () => {
       t.preset();
+      t.close();
+    });
+
+    $(window).on('resize', () => {
+      if (t.links.length <= 0) {
+        t.preset();
+      } else {
+        t.linkPreset();
+      }
       t.close();
     });
 
@@ -72,7 +87,7 @@ export default class OfferSelect {
       t.label.append(cloneEl);
     } else {
       t.label.empty();
-      const cloneEl = $(currEl).find('[data-select-value]').clone();
+      const cloneEl = $(currEl).clone();
       t.label.append(cloneEl);
     }
   }
