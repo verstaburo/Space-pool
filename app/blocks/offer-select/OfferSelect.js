@@ -1,3 +1,5 @@
+import isTouchDevice from 'is-touch-device';
+
 const $ = window.$;
 
 export default class OfferSelect {
@@ -20,24 +22,40 @@ export default class OfferSelect {
       t.linkPreset();
     }
 
-    $(document).on('click', t.head, (evt) => {
-      const self = evt.target;
-      if ($(self).is(t.head) || $(self).closest(t.head).length > 0) {
+    $(t.head).on('click', () => {
+      if (!isTouchDevice()) {
         if (t.isOpen()) {
           t.close();
         } else {
           t.open();
         }
-      } else if (!($(self).is(t.el) || $(self).closest(t.el).length > 0)) {
-        t.close();
-      } else if ($(self).is(t.cross) || $(self).closest(t.cross).length > 0) {
-        t.close();
       }
     });
 
-    $(document).on('change', t.inputs, () => {
+    $(t.head).on('touchstart', () => {
+      if (isTouchDevice()) {
+        if (t.isOpen()) {
+          t.close();
+        } else {
+          t.open();
+        }
+      }
+    });
+
+    $(t.cross).on('click', () => {
+      t.close();
+    });
+
+    $(t.inputs).on('change', () => {
       t.preset();
       t.close();
+    });
+
+    $(document).on('click', (evt) => {
+      const self = evt.target;
+      if (!($(self).is(t.el) || $(self).closest(t.el).length > 0)) {
+        t.close();
+      }
     });
 
     $(window).on('resize', () => {

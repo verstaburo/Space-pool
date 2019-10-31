@@ -20,7 +20,7 @@ export function selects() {
     const containerClasses = `choices choices_input choices_popup ${additionalClasses}`;
     const title = $(self).attr('data-mobile-title') || $(self).find('option[placeholder]').text() || $(self).attr('placeholder') || 'Select';
     const choices = new Choices(self, {
-      searchEnabled: false,
+      // searchEnabled: false,
       itemSelectText: '',
       classNames: {
         containerOuter: containerClasses,
@@ -69,7 +69,7 @@ export function selects() {
     const containerClasses = `choices choices_input2 choices_popup ${additionalClasses}`;
     const title = $(self).attr('data-mobile-title') || $(self).find('option[placeholder]').text() || $(self).attr('placeholder') || 'Select';
     const choices = new Choices(self, {
-      searchEnabled: false,
+      // searchEnabled: false,
       itemSelectText: '',
       classNames: {
         containerOuter: additionalClasses,
