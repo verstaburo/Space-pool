@@ -12,6 +12,7 @@
   color: $color-white;
   text-align: center;
   margin-left: 9px;
+  vertical-align: middle;
 
   &_fz13 {
     font-size: 13px;
@@ -31,11 +32,17 @@
 
   &_sm-small {
     @include screen('sm') {
+      display: flex;
+      justify-content: center;
+      align-items: center;
       font-size: 7px;
-      line-height: 9px;
+      line-height: 1;
       width: 9px;
       min-width: 9px;
       height: 9px;
+      box-sizing: border-box;
+      vertical-align: middle;
+      text-align: center;
     }
   }
 }
