@@ -67,7 +67,7 @@ export default class OfferSelect {
       t.close();
     });
 
-    $(document).on('click', '[data-offer-link]', (evt) => {
+    $(t.links).on('click', (evt) => {
       const link = evt.currentTarget;
       if ($(link).is((i, el) => $(el).is(link))) {
         t.linkPreset(link);

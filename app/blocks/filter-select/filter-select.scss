@@ -12,6 +12,7 @@
     box-sizing: border-box;
     padding-right: 24px;
     align-items: center;
+    z-index: 1;
   }
 
   &__label {
@@ -85,12 +86,15 @@
       padding-top: 57px;
       padding-bottom: 56px;
       visibility: hidden;
+      transition: opacity $ease-main, transform $ease-main;
+      touch-action: none;
     }
 
     #{$b}.is-open & {
       @include screen('sm') {
         opacity: 1;
         pointer-events: auto;
+        touch-action: auto;
         visibility: visible;
       }
     }
