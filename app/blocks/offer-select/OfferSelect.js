@@ -32,7 +32,8 @@ export default class OfferSelect {
       }
     });
 
-    $(t.head).on('touchstart', () => {
+    $(t.head).on('touchstart', (evt) => {
+      evt.preventDefault();
       if (isTouchDevice()) {
         if (t.isOpen()) {
           t.close();
