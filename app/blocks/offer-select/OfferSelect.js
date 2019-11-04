@@ -47,6 +47,11 @@ export default class OfferSelect {
       t.close();
     });
 
+    $(t.inputs).on('click', () => {
+      t.preset();
+      t.close();
+    });
+
     $(t.inputs).on('change', () => {
       t.preset();
       t.close();

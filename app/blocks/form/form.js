@@ -11,6 +11,13 @@ export default function formManipulations() {
       const panel = $(form).find('[data-hidden-panel]');
       $(panel).addClass('is-active');
     });
+
+    $(document).on('input', '.js-form-with-hidden-panel input, .js-form-with-hidden-panel textarea', (evt) => {
+      const self = evt.target;
+      const form = $(self).closest('form');
+      const panel = $(form).find('[data-hidden-panel]');
+      $(panel).addClass('is-active');
+    });
   }
 
   // следим за формой, чтобы остановить панель
