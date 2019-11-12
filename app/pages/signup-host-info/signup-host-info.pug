@@ -85,7 +85,7 @@ block content
                     +form-section-wrapper
                       +form-box('Postcode')
                         +input(type="text" name="postCode" placeholder="Postcode" required="required")
-            +form-section._mg88
+            +form-section._mg82
               +form-section-header._mg62
                 +form-section-title Legal representative information
               +grid.grid_big.grid_int59
@@ -144,9 +144,32 @@ block content
                   +form-section-wrapper
                     +form-box('Postcode')
                       +input(type="text" name="postCode" placeholder="Postcode")
-                +col({xl: 6, md:12 })
-                  +form-section-wrapper
-                    +button('button')(type="submit")._wide._short Continue
+            +form-section._mg82
+              +form-section-header._mg36
+                +form-section-title Bank account details
+              +e.row
+                +e.column_stretch._lg-ord2
+                  +form-section-text._lh143._mgt-4 Please provide your Bank Account inforation. It is needed to provide an opportunity to receive payments in future.
+                +e.column_requisites
+                  +grid.grid_25x25.grid_int50
+                    +col({xl: 6 })
+                      +form-toggle({radio: {checked: true, name: "requisitesType", value: "sortCode", show: "sortcode", hide: "iban"}, check: true, subtitle: "I am using ", title: "Sort Code"})._v3.__switch
+                    +col({xl: 6 })
+                      +form-toggle({radio: {name: "requisitesType", value: "iban", show: "iban", hide: "sortcode"}, check: true, subtitle: "I am using ", title: "IBAN"})._v3.__switch
+                    +col({xl: 6, md:12 })
+                      +form-section-wrapper
+                        +form-box('Account number')
+                          +input(type="text" name="accountNumber" placeholder="Account number")
+                    +col({xl: 6, md:12 })(data-form-element="sortcode")
+                      +form-section-wrapper
+                        +form-box('Sort Code')
+                          +input(type="text" name="sortcode" placeholder="Sort Code")
+                    +col({xl: 6, md:12 })(data-form-element="iban")
+                      +form-section-wrapper
+                        +form-box('IBAN')
+                          +input(type="text" name="iban" placeholder="IBAN")
+                  +e.buttons_mgt65
+                    +button('button')(type="submit")._wide._short Complete registration
         +col({ xl: 2, lg: 12}).hide-lg
 
 block panels
