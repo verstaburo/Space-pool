@@ -33,7 +33,7 @@ export default function profile() {
       $(lastUbo).after(ubo);
       const selects = $(ubo).find('.js-select-input');
       $(selects).each((i, el) => {
-        window.inputSelectInit($(el));
+        window.inputSelectInit(el);
       });
       const dates = $(ubo).find('.js-datepicker');
       $(dates).each((i, el) => {
