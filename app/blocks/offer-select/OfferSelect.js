@@ -11,7 +11,7 @@ export default class OfferSelect {
     this.links = this.el.find('[data-offer-link]');
     this.cross = this.el.find('[data-select-close]');
     this.compensateWrap = $('.js-compensate-wrap');
-    this.dropHeight = this.el.find('.offer-select__dropdown').outerHeight();
+    this.dropdown = this.el.find('.offer-select__dropdown');
     this.init = this.init.bind(this);
   }
   init() {
@@ -122,7 +122,8 @@ export default class OfferSelect {
     this.el.addClass('is-open');
 
     if (this.compensateAllowed()) {
-      this.compensateWrap.css('margin-bottom', this.dropHeight);
+      const dropHeight = $(this.dropdown).outerHeight() + 40;
+      this.compensateWrap.css('margin-bottom', `${dropHeight}px`);
     }
   }
   close() {
