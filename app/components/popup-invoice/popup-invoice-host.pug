@@ -1,0 +1,197 @@
+mixin popup-invoice-host()
+  +popup._big.popup-invoice__&attributes(attributes)
+    +popup-header.popup__header_white.popup__header_fx.popup__header_fx_center
+      div.popup__links
+        +link-icon('select-arrow', 'a')._back._bold._no-shadow.__button.js-popup-depends-width(href="#" data-source="xl:#popup-invoices-host,md:#popup-invoices-host-mobile") Back to list
+      +tabs.__tabs
+        +tab()._gradient._fz17(data-tab-target="inv1").active Guest Rental payment Invoice
+        +tab()._gradient._fz17(data-tab-target="inv2") Spacepool commision invoice
+      +popup-title Invoice:  INV-SP-52352
+      +link-icon('download')(href="#")._icon_small._download-small._no-shadow._bold.__button Download as PDF
+      div.popup__info.popup__info_mb0
+        +logo-image().__logo
+      +e.A.close.js-popup-depends-width(href="#" data-source="xl:#popup-invoices-host,md:#popup-invoices-host-mobile")
+        +e.SVG.close-icon(xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15.36 15.36")
+          rect(x="-2.43" y="6.94" width="20.23" height="1.49" transform="translate(18.55 7.68) rotate(135)")
+          rect(x="-2.43" y="6.94" width="20.23" height="1.49" transform="translate(7.68 -3.18) rotate(45)")
+    +tabs-content.__tab-content
+      +tab-wrapper()(data-tab="inv1" data-tab-group="invoiceHost").active
+        +grid.grid_gap106
+          +col({xl: 6, sm: 12})
+            +client-info({name: 'Guest', info: [{name: 'To:', text: 'Bright Ideas Ltd. 1st Floor, 5 Martin Lande London EC1&nbsp;4AD', cls: ' _mw250'}, {name: 'Issued:', text: '01.06.2019'}, {name: 'Due:', text: '01.07.2019'}]})
+          +col({xl: 6, sm: 12})
+            +client-info({name: 'Host:', namecls: '_right', info: [{name: 'From:', text: 'Hereford Ltd, Holme Lacy Rd, Rotherwas Industrial Estate, Hereford HR2&nbsp;6FE,',  cls: ' _mw250'}, {name: 'Company Number:', text: '321826390'}, {name: 'Registered VAT number:', text: '351268260'}]})
+        +table.table_simple.table_simple_v2.popup-invoice__table
+          thead
+            tr.table__row
+              th.table__cell.table__cell_head Description
+              th.table__cell.table__cell_head.table__cell_centered Quantity
+              th.table__cell.table__cell_head Charge
+              th.table__cell.table__cell_head.table__cell_centered VAT
+              th.table__cell.table__cell_head Amount GBP
+          tbody
+            tr.table__row
+              td.table__cell One Heddon street Office space
+              td.table__cell.table__cell_centered 1
+              td.table__cell.table__cell_bold &pound; 1568.00
+              td.table__cell.table__cell_centered 20%
+              td.table__cell.table__cell_bold &pound; 1568.00
+        +grid.grid_gap106
+          +col({xl: 6, sm: 12})
+          +col({xl: 6, sm: 12})
+            +characteristics-table._dark._big.__amount
+              tbody
+                +e.TR.row_bsl
+                  +e.TD.cell._h45 Subtotal
+                  +e.TD.cell._h45 &pound; 1568.00
+                +e.TR.row_bsl
+                  +e.TD.cell._h45 Total VAT
+                  +e.TD.cell._h45 &pound; 313.00
+                +e.TR.row_bsl
+                  +e.TD.cell._h45._fz20 Amount Due
+                  +e.TD.cell._h45._fz20 &pound; 1568.00
+      +tab-wrapper()(data-tab="inv2" data-tab-group="invoiceHost")
+        +grid.grid_gap106
+          +col({xl: 6, sm: 12})
+            +client-info({name: 'Host', info: [{name: 'To:', text: 'Hereford Ltd, Holme Lacy Rd, Rotherwas Industrial Estate, Hereford HR2&nbsp;6FE,', cls: ' _mw250'}, {name: 'Company Number:', text: '321826390'}, {name: 'Registered VAT number:', text: '351268260'}]})
+          +col({xl: 6, sm: 12})
+            +client-info({name: 'Spacepool:', namecls: '_right', info: [{name: 'From:', text: 'Spacepool Limited A And L Suite 1-3 24 Southwark Street, Hop Exchange, London, England, SE1 1TY',  cls: ' _mw280'}, {name: 'Company Number:', text: '11206474'}, {name: 'Registered VAT number:', text: '304 6600 37'}]})
+        +table.table_simple.table_simple_v2.popup-invoice__table
+          thead
+            tr.table__row
+              th.table__cell.table__cell_head Description
+              th.table__cell.table__cell_head.table__cell_centered Rate
+              th.table__cell.table__cell_head Charge
+              th.table__cell.table__cell_head.table__cell_centered VAT
+              th.table__cell.table__cell_head Amount GBP
+          tbody
+            tr.table__row
+              td.table__cell Spacepool Fee
+              td.table__cell.table__cell_centered 10%
+              td.table__cell.table__cell_bold &pound; 156.8
+              td.table__cell.table__cell_centered 20%
+              td.table__cell.table__cell_bold &pound; 156.80
+            tr.table__row
+              td.table__cell Transaction fee
+              td.table__cell.table__cell_centered Fixed
+              td.table__cell.table__cell_bold &pound; 0.95
+              td.table__cell.table__cell_centered 0%
+              td.table__cell.table__cell_bold &pound; 0.95
+        +grid.grid_gap106
+          +col({xl: 6, sm: 12})
+          +col({xl: 6, sm: 12})
+            +characteristics-table._dark._big.__amount
+              tbody
+                +e.TR.row_bsl
+                  +e.TD.cell._h45 Subtotal
+                  +e.TD.cell._h45 &pound; 157.75
+                +e.TR.row_bsl
+                  +e.TD.cell._h45 Total VAT
+                  +e.TD.cell._h45 &pound; 31.55
+                +e.TR.row_bsl
+                  +e.TD.cell._h45._fz20 Amount Due
+                  +e.TD.cell._h45._fz20 &pound; 189.30
+    block
+    +popup-footer.popup__footer_border
+      +e.buttons
+        +link-icon('select-arrow', 'a')._back._bold._no-shadow.__button.js-popup-depends-width(href="#" data-source="xl:#popup-invoices-host,md:#popup-invoices-host-mobile") Back to list
+        +link-icon('download')(href="#")._icon_small._download-small._no-shadow._bold.__button Download as PDF
+        +e.status
+          +state()._right._orange._fz17.__state.active(data-tab="inv1" data-tab-group="invoiceHost") Status: <b>Awaiting for payment</b>
+          +state()._right._orange._fz17.__state(data-tab="inv2" data-tab-group="invoiceHost") Status: <b>Commision charged on Guest payment</b>
+
+
+mixin popup-invoice-host-mobile()
+  +popup-mobile._white.popup-invoice__&attributes(attributes)
+    +popup-header.popup__header_white.popup__header_border
+      +e.A.close.js-popup-depends-width(href="#" data-source="xl:#popup-invoices-host,md:#popup-invoices-host-mobile")
+        +e.SVG.close-icon(xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15.36 15.36")
+          rect(x="-2.43" y="6.94" width="20.23" height="1.49" transform="translate(18.55 7.68) rotate(135)")
+          rect(x="-2.43" y="6.94" width="20.23" height="1.49" transform="translate(7.68 -3.18) rotate(45)")
+      +popup-title Invoice: INV-SP-2141532
+    +popup-content
+      div.popup__scrollblock.js-scrollbar-light
+        +e.inner-content
+          +tabs.__tabs
+            +tab()._gradient._fz17(data-tab-target="minv1").active Guest Rental payment Invoice
+            +tab()._gradient._fz17(data-tab-target="minv2") Spacepool commision invoice
+          +logo-image2().__logo
+          +tabs-content
+            +tab-wrapper()(data-tab="minv1" data-tab-group="invoiceHostM").active
+              +grid.grid_gap106
+                +col({xl: 6, sm: 12})
+                  +client-info({name: 'Guest:', info: [{name: 'To:', text: 'Dezi Design Agency ltd.', cls: ' _mw250'}, {name: 'Issued:', text: '01.06.2019', new: true}, {name: 'Due:', text: '01.07.2019'}]})
+                +col({xl: 6, sm: 12})
+                  +client-info({name: 'Host:', namecls: '_right', info: [{name: 'From:', text: 'Hereford Ltd, Holme Lacy Rd, Rotherwas Industrial Estate, Hereford HR2&nbsp;6FE,', cls: ' _mw250'}, {name: 'Company Number:', text: '321826390'}, {name: 'Registered VAT number:', text: '3218232234234'}]})
+              +e.describe 6 Desks Private Office at WeWork, 8 Devonshire Sq, London, EC2M 4PL
+              +table.table_simple.table_simple_v2.popup-invoice__table
+                thead
+                  tr.table__row
+                    th.table__cell.table__cell_head Quantity
+                    th.table__cell.table__cell_head Charge
+                    th.table__cell.table__cell_head VAT
+                    th.table__cell.table__cell_head Amount GBP
+                tbody
+                  tr.table__row
+                    td.table__cell 1
+                    td.table__cell.table__cell_bold &pound; 1568.00
+                    td.table__cell 20%
+                    td.table__cell.table__cell_bold &pound; 1568.00
+              +characteristics-table._dark._big.__amount
+                tbody
+                  +e.TR.row_bsl
+                    +e.TD.cell._h45 Subtotal
+                    +e.TD.cell.fw400._h45 &pound; 1568.00/mo
+                  +e.TR.row_bsl
+                    +e.TD.cell._h45 Total VAT
+                    +e.TD.cell._fw400._h45 &pound; 4568.00
+                  +e.TR.row_bsl
+                    +e.TD.cell._h45 Total Due
+                    +e.TD.cell._h45 &pound; 15 668.00
+            +tab-wrapper()(data-tab="minv2" data-tab-group="invoiceHostM")
+              +grid.grid_gap106
+                +col({xl: 6, sm: 12})
+                  +client-info({name: 'Host', info: [{name: 'To:', text: 'Hereford Ltd, Holme Lacy Rd, Rotherwas Industrial Estate, Hereford HR2&nbsp;6FE,', cls: ' _mw250'}, {name: 'Company Number:', text: '321826390'}, {name: 'Registered VAT number:', text: '351268260'}]})
+                +col({xl: 6, sm: 12})
+                  +client-info({name: 'Spacepool:', namecls: '_right', info: [{name: 'From:', text: 'Spacepool Limited A And L Suite 1-3 24 Southwark Street, Hop Exchange, London, England, SE1 1TY',  cls: ' _mw280'}, {name: 'Company Number:', text: '11206474'}, {name: 'Registered VAT number:', text: '304 6600 37'}]})
+              +table.table_simple.table_simple_v2.popup-invoice__table
+                thead
+                  tr.table__row
+                    th.table__cell.table__cell_head.table__cell_centered Rate
+                    th.table__cell.table__cell_head Charge
+                    th.table__cell.table__cell_head.table__cell_centered VAT
+                    th.table__cell.table__cell_head Amount GBP
+                tbody
+                  tr.table__row
+                    td.table__cell.table__cell_bold(colspan="4") Spacepool fee
+                  tr.table__row
+                    td.table__cell.table__cell_centered 10%
+                    td.table__cell.table__cell_bold &pound; 156.8
+                    td.table__cell.table__cell_centered 20%
+                    td.table__cell.table__cell_bold &pound; 156.80
+                  tr.table__row
+                    td.table__cell.table__cell_bold(colspan="4") Transaction fee
+                  tr.table__row
+                    td.table__cell.table__cell_centered Fixed
+                    td.table__cell.table__cell_bold &pound; 0.95
+                    td.table__cell.table__cell_centered 0%
+                    td.table__cell.table__cell_bold &pound; 0.95
+              +characteristics-table._dark._big.__amount
+                tbody
+                  +e.TR.row_bsl
+                    +e.TD.cell._h45 Subtotal
+                    +e.TD.cell._h45 &pound; 157.75
+                  +e.TR.row_bsl
+                    +e.TD.cell._h45 Total VAT
+                    +e.TD.cell._h45 &pound; 31.55
+                  +e.TR.row_bsl
+                    +e.TD.cell._h45._fz20 Amount Due
+                    +e.TD.cell._h45._fz20 &pound; 189.30
+          block
+    +popup-footer.popup__footer_border
+      +e.buttons
+        +link-icon('select-arrow', 'a')._back._bold._no-shadow._mfz12.__button.js-popup-depends-width(href="#" data-source="xl:#popup-invoices-host,md:#popup-invoices-host-mobile") Back to list
+        +link-icon('download')(href="#")._icon_small._download-small._no-shadow._bold._mfz12.__button PDF
+        +e.status
+          +state()._right._orange._fz17.__state.active(data-tab="minv1" data-tab-group="invoiceHostM") <b>Awaiting for payment</b>
+          +state()._right._orange._fz17.__state(data-tab="minv2" data-tab-group="invoiceHostM") <b>Payment commision</b>

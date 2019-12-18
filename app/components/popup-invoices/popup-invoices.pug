@@ -1,4 +1,5 @@
-mixin popup-invoices()
+mixin popup-invoices(host)
+  - var srcPopup = host ? 'xl:#popup-invoice-host,md:#popup-invoice-host-mobile' : 'xl:#popup-invoice,md:#popup-invoice-mobile';
   +popup._big.popup-invoices__&attributes(attributes)
     +popup-header.popup__header_white.popup__header_fx
       +popup-title Invoices
@@ -11,7 +12,7 @@ mixin popup-invoices()
           th.table__cell.table__cell_head Amount to pay
           th.table__cell.table__cell_head Status
       tbody
-        tr.table__row.table__row_interactive.js-popup-depends-width(data-source="xl:#popup-invoice,md:#popup-invoice-mobile")
+        tr.table__row.table__row_interactive.js-popup-depends-width(data-source=srcPopup)
           td.table__cell
             +status._fz10._grad.table__status new
             span One Heddon street Office space
@@ -19,16 +20,19 @@ mixin popup-invoices()
           td.table__cell 30 Apr 2019
           td.table__cell.table__cell_bold 1568.00 &pound;
           td.table__cell.table__cell_bold
-            +button()._smaller._fz17._wide.js-popup-top(href="#popup-payment-form" data-stoppropagation) Pay now
+            if !host
+              +button()._smaller._fz17._wide.js-popup-top(href="#popup-payment-form" data-stoppropagation) Pay now
+            else
+              | Pending
         - for (var i = 0; i < 9; i++) {
-          tr.table__row.table__row_interactive.js-popup-depends-width(data-source="xl:#popup-invoice,md:#popup-invoice-mobile")
+          tr.table__row.table__row_interactive.js-popup-depends-width(data-source=srcPopup)
             td.table__cell
               span One Heddon street Office space
             td.table__cell 25 Mar 2019
             td.table__cell 30 Feb 2019
             td.table__cell.table__cell_bold 1568.00 &pound;
             td.table__cell.table__cell_bold Paid
-          tr.table__row.table__row_interactive.js-popup-depends-width(data-source="xl:#popup-invoice,md:#popup-invoice-mobile")
+          tr.table__row.table__row_interactive.js-popup-depends-width(data-source=srcPopup)
             td.table__cell
               span One Heddon street Office space
             td.table__cell 25 Mar 2019
@@ -40,19 +44,24 @@ mixin popup-invoices()
     block
 
 
-mixin popup-invoices-mobile()
+mixin popup-invoices-mobile(host)
+  - var srcPopup = host ? 'xl:#popup-invoice-host,md:#popup-invoice-host-mobile' : 'xl:#popup-invoice,md:#popup-invoice-mobile';
   - var data1 = {isnew: true, date: { iso: '2019-06-24', text: '24 June 2019'}, nameTag: 'a', name: 'One Heddon Street Center', price: '&pound; 1568.00', pay: true};
   - var data2 = {date: { iso: '2019-05-24', text: '24 May 2019'}, nameTag: 'a', name: 'One Heddon Street Center', price: '&pound; 1568.00', state: 'Paid'};
   -var data3 = {date: { iso: '2019-04-24', text: '24 April 2019'}, nameTag: 'a', name: 'One Heddon Street Center', price: '&pound; 1568.00', state: 'Paid'};
+  -var dataHost = {isnew: true, date: { iso: '2019-06-24', text: '24 June 2019'}, nameTag: 'a', name: 'One Heddon Street Center', price: '&pound; 1568.00', state: 'Pending'};
   +popup-mobile._white.popup-invoices__&attributes(attributes)
     +popup-header.popup__header_white.popup__header_border
       +popup-title Invoices
     +popup-content
       div.popup__scrollblock.js-scrollbar-light
         +e.DIV.invoices
-          +invoice-info(data1).is-new.__invoice.js-popup-depends-width(data-source="xl:#popup-invoice,md:#popup-invoice-mobile")
+          if !host
+            +invoice-info(data1).is-new.__invoice.js-popup-depends-width(data-source=srcPopup)
+          else
+            +invoice-info(dataHost).is-new.__invoice.js-popup-depends-width(data-source=srcPopup)
           - for (var i = 0; i < 3; i++) {
-            +invoice-info(data2).__invoice.js-popup-depends-width(data-source="xl:#popup-invoice,md:#popup-invoice-mobile")
-            +invoice-info(data3).__invoice.js-popup-depends-width(data-source="xl:#popup-invoice,md:#popup-invoice-mobile")
+            +invoice-info(data2).__invoice.js-popup-depends-width(data-source=srcPopup)
+            +invoice-info(data3).__invoice.js-popup-depends-width(data-source=srcPopup)
           -}
       block

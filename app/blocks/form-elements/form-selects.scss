@@ -92,6 +92,8 @@
       width: 100%;
       max-height: none;
       transition: all $ease-main;
+      opacity: 0;
+      pointer-events: none;
 
       .choices__item {
         @include text16;
@@ -127,6 +129,11 @@
 
       #{$k}.is-open-right & {
         right: 0;
+      }
+
+      &.is-active {
+        opacity: 1;
+        pointer-events: auto;
       }
 
       .popup &,.select_white ~ & {

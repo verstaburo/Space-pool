@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 // http://idangero.us/swiper/#.WcIu5oy0OHs
-import * as Swiper from 'swiper/dist/js/swiper';
+import * as Swiper from 'swiper/js/swiper';
 
 const $ = window.$;
 

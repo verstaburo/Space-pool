@@ -163,6 +163,7 @@
     }
 
     @include screen('sm') {
+      // flex-wrap: wrap;
       padding: 10px 18px;
       min-height: 50px;
     }
@@ -213,5 +214,29 @@
     @include screen('sm') {
       margin-top: 29px;
     }
+  }
+
+  // &__status {
+  //   @include screen('sm') {
+  //     width: 100%;
+  //   }
+  // }
+
+  &__state {
+    display: none;
+
+    b {
+      @include screen('sm') {
+        font-weight: 700;
+      }
+    }
+
+    &.active {
+      display: block;
+    }
+  }
+
+  &__tabs {
+    width: 100%;
   }
 }

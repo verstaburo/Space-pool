@@ -95,6 +95,12 @@ block content
         +link.js-popup-depends-width(href="#" data-source="xl:#popup-agreement,md:#popup-agreement-m") Popup Terms and Conditions
         +link.js-popup-depends-width(href="#" data-source="xl:#popup-agreement-accepted,md:#popup-agreement-accepted-m") Popup Terms and Conditions accepted
 
+      +page-title._small Попапы (обновление от 4.12.2019 и 12.12.2019)
+      +e.list
+        +link.js-popup-depends-width(href="#" data-source="xl:#popup-invoices-host,md:#popup-invoices-host-mobile") Popup invoices for Host
+        +link.js-popup-depends-width(href="#" data-source="xl:#popup-invoice-host,md:#popup-invoice-host-mobile") Popup One Invoice for Host
+
+
 block panels
   +main-menu
     +nav-list(getData('main-menu-user.json'))
@@ -139,3 +145,7 @@ block popups
   +popup-agreement-mobile(getData('agreement-popup')[0])#popup-agreement-m
   +popup-agreement(getData('agreement-popup')[1])#popup-agreement-accepted
   +popup-agreement-mobile(getData('agreement-popup')[1])#popup-agreement-accepted-m
+  +popup-invoices(true)#popup-invoices-host
+  +popup-invoices-mobile(true)#popup-invoices-host-mobile
+  +popup-invoice-host#popup-invoice-host
+  +popup-invoice-host-mobile#popup-invoice-host-mobile
