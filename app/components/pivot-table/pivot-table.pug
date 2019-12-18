@@ -1,4 +1,4 @@
-mixin pivot-table(time)
+mixin pivot-table(time, periods)
   +b.pivot-table&attributes(attributes)
     +form
       +form-section
@@ -28,7 +28,7 @@ mixin pivot-table(time)
             else
               +form-section-wrapper
                 +form-box('Rent start date:', 'calendar2')._icon
-                  +input.js-datepicker(type="text" name="startDate" value="29 October 2019" placeholder="Rent start date:" data-period-start="rent")
+                  +input.js-datepicker(type="text" name="startDate" value="29 October 2019" placeholder="Rent start date:")
           +col({xl: 6, sm:12 })
             if time
               +e.line_flex
@@ -51,8 +51,16 @@ mixin pivot-table(time)
                         - }
             else
               +form-section-wrapper
-                +form-box('Rent end date:', 'calendar2')._icon
-                  +input.js-datepicker(type="text" name="endDate" value="29 October 2020" placeholder="Rent end date:" data-period-end="rent" data-mindate="2019-10-29")
+                +form-box('Rent period:')._icon
+                  +select.js-select-input(name="period" data-mobile-title="Rent period:")
+                    - for (var i = 1; i <= 12; i++) {
+                      if (i === 12)
+                        option(value=i selected)!=(i + ' months')
+                      else if (i === 1)
+                        option(value=i)!=(i + ' month')
+                      else
+                        option(value=i)!=(i + ' months')
+                    -}
       +characteristics-table._normal._large._dark._pivot.__table
         body
           +e.TR.row

@@ -22,6 +22,9 @@ export function selects() {
     const choices = new Choices(self, {
       // searchEnabled: false,
       itemSelectText: '',
+      sorter: (a, b) => a.label.localeCompare(b.label, 'en', {
+        numeric: true,
+      }),
       classNames: {
         containerOuter: containerClasses,
         titleText: title,
@@ -75,6 +78,9 @@ export function selects() {
         containerOuter: additionalClasses,
         titleText: title,
       },
+      sorter: (a, b) => a.label.localeCompare(b.label, 'en', {
+        numeric: true,
+      }),
       callbackOnCreateTemplates(template) {
         const classNames = this.config.classNames;
         return {
@@ -124,6 +130,9 @@ export function selects() {
           containerOuter: 'choices choices_popup',
           titleText: title,
         },
+        sorter: (a, b) => a.label.localeCompare(b.label, 'en', {
+          numeric: true,
+        }),
         callbackOnCreateTemplates(template) {
           const classNames = this.config.classNames;
           return {
@@ -173,6 +182,9 @@ export function selects() {
           containerOuter: 'choices choices_light choices_popup',
           titleText: title,
         },
+        sorter: (a, b) => a.label.localeCompare(b.label, 'en', {
+          numeric: true,
+        }),
         callbackOnCreateTemplates(template) {
           const classNames = this.config.classNames;
           return {
@@ -217,6 +229,9 @@ export function selects() {
         // searchEnabled: false,
         searchFields: ['label'],
         itemSelectText: '',
+        sorter: (a, b) => a.label.localeCompare(b.label, 'en', {
+          numeric: true,
+        }),
         classNames: {
           containerOuter: 'choices choices_light choices_color choices_popup',
           titleText: title,
@@ -265,6 +280,9 @@ export function selects() {
         // searchEnabled: false,
         searchFields: ['label'],
         itemSelectText: '',
+        sorter: (a, b) => a.label.localeCompare(b.label, 'en', {
+          numeric: true,
+        }),
         classNames: {
           containerOuter: 'choices choices_dark choices_popup',
           titleText: title,
@@ -318,6 +336,9 @@ export function selects() {
           containerOuter: 'choices choices_dark2 choices_popup',
           titleText: title,
         },
+        sorter: (a, b) => a.label.localeCompare(b.label, 'en', {
+          numeric: true,
+        }),
         callbackOnCreateTemplates(template) {
           const classNames = this.config.classNames;
           return {
@@ -363,6 +384,9 @@ export function selects() {
         // searchEnabled: false,
         searchFields: ['label'],
         itemSelectText: '',
+        sorter: (a, b) => a.label.localeCompare(b.label, 'en', {
+          numeric: true,
+        }),
         classNames: {
           containerOuter: 'choices choices_dark3 choices_popup',
           titleText: title,
