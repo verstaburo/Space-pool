@@ -1,0 +1,31 @@
+extends ../../layouts/default
+
+block head
+  - var pageTitle = 'SpacePool - 500'
+
+block content
+  +page-header._wide-lg._spad
+    .container
+      +grid.grid_layout
+        +col({ lg:12, xl: 2})
+          +link-icon('back')._no-shadow._back._bold.__back_fz18(href="#") Back to home
+        +col({ lg:12, xl: 8}).hide-lg
+          +breadcrumbs(['Home', '500'])
+        +col({ lg:12, xl: 2}).hide-lg
+  +content-origin._reverse._last
+    .container
+      +grid.grid_layout
+        +col({ lg:12, xl: 1}).hide-lg
+        +col({ md:12, lg: 6, xl: 5})
+          +error
+            +e.wrapper
+              +e.H2.title 500
+                +e.H3.subtitle Internal Server Error
+                +e.text Our nerdy guys from  the room where the lights are shimmering just received “Code Red” message. Some of them just started to run around screaming and spilling coffee out of a huge mug.
+        +col({ md:12, lg: 6, xl: 5})
+          +error
+            +e.IMG.image_500(src="assets/images/500.png")
+        +col({ lg:12, xl: 1}).hide-lg
+
+block panels
+  +main-menu

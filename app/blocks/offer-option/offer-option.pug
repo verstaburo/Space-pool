@@ -1,0 +1,13 @@
+mixin offer-option(data)
+  +b.offer-option&attributes(attributes)
+    +e.type
+      +box(class=data.boxclass).__box
+      +e.title!= data.title
+    +e.describe.js-2line
+      +e.text!=data.describe
+    +e.price
+      +e.amount!=data.price.number
+      +e.time
+        +e.tfull!=data.price.time.full
+        +e.tshort!=data.price.time.short
+    block
