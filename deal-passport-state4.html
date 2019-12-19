@@ -2932,10 +2932,9 @@
                         </div>
                         <div class="info-editable form__line">
                             <div class="info-editable__name">Offer description:</div>
-                            <div class="info-editable__field info-editable__field_wide">
-                                <div class="info-editable__text info-editable__text_wide">
-                                    <input class="info-editable__text-input info-editable__text-input_wide" type="text" name="description" value="One Heddon Office Space. 226 sq.ft. with terrace" data-field-edit="t1" readonly="readonly" />
-                                </div>
+                            <div class="info-editable__field">
+                                <div class="info-editable__text" data-field-edit="t1">One Heddon Office Space. 226 sq.ft. with terrace</div>
+                                <input type="hidden" name="description" value="One Heddon Office Space. 226 sq.ft. with terrace" data-field-copy="t1" />
                                 <a class="link link_light-underline info-editable__edit js-field-edit" data-edit-target="t1">
                                     <span class="link__text">Edit</span>
                                 </a>
@@ -2996,7 +2995,8 @@
                             <div class="info-editable__field">
                                 <div class="info-editable__text">
                                     <span>&pound;/mo</span>
-                                    <input class="info-editable__text-input" type="text" name="price" data-field-edit="t2" data-price="1568.00" value="1568.00" maxlength="8" readonly="readonly" />
+                                    <span data-field-edit="t2" data-price="1568.00" data-maxlength="8" data-numbers="data-numbers">1568.00</span>
+                                    <input type="hidden" name="price" value="1568.00" data-field-copy="t2" />
                                 </div>
                                 <a class="link link_light-underline info-editable__edit js-field-edit" data-edit-target="t2">
                                     <span class="link__text">Edit</span>
@@ -3008,10 +3008,11 @@
                             <div class="info-editable__field">
                                 <div class="info-editable__text">
                                     <span>&pound;</span>
-                                    <input class="info-editable__text-input" type="text" name="deposit" data-field-edit="t3" data-deposit="1568.00" value="1568.00" maxlength="8" readonly="readonly" />
+                                    <span data-field-edit="t3" data-deposit="1568.00" data-maxlength="8" data-numbers="data-numbers"> 1568.00</span>
                                     <div class="info-tooltip info-editable__info js-tooltip hide-sm" title="In the absence of claims, the deposit is returned to the lessee in full at the end of the rental period.">
                                         <svg class="info-tooltip__icon"><use xlink:href="assets/images/icon.svg#icon_info2"></use></svg>
                                     </div>
+                                    <input type="hidden" name="deposit" value="1568.00" data-field-copy="t3" />
                                 </div>
                                 <a class="link link_light-underline info-editable__edit js-field-edit" data-edit-target="t3">
                                     <span class="link__text">Edit</span>
@@ -3066,9 +3067,10 @@
                                 </div>
                                 <div class="info-editable form__line">
                                     <div class="info-editable__name">Offer description:</div>
-                                    <div class="info-editable__field info-editable__field_wide">
-                                        <div class="info-editable__text info-editable__text_wide">
-                                            <input class="info-editable__text-input info-editable__text-input_wide" type="text" name="description" value="Floor 5 Space Room 56" data-field-edit="t1" />
+                                    <div class="info-editable__field">
+                                        <div class="info-editable__text">
+                                            <div class="info-editable__text" data-field-edit="t1" contenteditable="true">Floor 5 Space Room 56</div>
+                                            <input type="hidden" name="description" value="Floor 5 Space Room 56" data-field-copy="t1" />
                                         </div>
                                     </div>
                                 </div>
@@ -3127,7 +3129,8 @@
                                     <div class="info-editable__field">
                                         <div class="info-editable__text">
                                             <span>&pound;&nbsp;/mo</span>
-                                            <input class="info-editable__text-input" type="text" name="price" maxlength="8" data-field-edit="t2" data-price="1568.00" value="1568.00" />
+                                            <span data-field-edit="t2" data-price="1568.00" contenteditable="true" data-maxlength="8" data-numbers="data-numbers">1568.00</span>
+                                            <input type="hidden" name="price" value="1568.00" data-field-copy="t2" />
                                         </div>
                                     </div>
                                 </div>
@@ -3136,7 +3139,8 @@
                                     <div class="info-editable__field">
                                         <div class="info-editable__text">
                                             <span>&pound;</span>
-                                            <input class="info-editable__text-input" type="text" name="deposit" data-field-edit="t3" data-deposit="1568.00" contenteditable="true" maxlength="8" value="4568.00" />
+                                            <span data-field-edit="t3" data-deposit="1568.00" contenteditable="true" data-maxlength="8" data-numbers="data-numbers"> 4568.00</span>
+                                            <input type="hidden" name="deposit" value="4568.00" data-field-copy="t3" />
                                             <div class="info-tooltip info-editable__info js-tooltip hide-sm" title="In the absence of claims, the deposit is returned to the lessee in full at the end of the rental period.">
                                                 <svg class="info-tooltip__icon"><use xlink:href="assets/images/icon.svg#icon_info2"></use></svg>
                                             </div>
@@ -3173,7 +3177,7 @@
                 <div class="popup__header popup__header_white popup__header_fx">
                     <h3 class="popup__title">Invoices</h3>
                 </div>
-                <table class="table table_simple popup-invoices__table" cellspacing="0">
+                <table class="table table_simple table_simple_v3 popup-invoices__table" cellspacing="0">
                     <thead>
                         <tr class="table__row">
                             <th class="table__cell table__cell_head">Subject</th>
