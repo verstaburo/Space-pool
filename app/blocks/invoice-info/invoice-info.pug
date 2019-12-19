@@ -1,11 +1,16 @@
-mixin invoice-info(data)
+mixin invoice-info(data, commision)
   +b.DIV.invoice-info&attributes(attributes)
     +status._fz10._grad.__status new
     if data.date
       +e.TIME.date(datetime=data.date.iso)!= data.date.text
     +e.name!= data.name
     +e.describe
-      +e.price!= data.price
+      if commision
+        +e.amount
+          +e.price!= data.price
+          +e.commision Commision <b>&pound; 68.00</b>
+      else
+        +e.price!= data.price
       if data.state
         +e.state!= data.state
       if data.pay

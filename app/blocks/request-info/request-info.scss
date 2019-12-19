@@ -59,7 +59,7 @@
   }
 
   &__row {
-    width: 50%;
+    // width: 50%;
     // padding-right: 25px;
     box-sizing: border-box;
 
@@ -77,6 +77,13 @@
       border-bottom: 1px solid $color-border-light;
     }
 
+    &_type {
+      @include screen('md', min) {
+        @include grid-column(1, 2);
+        @include grid-row(1, 2);
+      }
+    }
+
     &_status {
       padding-right: 0;
 
@@ -89,7 +96,8 @@
       }
 
       @include screen('md', min) {
-        order: 2;
+        @include grid-column(2,3);
+        @include grid-row(1,2);
       }
     }
 
@@ -105,13 +113,19 @@
       }
 
       @include screen('md', min) {
-        order: 3;
+        @include grid-column(1, 2);
+        @include grid-row(2, 4);
+
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: flex-start;
       }
     }
 
     &_renter {
       padding-right: 0;
-      padding-bottom: 50px;
+      // padding-bottom: 50px;
 
       @include screen('md') {
         padding: 7px 0 6px;
@@ -122,7 +136,8 @@
       }
 
       @include screen('md', min) {
-        order: 4;
+        @include grid-column(2, 3);
+        @include grid-row(2, 3);
       }
     }
 
@@ -144,7 +159,7 @@
 
     &_head {
       text-align: left;
-      margin-bottom: 32px;
+      // margin-bottom: 32px;
 
       @include screen('md') {
         margin-right: 20px;
@@ -188,15 +203,24 @@
   }
 
   &_table {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    align-items: stretch;
-    align-content: space-between;
-    flex-wrap: wrap;
+    @include display-grid;
+    @include grid-template-columns(50% 50%);
+    @include grid-template-rows(auto 1fr 50px);
+    // display: flex;
+    // flex-direction: row;
+    // justify-content: flex-start;
+    // align-items: stretch;
+    // align-content: space-between;
+    // flex-wrap: wrap;
     margin-top: -26px;
 
     @include screen('md') {
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-start;
+      align-items: stretch;
+      // align-content: space-between;
+      flex-wrap: wrap;
       align-content: flex-start;
       margin-top: 0;
     }

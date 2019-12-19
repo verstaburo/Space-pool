@@ -13,9 +13,9 @@ mixin form-order-summary(editable)
       +info-editable.__line
         +info-editable-name Offer description:
         if editable
-          +info-editable-field._wide
-            +e.text_wide
-              +e.INPUT.text-input_wide(type="text" name="description" value="One Heddon Office Space. 226 sq.ft. with terrace" data-field-edit="t1" readonly)
+          +info-editable-field
+            +e.text(data-field-edit="t1") One Heddon Office Space. 226 sq.ft. with terrace
+            input(type="hidden" name="description" value="One Heddon Office Space. 226 sq.ft. with terrace" data-field-copy="t1")
             +link()(data-edit-target="t1")._light-underline.__edit.js-field-edit Edit
         else
           +info-editable-field One Heddon Office Space. 226 sq.ft. with terrace
@@ -64,7 +64,8 @@ mixin form-order-summary(editable)
           +info-editable-field
             +e.text
               span &pound;/mo
-              +e.INPUT.text-input(type="text" name="price" data-field-edit="t2" data-price="1568.00" value="1568.00" maxlength="8" readonly)
+              span(data-field-edit="t2" data-price="1568.00" data-maxlength="8" data-numbers="data-numbers") 1568.00
+              input(type="hidden" name="price" value="1568.00" data-field-copy="t2")
             +link()(data-edit-target="t2")._light-underline.__edit.js-field-edit Edit
         else
           +info-editable-field 1568.00 &pound;/mo
@@ -74,8 +75,9 @@ mixin form-order-summary(editable)
           +info-editable-field
             +e.text
               span &pound;
-              +e.INPUT.text-input(type="text" name="deposit" data-field-edit="t3" data-deposit="1568.00" value="1568.00" maxlength="8" readonly)
+              span(data-field-edit="t3" data-deposit="1568.00" data-maxlength="8" data-numbers="data-numbers")  1568.00
               +info-tooltip.__info.js-tooltip.hide-sm(title="In the absence of claims, the deposit is returned to the lessee in full at the end of the rental period.")
+              input(type="hidden" name="deposit" value="1568.00" data-field-copy="t3")
             +link()(data-edit-target="t3")._light-underline.__edit.js-field-edit Edit
         else
           +info-editable-field._bold 1568.00 &pound;
@@ -113,9 +115,10 @@ mixin form-order-summary-mobile(editable)
           +info-editable.__line
             +info-editable-name Offer description:
             if editable
-              +info-editable-field._wide
-                +e.text_wide
-                  +e.INPUT.text-input_wide(type="text" name="description" value="Floor 5 Space Room 56" data-field-edit="t1")
+              +info-editable-field
+                +e.text
+                  +e.text(data-field-edit="t1" contenteditable="true") Floor 5 Space Room 56
+                  input(type="hidden" name="description" value="Floor 5 Space Room 56" data-field-copy="t1")
             else
               +info-editable-field Floor 5 Space Room 56
           +info-editable.__line
@@ -163,7 +166,8 @@ mixin form-order-summary-mobile(editable)
               +info-editable-field
                 +e.text
                   span &pound;&nbsp;/mo
-                  +e.INPUT.text-input(type="text" name="price" maxlength="8" data-field-edit="t2" data-price="1568.00" value="1568.00")
+                  span(data-field-edit="t2" data-price="1568.00" contenteditable="true" data-maxlength="8" data-numbers="data-numbers") 1568.00
+                  input(type="hidden" name="price" value="1568.00" data-field-copy="t2")
             else
               +info-editable-field &pound; 1568.00/mo
           +info-editable.__line
@@ -172,7 +176,8 @@ mixin form-order-summary-mobile(editable)
               +info-editable-field
                 +e.text
                   span &pound;
-                  +e.INPUT.text-input(type="text" name="deposit" data-field-edit="t3" data-deposit="1568.00" contenteditable="true" maxlength="8" value="4568.00")
+                  span(data-field-edit="t3" data-deposit="1568.00" contenteditable="true" data-maxlength="8" data-numbers="data-numbers")  4568.00
+                  input(type="hidden" name="deposit" value="4568.00" data-field-copy="t3")
                   +info-tooltip.__info.js-tooltip.hide-sm(title="In the absence of claims, the deposit is returned to the lessee in full at the end of the rental period.")
             else
               +info-editable-field._bold &pound; 4568.00
