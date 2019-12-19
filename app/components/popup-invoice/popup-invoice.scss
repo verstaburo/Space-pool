@@ -27,11 +27,16 @@
     &__header {
       padding-top: 55px;
       padding-bottom: 28px;
+      overflow: hidden;
 
       @include screen('md') {
         padding-top: 12px;
         padding-bottom: 12px;
       }
+    }
+
+    &__footer {
+      background-color: $color-white;
     }
 
     &__content {
@@ -43,6 +48,12 @@
 
       @include screen('sm') {
         padding: 50px 0;
+      }
+    }
+
+    &__scrollblock {
+      @include screen('md', min) {
+        max-height: 100vh;
       }
     }
   }
@@ -216,12 +227,6 @@
     }
   }
 
-  // &__status {
-  //   @include screen('sm') {
-  //     width: 100%;
-  //   }
-  // }
-
   &__state {
     display: none;
 
@@ -237,6 +242,97 @@
   }
 
   &__tabs {
+    position: relative;
     width: 100%;
+    margin-bottom: 50px;
+
+    @include screen('sm') {
+      margin-bottom: 30px;
+    }
+
+    &::before, &::after {
+      @include pseudo;
+
+      width: 100px;
+      height: 1px;
+      background-color: $color-border-light;
+      bottom: 0;
+    }
+
+    &::before {
+      right: 100%;
+    }
+
+    &::after {
+      left: 100%;
+    }
+  }
+
+  &__tab-content {
+    margin-top: 20px;
+
+    @include screen('sm') {
+      margin-top: 0;
+    }
+  }
+
+  &_host {
+
+    .popup {
+
+      &__header {
+        padding-top: 29px;
+        padding-bottom: 28px;
+        overflow: hidden;
+
+        @include screen('md') {
+          padding-top: 12px;
+          padding-bottom: 12px;
+        }
+
+        #{$b}__button {
+          margin-left: 26px;
+          margin-right: auto;
+        }
+      }
+
+      &__links:not(:last-child) {
+        margin-bottom: 38px;
+
+        @include screen('md') {
+          margin-bottom: 30px;
+        }
+      }
+
+      &__content {
+        padding: 300px 70px 176px;
+        overflow: auto;
+        height: 100%;
+        box-sizing: border-box;
+
+        @include screen('md') {
+          padding: 70px 0 80px;
+        }
+
+        @include screen('sm') {
+          padding: 50px 0;
+        }
+      }
+    }
+
+    #{$b} {
+
+      &__buttons {
+        padding: 15px 70px;
+
+        @include screen('md') {
+          padding: 15px 50px;
+        }
+
+        @include screen('sm') {
+          padding: 10px 18px;
+        }
+      }
+    }
   }
 }

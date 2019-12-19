@@ -1,5 +1,5 @@
 mixin popup-invoice-host()
-  +popup._big.popup-invoice__&attributes(attributes)
+  +popup._big.popup-invoice__._host&attributes(attributes)
     +popup-header.popup__header_white.popup__header_fx.popup__header_fx_center
       div.popup__links
         +link-icon('select-arrow', 'a')._back._bold._no-shadow.__button.js-popup-depends-width(href="#" data-source="xl:#popup-invoices-host,md:#popup-invoices-host-mobile") Back to list
@@ -14,7 +14,7 @@ mixin popup-invoice-host()
         +e.SVG.close-icon(xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15.36 15.36")
           rect(x="-2.43" y="6.94" width="20.23" height="1.49" transform="translate(18.55 7.68) rotate(135)")
           rect(x="-2.43" y="6.94" width="20.23" height="1.49" transform="translate(7.68 -3.18) rotate(45)")
-    +tabs-content.__tab-content
+    +tabs-content.popup-invoice__tab-content
       +tab-wrapper()(data-tab="inv1" data-tab-group="invoiceHost").active
         +grid.grid_gap106
           +col({xl: 6, sm: 12})
@@ -116,7 +116,7 @@ mixin popup-invoice-host-mobile()
             +tab()._gradient._fz17(data-tab-target="minv1").active Guest Rental payment Invoice
             +tab()._gradient._fz17(data-tab-target="minv2") Spacepool commision invoice
           +logo-image2().__logo
-          +tabs-content
+          +tabs-content.popup-invoice__tab-content
             +tab-wrapper()(data-tab="minv1" data-tab-group="invoiceHostM").active
               +grid.grid_gap106
                 +col({xl: 6, sm: 12})

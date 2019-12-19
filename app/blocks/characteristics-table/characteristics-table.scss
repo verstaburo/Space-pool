@@ -25,7 +25,7 @@
       display: block;
       text-align: left;
 
-      &:last-child {
+      &:last-child:not(:first-child) {
         flex: 1;
         text-align: right;
       }
@@ -52,6 +52,14 @@
 
       &_mw250 {
         max-width: 250px;
+
+        @include screen('sm') {
+          max-width: 200px;
+        }
+      }
+
+      &_mw280 {
+        max-width: 280px;
 
         @include screen('sm') {
           max-width: 200px;
