@@ -12,14 +12,13 @@ mixin form-order-summary(editable)
             +e.title._fz18 OFFICE SPACE
       +info-editable.__line
         +info-editable-name Offer description:
-        - if (editable) {
-          +info-editable-field
-            +e.text(data-field-edit="t1") One Heddon Office Space. 226 sq.ft. with terrace
-            input(type="hidden" name="description" value="One Heddon Office Space. 226 sq.ft. with terrace" data-field-copy="t1")
+        if editable
+          +info-editable-field._wide
+            +e.text_wide
+              +e.INPUT.text-input_wide(type="text" name="description" value="One Heddon Office Space. 226 sq.ft. with terrace" data-field-edit="t1" readonly)
             +link()(data-edit-target="t1")._light-underline.__edit.js-field-edit Edit
-        - } else {
+        else
           +info-editable-field One Heddon Office Space. 226 sq.ft. with terrace
-        - }
       +info-editable.__line
         +info-editable-name Amount:
         +info-editable-field 1
@@ -29,95 +28,69 @@ mixin form-order-summary(editable)
           +e.dates-cell_big
             +form-section-wrapper
               +form-box('Rent period start:', 'calendar2')._icon._icon_s15._lbl-nochange
-                +input.input_underline-light.input_normal.js-datepicker(type="text" name="startDate" value="26 May 2020" placeholder="Rent period start:" data-period-start="rent" readonly)
-          +e.dates-cell
-            +form-section-wrapper
-              +form-box('', 'time-3h')._icon._icon_s15
-                +select.js-select-input(name="startTime" data-mobile-title="Start time" data-choices-classes="choices_notoggle choices_input_underline-light choices_input_normal")
-                  - for (var i = 0; i < 24; i++) {
-                    - var zeroi = (`0${i}`).slice(-2);
-                    if (i === 14)
-                      option(value=zeroi + ':00')!=(zeroi + ':00')
-                      option(value=zeroi + ':30' selected)!=(zeroi + ':30')
-                    else
-                      option(value=zeroi + ':00')!=(zeroi + ':00')
-                      option(value=zeroi + ':30')!=(zeroi + ':30')
-                  - }
+                +input.input_underline-light.input_normal.js-datepicker(type="text" name="startDate" value="26 May 2020" placeholder="Rent period start:" readonly)
         +e.dates-icon_mg-big
-          +icon('download').dates-arrow
         +e.line_flex._sm-mg30
           +e.dates-cell_big
             +form-section-wrapper
-              +form-box('Rent period end:', 'calendar2')._icon._icon_s15._lbl-nochange
-                +input.input_underline-light.input_normal.js-datepicker(type="text" name="endDate" value="26 May 2020" placeholder="Rent end date:" data-period-end="rent" data-mindate="2020-5-26" readonly)
-          +e.dates-cell
-            +form-section-wrapper
-              +form-box('', 'time-3h')._icon._icon_s15
-                +select.js-select-input(name="endTime" data-mobile-title="End time" data-choices-classes="choices_notoggle choices_input_underline-light choices_input_normal")
-                  - for (var i = 0; i < 24; i++) {
-                    - var zeroi = (`0${i}`).slice(-2);
-                    if (i === 16)
-                      option(value=zeroi + ':00')!=(zeroi + ':00')
-                      option(value=zeroi + ':30' selected)!=(zeroi + ':30')
+              +form-box('Duration:')._icon._icon_s15._lbl-nochange
+                +select.js-select-input(name="period" data-mobile-title="Rent period:")
+                  - for (var i = 1; i <= 12; i++) {
+                    if (i === 12)
+                      option(value=i selected)!=(i + ' months')
+                    else if (i === 1)
+                      option(value=i)!=(i + ' month')
                     else
-                      option(value=zeroi + ':00')!=(zeroi + ':00')
-                      option(value=zeroi + ':30')!=(zeroi + ':30')
-                  - }
+                      option(value=i)!=(i + ' months')
+                  -}
       else
         +info-editable._date.__line
           +info-editable-name Rent period start:
           +info-editable-field
             +e.SPAN.item 26 May 2019
-            +e.B.item_bold 14:30
         +e.dates-icon
-          +icon('download').dates-arrow
         +info-editable._date.__line
-          +info-editable-name Rent period end:
+          +info-editable-name Duration:
           +info-editable-field
-            +e.SPAN.item 26 May 2019
-            +e.B.item_bold 16:30
+            +e.SPAN.item 12 months
+    +e.text_dark._small3 All contracts at Spacepool are rolled, which means that the contract does not end at the end of the initial rental period, but the service provider has the right to change the terms of the contract.
     div.form-order-summary__section
       +info-editable.__line
         +info-editable-name Cancellation period
         +info-editable-field 48 hours
       +info-editable.__line
         +info-editable-name Price:
-        - if (editable) {
+        if editable
           +info-editable-field
             +e.text
-              span(data-field-edit="t2" data-price="1568.00") 1568.00
               span &pound;/mo
-            input(type="hidden" name="price" value="1568.00" data-field-copy="t2")
+              +e.INPUT.text-input(type="text" name="price" data-field-edit="t2" data-price="1568.00" value="1568.00" maxlength="8" readonly)
             +link()(data-edit-target="t2")._light-underline.__edit.js-field-edit Edit
-        - } else {
+        else
           +info-editable-field 1568.00 &pound;/mo
-        - }
       +info-editable.__line
         +info-editable-name Safety deposit:
-        - if (editable) {
+        if editable
           +info-editable-field
             +e.text
-              span(data-field-edit="t3" data-deposit="1568.00")  1568.00
               span &pound;
+              +e.INPUT.text-input(type="text" name="deposit" data-field-edit="t3" data-deposit="1568.00" value="1568.00" maxlength="8" readonly)
               +info-tooltip.__info.js-tooltip.hide-sm(title="In the absence of claims, the deposit is returned to the lessee in full at the end of the rental period.")
-            input(type="hidden" name="deposit" value="1568.00" data-field-copy="t3")
             +link()(data-edit-target="t3")._light-underline.__edit.js-field-edit Edit
-        - } else {
+        else
           +info-editable-field._bold 1568.00 &pound;
-        - }
       +info-editable.__line
         +info-editable-name Total:
-        - if (editable) {
+        if editable
           +info-editable-field._editpd
             +e.text_bold
               span(data-total-price) 3136.00
               span &pound;
-        - } else {
+        else
           +info-editable-field
             +e.text_bold
               span(data-total-price) 3136.00
               span &pound;
-        - }
       +e.text_dark._small3 Total amount is first bill you need to pay to start the rent. You will receive first bill with that amount to pay.
     +form-panel._pd42.__panel_absolute.__panel_border
       +link-icon('select-arrow', 'a')._back._bold._no-shadow.__button.js-popup(href="#popup-cancellation") Cancel  Reservation
@@ -139,13 +112,12 @@ mixin form-order-summary-mobile(editable)
                 +e.title._fz18 OFFICE SPACE
           +info-editable.__line
             +info-editable-name Offer description:
-            - if (editable) {
-              +info-editable-field
-                +e.text(data-field-edit="t1" contenteditable="true") Floor 5 Space Room 56
-                input(type="hidden" name="description" value="Floor 5 Space Room 56" data-field-copy="t1")
-            - } else {
+            if editable
+              +info-editable-field._wide
+                +e.text_wide
+                  +e.INPUT.text-input_wide(type="text" name="description" value="Floor 5 Space Room 56" data-field-edit="t1")
+            else
               +info-editable-field Floor 5 Space Room 56
-            - }
           +info-editable.__line
             +info-editable-name Amount:
             +info-editable-field 1
@@ -155,94 +127,67 @@ mixin form-order-summary-mobile(editable)
               +e.dates-cell_big
                 +form-section-wrapper
                   +form-box('Rent period start:', 'calendar2')._icon._icon_s15._lbl-nochange
-                    +input.input_underline-light.input_normal.js-datepicker(type="text" name="startDate" value="26 May 2020" placeholder="Rent period start:" data-period-start="rent" readonly)
-              +e.dates-cell
-                +form-section-wrapper
-                  +form-box('', 'time-3h')._icon._icon_s15._lbl-nochange
-                    +select.js-select-input(name="startTime" data-mobile-title="Start time" data-choices-classes="choices_notoggle choices_input_underline-light choices_input_normal")
-                      - for (var i = 0; i < 24; i++) {
-                        - var zeroi = (`0${i}`).slice(-2);
-                        if (i === 14)
-                          option(value=zeroi + ':00')!=(zeroi + ':00')
-                          option(value=zeroi + ':30' selected)!=(zeroi + ':30')
-                        else
-                          option(value=zeroi + ':00')!=(zeroi + ':00')
-                          option(value=zeroi + ':30')!=(zeroi + ':30')
-                      - }
+                    +input.input_underline-light.input_normal.js-datepicker(type="text" name="startDate" value="26 May 2020" placeholder="Rent period start:" readonly)
             +e.dates-icon_mg-big
-              +icon('download').dates-arrow
             +e.line_flex._sm-mg30
               +e.dates-cell_big
                 +form-section-wrapper
-                  +form-box('Rent period end:', 'calendar2')._icon._icon_s15._lbl-nochange
-                    +input.input_underline-light.input_normal.js-datepicker(type="text" name="endDate" value="26 May 2020" placeholder="Rent end date:" data-period-end="rentMobile" data-mindate="2020-5-26" readonly)
-              +e.dates-cell
-                +form-section-wrapper
-                  +form-box('', 'time-3h')._icon._icon_s15._lbl-nochange
-                    +select.js-select-input(name="endTime" data-mobile-title="End time" data-choices-classes="choices_notoggle choices_input_underline-light choices_input_normal")
-                      - for (var i = 0; i < 24; i++) {
-                        - var zeroi = (`0${i}`).slice(-2);
-                        if (i === 16)
-                          option(value=zeroi + ':00')!=(zeroi + ':00')
-                          option(value=zeroi + ':30' selected)!=(zeroi + ':30')
+                  +form-box('Duration:')._icon._icon_s15._lbl-nochange
+                    +select.js-select-input(name="period" data-mobile-title="Rent period:")
+                      - for (var i = 1; i <= 12; i++) {
+                        if (i === 12)
+                          option(value=i selected)!=(i + ' months')
+                        else if (i === 1)
+                          option(value=i)!=(i + ' month')
                         else
-                          option(value=zeroi + ':00')!=(zeroi + ':00')
-                          option(value=zeroi + ':30')!=(zeroi + ':30')
-                      - }
+                          option(value=i)!=(i + ' months')
+                      -}
           else
             +info-editable._date.__line
               +info-editable-name Rent period start:
               +info-editable-field
                 +e.SPAN.item 26 May 2019
-                +e.B.item_bold 14:30
             +e.dates-icon
-              +icon('download').dates-arrow
             +info-editable._date.__line
-              +info-editable-name Rent period end:
+              +info-editable-name Duration:
               +info-editable-field
-                +e.SPAN.item 26 May 2019
-                +e.B.item_bold 16:30
+                +e.SPAN.item 12 months
+        +e.text_dark._small3 All contracts at Spacepool are rolled, which means that the contract does not end at the end of the initial rental period, but the service provider has the right to change the terms of the contract.
         div.form-order-summary__section
           +info-editable.__line
             +info-editable-name Cancellation period
             +info-editable-field 48 hours
           +info-editable.__line
             +info-editable-name Price:
-            - if (editable) {
+            if editable
               +info-editable-field
                 +e.text
-                  span &pound;&nbsp;
-                  span(data-field-edit="t2" data-price="1568.00" contenteditable="true") 1568.00
-                  span /mo
-                input(type="hidden" name="price" value="1568.00" data-field-copy="t2")
-            - } else {
+                  span &pound;&nbsp;/mo
+                  +e.INPUT.text-input(type="text" name="price" maxlength="8" data-field-edit="t2" data-price="1568.00" value="1568.00")
+            else
               +info-editable-field &pound; 1568.00/mo
-            - }
           +info-editable.__line
             +info-editable-name Safety deposit:
-            - if (editable) {
+            if editable
               +info-editable-field
                 +e.text
                   span &pound;
-                  span(data-field-edit="t3" data-deposit="1568.00" contenteditable="true")  4568.00
+                  +e.INPUT.text-input(type="text" name="deposit" data-field-edit="t3" data-deposit="1568.00" contenteditable="true" maxlength="8" value="4568.00")
                   +info-tooltip.__info.js-tooltip.hide-sm(title="In the absence of claims, the deposit is returned to the lessee in full at the end of the rental period.")
-                input(type="hidden" name="deposit" value="4568.00" data-field-copy="t3")
-            - } else {
+            else
               +info-editable-field._bold &pound; 4568.00
-            - }
           +info-editable.__line
             +info-editable-name Total:
-            - if (editable) {
+            if editable
               +info-editable-field._editpd
                 +e.text_bold
                   span &pound;&nbsp;
                   span(data-total-price) 15668.00
-            - } else {
+            else
               +info-editable-field
                 +e.text_bold
                   span &pound;&nbsp;
                   span(data-total-price) 15668.00
-            - }
           +e.text_dark._small3 Total amount is first bill you need to pay to start the rent. You will receive first bill with that amount to pay.
     +form-panel.__panel_absolute.__panel_border.__panel_small
       +link-icon('select-arrow', 'a')._back._bold._no-shadow._mfz12.__button.js-popup(href="#popup-cancellation") Cancel  Reservation
