@@ -28,6 +28,10 @@
     color: $color-white;
   }
 
+  &_bordered {
+    border: 1px solid $color-basic;
+  }
+
   &__marker {
     position: absolute;
     right: -5px;
@@ -107,6 +111,24 @@
     }
   }
 
+  &__header {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    box-sizing: border-box;
+    padding: 42px 20px 40px;
+    text-align: center;
+
+    @include screen('sm') {
+      padding: 20px 16px;
+    }
+
+    &:not(:last-child) {
+      margin-bottom: 15px;
+    }
+  }
+
   &__content {
     display: block;
     width: 100%;
@@ -155,6 +177,11 @@
       @include screen('sm') {
         padding: 11px 16px;
       }
+    }
+
+    &_ptb0 {
+      padding-top: 0;
+      padding-bottom: 0;
     }
 
     #{$b}_sys & {
@@ -258,6 +285,10 @@
       padding: 16px 13px 22px;
     }
 
+    &_tac {
+      text-align: center;
+    }
+
     &_noborder {
       border-top: none;
     }
@@ -301,6 +332,14 @@
 
       @include screen('sm') {
         padding-top: 16px;
+      }
+    }
+
+    &_pd40 {
+      padding: 40px 23px;
+
+      @include screen('sm') {
+        padding: 20px 13px;
       }
     }
 
@@ -366,7 +405,7 @@
     font-weight: 700;
 
     @include screen('sm') {
-      font-size: 21px;
+      font-size: 20px;
       line-height: 1.2;
       letter-spacing: -.03em;
     }
@@ -379,6 +418,18 @@
       font-size: 29px;
       line-height: 1;
       letter-spacing: -.01em;
+
+      @include screen('sm') {
+        font-size: 21px;
+        line-height: 1.2;
+        letter-spacing: -.03em;
+      }
+    }
+
+    &_fz25 {
+      font-size: 25px;
+      line-height: 1;
+      letter-spacing: -.02em;
 
       @include screen('sm') {
         font-size: 21px;
@@ -417,6 +468,16 @@
 
         @include screen('sm') {
           margin-top: 0;
+        }
+      }
+    }
+
+    &_mt15 {
+      &:not(:first-child) {
+        margin-top: 15px;
+
+        @include screen('sm') {
+          margin-top: 10px;
         }
       }
     }

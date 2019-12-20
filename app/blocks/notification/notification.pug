@@ -1,5 +1,5 @@
-mixin notification()
-  +b.ARTICLE.notification&attributes(attributes)
+mixin notification(tag)
+  +b(tag || 'article').notification&attributes(attributes)
     +e.marker
     block
 
@@ -15,6 +15,10 @@ mixin notification-head(name, title, titleSmall)
       +e.title_fz29!=titleSmall
     +e.target
       block
+
+mixin notification-header()
+  +e.SECTION.header&attributes(attributes)
+    block
 
 mixin notification-content()
   +e.SECTION.content&attributes(attributes)

@@ -45,6 +45,22 @@
     }
   }
 
+  &_disabled-v2 {
+    &:disabled,&.is-disabled {
+      cursor: not-allowed;
+      pointer-events: none;
+      background-color: $color-border-light;
+      background-image: linear-gradient(to left, #d4d9df 0%, $color-border-lightest 100%);
+      color: $color-new-disabled;
+
+      #{$b} {
+        &__text {
+          background-color: transparent;
+        }
+      }
+    }
+  }
+
   &.is-loading {
     cursor: not-allowed;
     pointer-events: none;

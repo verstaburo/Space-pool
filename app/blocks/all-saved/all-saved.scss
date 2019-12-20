@@ -1,0 +1,68 @@
+.all-saved {
+  $b: &;
+
+  @include text16;
+
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  line-height: (26 / 16);
+  font-weight: 700;
+
+  @include screen('sm') {
+    @include text12;
+  }
+
+  &__icon {
+    display: block;
+    font-size: 0;
+    line-height: 0;
+    width: 29px;
+    height: 22px;
+
+    &:not(:last-child) {
+      margin-right: 11px;
+
+      @include screen('sm') {
+        margin-right: 5px;
+      }
+    }
+  }
+
+  &__ico {
+    position: relative;
+    display: block;
+    min-width: 20px;
+    width: 20px;
+    height: 20px;
+
+    &:not(:last-child) {
+      margin-right: 18px;
+
+      @include screen('sm') {
+        margin-right: 10px;
+      }
+    }
+  }
+
+  &__save {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+  }
+
+  &__check {
+    display: block;
+    position: absolute;
+    bottom: -1px;
+    right: -8px;
+    width: 13px;
+    height: 12px;
+    fill: $color-green-check;
+    stroke: $color-white;
+    stroke-width: 1;
+    z-index: 2;
+  }
+}

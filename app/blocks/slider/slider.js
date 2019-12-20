@@ -244,7 +244,7 @@ export default function slider() {
         observeParents: true,
         loopedSlides: 3,
         preloadImages: true,
-        updateOnImagesReady: true,
+        updateOnImagesReady: false,
         navigation: {
           nextEl: btnNext,
           prevEl: btnPrev,

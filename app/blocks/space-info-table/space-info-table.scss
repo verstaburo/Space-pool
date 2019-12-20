@@ -1,0 +1,72 @@
+.space-info-table {
+  $b: &;
+
+  display: block;
+  width: 100%;
+
+  &__body {
+    display: block;
+    width: 100%;
+  }
+
+  &__row {
+    display: flex;
+    justify-content: flex-start;
+    width: 100%;
+    border-bottom: 1px solid $color-gray-light-2;
+  }
+
+  &__cell {
+    display: block;
+    padding-top: 26px;
+    padding-bottom: 25px;
+    box-sizing: border-box;
+
+    @include screen('sm') {
+      padding-top: 10px;
+      padding-bottom: 10px;
+    }
+
+    &_head {
+      @include text16;
+
+      line-height: (20/16);
+      font-weight: 700;
+      width: 28.8%;
+      padding-right: 15px;
+      padding-left: 4px;
+
+      @include screen('sm') {
+        @include text12;
+
+        line-height: (20/12);
+        padding-right: 1px;
+        padding-left: 0;
+      }
+    }
+
+    &_content {
+      @include text-big;
+
+      line-height: (20/18);
+      font-weight: 400;
+      flex: 1;
+
+      @include screen('sm') {
+        @include text12;
+
+        line-height: (20/12);
+      }
+    }
+  }
+
+  &__text {
+    &:not(:first-child) {
+      margin-top: 11px;
+
+      @include screen('sm') {
+        margin-top: 0;
+      }
+    }
+  }
+}
