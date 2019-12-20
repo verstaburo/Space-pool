@@ -232,6 +232,7 @@ export default function slider() {
       const btnNext = $(el).find('.js-slider-button-next')[0];
       const sliderContainer = $(el).find('.js-slider-container');
       const newslider = new Swiper(sliderContainer, {
+        autoplay: false,
         loop: true,
         speed: 500,
         slidesPerView: 'auto',
@@ -244,7 +245,8 @@ export default function slider() {
         observeParents: true,
         loopedSlides: 3,
         preloadImages: true,
-        updateOnImagesReady: false,
+        updateOnImagesReady: true,
+        normalizeSlideIndex: false,
         navigation: {
           nextEl: btnNext,
           prevEl: btnPrev,
