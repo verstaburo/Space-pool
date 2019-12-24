@@ -509,13 +509,16 @@
                                         <div class="grid__col grid__col_xl_3 grid__col_md_12"></div>
                                         <div class="grid__col grid__col_xl_9 grid__col_md_12">
                                             <div class="form-panel form__panel form__panel_border">
-                                                <div class="all-saved form-panel__link">
+                                                <div class="all-saved form-panel__link form-panel__link_save">
                                                     <img class="all-saved__icon" src="assets/images/save-success.svg" alt="" role="presentation" />
                                                     <div class="all-saved__text">All
                                                         <span class="hide-sm">changes have been</span> saved</div>
                                                 </div>
-                                                <button class="button button_disabled-v2 form-panel__button form-panel__button_wide is-disabled" type="submit" disabled="disabled">
-                                                    <span class="button__text">Saved</span>
+                                                <button class="button button_disabled-v2 js-show-save-state form-panel__button form-panel__button_wide" type="submit" data-callback-function="serverSave">
+                                                    <span class="button__text">
+                                                        <span data-enabled-text>Save</span>
+                                                        <span data-disabled-text>Saved</span>
+                                                    </span>
                                                     <div class="button__preloader">
                                                         <div class="loader loader_small"></div>
                                                     </div>

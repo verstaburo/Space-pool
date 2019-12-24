@@ -5,20 +5,28 @@ export default function formManipulations() {
   const formWithHiddenPanel = $('.js-form-with-hidden-panel');
 
   if ($(formWithHiddenPanel).length > 0) {
-    $(document).on('change', '.js-form-with-hidden-panel input, .js-form-with-hidden-panel textarea, .js-form-with-hidden-panel select', (evt) => {
-      console.log('change');
+    $(document).on('change', '.js-form-with-hidden-panel input:not([data-file-crop]), .js-form-with-hidden-panel textarea, .js-form-with-hidden-panel select', (evt) => {
       const self = evt.target;
       const form = $(self).closest('form');
       const panel = $(form).find('[data-hidden-panel]');
-      $(panel).addClass('is-active');
+      const btn = $(form).find('.js-show-save-state');
+      if (btn.length > 0) {
+        $(btn).removeClass('is-disabled');
+        $(btn).removeAttr('disabled');
+      }
+      $(panel).addClass('is-active').removeClass('is-saved');
     });
 
     $(document).on('input', '.js-form-with-hidden-panel input, .js-form-with-hidden-panel textarea', (evt) => {
-      console.log('input');
       const self = evt.target;
       const form = $(self).closest('form');
       const panel = $(form).find('[data-hidden-panel]');
-      $(panel).addClass('is-active');
+      const btn = $(form).find('.js-show-save-state');
+      if (btn.length > 0) {
+        $(btn).removeClass('is-disabled');
+        $(btn).removeAttr('disabled');
+      }
+      $(panel).addClass('is-active').removeClass('is-saved');
     });
   }
 
@@ -87,7 +95,7 @@ export default function formManipulations() {
   $(document).on('click', '.js-hide-form-panel', (evt) => {
     const form = $(evt.target).closest('form');
     const panel = $(form).find('[data-hidden-panel]');
-    $(panel).removeClass('is-active');
+    $(panel).removeClass('is-active is-saved');
   });
 
 
@@ -167,28 +175,6 @@ export default function formManipulations() {
         const hideElements = $(el).attr('data-hide-elements') !== undefined ? $(el).attr('data-hide-elements').split(',') : [];
         if ($(el).prop('checked')) {
           hideAndShow(hideElements, showElements);
-          // $(hideElements).each((ix, item) => {
-          //   const itemElement = $(`[data-form-element="${item}"]`);
-          //   $(itemElement).addClass('hide');
-          //   const elements = $(itemElement).find('input, select, textarea');
-          //   $(elements).each((i, elems) => {
-          //     $(elems).attr('disabled', 'disabled');
-          //   });
-          // });
-          // $(showElements).each((ix, item) => {
-          //   const itemElement = $(`[data-form-element="${item}"]`);
-          //   $(itemElement).removeClass('hide is-disabled');
-          //   const elements = $(itemElement).find('input, select, textarea');
-          //   $(elements).each((i, elems) => {
-          //     $(elems).removeAttr('disabled');
-          //   });
-          //   if ($('[data-checker]').length > 0) {
-          //     $('[data-checker]').not('[disabled]').each((i, checkers) => {
-          //       const checker = checkers;
-          //       changeState(checker);
-          //     });
-          //   }
-          // });
         }
       }
 
@@ -274,5 +260,35 @@ export default function formManipulations() {
       const point = $(nextWrapper).find('input')[0];
       point.focus();
     }
+  });
+
+  /* eslint-disable no-unused-vars */
+  function updateOnBackend(obj) {
+    return new Promise((resolve) => {
+      setTimeout(() => {
+        resolve(true);
+      }, 300);
+    });
+  }
+  /* eslint-enable no-unused-vars */
+
+  window.serverSave = updateOnBackend;
+
+  $(document).on('click', '.js-show-save-state', (evt) => {
+    evt.preventDefault();
+    const self = evt.currentTarget;
+    const fn = $(self).attr('data-callback-function');
+    const form = $(self).closest('form')[0];
+    $(self).addClass('is-loading');
+    window[fn](form).then((readySaved) => {
+      const btn = $(form).find('.js-show-save-state');
+      const panel = $(btn).closest('[data-hidden-panel]');
+      $(btn).removeClass('is-loading');
+      if (readySaved) {
+        $(btn).addClass('is-disabled');
+        $(btn).attr('disabled', 'disabled');
+        $(panel).addClass('is-saved');
+      }
+    });
   });
 }

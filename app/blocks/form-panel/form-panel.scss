@@ -89,6 +89,18 @@
     &:not(:last-child) {
       margin-right: 20px;
     }
+
+    &_save {
+      visibility: hidden;
+      opacity: 0;
+      pointer-events: none;
+
+      .is-saved & {
+        visibility: visible;
+        opacity: 1;
+        pointer-events: auto;
+      }
+    }
   }
 
   &_pd0 {

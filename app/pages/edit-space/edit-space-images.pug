@@ -62,8 +62,10 @@ block content
                   +col({ xl: 3, md: 12 })
                   +col({ xl: 9, md: 12 })
                     +form-panel.__panel_border
-                      +all-saved.__link All <span class="hide-sm">changes have been</span> saved
-                      +button('button', true)._disabled-v2(type="submit" disabled).__button_wide.is-disabled Saved
+                      +all-saved.__link_save All <span class="hide-sm">changes have been</span> saved
+                      +button('button', true)._disabled-v2.js-show-save-state(type="submit" data-callback-function='serverSave').__button_wide
+                        span(data-enabled-text) Save
+                        span(data-disabled-text) Saved
 
 
 block panels

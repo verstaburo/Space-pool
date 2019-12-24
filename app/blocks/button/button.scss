@@ -31,6 +31,14 @@
     z-index: 3;
   }
 
+  [data-enabled-text] {
+    display: inline-block;
+  }
+
+  [data-disabled-text] {
+    display: none;
+  }
+
   &:disabled,&.is-disabled {
     cursor: not-allowed;
     pointer-events: none;
@@ -42,6 +50,14 @@
       &__text {
         background-color: $color-border-light;
       }
+    }
+
+    [data-enabled-text] {
+      display: none;
+    }
+
+    [data-disabled-text] {
+      display: inline-block;
     }
   }
 
