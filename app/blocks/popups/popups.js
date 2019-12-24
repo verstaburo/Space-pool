@@ -73,6 +73,7 @@ export default function popups() {
     transitionDuration: 400,
     transitionEffect: 'fade',
     clickSlide: false,
+    clickContent: false,
     onDeactivate(i) {
       i.close();
     },
@@ -139,6 +140,7 @@ export default function popups() {
     transitionDuration: 400,
     baseClass: 'is-top',
     clickSlide: false,
+    clickContent: false,
     hash: false,
     onDeactivate(i) {
       i.close();
