@@ -6,6 +6,7 @@ export default function formManipulations() {
 
   if ($(formWithHiddenPanel).length > 0) {
     $(document).on('change', '.js-form-with-hidden-panel input, .js-form-with-hidden-panel textarea, .js-form-with-hidden-panel select', (evt) => {
+      console.log('change');
       const self = evt.target;
       const form = $(self).closest('form');
       const panel = $(form).find('[data-hidden-panel]');
@@ -13,6 +14,7 @@ export default function formManipulations() {
     });
 
     $(document).on('input', '.js-form-with-hidden-panel input, .js-form-with-hidden-panel textarea', (evt) => {
+      console.log('input');
       const self = evt.target;
       const form = $(self).closest('form');
       const panel = $(form).find('[data-hidden-panel]');
