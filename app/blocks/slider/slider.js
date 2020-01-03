@@ -23,8 +23,8 @@ export default function slider() {
       const newslider = new Swiper(sliderContainer, {
         loop: true,
         speed: 500,
-        spaceBetween: 50,
-        slidesPerView: 4,
+        spaceBetween: 10,
+        slidesPerView: 2,
         slidesPerGroup: 1,
         loopAdditionalSlides: 4,
         roundLengths: true,
@@ -33,16 +33,16 @@ export default function slider() {
           prevEl: btnPrev,
         },
         breakpoints: {
-          1299: {
-            slidesPerView: 3,
-          },
-          1019: {
+          768: {
             slidesPerView: 2,
             spaceBetween: 30,
           },
-          767: {
-            slidesPerView: 2,
-            spaceBetween: 10,
+          1020: {
+            slidesPerView: 3,
+          },
+          1300: {
+            slidesPerView: 4,
+            spaceBetween: 50,
           },
         },
         on: {
@@ -76,8 +76,8 @@ export default function slider() {
       const newslider = new Swiper(sliderContainer, {
         loop: true,
         speed: 500,
-        spaceBetween: 50,
-        slidesPerView: 4,
+        spaceBetween: 10,
+        slidesPerView: 1,
         slidesPerGroup: 1,
         roundLengths: true,
         loopAdditionalSlides: 4,
@@ -86,17 +86,17 @@ export default function slider() {
           prevEl: btnPrev,
         },
         breakpoints: {
-          1299: {
-            slidesPerView: 3,
-            spaceBetween: 50,
-          },
-          1019: {
+          768: {
             slidesPerView: 2,
             spaceBetween: 30,
           },
-          767: {
-            slidesPerView: 1,
-            spaceBetween: 10,
+          1020: {
+            slidesPerView: 3,
+            spaceBetween: 50,
+          },
+          1300: {
+            spaceBetween: 50,
+            slidesPerView: 4,
           },
         },
         on: {
@@ -130,8 +130,8 @@ export default function slider() {
       const newslider = new Swiper(sliderContainer, {
         loop: true,
         speed: 500,
-        spaceBetween: 50,
-        slidesPerView: 3,
+        spaceBetween: 10,
+        slidesPerView: 1,
         slidesPerGroup: 1,
         roundLengths: true,
         loopAdditionalSlides: 3,
@@ -140,17 +140,17 @@ export default function slider() {
           prevEl: btnPrev,
         },
         breakpoints: {
-          1299: {
-            slidesPerView: 2,
-            spaceBetween: 42,
-          },
-          1019: {
+          768: {
             slidesPerView: 2,
             spaceBetween: 30,
           },
-          767: {
-            slidesPerView: 1,
-            spaceBetween: 10,
+          1020: {
+            slidesPerView: 2,
+            spaceBetween: 42,
+          },
+          1300: {
+            spaceBetween: 50,
+            slidesPerView: 3,
           },
         },
         on: {
@@ -184,8 +184,8 @@ export default function slider() {
       const newslider = new Swiper(sliderContainer, {
         loop: false,
         speed: 500,
-        spaceBetween: 50,
-        slidesPerView: 3,
+        spaceBetween: 30,
+        slidesPerView: 1,
         slidesPerGroup: 1,
         roundLengths: true,
         watchOverflow: true,
@@ -194,13 +194,13 @@ export default function slider() {
           prevEl: btnPrev,
         },
         breakpoints: {
-          1299: {
+          1020: {
             slidesPerView: 2,
             spaceBetween: 42,
           },
-          1019: {
-            slidesPerView: 1,
-            spaceBetween: 30,
+          1300: {
+            spaceBetween: 50,
+            slidesPerView: 3,
           },
         },
         on: {
