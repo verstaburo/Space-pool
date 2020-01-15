@@ -26,7 +26,7 @@ mixin popup-add-offer()
               +col({xl: 12})
                 +form-section-wrapper._noflex
                   +form-box('Offer Description')
-                    +input(type="text" name="offerDescription" placeholder="Offer Description" required)
+                    +textarea(name="offerDescription" placeholder="Offer Description" required rows="1")
                   +form-section-text._light Any information, rules, restrictions and additional features for this offer
               +col({xl: 6, sm: 12})
                 +e.field
@@ -70,27 +70,6 @@ mixin popup-add-offer()
                 +form-section-wrapper._noflex._negative-mg
                   +form-box('Floor area ', '', '', '', 'ft<sup>2</sup>')._icon
                     +input(type="text" name="area" placeholder="Floor area" required)
-                  //- +form-section-text._light Without supply rooms
-              //- +col({xl: 6, sm: 12})(data-form-element="hotFixedOffice")
-              //-   +form-section-wrapper._negative-mg
-              //-     +form-box('Minimum rent period').__count
-              //-       +input(type="text" name="durationRentMin" placeholder="Minimum rent period" required)
-              //-     +form-box('').__mesure
-              //-       +select.js-select-input(name="mesuresPeriodMin")
-              //-         option(value="Days" selected) Days
-              //-         option(value="Week") Weeks
-              //-         option(value="Month") Months
-              //-         option(value="Year") Years
-              //- +col({xl: 6, sm: 12})(data-form-element="hotFixedOffice")
-              //-   +form-section-wrapper._negative-mg
-              //-     +form-box('Maximum rent period').__count
-              //-       +input(type="text" name="durationRentMax" placeholder="Maximum rent period")
-              //-     +form-box('').__mesure
-              //-       +select.js-select-input(name="mesuresPeriodMax")
-              //-         option(value="Days" selected) Days
-              //-         option(value="Week") Week
-              //-         option(value="Month") Month
-              //-         option(value="Year") Year
               +col({xl: 12})(data-form-element="meetingRoom")
                 +form-section-wrapper
                   +form-box('Number of Seats', '', 'div')
@@ -133,7 +112,7 @@ mixin popup-add-offer()
           +form-section._sm-mg
             +form-section-wrapper._noflex
               +form-box('Comment (Only you can see it)')
-                +textarea(type="text" name="comment" placeholder="Notes (Only you can see it)" rows="1")
+                +textarea(name="comment" placeholder="Notes (Only you can see it)" rows="1")
               //- +form-section-text._light This comment helps you to recognize this particular offer inbetween other offers
           +e.buttons
             +button('button')(type="submit")._short._wide Add <span data-form-element="hotDesk">Hot Desk</span><span data-form-element="fixedDesk">Fixed Desk</span><span data-form-element="meetingRoom">Meeting Room</span><span data-form-element="officeSpace">Office space</span> rental offer

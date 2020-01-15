@@ -13,18 +13,23 @@ import autosize from 'autosize';
 const $ = window.$;
 
 export function selects() {
+  function srtFunc(a, b) {
+    return a.label.localeCompare(b.label, 'en', {
+      numeric: true,
+    });
+  }
+
   /* eslint-disable no-unused-vars */
   function inputSelectInit(select) {
     const self = select;
     const additionalClasses = $(self).attr('data-choices-classes') || '';
     const containerClasses = `choices choices_input choices_popup ${additionalClasses}`;
     const title = $(self).attr('data-mobile-title') || $(self).find('option[placeholder]').text() || $(self).attr('placeholder') || 'Select';
+    const sorter = ($(self).attr('data-no-sort') === undefined) ? srtFunc : undefined;
     const choices = new Choices(self, {
       // searchEnabled: false,
       itemSelectText: '',
-      sorter: (a, b) => a.label.localeCompare(b.label, 'en', {
-        numeric: true,
-      }),
+      sorter,
       classNames: {
         containerOuter: containerClasses,
         titleText: title,
@@ -71,6 +76,7 @@ export function selects() {
     const additionalClasses = $(self).attr('data-choices-classes') || '';
     const containerClasses = `choices choices_input2 choices_popup ${additionalClasses}`;
     const title = $(self).attr('data-mobile-title') || $(self).find('option[placeholder]').text() || $(self).attr('placeholder') || 'Select';
+    const sorter = ($(self).attr('data-no-sort') === undefined) ? srtFunc : undefined;
     const choices = new Choices(self, {
       // searchEnabled: false,
       itemSelectText: '',
@@ -78,9 +84,7 @@ export function selects() {
         containerOuter: additionalClasses,
         titleText: title,
       },
-      sorter: (a, b) => a.label.localeCompare(b.label, 'en', {
-        numeric: true,
-      }),
+      sorter,
       callbackOnCreateTemplates(template) {
         const classNames = this.config.classNames;
         return {
@@ -122,6 +126,7 @@ export function selects() {
     $('.js-select').each((i, el) => {
       const self = el;
       const title = $(self).attr('data-mobile-title') || $(self).find('option[placeholder]').text() || $(self).attr('placeholder') || 'Select';
+      const sorter = ($(self).attr('data-no-sort') === undefined) ? srtFunc : undefined;
       const choices = new Choices(self, {
         // searchEnabled: false,
         searchFields: ['label'],
@@ -130,9 +135,7 @@ export function selects() {
           containerOuter: 'choices choices_popup',
           titleText: title,
         },
-        sorter: (a, b) => a.label.localeCompare(b.label, 'en', {
-          numeric: true,
-        }),
+        sorter,
         callbackOnCreateTemplates(template) {
           const classNames = this.config.classNames;
           return {
@@ -174,6 +177,7 @@ export function selects() {
     $('.js-select-light').each((i, el) => {
       const self = el;
       const title = $(self).attr('data-mobile-title') || $(self).find('option[placeholder]').text() || $(self).attr('placeholder') || 'Select';
+      const sorter = ($(self).attr('data-no-sort') === undefined) ? srtFunc : undefined;
       const choices = new Choices(self, {
         // searchEnabled: false,
         searchFields: ['label'],
@@ -182,9 +186,7 @@ export function selects() {
           containerOuter: 'choices choices_light choices_popup',
           titleText: title,
         },
-        sorter: (a, b) => a.label.localeCompare(b.label, 'en', {
-          numeric: true,
-        }),
+        sorter,
         callbackOnCreateTemplates(template) {
           const classNames = this.config.classNames;
           return {
@@ -225,13 +227,12 @@ export function selects() {
     $('.js-select-color').each((i, el) => {
       const self = el;
       const title = $(self).attr('data-mobile-title') || $(self).find('option[placeholder]').text() || $(self).attr('placeholder') || 'Select';
+      const sorter = ($(self).attr('data-no-sort') === undefined) ? srtFunc : undefined;
       const choices = new Choices(self, {
         // searchEnabled: false,
         searchFields: ['label'],
         itemSelectText: '',
-        sorter: (a, b) => a.label.localeCompare(b.label, 'en', {
-          numeric: true,
-        }),
+        sorter,
         classNames: {
           containerOuter: 'choices choices_light choices_color choices_popup',
           titleText: title,
@@ -276,13 +277,12 @@ export function selects() {
     $('.js-select-dark').each((i, el) => {
       const self = el;
       const title = $(self).attr('data-mobile-title') || $(self).find('option[placeholder]').text() || $(self).attr('placeholder') || 'Select';
+      const sorter = ($(self).attr('data-no-sort') === undefined) ? srtFunc : undefined;
       const choices = new Choices(self, {
         // searchEnabled: false,
         searchFields: ['label'],
         itemSelectText: '',
-        sorter: (a, b) => a.label.localeCompare(b.label, 'en', {
-          numeric: true,
-        }),
+        sorter,
         classNames: {
           containerOuter: 'choices choices_dark choices_popup',
           titleText: title,
@@ -327,6 +327,7 @@ export function selects() {
   if ($('.js-select-dark2').length) {
     $('.js-select-dark2').each((i, el) => {
       const self = el;
+      const sorter = ($(self).attr('data-no-sort') === undefined) ? srtFunc : undefined;
       const title = $(self).attr('data-mobile-title') || $(self).find('option[placeholder]').text() || $(self).attr('placeholder') || 'Select';
       const choices = new Choices(self, {
         // searchEnabled: false,
@@ -336,9 +337,7 @@ export function selects() {
           containerOuter: 'choices choices_dark2 choices_popup',
           titleText: title,
         },
-        sorter: (a, b) => a.label.localeCompare(b.label, 'en', {
-          numeric: true,
-        }),
+        sorter,
         callbackOnCreateTemplates(template) {
           const classNames = this.config.classNames;
           return {
@@ -379,14 +378,13 @@ export function selects() {
   if ($('.js-select-dark3').length) {
     $('.js-select-dark3').each((i, el) => {
       const self = el;
+      const sorter = ($(self).attr('data-no-sort') === undefined) ? srtFunc : undefined;
       const title = $(self).attr('data-mobile-title') || $(self).find('option[placeholder]').text() || $(self).attr('placeholder') || 'Select';
       const choices = new Choices(self, {
         // searchEnabled: false,
         searchFields: ['label'],
         itemSelectText: '',
-        sorter: (a, b) => a.label.localeCompare(b.label, 'en', {
-          numeric: true,
-        }),
+        sorter,
         classNames: {
           containerOuter: 'choices choices_dark3 choices_popup',
           titleText: title,
