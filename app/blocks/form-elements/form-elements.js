@@ -875,7 +875,10 @@ export function numberinput() {
 
 // автосайз для textarea
 export function textareaAutosize() {
-  autosize($('.textarea').not('.no-sm-autosize'));
+  function autosizeAll(elements) {
+    const el = elements || $('.textarea').not('.no-sm-autosize');
+    autosize(el);
+  }
 
   function smnoAutosize() {
     if (window.Modernizr.mq(`(max-width: ${window.globalOptions.sizes.sm - 1}px)`)) {
@@ -885,7 +888,10 @@ export function textareaAutosize() {
     }
   }
 
+  autosizeAll();
   smnoAutosize();
+
+  window.autosizeTextarea = autosizeAll;
 
   $(window).on('resize', smnoAutosize);
 }
