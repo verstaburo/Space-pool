@@ -1,0 +1,109 @@
+mixin cancelation-form()
+  +form._white.cancelation-form&attributes(attributes)
+    +e.FIELDSET.section(data-step="step0")
+      +warning._tal._fz21
+        p You are about to cancel the contract for this space. The contract will finish automatically at the end of the notice period. This action can’t be undone.
+        p Click ‘Continue’ to proceed with cancelation.
+      +e.text_dark._mgt44._lh13 We are constantly looking for ways to improve the experience of our users.That’s why we are always keen to know your feedback. Please select one of the following options below:
+      +e.radio-list
+        +block-check('I have found another option.')
+          +e.INPUT.input(type="radio" name="cancelReason" value="1" data-next-step="step1")
+        +block-check('I am not interested in this particular service anymore.')
+          +e.INPUT.input(type="radio" name="cancelReason" value="2" data-next-step="step2")
+        +block-check('The other party has breached the contract terms.')
+          +e.INPUT.input(type="radio" name="cancelReason" value="3" data-next-step="step3")
+        +block-check('My business has outgrown my existing workspace')
+          +e.INPUT.input(type="radio" name="cancelReason" value="4" data-next-step="step4")
+    +e.FIELDSET.section.hide(data-step="step1")
+      +e.text_dark._fz20._mgt6 Here is what happens next:
+      +characteristics-table._fz16._dark._wrap._border_gray._border_outside
+        +e.TR.row
+          +e.TD.cell_mh80._w33p Notice Period
+          +e.TD.cell_mh80._fw400._wrap._tal 3 months
+        +e.TR.row
+          +e.TD.cell_mh80._w33p Last day
+          +e.TD.cell_mh80._fw400._wrap._tal 13.02.2020
+        +e.TR.row
+          +e.TD.cell_mh80._w33p Deposit
+          +e.TD.cell_mh80._fw400._wrap._tal You should contact your Host regarding returning your deposit. This should be returned to you in line with the procedure outlined in your contract with the Host.
+      +e.text_dark._fz20._mgt60 We really hope the next time you will need a workspace, Spacepoolwill be the first thing to spring in your mind. If you have an idea how to make Spacepoolbetter, <a href="#">drop us a line</a>, we will listen.
+    +e.FIELDSET.section.hide(data-step="step2")
+      +e.text_dark._fz20._mgt6 Here is what happens next:
+      +characteristics-table._fz16._dark._wrap._border_gray._border_outside
+        +e.TR.row
+          +e.TD.cell_mh80._w33p Notice Period
+          +e.TD.cell_mh80._fw400._wrap._tal 3 months
+        +e.TR.row
+          +e.TD.cell_mh80._w33p Last day
+          +e.TD.cell_mh80._fw400._wrap._tal 13.02.2020
+        +e.TR.row
+          +e.TD.cell_mh80._w33p Deposit
+          +e.TD.cell_mh80._fw400._wrap._tal You should contact your Host regarding returning your deposit. This should be returned to you in line with the procedure outlined in your contract with the Host.
+      +e.text_dark._fz20._mgt60 We really hope the next time you will need a workspace, Spacepool will be the first thing to spring in your mind. If you have an idea how to make Spacepool better, let us know below.
+      +form-box('Your feedback (optional)')._gray
+        +textarea(name="feedback" placeholder="Your feedback (optional)" rows="1")
+    +e.FIELDSET.section.hide(data-step="step3")
+      +e.heading
+        +e.text_dark._fz20 Here is what happens next:
+        +b.LABEL.checkbox_box2
+          +e.INPUT.input(name="terminate" value="now" type="checkbox" data-switch-content="terminate")
+          +e.SPAN.box
+            +icon('check3').__icon
+          +e.SPAN.content I want to terminate contract immediately
+      +e.subsection(data-switch-target="terminate" data-switch-off)
+        +characteristics-table._fz16._dark._wrap._border_gray._border_outside
+          +e.TR.row
+            +e.TD.cell_mh80._w33p Notice Period
+            +e.TD.cell_mh80._fw400._wrap._tal 3 months
+          +e.TR.row
+            +e.TD.cell_mh80._w33p Last day
+            +e.TD.cell_mh80._fw400._wrap._tal 13.02.2020
+          +e.TR.row
+            +e.TD.cell_mh80._w33p Safety deposit refund
+            +e.TD.cell_mh80._fw400._wrap._tal You should contact your Host regarding returning your deposit. This should be returned to you in line with the procedure outlined in your contract with the Host.
+        +e.text_dark._fz20._mgt60
+          p We feel sorry that you had a bad experience.
+          p We take such situations very seriously, a member of Spacepoolteam will contact you shortly to find out what has happened.
+      +e.subsection_mgt42.hide(data-switch-target="terminate" data-switch-on)
+        +warning._tal._fz21
+          p Looks like things didn’t go as planed.
+          p We take disputes very seriously, a member of spacepoolteam will contact you as soon as possible to find out exactly what has happened.
+        +e.text_dark._fz20._mgt44 Please give a short description of the issue below, so we can handle your request better.
+        +form-box('Enter text')._gray
+          +textarea(name="reasonTerminate" placeholder="Enter text" rows="1")
+    +e.FIELDSET.section.hide(data-step="step4")
+      +e.text_dark._fz20._mgt6 Here is what happens next:
+      +characteristics-table._fz16._dark._wrap._border_gray._border_outside
+        +e.TR.row
+          +e.TD.cell_mh80._w33p Notice Period
+          +e.TD.cell_mh80._fw400._wrap._tal 3 months
+        +e.TR.row
+          +e.TD.cell_mh80._w33p Last day
+          +e.TD.cell_mh80._fw400._wrap._tal 13.02.2020
+        +e.TR.row
+          +e.TD.cell_mh80._w33p Deposit
+          +e.TD.cell_mh80._fw400._wrap._tal You should contact your Host regarding returning your deposit. This should be returned to you in line with the procedure outlined in your contract with the Host.
+      +e.text_dark._fz20._mgt60 We are really proud of you!This is a perfect reason for contract cancelation!
+    +form-panel.__panel_absolute.__panel_border.hide(data-step="step1, step2, step3, step4")
+      +link-icon('select-arrow', 'a')._back._bold._no-shadow.__button.js-stepform-reset(href="#") Back
+      +button('button', true)(type="submit" data-callback="serverSave").__button_w360.js-goto-last-step Submit request
+    block
+
+
+mixin cancelation-form-unsigned()
+  +form._white.cancelation-form&attributes(attributes)
+    +e.FIELDSET.section
+      +warning._tal._fz21
+        p You are about to cancel your hire request for this space.
+        p Click ‘Cancel hire request’ if you are sure you want to proceed.
+      +e.text_dark._mgt50._lh13 We are constantly looking for ways to improve the experience of our users.That’s why we are always keen to know your feedback. Please select one of the following options below:
+      +e.radio-list
+        +block-check('I have accepted another offer.')
+          +e.INPUT.input(type="radio" name="cancelReason" value="1")
+        +block-check('Couldn’t agree the deal with the other party.')
+          +e.INPUT.input(type="radio" name="cancelReason" value="2")
+        +block-check('I don’t need workspace anymore.')
+          +e.INPUT.input(type="radio" name="cancelReason" value="3")
+    +form-panel._centered.__panel_absolute.__panel_border
+      +button('button')(type="submit").__button_w360 Cancel hire request
+    block

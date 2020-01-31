@@ -1,0 +1,84 @@
+.cancelation-form {
+  $b: &;
+
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 48px 70px 60px;
+
+  @include screen('md') {
+    padding: 48px $container-padding-tablet 60px;
+  }
+
+  @include screen('sm') {
+    padding: 50px $container-padding-mobile 60px;
+  }
+
+  .form {
+    &__heading {
+      margin-top: 6px;
+    }
+
+    &__section {
+
+      &:not(:last-of-type) {
+        margin-bottom: 0;
+      }
+
+      &:not([data-step='step0']) {
+        padding-bottom: 80px;
+      }
+    }
+
+    &__subsection {
+      display: block;
+      width: 100%;
+
+      &:not(:first-child) {
+        margin-top: 27px;
+      }
+
+      &_mgt42 {
+        &:not(:first-child) {
+          margin-top: 42px;
+        }
+      }
+    }
+  }
+
+  .characteristics-table {
+    width: 100%;
+
+    tr {
+      align-items: flex-start;
+    }
+
+    &:not(:first-child) {
+      margin-top: 27px;
+    }
+  }
+
+  .form-box {
+    max-width: 496px;
+
+    &:not(:first-child) {
+      margin-top: 60px;
+    }
+  }
+
+  .form-panel {
+    padding-left: 70px;
+    padding-right: 70px;
+
+    @include screen('md') {
+      position: fixed;
+      padding-left: $container-padding-tablet;
+      padding-right: $container-padding-tablet;
+    }
+
+    @include screen('sm') {
+      padding-left: $container-padding-mobile;
+      padding-right: $container-padding-mobile;
+    }
+  }
+}

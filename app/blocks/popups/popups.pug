@@ -63,7 +63,13 @@ mixin popup-mobile()
     block
 
 mixin popup-fancy-close()
-  button.fancybox-button.popup__close(title="Close" data-fancybox-close)
+  button.fancybox-button.popup__close&attributes(attributes)(title="Close" data-fancybox-close)
+    svg.popup__close-icon(xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15.36 15.36")
+      rect(x="-2.43" y="6.94" width="20.23" height="1.49" transform="translate(18.55 7.68) rotate(135)")
+      rect(x="-2.43" y="6.94" width="20.23" height="1.49" transform="translate(7.68 -3.18) rotate(45)")
+
+mixin popup-close()
+  button.popup__close&attributes(attributes)
     svg.popup__close-icon(xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15.36 15.36")
       rect(x="-2.43" y="6.94" width="20.23" height="1.49" transform="translate(18.55 7.68) rotate(135)")
       rect(x="-2.43" y="6.94" width="20.23" height="1.49" transform="translate(7.68 -3.18) rotate(45)")

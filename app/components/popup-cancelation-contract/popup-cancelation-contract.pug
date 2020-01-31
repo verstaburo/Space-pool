@@ -1,0 +1,15 @@
+mixin popup-cancelation-contract()
+  .popup-wrapper.popup-wrapper_mxh100p&attributes(attributes)
+    +popup-free()._big._combined._white.popup-cancelation-contract__(data-current-step="step0")
+      +popup-close().js-stepform-mix
+      +popup-header.popup__header_white.popup__header_fx.popup__header_border.popup__header_border_md
+        +popup-title.popup__title_fz24 Cancel contract
+        div.popup__info.is-hide-sm(data-step="step0")
+          div.popup__header-icon
+            +icon('long-arrow', true).popup__arrow
+          div.popup__header-text Read carefully the information below
+      +popup-content
+        div.popup__scrollblock.js-scrollbar-light-md
+          +cancelation-form()(data-main-form)
+          +suggestion-form().hide(data-step="step5")
+          block

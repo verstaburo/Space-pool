@@ -68,6 +68,14 @@
         position: relative;
         margin: 0 auto;
       }
+
+      &_mxh100p {
+        @include screen('md') {
+          display: flex;
+          padding: 0;
+          height: 100%;
+        }
+      }
     }
 
     .fancybox-content {
@@ -192,7 +200,6 @@
       height: auto;
 
       #{$b} {
-
         &__title {
           &:not(:last-child) {
             margin-bottom: 0;
@@ -335,6 +342,14 @@
 
       @include screen('sm') {
         margin-bottom: 14px;
+      }
+    }
+
+    &_fz24 {
+      @include text24;
+
+      @include screen('sm') {
+        @include heading-4;
       }
     }
 

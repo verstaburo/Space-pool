@@ -1,0 +1,18 @@
+mixin suggestion-form()
+  +form._white.suggestion-form&attributes(attributes)
+    +e.title_big._fw400 Your request has been successfully submitted to the Host.
+    +e.text_dark._fz20._mgt76 Although we would really like to use this moment to show you some options you may consider. How big is your team?
+    +e.team-list
+      +team-check('1 - 5 ')
+        +e.INPUT.input(type="radio" name="teamSize" value="0")
+      +team-check('6 - 10')
+        +e.INPUT.input(type="radio" name="teamSize" value="1")
+      +team-check('10 - 25')
+        +e.INPUT.input(type="radio" name="teamSize" value="2")
+      +team-check('25 - 50')
+        +e.INPUT.input(type="radio" name="teamSize" value="3")
+      +team-check('> 50')
+        +e.INPUT.input(type="radio" name="teamSize" value="4")
+    +form-panel._centered.__panel_absolute.__panel_border
+      +button('button')(type="submit").__button_w360 Show me the options
+    block

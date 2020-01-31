@@ -281,8 +281,7 @@
     pointer-events: none;
 
     &:checked {
-
-      &+#{$check}__box {
+      & + #{$check}__box {
         background-color: $color-basic;
         border-color: $color-form-border-dark;
 
@@ -293,8 +292,7 @@
     }
 
     &:disabled {
-
-      &+#{$check}__box {
+      & + #{$check}__box {
         opacity: .51;
       }
     }
@@ -329,6 +327,22 @@
         top: 0;
       }
     }
+
+    #{$check}_box2 & {
+      width: 16px;
+      height: 16px;
+      border-color: $color-basic;
+      background-color: transparent;
+    }
+
+    #{$check}_box2:hover & {
+      background-color: transparent;
+    }
+
+    #{$check}_box2 #{$check}__input:checked ~ & {
+      border-color: $color-basic;
+      background-color: transparent;
+    }
   }
 
   &__icon {
@@ -342,6 +356,14 @@
     fill: $color-white;
     opacity: 0;
     transition: opacity $ease-main;
+
+    #{$check}_box2 & {
+      width: 20px;
+      height: 14px;
+      top: -2px;
+      left: 1px;
+      fill: $color-black;
+    }
   }
 
   &__content {
@@ -548,6 +570,26 @@
 
       #{$check}__text {
         border-bottom-color: transparent;
+      }
+    }
+  }
+
+  &_box2 {
+    padding-left: 36px;
+
+    #{$check} {
+      &__content {
+        @include text16;
+
+        line-height: 1;
+        font-weight: 700;
+        color: $color-basic;
+
+        @include screen('sm') {
+          @include text;
+
+          line-height: 1.14px;
+        }
       }
     }
   }

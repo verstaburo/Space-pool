@@ -1,0 +1,31 @@
+.suggestion-form {
+  $b: &;
+
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 48px 70px 160px;
+  margin-top: 5px;
+
+  @include screen('md') {
+    padding: 48px $container-padding-tablet 160px;
+  }
+
+  @include screen('sm') {
+    padding: 50px $container-padding-mobile 120px;
+  }
+
+  .form {
+
+    &__title {
+      line-height: 1.26;
+      max-width: 720px;
+    }
+  }
+
+  .form-panel {
+    @include screen('md') {
+      position: fixed;
+    }
+  }
+}

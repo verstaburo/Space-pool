@@ -75,6 +75,7 @@ import photoPreview from '../blocks/photo-preview/photo-preview';
 import fileUploader from '../blocks/file-uploader/file-uploader';
 import fileRemove from '../blocks/file/file';
 import profile from '../pages/profile/profile';
+import cancelationPopupSteps from '../components/popup-cancelation-contract/cancelationPopupSteps';
 
 const $ = window.$;
 
@@ -139,4 +140,5 @@ $(() => {
   fileRemove();
   fileUploader();
   profile();
+  cancelationPopupSteps();
 });

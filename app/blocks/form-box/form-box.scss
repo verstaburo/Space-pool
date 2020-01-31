@@ -43,6 +43,10 @@
       font-weight: 700;
     }
 
+    #{$b}_gray & {
+      color: $color-new-input;
+    }
+
     input:hover~&,
     input:focus~&,
     textarea:hover~&,
@@ -130,7 +134,6 @@
     #{$b}.is-top textarea~& {
       transform: translate3d(0, -24px, 0);
     }
-
 
     #{$b}.is-top .textarea_bpd~& {
       transform: translate3d(0, -30px, 0);
@@ -391,6 +394,12 @@
       #{$b}__label {
         transform: translateX(25px);
       }
+    }
+  }
+
+  &_gray {
+    .input, .textarea {
+      border-bottom-color: $color-new-input;
     }
   }
 }
