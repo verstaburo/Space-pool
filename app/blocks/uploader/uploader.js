@@ -16,7 +16,7 @@ export default function uploader() {
     }
   }
 
-  function processingImages(source, tests) {
+  function processingImages(source, tests, field) {
     const files = source;
     const selectedFiles = {};
     const queue = [];
@@ -115,6 +115,14 @@ export default function uploader() {
         $(preview).find('.js-select-input');
         $('.uploader-output').trigger('changeItems');
         window.inputSelectInit($(preview).find('.js-select-input')[0]);
+        if (field) {
+          const inpWrap = $(field).closest('.js-upload-file');
+          const frm = document.createElement('FORM');
+          const inp = field;
+          $(frm).append(inp);
+          frm.reset();
+          inpWrap.append(inp);
+        }
       }
     }
   }
@@ -157,7 +165,7 @@ export default function uploader() {
     conditions.maxSize = parseInt($(self).attr('data-max-size'), 10) || '1000000000000';
     conditions.formats = $(self).attr('data-format');
     conditions.maxCount = parseInt($(self).attr('data-total-count'), 10) || -1;
-    processingImages(files, conditions);
+    processingImages(files, conditions, evt.currentTarget);
   });
 
   $(document).on('changeItems', '.uploader-output', (evt) => {
