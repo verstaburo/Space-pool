@@ -88,6 +88,14 @@
     @include screen('sm') {
       margin-top: 0;
     }
+
+    #{$b}_v2 & {
+      margin-top: -22px;
+
+      @include screen('sm') {
+        margin-top: 0;
+      }
+    }
   }
 
   &__info {
@@ -110,8 +118,18 @@
     align-items: center;
     flex-wrap: wrap;
 
+    &_sb {
+      justify-content: space-between;
+    }
+
     &:not(:first-child) {
       margin-top: 35px;
+    }
+
+    #{$b}_v2 & {
+      &:not(:first-child) {
+        margin-top: 15px;
+      }
     }
   }
 
@@ -139,6 +157,27 @@
         flex: none;
         width: 100%;
       }
+    }
+
+    &_mw264 {
+      width: auto;
+      min-width: 264px;
+      flex: none;
+
+      @include screen('sm') {
+        width: 100%;
+      }
+    }
+  }
+
+  &__note {
+    width: 100%;
+    max-width: 350px;
+    margin-top: -5px;
+
+    @include screen('sm') {
+      max-width: none;
+      margin-top: 0;
     }
   }
 

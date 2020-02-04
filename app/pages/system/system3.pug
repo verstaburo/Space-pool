@@ -1,0 +1,144 @@
+extends ../../layouts/default-login
+
+block head
+  - var pageTitle = 'SpacePool - System messaages 3'
+
+block content
+  +content-origin._reverse._last
+    .container
+      +e.wrapper
+        +content-column-aside
+        +content-column-main
+          +dialog-origin
+            +e.head_mg
+              +e.date guest
+            +e.UL.list
+              +e.LI.item_wide
+                +notification()._short._sys._sys_v2._white
+                  +notification-head('', '', '', {name: 'Reminder', class: '_fz24'})._ai-center
+                    +offer-info
+                      +box._size16._orange
+                      +e.title._fz13._dark2 HOT DESK
+                  +notification-content
+                    +notification-text._fz20._mt7 Your existing tenancy is going to end soon. Rental terms after the end of the period may be revised
+                    +characteristics-table._wrap._fz16._dark._border_gray.__conditions_border-top
+                      +e.TR.row
+                        +e.TD.cell_mh50._mw180 Initial lease period
+                        +e.TD.cell_mh50._fw400._wrap._tal 12 months
+                      +e.TR.row
+                        +e.TD.cell_mh50._mw180 Period end date
+                        +e.TD.cell_mh50._fw400._wrap._tal 13.02.2020
+                      +e.TR.row
+                        +e.TD.cell_mh50._mw180 Till period end
+                        +e.TD.cell_mh50._fw400._wrap._tal 3 months
+                    +notification-text._fz14._fz14_v2 It is not necessary to change the terms of the contract at the end of the initial lease period. You can discuss this space manager and fix the old price.
+              +e.LI.item_wide
+                +notification()._short._sys._sys_v2._white
+                  +notification-head('', '', 'New tenancy offer')._bordered._ai-center
+                    +offer-info
+                      +box._size16._orange
+                      +e.title._fz13._dark2 HOT DESK
+                  +notification-content
+                    +notification-text._fz20._mt12 The initial period is about to end. Therefore, Host has prepared new rental terms for the next term. Here they are:
+                    +characteristics-table._wrap._fz16._dark._border_gray.__conditions_sm-mg
+                      +e.TR.row
+                        +e.TD.cell_mh50._mw180 New period
+                        +e.TD.cell_mh50._fw400._wrap._tal
+                          +time-origin
+                            +time-text 27.01.2020
+                            +time-arrow._w24
+                            +time-text 27.01.2021
+                      +e.TR.row
+                        +e.TD.cell_mh50._mw180 Current price
+                        +e.TD.cell_mh50._wrap._tal &pound; 590.00
+                      +e.TR.row
+                        +e.TD.cell_mh50._mw180 New price
+                        +e.TD.cell_mh50._wrap._tal &pound; 690.00
+                    +notification-text._fz14._fz14_v2
+                      p Please note that you can always cancel an existing contract and in case of cancellation you are entitled to the old terms and conditions during the Notice period.
+                      p If you have not agreed with the Host on the new terms and conditions, you can start the process of terminating the contract: <a href="#popup-cancelation-contract" class="js-popup-top"><b>Terminate the contract</b></a>
+            +e.head_mg
+              +e.date host
+            +e.UL.list
+              +e.LI.item_wide
+                +notification()._short._sys._sys_v2._white
+                  +notification-head('', '', '', {name: 'Reminder', class: '_fz24'})._ai-center
+                    +offer-info
+                      +box._size16._orange
+                      +e.title._fz13._dark2 HOT DESK
+                  +notification-content
+                    +notification-text._fz20._mt7 Current deal initial period will end soon. After this period you will be able to change deal terms.
+                    +characteristics-table._wrap._fz16._dark._border_gray.__conditions_border-top
+                      +e.TR.row
+                        +e.TD.cell_mh50._mw180 Initial lease period
+                        +e.TD.cell_mh50._fw400._wrap._tal 12 months
+                      +e.TR.row
+                        +e.TD.cell_mh50._mw180 Period end date
+                        +e.TD.cell_mh50._fw400._wrap._tal 13.02.2020
+                      +e.TR.row
+                        +e.TD.cell_mh50._mw180 Till period end
+                        +e.TD.cell_mh50._fw400._wrap._tal 3.5 months
+                    +notification-text._fz14._fz14_v2 After period end you will be able to change Payment summary. Whether the payment summary is confirmed both sides, you will no longer be able to change within the agreed period of time
+                    +e.buttons_center
+                      +button()._shorter.__button_wide.js-popup(href="#popup-new-offer-v2") Make new offer now
+              +e.LI.item_wide
+                +notification()._short._sys._sys_v2._white
+                  +notification-head('', '', 'New offer created')._bordered._ai-center
+                    +offer-info
+                      +box._size16._orange
+                      +e.title._fz13._dark2 HOT DESK
+                  +notification-content
+                    +notification-text._fz20._mt12 You have just created new tenancy offer. Guest will receive new Payment summary for confirmation.
+                    +characteristics-table._wrap._fz16._dark._border_gray.__conditions_bg-mg
+                      +e.TR.row
+                        +e.TD.cell_mh50._mw180 New period
+                        +e.TD.cell_mh50._fw400._wrap._tal
+                          +time-origin
+                            +time-text 27.01.2020
+                            +time-arrow._w24
+                            +time-text 27.01.2021
+                      +e.TR.row
+                        +e.TD.cell_mh50._mw180 Current price
+                        +e.TD.cell_mh50._wrap._tal &pound; 590.00
+                      +e.TR.row
+                        +e.TD.cell_mh50._mw180 New price
+                        +e.TD.cell_mh50._wrap._tal &pound; 690.00
+                      +e.TR.row
+                        +e.TD.cell_mh50._mw180 Status
+                        +e.TD.cell_mh50._wrap._tal Awaiting confirmation
+            +e.head_mg
+              +e.date common
+            +e.UL.list
+              +e.LI.item_wide
+                +notification()._short._sys._sys_v2._white
+                  +notification-head('', '', 'New tenancy period')._ai-center
+                    +offer-info
+                      +box._size16._orange
+                      +e.title._fz13._dark2 HOT DESK
+                  +notification-content
+                    +notification-text._fz20._mt18 Due to the fact that the previous fixed price period ended, the lease terms may have changed:
+                    +characteristics-table._wrap._fz16._dark._border_gray.__conditions_mg12
+                      +e.TR.row
+                        +e.TD.cell_mh50._mw180 New period
+                        +e.TD.cell_mh50._fw400._wrap._tal
+                          +time-origin
+                            +time-text 27.01.2020
+                            +time-arrow._w24
+                            +time-text 27.01.2021
+                      +e.TR.row
+                        +e.TD.cell_mh50._mw180 Previous price
+                        +e.TD.cell_mh50._wrap._tal &pound; 590.00
+                      +e.TR.row
+                        +e.TD.cell_mh50._mw180 Current price
+                        +e.TD.cell_mh50._wrap._tal &pound; 690.00
+                    +notification-text._fz14._fz14_v2 Changes in the terms of the lease will come into effect with the first invoice, after the beginning of the new lease period.
+                    +link._underline._bold.__link_fz16._mt20(href="#") Open Payment Summary
+
+block panels
+  +main-menu-inner
+    +nav-list(getData('main-menu-user.json'))
+
+block popups
+  +popup-new-offer-v2#popup-new-offer-v2
+  +popup-cancelation-contract-unsigned#popup-cancelation-contract-unsigned
+  +popup-cancelation-contract#popup-cancelation-contract

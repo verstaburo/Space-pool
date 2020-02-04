@@ -72,7 +72,7 @@ export default function cancelationPopupSteps() {
     evt.preventDefault();
     const self = evt.currentTarget;
     const fn = $(self).attr('data-callback');
-    const form = $(self).closest('form')[0];
+    const form = $.find(`#${$(self).attr('form')}`);
     $(self).addClass('is-loading');
     window[fn](form).then((readySaved) => {
       const popup = $(self).closest('.popup');

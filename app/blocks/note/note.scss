@@ -4,6 +4,12 @@
   display: block;
   width: 100%;
 
+  &_line {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+  }
+
   &__mark {
     display: block;
     width: 100%;
@@ -15,6 +21,14 @@
       @include screen('sm') {
         margin-bottom: 6px;
       }
+    }
+
+    #{$b}_line & {
+      display: inline-block;
+      flex: none;
+      width: auto;
+      margin-bottom: 0;
+      margin-right: 10px;
     }
   }
 
@@ -33,6 +47,11 @@
     &_warning {
       width: 29px;
       height: 27px;
+
+      &_small {
+        width: 14px;
+        height: 12px;
+      }
     }
 
     &_exclamation {
@@ -104,7 +123,39 @@
         }
       }
     }
+
+    &_yellow {
+      #{$b} {
+        &__icon {
+          fill: #f2b412;
+        }
+
+        &__text {
+          b {
+            color: #f2b412;
+          }
+        }
+      }
+    }
   }
+
+  &_fz16 {
+    #{$b} {
+
+      &__text {
+        @include text16;
+
+        line-height: (20 / 16);
+
+        @include screen('sm') {
+          @include text;
+
+          line-height: (20 / 14);
+        }
+      }
+    }
+  }
+
 
   &_fz20 {
     #{$b} {
@@ -241,11 +292,17 @@
   }
 
   &_warning {
-
     #{$b} {
-
       &__mark {
         margin-bottom: 16px;
+      }
+    }
+
+    &_small {
+      #{$b} {
+        &__mark {
+          margin-bottom: 12px;
+        }
       }
     }
   }

@@ -1,5 +1,5 @@
 mixin cancelation-form()
-  +form._white.cancelation-form&attributes(attributes)
+  +form._white.cancelation-form&attributes(attributes)#cancelation-form
     +e.FIELDSET.section(data-step="step0")
       +warning._tal._fz21
         p You are about to cancel the contract for this space. The contract will finish automatically at the end of the notice period. This action can’t be undone.
@@ -84,14 +84,18 @@ mixin cancelation-form()
           +e.TD.cell_mh80._w33p Deposit
           +e.TD.cell_mh80._fw400._wrap._tal You should contact your Host regarding returning your deposit. This should be returned to you in line with the procedure outlined in your contract with the Host.
       +e.text_dark._fz20._mgt60 We are really proud of you!This is a perfect reason for contract cancelation!
-    +form-panel.__panel_absolute.__panel_border.hide(data-step="step1, step2, step3, step4")
-      +link-icon('select-arrow', 'a')._back._bold._no-shadow.__button.js-stepform-reset(href="#") Back
-      +button('button', true)(type="submit" data-callback="serverSave").__button_w360.js-goto-last-step Submit request
+    block
+
+
+mixin cancelation-form-panel()
+  +form-panel.form__panel_absolute.form__panel_border.hide(data-step="step1, step2, step3, step4")
+    +link-icon('select-arrow', 'button')._back._bold._no-shadow.__button.js-stepform-reset(type="reset" form="cancelation-form") Back
+    +button('button', true)(type="submit" data-callback="serverSave" form="cancelation-form").__button_w360.js-goto-last-step Submit request
     block
 
 
 mixin cancelation-form-unsigned()
-  +form._white.cancelation-form&attributes(attributes)
+  +form._white.cancelation-form&attributes(attributes)#cancelation-form-unsigned
     +e.FIELDSET.section
       +warning._tal._fz21
         p You are about to cancel your hire request for this space.
@@ -104,6 +108,9 @@ mixin cancelation-form-unsigned()
           +e.INPUT.input(type="radio" name="cancelReason" value="2")
         +block-check('I don’t need workspace anymore.')
           +e.INPUT.input(type="radio" name="cancelReason" value="3")
-    +form-panel._centered.__panel_absolute.__panel_border
-      +button('button')(type="submit").__button_w360 Cancel hire request
+    block
+
+mixin cancelation-form-unsigned-panel()
+  +form-panel._centered.form__panel_absolute.form__panel_border
+    +button('button')(type="submit" form="cancelation-form-unsigned").__button_w360 Cancel hire request
     block

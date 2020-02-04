@@ -9,7 +9,9 @@ mixin popup-cancelation-contract()
             +icon('long-arrow', true).popup__arrow
           div.popup__header-text Read carefully the information below
       +popup-content
-        div.popup__scrollblock
+        div.popup__scrollblock.js-scrollbar-light-md
           +cancelation-form()(data-main-form)
           +suggestion-form().hide(data-step="step5")
           block
+        +cancelation-form-panel
+        +suggestion-form-panel

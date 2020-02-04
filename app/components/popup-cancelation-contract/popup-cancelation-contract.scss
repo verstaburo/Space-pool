@@ -1,18 +1,12 @@
 .popup-cancelation-contract {
   $b: &;
+  position: relative;
 
   @include screen('md') {
     height: 100%;
   }
 
   .popup {
-    &__scrollblock {
-      @include screen('md') {
-        max-height: 100%;
-        overflow: auto;
-      }
-    }
-
     &__header {
       padding: 51px 70px 10px;
       justify-content: space-between;
@@ -61,6 +55,25 @@
       @include screen('sm') {
         padding-top: 50px;
       }
+    }
+  }
+
+  .form-panel {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    padding-left: 70px;
+    padding-right: 70px;
+    z-index: 3;
+
+    @include screen('md') {
+      padding-left: $container-padding-tablet;
+      padding-right: $container-padding-tablet;
+    }
+
+    @include screen('sm') {
+      padding-left: $container-padding-mobile;
+      padding-right: $container-padding-mobile;
     }
   }
 }

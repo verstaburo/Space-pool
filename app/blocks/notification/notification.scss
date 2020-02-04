@@ -98,6 +98,16 @@
       }
     }
 
+    #{$b}_sys_v2 & {
+      padding-left: 26px;
+      padding-right: 26px;
+
+      @include screen('sm') {
+        padding-left: 16px;
+        padding-right: 16px;
+      }
+    }
+
     &_bordered {
       border-bottom: 1px solid $color-gray-light-2;
 
@@ -248,6 +258,16 @@
       }
     }
 
+    #{$b}_sys_v2 & {
+      padding-left: 26px;
+      padding-right: 26px;
+
+      @include screen('sm') {
+        padding-left: 16px;
+        padding-right: 16px;
+      }
+    }
+
     &_nobpd {
       padding-bottom: 0;
     }
@@ -370,6 +390,16 @@
         }
       }
     }
+
+    #{$b}_sys_v2 & {
+      padding-left: 26px;
+      padding-right: 26px;
+
+      @include screen('sm') {
+        padding-left: 16px;
+        padding-right: 16px;
+      }
+    }
   }
 
   &__name {
@@ -418,6 +448,18 @@
       font-size: 29px;
       line-height: 1;
       letter-spacing: -.01em;
+
+      @include screen('sm') {
+        font-size: 21px;
+        line-height: 1.2;
+        letter-spacing: -.03em;
+      }
+    }
+
+    &_fz24 {
+      font-size: 24px;
+      line-height: 1;
+      letter-spacing: -.02em;
 
       @include screen('sm') {
         font-size: 21px;
@@ -526,6 +568,19 @@
         &__divider {
           color: $color-basic;
         }
+      }
+    }
+  }
+
+  &__table {
+
+    .time {
+      font-size: inherit;
+      line-height: inherit;
+
+      &__text {
+        font-size: inherit;
+        line-height: inherit;
       }
     }
   }
@@ -711,6 +766,22 @@
 
         line-height: 1.2;
       }
+    }
+
+    &_fz16 {
+      @include text16;
+
+      line-height: 1.17;
+
+      @include screen('sm') {
+        @include text12;
+
+        line-height: 1.2;
+      }
+    }
+
+    &_mt20 {
+      margin-top: 20px;
     }
   }
 
@@ -984,6 +1055,14 @@
 
         line-height: (20 / 13);
       }
+
+      &_v2 {
+        line-height: 1.255;
+
+        @include screen('sm') {
+          line-height: (20 / 13);
+        }
+      }
     }
 
     &_fz18 {
@@ -991,6 +1070,19 @@
 
       font-weight: 400;
       line-height: (24 / 18);
+
+      @include screen('sm') {
+        @include text13;
+
+        line-height: (20 / 13);
+      }
+    }
+
+    &_fz20 {
+      @include heading-4;
+
+      font-weight: 400;
+      line-height: (25 / 20);
 
       @include screen('sm') {
         @include text13;
@@ -1017,8 +1109,24 @@
       }
     }
 
+    &_mt7 {
+      margin-top: 7px;
+    }
+
+    &_mt12 {
+      margin-top: 12px;
+    }
+
+    &_mt18 {
+      margin-top: 18px;
+    }
+
     b {
       font-weight: 700;
+    }
+
+    a {
+      text-decoration: underline;
     }
 
     &:not(:last-child) {
@@ -1040,6 +1148,18 @@
 
           @include screen('sm') {
             margin-top: 8px;
+          }
+        }
+      }
+    }
+
+    #{$b}_sys_v2 & {
+      p {
+        &:not(:first-child) {
+          margin-top: 20px;
+
+          @include screen('sm') {
+            margin-top: 15px;
           }
         }
       }
@@ -1067,6 +1187,76 @@
 
     &:not(:first-child) {
       margin-left: 20px;
+    }
+  }
+
+  &__conditions {
+    &.characteristics-table_border_gray {
+      &:not(:last-child) {
+        border-bottom: 1px solid $color-gray-light-2;
+      }
+    }
+
+    &_border-top.characteristics-table_border_gray {
+      border-top: 1px solid $color-gray-light-2;
+    }
+
+    &:not(:first-child) {
+      margin-top: 27px;
+
+      @include screen('sm') {
+        margin-top: 20px;
+      }
+    }
+
+    &:not(:last-child) {
+      margin-bottom: 24px;
+
+      @include screen('sm') {
+        margin-bottom: 20px;
+      }
+    }
+
+    &_sm-mg {
+      &:not(:first-child) {
+        margin-top: 10px;
+      }
+
+      &:not(:last-child) {
+        margin-bottom: 20px;
+
+        @include screen('sm') {
+          margin-bottom: 10px;
+        }
+      }
+    }
+
+    &_mg12 {
+      &:not(:first-child) {
+        margin-top: 12px;
+      }
+
+      &:not(:last-child) {
+        margin-bottom: 12px;
+      }
+    }
+
+    &_bg-mg {
+      &:not(:first-child) {
+        margin-top: 36px;
+
+        @include screen('sm') {
+          margin-top: 20px;
+        }
+      }
+
+      &:not(:last-child) {
+        margin-bottom: 25px;
+
+        @include screen('sm') {
+          margin-bottom: 20px;
+        }
+      }
     }
   }
 
