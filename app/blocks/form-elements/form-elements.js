@@ -588,22 +588,28 @@ export function datepicker() {
     const disabledDates = $(el).attr('data-disabled-dates') ? $(el).attr('data-disabled-dates').split(',') : [];
     const minDateParam = $(el).attr('data-mindate');
     const maxDateParam = $(el).attr('data-maxdate');
+    const startDateParam = $(el).attr('data-startdate');
+    let startDate = new Date();
     let minDate = new Date();
     if (minDateParam === 'all') {
       minDate = '';
     } else if (minDateParam !== undefined) {
       minDate = setFormattedDate(minDateParam);
     }
+    if (startDateParam !== undefined) {
+      startDate = setFormattedDate(startDateParam);
+    }
     const maxDate = maxDateParam !== undefined ? setFormattedDate(maxDateParam) : '';
     const addClasses = $(el).closest('.popup').length > 0 ? 'datepicker_fancybox' : '';
 
-    el.datepicker({
+    $(el).datepicker({
       language: 'en',
       dateFormat: 'dd MM yyyy',
       autoClose: true,
       disableNavWhenOutOfRange: true,
       minDate,
       maxDate,
+      startDate,
       classes: addClasses,
       onSelect(a, b, inst) {
         const self = inst.el;
@@ -631,11 +637,16 @@ export function datepicker() {
     const disabledDates = $(el).attr('data-disabled-dates') ? $(el).attr('data-disabled-dates').split(',') : [];
     const minDateParam = $(el).attr('data-mindate');
     const maxDateParam = $(el).attr('data-maxdate');
+    const startDateParam = $(el).attr('data-startdate');
+    let startDate = new Date();
     let minDate = new Date();
     if (minDateParam === 'all') {
       minDate = '';
     } else if (minDateParam !== undefined) {
       minDate = setFormattedDate(minDateParam);
+    }
+    if (startDateParam !== undefined) {
+      startDate = setFormattedDate(startDateParam);
     }
     const maxDate = maxDateParam !== undefined ? setFormattedDate(maxDateParam) : '';
     const addClasses = $(el).closest('.popup').length > 0 ? 'datepicker_fancybox' : '';
@@ -649,6 +660,7 @@ export function datepicker() {
       classes: addClasses,
       minDate,
       maxDate,
+      startDate,
       onSelect(a, b, inst) {
         const date = b;
         const self = inst.el;
@@ -674,26 +686,31 @@ export function datepicker() {
 
   window.changedDatepickerInit = changedDatepickerInit;
 
-  $('.js-datepicker').each(function () {
-    const el = $(this);
+  $('.js-datepicker').each((i, el) => {
     const disabledDates = $(el).attr('data-disabled-dates') ? $(el).attr('data-disabled-dates').split(',') : [];
     const minDateParam = $(el).attr('data-mindate');
     const maxDateParam = $(el).attr('data-maxdate');
+    const startDateParam = $(el).attr('data-startdate');
     let minDate = new Date();
+    let startDate = new Date();
     if (minDateParam === 'all') {
       minDate = '';
     } else if (minDateParam !== undefined) {
       minDate = setFormattedDate(minDateParam);
     }
+    if (startDateParam !== undefined) {
+      startDate = setFormattedDate(startDateParam);
+    }
     const maxDate = maxDateParam !== undefined ? setFormattedDate(maxDateParam) : '';
     const addClasses = $(el).closest('.popup').length > 0 ? 'datepicker_fancybox' : '';
 
-    el.datepicker({
+    $(el).datepicker({
       language: 'en',
       dateFormat: 'dd MM yyyy',
       autoClose: true,
       minDate,
       maxDate,
+      startDate,
       classes: addClasses,
       onSelect(a, b, inst) {
         const self = inst.el;
@@ -715,26 +732,31 @@ export function datepicker() {
     });
   });
 
-  $('.js-datepicker2').each(function () {
-    const el = $(this);
+  $('.js-datepicker2').each((i, el) => {
     const disabledDates = $(el).attr('data-disabled-dates') ? $(el).attr('data-disabled-dates').split(',') : [];
     const minDateParam = $(el).attr('data-mindate');
     const maxDateParam = $(el).attr('data-maxdate');
+    const startDateParam = $(el).attr('data-startdate');
+    let startDate = new Date();
     let minDate = new Date();
     if (minDateParam === 'all') {
       minDate = '';
     } else if (minDateParam !== undefined) {
       minDate = setFormattedDate(minDateParam);
     }
+    if (startDateParam !== undefined) {
+      startDate = setFormattedDate(startDateParam);
+    }
     const maxDate = maxDateParam !== undefined ? setFormattedDate(maxDateParam) : '';
     const addClasses = $(el).closest('.popup').length > 0 ? 'datepicker_fancybox' : '';
 
-    el.datepicker({
+    $(el).datepicker({
       language: 'en',
       dateFormat: 'MM d, yyyy',
       autoClose: true,
       minDate,
       maxDate,
+      startDate,
       classes: addClasses,
       onSelect(a, b, inst) {
         const self = inst.el;
