@@ -4,6 +4,7 @@
   display: block;
   width: 100%;
   cursor: pointer;
+  touch-action: pan-y pinch-zoom;
 
   &__input {
     display: none;
@@ -38,7 +39,9 @@
     }
 
     &:hover {
-      border-color: $color-basic;
+      @include screen('sm', min) {
+        border-color: $color-basic;
+      }
     }
   }
 

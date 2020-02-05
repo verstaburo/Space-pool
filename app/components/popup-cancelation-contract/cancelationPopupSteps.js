@@ -7,12 +7,17 @@ export default function cancelationPopupSteps() {
     const targets = $(`[data-switch-target*=${targetName}]`);
     const targetOn = $(targets).filter((i, el) => $(el).attr('data-switch-on') !== undefined);
     const targetOff = $(targets).filter((i, el) => $(el).attr('data-switch-off') !== undefined);
+    const popup = $(self).closest('.popup');
+    const scrollView = $(popup).find('.popup__scrollblock');
     if (input.checked) {
       $(targetOn).removeClass('hide');
       $(targetOff).addClass('hide');
     } else {
       $(targetOn).addClass('hide');
       $(targetOff).removeClass('hide');
+    }
+    if (scrollView.length > 0) {
+      window.globalFunctions.getScrollInstance(scrollView[0]).scroll(0);
     }
   }
 
@@ -26,6 +31,10 @@ export default function cancelationPopupSteps() {
       switchSection(el);
     });
     $(form).removeClass('hide');
+    const scrollView = $(popup).find('.popup__scrollblock');
+    if (scrollView.length > 0) {
+      window.globalFunctions.getScrollInstance(scrollView[0]).scroll(0);
+    }
   }
 
   window.resetStepsPopupToStep0 = resetStepsPopupToStep0;
@@ -61,6 +70,10 @@ export default function cancelationPopupSteps() {
     $(allSteps).addClass('hide');
     $(newStep).removeClass('hide');
     $(popup).attr('data-current-step', newStepName);
+    const scrollView = $(popup).find('.popup__scrollblock');
+    if (scrollView.length > 0) {
+      window.globalFunctions.getScrollInstance(scrollView[0]).scroll(0);
+    }
   });
 
   $(document).on('change', '[data-switch-content]', (evt) => {
@@ -85,6 +98,10 @@ export default function cancelationPopupSteps() {
         $(newStep).removeClass('hide');
         $(form).addClass('hide');
         $(popup).attr('data-current-step', 'step5');
+        const scrollView = $(popup).find('.popup__scrollblock');
+        if (scrollView.length > 0) {
+          window.globalFunctions.getScrollInstance(scrollView[0]).scroll(0);
+        }
       } else {
         $(self).removeClass('is-loading');
       }
