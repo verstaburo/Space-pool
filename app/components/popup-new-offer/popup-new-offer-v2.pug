@@ -1,46 +1,46 @@
 mixin popup-new-offer-v2()
   +popup._big.popup-new-offer__._v2&attributes(attributes)
     div.popup__heading
-      +popup-title New Tenancy offer for
+      +popup-title Rent review for
     +offer-space.__space
     +e.conditions
       +e.old
         +e.subtitle Current terms:
         +e.list
-          p Existing price: £ 590.00 mo
+          p Rent: £ 590.00 mo
           p From: 30 October 2019
-          p Till: 30 October 2019
+          p To: 30 October 2019
       +e.new
         +form.__form#new-offer-form
           +e.info_nowrap._mt50
             +e.info-cell._big._no-sm-top
               +form-section-wrapper
-                +form-box('New tenancy price')
-                  +input.input_dark(type="text" name="price" placeholder="Tenancy price" value="£ 690.00")
+                +form-box('New rent')
+                  +input.input_dark(type="text" name="price" placeholder="New rent" value="£ 690.00")
             +e.info-cell._no-sm-top
               +form-section-wrapper._aie._h100p
                 +e.imitation_tar Per month
           +e.info._mt50
             +e.info-cell
               +form-section-wrapper
-                +form-box('New period start', 'calendar2')._icon._icon_small._bold._lbl-small
-                  +input.input_dark.js-datepicker(type="text" name="startDate" value="6 February 2020" placeholder="Rent start date:" data-period-start="rent" readonly)
+                +form-box('New period starts', 'calendar2')._icon._icon_small._bold._lbl-small
+                  +input.input_dark.js-datepicker(type="text" name="startDate" value="6 February 2020" placeholder="New period starts" data-period-start="rent" readonly)
             +long-arrow._h16._short._dark.__info-arrow
             +e.info-cell
               +form-section-wrapper
                 +form-box('New period ends', 'calendar2')._icon._icon_small._bold._lbl-small
-                  +input.input_dark.js-datepicker(type="text" name="endDate" value="1 November 2020" placeholder="Rent end date:" data-period-end="rent" data-mindate="2020-2-6" readonly)
+                  +input.input_dark.js-datepicker(type="text" name="endDate" value="1 November 2020" placeholder="New period ends" data-period-end="rent" data-mindate="2020-2-6" readonly)
           +e.info_note
             +b.note_warning._warning_small._fz16._color._color_yellow._line._fw400
               +e.mark
                 +icon('warning-stroke').__icon_warning._warning_small
-              +e.text The new price will be active in next invoice 20.02.2020
+              +e.text New rent will be collected on or shortly after 01.03.2020
     +e.buttons._sb
       +b.note_warning._warning_small._fz16._color._color_yellow._fw400.__note
         +e.mark
           +icon('warning-stroke').__icon_warning._warning_small
-        +e.text Please note that the price quoted in the new offer will be fixed during the above period.
-      +button('button')._shorter.__button_mw264(type="submit" form="new-offer-form") Make offer
+        +e.text Please note that the new rent will be fixed for the duration of the new period.
+      +button('button')._shorter.__button_mw264(type="submit" form="new-offer-form") Submit
 
     block
 
