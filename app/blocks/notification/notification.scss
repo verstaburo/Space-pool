@@ -488,7 +488,7 @@
       @include screen('sm') {
         font-size: 21px;
         line-height: 1.2;
-        letter-spacing: -0.03em;
+        letter-spacing: -.03em;
       }
     }
 
@@ -552,7 +552,6 @@
   }
 
   &__time {
-
     &_mgt {
       margin-top: 13px;
 
@@ -562,9 +561,7 @@
     }
 
     &_dark {
-
       .time {
-
         &__divider {
           color: $color-basic;
         }
@@ -573,7 +570,6 @@
   }
 
   &__table {
-
     .time {
       font-size: inherit;
       line-height: inherit;
@@ -678,7 +674,6 @@
       }
 
       #{$b}__buttons_3btn & {
-
         &:not(:first-child) {
           margin-left: 0;
         }
@@ -698,6 +693,16 @@
 
       @include screen('sm') {
         max-width: none;
+      }
+    }
+
+    &_mw264 {
+      min-width: 264px;
+      max-width: none;
+      flex: none;
+
+      @include screen('sm') {
+        min-width: 100%;
       }
     }
 
@@ -1121,6 +1126,10 @@
       margin-top: 18px;
     }
 
+    &_tac {
+      text-align: center;
+    }
+
     b {
       font-weight: 700;
     }
@@ -1191,10 +1200,8 @@
   }
 
   &__conditions {
-    &.characteristics-table_border_gray {
-      &:not(:last-child) {
-        border-bottom: 1px solid $color-gray-light-2;
-      }
+    &_border-bottom.characteristics-table_border_gray {
+      border-bottom: 1px solid $color-gray-light-2;
     }
 
     &_border-top.characteristics-table_border_gray {
@@ -1256,6 +1263,18 @@
         @include screen('sm') {
           margin-bottom: 20px;
         }
+      }
+    }
+
+    &_mt28 {
+      &:not(:first-child) {
+        margin-top: 28px;
+      }
+    }
+
+    &_mb0 {
+      &:not(:last-child) {
+        margin-bottom: 0;
       }
     }
   }
