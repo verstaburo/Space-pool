@@ -1,0 +1,41 @@
+.offer-summary {
+  $b: &;
+
+  display: block;
+  width: 100%;
+
+  &__describe {
+    display: block;
+    width: 100%;
+    font-weight: 400;
+    color: $color-black;
+
+    @include text15;
+
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    line-height: 1.2;
+
+    &:not(:first-child) {
+      margin-top: 12px;
+    }
+  }
+
+  &__price {
+    display: inline-block;
+    font-weight: 700;
+    box-sizing: border-box;
+    color: $color-black;
+
+    @include text15;
+
+    line-height: 1.2;
+    letter-spacing: normal;
+
+    &:not(:first-child) {
+      margin-top: 4px;
+
+    }
+  }
+}

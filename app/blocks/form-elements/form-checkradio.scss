@@ -22,8 +22,7 @@
     pointer-events: none;
 
     &:checked {
-
-      &+#{$radio}__box {
+      & + #{$radio}__box {
         background-color: $color-basic;
         border-color: $color-form-border-dark;
 
@@ -34,8 +33,7 @@
     }
 
     &:disabled {
-
-      &+#{$radio}__box {
+      & + #{$radio}__box {
         opacity: .51;
       }
     }
@@ -133,8 +131,7 @@
 
     #{$radio}__input {
       &:checked {
-
-        &~#{$radio}__content {
+        & ~ #{$radio}__content {
           color: $color-basic-dark;
         }
       }
@@ -160,10 +157,9 @@
 
     #{$radio}__input {
       &:checked {
-
-        &~#{$radio}__content {
+        & ~ #{$radio}__content {
           color: $color-white;
-          background-image: linear-gradient(to right, rgba(11, 208, 167, 0.99) 0%, rgba(0, 129, 153, 0.99) 100%);
+          background-image: linear-gradient(to right, rgba(11, 208, 167, .99) 0%, rgba(0, 129, 153, .99) 100%);
 
           #{$radio}__text {
             border-bottom-color: transparent;
@@ -251,7 +247,7 @@
       border-bottom-color: $color-basic;
     }
 
-    input:checked~#{$radio}__content {
+    input:checked ~ #{$radio}__content {
       border-bottom-color: $color-basic;
     }
   }
@@ -509,7 +505,7 @@
       border-bottom-color: $color-basic;
     }
 
-    input:checked~#{$check}__content {
+    input:checked ~ #{$check}__content {
       border-bottom-color: $color-basic;
     }
   }
@@ -519,10 +515,9 @@
 
     #{$check}__input {
       &:checked {
-
-        &~#{$check}__content {
+        & ~ #{$check}__content {
           color: $color-white;
-          background-image: linear-gradient(to right, rgba(11, 208, 167, 0.99) 0%, rgba(0, 129, 153, 0.99) 100%);
+          background-image: linear-gradient(to right, rgba(11, 208, 167, .99) 0%, rgba(0, 129, 153, .99) 100%);
 
           #{$check}__text {
             border-bottom-color: transparent;
@@ -654,7 +649,7 @@
       border-color: $color-hot-desk;
     }
 
-    #{$b}__input:checked~& {
+    #{$b}__input:checked ~ & {
       border-color: $color-hot-desk;
     }
 
@@ -670,7 +665,6 @@
   }
 
   &_orange {
-
     #{$b}__content::before {
       background-color: $color-hot-desk;
     }
@@ -679,13 +673,12 @@
       border-color: $color-hot-desk;
     }
 
-    #{$b}__input:checked~#{$b}__content {
+    #{$b}__input:checked ~ #{$b}__content {
       border-color: $color-hot-desk;
     }
   }
 
   &_red {
-
     #{$b}__content::before {
       background-color: $color-dedicated-desk;
     }
@@ -694,7 +687,7 @@
       border-color: $color-dedicated-desk;
     }
 
-    #{$b}__input:checked~#{$b}__content {
+    #{$b}__input:checked ~ #{$b}__content {
       border-color: $color-dedicated-desk;
     }
   }
@@ -708,7 +701,7 @@
       border-color: $color-meeting-room;
     }
 
-    #{$b}__input:checked~#{$b}__content {
+    #{$b}__input:checked ~ #{$b}__content {
       border-color: $color-meeting-room;
     }
   }
@@ -722,14 +715,13 @@
       border-color: $color-office-space;
     }
 
-    #{$b}__input:checked~#{$b}__content {
+    #{$b}__input:checked ~ #{$b}__content {
       border-color: $color-office-space;
     }
   }
 
   &_thin {
     #{$b} {
-
       &__content {
         &::before {
           height: 1px;
@@ -751,7 +743,6 @@
       }
     }
 
-
     &:hover {
       color: rgba($color-white, .8);
 
@@ -764,7 +755,7 @@
       }
     }
 
-    #{$b}__input:checked~#{$b}__content {
+    #{$b}__input:checked ~ #{$b}__content {
       border-color: $color-white;
       background-color: $color-white;
       color: $color-basic;
@@ -778,7 +769,6 @@
       border-color: transparent;
 
       #{$b}__content {
-
         &::before {
           background-color: $color-form-border;
         }
@@ -788,14 +778,13 @@
         color: $color-radio-dark-hover;
 
         #{$b}__content {
-
           &::before {
             background-color: $color-basic;
           }
         }
       }
 
-      #{$b}__input:checked~#{$b}__content {
+      #{$b}__input:checked ~ #{$b}__content {
         border-color: transparent;
         background-color: $color-basic;
         color: $color-white;
@@ -807,9 +796,7 @@
     }
 
     &#{$b}_big {
-
       #{$b}__content {
-
         &::before {
           top: auto;
           bottom: 3px;
@@ -822,9 +809,7 @@
     }
 
     &#{$b}_sm-noundr {
-
       #{$b}__content {
-
         &::before {
           @include screen('sm') {
             display: none;
@@ -983,28 +968,28 @@
       color: $color-basic-dark;
     }
 
-    #{$br}__input:checked~& {
+    #{$br}__input:checked ~ & {
       background-color: $color-basic;
       border-color: $color-basic;
       color: $color-white;
     }
 
-    #{$br}_orange #{$br}__input:checked~& {
+    #{$br}_orange #{$br}__input:checked ~ & {
       background-color: $color-hot-desk;
       border-color: $color-hot-desk;
     }
 
-    #{$br}_red #{$br}__input:checked~& {
+    #{$br}_red #{$br}__input:checked ~ & {
       background-color: $color-dedicated-desk;
       border-color: $color-dedicated-desk;
     }
 
-    #{$br}_blue #{$br}__input:checked~& {
+    #{$br}_blue #{$br}__input:checked ~ & {
       background-color: $color-meeting-room;
       border-color: $color-meeting-room;
     }
 
-    #{$br}_green #{$br}__input:checked~& {
+    #{$br}_green #{$br}__input:checked ~ & {
       background-color: $color-office-space;
       border-color: $color-office-space;
     }

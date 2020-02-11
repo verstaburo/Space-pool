@@ -1,14 +1,12 @@
 .input {
   @include text-big;
 
-  font-weight: 400;
   line-height: (26 / 18);
   border-bottom: 1px solid $color-form-border;
   width: 100%;
   box-sizing: border-box;
   border-radius: 0;
   color: $color-black;
-  // color: $color-basic;
   font-weight: 700;
   padding-top: 5px;
   padding-bottom: 8px;
@@ -150,7 +148,6 @@
   }
 }
 
-
 // #####
 // Блок выбора количества
 // #####
@@ -161,6 +158,7 @@
   border: 1px solid $color-border-light;
   border-radius: 3px;
   transition: box-shadow $ease-main;
+  $b: &;
 
   &:hover {
     box-shadow: 1px 1px 8px rgba(34, 42, 46, .18);
@@ -176,6 +174,15 @@
 
     @include screen('bg') {
       max-width: calc(100% - 100px);
+    }
+
+    #{$b}_big & {
+      margin-right: auto;
+      max-width: calc(100% - 166px);
+
+      @include screen('md') {
+        max-width: calc(100% - 100px);
+      }
     }
   }
 
@@ -194,6 +201,17 @@
     @include screen('bg') {
       min-width: 50px;
       width: 50px;
+    }
+
+    #{$b}_big & {
+      width: 82px;
+      min-width: 82px;
+      height: 50px;
+
+      @include screen('md') {
+        width: 50px;
+        min-width: 50px;
+      }
     }
 
     &:not(:last-child) {
@@ -215,6 +233,12 @@
       height: 2px;
       background-color: $color-basic;
       transform: translate3d(-50%, -50%, 0);
+
+      #{$b}_big & {
+        width: 11px;
+        height: 1px;
+        background-color: $color-black;
+      }
     }
 
     &.js-numberbox-minus {
@@ -224,12 +248,13 @@
     }
 
     &.js-numberbox-plus {
-      &::before {
-      }
-
       &::after {
         transform: translate3d(-50%, -50%, 0) rotate(90deg);
       }
+    }
+
+    #{$b}_big & {
+      flex: none;
     }
   }
 
@@ -241,6 +266,14 @@
     color: $color-basic;
     width: auto;
     min-width: 0;
+
+    #{$b}_big & {
+      @include text-big;
+
+      text-align: center;
+      line-height: (26 / 18);
+      color: black;
+    }
   }
 
   &__label {
@@ -251,6 +284,13 @@
     text-transform: uppercase;
     color: $color-text-light;
     margin-right: 5px;
+
+    #{$b}_big & {
+      @include text15;
+
+      line-height: (26 / 15);
+      color: $color-basic-light;
+    }
   }
 }
 
@@ -258,6 +298,7 @@
   position: relative;
   display: block;
   width: 100%;
+  $b: &;
 
   &__input {
     padding-right: 60px;
@@ -308,9 +349,6 @@
     }
 
     &.js-numberbox-plus {
-      &::before {
-      }
-
       &::after {
         transform: translate3d(-50%, -50%, 0) rotate(90deg);
       }

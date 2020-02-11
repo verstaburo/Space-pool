@@ -5,11 +5,12 @@ mixin inputbox()
 mixin input()
   input.input&attributes(attributes)
 
-mixin input-number(name)
+mixin input-number(name, value)
+  - var val = value || 0;
   +b.LABEL.input-numberbox&attributes(attributes)
     +e.field
       +e.label amount:
-      +e.INPUT.input.js-numberbox-input(type="text" name=name value="0")
+      +e.INPUT.input.js-numberbox-input(type="text" name=name value=val)
     +e.button.js-numberbox-minus
     +e.button.js-numberbox-plus
 

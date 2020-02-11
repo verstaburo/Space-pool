@@ -1,0 +1,161 @@
+.payment-summary {
+  $b: &;
+
+  display: block;
+  box-sizing: border-box;
+  padding: 50px 70px 126px 45px;
+  width: 100%;
+
+  @include screen('md') {
+    padding: 80px 40px 126px;
+  }
+
+  @include screen('sm') {
+    padding: 60px 10px 100px;
+  }
+
+  &__grid {
+    @include display-grid;
+    @include grid-template-rows(auto);
+    @include grid-template-columns(350px 70px 1fr);
+
+    width: 100%;
+    box-sizing: border-box;
+
+    @include screen('md') {
+      @include grid-template-columns(100%);
+      @include grid-template-rows(auto 60px auto);
+    }
+  }
+
+  &__side {
+    @include grid-column(1, 2);
+    @include grid-row(1, 2);
+
+    display: block;
+
+    @include screen('md') {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+    }
+
+    @include screen('sm') {
+      display: block;
+    }
+  }
+
+  &__type {
+    display: flex;
+    border-radius: 3px;
+    border: 1px solid $color-border-light;
+    padding: 13px;
+    box-sizing: border-box;
+    width: 100%;
+    height: 80px;
+    justify-content: flex-start;
+    align-items: center;
+    position: relative;
+
+    &:not(:first-child) {
+      margin-top: 10px;
+    }
+
+    #{$b}__star {
+      position: absolute;
+      top: 2px;
+      right: 8px;
+    }
+  }
+
+  &__counter {
+    &:not(:first-child) {
+      margin-top: 25px;
+
+      @include screen('sm') {
+        margin-top: 20px;
+      }
+    }
+
+    &:not(:last-child) {
+      margin-bottom: 20px;
+    }
+  }
+
+  &__note {
+    @include text;
+
+    line-height: (26 / 14);
+    color: #adbabd;
+
+    #{$b}__star {
+      margin-right: 4px;
+    }
+  }
+
+  &__star {
+    display: inline-block;
+    font-size: 18px;
+    line-height: 26px;
+    color: $color-basic-light;
+    font-weight: 700;
+  }
+
+  &__content {
+    @include grid-column(3, 4);
+    @include grid-row(1, 2);
+
+    @include screen('md') {
+      @include grid-column(1, 2);
+      @include grid-row(3, 4);
+    }
+  }
+
+  &__space {
+    &:not(:last-child) {
+      @include screen('md') {
+        margin-right: 40px;
+      }
+
+      @include screen('sm') {
+        margin-right: 0;
+      }
+    }
+
+    .space {
+      &__boxes {
+        margin-top: 0;
+
+        &:not(:last-child) {
+          margin-bottom: 13px;
+        }
+      }
+
+      &__media {
+        border-radius: 3px;
+
+        &:not(:last-child) {
+          margin-bottom: 22px;
+
+          @include screen('sm') {
+            margin-bottom: 15px;
+          }
+        }
+      }
+    }
+  }
+
+  &__describe {
+    &:not(:first-child) {
+      margin-top: 13px;
+
+      @include screen('md') {
+        margin-top: 0;
+      }
+
+      @include screen('sm') {
+        margin-top: 13px;
+      }
+    }
+  }
+}

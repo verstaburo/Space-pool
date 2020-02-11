@@ -119,6 +119,12 @@
         }
       }
 
+      &_fz26 {
+        font-size: 26px;
+        line-height: 1;
+        letter-spacing: normal;
+      }
+
       &_h45 {
         padding-top: 12px;
         padding-bottom: 13px;
@@ -161,6 +167,11 @@
         }
       }
 
+      &_mh64 {
+        padding-top: 25px;
+        padding-bottom: 13px;
+      }
+
       &_fw400 {
         font-weight: 400;
       }
@@ -177,6 +188,14 @@
 
       &_darker {
         color: $color-table-dark;
+      }
+
+      &_black {
+        color: $color-black;
+      }
+
+      &_gray {
+        color: $color-new-input;
       }
 
       &_bold {
@@ -353,7 +372,43 @@
     }
   }
 
+  &_wrap-sm.table {
+    tr {
+      @include screen('sm') {
+        flex-wrap: wrap;
+      }
+    }
+
+    td {
+      @include screen('sm') {
+        width: 100%;
+      }
+    }
+
+    .characteristics-table__cell {
+      &_mh64 {
+        &:first-child {
+          @include screen('sm') {
+            padding-top: 25px;
+            padding-bottom: 10px;
+          }
+        }
+
+        &:last-child {
+          @include screen('sm') {
+            padding-top: 10px;
+            padding-bottom: 13px;
+          }
+        }
+      }
+    }
+  }
+
   &_border {
+    &-bottom {
+      border-bottom: 1px solid $color-border-light;
+    }
+
     &_outside {
       border-top: 1px solid $color-border-light;
       border-bottom: 1px solid $color-border-light;
