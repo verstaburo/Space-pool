@@ -90,7 +90,8 @@ export default function cancelationPopupSteps() {
     window[fn](form).then((readySaved) => {
       const popup = $(self).closest('.popup');
       const activeStep = $(popup).attr('data-current-step');
-      if (readySaved && activeStep === 'step4') {
+      const finalStep = $(self).attr('data-call-additional-form-from-step');
+      if (readySaved && activeStep === finalStep) {
         $(self).removeClass('is-loading');
         const allSteps = $('[data-step]');
         const newStep = $('[data-step*=step5]');

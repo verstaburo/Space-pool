@@ -90,7 +90,7 @@ mixin cancelation-form()
 mixin cancelation-form-panel()
   +form-panel.form__panel_absolute.form__panel_border.hide(data-step="step1, step2, step3, step4")
     +link-icon('select-arrow', 'button')._back._bold._no-shadow.__button.js-stepform-reset(type="reset" form="cancelation-form") Back
-    +button('button', true)(type="submit" data-callback="serverSave" form="cancelation-form").__button_w360.js-goto-last-step Submit request
+    +button('button', true)(type="submit" data-callback="serverSave" form="cancelation-form" data-call-additional-form-from-step="step4").__button_w360.js-goto-last-step Submit request
     block
 
 
