@@ -36,8 +36,8 @@ mixin payment-summary(guest)
                           option(value=i)!=(i + ' months')
                       -}
             +e.text_light._lh-normal._ls-normal._mgt34 All contracts at Spacepool are rolled, which means that the contract does not end at the end of the initial rental period, but the service provider has the right to change the terms of the contract.
-          +form-section._mg46
-            if guest
+          if guest
+            +form-section._mg46
               +characteristics-table._normal._large._border-bottom._wrap-sm.__table_mb21
                 body
                   +e.TR.row
@@ -49,7 +49,8 @@ mixin payment-summary(guest)
                   +e.TR.row
                     +e.TD.cell_bold._black._mh64 Deposit amount/unit:
                     +e.TD.cell._gray._mh64 &pound;<b>540</b>
-            else
+          else
+            +form-section._mg11
               +e.field_row3
                 +form-section-wrapper._aie._h100p
                   +e.imitation_fx._sb
