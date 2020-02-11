@@ -1,4 +1,4 @@
-mixin payment-summary()
+mixin payment-summary(guest)
   +b.FORM.payment-summary__&attributes(attributes)#payment-summary-form
     +e.grid
       +e.side
@@ -36,55 +36,68 @@ mixin payment-summary()
                           option(value=i)!=(i + ' months')
                       -}
             +e.text_light._lh-normal._ls-normal._mgt34 All contracts at Spacepool are rolled, which means that the contract does not end at the end of the initial rental period, but the service provider has the right to change the terms of the contract.
-          +form-section._mg11
-            +e.field_row3
-              +form-section-wrapper._aie._h100p
-                +e.imitation_fx._sb
-                  +e.SPAN.label Notice period:
-              +form-section-wrapper
-                +form-box('')
-                  +input(type="text" name="noticePeriod" value="3" placeholder="Notice period:")
-              +form-section-wrapper
-                +form-box('')
-                  +select.js-select-input(name="noticePeriodUnit" data-mobile-title="Notice period")
-                    option(value="Days") Days
-                    option(value="Week") Weeks
-                    option(value="Month" selected) Months
-                    option(value="Year") Years
-                    option(value="per hour") Per Hour
-                    option(value="per day") Per Day
-                    option(value="per week") Per Week
-                    option(value="per month") Per Month
-                    option(value="per year") Per Year
-            +e.field_row3
-              +form-section-wrapper._aie._h100p
-                +e.imitation_fx._sb
-                  +e.SPAN.label Price per unit:
-                  +e.SPAN.pound &pound;
-              +form-section-wrapper
-                +form-box('')
-                  +input(type="text" name="pricePerUnit" value="540" placeholder="Price per unit:")
-              +form-section-wrapper
-                +form-box('')
-                  +select.js-select-input(name="priceUnit" data-mobile-title="Price unit")
-                    option(value="Days") Days
-                    option(value="Week") Weeks
-                    option(value="Month") Months
-                    option(value="Year") Years
-                    option(value="per hour") Per Hour
-                    option(value="per day") Per Day
-                    option(value="per week") Per Week
-                    option(value="per month" selected) Per Month
-                    option(value="per year") Per Year
-            +e.field_row3
-              +form-section-wrapper._aie._h100p
-                +e.imitation_fx._sb
-                  +e.SPAN.label Deposit amount/unit:
-                  +e.SPAN.pound &pound;
-              +form-section-wrapper
-                +form-box('')
-                  +input(type="text" name="deposit" value="540" placeholder="Deposit amount/unit:")
-              +form-section-wrapper
+          +form-section._mg46
+            if guest
+              +characteristics-table._normal._large._border-bottom._wrap-sm.__table_mb21
+                body
+                  +e.TR.row
+                    +e.TD.cell_bold._black._mh64 Notice period:
+                    +e.TD.cell._gray._mh64 <b>3 months</b>
+                  +e.TR.row
+                    +e.TD.cell_bold._black._mh64 Price per unit:
+                    +e.TD.cell._gray._mh64 &pound; <b>540 per month</b>
+                  +e.TR.row
+                    +e.TD.cell_bold._black._mh64 Deposit amount/unit:
+                    +e.TD.cell._gray._mh64 &pound;<b>540</b>
+            else
+              +e.field_row3
+                +form-section-wrapper._aie._h100p
+                  +e.imitation_fx._sb
+                    +e.SPAN.label Notice period:
+                +form-section-wrapper
+                  +form-box('')
+                    +input(type="text" name="noticePeriod" value="3" placeholder="Notice period:")
+                +form-section-wrapper
+                  +form-box('')
+                    +select.js-select-input(name="noticePeriodUnit" data-mobile-title="Notice period")
+                      option(value="Days") Days
+                      option(value="Week") Weeks
+                      option(value="Month" selected) Months
+                      option(value="Year") Years
+                      option(value="per hour") Per Hour
+                      option(value="per day") Per Day
+                      option(value="per week") Per Week
+                      option(value="per month") Per Month
+                      option(value="per year") Per Year
+              +e.field_row3
+                +form-section-wrapper._aie._h100p
+                  +e.imitation_fx._sb
+                    +e.SPAN.label Price per unit:
+                    +e.SPAN.pound &pound;
+                +form-section-wrapper
+                  +form-box('')
+                    +input(type="text" name="pricePerUnit" value="540" placeholder="Price per unit:")
+                +form-section-wrapper
+                  +form-box('')
+                    +select.js-select-input(name="priceUnit" data-mobile-title="Price unit")
+                      option(value="Days") Days
+                      option(value="Week") Weeks
+                      option(value="Month") Months
+                      option(value="Year") Years
+                      option(value="per hour") Per Hour
+                      option(value="per day") Per Day
+                      option(value="per week") Per Week
+                      option(value="per month" selected) Per Month
+                      option(value="per year") Per Year
+              +e.field_row3
+                +form-section-wrapper._aie._h100p
+                  +e.imitation_fx._sb
+                    +e.SPAN.label Deposit amount/unit:
+                    +e.SPAN.pound &pound;
+                +form-section-wrapper
+                  +form-box('')
+                    +input(type="text" name="deposit" value="540" placeholder="Deposit amount/unit:")
+                +form-section-wrapper
           +form-section._mg46
             +form-section-header._mg26
               +form-section-title._fz22._black Amount due on completion:
