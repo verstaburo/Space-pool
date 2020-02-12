@@ -11,7 +11,10 @@ mixin payment-summary(guest)
           +e.type
             +e.SPAN.star *
             +offer-summary({describe: "Hot desk in co-wroking area", price: "&pound;300 per month"})
-          +input-number('count', 2)._big.__counter
+          if guest
+            +input-number-readonly('count', 2)._big.__counter
+          else
+            +input-number('count', 2)._big.__counter
           +e.note <span class="payment-summary__star">*</span> VAT excluded
       +e.content
         +b.form.__form
@@ -20,21 +23,33 @@ mixin payment-summary(guest)
               +form-section-title._fz30._black Payment Summary
             +grid.grid_30x40.grid_int50
               +col({xl: 6, sm:12 })
-                +form-section-wrapper
-                  +form-box('Rent period start', 'calendar2')._icon
-                    +input.js-datepicker(type="text" name="startDate" value="13 January 2020" placeholder="Rent period start")
+                if guest
+                  +form-section-wrapper._aie._h100p
+                    +e.imitation
+                      +e.SPAN.label_top Rent period start
+                      +e.SPAN.value 13 January 2020
+                else
+                  +form-section-wrapper
+                    +form-box('Rent period start', 'calendar2')._icon
+                      +input.js-datepicker(type="text" name="startDate" value="13 January 2020" placeholder="Rent period start")
               +col({xl: 6, sm:12 })
-                +form-section-wrapper
-                  +form-box('Duration')._icon
-                    +select.js-select-input(name="duration" data-mobile-title="Duration")
-                      - for (var i = 1; i <= 12; i++) {
-                        if (i === 12)
-                          option(value=i selected)!=(i + ' months')
-                        else if (i === 1)
-                          option(value=i)!=(i + ' month')
-                        else
-                          option(value=i)!=(i + ' months')
-                      -}
+                if guest
+                  +form-section-wrapper._aie._h100p
+                    +e.imitation
+                      +e.SPAN.label_top Duration
+                      +e.SPAN.value 12 months
+                else
+                  +form-section-wrapper
+                    +form-box('Duration')._icon
+                      +select.js-select-input(name="duration" data-mobile-title="Duration")
+                        - for (var i = 1; i <= 12; i++) {
+                          if (i === 12)
+                            option(value=i selected)!=(i + ' months')
+                          else if (i === 1)
+                            option(value=i)!=(i + ' month')
+                          else
+                            option(value=i)!=(i + ' months')
+                        -}
             +e.text_light._lh-normal._ls-normal._mgt34 All contracts at Spacepool are rolled, which means that the contract does not end at the end of the initial rental period, but the service provider has the right to change the terms of the contract.
           if guest
             +form-section._mg46

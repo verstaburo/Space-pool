@@ -203,17 +203,6 @@
       width: 50px;
     }
 
-    #{$b}_big & {
-      width: 82px;
-      min-width: 82px;
-      height: 50px;
-
-      @include screen('md') {
-        width: 50px;
-        min-width: 50px;
-      }
-    }
-
     &:not(:last-child) {
       margin-right: -1px;
       z-index: 1;
@@ -254,7 +243,20 @@
     }
 
     #{$b}_big & {
+      width: 82px;
+      min-width: 82px;
+      height: 50px;
       flex: none;
+
+      @include screen('md') {
+        width: 50px;
+        min-width: 50px;
+      }
+    }
+
+    #{$b}.is-readonly & {
+      opacity: .2;
+      pointer-events: none;
     }
   }
 

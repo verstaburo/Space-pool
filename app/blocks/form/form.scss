@@ -2299,6 +2299,28 @@
     @include screen('sm') {
       @include text16;
     }
+
+    &_top {
+      @include text;
+      @include ellipsis(100%);
+
+      position: absolute;
+      display: block;
+      width: 100%;
+      bottom: 9px;
+      left: 0;
+      font-weight: 700;
+      color: $color-basic;
+      line-height: (26/14);
+      transform: translate3d(0, -27px, 0);
+      padding-right: 0;
+
+      @include screen('sm') {
+        @include text;
+
+        line-height: (26 / 14);
+      }
+    }
   }
 
   &__pound {
@@ -2316,6 +2338,7 @@
   &__imitation {
     @include text-big;
 
+    position: relative;
     font-weight: 400;
     line-height: (26 / 18);
     border-bottom: 1px solid $color-form-border;

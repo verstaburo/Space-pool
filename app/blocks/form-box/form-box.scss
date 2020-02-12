@@ -47,10 +47,7 @@
       color: $color-new-input;
     }
 
-    input:hover~&,
-    input:focus~&,
-    textarea:hover~&,
-    textarea:focus~& {
+    input:hover ~ &, input:focus ~ &, textarea:hover ~ &, textarea:focus ~ & {
       color: $color-basic;
 
       .is-error & {
@@ -63,9 +60,7 @@
       box-sizing: border-box;
     }
 
-    #{$b}.is-top &,
-    .choices.is-item-select~&,
-    .choices.is-open~& {
+    #{$b}.is-top &, .choices.is-item-select ~ &, .choices.is-open ~ & {
       @include text;
 
       font-weight: 700;
@@ -85,9 +80,7 @@
       }
     }
 
-    #{$b}_lbl-small.is-top &,
-    #{$b}_lbl-small .choices.is-item-select~&,
-    #{$b}_lbl-small .choices.is-open~& {
+    #{$b}_lbl-small.is-top &, #{$b}_lbl-small .choices.is-item-select ~ &, #{$b}_lbl-small .choices.is-open ~ & {
       @include text13;
 
       line-height: (26 / 13);
@@ -111,9 +104,7 @@
       color: transparent;
     }
 
-    #{$b}_gray-label.is-top &,
-    #{$b}_gray-label .choices.is-item-select~&,
-    #{$b}_gray-label .choices.is-open~& {
+    #{$b}_gray-label.is-top &, #{$b}_gray-label .choices.is-item-select ~ &, #{$b}_gray-label .choices.is-open ~ & {
       color: $color-bc-light;
 
       .is-error & {
@@ -121,21 +112,21 @@
       }
     }
 
-    textarea~& {
+    textarea ~ & {
       top: 4px;
       bottom: auto;
     }
 
-    .textarea_bpd~& {
+    .textarea_bpd ~ & {
       top: 8px;
       bottom: auto;
     }
 
-    #{$b}.is-top textarea~& {
+    #{$b}.is-top textarea ~ & {
       transform: translate3d(0, -24px, 0);
     }
 
-    #{$b}.is-top .textarea_bpd~& {
+    #{$b}.is-top .textarea_bpd ~ & {
       transform: translate3d(0, -30px, 0);
     }
 
@@ -260,7 +251,6 @@
   }
 
   &__phone {
-
     &_code.input {
       width: 44px;
       max-width: 44px;
@@ -312,33 +302,9 @@
   &_phone {
     display: flex;
     justify-content: flex-start;
-
-    // &::before {
-    //   @include pseudo;
-
-    //   bottom: 12px;
-    //   left: 42px;
-    //   width: 1px;
-    //   height: 18px;
-    //   background-color: $color-form-border;
-    //   opacity: 0;
-    //   transition: opacity $ease-main;
-    //   pointer-events: none;
-    // }
-
-    // &.is-top::before {
-    //   opacity: 1;
-    // }
-
-    &.is-top input {
-      &::placeholder {
-        // color: $color-placeholder;
-      }
-    }
   }
 
   &_sh {
-
     .input {
       padding-bottom: 4px;
 
@@ -359,14 +325,12 @@
   }
 
   &_password {
-
     .input {
       color: transparent;
       user-select: none;
     }
 
-    .input:not([readonly]):focus~#{$b}__password-mask {
-
+    .input:not([readonly]):focus ~ #{$b}__password-mask {
       &::before {
         animation: cursor 1s ease infinite;
       }
@@ -374,9 +338,7 @@
   }
 
   &_icon {
-
-    .input,
-    .textarea {
+    .input, .textarea {
       padding-right: 30px;
     }
 
