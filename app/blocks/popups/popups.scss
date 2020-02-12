@@ -515,6 +515,13 @@
   &__scrollblock {
     display: block;
     width: 100%;
+
+    &_original {
+      @include screen('md') {
+        height: 100%;
+        overflow: auto;
+      }
+    }
   }
 
   &__inner-content {
@@ -686,6 +693,12 @@
       &__scrollblock {
         @include screen('md') {
           height: 100%;
+        }
+
+        &_original {
+          @include screen('md') {
+            overflow: auto;
+          }
         }
       }
 

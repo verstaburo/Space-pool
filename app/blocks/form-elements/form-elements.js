@@ -462,6 +462,14 @@ export function selects() {
         $(container).removeClass('is-item-select');
       }
     });
+
+    $(document).on('showDropdown', 'select', () => {
+      $('body').addClass('is-choices-dropdown-showed');
+    });
+
+    $(document).on('hideDropdown', 'select', () => {
+      $('body').removeClass('is-choices-dropdown-showed');
+    });
   }
 
   // следим чтобы не вылезали за правую границу страницы

@@ -94,6 +94,8 @@
       transition: all $ease-main;
       opacity: 0;
       pointer-events: none;
+      touch-action: none;
+      visibility: hidden;
 
       .choices__item {
         @include text16;
@@ -134,6 +136,8 @@
       &.is-active {
         opacity: 1;
         pointer-events: auto;
+        touch-action: auto;
+        visibility: visible;
       }
 
       .popup &,.select_white ~ & {
@@ -876,7 +880,7 @@
 
       &.is-item-select {
         #{$k} {
-          &__inner{
+          &__inner {
             font-weight: 400;
           }
         }
@@ -1020,9 +1024,7 @@
   }
 
   &_popup {
-
     #{$k} {
-
       &__scrollblock {
         @include screen('sm') {
           height: 100%;
@@ -1031,7 +1033,6 @@
       }
 
       &__list {
-
         &--dropdown {
           @include screen('sm') {
             position: fixed;
@@ -1040,7 +1041,7 @@
             width: 100%;
             height: 100%;
             border: none !important;
-            z-index: 3;
+            z-index: 100;
             max-height: none;
             background-color: $color-white;
           }
@@ -1059,7 +1060,7 @@
           #{$k}__list {
             @include screen('sm') {
               padding-top: 57px;
-              padding-bottom: 56px;
+              padding-bottom: 80px;
             }
           }
 
@@ -1084,12 +1085,17 @@
         }
       }
     }
+
+    &.is-opent #{k}__list--single {
+      @include screen('sm') {
+        touch-action: none;
+        pointer-events: none;
+      }
+    }
   }
 
   &_notoggle {
-
     #{$k} {
-
       &__toggle {
         display: none;
       }
