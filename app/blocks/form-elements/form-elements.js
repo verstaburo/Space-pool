@@ -55,7 +55,7 @@ export function selects() {
         scrollWrapper.classList.add('choices__scrollblock');
         $(choiceList).wrap(scrollWrapper);
         const newScrollWrapper = $(dropdown).find('.choices__scrollblock');
-        window.globalFunctions.scrollbarLightGray(newScrollWrapper);
+        window.globalFunctions.scrollbarLightGray(newScrollWrapper, true);
         if ($(sel).attr('readonly') !== undefined) {
           $(main).addClass('is-readonly');
           $(formbox).addClass('is-readonly');
@@ -106,7 +106,7 @@ export function selects() {
         scrollWrapper.classList.add('choices__scrollblock');
         $(choiceList).wrap(scrollWrapper);
         const newScrollWrapper = $(dropdown).find('.choices__scrollblock');
-        window.globalFunctions.scrollbarLightGray(newScrollWrapper);
+        window.globalFunctions.scrollbarLightGray(newScrollWrapper, true);
         if ($(sel).attr('readonly') !== undefined) {
           $(main).addClass('is-readonly');
           $(formbox).addClass('is-readonly');
@@ -157,7 +157,7 @@ export function selects() {
           scrollWrapper.classList.add('choices__scrollblock');
           $(choiceList).wrap(scrollWrapper);
           const newScrollWrapper = $(dropdown).find('.choices__scrollblock');
-          window.globalFunctions.scrollbarDark(newScrollWrapper);
+          window.globalFunctions.scrollbarDark(newScrollWrapper, true);
           if ($(select).attr('readonly') !== undefined) {
             $(main).addClass('is-readonly');
             $(formbox).addClass('is-readonly');
@@ -208,7 +208,7 @@ export function selects() {
           scrollWrapper.classList.add('choices__scrollblock');
           $(choiceList).wrap(scrollWrapper);
           const newScrollWrapper = $(dropdown).find('.choices__scrollblock');
-          window.globalFunctions.scrollbarBold(newScrollWrapper);
+          window.globalFunctions.scrollbarBold(newScrollWrapper, true);
           if ($(select).attr('readonly') !== undefined) {
             $(main).addClass('is-readonly');
             $(formbox).addClass('is-readonly');
@@ -258,7 +258,7 @@ export function selects() {
           scrollWrapper.classList.add('choices__scrollblock');
           $(choiceList).wrap(scrollWrapper);
           const newScrollWrapper = $(dropdown).find('.choices__scrollblock');
-          window.globalFunctions.scrollbarBold(newScrollWrapper);
+          window.globalFunctions.scrollbarBold(newScrollWrapper, true);
           if ($(select).attr('readonly') !== undefined) {
             $(main).addClass('is-readonly');
             $(formbox).addClass('is-readonly');
@@ -308,7 +308,7 @@ export function selects() {
           scrollWrapper.classList.add('choices__scrollblock');
           $(choiceList).wrap(scrollWrapper);
           const newScrollWrapper = $(dropdown).find('.choices__scrollblock');
-          window.globalFunctions.scrollbarLight(newScrollWrapper);
+          window.globalFunctions.scrollbarLight(newScrollWrapper, true);
           if ($(select).attr('readonly') !== undefined) {
             $(formbox).addClass('is-readonly');
             $(main).addClass('is-readonly');
@@ -359,7 +359,7 @@ export function selects() {
           scrollWrapper.classList.add('choices__scrollblock');
           $(choiceList).wrap(scrollWrapper);
           const newScrollWrapper = $(dropdown).find('.choices__scrollblock');
-          window.globalFunctions.scrollbarLight(newScrollWrapper);
+          window.globalFunctions.scrollbarLight(newScrollWrapper, true);
           if ($(select).attr('readonly') !== undefined) {
             $(main).addClass('is-readonly');
             $(formbox).addClass('is-readonly');
@@ -410,7 +410,7 @@ export function selects() {
           scrollWrapper.classList.add('choices__scrollblock');
           $(choiceList).wrap(scrollWrapper);
           const newScrollWrapper = $(dropdown).find('.choices__scrollblock');
-          window.globalFunctions.scrollbarLight(newScrollWrapper);
+          window.globalFunctions.scrollbarLight(newScrollWrapper, true);
           if ($(select).attr('readonly') !== undefined) {
             $(main).addClass('is-readonly');
             $(formbox).addClass('is-readonly');

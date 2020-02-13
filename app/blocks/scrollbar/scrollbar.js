@@ -11,10 +11,13 @@ export default function scrollbar() {
 
   window.globalFunctions.getScrollInstance = getScrollInstance;
 
-  function scrollbarS(el) {
-    OverlayScrollbars(el, {
+  function scrollbarS(el, isChainBlock) {
+    const inst = OverlayScrollbars(el, {
       className: 'os-theme-custom',
     });
+    if (isChainBlock) {
+      inst.addExt('scroll-chain');
+    }
   }
 
   window.globalFunctions.scrollbarS = scrollbarS;
@@ -23,10 +26,13 @@ export default function scrollbar() {
     scrollbarS(el);
   });
 
-  function scrollbarThin(el) {
-    OverlayScrollbars(el, {
+  function scrollbarThin(el, isChainBlock) {
+    const inst = OverlayScrollbars(el, {
       className: 'os-theme-custom-thin',
     });
+    if (isChainBlock) {
+      inst.addExt('scroll-chain');
+    }
   }
   window.globalFunctions.scrollbarThin = scrollbarThin;
 
@@ -34,10 +40,13 @@ export default function scrollbar() {
     scrollbarThin(el);
   });
 
-  function scrollbarBold(el) {
-    OverlayScrollbars(el, {
+  function scrollbarBold(el, isChainBlock) {
+    const inst = OverlayScrollbars(el, {
       className: 'os-theme-custom-bold',
     });
+    if (isChainBlock) {
+      inst.addExt('scroll-chain');
+    }
   }
   window.globalFunctions.scrollbarBold = scrollbarBold;
 
@@ -45,10 +54,13 @@ export default function scrollbar() {
     scrollbarThin(el);
   });
 
-  function scrollbarDark(el) {
-    OverlayScrollbars(el, {
+  function scrollbarDark(el, isChainBlock) {
+    const inst = OverlayScrollbars(el, {
       className: 'os-theme-custom-dark',
     });
+    if (isChainBlock) {
+      inst.addExt('scroll-chain');
+    }
   }
   window.globalFunctions.scrollbarDark = scrollbarDark;
 
@@ -56,10 +68,13 @@ export default function scrollbar() {
     scrollbarDark(el);
   });
 
-  function scrollbarLight(el) {
-    OverlayScrollbars(el, {
+  function scrollbarLight(el, isChainBlock) {
+    const inst = OverlayScrollbars(el, {
       className: 'os-theme-custom-light',
     });
+    if (isChainBlock) {
+      inst.addExt('scroll-chain');
+    }
   }
   window.globalFunctions.scrollbarLight = scrollbarLight;
 
@@ -67,10 +82,13 @@ export default function scrollbar() {
     scrollbarLight(el);
   });
 
-  function scrollbarLightGray(el) {
-    OverlayScrollbars(el, {
+  function scrollbarLightGray(el, isChainBlock) {
+    const inst = OverlayScrollbars(el, {
       className: 'os-theme-custom-light-gray',
     });
+    if (isChainBlock) {
+      inst.addExt('scroll-chain');
+    }
   }
   window.globalFunctions.scrollbarLightGray = scrollbarLightGray;
 
@@ -78,10 +96,13 @@ export default function scrollbar() {
     scrollbarLightGray(el);
   });
 
-  function scrollbarWide(el) {
-    OverlayScrollbars(el, {
+  function scrollbarWide(el, isChainBlock) {
+    const inst = OverlayScrollbars(el, {
       className: 'os-theme-custom-wide',
     });
+    if (isChainBlock) {
+      inst.addExt('scroll-chain');
+    }
   }
   window.globalFunctions.scrollbarWide = scrollbarWide;
 
@@ -93,9 +114,10 @@ export default function scrollbar() {
     const instance = OverlayScrollbars(el);
     if (instance === undefined) {
       if (window.Modernizr.mq(`(max-width: ${window.globalOptions.sizes.md - 1}px)`)) {
-        OverlayScrollbars(el, {
+        const inst = OverlayScrollbars(el, {
           className: 'os-theme-custom-light',
         });
+        inst.addExt('scroll-chain');
       }
     } else if (window.Modernizr.mq(`(min-width: ${window.globalOptions.sizes.md}px)`)) {
       instance.destroy();
