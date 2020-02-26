@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimal-ui">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>SpacePool - Account settings</title>
+    <title>SpacePool - Sign Up</title>
     <meta name="description" content="">
     <meta name="keywords" content="">
     <link href="favicon.ico" rel="shortcut icon">
@@ -57,7 +57,7 @@
             </linearGradient>
         </defs>
     </svg>
-    <header class="header header_border is-login">
+    <header class="header is-login">
         <div class="header__wrapper">
             <div class="container">
                 <div class="header__logo">
@@ -159,61 +159,74 @@
         </div>
     </header>
     <main class="page" role="main">
-        <section class="content content_reverse">
+        <section class="content content_reverse content_last content_mt40">
             <div class="container">
-                <div class="content__wrapper">
-                    <div class="content__column content__column_aside content__column_ptop hide-lg" data-sticky-parent="data-sticky-parent">
-                        <aside class="js-sticky-block sidebar sidebar_dark">
-                            <div class="side-navigation">
-                                <ul class="nav-list nav-list_sidebar side-navigation__navigation">
-                                    <li class="nav-list__item">
-                                        <a class="link link_white" href="#">
-                                            <span class="link__text">My reservations</span>
-                                        </a>
-                                        <div class="nav-list__marker">1</div>
-                                    </li>
-                                    <li class="nav-list__item">
-                                        <a class="link link_white" href="#">
-                                            <span class="link__text">History of booking</span>
-                                        </a>
-                                    </li>
-                                    <li class="nav-list__item">
-                                        <a class="link link_white" href="#">
-                                            <span class="link__text">Messages</span>
-                                        </a>
-                                        <div class="nav-list__marker">3</div>
-                                    </li>
-                                    <li class="nav-list__item">
-                                        <a class="link link_white" href="#">
-                                            <span class="link__text">Favourites</span>
-                                        </a>
-                                    </li>
-                                    <li class="nav-list__item">
-                                        <a class="link link_white is-active" href="#">
-                                            <span class="link__text">Profile & Settings</span>
-                                        </a>
-                                    </li>
-                                </ul>
-                                <div class="note note_side hide-sm">
-                                    <div class="note__mark">
-                                        <svg class="note__icon"><use xlink:href="assets/images/icon.svg#icon_info"></use></svg>
-                                    </div>
-                                    <div class="note__text">Change your personal info, password and notification options here</div>
-                                </div>
+                <div class="grid grid_layout grid_content">
+                    <div class="grid__col grid__col_xl_3 grid__col_lg_12">
+                        <aside class="sidebar sidebar_no-bg">
+                            <h2 class="page-title page-title_small sidebar__title">Choose an option:</h2>
+                            <div class="sidebar__toggles">
+                                <label class="form-toggle sidebar__toggle">
+                                    <input class="form-toggle__input" type="radio" name="userType" value="tenant" data-hide-elements="" data-show-elements="socials" data-toggle-form="data-toggle-form" checked="checked" />
+                                    <span class="form-toggle__content">
+                                        <svg class="form-toggle__arrow"><use xlink:href="assets/images/icon.svg#icon_arrow3"></use></svg>
+                                        <span class="form-toggle__subtitle">To rent Spaces Sign up as</span>
+                                        <span class="form-toggle__title">Tenant</span>
+                                        <span class="form-toggle__text">Register as a Tenant to&nbsp;get opportunity to rent Hot and Fixed desks, Meeting Rooms and Office Spaces.</span>
+                                    </span>
+                                </label>
+                                <label class="form-toggle sidebar__toggle">
+                                    <input class="form-toggle__input" type="radio" name="userType" value="host" data-hide-elements="socials" data-show-elements="" data-toggle-form="data-toggle-form" />
+                                    <span class="form-toggle__content">
+                                        <svg class="form-toggle__arrow"><use xlink:href="assets/images/icon.svg#icon_arrow3"></use></svg>
+                                        <span class="form-toggle__subtitle">To list on Spacepool sign up as</span>
+                                        <span class="form-toggle__title">Host</span>
+                                        <span class="form-toggle__text">Register as a host and get the opportunity to list your space on Spacepool and make offers for thousands of tenants</span>
+                                    </span>
+                                </label>
                             </div>
                         </aside>
                     </div>
-                    <div class="content__column content__column_main">
-                        <form class="form form_pb js-form-with-hidden-panel" data-validated-form="data-validated-form">
-                            <fieldset class="form__section">
-                                <div class="form__header">
-                                    <h3 class="form__title">Basic account information</h3>
+                    <div class="grid__col grid__col_xl_8 grid__col_lg_12">
+                        <form class="form" data-validated-form="data-validated-form">
+                            <div class="form__checker form__checker_block form__checker_mt62 form__checker_mb45" data-form-element="registration-checker">
+                                <label class="checkbox checkbox_box3 checkbox_fz17">
+                                    <input class="checkbox__input" name="terms" value="1" type="checkbox" data-checker="registration" />
+                                    <span class="checkbox__box">
+                                        <svg class="checkbox__icon"><use xlink:href="assets/images/icon.svg#icon_check3"></use></svg>
+                                    </span>
+                                    <span class="checkbox__content">I agree with Spacepool&nbsp;
+                                        <a class="link link_underline" href="#">
+                                            <span class="link__text">Terms and conditions</span>
+                                        </a>
+                                    </span>
+                                </label>
+                            </div>
+                            <fieldset class="form__section form__section_mg43 form__section_dis is-disabled" data-checker-target="registration" data-form-element="socials">
+                                <div class="grid grid_layout grid_int10">
+                                    <div class="grid__col grid__col_xl_6 grid__col_sm_12">
+                                        <a class="social-button social-button_fb social-button_white social-button_h60" href="#">
+                                            <svg class="social-button__icon"><use xlink:href="assets/images/icon.svg#icon_fb-symbol"></use></svg>
+                                            <span class="social-button__text">Sign up with Facebook</span>
+                                        </a>
+                                    </div>
+                                    <div class="grid__col grid__col_xl_6 grid__col_sm_12">
+                                        <a class="social-button social-button_gg social-button_white social-button_h60" href="#">
+                                            <img class="social-button__icon" src="assets/images/google.svg" alt="" role="presentation" />
+                                            <span class="social-button__text">Sign up with Google Account</span>
+                                        </a>
+                                    </div>
                                 </div>
-                                <div class="grid grid_big">
+                            </fieldset>
+                            <fieldset class="form__section form__section_mg66 form__section_dis is-disabled" data-checker-target="registration">
+                                <div class="form__header form__header_mg65">
+                                    <div class="form__text">Or just feel the form below:</div>
+                                </div>
+                                <div class="grid grid_big grid_int59">
                                     <div class="grid__col grid__col_xl_6 grid__col_md_12">
                                         <div class="form__wrapper">
                                             <label class="form-box">
-                                                <input class="input" type="text" name="firstName" value="Eugene" placeholder="First name" required="required" />
+                                                <input class="input" type="text" name="firstName" placeholder="First name" required="required" />
                                                 <span class="form-box__label">First name</span>
                                             </label>
                                             <div class="error-message"></div>
@@ -222,343 +235,69 @@
                                     <div class="grid__col grid__col_xl_6 grid__col_md_12">
                                         <div class="form__wrapper">
                                             <label class="form-box">
-                                                <input class="input" type="text" name="lastName" value="Sheeleen" placeholder="Last name" />
+                                                <input class="input" type="text" name="lastName" placeholder="Last name" required="required" />
                                                 <span class="form-box__label">Last name</span>
                                             </label>
                                             <div class="error-message"></div>
                                         </div>
                                     </div>
-                                    <div class="grid__col grid__col_xl_6 grid__col_md_12">
+                                    <div class="grid__col grid__col_xl_12">
                                         <div class="form__wrapper">
                                             <label class="form-box">
-                                                <select class="select js-select-input" name="country" required="required">
-                                                    <option value="" placeholder>Country</option>
-                                                    <option value="uk" selected>United-Kingdom</option>
-                                                    <option value="ru">Russia</option>
-                                                    <option value="de">Germany</option>
-                                                    <option value="fr">France</option>
-                                                </select>
-                                                <span class="form-box__label">Country</span>
-                                            </label>
-                                            <div class="error-message"></div>
-                                        </div>
-                                    </div>
-                                    <div class="grid__col grid__col_xl_6 grid__col_md_12 grid__col_md-order2">
-                                        <div class="form__wrapper">
-                                            <label class="form-box">
-                                                <input class="input" type="tel" name="phone" value="+4476896898983" placeholder="Phone number" data-tel-number="data-tel-number" />
-                                                <span class="form-box__label">Phone number</span>
-                                            </label>
-                                            <div class="error-message"></div>
-                                        </div>
-                                    </div>
-                                    <div class="grid__col grid__col_xl_6 grid__col_md_12">
-                                        <div class="form__wrapper">
-                                            <label class="form-box">
-                                                <input class="input" type="email" name="email" value="es@bsagency.design" placeholder="E-mail adress" required="required" />
+                                                <input class="input" type="email" name="email" placeholder="E-mail adress" required="required" />
                                                 <span class="form-box__label">E-mail adress</span>
                                             </label>
                                             <div class="error-message"></div>
                                         </div>
                                     </div>
-                                    <div class="grid__col grid__col_xl_6 grid__col_md_12 grid__col_md-order2">
-                                        <div class="form__wrapper">
-                                            <label class="avatar-uploader form__avatar-uploader" data-upload-container="data-upload-container">
-                                                <span class="avatar-uploader__preview" data-image-preview="data-image-preview">
-                                                    <span class="avatar avatar_big">
-                                                        <img class="avatar__image" src="assets/images/ava5.jpg" alt="" role="presentation" />
-                                                    </span>
-                                                </span>
-                                                <span class="avatar-uploader__content">
-                                                    <input class="avatar-uploader__input js-upload-image" type="file" name="ava" />
-                                                    <span class="link link_icon link_icon_gray-dark link_icon_mid link_form-underline link_no-shadow link_bold avatar-uploader__name">
-                                                        <svg class="link__icon link__icon_img"><use xlink:href="assets/images/icon.svg#icon_img"></use></svg>
-                                                        <span class="link__text">Change userpic</span>
-                                                    </span>
-                                                </span>
-                                            </label>
-                                            <div class="error-message"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </fieldset>
-                            <fieldset class="form__section form__section_bmg">
-                                <div class="form__header form__header_smg">
-                                    <h3 class="form__title">Password change</h3>
-                                    <div class="form__text">In case you want to change your password just fill the form below:</div>
-                                </div>
-                                <div class="grid grid_big">
-                                    <div class="grid__col grid__col_xl_6 grid__col_md_12">
-                                        <div class="form__wrapper">
-                                            <label class="form-box form-box_password">
-                                                <input class="input" type="password" name="oldPassword" value="EugeneEugene" placeholder="Old password" readonly="readonly" />
-                                                <span class="form-box__password-mask" data-password-mask="data-password-mask">
-                                                    <span></span>
-                                                    <span></span>
-                                                    <span></span>
-                                                    <span></span>
-                                                    <span></span>
-                                                    <span></span>
-                                                    <span></span>
-                                                    <span></span>
-                                                    <span></span>
-                                                    <span></span>
-                                                    <span></span>
-                                                    <span></span>
-                                                </span>
-                                                <span class="form-box__label">Old password</span>
-                                            </label>
-                                            <div class="error-message"></div>
-                                        </div>
-                                    </div>
-                                    <div class="grid__col grid__col_xl_6 grid__col_md_12">
-                                        <div class="form__wrapper">
-                                            <a class="link link_icon link_icon_black link_icon_mid link_form-underline link_no-shadow link_bold form__link form__link_big form__link_mt js-popup" href="#popup-password-change">
-                                                <svg class="link__icon link__icon_key"><use xlink:href="assets/images/icon.svg#icon_key"></use></svg>
-                                                <span class="link__text">Change password</span>
-                                            </a>
-                                            <div class="error-message"></div>
-                                        </div>
-                                    </div>
-                                    <div class="grid__col grid__col_xl_6 grid__col_md_12 grid__col_md-order2">
-                                        <div class="form__wrapper">
-                                            <div class="form__text form__text_compensate">
-                                                <p>Forgot your existing password?</p>
-                                                <a class="link link_gray link_underline" href="#">
-                                                    <span class="link__text">Recover the password VIA E-mail adress</span>
-                                                </a>
-                                            </div>
-                                            <div class="error-message"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </fieldset>
-                            <fieldset class="form__section form__section_bmg form__section_bmg_ext">
-                                <div class="form__header form__header_lg-mmg">
-                                    <h3 class="form__title">Profile Data</h3>
-                                </div>
-                                <div class="grid grid_big">
-                                    <div class="grid__col grid__col_xl_6 grid__col_md_12">
-                                        <div class="form__wrapper">
-                                            <label class="form-box form-box_icon">
-                                                <input class="input js-datepicker" type="text" name="birthday" value="31 August 1986" placeholder="Birthday" data-mindate="all" />
-                                                <span class="form-box__label">Birthday</span>
-                                                <svg class="form-box__icon"><use xlink:href="assets/images/icon.svg#icon_calendar2"></use></svg>
-                                            </label>
-                                            <div class="error-message"></div>
-                                        </div>
-                                    </div>
                                     <div class="grid__col grid__col_xl_6 grid__col_md_12">
                                         <div class="form__wrapper">
                                             <label class="form-box">
-                                                <select class="select js-select-input" name="residencyCountry">
-                                                    <option value="" placeholder>Residency country</option>
-                                                    <option value="lv" selected>Latvia</option>
-                                                    <option value="ru">Russia</option>
-                                                    <option value="de">Germany</option>
-                                                    <option value="fr">France</option>
-                                                </select>
-                                                <span class="form-box__label">Residency country</span>
+                                                <input class="input" type="password" name="password" placeholder="Password" data-parsley-passwordequalto="[data-password2]" data-password1="password1" required="required" />
+                                                <span class="form-box__label">Password</span>
                                             </label>
                                             <div class="error-message"></div>
                                         </div>
                                     </div>
+                                    <div class="grid__col grid__col_xl_6 grid__col_md_12 hide-md"></div>
                                     <div class="grid__col grid__col_xl_6 grid__col_md_12">
                                         <div class="form__wrapper">
                                             <label class="form-box">
-                                                <select class="select js-select-input" name="educationGrade">
-                                                    <option value="" placeholder>Education grade</option>
-                                                    <option value="bachelor" selected>Bachelor</option>
-                                                    <option value="doctor">Doctor</option>
-                                                    <option value="master">Master</option>
-                                                    <option value="basic">Basic</option>
-                                                </select>
-                                                <span class="form-box__label">Education grade</span>
-                                            </label>
-                                            <div class="error-message"></div>
-                                        </div>
-                                    </div>
-                                    <div class="grid__col grid__col_xl_6 grid__col_md_12">
-                                        <div class="form__wrapper">
-                                            <label class="form-box">
-                                                <input class="input" type="text" name="companyName" value="SIA Dezi BS" placeholder="Company name" />
-                                                <span class="form-box__label">Company name</span>
-                                            </label>
-                                            <div class="error-message"></div>
-                                        </div>
-                                    </div>
-                                    <div class="grid__col grid__col_xl_6 grid__col_md_12">
-                                        <div class="form__wrapper">
-                                            <label class="form-box">
-                                                <input class="input" type="text" name="employeePosition" value="Art-director" placeholder="Employee position" />
-                                                <span class="form-box__label">Employee position</span>
+                                                <input class="input" type="password" name="password" placeholder="Password one more time" data-password2="password2" data-parsley-passwordequalto="[data-password1]" required="required" />
+                                                <span class="form-box__label">Password one more time</span>
                                             </label>
                                             <div class="error-message"></div>
                                         </div>
                                     </div>
                                 </div>
                             </fieldset>
-                            <fieldset class="form__section form__section_mg80">
-                                <div class="form__checker form__checker_block form__checker_mgt-20" data-form-element="details-checker">
-                                    <label class="checkbox checkbox_v2">
-                                        <input class="checkbox__input" name="isCompaty" value="1" type="checkbox" data-checker="details" />
-                                        <span class="checkbox__box">
-                                            <svg class="checkbox__icon"><use xlink:href="assets/images/icon.svg#icon_check"></use></svg>
-                                        </span>
-                                        <span class="checkbox__content">I work under brand or company</span>
-                                    </label>
-                                </div>
-                                <div class="form__content is-disabled" data-checker-target="details" data-form-element="details">
-                                    <div class="form__header form__header_mg35">
-                                        <h3 class="form__title">Company details:</h3>
-                                    </div>
-                                    <div class="grid grid_big">
-                                        <div class="grid__col grid__col_xl_6 grid__col_md_12">
-                                            <div class="form__wrapper">
-                                                <label class="form-box">
-                                                    <input class="input" type="text" name="companyName" placeholder="Company name" required="required" />
-                                                    <span class="form-box__label">Company name</span>
-                                                </label>
-                                                <div class="error-message"></div>
-                                            </div>
-                                        </div>
-                                        <div class="grid__col grid__col_xl_6 grid__col_md_12">
-                                            <div class="form__wrapper">
-                                                <label class="form-box">
-                                                    <input class="input" type="text" name="companyRegN" placeholder="Company Registry No." required="required" />
-                                                    <span class="form-box__label">Company Registry No.</span>
-                                                </label>
-                                                <div class="error-message"></div>
-                                            </div>
-                                        </div>
-                                        <div class="grid__col grid__col_xl_6 grid__col_md_12">
-                                            <div class="form__wrapper">
-                                                <label class="form-box">
-                                                    <input class="input" type="text" name="VATnumber" placeholder="VAT number if you have it" />
-                                                    <span class="form-box__label">VAT number if you have it</span>
-                                                </label>
-                                                <div class="error-message"></div>
-                                            </div>
-                                        </div>
-                                        <div class="grid__col grid__col_xl_6 grid__col_md_12">
-                                            <div class="form__wrapper">
-                                                <label class="form-box">
-                                                    <input class="input" type="text" name="legalAdressCity" placeholder="Legal adress city" required="required" />
-                                                    <span class="form-box__label">Legal adress city</span>
-                                                </label>
-                                                <div class="error-message"></div>
-                                            </div>
-                                        </div>
-                                        <div class="grid__col grid__col_xl_6 grid__col_md_12">
-                                            <div class="form__wrapper">
-                                                <label class="form-box">
-                                                    <input class="input" type="text" name="legalAdressStreet" placeholder="Legal adress street" required="required" />
-                                                    <span class="form-box__label">Legal adress street</span>
-                                                </label>
-                                                <div class="error-message"></div>
-                                            </div>
-                                        </div>
-                                        <div class="grid__col grid__col_xl_6 grid__col_md_12">
-                                            <div class="form__wrapper">
-                                                <label class="form-box">
-                                                    <input class="input" type="text" name="buildingN" placeholder="Building No." required="required" />
-                                                    <span class="form-box__label">Building No.</span>
-                                                </label>
-                                                <div class="error-message"></div>
-                                            </div>
-                                        </div>
-                                        <div class="grid__col grid__col_xl_6 grid__col_md_12">
-                                            <div class="form__wrapper">
-                                                <label class="form-box">
-                                                    <input class="input" type="text" name="officeN" placeholder="Apartment or Office No." />
-                                                    <span class="form-box__label">Apartment or Office No.</span>
-                                                </label>
-                                                <div class="error-message"></div>
-                                            </div>
-                                        </div>
-                                        <div class="grid__col grid__col_xl_6 grid__col_md_12">
-                                            <div class="form__wrapper">
-                                                <label class="form-box">
-                                                    <input class="input" type="text" name="ZIPcode" placeholder="ZIP/Postal Code" required="required" />
-                                                    <span class="form-box__label">ZIP/Postal Code</span>
-                                                </label>
-                                                <div class="error-message"></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </fieldset>
-                            <fieldset class="form__section">
-                                <div class="form__header form__header_bmg">
-                                    <h3 class="form__title">Service settings and notifications</h3>
-                                </div>
-                                <div class="grid grid_big">
+                            <fieldset class="form__section form__section_mg66 form__section_dis is-disabled" data-checker-target="registration">
+                                <div class="grid grid_big grid_int59">
                                     <div class="grid__col grid__col_xl_6 grid__col_md_12">
-                                        <div class="form__wrapper form__wrapper_noflex">
-                                            <label class="checkbox checkbox_border">
-                                                <input class="checkbox__input" name="settings" value="1" checked="checked" type="checkbox" />
+                                        <div class="form__wrapper form__wrapper_mg22 form__wrapper_aic">
+                                            <label class="checkbox">
+                                                <input class="checkbox__input" name="subscribe" value="1" checked="checked" type="checkbox" />
                                                 <span class="checkbox__box">
                                                     <svg class="checkbox__icon"><use xlink:href="assets/images/icon.svg#icon_check"></use></svg>
                                                 </span>
-                                                <span class="checkbox__content">Notify me Via E-mail about new messages</span>
+                                                <span class="checkbox__content">Sign me up to Space Pool notification via E-mail</span>
                                             </label>
                                             <div class="error-message"></div>
                                         </div>
-                                        <div class="form__wrapper form__wrapper_noflex">
-                                            <label class="checkbox checkbox_border">
-                                                <input class="checkbox__input" name="settings" value="2" type="checkbox" />
-                                                <span class="checkbox__box">
-                                                    <svg class="checkbox__icon"><use xlink:href="assets/images/icon.svg#icon_check"></use></svg>
-                                                </span>
-                                                <span class="checkbox__content">Notify me about News and Benefits on Space Pool Service</span>
-                                            </label>
-                                            <div class="error-message"></div>
-                                        </div>
-                                        <div class="form__wrapper form__wrapper_noflex">
-                                            <label class="checkbox checkbox_border">
-                                                <input class="checkbox__input" name="settings" value="3" type="checkbox" />
-                                                <span class="checkbox__box">
-                                                    <svg class="checkbox__icon"><use xlink:href="assets/images/icon.svg#icon_check"></use></svg>
-                                                </span>
-                                                <span class="checkbox__content">Send Me information about new offers via E-mail</span>
-                                            </label>
-                                            <div class="error-message"></div>
-                                        </div>
-                                        <div class="form__wrapper form__wrapper_noflex">
-                                            <label class="checkbox checkbox_border">
-                                                <input class="checkbox__input" name="settings" value="4" type="checkbox" />
-                                                <span class="checkbox__box">
-                                                    <svg class="checkbox__icon"><use xlink:href="assets/images/icon.svg#icon_check"></use></svg>
-                                                </span>
-                                                <span class="checkbox__content">Send Me information about new offers via E-mail</span>
-                                            </label>
+                                    </div>
+                                    <div class="grid__col grid__col_xl_6 grid__col_md_12">
+                                        <div class="form__wrapper form__wrapper_fxe form__wrapper_h100p form__wrapper_pb">
+                                            <button class="button button_wide button_short button_disabled_v3" type="submit">
+                                                <span class="button__text">Sign up</span>
+                                            </button>
                                             <div class="error-message"></div>
                                         </div>
                                     </div>
                                 </div>
                             </fieldset>
-                            <div class="form__panel form__panel_fixed" data-hidden-panel="data-hidden-panel">
-                                <div class="container">
-                                    <div class="grid">
-                                        <div class="grid__col grid__col_xl_3 grid__col_lg_12"></div>
-                                        <div class="grid__col grid__col_xl_9 grid__col_lg_12">
-                                            <div class="form-panel">
-                                                <button class="link link_icon link_back link_bold link_no-shadow form-panel__button js-form-reset js-hide-form-panel" type="reset">
-                                                    <svg class="link__icon link__icon_select-arrow"><use xlink:href="assets/images/icon.svg#icon_select-arrow"></use></svg>
-                                                    <span class="link__text">Discard
-                                                        <span class="hide-sm">changes</span>
-                                                    </span>
-                                                </button>
-                                                <button class="button form-panel__button form-panel__button_wide js-form-submit js-hide-form-panel" type="submit">
-                                                    <span class="button__text">Save changes</span>
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
                         </form>
                     </div>
+                    <div class="grid__col grid__col_xl_1 grid__col_lg_12 hide-lg"></div>
                 </div>
             </div>
         </section>
@@ -634,47 +373,6 @@
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
-        <div class="popup popup-password-change" id="popup-password-change">
-            <div class="popup__content">
-                <h3 class="popup__title popup__title_big">Password change</h3>
-                <form class="form form_white popup-password-change__form" data-validated-form="data-validated-form">
-                    <div class="grid grid_bigger">
-                        <div class="grid__col grid__col_xl_12">
-                            <div class="form__wrapper">
-                                <label class="form-box">
-                                    <input class="input" type="password" name="oldPassword" />
-                                    <span class="form-box__label">Old password</span>
-                                </label>
-                                <div class="error-message"></div>
-                            </div>
-                        </div>
-                        <div class="grid__col grid__col_xl_12">
-                            <div class="form__wrapper">
-                                <label class="form-box">
-                                    <input class="input" type="password" name="newPassword" data-parsley-passwordequalto="[data-password2]" data-password1="password1" />
-                                    <span class="form-box__label">New password</span>
-                                </label>
-                                <div class="error-message"></div>
-                            </div>
-                        </div>
-                        <div class="grid__col grid__col_xl_12">
-                            <div class="form__wrapper">
-                                <label class="form-box">
-                                    <input class="input" type="password" name="newPasswordConfirm" data-parsley-passwordequalto="[data-password1]" data-password2="password2" />
-                                    <span class="form-box__label">New password one more time</span>
-                                </label>
-                                <div class="error-message"></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="form__buttons form__buttons_mgt60">
-                        <button class="button button_short button_wide" type="submit">
-                            <span class="button__text">Save changes</span>
-                        </button>
-                    </div>
-                </form>
             </div>
         </div>
     </div>
