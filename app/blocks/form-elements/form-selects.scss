@@ -91,7 +91,7 @@
       min-width: 100px;
       width: 100%;
       max-height: none;
-      transition: all $ease-main;
+      transition: opacity $ease-main, visibility $ease-main;
       opacity: 0;
       pointer-events: none;
       touch-action: none;
@@ -140,7 +140,7 @@
         visibility: visible;
       }
 
-      .popup &,.select_white ~ & {
+      .popup &,.select_white ~ &, .choices_white & {
         background-color: $color-white;
       }
     }
@@ -796,7 +796,7 @@
           }
         }
 
-        .form_white &,.select_white ~ & {
+        .form_white &, .choices_white &, .select_white ~ & {
           background-color: $color-white;
         }
       }
@@ -963,7 +963,7 @@
           }
         }
 
-        .form_white &,.select_white ~ & {
+        .form_white &, .choices_white &, .select_white ~ & {
           background-color: $color-white;
         }
       }

@@ -81,7 +81,7 @@ export function selects() {
       // searchEnabled: false,
       itemSelectText: '',
       classNames: {
-        containerOuter: additionalClasses,
+        containerOuter: containerClasses,
         titleText: title,
       },
       sorter,

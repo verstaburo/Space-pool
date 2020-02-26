@@ -39,7 +39,7 @@
     display: none;
   }
 
-  &:disabled,&.is-disabled {
+  &:not(.button_disabled_v3):disabled,&:not(.button_disabled_v3).is-disabled {
     cursor: not-allowed;
     pointer-events: none;
     background-color: $color-border-light;
@@ -74,6 +74,14 @@
           background-color: transparent;
         }
       }
+    }
+  }
+
+  &_disabled-v3 {
+    &:disabled,&.is-disabled {
+      cursor: not-allowed;
+      pointer-events: none;
+      opacity: .5;
     }
   }
 

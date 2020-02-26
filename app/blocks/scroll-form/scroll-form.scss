@@ -12,6 +12,54 @@
     margin-bottom: 28px;
   }
 
+  &__subtitle {
+    @include text-big;
+
+    font-weight: 700;
+    line-height: 1.2;
+    color: $color-basic;
+
+    &:not(:last-child) {
+      margin-bottom: 63px;
+    }
+
+    &_mb80 {
+      &:not(:last-child) {
+        margin-bottom: 80px;
+      }
+    }
+  }
+
+  &__wrapper {
+    display: block;
+    width: 100%;
+
+    &:not(:last-child) {
+      margin-bottom: 50px;
+    }
+
+    &_mgb26 {
+      &:not(:last-child) {
+        margin-bottom: 26px;
+      }
+    }
+
+    &_mgb44 {
+      &:not(:last-child) {
+        margin-bottom: 44px;
+      }
+    }
+
+    &_fx {
+      display: flex;
+      justify-content: flex-start;
+      align-items: flex-start;
+      box-sizing: border-box;
+      align-content: flex-start;
+      flex-wrap: wrap;
+    }
+  }
+
   .form-select {
     background: $color-white;
     border: 1px solid $color-border-light;
@@ -38,16 +86,20 @@
   }
 
   &__counter {
-
     &:not(:last-child) {
       margin-bottom: 23px;
     }
   }
 
   &__buttons {
-
     &:not(:last-child) {
       margin-bottom: 24px;
+    }
+
+    &_mta {
+      &:not(:first-child) {
+        margin-top: auto;
+      }
     }
   }
 
@@ -70,6 +122,75 @@
       font-style: normal;
       font-size: 21px;
       line-height: (26/21);
+    }
+
+    &_dark {
+      color: $color-basic;
+    }
+
+    &_fz14 {
+      @include text;
+
+      line-height: 1.2;
+    }
+
+    &:not(:last-child) {
+      margin-bottom: 15px;
+    }
+  }
+
+  &__section {
+    display: block;
+    width: 100%;
+
+    &_pb {
+      box-sizing: border-box;
+      padding-bottom: 18px;
+    }
+  }
+
+  &__phone {
+    display: block;
+    flex: 1;
+
+    &_code {
+      width: 40px;
+      flex: none;
+
+      &:not(:last-child) {
+        margin-right: 20px;
+      }
+    }
+
+    &_number {
+      flex: 1;
+    }
+  }
+
+  &__message {
+    display: block;
+    width: 100%;
+    color: $color-black;
+
+    @include text24;
+
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: normal;
+
+    @include screen('sm') {
+      @include text-big;
+
+      line-height: 1.2;
+      letter-spacing: normal;
+    }
+
+    &:not(:last-child) {
+      margin-bottom: 80px;
+
+      @include screen('sm') {
+        margin-bottom: 45px;
+      }
     }
   }
 }

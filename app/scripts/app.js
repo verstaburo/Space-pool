@@ -76,6 +76,7 @@ import fileUploader from '../blocks/file-uploader/file-uploader';
 import fileRemove from '../blocks/file/file';
 import profile from '../pages/profile/profile';
 import cancelationPopupSteps from '../components/popup-cancelation-contract/cancelationPopupSteps';
+import stpFormSwitch from './functions/stepForm';
 
 const $ = window.$;
 
@@ -141,4 +142,5 @@ $(() => {
   fileUploader();
   profile();
   cancelationPopupSteps();
+  stpFormSwitch();
 });

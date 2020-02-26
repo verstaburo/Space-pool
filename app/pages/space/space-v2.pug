@@ -1,0 +1,230 @@
+extends ../../layouts/default-with-mobile-panel
+
+block head
+  - var pageTitle = 'Space Pool - Space'
+
+block content
+  - var spaces = getData('spaces-around.json')
+  +lead
+  +breadcrumbs-box.hide-sm
+  +content-v2
+    +section._inner
+      +section-header
+        +section-title('h3') Description
+      +section-content
+        +content-zone
+          p One Neal Street offers a&nbsp;modern, self-contained office solution, which is&nbsp;located just off of&nbsp;Covent Garden&rsquo;s Long Acre. Unbranded and fully furnished, this renovated boutique office space is&nbsp;flooded with natural light. One Neal Street offers some twelve-thousand square foot of&nbsp;open-plan office space across the third floor, which can accommodate up&nbsp;to&nbsp;two hundred people. It&nbsp;also benefits from 24/7&nbsp;access, a&nbsp;manned reception and large kitchen and breakout area.
+    +section._inner._inner_bmg
+      +section-header
+        +section-title('h3') Location
+        +e.subtitle 8-10 New Fetter Ln, London EC4A 1AZ
+      +section-content
+        +map._inner#map
+        +transport-table
+    +section._inner._inner_head-bmg._inner_gmg
+      +section-header
+        +section-title('h3') Building rules
+      +section-content
+        +content-zone
+          p One Neal Street offers some twelve-thou&shy;sand square foot of&nbsp;open-plan office space across the third floor, which can accommo&shy;date up&nbsp;to&nbsp;two hundred people. It&nbsp;also bene&shy;fits from 24/7&nbsp;access, a&nbsp;manned reception and large kitchen and breakout area.
+          ul
+            li 24 hours access
+            li Pets allowed
+            li Entrance only with electronic card
+            li Silent time from 10pm till 8am
+            li First and last months for offices are paid before letting start
+    +section._inner._inner_head-gmg._inner_smg
+      +section-header
+        +section-title('h3') Facilities
+      +section-content
+        +facilities
+          +grid
+            +col({ sm: 6, xl: 3 })
+              +facility('gym', '_gym') Gym
+            +col({ sm: 6, xl: 3 })
+              +facility('childcare', '_childcare') Childcare
+            +col({ sm: 6, xl: 3 })
+              +facility('kitchen', '_kitchen') Kitchen
+            +col({ sm: 6, xl: 3 })
+              +facility('coffe', '_coffe') Tea/Coffee
+            +col({ sm: 6, xl: 3 })
+              +facility('lock', '_lock') Lockers
+            +col({ sm: 6, xl: 3 })
+              +facility('stand', '_stand') Event Space
+            +col({ sm: 6, xl: 3 })
+              +facility('bike', '_bike') Bike Storage
+            +col({ sm: 6, xl: 3 })
+              +facility('shower', '_shower') Showers
+    +section._inner._inner_head-gmg
+      +section-header
+        +section-title('h3') Offers
+      +section-content
+        +tabs
+          +tab()(data-tab-target="tab1")._orange.active Hot Desk
+          +tab()(data-tab-target="tab2")._red Dedicated desk
+          +tab()(data-tab-target="tab3")._blue.is-disabled Meeting room
+          +tab()(data-tab-target="tab4")._green.is-disabled Office space
+        +tabs-content
+          +tab-wrapper()(data-tab="tab1" data-tab-group="offer").active
+            +accordions
+              +accordion
+                +accordion-button
+                +accordion-body
+                  +offer-short
+                    +offer-info('', '&pound;185 per/mo')._line.__info
+                      +box._size17._orange.hide-from-sm
+                      +e.title Hot desk
+                      +button-heart._gray._small.js-heart.hide-from-sm
+                    +e.status
+                      +e.buttons
+                        +button-heart._gray._small.__button._heart.js-heart.hide-sm
+                        +button('a')._thin-border._thin-border_smaller._smaller.__button(href="#some") Arrange a viewing
+                        +button('a')._smaller.__button(href="#some") Request Reservation
+                      +e.available AVIALABLE NOW
+                    +content-zone._small.__content
+                      h4 Hot desk with Workshops Floor 6
+                      p This text is some part of every offer for every building. This text is meant to be some textual lead for all additional information you can put inside every offer. So it can be long and that’s why we should put the limit for it.
+                      ul
+                        li 24 hours access
+                        li Pets allowed
+                        li Entrance only with electronic card
+                        li Silent time from 10pm till 8am
+                        li First and last months for offices are paid before letting start
+              +accordion
+                +accordion-button
+                +accordion-body
+                  +offer-short
+                    +offer-info('', '&pound;211 per/mo')._line.__info
+                      +box._size17._orange.hide-from-sm
+                      +e.title Hot desk
+                      +button-heart._gray._small.js-heart.hide-from-sm
+                    +e.status
+                      +e.buttons
+                        +button-heart._gray._small.__button._heart.js-heart.hide-sm
+                        +button('a')._thin-border._thin-border_smaller._smaller.__button(href="#") Arrange a viewing
+                        +button('a')._smaller.__button(href="#") Request Reservation
+                      +e.available AVIALABLE NOW
+                    +content-zone._small.__content
+                      h4 Hot desk with Workshops Floor 7
+                      p This text is some part of every offer for every building. This text is meant to be some textual lead for all additional information you can put inside every offer. So it can be long and that’s why we should put the limit for it.
+                      ul
+                        li 24 hours access
+                        li Pets allowed
+                        li Entrance only with electronic card
+                        li Silent time from 10pm till 8am
+                        li First and last months for offices are paid before letting start
+              +accordion
+                +accordion-button
+                +accordion-body
+                  +offer-short.is-soon
+                    +offer-info('', '&pound;177 per/mo')._line.__info
+                      +box._size17._orange.hide-from-sm
+                      +e.title Hot desk
+                      +button-heart._gray._small.js-heart.hide-from-sm
+                    +e.status
+                      +e.buttons
+                        +button-heart._gray._small.__button._heart.js-heart.hide-sm
+                        +button('a')._thin-border._thin-border_smaller._smaller.__button(href="#") Arrange a viewing
+                        +button('a')._smaller.__button(href="#") Request Reservation
+                      +e.available AVIALABLE FROM:&nbsp;
+                        b 6 July 2019
+                    +content-zone._small.__content
+                      h4 Hot desk with Workshops Floor 9
+                      p This text is some part of every offer for every building. This text is meant to be some textual lead for all additional information you can put inside every offer. So it can be long and that’s why we should put the limit for it.
+                      ul
+                        li 24 hours access
+                        li Pets allowed
+                        li Entrance only with electronic card
+                        li Silent time from 10pm till 8am
+                        li First and last months for offices are paid before letting start
+          +tab-wrapper()(data-tab="tab2" data-tab-group="offer")
+            +accordions
+              +accordion
+                +accordion-button
+                +accordion-body
+                  +offer-short.is-not-available
+                    +offer-info('', '&pound;185 per/mo')._line.__info
+                      +box._size17._red.hide-from-sm
+                      +e.title dedicated desk
+                      +button-heart._gray._small.js-heart.hide-from-sm
+                    +e.status
+                      +e.buttons
+                        +button-heart._gray._small.__button._heart.js-heart.hide-sm
+                        +button('a')._thin-border._thin-border_smaller._smaller.__button(href="#") Arrange a viewing
+                        +button('a')._smaller.__button(href="#") Request Reservation
+                      +e.available NOT AVAILABLE
+                    +content-zone._small.__content
+                      h4 Hot desk with Workshops Floor 6
+                      p This text is some part of every offer for every building. This text is meant to be some textual lead for all additional information you can put inside every offer. So it can be long and that’s why we should put the limit for it.
+              +accordion
+                +accordion-button
+                +accordion-body
+                  +offer-short
+                    +offer-info('', '&pound;211 per/mo')._line.__info
+                      +box._size17._red.hide-from-sm
+                      +e.title dedicated desk
+                      +button-heart._gray._small.js-heart.hide-from-sm
+                    +e.status
+                      +e.buttons
+                        +button-heart._gray._small.__button._heart.js-heart.hide-sm
+                        +button('a')._thin-border._thin-border_smaller._smaller.__button(href="#") Arrange a viewing
+                        +button('a')._smaller.__button(href="#") Request Reservation
+                      +e.available AVIALABLE NOW
+                    +content-zone._small.__content
+                      h4 Hot desk with Workshops Floor 6
+                      p This text is some part of every offer for every building. This text is meant to be some textual lead for all additional information you can put inside every offer. So it can be long and that’s why we should put the limit for it.
+          +tab-wrapper()(data-tab="tab3" data-tab-group="offer")
+            +accordions
+              +accordion
+                +accordion-button
+                +accordion-body
+                  +offer-short
+                    +offer-info('', '&pound;211 per/mo')._line.__info
+                      +box._size17._blue.hide-from-sm
+                      +e.title meetin room
+                      +button-heart._gray._small.js-heart.hide-from-sm
+                    +e.status
+                      +e.buttons
+                        +button-heart._gray._small.__button._heart.js-heart.hide-sm
+                        +button('a')._thin-border._thin-border_smaller._smaller.__button(href="#") Arrange a viewing
+                        +button('a')._smaller.__button(href="#") Request Reservation
+                      +e.available AVIALABLE NOW
+                    +content-zone._small.__content
+                      h4 Hot desk with Workshops Floor 6
+                      p This text is some part of every offer for every building. This text is meant to be some textual lead for all additional information you can put inside every offer. So it can be long and that’s why we should put the limit for it.
+          +tab-wrapper()(data-tab="tab4" data-tab-group="offer")
+            +accordions
+              +accordion
+                +accordion-button
+                +accordion-body
+                  +offer-short.is-not-available
+                    +offer-info('', '&pound;185 per/mo')._line.__info
+                      +box._size17._green.hide-from-sm
+                      +e.title office space
+                      +button-heart._gray._small.js-heart.hide-from-sm
+                    +e.status
+                      +e.buttons
+                        +button-heart._gray._small.__button._heart.js-heart.hide-sm
+                        +button('a')._thin-border._thin-border_smaller._smaller.__button(href="#") Arrange a viewing
+                        +button('a')._smaller.__button(href="#") Request Reservation
+                      +e.available NOT AVAILABLE
+                    +content-zone._small.__content
+                      h4 Hot desk with Workshops Floor 6
+                      p This text is some part of every offer for every building. This text is meant to be some textual lead for all additional information you can put inside every offer. So it can be long and that’s why we should put the limit for it.
+  +section._smaller-mg
+    +section-header
+      .container
+        +section-title('h3') You may also like spaces around
+          +link(href="#")._blue Kensington
+    +section-content
+      +slider(true, false)._sm-btn-hide.js-slider-spaces-inner
+          each item in spaces
+            +slide
+              +space-around(item)(href="#")
+
+block panels
+  +main-menu
+  +offer-panel.hide-from-md
+
+block popups
+  +popup-arrange-viewing#popup-arrange-viewing
