@@ -1,0 +1,20 @@
+mixin popup-cancel-booking()
+  .popup-wrapper&attributes(attributes)
+    +popup-free(true)._big.popup-cancel-booking__(data-steps-container data-first-step="step0")
+      +popup-content
+        +popup-heading
+          +popup-title._fz24 Cancel booking
+        +e.form
+          +e.section(data-step="step0")
+            +e.title Are you sure you want to cancel your meeting room booking?
+            +e.text
+              p Please refer to cancelation policy for this meeting room.
+              p Booking time: <b>28.02.2020  14:00</b>
+          +e.section_pd.hide(data-step="step1")
+            +e.title Your booking for <b>12 people rooftop Meeting Room</b> at <a class="link link_bold link_underline" href="#"><span class="link__text">Hedonism Haters Reegent Street</span></a> has been successfully cancelled.
+      +form-panel._border
+        +e.buttons(data-step="step0")
+          +button('button', true)._short.__button_w360.js-stp-form-final(type="button" data-final-step="step1" data-callback="serverSave") Cancel booking
+        +e.buttons.hide(data-step="step1")
+          +button('button').__button_w360.js-stp-form-reset(type="button" data-pp-close) OK
+      block

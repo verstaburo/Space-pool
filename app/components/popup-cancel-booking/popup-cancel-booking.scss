@@ -1,0 +1,133 @@
+.popup-cancel-booking {
+  $b: &;
+
+  display: block;
+
+  &__form {
+    display: block;
+    width: 100%;
+  }
+
+  &__section {
+    display: block;
+    width: 100%;
+
+    &_pd {
+      padding-bottom: 20px;
+    }
+  }
+
+  &__title {
+    @include heading-2;
+
+    line-height: 1.25;
+    font-weight: 400;
+
+    @include screen('sm') {
+      @include heading-3;
+    }
+
+    b {
+      font-weight: 700;
+    }
+
+    &:not(:last-child) {
+      margin-bottom: 23px;
+    }
+  }
+
+  &__text {
+    @include heading-4;
+
+    @include screen('sm') {
+      @include text16;
+    }
+
+    p {
+      &:not(:last-child) {
+        margin-bottom: 46px;
+
+        @include screen('sm') {
+          margin-bottom: 30px;
+        }
+      }
+    }
+  }
+
+  &__button {
+    min-width: 360px;
+
+    @include screen('sm') {
+      min-width: 100%;
+    }
+  }
+
+  .popup {
+    &__close {
+      top: 10px;
+      right: 13px;
+      width: 36px;
+      height: 36px;
+
+      @include screen('md') {
+        top: 13px;
+        right: 26px;
+        width: 44px;
+        height: 44px;
+      }
+
+      @include screen('sm') {
+        top: 8px;
+        right: 9px;
+        width: 36px;
+        height: 36px;
+      }
+    }
+
+    &__heading {
+      padding: 50px 0 48px;
+      border: none;
+
+      @include screen('md') {
+        padding: 40px 0;
+      }
+
+      @include screen('sm') {
+        padding: 30px 0;
+      }
+    }
+
+    &__content {
+      padding: 0 68px 55px;
+
+      @include screen('md') {
+        padding: 0 50px 50px;
+      }
+
+      @include screen('sm') {
+        padding: 0 20px 40px;
+      }
+    }
+  }
+
+  .form-panel {
+    padding-left: 68px;
+    padding-right: 68px;
+
+    @include screen('md') {
+      padding-left: 50px;
+      padding-right: 50px;
+    }
+
+    @include screen('sm') {
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+
+    &__button {
+      @include screen('sm') {
+        width: 100%;
+      }
+    }
+  }
+}
