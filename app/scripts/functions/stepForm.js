@@ -7,6 +7,7 @@ export default function stpFormSwitch() {
     const nxtStep = nextStep;
     if ($(form).is('form') && reset) {
       form[0].reset();
+      window.setLabelPosition();
     }
     $('[data-step]').addClass('hide');
     $(`[data-step*=${nxtStep}]`).removeClass('hide');
