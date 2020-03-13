@@ -1,10 +1,11 @@
-const $ = window.$;
+import $ from 'jquery';
+import 'parsleyjs';
 
 export default function stpFormSwitch() {
   function goToNextStep(frm, nextStep, reset) {
     const form = $(frm);
     const nxtStep = nextStep;
-    if (reset && $(form).is('form')) {
+    if ($(form).is('form') && reset) {
       form[0].reset();
     }
     $('[data-step]').addClass('hide');
@@ -38,14 +39,30 @@ export default function stpFormSwitch() {
     const fn = $(self).attr('data-callback');
     const form = $(self).closest('form').length !== 0 ? $(self).closest('form') : $(self).closest('[data-steps-container]');
     const nextStep = $(self).attr('data-final-step');
-    $(self).addClass('is-loading');
-    window[fn](form).then((readySaved) => {
-      if (readySaved) {
-        $(self).removeClass('is-loading');
-        goToNextStep(form, nextStep);
-      } else {
-        $(self).removeClass('is-loading');
-      }
-    });
+    if ($(form).is('[data-validated-form]')) {
+      $(form).parsley().whenValidate().done(() => {
+        if ($(form).parsley().isValid()) {
+          $(self).addClass('is-loading');
+          window[fn](form).then((readySaved) => {
+            if (readySaved) {
+              $(self).removeClass('is-loading');
+              goToNextStep(form, nextStep);
+            } else {
+              $(self).removeClass('is-loading');
+            }
+          });
+        }
+      });
+    } else {
+      $(self).addClass('is-loading');
+      window[fn](form).then((readySaved) => {
+        if (readySaved) {
+          $(self).removeClass('is-loading');
+          goToNextStep(form, nextStep);
+        } else {
+          $(self).removeClass('is-loading');
+        }
+      });
+    }
   });
 }

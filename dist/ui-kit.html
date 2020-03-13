@@ -697,7 +697,7 @@
                                                     <ul class="offer-select__list">
                                                         <li class="offer-select__item">
                                                             <label class="offer-info-radio" data-select-item="data-select-item">
-                                                                <input class="input" type="radio" name="offers" value="1" checked="checked" data-offer-input="true" />
+                                                                <input class="input" type="radio" name="offers" value="1" checked="checked" data-offer-input="true" data-rr-activator="true" data-rr-button="scrollForm" />
                                                                 <span class="offer-option" data-select-value="data-select-value">
                                                                     <span class="offer-option__type">
                                                                         <span class="box box_size8 box_red offer-option__box"></span>
@@ -718,7 +718,7 @@
                                                         </li>
                                                         <li class="offer-select__item">
                                                             <label class="offer-info-radio" data-select-item="data-select-item">
-                                                                <input class="input" type="radio" name="offers" value="2" data-offer-input="true" />
+                                                                <input class="input" type="radio" name="offers" value="2" data-offer-input="true" data-rr-activator="false" data-rr-button="scrollForm" />
                                                                 <span class="offer-option" data-select-value="data-select-value">
                                                                     <span class="offer-option__type">
                                                                         <span class="box box_size8 box_red offer-option__box"></span>
@@ -739,7 +739,7 @@
                                                         </li>
                                                         <li class="offer-select__item">
                                                             <label class="offer-info-radio" data-select-item="data-select-item">
-                                                                <input class="input" type="radio" name="offers" value="3" data-offer-input="true" />
+                                                                <input class="input" type="radio" name="offers" value="3" data-offer-input="true" data-rr-activator="false" data-rr-button="scrollForm" />
                                                                 <span class="offer-option" data-select-value="data-select-value">
                                                                     <span class="offer-option__type">
                                                                         <span class="box box_size8 box_red offer-option__box"></span>
@@ -760,7 +760,7 @@
                                                         </li>
                                                         <li class="offer-select__item">
                                                             <label class="offer-info-radio" data-select-item="data-select-item">
-                                                                <input class="input" type="radio" name="offers" value="4" data-offer-input="true" />
+                                                                <input class="input" type="radio" name="offers" value="4" data-offer-input="true" data-rr-activator="false" data-rr-button="scrollForm" />
                                                                 <span class="offer-option" data-select-value="data-select-value">
                                                                     <span class="offer-option__type">
                                                                         <span class="box box_size8 box_orange offer-option__box"></span>
@@ -781,7 +781,7 @@
                                                         </li>
                                                         <li class="offer-select__item">
                                                             <label class="offer-info-radio" data-select-item="data-select-item">
-                                                                <input class="input" type="radio" name="offers" value="5" data-offer-input="true" />
+                                                                <input class="input" type="radio" name="offers" value="5" data-offer-input="true" data-rr-activator="true" data-rr-button="scrollForm" />
                                                                 <span class="offer-option" data-select-value="data-select-value">
                                                                     <span class="offer-option__type">
                                                                         <span class="box box_size8 box_orange offer-option__box"></span>
@@ -6920,14 +6920,14 @@
                         <div class="grid__col grid__col_xl_3">
                             <p class="ui-kit__description">.photo-preview</p>
                             <div class="photo-preview" data-preview-item="data-preview-item" data-callback="deleteOnBackend" data-name-crop-input="photoCrop">
-                                <input type="hidden" name="photo" data-file-source="data-file-source" />
+                                <input type="hidden" name="photo[0]" data-file-source="data-file-source" />
                                 <button class="photo-preview__delete js-delete-file" type="button">
                                     <svg class="photo-preview__delete-icon"><use xlink:href="assets/images/icon.svg#icon_cross"></use></svg>
                                 </button>
                                 <label class="photo-preview__preview">
-                                    <input class="photo-preview__main" type="radio" name="isMain" value="photo" data-crop-starter="data-crop-starter" />
+                                    <input class="photo-preview__main" type="radio" name="isMain" value="photo[0]" data-crop-starter="data-crop-starter" />
                                     <span class="photo-preview__media" data-preview-image="data-preview-image">
-                                        <img class="photo-preview__image" src="assets/images/photo-preview1.jpg" alt="" role="presentation" />
+                                        <img class="photo-preview__image" src="assets/images/photo-preview1.jpg" data-crop-image="data-crop-image" alt="" role="presentation" />
                                     </span>
                                     <span class="photo-preview__caption">Main photo</span>
                                     <span class="photo-preview__label">
@@ -6949,7 +6949,7 @@
                                     </button>
                                 </div>
                                 <div class="photo-preview__description">
-                                    <select class="select select_placeholder select_white js-select-input" name="description" required="required">
+                                    <select class="select select_placeholder select_white js-select-input" name="description[0]" required="required">
                                         <option placeholder value="">What’s on photo?</option>
                                         <option value="Cafe">Cafe</option>
                                         <option value="Meeting room">Meeting room</option>
@@ -6963,14 +6963,14 @@
                         <div class="grid__col grid__col_xl_3">
                             <p class="ui-kit__description">.photo-preview - главное</p>
                             <div class="photo-preview" data-preview-item="data-preview-item" data-callback="deleteOnBackend" data-name-crop-input="photoCrop">
-                                <input type="hidden" name="photo" data-file-source="data-file-source" />
+                                <input type="hidden" name="photo[1]" data-file-source="data-file-source" />
                                 <button class="photo-preview__delete js-delete-file" type="button">
                                     <svg class="photo-preview__delete-icon"><use xlink:href="assets/images/icon.svg#icon_cross"></use></svg>
                                 </button>
                                 <label class="photo-preview__preview">
-                                    <input class="photo-preview__main" type="radio" name="isMain" value="photo" checked="checked" data-crop-starter="data-crop-starter" />
+                                    <input class="photo-preview__main" type="radio" name="isMain" value="photo[1]" checked="checked" data-crop-starter="data-crop-starter" />
                                     <span class="photo-preview__media" data-preview-image="data-preview-image">
-                                        <img class="photo-preview__image" src="assets/images/photo-preview1.jpg" alt="" role="presentation" />
+                                        <img class="photo-preview__image" src="assets/images/photo-preview1.jpg" data-crop-image="data-crop-image" alt="" role="presentation" />
                                     </span>
                                     <span class="photo-preview__caption">Main photo</span>
                                     <span class="photo-preview__label">
@@ -6992,7 +6992,7 @@
                                     </button>
                                 </div>
                                 <div class="photo-preview__description">
-                                    <select class="select select_placeholder select_white js-select-input" name="description" required="required">
+                                    <select class="select select_placeholder select_white js-select-input" name="description[1]" required="required">
                                         <option placeholder value="">What’s on photo?</option>
                                         <option value="Cafe">Cafe</option>
                                         <option value="Meeting room">Meeting room</option>
@@ -7006,14 +7006,14 @@
                         <div class="grid__col grid__col_xl_3">
                             <p class="ui-kit__description">.photo-preview.is-error</p>
                             <div class="photo-preview is-error" data-preview-item="data-preview-item" data-callback="deleteOnBackend" data-name-crop-input="photoCrop">
-                                <input type="hidden" name="photo" data-file-source="data-file-source" />
+                                <input type="hidden" name="photo[2]" data-file-source="data-file-source" />
                                 <button class="photo-preview__delete js-delete-file" type="button">
                                     <svg class="photo-preview__delete-icon"><use xlink:href="assets/images/icon.svg#icon_cross"></use></svg>
                                 </button>
                                 <label class="photo-preview__preview">
-                                    <input class="photo-preview__main" type="radio" name="isMain" value="photo" data-crop-starter="data-crop-starter" />
+                                    <input class="photo-preview__main" type="radio" name="isMain" value="photo[2]" data-crop-starter="data-crop-starter" />
                                     <span class="photo-preview__media" data-preview-image="data-preview-image">
-                                        <img class="photo-preview__image" src="assets/images/photo-preview1.jpg" alt="" role="presentation" />
+                                        <img class="photo-preview__image" src="assets/images/photo-preview1.jpg" data-crop-image="data-crop-image" alt="" role="presentation" />
                                     </span>
                                     <span class="photo-preview__caption">Main photo</span>
                                     <span class="photo-preview__label">
@@ -7035,7 +7035,7 @@
                                     </button>
                                 </div>
                                 <div class="photo-preview__description">
-                                    <select class="select select_placeholder select_white js-select-input" name="description" required="required">
+                                    <select class="select select_placeholder select_white js-select-input" name="description[2]" required="required">
                                         <option placeholder value="">What’s on photo?</option>
                                         <option value="Cafe">Cafe</option>
                                         <option value="Meeting room">Meeting room</option>
@@ -8771,6 +8771,100 @@
                     <div class="loader"></div>
                     <p class="ui-kit__description">.loader._small</p>
                     <div class="loader loader_small"></div>
+                </div>
+            </div>
+        </section>
+        <section class="ui-kit__section">
+            <div class="ui-kit__section-head">
+                <div class="container">
+                    <h2>reservation-request</h2>
+                    <p>Блок: component/reservation-request</p>
+                </div>
+            </div>
+            <div class="ui-kit__section-content">
+                <div class="container">
+                    <p class="ui-kit__description">.reservation-request
+                        <div class="grid">
+                            <div class="grid__col grid__col_xl_3">
+                                <span class="reservation-request">
+                                    <form class="form form_white reservation-request__form" data-validated-form="data-validated-form" data-reservation-request="data-reservation-request" data-first-step="step0">
+                                        <fieldset class="form__section form__section_mgb0" data-step="step0">
+                                            <div class="form__header form__header_mg64">
+                                                <h3 class="form__title form__title_small" h4="h4">
+                                                    <a class="link link_icon link_back link_back_pl22 link_bold link_no-shadow form__button js-reservation-request-close" href="#">
+                                                        <svg class="link__icon link__icon_select-arrow"><use xlink:href="assets/images/icon.svg#icon_select-arrow"></use></svg>
+                                                        <span class="link__text">Back</span>
+                                                    </a>
+                                                </h3>
+                                            </div>
+                                            <div class="form__content">
+                                                <div class="form__wrapper">
+                                                    <label class="form-box form-box_icon">
+                                                        <input class="input js-datepicker" type="text" name="startDate" value="13 January 2020" placeholder="Rent period start" readonly="readonly" />
+                                                        <span class="form-box__label">Rent period start</span>
+                                                        <svg class="form-box__icon"><use xlink:href="assets/images/icon.svg#icon_calendar2"></use></svg>
+                                                    </label>
+                                                    <div class="error-message"></div>
+                                                </div>
+                                                <div class="form__wrapper">
+                                                    <label class="form-box form-box_icon">
+                                                        <select class="select select_white js-select-input" name="duration" data-mobile-title="Desired duration" data-choices-classes="choices_white">
+                                                            <option value="1">1 month</option>
+                                                            <option value="2">2 months</option>
+                                                            <option value="3">3 months</option>
+                                                            <option value="4">4 months</option>
+                                                            <option value="5">5 months</option>
+                                                            <option value="6">6 months</option>
+                                                            <option value="7">7 months</option>
+                                                            <option value="8">8 months</option>
+                                                            <option value="9">9 months</option>
+                                                            <option value="10">10 months</option>
+                                                            <option value="11">11 months</option>
+                                                            <option value="12" selected="selected">12 months</option>
+                                                        </select>
+                                                        <span class="form-box__label">Desired duration</span>
+                                                    </label>
+                                                    <div class="error-message"></div>
+                                                </div>
+                                                <div class="form__wrapper form__wrapper_mg44">
+                                                    <label class="form-box">
+                                                        <input class="input" type="tel" name="phone" value="+4476896898983" placeholder="Your phone number" data-tel-number="data-tel-number" />
+                                                        <span class="form-box__label">Your phone number</span>
+                                                    </label>
+                                                    <div class="error-message"></div>
+                                                </div>
+                                                <div class="form__buttons">
+                                                    <button class="button button_short button_wide form__button js-stp-form-final" type="submit" data-callback="serverSave" data-final-step="step1">
+                                                        <span class="button__text">Confirm Request</span>
+                                                        <div class="button__preloader">
+                                                            <div class="loader loader_small"></div>
+                                                        </div>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </fieldset>
+                                        <fieldset class="form__section form__section_mgb0 hide" data-step="step1">
+                                            <div class="form__header form__header_mg80">
+                                                <h3 class="form__title form__title_small" h4="h4">Request sent</h3>
+                                            </div>
+                                            <div class="form__content">
+                                                <div class="form__message">
+                                                    <p>Thank you
+                                                        <br> for your Request!</p>
+                                                    <p>Spacepool manager will contact you shortly for further communication.</p>
+                                                </div>
+                                                <div class="form__buttons form__buttons_mta">
+                                                    <button class="button button_short button_wide form__button js-reservation-request-close" type="reset">
+                                                        <span class="button__text">OK</span>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </fieldset>
+                                    </form>
+                                </span>
+                            </div>
+                        </div>
+                    </p>
                 </div>
             </div>
         </section>

@@ -13,11 +13,17 @@ mixin offer-info(tag, price, price2, price2Class)
 
 mixin offer-info-radio(name, data)
   +b.LABEL.offer-info-radio&attributes(attributes)
-    - if (data.check) {
-      +input(type="radio" name=name value=data.value checked="checked" data-offer-input="true")
-    - } else {
-      +input(type="radio" name=name value=data.value data-offer-input="true")
-    - }
+    if (data.check)
+      if (data.rrdata)
+        +input(type="radio" name=name value=data.value checked="checked" data-offer-input="true" data-rr-activator=data.rrdata.activator data-rr-button=data.rrdata.name)
+      else
+        +input(type="radio" name=name value=data.value checked="checked" data-offer-input="true")
+    else
+      if (data.rrdata)
+        +input(type="radio" name=name value=data.value data-offer-input="true" data-rr-activator=data.rrdata.activator data-rr-button=data.rrdata.name)
+      else
+        +input(type="radio" name=name value=data.value data-offer-input="true")
+
     +offer-option(data)(data-select-value)
     //- +offer-info('', price)(data-select-value)
       block

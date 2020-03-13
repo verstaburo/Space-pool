@@ -46,6 +46,12 @@
       }
     }
 
+    &_mgb0 {
+      &:not(:last-of-type) {
+        margin-bottom: 0;
+      }
+    }
+
     &_bmg {
       &:not(:last-of-type) {
         margin-bottom: 95px;
@@ -504,6 +510,14 @@
 
     &_mg67 {
       margin-bottom: 67px;
+
+      @include screen('sm') {
+        margin-bottom: 50px;
+      }
+    }
+
+    &_mg80 {
+      margin-bottom: 80px;
 
       @include screen('sm') {
         margin-bottom: 50px;
@@ -1015,6 +1029,18 @@
       }
     }
 
+    &_mg26 {
+      &:not(:last-child) {
+        margin-bottom: 26px;
+      }
+    }
+
+    &_mg44 {
+      &:not(:last-child) {
+        margin-bottom: 44px;
+      }
+    }
+
     &_pt {
       padding-top: 6px;
 
@@ -1285,6 +1311,12 @@
     &_mgt38 {
       &:not(:first-child) {
         margin-top: 38px;
+      }
+    }
+
+    &_mta {
+      &:not(:first-child) {
+        margin-top: auto;
       }
     }
   }
@@ -2356,6 +2388,51 @@
         @include text;
 
         line-height: (26 / 14);
+      }
+    }
+  }
+
+  &__phone {
+    display: block;
+    flex: 1;
+
+    &_code {
+      width: 40px;
+      flex: none;
+
+      &:not(:last-child) {
+        margin-right: 20px;
+      }
+    }
+
+    &_number {
+      flex: 1;
+    }
+  }
+
+  &__message {
+    display: block;
+    width: 100%;
+    color: $color-black;
+
+    @include text24;
+
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: normal;
+
+    @include screen('sm') {
+      @include text-big;
+
+      line-height: 1.2;
+      letter-spacing: normal;
+    }
+
+    &:not(:last-child) {
+      margin-bottom: 80px;
+
+      @include screen('sm') {
+        margin-bottom: 45px;
       }
     }
   }

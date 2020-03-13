@@ -77,6 +77,7 @@ import fileRemove from '../blocks/file/file';
 import profile from '../pages/profile/profile';
 import cancelationPopupSteps from '../components/popup-cancelation-contract/cancelationPopupSteps';
 import stpFormSwitch from './functions/stepForm';
+import reservationRequestShow from '../components/reservation-request/reservation-request';
 
 const $ = window.$;
 
@@ -143,4 +144,5 @@ $(() => {
   profile();
   cancelationPopupSteps();
   stpFormSwitch();
+  reservationRequestShow();
 });

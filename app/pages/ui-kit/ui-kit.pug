@@ -2183,11 +2183,11 @@ block content
         +grid.grid_layout
           +col(3)
             +ui-description .photo-preview
-            +photo-preview
-              +photo-preview-preview
-                +e.IMG.image(src="assets/images/photo-preview1.jpg")
+            +photo-preview('photo[0]')
+              +photo-preview-preview('', 'photo[0]')
+                +e.IMG.image(src="assets/images/photo-preview1.jpg" data-crop-image)
               +photo-preview-error
-              +photo-preview-description
+              +photo-preview-description('description[0]')
                 option(placeholder value="") What’s on photo?
                 option(value="Cafe") Cafe
                 option(value="Meeting room") Meeting room
@@ -2196,11 +2196,11 @@ block content
                 option(value="reception") Reception
           +col(3)
             +ui-description .photo-preview - главное
-            +photo-preview
-              +photo-preview-preview(true)
-                +e.IMG.image(src="assets/images/photo-preview1.jpg")
+            +photo-preview('photo[1]')
+              +photo-preview-preview(true, 'photo[1]')
+                +e.IMG.image(src="assets/images/photo-preview1.jpg" data-crop-image)
               +photo-preview-error
-              +photo-preview-description
+              +photo-preview-description('description[1]')
                 option(placeholder value="") What’s on photo?
                 option(value="Cafe") Cafe
                 option(value="Meeting room") Meeting room
@@ -2209,11 +2209,11 @@ block content
                 option(value="reception") Reception
           +col(3)
             +ui-description .photo-preview.is-error
-            +photo-preview.is-error
-              +photo-preview-preview
-                +e.IMG.image(src="assets/images/photo-preview1.jpg")
+            +photo-preview('photo[2]').is-error
+              +photo-preview-preview('', 'photo[2]')
+                +e.IMG.image(src="assets/images/photo-preview1.jpg" data-crop-image)
               +photo-preview-error
-              +photo-preview-description
+              +photo-preview-description('description[2]')
                 option(placeholder value="") What’s on photo?
                 option(value="Cafe") Cafe
                 option(value="Meeting room") Meeting room
@@ -2941,6 +2941,17 @@ block content
         +loader
         +ui-description .loader._small
         +loader._small
+
+    //- reservation-request
+    +ui-section
+      +ui-section-head
+        h2 reservation-request
+        p Блок: component/reservation-request
+      +ui-section-content
+        +ui-description .reservation-request
+          +grid
+            +col(3)
+              +reservation-request
 
 block panels
   +main-menu
