@@ -2289,6 +2289,12 @@
 
     &_nowrap {
       flex-wrap: nowrap;
+
+      &_sm-up {
+        @include screen('sm') {
+          flex-wrap: wrap;
+        }
+      }
     }
 
     &-cell {
@@ -2323,6 +2329,35 @@
         }
       }
 
+      &_sm-top10:not(:first-child) {
+        @include screen('sm') {
+          margin-top: 10px;
+        }
+      }
+
+      &_auto {
+        flex: none;
+      }
+
+      &_fxe {
+        display: flex;
+        justify-content: flex-start;
+        align-items: end;
+      }
+
+      &:not(:first-child) {
+        #{$b}__text {
+          padding-left: 20px;
+          padding-top: 5px;
+          padding-bottom: 8px;
+
+          @include screen('sm') {
+            padding-left: 0;
+            padding-bottom: 0;
+          }
+        }
+      }
+
       #{$b}__info_nowrap & {
         @include screen('sm') {
           flex: 1;
@@ -2333,6 +2368,13 @@
           @include screen('sm') {
             flex: 1.43;
             width: auto;
+          }
+        }
+
+        &_sm-wide {
+          @include screen('sm') {
+            width: 100%;
+            flex: none;
           }
         }
       }
