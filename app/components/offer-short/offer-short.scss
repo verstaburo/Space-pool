@@ -94,6 +94,32 @@
         display: none;
       }
     }
+
+    &.is-rr-clone {
+      position: absolute;
+      box-sizing: border-box;
+      z-index: 1;
+      opacity: 1;
+      background: $color-bg;
+      margin: 0;
+
+      &::before {
+        position: absolute;
+        display: block;
+        content: '';
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(63, 73, 78, .3);
+        z-index: 4;
+      }
+
+      .is-cloned {
+        z-index: 8;
+        pointer-events: auto;
+      }
+    }
   }
 
   &__button {
