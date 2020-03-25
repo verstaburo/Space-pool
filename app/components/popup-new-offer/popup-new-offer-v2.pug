@@ -22,16 +22,24 @@ mixin popup-new-offer-v2()
                 +e.imitation_tar Per month
             +e.info-cell._auto._fxe._sm-wide._sm-top10
               +e.text_big._dark * Excluding VAT
-          +e.info._mt50
-            +e.info-cell
-              +form-section-wrapper
-                +form-box('New period starts', 'calendar2')._icon._icon_small._bold._lbl-small
-                  +input.input_dark.js-datepicker(type="text" name="startDate" value="6 February 2020" placeholder="New period starts" data-period-start="rent" readonly)
-            +long-arrow._h16._short._dark.__info-arrow
-            +e.info-cell
-              +form-section-wrapper
-                +form-box('New period ends', 'calendar2')._icon._icon_small._bold._lbl-small
-                  +input.input_dark.js-datepicker(type="text" name="endDate" value="1 November 2020" placeholder="New period ends" data-period-end="rent" data-mindate="2020-2-6" readonly)
+          +e.info._block._mt50
+            +grid.grid_30x40.grid_int50
+              +col({xl: 6, sm:12 })
+                +form-section-wrapper
+                  +form-box('New period starts', 'calendar2')._icon._icon_small._bold._lbl-small
+                    +input.input_dark.js-datepicker(type="text" name="startDate" value="6 February 2020" placeholder="New period starts" data-period-start="rent" readonly)
+              +col({xl: 6, sm:12 })
+                +form-section-wrapper
+                  +form-box('Duration')._icon
+                    +select.js-select-input(name="duration" data-mobile-title="Duration")
+                      - for (var i = 1; i <= 12; i++) {
+                        if (i === 12)
+                          option(value=i selected)!=(i + ' months')
+                        else if (i === 1)
+                          option(value=i)!=(i + ' month')
+                        else
+                          option(value=i)!=(i + ' months')
+                      -}
           +e.info_note
             +b.note_warning._warning_small._fz16._color._color_yellow._line._fw400
               +e.mark
