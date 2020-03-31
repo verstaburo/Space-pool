@@ -4,14 +4,14 @@ const $ = window.$;
 export function freeze() {
   const h = $('html');
 
-  const stickyBlocks = $('.js-sticky-block');
+  // const stickyBlocks = $('.js-sticky-block');
 
-  if (stickyBlocks.length > 0) {
-    $(stickyBlocks).each((i, el) => {
-      const attrStyle = $(el).attr('style');
-      $(el).attr('data-style', attrStyle);
-    });
-  }
+  // if (stickyBlocks.length > 0) {
+  //   $(stickyBlocks).each((i, el) => {
+  //     const attrStyle = $(el).attr('style');
+  //     $(el).attr('data-style', attrStyle);
+  //   });
+  // }
 
   h.addClass('freeze');
 
@@ -31,17 +31,19 @@ export function freeze() {
       top: -top,
       'touch-action': 'none',
     });
+
+    $(document.body).trigger('sticky_kit:recalc');
   }
 
-  setTimeout(() => {
-    if (stickyBlocks.length > 0) {
-      $(stickyBlocks).each((i, el) => {
-        const attrStyle = $(el).attr('data-style');
-        $(el).attr('style', attrStyle);
-        $(el).removeAttr('data-style');
-      });
-    }
-  }, 4);
+  // setTimeout(() => {
+  //   if (stickyBlocks.length > 0) {
+  //     $(stickyBlocks).each((i, el) => {
+  //       const attrStyle = $(el).attr('data-style');
+  //       $(el).attr('style', attrStyle);
+  //       $(el).removeAttr('data-style');
+  //     });
+  //   }
+  // }, 4);
 }
 
 export function unfreeze() {
@@ -65,6 +67,8 @@ export function unfreeze() {
     $('body').css({
       'overflow-y': '',
     });
+
+    $(document.body).trigger('sticky_kit:recalc');
   }
 }
 
