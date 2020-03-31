@@ -32,6 +32,7 @@ export function freeze() {
       'touch-action': 'none',
     });
   }
+
   setTimeout(() => {
     if (stickyBlocks.length > 0) {
       $(stickyBlocks).each((i, el) => {
@@ -40,7 +41,7 @@ export function freeze() {
         $(el).removeAttr('data-style');
       });
     }
-  }, 50);
+  }, 4);
 }
 
 export function unfreeze() {
