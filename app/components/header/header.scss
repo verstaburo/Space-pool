@@ -25,9 +25,6 @@
   }
 
   &__wrapper {
-    // transition:
-    //   background $ease-main,
-    //   border $ease-main;
     position: absolute;
     top: 19px;
     display: flex;
@@ -37,14 +34,12 @@
     height: 70px;
     box-sizing: border-box;
     z-index: 10;
-    // background-color: $color-bg;
 
     @include screen('md') {
       z-index: 0;
     }
 
     @include screen('sm') {
-      // position: fixed;
       top: 0;
       height: 50px;
     }
@@ -86,6 +81,62 @@
       }
     }
 
+    #{$b}_sm-white & {
+      &::before {
+        @include screen('sm', max, 2) {
+          background-color: transparent;
+        }
+      }
+    }
+
+    #{$b}.nd-header & {
+      height: 60px;
+      z-index: 10;
+      top: 15px;
+
+      @include screen('xl', max, 2) {
+        top: 19px;
+      }
+
+      @include screen('lg', max, 2) {
+        top: pxtovw(19, 1366);
+        height: pxtovw(60, 1366);
+      }
+
+      @include screen('md', max, 2) {
+        top: pxtovw(13, 960);
+        height: pxtovw(60, 960);
+        z-index: 10;
+      }
+
+      @include screen('sm', max, 2) {
+        z-index: 0;
+        top: pxtovw(13, 375);
+        height: pxtovw(60, 375);
+      }
+
+      &::before {
+        height: 60px;
+        top: 0;
+        transition:
+          background .15s ease,
+          border .15s ease;
+
+        @include screen('md', max, 2) {
+          height: pxtovw(60, 1366);
+        }
+
+        @include screen('md', max, 2) {
+          top: 0;
+          height: pxtovw(60, 960);
+        }
+
+        @include screen('sm', max, 2) {
+          height: pxtovw(60, 375);
+        }
+      }
+    }
+
     #{$b}.is-short & {
       @include screen('md', min) {
         position: fixed;
@@ -99,12 +150,23 @@
         }
       }
     }
+
+    #{$b}.is-short.nd-header & {
+      @include screen('sm', min, 2) {
+        position: fixed;
+        top: 0;
+      }
+
+      &::before {
+        @include screen('sm', min, 2) {
+          background-color: $color-white;
+          border-bottom-color: $color-border-light;
+        }
+      }
+    }
   }
 
   &.is-short {
-    // height: 70px;
-    // background-color: $color-white;
-    // border-bottom-color: $color-border-light;
     @include screen('md', min) {
       height: 70px;
     }
@@ -118,15 +180,9 @@
     @include screen('sm') {
       border-bottom-color: transparent;
     }
-
-    // &.is-short {
-    //   @include screen('sm') {
-    //     border-bottom-color: $color-border-light;
-    //   }
-    // }
   }
 
-  .container {
+  .container, .nd-container {
     position: relative;
     display: flex;
     z-index: 2;
@@ -150,6 +206,34 @@
     @include screen('sm') {
       margin-right: 10px;
     }
+
+    #{$b}.nd-header & {
+      display: inline-flex;
+      text-align: left;
+      justify-content: flex-start;
+      align-items: center;
+      color: $nd-color-logo;
+
+      @include screen('md', max, 2) {
+        margin-right: pxtovw(50, 960);
+      }
+
+      @include screen('sm', max, 2) {
+        margin-right: pxtovw(20, 375);
+      }
+    }
+
+    #{$b}_sm-white & {
+      @include screen('sm') {
+        color: $color-white;
+      }
+    }
+
+    #{$b}_sm-white.nd-header & {
+      @include screen('sm', max, 2) {
+        color: $nd-color-basic-light;
+      }
+    }
   }
 
   &__navigation {
@@ -165,6 +249,12 @@
     #{$b}.is-login & {
       @include screen('sm') {
         display: flex;
+      }
+    }
+
+    #{$b}.nd-header & {
+      @include screen('sm', max, 2) {
+        display: none;
       }
     }
   }
@@ -210,6 +300,34 @@
         top: 8px;
       }
     }
+
+    #{$b}.nd-header & {
+      min-width: 0;
+      width: auto;
+      height: auto;
+      margin-left: 73px;
+      align-self: center;
+
+      @include screen('lg', max, 2) {
+        margin-left: pxtovw(42, 1366);
+      }
+
+      @include screen('md', max, 2) {
+        margin-left: pxtovw(60, 960);
+      }
+
+      @include screen('sm', max, 2) {
+        margin-left: 0;
+      }
+    }
+
+    #{$b}_sm-white & {
+      .nd-burger {
+        @include screen('sm', max, 2) {
+          color: $nd-color-basic-light;
+        }
+      }
+    }
   }
 
   &__slogan {
@@ -243,7 +361,6 @@
   }
 
   &.is-login {
-
     #{$b}__user {
       display: block;
     }
@@ -253,10 +370,29 @@
     }
   }
 
+  &.nd-header {
+    height: 90px;
+    z-index: 10;
+
+    @include screen('xl', max, 2) {
+      height: 98px;
+    }
+
+    @include screen('lg', max, 2) {
+      height: pxtovw(98, 1366);
+    }
+
+    @include screen('md', max, 2) {
+      height: pxtovw(84, 960);
+    }
+
+    @include screen('sm', max, 2) {
+      height: pxtovw(86, 375);
+    }
+  }
+
   &_special {
-
     #{$b} {
-
       &__logo {
         margin-right: 30px;
 
@@ -268,6 +404,14 @@
       &__navigation {
         display: flex;
       }
+    }
+  }
+
+  &_sm-white {
+    color: $nd-color-basic-light;
+
+    @include screen('sm', max, 2) {
+      background-color: transparent;
     }
   }
 }

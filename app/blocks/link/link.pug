@@ -8,3 +8,14 @@ mixin link-icon(iconname, tag)
     +icon(iconname)(class="__icon _" + iconname)
     +e.SPAN.text
       block
+
+mixin nd-link(tag)
+  +b(tag || 'a').nd-link&attributes(attributes)
+    +e.SPAN.text
+      block
+
+mixin nd-link-icon(iconname, tag)
+  +b(tag || 'a').nd-link_icon&attributes(attributes)
+    +icon(iconname)(class="__icon _" + iconname)
+    +e.SPAN.text
+      block

@@ -1,7 +1,9 @@
 const program = require('commander');
 const fs = require('fs');
 const path = require('path');
-const { promisify } = require('util');
+const {
+  promisify
+} = require('util');
 // TODO promiify fs and rewrite on async/await
 
 /* eslint-disable global-require */
@@ -140,14 +142,17 @@ const make = (name, kind, js) => {
       // Displays a list of files created
       files.forEach(file => console.log(file));
     })
-    .then(() => ({ kind, name }));
+    .then(() => ({
+      kind,
+      name
+    }));
 };
 
 const printError = err => console.log(err);
 
 program
   .command('block [blockNames...]')
-  .option('--js', 'Generate script file')
+  .option('-js', '--js', 'Generate script file')
   .action(async (blockNames, opts) => {
     if (blockNames === undefined) {
       return console.log('Please enter blockName');
@@ -157,11 +162,11 @@ program
 
     const blocks = await Promise.all(promises).catch(printError);
     blocks.forEach(block => appendToIncludes(block.kind, block.name));
-});
+  });
 
 program
   .command('component [componentNames...]')
-  .option('--js', 'Generate script file')
+  .option('-js', '--js', 'Generate script file')
   .action(async (componentNames, opts) => {
     if (componentNames === undefined) {
       return console.log('Please enter componentName');
@@ -172,11 +177,11 @@ program
 
     const blocks = await Promise.all(promises).catch(printError);
     blocks.forEach(block => appendToIncludes(block.kind, block.name));
-});
+  });
 
 program
   .command('page [pageNames...]')
-  .option('--js', 'Generate script file')
+  .option('-js', '--js', 'Generate script file')
   .action(async (pageNames, opts) => {
     if (pageNames === undefined) {
       return console.log('Please enter pageName');
@@ -184,6 +189,6 @@ program
 
     const promises = pageNames.map(name => make(name, 'page', opts.js));
     Promise.all(promises).catch(printError);
-});
+  });
 
 program.parse(process.argv);

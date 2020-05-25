@@ -34,4 +34,28 @@
       min-width: 50px;
     }
   }
+
+  &_small {
+    min-width: 34px;
+    width: 34px;
+    height: 34px;
+
+    @include screen('lg', max, 2) {
+      min-width: pxtovw(26, 1366);
+      width: pxtovw(26, 1366);
+      height: pxtovw(26, 1366);
+    }
+
+    @include screen('md', max, 2) {
+      min-width: pxtovw(26, 960);
+      width: pxtovw(26, 960);
+      height: pxtovw(26, 960);
+    }
+
+    @include screen('sm', max, 2) {
+      min-width: pxtovw(26, 375);
+      width: pxtovw(26, 375);
+      height: pxtovw(26, 375);
+    }
+  }
 }

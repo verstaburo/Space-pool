@@ -1,0 +1,106 @@
+.nd-link {
+  display: inline-flex;
+  justify-content: flex-start;
+  align-items: center;
+  box-sizing: border-box;
+  font-size: inherit;
+  color: currentColor;
+  font-weight: inherit;
+  line-height: inherit;
+  text-decoration: none;
+  fill: currentColor;
+
+  $b: &;
+
+  &__text {
+    display: inline;
+    font-size: inherit;
+    color: inherit;
+    font-weight: inherit;
+    line-height: inherit;
+    transition: background $ease-main;
+    text-decoration: none;
+
+    #{$b}_underline & {
+      text-decoration: underline;
+    }
+  }
+
+  &:hover {
+    #{$b}__text {
+      text-decoration: underline;
+    }
+  }
+
+  &__icon {
+    display: inline;
+    vertical-align: middle;
+    fill: inherit;
+
+    &:not(:last-child) {
+      margin-right: 16px;
+
+      @include screen('lg', max, 2) {
+        margin-right: pxtovw(16, 1366);
+      }
+
+      @include screen('md', max, 2) {
+        margin-right: pxtovw(9, 960);
+      }
+
+      @include screen('sm', max, 2) {
+        margin-right: pxtovw(9, 375);
+      }
+    }
+
+    &_nd-user {
+      width: 13px;
+      height: 13px;
+
+      @include screen('lg', max, 2) {
+        width: pxtovw(13, 1366);
+        height: pxtovw(13, 1366);
+      }
+
+      @include screen('md', max, 2) {
+        width: pxtovw(13, 960);
+        height: pxtovw(13, 960);
+      }
+
+      @include screen('sm', max, 2) {
+        width: pxtovw(13, 375);
+        height: pxtovw(13, 375);
+      }
+    }
+
+    &_nd-burger {
+      width: 12px;
+      height: 12px;
+
+      @include screen('lg', max, 2) {
+        width: pxtovw(12, 1366);
+        height: pxtovw(12, 1366);
+      }
+
+      @include screen('md', max, 2) {
+        width: pxtovw(12, 960);
+        height: pxtovw(9, 960);
+      }
+
+      @include screen('sm', max, 2) {
+        width: pxtovw(12, 375);
+        height: pxtovw(9, 375);
+      }
+    }
+  }
+
+  &_underline:hover {
+    #{$b}__text {
+      text-decoration: none;
+    }
+  }
+
+  &_icon_gray {
+    fill: $nd-color-gray-text4;
+  }
+}

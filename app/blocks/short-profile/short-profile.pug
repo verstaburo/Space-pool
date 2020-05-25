@@ -13,6 +13,13 @@ mixin short-profile-origin(img, name, tag)
   +b(tag || 'a').short-profile_full&attributes(attributes)
     +avatar(img).__avatar
     +e.name!= name
+    block
+
+mixin nd-short-profile-origin(img, name, tag)
+  +b(tag || 'a').short-profile&attributes(attributes)
+    +avatar(img)._small.__avatar
+    +e.name!= name
+    block
 
 mixin short-profile-ext(data)
   +b(data.tag || 'a').short-profile_ext&attributes(attributes)

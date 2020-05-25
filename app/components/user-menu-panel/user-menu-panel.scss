@@ -52,6 +52,11 @@
     box-sizing: border-box;
     padding: 0 15px;
     transition: opacity $ease-main;
+
+    #{$b}.nd-user-menu-panel & {
+      flex: none;
+      padding: 0;
+    }
   }
 
   &__link {
@@ -61,6 +66,27 @@
     body.is-login & {
       opacity: 1;
       pointer-events: auto;
+    }
+  }
+
+  &.nd-user-menu-panel {
+    visibility: hidden;
+    opacity: 0;
+    pointer-events: none;
+    height: 60px;
+    border-top: none;
+    padding: 0;
+    max-width: 100vw;
+
+    @include screen('md', max, 2) {
+      height: pxtovw(60, 960);
+    }
+
+    @include screen('sm', max, 2) {
+      visibility: visible;
+      opacity: 1;
+      pointer-events: auto;
+      height: pxtovw(60, 375);
     }
   }
 }

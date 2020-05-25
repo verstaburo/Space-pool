@@ -1,0 +1,120 @@
+.nd-burger {
+  $b: &;
+
+  position: relative;
+  display: block;
+  font-size: 0;
+  line-height: 0;
+  box-sizing: border-box;
+  width: 30px;
+  height: 30px;
+  background-color: transparent;
+  -webkit-appearance: none;
+  will-change: position;
+  backface-visibility: hidden;
+  color: $nd-color-basic;
+
+  @include screen('lg', max, 2) {
+    width: pxtovw(30, 1366);
+    height: pxtovw(30, 1366);
+  }
+
+  @include screen('md', max, 2) {
+    width: pxtovw(30, 960);
+    height: pxtovw(30, 960);
+  }
+
+  @include screen('sm', max, 2) {
+    width: pxtovw(30, 375);
+    height: pxtovw(30, 375);
+  }
+
+  &_small {
+    @include screen('sm', max, 2) {
+      width: pxtovw(19, 375);
+      height: pxtovw(30, 375);
+    }
+  }
+
+  &__image {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 30px;
+    height: 30px;
+
+    @include screen('lg', max, 2) {
+      width: pxtovw(26, 1366);
+      height: pxtovw(28, 1366);
+      top: pxtovw(1, 1366);
+    }
+
+    @include screen('md', max, 2) {
+      width: pxtovw(26, 960);
+      height: pxtovw(28, 960);
+      top: pxtovw(1, 960);
+    }
+
+    @include screen('sm', max, 2) {
+      width: pxtovw(22, 375);
+      height: pxtovw(18, 375);
+      top: pxtovw(6, 375);
+    }
+
+    &::before, &::after {
+      @include pseudo;
+
+      right: 0;
+      width: 100%;
+      border: 1px solid currentColor;
+      box-sizing: border-box;
+    }
+
+    &::before {
+      top: 0;
+    }
+
+    &::after {
+      bottom: 0;
+    }
+
+    #{$b}_small & {
+      @include screen('sm', max, 2) {
+        width: pxtovw(19, 375);
+        height: pxtovw(16, 375);
+        top: pxtovw(7, 375);
+      }
+    }
+  }
+
+  &__line {
+    position: absolute;
+    box-sizing: border-box;
+    top: 14px;
+    right: 0;
+    width: 23px;
+    border: 1px solid currentColor;
+
+    @include screen('lg', max, 2) {
+      top: pxtovw(13, 1366);
+      width: pxtovw(16, 1366);
+    }
+
+    @include screen('md', max, 2) {
+      width: pxtovw(16, 960);
+      top: pxtovw(13, 960);
+    }
+
+    @include screen('sm', max, 2) {
+      width: pxtovw(17, 375);
+      top: pxtovw(8, 375);
+    }
+
+    #{$b}_small & {
+      @include screen('sm', max, 2) {
+        width: pxtovw(15, 375);
+        top: pxtovw(7, 375);
+      }
+    }
+  }
+}

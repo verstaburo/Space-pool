@@ -1,0 +1,30 @@
+mixin nd-footer()
+  +b.FOOTER.nd-footer&attributes(attributes)
+    .nd-container
+      +e.top
+        +e.links_offers
+          +e.heading Offers
+          +e.list
+            each item in getData('footer-types.json')
+              +nd-link().__link(href=item.href)!=item.name
+        +e.links_teams
+          +e.heading Teams
+          +e.list
+            each item in getData('footer-teams.json')
+              +nd-link-icon('nd-user')._icon_gray.__link(href=item.href)!=item.name
+        +e.links_places
+          +e.heading Places
+          +e.list_columns
+            each item in getData('footer-location.json')
+              +nd-link().__link_sm-fz13._sm-lh26(href=item.href)!=item.name
+          +nd-link-icon('nd-burger')._underline.__location Show all <span class="nd-hide-md">locations</span>
+      +e.bottom
+        +e.company
+          +nd-logo._footer.__logo(href="/")
+          +e.copyright &copy; Spacepool ltd. 2020
+        +e.navigation
+          each item in getData('footer-navigation.json')
+            +nd-link().__link_sm-lh25(href=item.href)!=item.name
+        +e.contacts
+          +nd-link().__link_right._sm-lh25(href="mailto:info@spaceppol.com") info@spaceppol.com
+          +nd-socials.__socials

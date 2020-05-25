@@ -1,4 +1,30 @@
 /*
+  Функция для масштабирования
+*/
+@function pxtovw($value, $base) {
+  $result: ($value / $base) * 100vw;
+
+  @return $result;
+}
+
+/*
+Миксин для подключения шрифтов.
+Описание в файле _fonts.scss
+*/
+@mixin font-face($name, $style, $weight, $fontname) {
+  $path: '../fonts/';
+
+  @font-face {
+    font-family: $name;
+    font-style: $style;
+    font-weight: $weight;
+    font-display: swap;
+    src: url($path + $fontname + '.eot');
+    src: url('' + $path + $fontname + '.eot?#iefix') format('embedded-opentype'), url('' + $path + $fontname + '.woff2') format('woff2'), url('' + $path + $fontname + '.woff') format('woff'), url('' + $path + $fontname + '.ttf') format('truetype'), url('' + $path + $fontname + '.svg#' + $fontname) format('svg');
+  }
+}
+
+/*
 Миксин для элементов, которые должны сохранять определенное соотношение сторон (напр., блок с видео)
 Пример использования:
 div {
@@ -100,16 +126,39 @@ div {
 }
 */
 
-@mixin screen($width, $type: max) {
-  @if map_has_key($breakpoints, $width) {
-    $width: map_get($breakpoints, $width);
 
-    @if $type==max {
-      $width: $width - 1px;
+@mixin screen($width, $type: max, $version: 1) {
+  @if $version == 2 {
+    @if map_has_key($nd-breakpoints, $width) {
+      $width: map_get($nd-breakpoints, $width);
+
+      @if $type==max {
+        $width: $width - 1px;
+      }
+
+      @media only screen and (#{$type}-width: $width) {
+        @content;
+      }
+    } @else {
+      @if $type == max {
+        $width: $width - 1px;
+      }
+
+      @media only screen and (#{$type}-width: $width) {
+        @content;
+      }
     }
+  } @else {
+    @if map_has_key($breakpoints, $width) {
+      $width: map_get($breakpoints, $width);
 
-    @media only screen and (#{$type}-width: $width) {
-      @content;
+      @if $type == max {
+        $width: $width - 1px;
+      }
+
+      @media only screen and (#{$type}-width: $width) {
+        @content;
+      }
     }
   }
 }

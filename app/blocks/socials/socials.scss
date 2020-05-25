@@ -24,3 +24,34 @@
     }
   }
 }
+
+.nd-socials {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  box-sizing: border-box;
+  font-size: 0;
+  line-height: 0;
+
+  &__item {
+    &:not(:first-child) {
+      margin-left: 38px;
+
+      @include screen('xl', max, 2) {
+        margin-left: 36px;
+      }
+
+      @include screen('lg', max, 2) {
+        margin-left: pxtovw(33, 1366);
+      }
+
+      @include screen('md', max, 2) {
+        margin-left: pxtovw(36, 960);
+      }
+
+      @include screen('sm', max, 2) {
+        margin-left: pxtovw(32, 375);
+      }
+    }
+  }
+}

@@ -15,6 +15,28 @@
       margin-right: 0;
     }
 
+    #{$b}_login & {
+      margin-right: 11px;
+
+      @include screen('lg', max, 2) {
+        margin-right: pxtovw(11, 1366);
+      }
+
+      @include screen('md', max, 2) {
+        margin-right: pxtovw(11, 960);
+      }
+
+      @include screen('sm', max, 2) {
+        margin-right: 0;
+      }
+    }
+
+    #{$b}_login_host & {
+      @include screen('md', max, 2) {
+        margin-right: 0;
+      }
+    }
+
     #{$b}_full & {
       @include screen('sm') {
         margin-right: 10px;
@@ -40,6 +62,33 @@
 
         line-height: (26/14);
         display: inline-block;
+      }
+    }
+
+    #{$b}_login & {
+      font-size: 17px;
+      line-height: (21 / 17);
+      font-weight: 500;
+      letter-spacing: normal;
+      color: $nd-color-basic;
+
+      @include screen('lg', max, 2) {
+        font-size: pxtovw(15, 1366);
+        line-height: (18 / 15);
+      }
+
+      @include screen('md', max, 2) {
+        font-size: pxtovw(15, 960);
+      }
+
+      @include screen('sm', max, 2) {
+        font-size: pxtovw(15, 375);
+      }
+    }
+
+    #{$b}_login_host & {
+      @include screen('md', max, 2) {
+        display: none;
       }
     }
 
@@ -120,6 +169,42 @@
       height: 2px;
       background-image: linear-gradient(to right, $color-hot-desk 25%, $color-dedicated-desk 25%, $color-dedicated-desk 50%, $color-meeting-room 50%, $color-meeting-room 75%, $color-office-space 75%);
     }
+
+    #{$b}_login & {
+      font-size: 11px;
+      font-weight: 800;
+      line-height: 1;
+      padding: 2px 4px 1px;
+      background-color: $nd-color-gray-text3;
+      margin-bottom: 2px;
+      margin-left: 15px;
+
+      @include screen('lg', max, 2) {
+        font-size: pxtovw(7, 1366);
+        line-height: 1;
+        padding: pxtovw(3, 1366) pxtovw(5, 1366) pxtovw(1, 1366);
+        margin-left: pxtovw(10, 1366);
+      }
+
+      @include screen('md', max, 2) {
+        font-size: pxtovw(7, 960);
+        padding: pxtovw(3, 960) pxtovw(5, 960) pxtovw(1, 960);
+        margin-bottom: pxtovw(2, 960);
+        margin-left: pxtovw(-5, 960);
+      }
+
+      @include screen('sm', max, 2) {
+        display: none;
+      }
+
+      &::after {
+        background-image: linear-gradient(to right, $nd-color-hotdesk 25%, $nd-color-fixeddesk 25%, $nd-color-fixeddesk 50%, $nd-color-meetingroom 50%, $nd-color-meetingroom 75%, $nd-color-privateoffice 75%);
+
+        @include screen('md', max, 2) {
+          height: pxtovw(2, 960);
+        }
+      }
+    }
   }
 
   &_ext {
@@ -161,9 +246,7 @@
   }
 
   &_smava {
-
     #{$b} {
-
       &__avatar {
         @include screen('sm') {
           min-width: 16px;

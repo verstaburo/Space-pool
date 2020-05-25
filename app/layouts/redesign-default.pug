@@ -1,0 +1,48 @@
+include _externalIncludes
+include _internalIncludes
+
+doctype html
+html(lang='en')
+  include head-redesign
+  block bodyClasses
+    - var bodyClass = bodyCls || ''
+  body(class='no-js-scale ' + bodyClass)
+    block header
+    - var addClass = headerClass || ''
+    - var pageCls = pageClass || ''
+    - var messages = getData('notices-message.json')
+    - var events = getData('notices-event.json')
+    - var gradients = isGradients || false
+    - var map = isMap || false
+    - var isHost = host || false
+    if gradients
+      +gradients-redesign
+
+    +nd-header(isHost)(class=addClass)
+    +nd-user-menu-panel(isHost)
+    +info-notices({indicator: 2, title: 'Events', link: {mdname: 'View all events', xlname: 'Show all events'}})#events-list
+      each item in events
+        +notice(item)
+    +info-notices({indicator: 2, title: 'Messages', link: {xlname: 'View all Messages', mdname: 'Read all messages', indicator: 2}})#messages-list
+      each item in messages
+        +notice(item)
+
+    +b.MAIN(class='nd-page' + pageCls)
+      block content
+
+    +popups
+      +popup-signin#popup-signin
+      block popups
+
+    +overlay
+
+    block panels
+
+    +nd-footer
+
+    script(src='assets/scripts/libs/object-assign-auto.min.js')
+    script(src='assets/scripts/app.min.js')
+    script(src='assets/scripts/main.js')
+    if map
+      script(src='https://maps.googleapis.com/maps/api/js?key=AIzaSyCKtbucQSqDWV-9lNCgzESqbdUakhraXDY&callback=initMap')
+      script(src='assets/scripts/map.js')

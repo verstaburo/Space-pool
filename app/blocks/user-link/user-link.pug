@@ -4,3 +4,13 @@ mixin user-link(ico, classIco, marker)
   +b.A.user-link&attributes(attributes)(class=marker)
     +icon(ico)(class="__icon " + addClass)
     +e.marker
+
+mixin nd-user-link(ico, classIco, marker)
+  - var addClass = classIco || '';
+  - var marker = marker ? ' is-new' : '';
+  +b.A.nd-user-link.user-link__&attributes(attributes)(class=marker)
+    if ico
+      +icon(ico)(class="__icon " + addClass)
+    else
+      block
+    +e.marker

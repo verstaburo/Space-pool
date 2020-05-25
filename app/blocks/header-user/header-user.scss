@@ -1,4 +1,6 @@
 .header-user {
+  $b: &;
+
   display: flex;
   align-items: center;
   justify-content: flex-end;
@@ -31,6 +33,24 @@
         }
       }
     }
+
+    #{$b}.nd-header-user & {
+      &:not(:last-child) {
+        margin-right: 85px;
+
+        @include screen('lg', max, 2) {
+          margin-right: pxtovw(70, 1366);
+        }
+
+        @include screen('md', max, 2) {
+          margin-right: pxtovw(70, 960);
+        }
+
+        @include screen('sm', max, 2) {
+          margin-right: 0;
+        }
+      }
+    }
   }
 
   &__list {
@@ -41,11 +61,43 @@
     @include screen('md') {
       display: none;
     }
+
+    #{$b}.nd-header-user & {
+      @include screen('md', max, 2) {
+        display: flex;
+      }
+
+      @include screen('sm', max, 2) {
+        display: none;
+      }
+    }
   }
 
   &__item {
     &:not(:last-child) {
       margin-right: 73px;
+    }
+
+    #{$b}.nd-header-user & {
+      &:not(:last-child) {
+        margin-right: 72px;
+
+        @include screen('lg', max, 2) {
+          margin-right: pxtovw(63, 1366);
+        }
+
+        @include screen('md', max, 2) {
+          margin-right: pxtovw(63, 960);
+        }
+      }
+    }
+  }
+
+  &.nd-header-user {
+    padding-right: 18px;
+
+    @include screen('lg', max, 2) {
+      padding-right: 0;
     }
   }
 }

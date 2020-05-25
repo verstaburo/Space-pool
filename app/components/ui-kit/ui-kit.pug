@@ -58,7 +58,20 @@ mixin ui-section-head()
 mixin ui-section-content(container)
   +e.section-content
     if !container
-      .container  
+      .container
+        block
+    else
+      block
+
+mixin ui-nd-section-head()
+  +e.section-head&attributes(attributes)
+    .nd-container
+      block
+
+mixin ui-nd-section-content(container)
+  +e.section-content
+    if !container
+      .nd-container
         block
     else
       block

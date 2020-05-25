@@ -1,0 +1,14 @@
+mixin nd-header(host)
+  - var isAuthorized = authorized ? 'is-login' : '';
+  +b.HEADER.nd-header.header__&attributes(attributes)(class=isAuthorized)
+    +e.wrapper
+      .nd-container
+        +e.logo
+          +nd-logo()(href="/")
+        +e.NAV.navigation(data-rounding-target)
+          +e.main
+            +nd-header-menu
+          +e.user
+            +nd-header-user(host)
+        +e.burger
+          +nd-burger
