@@ -125,3 +125,48 @@
     background-color: $color-office-space;
   }
 }
+
+.nd-box {
+  $b: &;
+
+  display: block;
+  flex: none;
+  background-color: transparent;
+  width: 9px;
+  height: 9px;
+
+  @include screen('lg', max, 2) {
+    width: pxtovw(9, 1366);
+    height: pxtovw(9, 1366);
+  }
+
+  @include screen('md', max, 2) {
+    width: pxtovw(9, 960);
+    height: pxtovw(9, 960);
+  }
+
+  @include screen('sm', max, 2) {
+    width: pxtovw(9, 375);
+    height: pxtovw(9, 375);
+  }
+
+  &_orange {
+    background-color: $nd-color-hotdesk;
+  }
+
+  &_red {
+    background-color: $nd-color-fixeddesk;
+  }
+
+  &_blue {
+    background-color: $nd-color-meetingroom;
+  }
+
+  &_green {
+    background-color: $nd-color-privateoffice;
+  }
+
+  &_dark-blue {
+    background-color: $nd-color-daypass;
+  }
+}

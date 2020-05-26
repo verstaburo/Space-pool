@@ -1,0 +1,243 @@
+.nd-space {
+  $b: &;
+
+  display: block;
+  box-sizing: border-box;
+  color: $nd-color-basic;
+  text-decoration: none;
+
+  &__media {
+    display: block;
+    width: 100%;
+
+    &:not(:first-child) {
+      margin-top: 16px;
+
+      @include screen('xl', max, 2) {
+        margin-top: 13px;
+      }
+
+      @include screen('lg', max, 2) {
+        margin-top: pxtovw(13, 1366);
+      }
+
+      @include screen('md', max, 2) {
+        margin-top: pxtovw(13, 960);
+      }
+
+      @include screen('sm', max, 2) {
+        margin-top: pxtovw(13, 375);
+      }
+    }
+  }
+
+  &__image {
+    position: relative;
+    display: block;
+    overflow: hidden;
+    padding-top: 62.9%;
+    font-size: 0;
+    line-height: 0;
+    border-radius: 3px;
+
+    @include screen('lg', max, 2) {
+      border-radius: pxtovw(3, 1366);
+    }
+
+    @include screen('md', max, 2) {
+      border-radius: pxtovw(3, 960);
+    }
+
+    @include screen('sm', max, 2) {
+      border-radius: pxtovw(3, 375);
+    }
+
+    img {
+      display: block;
+      font-size: 0;
+      line-height: 0;
+      border-radius: 3px;
+
+      @include fill-img;
+
+      @include screen('lg', max, 2) {
+        border-radius: pxtovw(3, 1366);
+      }
+
+      @include screen('md', max, 2) {
+        border-radius: pxtovw(3, 960);
+      }
+
+      @include screen('sm', max, 2) {
+        border-radius: pxtovw(3, 375);
+      }
+    }
+  }
+
+  &__colors {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+
+    &:not(:first-child) {
+      margin-top: 16px;
+
+      @include screen('xl', max, 2) {
+        margin-top: 13px;
+      }
+
+      @include screen('lg', max, 2) {
+        margin-top: pxtovw(13, 1366);
+      }
+
+      @include screen('md', max, 2) {
+        margin-top: pxtovw(13, 960);
+      }
+
+      @include screen('sm', max, 2) {
+        margin-top: pxtovw(13, 375);
+      }
+    }
+  }
+
+  &__type {
+    width: 100%;
+
+    &:not(:first-child) {
+      margin-top: 16px;
+
+      @include screen('xl', max, 2) {
+        margin-top: 13px;
+      }
+
+      @include screen('lg', max, 2) {
+        margin-top: pxtovw(13, 1366);
+      }
+
+      @include screen('md', max, 2) {
+        margin-top: pxtovw(13, 960);
+      }
+
+      @include screen('sm', max, 2) {
+        margin-top: pxtovw(13, 375);
+      }
+    }
+  }
+
+  &__title {
+    display: block;
+    width: 100%;
+    font-family: $font-stolzl;
+    font-weight: 400;
+    letter-spacing: normal;
+    font-size: 17px;
+    line-height: (20 / 17);
+
+    @include screen('xl', max, 2) {
+      font-size: 14px;
+      line-height: (17 / 14);
+    }
+
+    @include screen('lg', max, 2) {
+      font-size: pxtovw(14, 1366);
+    }
+
+    @include screen('md', max, 2) {
+      font-size: pxtovw(14, 960);
+    }
+
+    @include screen('sm', max, 2) {
+      font-size: pxtovw(14, 375);
+    }
+
+    &:not(:first-child) {
+      margin-top: 9px;
+
+      @include screen('xl', max, 2) {
+        margin-top: 6px;
+      }
+
+      @include screen('lg', max, 2) {
+        margin-top: pxtovw(6, 1366);
+      }
+
+      @include screen('md', max, 2) {
+        margin-top: pxtovw(6, 960);
+      }
+
+      @include screen('sm', max, 2) {
+        margin-top: pxtovw(6, 375);
+      }
+    }
+
+    a:hover & {
+      text-decoration: underline;
+    }
+  }
+
+  &__text {
+    display: block;
+    width: 100%;
+    letter-spacing: normal;
+    color: $nd-color-gray-text6;
+    font-size: 15px;
+    line-height: (18 / 15);
+
+    @include screen('xl', max, 2) {
+      font-size: 14px;
+      line-height: (17 / 14);
+    }
+
+    @include screen('lg', max, 2) {
+      font-size: pxtovw(14, 1366);
+    }
+
+    @include screen('md', max, 2) {
+      font-size: pxtovw(14, 960);
+    }
+
+    @include screen('sm', max, 2) {
+      font-size: pxtovw(14, 375);
+    }
+
+    &_any-fz15 {
+      @include screen('xl', max, 2) {
+        font-size: 15px;
+        line-height: (18 / 15);
+      }
+
+      @include screen('lg', max, 2) {
+        font-size: pxtovw(15, 1366);
+      }
+
+      @include screen('md', max, 2) {
+        font-size: pxtovw(15, 960);
+      }
+
+      @include screen('sm', max, 2) {
+        font-size: pxtovw(15, 375);
+      }
+    }
+
+    &:not(:first-child) {
+      margin-top: 11px;
+
+      @include screen('xl', max, 2) {
+        margin-top: 4px;
+      }
+
+      @include screen('lg', max, 2) {
+        margin-top: pxtovw(4, 1366);
+      }
+
+      @include screen('md', max, 2) {
+        margin-top: pxtovw(4, 960);
+      }
+
+      @include screen('sm', max, 2) {
+        margin-top: pxtovw(4, 375);
+      }
+    }
+  }
+}

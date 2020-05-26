@@ -1,0 +1,17 @@
+mixin nd-slider(buttons, pagination)
+  +b.nd-slider__&attributes(attributes)
+    .nd-container
+      +e.container.swiper-container.js-slider-container
+        .swiper-wrapper
+          block
+    if pagination
+      +e.dots
+        +e.dot
+    if buttons
+      +e.buttons.nd-hide-md(data-slider-buttons)
+        +e.button_prev.js-slider-button-prev
+          +e.button-icon
+            +icon('nd-slider-arrow')
+        +e.button_next.js-slider-button-next
+          +e.button-icon
+            +icon('nd-slider-arrow')

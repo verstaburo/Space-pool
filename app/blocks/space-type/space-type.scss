@@ -1,0 +1,63 @@
+.space-type {
+  $b: &;
+
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  box-sizing: border-box;
+  color: $nd-color-basic;
+
+  &__box {
+    @include screen('md', max, 2) {
+      width: pxtovw(7, 960);
+      height: pxtovw(7, 960);
+    }
+
+    @include screen('sm', max, 2) {
+      width: pxtovw(7, 375);
+      height: pxtovw(7, 375);
+    }
+
+    &:not(:last-child) {
+      margin-right: 4px;
+
+      @include screen('xl', max, 2) {
+        margin-right: 4px;
+      }
+
+      @include screen('lg', max, 2) {
+        margin-right: pxtovw(4, 1366);
+      }
+
+      @include screen('md', max, 2) {
+        margin-right: pxtovw(3, 960);
+      }
+
+      @include screen('sm', max, 2) {
+        margin-right: pxtovw(3, 375);
+      }
+    }
+  }
+
+  &__name {
+    font-family: $font-stolzl;
+    font-weight: 500;
+    font-size: 10px;
+    line-height: 1.2;
+    text-transform: uppercase;
+    letter-spacing: normal;
+
+    @include screen('lg', max, 2) {
+      font-size: pxtovw(10, 1366);
+    }
+
+    @include screen('md', max, 2) {
+      font-size: pxtovw(7, 960);
+      line-height: (8 / 7);
+    }
+
+    @include screen('sm', max, 2) {
+      font-size: pxtovw(7, 375);
+    }
+  }
+}

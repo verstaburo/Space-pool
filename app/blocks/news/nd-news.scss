@@ -1,0 +1,168 @@
+.nd-news {
+  $b: &;
+
+  display: block;
+  text-decoration: none;
+  color: $nd-color-basic;
+  cursor: pointer;
+
+  &__media {
+    display: block;
+    width: 100%;
+
+    &:not(:first-child) {
+      margin-top: 26px;
+
+      @include screen('xl', max, 2) {
+        margin-top: 21px;
+      }
+
+      @include screen('lg', max, 2) {
+        margin-top: pxtovw(20, 1366);
+      }
+
+      @include screen('md', max, 2) {
+        margin-top: pxtovw(18, 960);
+      }
+
+      @include screen('sm', max, 2) {
+        margin-top: pxtovw(13, 375);
+      }
+    }
+  }
+
+  &__image {
+    position: relative;
+    display: block;
+    overflow: hidden;
+    padding-top: 63.9%;
+    font-size: 0;
+    line-height: 0;
+    border-radius: 3px;
+
+    @include screen('lg', max, 2) {
+      border-radius: pxtovw(3, 1366);
+    }
+
+    @include screen('md', max, 2) {
+      border-radius: pxtovw(3, 960);
+    }
+
+    @include screen('sm', max, 2) {
+      border-radius: pxtovw(3, 375);
+    }
+
+    img {
+      display: block;
+      font-size: 0;
+      line-height: 0;
+      border-radius: 3px;
+
+      @include fill-img;
+
+      @include screen('lg', max, 2) {
+        border-radius: pxtovw(3, 1366);
+      }
+
+      @include screen('md', max, 2) {
+        border-radius: pxtovw(3, 960);
+      }
+
+      @include screen('sm', max, 2) {
+        border-radius: pxtovw(3, 375);
+      }
+    }
+  }
+
+  &__date {
+    display: block;
+    width: 100%;
+    font-size: 14px;
+    font-weight: 400;
+    letter-spacing: -.02em;
+    line-height: (17 / 14);
+
+    @include screen('lg', max, 2) {
+      font-size: pxtovw(14, 1366);
+    }
+
+    @include screen('md', max, 2) {
+      font-size: pxtovw(14, 960);
+    }
+
+    @include screen('sm', max, 2) {
+      line-height: 1.2;
+      font-size: pxtovw(10, 375);
+    }
+
+    &:not(:first-child) {
+      margin-top: 26px;
+
+      @include screen('xl', max, 2) {
+        margin-top: 21px;
+      }
+
+      @include screen('lg', max, 2) {
+        margin-top: pxtovw(20, 1366);
+      }
+
+      @include screen('md', max, 2) {
+        margin-top: pxtovw(18, 960);
+      }
+
+      @include screen('sm', max, 2) {
+        margin-top: pxtovw(13, 375);
+      }
+    }
+  }
+
+  &__title {
+    display: block;
+    width: 100%;
+    font-family: $font-stolzl-book;
+    font-size: 20px;
+    font-weight: 400;
+    letter-spacing: normal;
+    line-height: 1.27;
+
+    @include screen('xl', max, 2) {
+      font-size: 18px;
+    }
+
+    @include screen('lg', max, 2) {
+      font-size: pxtovw(18, 1366);
+    }
+
+    @include screen('md', max, 2) {
+      font-size: pxtovw(18, 960);
+    }
+
+    @include screen('sm', max, 2) {
+      font-size: pxtovw(15, 375);
+    }
+
+    &:not(:first-child) {
+      margin-top: 26px;
+
+      @include screen('xl', max, 2) {
+        margin-top: 20px;
+      }
+
+      @include screen('lg', max, 2) {
+        margin-top: pxtovw(20, 1366);
+      }
+
+      @include screen('md', max, 2) {
+        margin-top: pxtovw(14, 960);
+      }
+
+      @include screen('sm', max, 2) {
+        margin-top: pxtovw(8, 375);
+      }
+    }
+
+    a:hover & {
+      text-decoration: underline;
+    }
+  }
+}

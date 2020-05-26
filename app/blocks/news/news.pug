@@ -6,3 +6,11 @@ mixin news(data)
       +e.TIME.date!= data.date
       +e.title!= data.title
       +e.info!= data.info
+
+mixin nd-news(data)
+  +b.A.nd-news&attributes(attributes)
+    +e.DIV.media(data-slider-buttons-orientir)
+      +e.DIV.image
+        IMG(src=data.img)
+    +e.TIME.date!= data.date
+    +e.title!= data.title

@@ -1,0 +1,127 @@
+.nd-slider {
+  $b: &;
+
+  position: relative;
+  display: block;
+  width: 100%;
+
+  &__container {
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+
+    @include screen('md', max, 2) {
+      overflow: visible;
+    }
+  }
+
+  &__buttons {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 2;
+  }
+
+  &__button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 150px;
+    height: 100%;
+    pointer-events: auto;
+    cursor: pointer;
+    stroke: $nd-color-border-light;
+    transition: stroke $ease-main;
+
+    @include screen('xl', max, 2) {
+      width: 50px;
+    }
+
+    @include screen('lg', max, 2) {
+      width: pxtovw(50, 1366);
+    }
+
+    @include screen('md', max, 2) {
+      width: pxtovw(50, 960);
+    }
+
+    @include screen('sm', max, 2) {
+      width: pxtovw(20, 375);
+    }
+
+    &:hover {
+      stroke: $nd-color-basic;
+    }
+  }
+
+  &__button-icon {
+    position: relative;
+    stroke: inherit;
+    width: 15px;
+    height: 40px;
+
+    @include screen('xl', max, 2) {
+      width: 8px;
+      height: 21px;
+    }
+
+    @include screen('lg', max, 2) {
+      width: pxtovw(8, 1366);
+      height: pxtovw(21, 1366);
+    }
+
+    @include screen('md', max, 2) {
+      width: pxtovw(8, 960);
+      height: pxtovw(21, 960);
+    }
+
+    @include screen('sm', max, 2) {
+      width: pxtovw(8, 375);
+      height: pxtovw(21, 375);
+    }
+
+    #{$b}__button_next & {
+      transform: rotate(180deg);
+    }
+
+    svg {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      stroke: inherit;
+    }
+  }
+
+  &__slide {
+    &_space {
+      @include screen('md', max, 2) {
+        width: pxtovw(250, 960);
+        margin-right: pxtovw(20, 960);
+      }
+
+      @include screen('sm', max, 2) {
+        width: pxtovw(250, 375);
+        margin-right: pxtovw(20, 375);
+      }
+    }
+
+    &_news {
+      @include screen('md', max, 2) {
+        width: pxtovw(354, 960);
+        margin-right: pxtovw(50, 960);
+      }
+
+      @include screen('sm', max, 2) {
+        width: pxtovw(258, 375);
+        margin-right: pxtovw(37, 375);
+      }
+    }
+  }
+}

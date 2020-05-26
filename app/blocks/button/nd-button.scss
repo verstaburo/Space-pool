@@ -1,0 +1,104 @@
+.nd-button {
+  $b: &;
+
+  position: relative;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  border-radius: 20px;
+  text-align: center;
+  vertical-align: middle;
+  height: 40px;
+  background-color: $nd-color-main;
+  color: $nd-color-basic-light;
+  fill: currentColor;
+  font-size: 18px;
+  line-height: (22 / 18);
+  font-weight: 700;
+  letter-spacing: normal;
+  padding: 0 34px;
+
+  @include screen('lg', max, 2) {
+    height: pxtovw(40, 1366);
+    font-size: pxtovw(18, 1366);
+    padding: 0 pxtovw(34, 1366);
+    border-radius: pxtovw(20, 1366);
+  }
+
+  @include screen('md', max, 2) {
+    height: pxtovw(40, 960);
+    font-size: pxtovw(18, 960);
+    padding: 0 pxtovw(34, 960);
+    border-radius: pxtovw(20, 960);
+  }
+
+  @include screen('sm', max, 2) {
+    height: pxtovw(40, 375);
+    font-size: pxtovw(18, 375);
+    padding: 0 pxtovw(34, 375);
+    border-radius: pxtovw(20, 375);
+  }
+
+  [data-enabled-text] {
+    display: inline-block;
+  }
+
+  [data-disabled-text] {
+    display: none;
+  }
+
+  &[disabled], &.is-disabled {
+    cursor: not-allowed;
+    pointer-events: none;
+    opacity: .2;
+  }
+
+  &.is-loading {
+    cursor: not-allowed;
+    pointer-events: none;
+    color: transparent;
+  }
+
+  &__preloader {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    pointer-events: none;
+    z-index: 3;
+
+    #{$b}.is-loading & {
+      display: flex;
+    }
+  }
+
+  &__text {
+    position: relative;
+    display: inline-block;
+    font-size: inherit;
+    font-weight: inherit;
+    line-height: inherit;
+    letter-spacing: inherit;
+    z-index: 2;
+  }
+
+  &__icon {
+    display: inline-block;
+    font-size: 0;
+    line-height: 0;
+    fill: inherit;
+
+    #{$b}.is-loading & {
+      opacity: 0;
+    }
+  }
+
+  &_border {
+
+  }
+}

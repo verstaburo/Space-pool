@@ -1,0 +1,20 @@
+mixin search-panel()
+  +b.search-panel&attributes(attributes)
+    +e.heading
+      +e.title(data-search-type="default") Search by:
+      +e.A.back.hide.js-search-toggle(data-search-type="offers, teams, location" href="#" data-search-target="default") Back
+    +e.content
+      +e.block(data-search-type="default")
+        +e.types
+        +nd-button().__button(href="#") View all
+        +e.note Choose how to search or simply view all spaces.
+      +e.block.hide(data-search-type="offers")
+        +e.offers
+        +e.note Pick the type of workspace you want.
+      +e.block.hide(data-search-type="teams")
+        +e.teams
+        +e.note Start-up, scale-up, big business or just you – we have a perfect match for you.
+      +e.block.hide(data-search-type="location")
+        +nd-button().__button(href="#") Show
+        +e.note Search by area, tube station or the name of the space to find your match.
+    block

@@ -25,217 +25,21 @@ block content
         h2 Хэдер (Header)
         p Блок: components/header
         p Состояние при логине хэдеру добавляется класс is-login
-        +button(onclick="$('.header').toggleClass('is-login')") Log In
-
-    //- Сетка
-    +ui-section._grid
-      +ui-section-head
-        h2 Сетка
-        p Отступы слева и справа от экрана: 40px ($container-padding)
-        p Отступы слева и справа от экрана на мобильныx: 20px ($container-padding-mobile)
-        p Максимальная ширина контейнера с учетом паддингов: 1700px ($container-width)
-        p Ширина контейнера сетки: 100% ($grid-container-width)
-        p Колонок: 12 ($grid-cols)
-        p Горизонтальное расстояние между колонками: 50px ($grid-gap)
-        p Вертикальное расстояние между колонками: 50px ($grid-gap-vertical)
-        p Переменные: styles/helpers/_variables.scss
-        p Блок: blocks/grid/
-
-      +ui-section-content()
-        +ui-special(style="margin-bottom: 20px")
-          +content-zone
-            H4 Возможные варианты использования
-            p +col(12) агалогично +col({ xl: 12 })
-            p +col({ xl: 8, lg: 6: md: 5, sm: 7, xs: 12 })
-            p
-              span Промежуточные брейкпоинты указывать не обязательно
-              br
-              span При следующей записи - блок будет занимать 6 колонок на всех разрешениях, а на самом маленьком #[i (xs)] 12
-            p +col({ xl: 6, xs: 12 })
-
-        +ui-description .grid
-        +grid
-          -for(var i = 0; i < 12; i++) {
-            +col(1)
-          - }
-          +col(4)
-          +col(4)
-          +col(4)
-          +col(6)
-          +col(6)
-        br
-        +ui-description .grid_big
-        +grid.grid_big
-          -for(var i = 0; i < 12; i++) {
-            +col(1)
-          - }
-          +col(4)
-          +col(4)
-          +col(4)
-          +col(6)
-          +col(6)
-        +ui-description .grid_bigger
-        +grid.grid_bigger
-          -for(var i = 0; i < 12; i++) {
-            +col(1)
-          - }
-          +col(4)
-          +col(4)
-          +col(4)
-          +col(6)
-          +col(6)
-        +ui-description .grid_layout
-        +grid.grid_layout
-          -for(var i = 0; i < 12; i++) {
-            +col(1)
-          - }
-          +col(4)
-          +col(4)
-          +col(4)
-          +col(6)
-          +col(6)
-        +ui-description .grid_blog
-        +grid.grid_blog
-          -for(var i = 0; i < 12; i++) {
-            +col(1)
-          - }
-          +col(4)
-          +col(4)
-          +col(4)
-          +col(6)
-          +col(6)
-        +ui-description .grid_no-top
-        +grid.grid_no-top
-          -for(var i = 0; i < 12; i++) {
-            +col(1)
-          - }
-          +col(4)
-          +col(4)
-          +col(4)
-          +col(6)
-          +col(6)
-        +ui-description .grid_mid
-        +grid.grid_mid
-          -for(var i = 0; i < 12; i++) {
-            +col(1)
-          - }
-          +col(4)
-          +col(4)
-          +col(4)
-          +col(6)
-          +col(6)
-        +ui-description .grid_c14
-        +grid.grid_c14
-          -for(var i = 0; i < 14; i++) {
-            +col(1)
-          - }
-          -for(var i = 0; i < 7; i++) {
-            +col(2)
-          - }
-          +col(7)
-          +col(7)
+        +nd-button(onclick="$('.header').toggleClass('is-login')") Log In
 
     //- Шрифты и контентная зона
     +ui-section
       +ui-section-head
         h2 Шрифты и контентная зона
-        p Основной шрифт: ProximaNova ($font-main), font-weight: 400, 700, 300
+        p Основной шрифт: ProximaNova ($font-main), font-weight: 100, 300, 400, 500, 600, 700, 800
+        p Дополнительные шрифты: Stolzl ($font-stolzl) и Stolzl Book ($font-stolzl-book), font-weight: 400, 500
         p Переменные находятся в файле styles/helpers/_variables.scss
         p Шрифты подключены в styles/helpers/_fonts.scss
         p Контентная зона: blocks/content-zone
-        p Стили всех текстов лежат в файле styles/helpers/_text-styles.scss
       +ui-section-content()
         +ui-description .content-zone
         +ui-special()
           +content-zone
-            h1 Заголовок H1 (heading-1)
-            h2 Заголовок H2 (heading-2)
-            h3 Заголовок H3 (heading-3)
-            h4 Заголовок H4 (heading-4)
-            h5 Заголовок H5 (heading-5)
-            h6 Заголовок H6 (heading-6)
-            p Текст p (text)<br> Цитата внутри текста p: <q>Цитата q</q>
-            p <small>Тег small внутри p (text-small)</small>
-            p ссылка внутри текста
-              a(href="#") ссылка
-            blockquote Цитата blocquoute
-            ul
-              li Элемент списка
-                ul
-                  li Элемент списка
-                  li Элемент списка
-                  li Элемент списка
-              li Элемент списка
-              li Элемент списка
-        +ui-description .content-zone._mid
-        +ui-special()
-          +content-zone.content-zone_mid
-            h1 Заголовок H1 (heading-1)
-            h2 Заголовок H2 (heading-2)
-            h3 Заголовок H3 (heading-3)
-            h4 Заголовок H4 (heading-4)
-            h5 Заголовок H5 (heading-5)
-            h6 Заголовок H6 (heading-6)
-            p Текст p (text)<br> Цитата внутри текста p: <q>Цитата q</q>
-            p <small>Тег small внутри p (text-small)</small>
-            p ссылка внутри текста
-              a(href="#") ссылка
-            blockquote Цитата blocquoute
-            ul
-              li Элемент списка
-                ul
-                  li Элемент списка
-                  li Элемент списка
-                  li Элемент списка
-              li Элемент списка
-              li Элемент списка
-        +ui-description .content-zone._mid2
-        +ui-special()
-          +content-zone.content-zone_mid2
-            h1 Заголовок H1 (heading-1)
-            h2 Заголовок H2 (heading-2)
-            h3 Заголовок H3 (heading-3)
-            h4 Заголовок H4 (heading-4)
-            h5 Заголовок H5 (heading-5)
-            h6 Заголовок H6 (heading-6)
-            p Текст p (text)<br> Цитата внутри текста p: <q>Цитата q</q>
-            p <small>Тег small внутри p (text-small)</small>
-            p ссылка внутри текста
-              a(href="#") ссылка
-            blockquote Цитата blocquoute
-            ul
-              li Элемент списка
-                ul
-                  li Элемент списка
-                  li Элемент списка
-                  li Элемент списка
-              li Элемент списка
-              li Элемент списка
-        +ui-description .content-zone._small
-        +ui-special()
-          +content-zone.content-zone_small
-            h1 Заголовок H1 (heading-1)
-            h2 Заголовок H2 (heading-2)
-            h3 Заголовок H3 (heading-3)
-            h4 Заголовок H4 (heading-4)
-            h5 Заголовок H5 (heading-5)
-            h6 Заголовок H6 (heading-6)
-            p Текст p (text)<br> Цитата внутри текста p: <q>Цитата q</q>
-            p <small>Тег small внутри p (text-small)</small>
-            p ссылка внутри текста
-              a(href="#") ссылка
-            blockquote Цитата blocquoute
-            ul
-              li Элемент списка
-                ul
-                  li Элемент списка
-                  li Элемент списка
-                  li Элемент списка
-              li Элемент списка
-              li Элемент списка
-        +ui-description .content-zone._smaller
-        +ui-special()
-          +content-zone.content-zone_smaller
             h1 Заголовок H1 (heading-1)
             h2 Заголовок H2 (heading-2)
             h3 Заголовок H3 (heading-3)
@@ -272,43 +76,20 @@ block content
         p Блок: blocks/button
       +ui-section-content()
         +ui-elements-list()
-          +button()(href="#") .button
-          +button()(href="#")._border .button_border
-          +button()(href="#")._border._border_bg-white .button_border._border_bg-white
-          +button()(href="#")._thin-border .button_thin-border
-          +button()(href="#")._thin-border._thin-border_bg-white .button_thin-border._thin-border_bg-white
-          +button()(href="#")._small .button._small
-          +button()(href="#")._smaller .button._smaller
-          +button()(href="#")._border._small._border_small .button._border._small._border_small
-          +button()(href="#")._border._small._border_narrow-small .button._border._small._border_narrow-small
-          +button()(href="#")._thin-border._smaller._thin-border_smaller .button._thin-border._smaller._thin-border_smaller
-          +button('button')(disabled) .button:disabled
-          +button()._border.is-disabled(href="#") .button.is-disabled (если ссылка)
-          +button-plus()(href="#") .button_icon._plus
-          +button-icon('', 'select-arrow')(href="#") .button_icon
-          +button()(href="#")._square .button_square
-          +button()(href="#")._border._square .button_border._square
-          +button()(href="#")._wide .button_wide
-          +button()(href="#")._short .button_short
-          +button()(href="#")._border._short .button._border._short
-          +button()(href="#")._red .button_red
-          +button()(href="#")._orange .button_orange
-          +button()(href="#")._border._orange .button._border._orange
-          +button()(href="#")._bright-red .button_bright-red
-          +button()(href="#")._bright-red._border .button_bright-red._border
-          +button()(href="#")._blue .button_blue
-          +button()(href="#")._blue._border .button_blue._border
-          +button()(href="#")._green .button_green
-          +button()(href="#")._green._border .button_green._border
+          +nd-button()(href="#") .nd-button
+          +nd-button()(href="#")._border .nd-button_border
+          +nd-button('button')(disabled) .nd-button:disabled
+          +nd-button()._border.is-disabled(href="#") .nd-button.is-disabled (если ссылка)
+          +nd-button-icon('', 'select-arrow')(href="#") .nd-button_icon
         +ui-description Кнопки с лоадером
-          +button('', true)(href="#").is-loading .button.is-loading
-          +button('', true)(href="#")._border.is-loading .button_border.is-loading
+          +nd-button('', true)(href="#").is-loading .button.is-loading
+          +nd-button('', true)(href="#")._border.is-loading .button_border.is-loading
         +ui-description При клике на .js-anchor происходит скролл к элементу из атрибута href. Блок: blocks/js-functions/anchor.js
-        +button()(href="#section0").js-anchor .js-anchor
+        +nd-button()(href="#section0").js-anchor .js-anchor
         +ui-description При клике на .js-freeze скролл страницы блокируется, на .js-unfreeze разблокируется. Блок: blocks/js-functions/freeze.js. Функции freeze() и unfreeze() можно импортировать и использовать в модалках, бургере или где-то еще
         +ui-elements-list()
-          +button()(href="#").js-freeze .js-freeze
-          +button()(href="#").js-unfreeze .js-unfreeze
+          +nd-button()(href="#").js-freeze .js-freeze
+          +nd-button()(href="#").js-unfreeze .js-unfreeze
 
 
 

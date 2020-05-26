@@ -14,6 +14,20 @@ export default function slider() {
   const promoSlider = $('.js-slider-promo');
   const mapSlider = $('.js-slider-map');
   const bp = window.globalOptions.sizes;
+  const ndSlider = $('.js-nd-slider');
+  const ndBlogSlider = $('.js-nd-blog-slider');
+
+  function setBtnContainerHeight(el) {
+    const btnContainer = $(el).find('[data-slider-buttons]');
+    $(btnContainer).css({
+      height: '',
+    });
+    const elementsImage = $(el).find('[data-slider-buttons-orientir]');
+    const orientirHeight = $(elementsImage).first().outerHeight();
+    $(btnContainer).css({
+      height: `${orientirHeight}px`,
+    });
+  }
 
   if (spacesSliders.length > 0) {
     $(spacesSliders).each((i, el) => {
@@ -48,23 +62,13 @@ export default function slider() {
         on: {
           init() {
             $(sliderContainer).addClass('is-visible');
+            setBtnContainerHeight(el);
+          },
+          resize() {
+            setBtnContainerHeight(el);
           },
         },
       });
-
-      function setBtnContainerHeight() {
-        const btnContainer = $(el).find('[data-slider-buttons]');
-        $(btnContainer).css({
-          height: '',
-        });
-        const elementsImage = $(el).find('[data-slider-buttons-orientir]');
-        const orientirHeight = $(elementsImage).first().outerHeight();
-        $(btnContainer).css({
-          height: `${orientirHeight}px`,
-        });
-      }
-      setBtnContainerHeight();
-      $(window).on('resize', setBtnContainerHeight);
     });
   }
 
@@ -102,23 +106,13 @@ export default function slider() {
         on: {
           init() {
             $(sliderContainer).addClass('is-visible');
+            setBtnContainerHeight(el);
+          },
+          resize() {
+            setBtnContainerHeight(el);
           },
         },
       });
-
-      function setBtnContainerHeight() {
-        const btnContainer = $(el).find('[data-slider-buttons]');
-        $(btnContainer).css({
-          height: '',
-        });
-        const elementsImage = $(el).find('[data-slider-buttons-orientir]');
-        const orientirHeight = $(elementsImage).first().outerHeight();
-        $(btnContainer).css({
-          height: `${orientirHeight}px`,
-        });
-      }
-      setBtnContainerHeight();
-      $(window).on('resize', setBtnContainerHeight);
     });
   }
 
@@ -156,23 +150,13 @@ export default function slider() {
         on: {
           init() {
             $(sliderContainer).addClass('is-visible');
+            setBtnContainerHeight(el);
+          },
+          resize() {
+            setBtnContainerHeight(el);
           },
         },
       });
-
-      function setBtnContainerHeight() {
-        const btnContainer = $(el).find('[data-slider-buttons]');
-        $(btnContainer).css({
-          height: '',
-        });
-        const elementsImage = $(el).find('[data-slider-buttons-orientir]');
-        const orientirHeight = $(elementsImage).first().outerHeight();
-        $(btnContainer).css({
-          height: `${orientirHeight}px`,
-        });
-      }
-      setBtnContainerHeight();
-      $(window).on('resize', setBtnContainerHeight);
     });
   }
 
@@ -206,23 +190,13 @@ export default function slider() {
         on: {
           init() {
             $(sliderContainer).addClass('is-visible');
+            setBtnContainerHeight(el);
+          },
+          resize() {
+            setBtnContainerHeight(el);
           },
         },
       });
-
-      function setBtnContainerHeight() {
-        const btnContainer = $(el).find('[data-slider-buttons]');
-        $(btnContainer).css({
-          height: '',
-        });
-        const elementsImage = $(el).find('[data-slider-buttons-orientir]');
-        const orientirHeight = $(elementsImage).first().outerHeight();
-        $(btnContainer).css({
-          height: `${orientirHeight}px`,
-        });
-      }
-      setBtnContainerHeight();
-      $(window).on('resize', setBtnContainerHeight);
     });
   }
 
@@ -381,6 +355,115 @@ export default function slider() {
               $(marker).trigger('changeBySlide');
             }
             window.manualChange = false;
+          },
+        },
+      });
+    });
+  }
+
+  if (ndSlider.length > 0) {
+    $(ndSlider).each((i, el) => {
+      const btnPrev = $(el).find('.js-slider-button-prev')[0];
+      const btnNext = $(el).find('.js-slider-button-next')[0];
+      const sliderContainer = $(el).find('.js-slider-container');
+      const newslider = new Swiper(sliderContainer, {
+        loop: true,
+        speed: 500,
+        spaceBetween: 0,
+        slidesPerView: 'auto',
+        slidesPerGroup: 1,
+        loopedSlides: 5,
+        loopAdditionalSlides: 5,
+        roundLengths: true,
+        freeMode: true,
+        freeModeSticky: true,
+        navigation: {
+          nextEl: btnNext,
+          prevEl: btnPrev,
+        },
+        breakpoints: {
+          768: {
+            freeMode: true,
+            freeModeSticky: true,
+            slidesPerView: 'auto',
+            loopedSlides: 5,
+            loopAdditionalSlides: 5,
+            spaceBetween: 0,
+          },
+          1030: {
+            slidesPerView: 5,
+            slidesPerGroup: 1,
+            freeMode: false,
+            spaceBetween: 21,
+          },
+          1400: {
+            slidesPerView: 5,
+            slidesPerGroup: 1,
+            freeMode: false,
+            spaceBetween: 22,
+          },
+          1850: {
+            slidesPerView: 5,
+            slidesPerGroup: 1,
+            freeMode: false,
+            spaceBetween: 27,
+          },
+        },
+        on: {
+          init() {
+            $(sliderContainer).addClass('is-visible');
+            setBtnContainerHeight(el);
+          },
+          resize() {
+            setBtnContainerHeight(el);
+          },
+        },
+      });
+    });
+  }
+
+  if (ndBlogSlider.length > 0) {
+    $(ndBlogSlider).each((i, el) => {
+      const btnPrev = $(el).find('.js-slider-button-prev')[0];
+      const btnNext = $(el).find('.js-slider-button-next')[0];
+      const sliderContainer = $(el).find('.js-slider-container');
+      const newslider = new Swiper(sliderContainer, {
+        speed: 500,
+        spaceBetween: 0,
+        slidesPerView: 'auto',
+        slidesPerGroup: 1,
+        roundLengths: true,
+        freeMode: true,
+        freeModeSticky: true,
+        breakpoints: {
+          768: {
+            freeMode: true,
+            freeModeSticky: true,
+            slidesPerView: 'auto',
+            spaceBetween: 0,
+          },
+          1030: {
+            slidesPerView: 3,
+            slidesPerGroup: 1,
+            freeMode: false,
+            spaceBetween: 42,
+          },
+          1400: {
+            slidesPerView: 3,
+            slidesPerGroup: 1,
+            freeMode: false,
+            spaceBetween: 42,
+          },
+          1850: {
+            slidesPerView: 3,
+            slidesPerGroup: 1,
+            freeMode: false,
+            spaceBetween: 50,
+          },
+        },
+        on: {
+          init() {
+            $(sliderContainer).addClass('is-visible');
           },
         },
       });

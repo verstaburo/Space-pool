@@ -5,7 +5,7 @@ doctype html
 html(lang='en')
   include head-redesign
   block bodyClasses
-    - var bodyClass = bodyCls || ''
+  - var bodyClass = bodyCls || ''
   body(class='no-js-scale ' + bodyClass)
     block header
     - var addClass = headerClass || ''
@@ -13,8 +13,8 @@ html(lang='en')
     - var messages = getData('notices-message.json')
     - var events = getData('notices-event.json')
     - var gradients = isGradients || false
-    - var map = isMap || false
     - var isHost = host || false
+    - var map = isMap || false
     if gradients
       +gradients-redesign
 
@@ -44,5 +44,6 @@ html(lang='en')
     script(src='assets/scripts/app.min.js')
     script(src='assets/scripts/main.js')
     if map
-      script(src='https://maps.googleapis.com/maps/api/js?key=AIzaSyCKtbucQSqDWV-9lNCgzESqbdUakhraXDY&callback=initMap')
+      //- script(src='https://maps.googleapis.com/maps/api/js?key=AIzaSyCKtbucQSqDWV-9lNCgzESqbdUakhraXDY&callback=initMap')
+      script(src='https://maps.googleapis.com/maps/api/js?key=AIzaSyAlLpVITMmaCmvob8dU3xWWBDOjPefUkZ4&callback=initMap')
       script(src='assets/scripts/map.js')

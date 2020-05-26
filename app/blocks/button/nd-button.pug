@@ -1,0 +1,19 @@
+mixin nd-button(newtag, loader)
+  +b(newtag || 'a').nd-button&attributes(attributes)
+    +e.SPAN.text
+      block
+    if loader
+      +e.preloader
+        +loader._small
+
+mixin nd-button-icon(newtag, icon, loader, iconBlock)
+  +b(newtag || 'a').nd-button_icon&attributes(attributes)
+    +e.SPAN.text
+      block
+    if iconBlock
+      +e.SPAN(class="__icon_" + icon)
+    else
+      +icon(icon)(class="__icon_" + icon)
+    if loader
+      +e.preloader
+        +loader._small

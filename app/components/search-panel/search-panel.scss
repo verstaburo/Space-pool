@@ -1,0 +1,100 @@
+.search-panel {
+  $b: &;
+
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  background-color: $nd-color-basic-light;
+  color: $nd-color-basic;
+  box-sizing: border-box;
+  padding: 25px 35px 18px;
+
+  @include screen('xl', max, 2) {
+    padding: 21px 35px 15px;
+  }
+
+  @include screen('lg', max, 2) {
+    padding: pxtovw(21, 1366) pxtovw(35, 1366) pxtovw(15, 1366);
+  }
+
+  @include screen('md', max, 2) {
+    padding: pxtovw(21, 960) pxtovw(35, 960) pxtovw(15, 960);
+  }
+
+  @include screen('sm', max, 2) {
+    padding: pxtovw(22, 375) pxtovw(20, 375) pxtovw(36, 375);
+  }
+
+  &__title {
+    display: block;
+    font-size: 17px;
+    line-height: (21 / 17);
+    font-weight: 700;
+    letter-spacing: -.02em;
+    width: 100%;
+
+    @include screen('lg', max, 2) {
+      font-size: pxtovw(17, 1366);
+    }
+
+    @include screen('md', max, 2) {
+      font-size: pxtovw(17, 960);
+    }
+
+    @include screen('sm', max, 2) {
+      font-size: pxtovw(17, 375);
+    }
+  }
+
+  &__content {
+    display: block;
+    width: 100%;
+  }
+
+  &__block {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    align-content: flex-start;
+    flex-wrap: wrap;
+    width: 100%;
+  }
+
+  &__types {
+    flex: 1;
+  }
+
+  &__button {
+    flex: none;
+    min-width: 200px;
+
+    @include screen('xl', max, 2) {
+      min-width: 136px;
+    }
+
+    @include screen('lg', max, 2) {
+      min-width: pxtovw(136, 1366);
+    }
+
+    @include screen('md', max, 2) {
+      min-width: pxtovw(214, 960);
+    }
+
+    @include screen('sm', max, 2) {
+      min-width: 0;
+      width: 100%;
+    }
+  }
+
+  &__note {
+    display: inline-block;
+    width: 100%;
+    color: $nd-color-gray-text2;
+    font-weight: 300;
+    font-size: 13px;
+    line-height: (16 / 13);
+    letter-spacing: -.02em;
+  }
+}
