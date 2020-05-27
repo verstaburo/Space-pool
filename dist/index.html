@@ -280,28 +280,42 @@
                 <div class="main-lead__media">
                     <div class="main-lead__image"><IMG src="assets/images/nd/lead-image.jpg"></IMG></div>
                 </div>
-                <div class="search-panel main-lead__search">
+                <section class="search-panel main-lead__search" data-steps-container="data-steps-container">
                     <div class="search-panel__heading">
-                        <div class="search-panel__title" data-search-type="default">Search by:</div><a class="search-panel__back hide js-search-toggle" data-search-type="offers, teams, location" href="#" data-search-target="default">Back</a>
+                        <div class="search-panel__title" data-step="default">Search by:</div><a class="search-panel__back hide js-stp-form-next" data-step="spaces, teams, location" href="#" data-next-step="default"><span class="search-panel__back-icon"><svg><use xlink:href="assets/images/icon.svg#icon_nd-angle"></use></svg></span><span class="search-panel__back-text">Back</span></a>
                     </div>
                     <div class="search-panel__content">
-                        <div class="search-panel__block" data-search-type="default">
-                            <div class="search-panel__types"></div><a class="nd-button search-panel__button" href="#"><span class="nd-button__text">View all</span></a>
+                        <div class="search-panel__block" data-step="default">
+                            <div class="search-panel__types"><button class="search-panel__toggle js-stp-form-next" type="button" data-next-step="teams">
+                                    <div class="search-panel__toggle-icon search-panel__toggle-icon_team"></div>
+                                    <div class="search-panel__toggle-text">Team size</div>
+                                </button><button class="search-panel__toggle js-stp-form-next" type="button" data-next-step="spaces">
+                                    <div class="search-panel__toggle-icon search-panel__toggle-icon_space"></div>
+                                    <div class="search-panel__toggle-text">Space type</div>
+                                </button><button class="search-panel__toggle js-stp-form-next" type="button" data-next-step="location">
+                                    <div class="search-panel__toggle-icon search-panel__toggle-icon_location"></div>
+                                    <div class="search-panel__toggle-text">Location</div>
+                                </button></div><a class="nd-button search-panel__button" href="search.html"><span class="nd-button__text">View all</span></a>
                             <div class="search-panel__note">Choose how to search or simply view all spaces.</div>
                         </div>
-                        <div class="search-panel__block hide" data-search-type="offers">
-                            <div class="search-panel__offers"></div>
+                        <div class="search-panel__block hide" data-step="spaces">
+                            <div class="search-panel__offers"><a class="nd-button nd-button_icon nd-button_icon_start nd-button_border nd-button_fz17 search-panel__link" href="#"><span class="nd-button__text">Hot Desk</span><span class="nd-button__icon nd-button__icon_circle nd-button__icon_circle_orange"></span></a><a class="nd-button nd-button_icon nd-button_icon_start nd-button_border nd-button_fz17 search-panel__link" href="#"><span class="nd-button__text">Fixed desk</span><span class="nd-button__icon nd-button__icon_circle nd-button__icon_circle_red"></span></a><a class="nd-button nd-button_icon nd-button_icon_start nd-button_border nd-button_fz17 search-panel__link" href="#"><span class="nd-button__text">Meeting Room</span><span class="nd-button__icon nd-button__icon_circle nd-button__icon_circle_blue"></span></a><a class="nd-button nd-button_icon nd-button_icon_start nd-button_border nd-button_fz17 search-panel__link" href="#"><span class="nd-button__text">Private office</span><span class="nd-button__icon nd-button__icon_circle nd-button__icon_circle_green"></span></a></div>
                             <div class="search-panel__note">Pick the type of workspace you want.</div>
                         </div>
-                        <div class="search-panel__block hide" data-search-type="teams">
-                            <div class="search-panel__teams"></div>
+                        <div class="search-panel__block hide" data-step="teams">
+                            <div class="search-panel__teams"><a class="nd-button nd-button_icon nd-button_icon_start nd-button_border search-panel__link" href="#"><span class="nd-button__text">1+</span><span class="nd-button__icon nd-button__icon_user"></span></a><a class="nd-button nd-button_pad10 nd-button_border nd-button_fz17 search-panel__link" href="#"><span class="nd-button__text">5+</span></a><a class="nd-button nd-button_pad10 nd-button_border nd-button_fz17 search-panel__link" href="#"><span class="nd-button__text">10+</span></a><a class="nd-button nd-button_pad10 nd-button_border nd-button_fz17 search-panel__link" href="#"><span class="nd-button__text">20+</span></a><a class="nd-button nd-button_pad10 nd-button_border nd-button_fz17 search-panel__link" href="#"><span class="nd-button__text">30+</span></a></div>
                             <div class="search-panel__note">Start-up, scale-up, big business or just you – we have a perfect match for you.</div>
                         </div>
-                        <div class="search-panel__block hide" data-search-type="location"><a class="nd-button search-panel__button" href="#"><span class="nd-button__text">Show</span></a>
+                        <form class="search-panel__block hide" data-step="location">
+                            <div class="search-panel__locations"></div><button class="nd-button search-panel__button" type="submit"><span class="nd-button__text">Show</span>
+                                <div class="nd-button__preloader">
+                                    <div class="loader loader_small"></div>
+                                </div>
+                            </button>
                             <div class="search-panel__note">Search by area, tube station or the name of the space to find your match.</div>
-                        </div>
+                        </form>
                     </div>
-                </div>
+                </section>
             </div>
         </section>
         <section class="nd-section">
@@ -390,10 +404,47 @@
             <div class="nd-container">
                 <div class="nd-section__content nd-section__content_promo">
                     <div class="text-block nd-section__describe">
-                        <h4 class="text-block__title">Hassle-free process with <i>spacepool</i></h4>
+                        <h4 class="text-block__title text-block__title_md-fz28">Hassle-free process with <i>spacepool</i></h4>
                         <div class="text-block__content text-block__content_md-fz14">Finding the right office can be long and tedious. But with spacepool, the process is streamlined into four simple steps. And we’ll help you through each one, with a curated selection of spaces and direct lines to Hosts instead of agents.</div>
                     </div>
-                    <div class="promo-slider nd-section__promo-slider"></div>
+                    <div class="promo-slider nd-section__promo-slider" data-promo-slider="data-promo-slider">
+                        <div class="promo-slider__container swiper-container" data-promo-slider-container="data-promo-slider-container">
+                            <div class="swiper-wrapper">
+                                <div class="promo-slider__slide swiper-slide" data-promo-slide-title="Finding the perfect one!">
+                                    <div class="promo-slider__media"><img class="promo-slider__image" src="assets/images/nd/svg-slide-0.svg" alt="" role="presentation" /></div>
+                                    <div class="promo-slider__content">
+                                        <div class="promo-slider__text"><i>Find spaces you love!</i><br>Search by team size, workspace type or keyword. Then filter the result.</div>
+                                    </div>
+                                </div>
+                                <div class="promo-slider__slide swiper-slide" data-promo-slide-title="Start rental period!">
+                                    <div class="promo-slider__media"><img class="promo-slider__image" src="assets/images/nd/svg-slide-1.svg" alt="" role="presentation" /></div>
+                                    <div class="promo-slider__content">
+                                        <div class="promo-slider__text"><i>Move in!</i><br>As you signed all the formalities, nothing gona stop you now!</div>
+                                    </div>
+                                </div>
+                                <div class="promo-slider__slide swiper-slide" data-promo-slide-title="Sign the contract">
+                                    <div class="promo-slider__media"><img class="promo-slider__image" src="assets/images/nd/svg-slide-2.svg" alt="" role="presentation" /></div>
+                                    <div class="promo-slider__content">
+                                        <div class="promo-slider__text"><i>A couple of formalities.</i><br> Sign the contract inside Spacepool, in couple of clicks. That simple!</div>
+                                    </div>
+                                </div>
+                                <div class="promo-slider__slide swiper-slide" data-promo-slide-title="TArrange Viewing">
+                                    <div class="promo-slider__media"><img class="promo-slider__image" src="assets/images/nd/svg-slide-3.svg" alt="" role="presentation" /></div>
+                                    <div class="promo-slider__content">
+                                        <div class="promo-slider__text"><i>Better to see it once!</i><br> No agents, no annoying calls. Shortlist, arrange, arrive, view!</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="promo-slider__navigation">
+                            <div class="promo-slider__title nd-hide-from-xl" data-promo-slider-titles="data-promo-slider-titles"></div>
+                            <div class="promo-slider__buttons">
+                                <div class="promo-slider__button promo-slider__button_prev" data-promo-slider-button-prev="data-promo-slider-button-prev"><svg><use xlink:href="assets/images/icon.svg#icon_nd-angle"></use></svg></div>
+                                <div class="promo-slider__button promo-slider__button_next" data-promo-slider-button-next="data-promo-slider-button-next"><svg><use xlink:href="assets/images/icon.svg#icon_nd-angle"></use></svg></div>
+                            </div>
+                            <div class="promo-slider__pagination nd-xl-hide" data-promo-slider-pagination="data-promo-slider-pagination"></div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -485,7 +536,9 @@
                     <h3 class="nd-section__title">Day pass offers</h3>
                 </div>
                 <div class="text-block text-block_grid text-block_grid_dpo nd-section__content">
-                    <picture class="text-block__media"><img class="text-block__image" src="assets/images/nd/section-image-1.jpg" alt="" role="presentation" /></picture>
+                    <div class="text-block__media text-block__media_contain">
+                        <picture class="text-block__image"><IMG src="assets/images/nd/section-image-1.jpg"></IMG></picture>
+                    </div>
                     <h4 class="text-block__title">Like working from different locations, or don’t want to commit to a contract?<br><i>Try our Coworking Day Pass</i></h4>
                     <div class="text-block__content text-block__content_fw500"> Our Coworking Day Passes give you the flexibility to rent workspace on-demand. Just find an offer from our wide selection of Day Passes, choose when you want to work there – and turn up on the day.</div>
                     <div class="text-block__buttons"><a class="nd-button text-block__button" href="#"><span class="nd-button__text">Explore day pass offers</span></a></div>
@@ -556,7 +609,11 @@
             </div>
             <div class="tags-map">
                 <div class="nd-container">
-                    <div class="tags-map__board"></div>
+                    <div class="tags-map__board">
+                        <div class="tags-map__title">Popular one</div>
+                        <div class="tags-map__tags"><a class="nd-button nd-button_border nd-button_fz15 nd-button_pad10 tags-map__button" href="#"><span class="nd-button__text">Canary Wharf</span></a><a class="nd-button nd-button_border nd-button_fz15 nd-button_pad10 tags-map__button" href="#"><span class="nd-button__text">Clerkenwell</span></a><a class="nd-button nd-button_border nd-button_fz15 nd-button_pad10 tags-map__button" href="#"><span class="nd-button__text">Euston</span></a><a class="nd-button nd-button_border nd-button_fz15 nd-button_pad10 tags-map__button" href="#"><span class="nd-button__text">Farringdon</span></a><a class="nd-button nd-button_border nd-button_fz15 nd-button_pad10 tags-map__button" href="#"><span class="nd-button__text">Holborn</span></a><a class="nd-button nd-button_border nd-button_fz15 nd-button_pad10 tags-map__button" href="#"><span class="nd-button__text">King's Cross</span></a><a class="nd-button nd-button_border nd-button_fz15 nd-button_pad10 tags-map__button" href="#"><span class="nd-button__text">Liverpool St</span></a><a class="nd-button nd-button_border nd-button_fz15 nd-button_pad10 tags-map__button" href="#"><span class="nd-button__text">London Bridge</span></a><a class="nd-button nd-button_border nd-button_fz15 nd-button_pad10 tags-map__button" href="#"><span class="nd-button__text">Marylebone</span></a><a class="nd-button nd-button_border nd-button_fz15 nd-button_pad10 tags-map__button" href="#"><span class="nd-button__text">Mayfair</span></a><a class="nd-button nd-button_border nd-button_fz15 nd-button_pad10 tags-map__button" href="#"><span class="nd-button__text">Moorgate</span></a><a class="nd-button nd-button_border nd-button_fz15 nd-button_pad10 tags-map__button" href="#"><span class="nd-button__text">Old Street</span></a><a class="nd-button nd-button_border nd-button_fz15 nd-button_pad10 tags-map__button" href="#"><span class="nd-button__text">Paddington</span></a><a class="nd-button nd-button_border nd-button_fz15 nd-button_pad10 tags-map__button" href="#"><span class="nd-button__text">Shoreditch</span></a><a class="nd-button nd-button_border nd-button_fz15 nd-button_pad10 tags-map__button" href="#"><span class="nd-button__text">Soho</span></a></div>
+                        <div class="tags-map__buttons"><a class="nd-link nd-link_icon nd-link_underline tags-map__link"><svg class="nd-link__icon nd-link__icon_nd-burger"><use xlink:href="assets/images/icon.svg#icon_nd-burger"></use></svg><span class="nd-link__text">Show all locations</span></a></div>
+                    </div>
                     <div class="tags-map__map" id="tagsMap"></div>
                 </div>
             </div>
@@ -590,7 +647,9 @@
         <section class="nd-section">
             <div class="nd-container">
                 <div class="text-block text-block_grid nd-section__content">
-                    <picture class="text-block__media"><img class="text-block__image" src="assets/images/nd/section-image-2.jpg" alt="" role="presentation" /></picture>
+                    <div class="text-block__media">
+                        <picture class="text-block__image"><IMG src="assets/images/nd/section-image-2.jpg"></IMG></picture>
+                    </div>
                     <div class="text-block__wrapper">
                         <h4 class="text-block__title">Leasing made easy - find new tenants, manage multiple locations and close deals in minutes <i>through spacepool!</i></h4>
                         <div class="text-block__content text-block__content_fw500">At spacepool, we understand how difficult it can be to manage an office.. So, we make life simpler by helping you find new tenants and sign contracts, automating all your billing and payments, and giving you the freedom to manage multiple locations from one account. All so you can focus on things that matter – building your community.</div>

@@ -16,6 +16,7 @@ export default function slider() {
   const bp = window.globalOptions.sizes;
   const ndSlider = $('.js-nd-slider');
   const ndBlogSlider = $('.js-nd-blog-slider');
+  const ndPromoSlider = $('[data-promo-slider]');
 
   function setBtnContainerHeight(el) {
     const btnContainer = $(el).find('[data-slider-buttons]');
@@ -415,6 +416,11 @@ export default function slider() {
             setBtnContainerHeight(el);
           },
           resize() {
+            if (window.Modernizr.mq('(max-width: 1029px)')) {
+              $(this.slides).each((ix, slide) => {
+                $(slide).removeAttr('style');
+              });
+            }
             setBtnContainerHeight(el);
           },
         },
@@ -460,6 +466,43 @@ export default function slider() {
             freeMode: false,
             spaceBetween: 50,
           },
+        },
+        on: {
+          init() {
+            $(sliderContainer).addClass('is-visible');
+          },
+          resize() {
+            if (window.Modernizr.mq('(max-width: 1029px)')) {
+              $(this.slides).each((ix, slide) => {
+                $(slide).removeAttr('style');
+              });
+            }
+          },
+        },
+      });
+    });
+  }
+
+  if (ndPromoSlider.length > 0) {
+    $(ndPromoSlider).each((i, el) => {
+      const btnPrev = $(el).find('[data-promo-slider-button-prev]')[0];
+      const btnNext = $(el).find('[data-promo-slider-button-next]')[0];
+      const sliderContainer = $(el).find('[data-promo-slider-container]');
+      const pagination = $(el).find('[data-promo-slider-pagination]')[0];
+      const newslider = new Swiper(sliderContainer, {
+        speed: 500,
+        slidesPerView: 1,
+        roundLengths: true,
+        effect: 'fade',
+        navigation: {
+          nextEl: btnNext,
+          prevEl: btnPrev,
+        },
+        pagination: {
+          el: pagination,
+        },
+        fadeEffect: {
+          crossFade: true,
         },
         on: {
           init() {

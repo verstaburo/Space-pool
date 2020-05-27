@@ -1,3 +1,21 @@
 mixin promo-slider()
-  +b.promo-slider&attributes(attributes)
+  +b.promo-slider&attributes(attributes)(data-promo-slider)
+    +e.container.swiper-container(data-promo-slider-container)
+      .swiper-wrapper
+        block
+    +e.navigation
+      +e.title.nd-hide-from-xl(data-promo-slider-titles)
+      +e.buttons
+        +e.button_prev(data-promo-slider-button-prev)
+          +icon('nd-angle')
+        +e.button_next(data-promo-slider-button-next)
+          +icon('nd-angle')
+      +e.pagination.nd-xl-hide(data-promo-slider-pagination)
+
+mixin promo-slider-slide(data)
+  +e.slide__.swiper-slide&attributes(attributes)(data-promo-slide-title=data.title)
+    +e.media
+      +e.IMG.image(src=data.image)
+    +e.content
+      +e.text!=data.text
     block

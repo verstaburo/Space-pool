@@ -3,6 +3,23 @@
 
   display: block;
   width: 100%;
+  margin-bottom: 98px;
+
+  @include screen('xl', max, 2) {
+    margin-bottom: 118px;
+  }
+
+  @include screen('lg', max, 2) {
+    margin-bottom: pxtovw(84, 1366);
+  }
+
+  @include screen('md', max, 2) {
+    margin-bottom: pxtovw(74, 960);
+  }
+
+  @include screen('sm', max, 2) {
+    margin-bottom: pxtovw(74, 375);
+  }
 
   &:not(:first-child) {
     margin-top: 49px;
@@ -27,8 +44,11 @@
     width: 370px;
     flex: none;
     border-radius: 3px;
+    box-sizing: border-box;
+    padding: 30px 38px 42px;
 
     @include screen('xl', max, 2) {
+      padding: 30px 36px 42px;
       width: 320px;
     }
 
@@ -56,6 +76,116 @@
       @include screen('md', max, 2) {
         margin-right: pxtovw(48, 960);
       }
+    }
+  }
+
+  &__tags {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    align-content: flex-start;
+    box-sizing: border-box;
+    flex-wrap: wrap;
+    margin: 30px -5px 0;
+    width: calc(100% + 10px);
+
+    @include screen('lg', max, 2) {
+      margin: pxtovw(30, 1366) pxtovw(-5, 1366) 0;
+      width: calc(100% + (1000 / 1366));
+    }
+
+    @include screen('lg', max, 2) {
+      margin: pxtovw(30, 960) pxtovw(-5, 960) 0;
+      width: calc(100% + (1000 / 375));
+    }
+
+    @include screen('lg', max, 2) {
+      margin: pxtovw(30, 375) pxtovw(-5, 375) 0;
+      width: calc(100% + (1000 / 375));
+    }
+  }
+
+  &__title {
+    display: block;
+    width: 100%;
+    text-align: center;
+    font-weight: 500;
+    color: $nd-color-basic;
+    font-size: 16px;
+    line-height: (19 / 16);
+
+    @include screen('lg', max, 2) {
+      font-size: pxtovw(16, 1366);
+    }
+
+    @include screen('md', max, 2) {
+      font-size: pxtovw(16, 960);
+    }
+
+    @include screen('sm', max, 2) {
+      font-size: pxtovw(16, 375);
+    }
+  }
+
+  &__button {
+    flex: 1;
+    margin: 14px 5px 0;
+    font-weight: 400;
+    border-color: $nd-color-border3;
+    white-space: nowrap;
+
+    @include screen('lg', max, 2) {
+      margin: pxtovw(14, 1366) pxtovw(5, 1366) 0;
+    }
+
+    @include screen('lg', max, 2) {
+      margin: pxtovw(14, 960) pxtovw(5, 960) 0;
+    }
+
+    @include screen('lg', max, 2) {
+      margin: pxtovw(14, 375) pxtovw(5, 375) 0;
+    }
+  }
+
+  &__buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    &:not(:first-child) {
+      margin-top: 45px;
+
+      @include screen('lg', max, 2) {
+        margin-top: pxtovw(45, 1366);
+      }
+
+      @include screen('lg', max, 2) {
+        margin-top: pxtovw(45, 960);
+      }
+
+      @include screen('lg', max, 2) {
+        margin-top: pxtovw(45, 375);
+      }
+    }
+  }
+
+  &__link {
+    font-size: 18px;
+    line-height: (22 / 18);
+    font-weight: 700;
+    color: $nd-color-basic;
+
+    @include screen('lg', max, 2) {
+      font-size: pxtovw(18, 1366);
+    }
+
+    @include screen('md', max, 2) {
+      font-size: pxtovw(18, 960);
+    }
+
+    @include screen('sm', max, 2) {
+      font-size: pxtovw(18, 375);
     }
   }
 

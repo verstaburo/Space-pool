@@ -1,20 +1,42 @@
 mixin search-panel()
-  +b.search-panel&attributes(attributes)
+  +b.SECTION.search-panel&attributes(attributes)(data-steps-container)
     +e.heading
-      +e.title(data-search-type="default") Search by:
-      +e.A.back.hide.js-search-toggle(data-search-type="offers, teams, location" href="#" data-search-target="default") Back
+      +e.title(data-step="default") Search by:
+      +e.A.back.hide.js-stp-form-next(data-step="spaces, teams, location" href="#" data-next-step="default")
+        +e.back-icon
+          +icon('nd-angle')
+        +e.back-text Back
     +e.content
-      +e.block(data-search-type="default")
+      +e.block(data-step="default")
         +e.types
-        +nd-button().__button(href="#") View all
+          +e.BUTTON.toggle.js-stp-form-next(type="button" data-next-step="teams")
+            +e.toggle-icon_team
+            +e.toggle-text Team size
+          +e.BUTTON.toggle.js-stp-form-next(type="button" data-next-step="spaces")
+            +e.toggle-icon_space
+            +e.toggle-text Space type
+          +e.BUTTON.toggle.js-stp-form-next(type="button" data-next-step="location")
+            +e.toggle-icon_location
+            +e.toggle-text Location
+        +nd-button().__button(href="search.html") View all
         +e.note Choose how to search or simply view all spaces.
-      +e.block.hide(data-search-type="offers")
+      +e.block.hide(data-step="spaces")
         +e.offers
+          +nd-button-icon('a', 'circle _circle_orange', false, true)._icon_start._border._fz17.__link(href="#") Hot Desk
+          +nd-button-icon('a', 'circle _circle_red', false, true)._icon_start._border._fz17.__link(href="#") Fixed desk
+          +nd-button-icon('a', 'circle _circle_blue', false, true)._icon_start._border._fz17.__link(href="#") Meeting Room
+          +nd-button-icon('a', 'circle _circle_green', false, true)._icon_start._border._fz17.__link(href="#") Private office
         +e.note Pick the type of workspace you want.
-      +e.block.hide(data-search-type="teams")
+      +e.block.hide(data-step="teams")
         +e.teams
+          +nd-button-icon('a', 'user', false, true)._icon_start._border.__link(href="#") 1+
+          +nd-button('a')._pad10._border._fz17.__link(href="#") 5+
+          +nd-button('a')._pad10._border._fz17.__link(href="#") 10+
+          +nd-button('a')._pad10._border._fz17.__link(href="#") 20+
+          +nd-button('a')._pad10._border._fz17.__link(href="#") 30+
         +e.note Start-up, scale-up, big business or just you – we have a perfect match for you.
-      +e.block.hide(data-search-type="location")
-        +nd-button().__button(href="#") Show
+      +e.FORM.block.hide(data-step="location")
+        +e.locations
+        +nd-button('button', true).__button(type="submit") Show
         +e.note Search by area, tube station or the name of the space to find your match.
     block

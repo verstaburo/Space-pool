@@ -2,5 +2,11 @@ mixin tags-map()
   +b.tags-map&attributes(attributes)
     .nd-container
       +e.board
+        +e.title Popular one
+        +e.tags
+          each item in getData('nd-map-locations.json')
+            +nd-button()._border._fz15._pad10.__button(href="#")!=item
+        +e.buttons
+          +nd-link-icon('nd-burger')._underline.__link Show all locations
       +e.map#tagsMap
       block

@@ -28,9 +28,11 @@ block content
     .nd-container
       +nd-section-content._promo
         +text-block.__describe
-          +e.H4.title Hassle-free process with <i>spacepool</i>
+          +e.H4.title_md-fz28 Hassle-free process with <i>spacepool</i>
           +e.content_md-fz14 Finding the right office can be long and tedious. But with spacepool, the process is streamlined into four simple steps. And we’ll help you through each one, with a curated selection of spaces and direct lines to Hosts instead of agents.
         +promo-slider.__promo-slider
+          each item in getData('nd-promo-slides.json')
+            +promo-slider-slide(item)
   +nd-section
     .nd-container
       +nd-section-header
@@ -50,7 +52,7 @@ block content
       +nd-section-header
         +nd-section-title Day pass offers
       +text-block._grid._grid_dpo.__content
-        +text-block-image('assets/images/nd/section-image-1.jpg')
+        +text-block-image('assets/images/nd/section-image-1.jpg')._contain
         +e.H4.title Like working from different locations, or don’t want to commit to a contract?
           br
           i Try our Coworking Day Pass
