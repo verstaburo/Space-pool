@@ -104,14 +104,9 @@ $(document).ready(function () {
         },
       });
     });
-
-    // var marker = new google.maps.Marker({
-    //   position: uluru,
-    //   map: map,
-    // });
   }
 
-  initGMap();
+  // initGMap();
 
 
   // устаревший код
