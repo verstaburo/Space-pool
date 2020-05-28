@@ -92,6 +92,7 @@ $(document).ready(function () {
     // The marker, positioned at Uluru
     var markers = locations.map(function (location, i) {
       return new google.maps.Marker({
+        zoom: 13,
         position: location,
         map: map,
         icon: {
