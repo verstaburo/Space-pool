@@ -24,6 +24,15 @@ block content
               +nd-box()(class=box + ' __box')
           +nd-space-title()!=item.title
           +nd-space-text()!=item.text
+      each item in getData('nd-spaces.json')
+        +nd-space('a').__slide_space.swiper-slide(href="#")
+          +nd-space-media()(data-slider-buttons-orientir)
+            img(src=item.image)
+          +nd-space-colors
+            each box in item.boxes
+              +nd-box()(class=box + ' __box')
+          +nd-space-title()!=item.title
+          +nd-space-text()!=item.text
   +nd-section
     .nd-container
       +nd-section-content._promo
@@ -47,6 +56,15 @@ block content
               +nd-box()(class=box + ' __box')
           +nd-space-title()!=item.title
           +nd-space-text()!=item.text
+      each item in getData('nd-spaces.json')
+        +nd-space('a').__slide_space.swiper-slide(href="#")
+          +nd-space-media()(data-slider-buttons-orientir)
+            img(src=item.image)
+          +nd-space-colors
+            each box in item.boxes
+              +nd-box()(class=box + ' __box')
+          +nd-space-title()!=item.title
+          +nd-space-text()!=item.text
   +nd-section._dpo
     .nd-container
       +nd-section-header
@@ -60,6 +78,15 @@ block content
         +e.buttons
           +nd-button().__button(href="#") Explore day pass offers
     +nd-slider(true, false).__slider.js-nd-slider
+      each item in getData('nd-spaces-2.json')
+        +nd-space('a').__slide_space.swiper-slide(href="#")
+          +nd-space-media()(data-slider-buttons-orientir)
+            img(src=item.image)
+          +space-type.__type
+            +nd-box()(class=item.type.box + ' __box')
+            +e.name!=item.type.name
+          +nd-space-title()!=item.title
+          +nd-space-text()._any-fz15!=item.text
       each item in getData('nd-spaces-2.json')
         +nd-space('a').__slide_space.swiper-slide(href="#")
           +nd-space-media()(data-slider-buttons-orientir)

@@ -27,6 +27,28 @@
     padding: pxtovw(22, 375) pxtovw(20, 375) pxtovw(36, 375);
   }
 
+  &__heading {
+    &:not(:last-child) {
+      margin-bottom: 30px;
+
+      @include screen('xl', max, 2) {
+        margin-bottom: 15px;
+      }
+
+      @include screen('lg', max, 2) {
+        margin-bottom: pxtovw(15, 1366);
+      }
+
+      @include screen('md', max, 2) {
+        margin-bottom: pxtovw(15, 960);
+      }
+
+      @include screen('sm', max, 2) {
+        margin-bottom: pxtovw(9, 375);
+      }
+    }
+  }
+
   &__title {
     display: block;
     font-size: 17px;
@@ -34,46 +56,35 @@
     font-weight: 700;
     letter-spacing: -.02em;
     width: 100%;
+    margin-bottom: 7px;
 
     @include screen('lg', max, 2) {
+      margin-bottom: pxtovw(7, 1366);
       font-size: pxtovw(17, 1366);
     }
 
     @include screen('md', max, 2) {
+      margin-bottom: pxtovw(7, 960);
       font-size: pxtovw(17, 960);
     }
 
     @include screen('sm', max, 2) {
+      margin-bottom: pxtovw(7, 375);
       font-size: pxtovw(17, 375);
     }
   }
 
   &__content {
-    display: block;
+    display: flex;
     width: 100%;
-
-    &:not(:first-child) {
-      margin-top: 15px;
-
-      @include screen('lg', max, 2) {
-        margin-top: pxtovw(15, 1366);
-      }
-
-      @include screen('md', max, 2) {
-        margin-top: pxtovw(15, 960);
-      }
-
-      @include screen('sm', max, 2) {
-        margin-top: pxtovw(15, 375);
-      }
-    }
+    flex: 1;
   }
 
   &__block {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    align-content: flex-start;
+    align-content: space-between;
     flex-wrap: wrap;
     width: 100%;
   }
@@ -342,18 +353,18 @@
     }
 
     &:not(:first-child) {
-      margin-top: 42px;
+      margin-top: 20px;
 
       @include screen('xl', max, 2) {
-        margin-top: 31px;
+        margin-top: 20px;
       }
 
       @include screen('lg', max, 2) {
-        margin-top: pxtovw(31, 1366);
+        margin-top: pxtovw(20, 1366);
       }
 
       @include screen('md', max, 2) {
-        margin-top: pxtovw(31, 960);
+        margin-top: pxtovw(20, 960);
       }
 
       @include screen('sm', max, 2) {
@@ -377,19 +388,26 @@
     stroke: $nd-color-logo;
     margin-top: -4px;
 
+    @include screen('xl', max, 2) {
+      margin-bottom: -3px;
+    }
+
     @include screen('lg', max, 2) {
       font-size: pxtovw(17, 1366);
       margin-top: pxtovw(-4, 1366);
+      margin-bottom: pxtovw(-3, 1366);
     }
 
     @include screen('md', max, 2) {
       font-size: pxtovw(17, 960);
       margin-top: pxtovw(-4, 960);
+      margin-bottom: pxtovw(-3, 960);
     }
 
     @include screen('sm', max, 2) {
       font-size: pxtovw(17, 375);
       margin-top: pxtovw(-4, 375);
+      margin-bottom: pxtovw(-4, 375);
     }
   }
 

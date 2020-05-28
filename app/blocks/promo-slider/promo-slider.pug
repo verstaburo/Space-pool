@@ -15,7 +15,7 @@ mixin promo-slider()
 mixin promo-slider-slide(data)
   +e.slide__.swiper-slide&attributes(attributes)(data-promo-slide-title=data.title)
     +e.media
-      +e.image
+      +e.image(class=data.class)
         IMG(src=data.image)
     +e.content
       +e.text!=data.text

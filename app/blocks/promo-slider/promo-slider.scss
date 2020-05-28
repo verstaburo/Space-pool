@@ -65,11 +65,81 @@
 
   &__image {
     position: relative;
-    display: block;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
     width: 100%;
 
+    @include screen('md', max, 2) {
+      height: pxtovw(260, 960);
+    }
+
+    @include screen('sm', max, 2) {
+      height: pxtovw(175, 375);
+    }
+
     img, svg {
-      width: 100%;
+      display: block;
+      flex: none;
+      max-width: 100%;
+    }
+
+    &_sl0 {
+      img, svg {
+        max-width: ((515 / 518) * 100%);
+
+        @include screen('xl', max, 2) {
+          max-width: 100%;
+        }
+
+        @include screen('lg', max, 2) {
+          max-width: pxtovw(416, 1366);
+        }
+
+        @include screen('md', max, 2) {
+          max-width: 100%;
+          max-height: 100%;
+        }
+      }
+    }
+
+    &_sl1 {
+      img, svg {
+        max-width: 100%;
+
+        @include screen('md', max, 2) {
+          max-height: 100%;
+        }
+      }
+    }
+
+    &_sl2 {
+      img, svg {
+        max-width: ((421 / 518) * 100%);
+
+        @include screen('xl', max, 2) {
+          max-width: ((390 / 459) * 100%);
+        }
+
+        @include screen('lg', max, 2) {
+          max-width: pxtovw(365, 1366);
+        }
+
+        @include screen('md', max, 2) {
+          max-width: 100%;
+          max-height: 100%;
+        }
+      }
+    }
+
+    &_sl3 {
+      img, svg {
+        max-width: 100%;
+
+        @include screen('md', max, 2) {
+          max-height: 100%;
+        }
+      }
     }
   }
 
@@ -112,12 +182,12 @@
       padding-top: 0;
       width: 100%;
       text-align: right;
-      margin-top: pxtovw(51, 960);
+      margin-top: pxtovw(57, 960);
     }
 
     @include screen('sm', max, 2) {
       text-align-last: left;
-      margin-top: pxtovw(46, 375);
+      margin-top: pxtovw(51, 375);
     }
   }
 
@@ -222,7 +292,7 @@
 
       @include screen('sm', max, 2) {
         width: pxtovw(8, 375);
-        height: pxtovw(19, 375);
+        height: pxtovw(16, 375);
         margin-left: pxtovw(-1, 375);
       }
     }

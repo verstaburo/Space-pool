@@ -368,45 +368,32 @@ export default function slider() {
       const btnNext = $(el).find('.js-slider-button-next')[0];
       const sliderContainer = $(el).find('.js-slider-container');
       const newslider = new Swiper(sliderContainer, {
-        loop: true,
         speed: 500,
         spaceBetween: 0,
         slidesPerView: 'auto',
         slidesPerGroup: 1,
-        loopedSlides: 5,
-        loopAdditionalSlides: 5,
         roundLengths: true,
-        freeMode: true,
-        freeModeSticky: true,
         navigation: {
           nextEl: btnNext,
           prevEl: btnPrev,
         },
         breakpoints: {
-          768: {
-            freeMode: true,
-            freeModeSticky: true,
-            slidesPerView: 'auto',
-            loopedSlides: 5,
-            loopAdditionalSlides: 5,
-            spaceBetween: 0,
-          },
           1030: {
             slidesPerView: 5,
             slidesPerGroup: 1,
-            freeMode: false,
+            // freeMode: false,
             spaceBetween: 21,
           },
           1400: {
             slidesPerView: 5,
             slidesPerGroup: 1,
-            freeMode: false,
+            // freeMode: false,
             spaceBetween: 22,
           },
           1850: {
             slidesPerView: 5,
             slidesPerGroup: 1,
-            freeMode: false,
+            // freeMode: false,
             spaceBetween: 27,
           },
         },
@@ -439,31 +426,20 @@ export default function slider() {
         slidesPerView: 'auto',
         slidesPerGroup: 1,
         roundLengths: true,
-        freeMode: true,
-        freeModeSticky: true,
         breakpoints: {
-          768: {
-            freeMode: true,
-            freeModeSticky: true,
-            slidesPerView: 'auto',
-            spaceBetween: 0,
-          },
           1030: {
             slidesPerView: 3,
             slidesPerGroup: 1,
-            freeMode: false,
             spaceBetween: 42,
           },
           1400: {
             slidesPerView: 3,
             slidesPerGroup: 1,
-            freeMode: false,
             spaceBetween: 42,
           },
           1850: {
             slidesPerView: 3,
             slidesPerGroup: 1,
-            freeMode: false,
             spaceBetween: 50,
           },
         },
