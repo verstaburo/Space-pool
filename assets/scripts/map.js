@@ -106,7 +106,7 @@ $(document).ready(function () {
     });
   }
 
-  // initGMap();
+  initGMap();
 
 
   // устаревший код
