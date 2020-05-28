@@ -1,25 +1,115 @@
-// http://leafletjs.com
-// https: //github.com/Leaflet/Leaflet.markercluster
 // библиотека подключена в app.min.js
 
 $(document).ready(function () {
+  var locations = [{
+      lat: 51.934,
+      lng: 30.315
+    },
+    {
+      lat: 59.9345,
+      lng: 30.3156
+    },
+    {
+      lat: 59.924,
+      lng: 30.335
+    },
+    {
+      lat: 59.924,
+      lng: 30.305
+    },
+    {
+      lat: 59.924,
+      lng: 30.335
+    },
+    {
+      lat: 59.914,
+      lng: 30.335
+    },
+    {
+      lat: 59.934,
+      lng: 30.325
+    },
+    {
+      lat: 59.900,
+      lng: 30.315
+    },
+    {
+      lat: 59.934,
+      lng: 30.300
+    },
+    {
+      lat: 59.913,
+      lng: 30.330
+    },
+    {
+      lat: 59.927,
+      lng: 30.338
+    },
+    {
+      lat: 59.948,
+      lng: 30.34
+    },
+    {
+      lat: 59.988,
+      lng: 30.324
+    },
+    {
+      lat: 59.9,
+      lng: 30.34476
+    },
+    {
+      lat: 59.939,
+      lng: 30.76
+    },
+    {
+      lat: 59.941,
+      lng: 30.9
+    },
+    {
+      lat: 59.966,
+      lng: 30.8,
+    },
+    {
+      lat: 59.977,
+      lng: 30.73735
+    }
+  ];
+
   function initGMap() {
     // The location of Uluru
     var uluru = {
-      lat: -25.344,
-      lng: 131.036
+      lat: 59.914,
+      lng: 30.335
     };
     // The map, centered at Uluru
     var map = new google.maps.Map(
       document.getElementById('tagsMap'), {
         zoom: 4,
         center: uluru,
+        disableDefaultUI: true,
+        zoomControl: true,
       });
     // The marker, positioned at Uluru
-    var marker = new google.maps.Marker({
-      position: uluru,
-      map: map,
+    var markers = locations.map(function (location, i) {
+      return new google.maps.Marker({
+        zoom: 13,
+        position: location,
+        map: map,
+        icon: {
+          url: 'assets/images/nd/nd-map-marker.svg',
+          size: new google.maps.Size(23, 31),
+          // The origin for this image is (0, 0).
+          origin: new google.maps.Point(0, 0),
+          // The anchor for this image is the base of the flagpole at (0, 32).
+          anchor: new google.maps.Point(0, 15)
+        },
+      });
     });
+
+    // var marker = new google.maps.Marker({
+    //   position: uluru,
+    //   map: map,
+    // });
   }
 
   initGMap();
