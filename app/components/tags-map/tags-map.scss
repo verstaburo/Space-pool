@@ -3,22 +3,22 @@
 
   display: block;
   width: 100%;
-  margin-bottom: 98px;
+  margin-bottom: 94px;
 
   @include screen('xl', max, 2) {
-    margin-bottom: 118px;
+    margin-bottom: 114px;
   }
 
   @include screen('lg', max, 2) {
-    margin-bottom: pxtovw(84, 1366);
+    margin-bottom: pxtovw(80, 1366);
   }
 
   @include screen('md', max, 2) {
-    margin-bottom: pxtovw(74, 960);
+    margin-bottom: pxtovw(70, 960);
   }
 
   @include screen('sm', max, 2) {
-    margin-bottom: pxtovw(74, 375);
+    margin-bottom: pxtovw(70, 375);
   }
 
   &:not(:first-child) {
@@ -45,7 +45,7 @@
     flex: none;
     border-radius: 3px;
     box-sizing: border-box;
-    padding: 30px 38px 42px;
+    padding: 34px 38px 42px;
 
     @include screen('xl', max, 2) {
       padding: 30px 36px 42px;
@@ -55,11 +55,13 @@
     @include screen('lg', max, 2) {
       width: pxtovw(320, 1366);
       border-radius: pxtovw(3, 1366);
+      padding: pxtovw(30, 1366) pxtovw(36, 1366) pxtovw(42, 1366);
     }
 
     @include screen('md', max, 2) {
       width: pxtovw(320, 960);
       border-radius: pxtovw(3, 960);
+      padding: pxtovw(30, 960) pxtovw(36, 960) pxtovw(42, 960);
     }
 
     &:not(:last-child) {
@@ -86,21 +88,21 @@
     align-content: flex-start;
     box-sizing: border-box;
     flex-wrap: wrap;
-    margin: 30px -5px 0;
+    margin: 20px -5px 0;
     width: calc(100% + 10px);
 
     @include screen('lg', max, 2) {
-      margin: pxtovw(30, 1366) pxtovw(-5, 1366) 0;
+      margin: pxtovw(22, 1366) pxtovw(-5, 1366) 0;
       width: calc(100% + (1000 / 1366));
     }
 
-    @include screen('lg', max, 2) {
-      margin: pxtovw(30, 960) pxtovw(-5, 960) 0;
+    @include screen('md', max, 2) {
+      margin: pxtovw(22, 960) pxtovw(-5, 960) 0;
       width: calc(100% + (1000 / 375));
     }
 
-    @include screen('lg', max, 2) {
-      margin: pxtovw(30, 375) pxtovw(-5, 375) 0;
+    @include screen('sm', max, 2) {
+      margin: pxtovw(22, 375) pxtovw(-5, 375) 0;
       width: calc(100% + (1000 / 375));
     }
   }
@@ -133,16 +135,20 @@
     font-weight: 400;
     border-color: $nd-color-border3;
     white-space: nowrap;
+    height: 34px;
 
     @include screen('lg', max, 2) {
+      height: pxtovw(34, 1366);
       margin: pxtovw(14, 1366) pxtovw(5, 1366) 0;
     }
 
-    @include screen('lg', max, 2) {
+    @include screen('md', max, 2) {
+      height: pxtovw(34, 960);
       margin: pxtovw(14, 960) pxtovw(5, 960) 0;
     }
 
-    @include screen('lg', max, 2) {
+    @include screen('sm', max, 2) {
+      height: pxtovw(34, 375);
       margin: pxtovw(14, 375) pxtovw(5, 375) 0;
     }
   }
@@ -154,18 +160,18 @@
     text-align: center;
 
     &:not(:first-child) {
-      margin-top: 45px;
+      margin-top: 48px;
 
       @include screen('lg', max, 2) {
-        margin-top: pxtovw(45, 1366);
+        margin-top: pxtovw(48, 1366);
       }
 
-      @include screen('lg', max, 2) {
-        margin-top: pxtovw(45, 960);
+      @include screen('md', max, 2) {
+        margin-top: pxtovw(48, 960);
       }
 
-      @include screen('lg', max, 2) {
-        margin-top: pxtovw(45, 375);
+      @include screen('sm', max, 2) {
+        margin-top: pxtovw(48, 375);
       }
     }
   }

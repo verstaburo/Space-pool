@@ -506,7 +506,21 @@ export default function slider() {
         },
         on: {
           init() {
+            const slides = this.slides;
+            const currentSlideIndex = this.activeIndex;
+            const currentSlide = slides[currentSlideIndex];
+            const newTitle = $(currentSlide).attr('data-promo-slide-title');
+            const targetBlock = $(el).find('[data-promo-slider-titles]');
+            $(targetBlock).text(newTitle);
             $(sliderContainer).addClass('is-visible');
+          },
+          slideChange() {
+            const slides = this.slides;
+            const currentSlideIndex = this.activeIndex;
+            const currentSlide = slides[currentSlideIndex];
+            const newTitle = $(currentSlide).attr('data-promo-slide-title');
+            const targetBlock = $(el).find('[data-promo-slider-titles]');
+            $(targetBlock).text(newTitle);
           },
         },
       });

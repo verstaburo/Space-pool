@@ -146,21 +146,26 @@
       justify-content: space-between;
       box-sizing: border-box;
       padding-top: 54px;
+      margin-bottom: -35px;
 
       @include screen('xl', max, 2) {
         padding-top: 13px;
+        margin-bottom: -65px;
       }
 
       @include screen('lg', max, 2) {
         padding-top: pxtovw(8, 1366);
+        margin-bottom: pxtovw(-29, 1366);
       }
 
       @include screen('md', max, 2) {
         padding-top: pxtovw(38, 960);
+        margin-bottom: pxtovw(-29, 960);
       }
 
       @include screen('sm', max, 2) {
         flex-wrap: wrap;
+        margin-bottom: 0;
       }
 
       #{$b} {
@@ -194,29 +199,34 @@
 
         &__promo-slider {
           display: block;
-          flex: 1;
           padding-left: 107px;
           box-sizing: border-box;
+          width: (100% - 27.2%);
 
           @include screen('xl', max, 2) {
+            width: (100% - 26.9%);
             padding-left: 100px;
           }
 
           @include screen('lg', max, 2) {
+            width: pxtovw((1266 - 360), 1366);
             padding-left: pxtovw(50, 1366);
           }
 
           @include screen('md', max, 2) {
+            width: pxtovw((860 - 281), 960);
             padding-left: pxtovw(40, 960);
           }
 
           @include screen('sm', max, 2) {
+            width: 100%;
             padding-left: 0;
           }
 
           @include screen('sm', max, 2) {
             flex: none;
             width: 100%;
+            margin-top: pxtovw(35, 375);
           }
         }
       }
@@ -225,11 +235,6 @@
         &__title {
           letter-spacing: -.04em;
         }
-      }
-
-      .promo-slider {
-        width: 100%;
-        max-width: 100%;
       }
     }
   }
