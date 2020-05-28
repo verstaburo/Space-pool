@@ -1,0 +1,188 @@
+.autocomplete-list {
+  $b: &;
+
+  display: block;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  z-index: 2;
+  background-color: $nd-color-basic-light;
+  box-shadow: 0 0 4px rgba(56, 58, 68, .09), 0 3px 14px rgba(0, 0, 0, .13);
+  box-sizing: border-box;
+  border-radius: 3px;
+  max-height: 220px;
+  overflow: hidden;
+  color: $nd-color-basic;
+  // overflow: auto;
+
+  @include screen('lg', max, 2) {
+    border-radius: pxtovw(3, 1366);
+    max-height: pxtovw(220, 1366);
+    box-shadow: 0 0 pxtovw(4, 1366) rgba(56, 58, 68, .09), 0 pxtovw(3, 1366) pxtovw(14, 1366) rgba(0, 0, 0, .13);
+  }
+
+  @include screen('md', max, 2) {
+    border-radius: pxtovw(3, 960);
+    max-height: pxtovw(220, 960);
+    box-shadow: 0 0 pxtovw(4, 960) rgba(56, 58, 68, .09), 0 pxtovw(3, 960) pxtovw(14, 960) rgba(0, 0, 0, .13);
+  }
+
+  @include screen('sm', max, 2) {
+    border-radius: pxtovw(3, 375);
+    max-height: pxtovw(220, 375);
+    box-shadow: 0 0 pxtovw(4, 375) rgba(56, 58, 68, .09), 0 pxtovw(3, 375) pxtovw(14, 375) rgba(0, 0, 0, .13);
+  }
+
+  ul {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 11px 0 15px;
+    max-height: 220px;
+
+    @include screen('lg', max, 2) {
+      padding: pxtovw(11, 1366) 0 pxtovw(15, 1366);
+      max-height: pxtovw(220, 1366);
+    }
+
+    @include screen('md', max, 2) {
+      padding: pxtovw(11, 960) 0 pxtovw(15, 960);
+      max-height: pxtovw(220, 960);
+    }
+
+    @include screen('sm', max, 2) {
+      padding: pxtovw(11, 375) 0 pxtovw(15, 375);
+      max-height: pxtovw(220, 375);
+    }
+  }
+
+  &__empty {
+    display: block;
+    width: 100%;
+    font-size: 17px;
+    font-weight: 400;
+    line-height: (33 / 17);
+    box-sizing: border-box;
+    padding: 0 18px;
+    letter-spacing: normal;
+
+    @include screen('lg', max, 2) {
+      font-size: pxtovw(17, 1366);
+      padding: 0 pxtovw(18, 1366);
+    }
+
+    @include screen('md', max, 2) {
+      font-size: pxtovw(17, 960);
+      padding: 0 pxtovw(18, 960);
+    }
+
+    @include screen('sm', max, 2) {
+      padding: 0 pxtovw(18, 375);
+      font-size: pxtovw(15, 375);
+    }
+  }
+
+  li {
+    display: block;
+    width: 100%;
+    font-size: 17px;
+    font-weight: 400;
+    line-height: (33 / 17);
+    box-sizing: border-box;
+    padding: 0 18px 0 44px;
+    cursor: pointer;
+    transition: background $ease-main, color $ease-main;
+    letter-spacing: normal;
+
+    @include screen('lg', max, 2) {
+      font-size: pxtovw(17, 1366);
+      padding: 0 pxtovw(18, 1366) 0 pxtovw(44, 1366);
+    }
+
+    @include screen('md', max, 2) {
+      font-size: pxtovw(17, 960);
+      padding: 0 pxtovw(18, 960) 0 pxtovw(44, 960);
+    }
+
+    @include screen('sm', max, 2) {
+      font-size: pxtovw(15, 375);
+      padding: 0 pxtovw(18, 375) 0 pxtovw(44, 375);
+    }
+
+    b {
+      background-color: $nd-color-main;
+      color: $nd-color-basic-light;
+    }
+
+    &.is-active, &:hover {
+      background-color: $nd-color-bg;
+    }
+
+    &.icon-place {
+      background-size: 12px 16px;
+      background-position: 20px 50%;
+      background-repeat: no-repeat;
+      background-image: url("data:image/svg+xml,%3Csvg width='23' height='31' viewBox='0 0 23 31' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M23 11.5213C23 21.5047 11.5 31 11.5 31C11.5 31 0 21.2606 0 11.5213C0 5.15039 5.14089 0 11.5 0C17.8591 0 23 5.15039 23 11.5213Z' fill='%230085FF'/%3E%3Cpath d='M22.5 11.5213C22.5 16.3378 19.7155 21.0944 16.8584 24.6936C15.4376 26.4834 14.0156 27.9662 12.9487 29.0015C12.4155 29.5189 11.9718 29.9238 11.6622 30.1986C11.6047 30.2496 11.5518 30.2962 11.5038 30.3382C11.4549 30.2944 11.4008 30.2457 11.3419 30.1922C11.032 29.9111 10.588 29.4975 10.0545 28.9704C8.98702 27.9156 7.56436 26.4094 6.14288 24.6036C3.283 20.9706 0.5 16.2147 0.5 11.5213C0.5 5.42566 5.4179 0.5 11.5 0.5C17.5821 0.5 22.5 5.42566 22.5 11.5213Z' stroke='%231F1F1F' stroke-opacity='0.28'/%3E%3Ccircle cx='11.5' cy='10.5' r='4.5' fill='white'/%3E%3C/svg%3E%0A");
+
+      @include screen('lg', max, 2) {
+        background-size: pxtovw(12, 1366) pxtovw(16, 1366);
+        background-position: pxtovw(20, 1366) 50%;
+      }
+
+      @include screen('md', max, 2) {
+        background-size: pxtovw(12, 960) pxtovw(16, 960);
+        background-position: pxtovw(20, 960) 50%;
+      }
+
+      @include screen('sm', max, 2) {
+        background-size: pxtovw(12, 375) pxtovw(16, 375);
+        background-position: pxtovw(20, 375) 50%;
+      }
+    }
+
+    &.icon-subway {
+      background-size: 16px 14px;
+      background-position: 17px 50%;
+      background-repeat: no-repeat;
+      background-image: url("data:image/svg+xml,%3Csvg width='16' height='14' viewBox='0 0 16 14' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M15.1452 5.2619H14.2247C13.5014 2.2381 11.0027 0 8 0C4.99726 0 2.49863 2.2381 1.79726 5.2619H0.876712C0.394521 5.2619 0 5.69048 0 6.21429V7.78571C0 8.30952 0.394521 8.7381 0.876712 8.7381H1.79726C2.49863 11.7619 5.01918 14 8.02192 14C11.0247 14 13.5233 11.7619 14.2466 8.7381H15.1671C15.6493 8.7381 16.0438 8.30952 16.0438 7.78571V6.21429C16 5.69048 15.6274 5.2619 15.1452 5.2619ZM8 1.78571C10.0822 1.78571 11.8356 3.2381 12.4931 5.2619H3.50685C4.16438 3.2381 5.91781 1.78571 8 1.78571ZM8 12.2143C5.91781 12.2143 4.16438 10.7381 3.50685 8.71429H12.5151C11.8575 10.7381 10.0822 12.2143 8 12.2143Z' fill='%230085FF'/%3E%3Cpath d='M13.7384 5.37822L13.8301 5.7619H14.2247H15.1452C15.2929 5.7619 15.5089 5.90754 15.5438 6.23759V7.78571C15.5438 8.07316 15.335 8.2381 15.1671 8.2381H14.2466H13.8521L13.7603 8.62178C13.0823 11.4563 10.7585 13.5 8.02192 13.5C5.28293 13.5 2.94051 11.4541 2.28433 8.62512L2.19456 8.2381H1.79726H0.876712C0.708827 8.2381 0.5 8.07316 0.5 7.78571V6.21429C0.5 5.92684 0.708827 5.7619 0.876712 5.7619H1.79726H2.19456L2.28433 5.37488C2.94101 2.54372 5.26303 0.5 8 0.5C10.7366 0.5 13.0604 2.54369 13.7384 5.37822ZM12.4931 5.7619H13.1813L12.9687 5.1074C12.2546 2.90951 10.3306 1.28571 8 1.28571C5.6694 1.28571 3.74541 2.90951 3.03132 5.10741L2.81867 5.7619H3.50685H12.4931ZM3.50685 8.21429H2.81867L3.03132 8.86879C3.74415 11.0628 5.66577 12.7143 8 12.7143C10.3316 12.7143 12.2768 11.0656 12.9906 8.86879L13.2032 8.21429H12.5151H3.50685Z' stroke='%231F1F1F' stroke-opacity='0.28'/%3E%3C/svg%3E%0A");
+
+      @include screen('lg', max, 2) {
+        background-size: pxtovw(16, 1366) pxtovw(14, 1366);
+        background-position: pxtovw(17, 1366) 50%;
+      }
+
+      @include screen('md', max, 2) {
+        background-size: pxtovw(16, 960) pxtovw(14, 960);
+        background-position: pxtovw(17, 960) 50%;
+      }
+
+      @include screen('sm', max, 2) {
+        background-size: pxtovw(16, 375) pxtovw(14, 375);
+        background-position: pxtovw(17, 375) 50%;
+      }
+    }
+
+    &.icon-building {
+      background-size: 12px 12px;
+      background-position: 18px 50%;
+      background-repeat: no-repeat;
+      background-image: url("data:image/svg+xml,%3Csvg width='12' height='12' viewBox='0 0 12 12' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11.1259 12H0.874074C0.4 12 0 11.5883 0 11.1004V5.88565C0 5.64168 0.103704 5.39772 0.281481 5.22999L5.40741 0.259218C5.74815 -0.0762334 6.28148 -0.0762334 6.62222 0.259218L11.7481 5.22999C11.8963 5.39772 12 5.62643 12 5.88565V11.1004C12 11.5883 11.6 12 11.1259 12Z' fill='%230085FF'/%3E%3Cpath d='M0.624603 5.59368L0.624636 5.59371L0.629561 5.58894L5.75549 0.618162L5.7555 0.618172L5.75818 0.615526C5.90431 0.471664 6.12531 0.471664 6.27144 0.615526L6.27143 0.615536L6.27414 0.618162L11.3839 5.57327C11.4552 5.65913 11.5 5.76825 11.5 5.88565V11.1004C11.5 11.3258 11.3104 11.5 11.1259 11.5H0.874074C0.689622 11.5 0.5 11.3258 0.5 11.1004V5.88565C0.5 5.77738 0.54837 5.6656 0.624603 5.59368Z' stroke='%231F1F1F' stroke-opacity='0.28'/%3E%3C/svg%3E%0A");
+
+      @include screen('lg', max, 2) {
+        background-size: pxtovw(12, 1366) pxtovw(12, 1366);
+        background-position: pxtovw(18, 1366) 50%;
+      }
+
+      @include screen('md', max, 2) {
+        background-size: pxtovw(12, 960) pxtovw(12, 960);
+        background-position: pxtovw(18, 960) 50%;
+      }
+
+      @include screen('sm', max, 2) {
+        background-size: pxtovw(12, 375) pxtovw(12, 375);
+        background-position: pxtovw(18, 375) 50%;
+      }
+    }
+  }
+}

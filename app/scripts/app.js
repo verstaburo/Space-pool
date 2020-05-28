@@ -78,6 +78,7 @@ import profile from '../pages/profile/profile';
 import cancelationPopupSteps from '../components/popup-cancelation-contract/cancelationPopupSteps';
 import stpFormSwitch from './functions/stepForm';
 import reservationRequestShow from '../components/reservation-request/reservation-request';
+import autocompleteList from '../blocks/autocomplete-list/autocomplete-list';
 
 const $ = window.$;
 
@@ -145,4 +146,5 @@ $(() => {
   cancelationPopupSteps();
   stpFormSwitch();
   reservationRequestShow();
+  autocompleteList();
 });
