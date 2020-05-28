@@ -364,4 +364,75 @@
       border-bottom-color: $color-new-input;
     }
   }
+
+  &.nd-form-box {
+    #{$b} {
+      &__label {
+        font-size: 17px;
+        line-height: (21 / 17);
+        font-weight: 400;
+        padding: 12px 7px 7px;
+        color: $nd-color-input-placeholder;
+        background-color: transparent;
+        bottom: 0;
+        left: 0;
+        box-sizing: border-box;
+        transition: transform $ease-main, color $ease-main, font $ease-main, background $ease-main, padding $ease-main;
+
+        @include screen('lg', max, 2) {
+          font-size: pxtovw(17, 1366);
+          padding: pxtovw(12, 1366) pxtovw(7, 1366) pxtovw(7, 1366);
+        }
+
+        @include screen('md', max, 2) {
+          font-size: pxtovw(17, 960);
+          padding: pxtovw(12, 960) pxtovw(7, 960) pxtovw(7, 960);
+        }
+
+        @include screen('sm', max, 2) {
+          font-size: pxtovw(15, 375);
+          padding: pxtovw(11, 375) pxtovw(11, 375) pxtovw(8, 375);
+        }
+      }
+    }
+
+    &.is-top #{$b}__label,.choices.is-item-select ~ #{$b}__label,.choices.is-open ~ #{$b}__label {
+      font-size: 11px;
+      line-height: (13 / 11);
+      font-weight: 400;
+      color: $nd-color-basic;
+      transform: translate3d(5px, -30px, 0);
+      padding: 4px;
+      background-color: $nd-color-bg;
+
+      @include screen('lg', max, 2) {
+        transform: translate3d(pxtovw(5, 1366), pxtovw(-30, 1366), 0);
+        font-size: pxtovw(11, 1366);
+        padding: pxtovw(4, 1366);
+      }
+
+      @include screen('md', max, 2) {
+        transform: translate3d(pxtovw(5, 960), pxtovw(-30, 960), 0);
+        font-size: pxtovw(11, 960);
+        padding: pxtovw(4, 960);
+      }
+
+      @include screen('sm', max, 2) {
+        transform: translate3d(pxtovw(10, 375), pxtovw(-31, 375), 0);
+        padding: pxtovw(2, 375);
+        font-size: pxtovw(10, 375);
+        line-height: (12 / 10);
+      }
+
+      .is-error & {
+        color: $nd-color-basic;
+      }
+    }
+  }
+
+  &.nd-form-box_bg-white {
+    &.is-top #{$b}__label,.choices.is-item-select ~ #{$b}__label,.choices.is-open ~ #{$b}__label {
+      background-color: $nd-color-basic-light;
+    }
+  }
 }

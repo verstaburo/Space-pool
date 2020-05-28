@@ -527,4 +527,28 @@
       width: calc(100% + (2000 / 375));
     }
   }
+
+  &__locations {
+    flex: 1;
+
+    &:not(:last-child) {
+      margin-right: 43px;
+
+      @include screen('xl', max, 2) {
+        margin-right: 34px;
+      }
+
+      @include screen('lg', max, 2) {
+        margin-right: pxtovw(34, 1366);
+      }
+
+      @include screen('md', max, 2) {
+        margin-right: pxtovw(33, 960);
+      }
+
+      @include screen('sm', max, 2) {
+        margin-right: 0;
+      }
+    }
+  }
 }

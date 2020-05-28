@@ -84,7 +84,7 @@ $(document).ready(function () {
     // The map, centered at Uluru
     var map = new google.maps.Map(
       document.getElementById('tagsMap'), {
-        zoom: 4,
+        zoom: 13,
         center: uluru,
         disableDefaultUI: true,
         zoomControl: true,
@@ -92,7 +92,6 @@ $(document).ready(function () {
     // The marker, positioned at Uluru
     var markers = locations.map(function (location, i) {
       return new google.maps.Marker({
-        zoom: 13,
         position: location,
         map: map,
         icon: {

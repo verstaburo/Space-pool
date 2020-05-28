@@ -1,0 +1,115 @@
+mixin nd-input()
+  input.nd-input&attributes(attributes)
+
+//- mixin input-number(name, value)
+//-   - var val = value || 0;
+//-   +b.LABEL.input-numberbox&attributes(attributes)
+//-     +e.field
+//-       +e.label amount:
+//-       +e.INPUT.input.js-numberbox-input(type="text" name=name value=val)
+//-     +e.button.js-numberbox-minus
+//-     +e.button.js-numberbox-plus
+
+//- mixin input-number-readonly(name, value)
+//-   - var val = value || 0;
+//-   +b.LABEL.is-readonly.input-numberbox__&attributes(attributes)
+//-     +e.field
+//-       +e.label amount:
+//-       +e.INPUT.input.js-numberbox-input(type="text" name=name value=val readonly)
+//-     +e.button.js-numberbox-minus
+//-     +e.button.js-numberbox-plus
+
+//- mixin input-numbers(name, placeholder, min, max)
+//-   +b.input-numbers&attributes(attributes)
+//-     - if (min && max) {
+//-       +input.input-numbers__input.js-numberbox-input(type="text" name=name placeholder=placeholder data-min=min data-max=max)
+//-     - } else if (max) {
+//-       +input.input-numbers__input.js-numberbox-input(type="text" name=name placeholder=placeholder data-max=max)
+//-     - } else if (min) {
+//-       +input.input-numbers__input.js-numberbox-input(type="text" name=name placeholder=placeholder data-min=min)
+//-     - } else {
+//-       +input.input-numbers__input.js-numberbox-input(type="text" name=name placeholder=placeholder)
+//-     - }
+//-     +e.buttons
+//-       +e.button.js-numberbox-minus
+//-       +e.button.js-numberbox-plus
+
+mixin nd-textarea()
+  textarea.nd-textarea&attributes(attributes)
+    block
+
+//- mixin select()
+//-   select.select&attributes(attributes)
+//-     block
+
+mixin nd-checkbox(name, value, checked, required)
+  +b.LABEL.nd-checkbox&attributes(attributes)
+    if checked
+      if required
+        +e.INPUT.input(name=name, value=value, checked, type="checkbox" required)
+      else
+        +e.INPUT.input(name=name, value=value, checked, type="checkbox")
+    else if required
+      +e.INPUT.input(name=name, value=value, type="checkbox" required)
+    else
+      +e.INPUT.input(name=name, value=value, type="checkbox")
+    +e.SPAN.box
+      +icon('check').__icon
+    +e.SPAN.content
+      block
+
+mixin nd-radio(name, value, checked)
+  +b.LABEL.nd-checkradio&attributes(attributes)
+    if checked
+      if required
+        +e.INPUT.input(name=name, value=value, checked, type="radio" required)
+      else
+        +e.INPUT.input(name=name, value=value, checked, type="radio")
+    else if required
+      +e.INPUT.input(name=name, value=value, type="radio" required)
+    else
+      +e.INPUT.input(name=name, value=value, type="radio")
+    +e.SPAN.box
+      +icon('check').__icon
+    +e.SPAN.content
+      block
+
+//- mixin color-radio(name, value, checked)
+//-   +b.LABEL.color-radio&attributes(attributes)
+//-     - if (checked) {
+//-       +e.INPUT.input(name=name, value=value, type="radio", checked)
+//-     - } else {
+//-       +e.INPUT.input(name=name, value=value, type="radio")
+//-     - }
+//-     +e.SPAN.content
+//-       block
+
+//- mixin button-radio(name, value, checked)
+//-   +b.LABEL.button-radio&attributes(attributes)
+//-     - if (checked) {
+//-       +e.INPUT.input(name=name, value=value, type="radio", checked)
+//-     - } else {
+//-       +e.INPUT.input(name=name, value=value, type="radio")
+//-     - }
+//-     +e.SPAN.content
+//-       +e.text
+//-         block
+
+//- mixin range(output)
+//-   +b.range&attributes(attributes).js-range
+//-     +e.slider(data-range-container)
+//-     if output
+//-       +e.output(data-range-output)
+//-         +e.value_min Min. <span data-range-min></span> &pound;/mo
+//-         +e.value_max Max. <span data-range-max></span> &pound;/mo
+//-     block
+
+//- mixin check-input(isChecked)
+//-   +b.check-input&attributes(attributes)
+//-     +checkbox('', '', isChecked).js-check-input-toggle
+//-     +e.content
+//-       +form-box('Price', '', '', '&pound;')._icon_left
+//-         +input(type="text")
+//-       if block
+//-         +e.SPAN.text
+//-           block

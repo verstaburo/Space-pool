@@ -37,6 +37,8 @@ mixin search-panel()
         +e.note Start-up, scale-up, big business or just you – we have a perfect match for you.
       +e.FORM.block.hide(data-step="location")
         +e.locations
+          +nd-form-box('Location')._bg-white
+            +nd-input().js-autofill(type="text" name="location" placeholder="location" data-autofill-source="assets/data/locations-autofill.json")
         +nd-button('button', true).__button(type="submit") Show
         +e.note Search by area, tube station or the name of the space to find your match.
     block
