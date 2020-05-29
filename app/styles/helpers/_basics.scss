@@ -67,6 +67,24 @@ body {
   background: $color-bg;
   overflow-x: hidden;
   letter-spacing: -.02em;
+
+  &.nd {
+    font-size: 17px;
+    color: $nd-color-basic;
+    letter-spacing: normal;
+
+    @include screen('lg', max, 2) {
+      font-size: pxtovw(17, 1366);
+    }
+
+    @include screen('md', max, 2) {
+      font-size: pxtovw(17, 960);
+    }
+
+    @include screen('sm', max, 2) {
+      font-size: pxtovw(17, 375);
+    }
+  }
 }
 
 img {
