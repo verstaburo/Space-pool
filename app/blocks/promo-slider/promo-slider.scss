@@ -43,6 +43,7 @@
     flex: 1;
     padding-right: 70px;
     box-sizing: border-box;
+    transition: transform .5s ease, opacity .25s ease;
 
     @include screen('xl', max, 2) {
       padding-right: 100px;
@@ -60,6 +61,18 @@
 
     @include screen('sm', max, 2) {
       padding-right: pxtovw(98, 375);
+    }
+
+    .swiper-slide-next & {
+      opacity: 0;
+      transform: translate3d(-30px, 0, 0);
+      transition-delay: .5s, 0;
+    }
+
+    .swiper-slide-prev & {
+      opacity: 0;
+      transform: translate3d(30px, 0, 0);
+      transition-delay: .5s, 0;
     }
   }
 

@@ -3,7 +3,7 @@ import '@fancyapps/fancybox';
 import {
   freeze,
   unfreeze,
-} from '../js-functions/freeze';
+} from '../../scripts/functions/freeze';
 
 const $ = window.$;
 const bp = window.globalOptions.sizes;

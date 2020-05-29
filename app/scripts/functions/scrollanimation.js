@@ -66,6 +66,18 @@ export default function scrollanimation() {
     interval: 100,
   };
 
+  const sr5 = {
+    origin: 'bottom',
+    reset: false,
+    mobile: true,
+    scale: 1,
+    delay: 100,
+    distance: '20px',
+    easing: 'cubic-bezier(.18,.51,.28,.95)',
+    duration: 500,
+    interval: 100,
+  };
+
   if ($('.js-sr_opacity').length) {
     ScrollReveal().reveal('.js-sr_opacity', sr);
   }
@@ -84,6 +96,10 @@ export default function scrollanimation() {
 
   if ($('.js-sr_right').length) {
     ScrollReveal().reveal('.js-sr_right', sr4);
+  }
+
+  if ($('.js-sr_bottom-slow').length) {
+    ScrollReveal().reveal('.js-sr_bottom-slow', sr5);
   }
 
   // Показываем элементы, если ScrollReveal не поддерживается

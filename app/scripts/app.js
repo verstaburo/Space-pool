@@ -9,13 +9,13 @@ import picturefill from 'picturefill';
 import objectFitImages from 'object-fit-images';
 import './globalOptions';
 import './modernizr';
-import '../blocks/js-functions/detectors';
-import anchor from '../blocks/js-functions/anchor';
+import './functions/detectors';
+import anchor from './functions/anchor';
 import {
   freezebuttons,
-} from '../blocks/js-functions/freeze';
+} from './functions/freeze';
 import scrollbar from '../blocks/scrollbar/scrollbar';
-import scrollanimation from '../blocks/js-functions/scrollanimation';
+import scrollanimation from './functions/scrollanimation';
 import {
   selects,
   sliders,
@@ -49,18 +49,18 @@ import offerItemOpen from '../blocks/offer-item/offer-item';
 import floatingLabels from '../blocks/form-box/form-box';
 import formManipulations from '../blocks/form/form';
 import tip from '../blocks/tip/tip';
-import deleteObject from '../blocks/js-functions/deleteObject';
+import deleteObject from './functions/deleteObject';
 import switchOfferState from '../blocks/offer/offer';
 import emptyOfferState from '../blocks/offers/offers';
 import setBlogNewsTitlesHeight from '../blocks/blog/blog';
 import '../blocks/form/validate';
 import stickyMessage from '../blocks/sticky-message/sticky-message';
-import blockHeightRounding from '../blocks/js-functions/blockHeightRounding';
+import blockHeightRounding from './functions/blockHeightRounding';
 import '../blocks/avatar-uploader/avatar-uploader';
 import calendar from '../blocks/calendar/calendar';
 import uploader from '../blocks/uploader/uploader';
 import toggleFilter from '../components/search-filter/search-filter';
-import truncateBlocks from '../blocks/js-functions/lineClamp';
+import truncateBlocks from './functions/lineClamp';
 import mapManipulations from '../components/search-map/search-map';
 import advancedSearch from '../components/advanced-filter/advanced-filter';
 import textareaCounters from '../blocks/form-elements/textareaCounters';

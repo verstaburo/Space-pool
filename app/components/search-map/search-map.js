@@ -1,7 +1,8 @@
 import {
   freeze,
   unfreeze,
-} from '../../blocks/js-functions/freeze';
+}
+from '../../scripts/functions/freeze';
 
 const $ = window.$;
 
