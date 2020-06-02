@@ -1,0 +1,81 @@
+extends ../../layouts/redesign-default
+
+block head
+  - var pageTitle = 'Spacepool - Space'
+
+block header
+  - var headerClass = ' is-login nd-header_border'
+  - var pageClass = ''
+  - var isMap = true
+  - var host = true
+
+block content
+  +nd-page-header
+    .nd-container
+      +nd-page-header-side
+        +nd-link-icon('arrow5')._back.__back Back to search
+      +nd-page-header-main._space
+        +nd-breadcrumbs([["London", "#"], ["Mayfare", "#"], ["EC2A 4SD"]]).__breadcrumbs.nd-hide-sm
+        +address('assets/images/nd/nd-subway.svg').__address.nd-hide-from-md Liverpool Street
+
+
+  +nd-content._space
+    .nd-container.nd-container_space
+
+      +nd-content-main
+        +nd-section._space._mt114
+          +gallery(["assets/images/nd/nd-space-lead.jpg", "assets/images/space-lead1.jpg", "assets/images/space-lead2.jpg", "assets/images/space-lead3.jpg", "assets/images/space-lead4.jpg"], "spacegallery").__gallery.js-nd-gallery
+          +nd-section-header
+            +e.boxes.nd-hide-from-md
+              +nd-box._orange._size10
+              +nd-box._red._size10
+              +nd-box._blue._size10
+              +nd-box._green._size10
+            +nd-section-title('h1')._fz30._sm-fz26 About House of Creative - 229 Shoreditch High Street
+          +nd-section-content
+            +e.text Perfectly located on Shoreditch High Street, alongside three of our other buildings, 229 offers 12 private offices, meeting rooms, large board room and a perfect breakout/kitchen space and rooftop. House of Creative has been around for 8 years so we know what our client's needs are. We keep our pricing low and offer and all in service to make life easy for you.
+
+        +nd-section._mt114
+          +nd-section-header
+            +nd-section-title._fz30 Location
+            +e.text 229 Shoreditch High St, Shoreditch, London E1 6PJ, UK, London, E1 6PJ
+          +map._space#spaceMap.__map
+          +routes.__routes
+
+        +nd-section._mt114
+          +nd-section-header
+            +nd-section-title._fz30 Facilities
+            +facility-list
+
+        +nd-section._mt80
+          +nd-section-header
+            +nd-section-title._fz30 Hot desks
+
+        +nd-section._mt80
+          +nd-section-header
+            +nd-section-title._fz30 Fixed desks
+
+        +nd-section._mt80
+          +nd-section-header
+            +nd-section-title._fz30 Private offices
+
+
+      +nd-content-aside
+        +sidebar.nd-sidebar.nd-hide-md
+          div Здесь будет стикер
+
+      +e.column_footer
+        +nd-section
+          +nd-section-header
+            +nd-section-title._fz30 More places
+
+block panels
+  //- +main-menu
+  //- +offer-panel.hide-from-md
+  .reservation-request-panel(data-rr-wrapper-block="panel")
+  .reservation-request-popup(data-rr-wrapper-block="popup")
+
+block popups
+  //- +popup-arrange-viewing#popup-arrange-viewing
+  +reservation-request#reservation-request
+  +reservation-request-popup#reservation-request-popup

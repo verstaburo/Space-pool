@@ -38,7 +38,7 @@
     pointer-events: auto;
     cursor: pointer;
     stroke: $nd-color-border-light;
-    transition: stroke $ease-main;
+    transition: stroke $ease-main, opacity $ease-main;
 
     @include screen('xl', max, 2) {
       width: 50px;
@@ -58,6 +58,11 @@
 
     &:hover {
       stroke: $nd-color-basic;
+    }
+
+    &.swiper-button-disabled {
+      opacity: 0;
+      pointer-events: none;
     }
   }
 

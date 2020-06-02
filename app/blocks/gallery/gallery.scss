@@ -1,0 +1,165 @@
+.gallery {
+  $b: &;
+
+  position: relative;
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  padding-top: 56%;
+
+  @include screen('xlg', max, 2) {
+    padding-top: 57%;
+  }
+
+  @include screen('md', max, 2) {
+    padding-top: 55%;
+  }
+
+  @include screen('sm', max, 2) {
+    padding-top: 66.7%;
+  }
+
+  &__slider {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+  }
+
+  &__buttons {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 2;
+
+    @include screen('md', max, 2) {
+      display: none;
+    }
+  }
+
+  &__button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 44px;
+    height: 128px;
+    pointer-events: auto;
+    background-color: rgba(0, 0, 0, .3);
+    transition: background $ease-main;
+    cursor: pointer;
+    fill: none;
+    stroke: $nd-color-basic-light;
+    transform-origin: 50% 50%;
+
+    @include screen('xlg', max, 2) {
+      width: 40px;
+      height: 114px;
+    }
+
+    @include screen('lg', max, 2) {
+      width: pxtovw(40, 1366);
+      height: pxtovw(114, 1366);
+    }
+
+    &:hover {
+      background-color: rgba(0, 0, 0, .6);
+    }
+
+    &_next {
+      transform: rotate(180deg);
+    }
+
+    &.swiper-button-disabled {
+      opacity: 0;
+      pointer-events: none;
+      cursor: default;
+    }
+
+    svg {
+      fill: inherit;
+      stroke: inherit;
+      width: 15px;
+      height: 40px;
+
+      @include screen('xlg', max, 2) {
+        width: 13px;
+        height: 38px;
+      }
+
+      @include screen('lg', max, 2) {
+        width: pxtovw(13, 1366);
+        height: pxtovw(38, 1366);
+      }
+    }
+  }
+
+  &__fullscreen {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    text-decoration: none;
+    z-index: 3;
+    width: 35px;
+    height: 32px;
+    display: none;
+    background-color: rgba(0, 0, 0, .6);
+    fill: none;
+    justify-content: center;
+    align-items: center;
+    stroke: $nd-color-basic-light;
+    transition: background $ease-main;
+    cursor: pointer;
+
+    @include screen('sm', max, 2) {
+      display: flex;
+      width: pxtovw(35, 375);
+      height: pxtovw(32, 375);
+    }
+
+    &:hover {
+      background-color: rgba(0, 0, 0, .9);
+    }
+
+    svg {
+      fill: inherit;
+      stroke: inherit;
+      width: 18px;
+      height: 16px;
+
+      @include screen('sm', max, 2) {
+        width: pxtovw(18, 375);
+        height: pxtovw(16, 375);
+      }
+    }
+  }
+
+  &__slide {
+    position: relative;
+    display: block;
+  }
+
+  &__image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+
+    img {
+      @include fill-img;
+
+      display: block;
+      font-size: 0;
+      line-height: 0;
+    }
+  }
+}

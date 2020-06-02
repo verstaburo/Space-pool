@@ -1,0 +1,112 @@
+.nd-content {
+  $b: &;
+
+  display: block;
+  width: 100%;
+
+  .nd-container {
+    @include display-grid;
+    @include grid-template-columns(368px 50px 1fr);
+    @include grid-template-rows(auto);
+
+    @include screen('xlg', max, 2) {
+      @include grid-template-columns(301px 20px 1fr);
+    }
+
+    @include screen('lg', max, 2) {
+      @include grid-template-columns(pxtovw(301, 1366) pxtovw(20, 1366) 1fr);
+    }
+
+    @include screen('md', max, 2) {
+      @include grid-template-columns(100%);
+      @include grid-template-rows(auto auto);
+    }
+  }
+
+  &_space .nd-container {
+    @include grid-template-columns(1fr 50px 417px);
+    @include grid-template-rows(auto auto);
+
+    @include screen('xlg', max, 2) {
+      @include grid-template-columns(1fr 46px 382px);
+    }
+
+    @include screen('lg', max, 2) {
+      @include grid-template-columns(1fr pxtovw(46, 1366) pxtovw(382, 1366));
+    }
+
+    @include screen('md', max, 2) {
+      @include grid-template-columns(100%);
+      @include grid-template-rows(auto auto auto);
+    }
+  }
+
+  &__column {
+    &_aside {
+      @include grid-column(1, 2);
+      @include grid-row(1, 2);
+
+      @include screen('md', max, 2) {
+        @include grid-row(1, 2);
+      }
+    }
+
+    &_main {
+      @include grid-column(3, 4);
+      @include grid-row(1, 2);
+
+      @include screen('md', max, 2) {
+        @include grid-column(1, 2);
+        @include grid-row(2, 3);
+      }
+    }
+
+    #{$b}_space & {
+      &_main {
+        @include grid-column(1, 2);
+        @include grid-row(1, 2);
+
+        padding-left: 96px;
+
+        @include screen('xlg', max, 2) {
+          padding-left: 0;
+        }
+
+        @include screen('md', max, 2) {
+          @include grid-row(2, 3);
+        }
+      }
+
+      &_aside {
+        @include grid-column(3, 4);
+        @include grid-row(1, 2);
+
+        @include screen('md', max, 2) {
+          @include grid-column(1, 2);
+          @include grid-row(1, 2);
+        }
+      }
+
+      &_footer {
+        @include grid-column(1, 4);
+        @include grid-row(2, 3);
+
+        margin: 0 -45px;
+        width: calc(100% + 90px);
+
+        @include screen('xl', max, 2) {
+          margin: 0;
+          width: 100%;
+        }
+
+        @include screen('xlg', max, 2) {
+          @include grid-column(1, 2);
+        }
+
+        @include screen('md', max, 2) {
+          @include grid-row(3, 4);
+        }
+      }
+    }
+  }
+}

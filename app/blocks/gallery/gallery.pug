@@ -1,0 +1,24 @@
+mixin gallery(images, gallerytag)
+  +b.gallery&attributes(attributes)
+    +e.slider.swiper-container.js-slider-container
+      .swiper-wrapper
+        each image in images
+          if gallerytag
+            +e.slide.swiper-slide
+              +e.PICTURE.image
+                +e.SOURCE(srcset=image)
+                +e.IMG(srcset=image data-target=gallerytag)
+          else
+            +e.slide.swiper-slide
+              +e.PICTURE.image
+                +e.SOURCE(srcset=image)
+                +e.IMG(srcset=image)
+    +e.buttons
+      +e.button_prev.js-slider-button-prev
+        +icon('nd-slider-arrow')
+      +e.button_next.js-slider-button-next
+        +icon('nd-slider-arrow')
+    if gallerytag
+      +e.A.fullscreen.js-nd-fancygallery(data-targets=gallerytag)
+        +icon('fullscreen')
+    block

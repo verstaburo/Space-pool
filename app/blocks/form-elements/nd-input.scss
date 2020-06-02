@@ -8,8 +8,9 @@
   color: $nd-color-basic;
   font-weight: 400;
   padding: 11px 7px 7px;
-  transition: border $ease-main;
+  transition: border $ease-main, box-shadow $ease-main;
   border-bottom-color: $nd-color-gray-text;
+  box-shadow: inset 0 0 0 1px transparent;
 
   @include screen('lg', max, 2) {
     font-size: pxtovw(17, 1366);
@@ -38,6 +39,7 @@
 
   &:hover {
     border-color: $nd-color-gray-text;
+    box-shadow: inset 0 0 0 1px transparent;
     border-radius: 3px;
 
     @include screen('lg', max, 2) {
@@ -54,7 +56,8 @@
   }
 
   &:focus {
-    border-color: $nd-color-basic;
+    border-color: $nd-color-main;
+    box-shadow: inset 0 0 0 1px $nd-color-main;
     border-radius: 3px;
 
     @include screen('lg', max, 2) {
@@ -72,6 +75,7 @@
 
   .is-top > & {
     border-color: $nd-color-basic;
+    box-shadow: inset 0 0 0 1px transparent;
     border-radius: 3px;
 
     @include screen('lg', max, 2) {
@@ -84,6 +88,11 @@
 
     @include screen('sm', max, 2) {
       border-radius: pxtovw(3, 375);
+    }
+
+    &:focus {
+      border-color: $nd-color-main;
+      box-shadow: inset 0 0 0 1px $nd-color-main;
     }
   }
 

@@ -1,0 +1,186 @@
+.routes {
+  $b: &;
+
+  display: table;
+  border-collapse: collapse;
+  width: 100%;
+  color: $nd-color-basic;
+  font-size: 18px;
+  line-height: 26px;
+  font-weight: 700;
+
+  @include screen('lg', max, 2) {
+    line-height: pxtovw(26, 1366);
+    font-size: pxtovw(18, 1366);
+  }
+
+  @include screen('md', max, 2) {
+    line-height: pxtovw(26, 960);
+    font-size: pxtovw(18, 960);
+  }
+
+  @include screen('sm', max, 2) {
+    line-height: pxtovw(26, 375);
+    font-size: pxtovw(15, 375);
+  }
+
+  tbody, thead, tr {
+    padding: 0;
+    margin: 0;
+  }
+
+  &__row {
+    border-bottom: 1px solid $nd-color-border4;
+  }
+
+  &__cell {
+    box-sizing: border-box;
+    padding: 22px 0;
+    width: 50%;
+    vertical-align: baseline;
+    font-size: inherit;
+    line-height: inherit;
+    font-weight: inherit;
+    letter-spacing: inherit;
+
+    @include screen('lg', max, 2) {
+      padding: pxtovw(22, 1366) 0;
+    }
+
+    @include screen('md', max, 2) {
+      padding: pxtovw(22, 960) 0;
+    }
+
+    @include screen('sm', max, 2) {
+      padding: pxtovw(22, 375) 0;
+    }
+
+    &:first-child {
+      padding-right: 10px;
+
+      @include screen('lg', max, 2) {
+        padding-right: pxtovw(10, 1366);
+      }
+
+      @include screen('md', max, 2) {
+        padding-right: pxtovw(10, 960);
+      }
+
+      @include screen('sm', max, 2) {
+        padding-right: pxtovw(10,375);
+        width: 65%;
+      }
+    }
+
+    &:last-child {
+      text-align: right;
+
+      @include screen('sm', max, 2) {
+        width: 35%;
+      }
+    }
+  }
+
+  &__content {
+    display: inline-flex;
+    justify-content: flex-start;
+    align-items: baseline;
+    width: 100%;
+
+    #{$b}__cell:last-child & {
+      justify-content: flex-end;
+    }
+  }
+
+  &__icon {
+    display: flex;
+    fill: currentColor;
+    flex: none;
+    align-self: flex-start;
+
+    &:not(:first-child) {
+      margin-left: 14px;
+
+      @include screen('lg', max, 2) {
+        margin-left: pxtovw(14, 1366);
+      }
+
+      @include screen('md', max, 2) {
+        margin-left: pxtovw(14, 960);
+      }
+
+      @include screen('sm', max, 2) {
+        margin-left: pxtovw(9, 375);
+      }
+    }
+
+    &:not(:last-child) {
+      margin-right: 26px;
+
+      @include screen('lg', max, 2) {
+        margin-right: pxtovw(26, 1366);
+      }
+
+      @include screen('md', max, 2) {
+        margin-right: pxtovw(26, 960);
+      }
+
+      @include screen('sm', max, 2) {
+        margin-right: pxtovw(16, 375);
+      }
+    }
+
+    &_place {
+      justify-content: flex-start;
+      align-items: center;
+      width: 23px;
+      height: 17px;
+      margin-top: .22em;
+
+      @include screen('lg', max, 2) {
+        width: pxtovw(23, 1366);
+        height: pxtovw(17, 1366);
+      }
+
+      @include screen('md', max, 2) {
+        width: pxtovw(23, 960);
+        height: pxtovw(17, 960);
+      }
+
+      @include screen('sm', max, 2) {
+        width: pxtovw(23, 375);
+        height: pxtovw(17, 375);
+      }
+    }
+
+    &_time {
+      justify-content: flex-end;
+      align-items: center;
+      width: 23px;
+      height: 23px;
+      margin-top: .11em;
+
+      @include screen('lg', max, 2) {
+        width: pxtovw(23, 1366);
+        height: pxtovw(23, 1366);
+      }
+
+      @include screen('md', max, 2) {
+        width: pxtovw(23, 960);
+        height: pxtovw(23, 960);
+      }
+
+      @include screen('sm', max, 2) {
+        width: pxtovw(23, 375);
+        height: pxtovw(23, 375);
+      }
+    }
+
+    svg, img {
+      max-width: 100%;
+      height: 100%;
+      fill: inherit;
+      flex: none;
+    }
+  }
+}

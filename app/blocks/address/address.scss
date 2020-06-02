@@ -1,0 +1,64 @@
+.address {
+  $b: &;
+
+  display: inline-flex;
+  justify-content: flex-start;
+  align-items: center;
+  box-sizing: border-box;
+  font-size: 15px;
+  line-height: (18 / 15);
+  font-weight: 400;
+  color: $nd-color-gray-text;
+
+  &__icon {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 20px;
+    height: 17px;
+
+    @include screen('lg', max, 2) {
+      width: pxtovw(20, 1366);
+      height: pxtovw(17, 1366);
+    }
+
+    @include screen('md', max, 2) {
+      width: pxtovw(20, 960);
+      height: pxtovw(17, 960);
+    }
+
+    @include screen('sm', max, 2) {
+      width: pxtovw(20, 375);
+      height: pxtovw(17, 375);
+    }
+
+    img, svg {
+      display: block;
+      font-size: 0;
+      line-height: 0;
+      width: 100%;
+      max-height: 100%;
+      flex: none;
+    }
+  }
+
+  &__text {
+    display: inline-block;
+
+    &:not(:first-child) {
+      margin-left: 10px;
+
+      @include screen('lg', max, 2) {
+        margin-left: pxtovw(10, 1366);
+      }
+
+      @include screen('md', max, 2) {
+        margin-left: pxtovw(10, 960);
+      }
+
+      @include screen('sm', max, 2) {
+        margin-left: pxtovw(10, 375);
+      }
+    }
+  }
+}

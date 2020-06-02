@@ -1,33 +1,31 @@
-// библиотека подключена в app.min.js
-
 $(document).ready(function () {
   var locations = [{
       lat: 51.934,
-      lng: 30.315
+      lng: 30.315,
     },
     {
       lat: 59.9345,
-      lng: 30.3156
+      lng: 30.3156,
     },
     {
       lat: 59.924,
-      lng: 30.335
+      lng: 30.335,
     },
     {
       lat: 59.924,
-      lng: 30.305
+      lng: 30.305,
     },
     {
       lat: 59.924,
-      lng: 30.335
+      lng: 30.335,
     },
     {
       lat: 59.914,
-      lng: 30.335
+      lng: 30.335,
     },
     {
       lat: 59.934,
-      lng: 30.325
+      lng: 30.325,
     },
     {
       lat: 59.900,
@@ -35,7 +33,7 @@ $(document).ready(function () {
     },
     {
       lat: 59.934,
-      lng: 30.300
+      lng: 30.300,
     },
     {
       lat: 59.913,
@@ -43,23 +41,23 @@ $(document).ready(function () {
     },
     {
       lat: 59.927,
-      lng: 30.338
+      lng: 30.338,
     },
     {
       lat: 59.948,
-      lng: 30.34
+      lng: 30.34,
     },
     {
       lat: 59.988,
-      lng: 30.324
+      lng: 30.324,
     },
     {
       lat: 59.9,
-      lng: 30.34476
+      lng: 30.34476,
     },
     {
       lat: 59.939,
-      lng: 30.76
+      lng: 30.76,
     },
     {
       lat: 59.941,
@@ -71,43 +69,71 @@ $(document).ready(function () {
     },
     {
       lat: 59.977,
-      lng: 30.73735
+      lng: 30.73735,
     }
   ];
 
+  var uluru = {
+    lat: 59.914,
+    lng: 30.335,
+  };
+
   function initGMap() {
-    // The location of Uluru
-    var uluru = {
-      lat: 59.914,
-      lng: 30.335
-    };
-    // The map, centered at Uluru
-    var map = new google.maps.Map(
-      document.getElementById('tagsMap'), {
-        zoom: 13,
-        center: uluru,
-        disableDefaultUI: true,
-        zoomControl: true,
+    var tagsMap = document.getElementById('tagsMap');
+    var spaceMap = document.getElementById('spaceMap');
+
+    // Карта на главной
+    if (tagsMap) {
+      var map = new google.maps.Map(
+        tagsMap, {
+          zoom: 13,
+          center: uluru,
+          disableDefaultUI: true,
+          zoomControl: true,
+        });
+
+      var markers = locations.map(function (location, i) {
+        return new google.maps.Marker({
+          position: location,
+          map: map,
+          icon: {
+            url: 'assets/images/nd/nd-map-marker.svg',
+            size: new google.maps.Size(23, 31),
+            // The origin for this image is (0, 0).
+            origin: new google.maps.Point(0, 0),
+            // The anchor for this image is the base of the flagpole at (0, 32).
+            anchor: new google.maps.Point(12, 31),
+            scaledSize: new google.maps.Size(23, 31),
+          },
+        });
       });
-    // The marker, positioned at Uluru
-    var markers = locations.map(function (location, i) {
-      return new google.maps.Marker({
-        position: location,
-        map: map,
+    }
+
+    // Карта в спейсе
+
+    if (spaceMap) {
+      var map2 = new google.maps.Map(
+        spaceMap, {
+          zoom: 13,
+          center: uluru,
+          disableDefaultUI: true,
+        });
+
+      var marker = new google.maps.Marker({
+        position: uluru,
+        map: map2,
         icon: {
           url: 'assets/images/nd/nd-map-marker.svg',
-          size: new google.maps.Size(23, 31),
-          // The origin for this image is (0, 0).
+          size: new google.maps.Size(40, 54),
           origin: new google.maps.Point(0, 0),
-          // The anchor for this image is the base of the flagpole at (0, 32).
-          anchor: new google.maps.Point(0, 15)
+          anchor: new google.maps.Point(20, 54),
+          scaledSize: new google.maps.Size(40, 54),
         },
       });
-    });
+    }
   }
 
   initGMap();
-
 
   // устаревший код
   // карта в спейсе

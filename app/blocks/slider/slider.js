@@ -17,6 +17,7 @@ export default function slider() {
   const ndSlider = $('.js-nd-slider');
   const ndBlogSlider = $('.js-nd-blog-slider');
   const ndPromoSlider = $('[data-promo-slider]');
+  const ndGallery = $('.js-nd-gallery');
 
   function setBtnContainerHeight(el) {
     const btnContainer = $(el).find('[data-slider-buttons]');
@@ -497,6 +498,34 @@ export default function slider() {
             const newTitle = $(currentSlide).attr('data-promo-slide-title');
             const targetBlock = $(el).find('[data-promo-slider-titles]');
             $(targetBlock).text(newTitle);
+          },
+        },
+      });
+    });
+  }
+
+  if (ndGallery.length > 0) {
+    $(ndGallery).each((i, el) => {
+      const btnPrev = $(el).find('.js-slider-button-prev')[0];
+      const btnNext = $(el).find('.js-slider-button-next')[0];
+      const sliderContainer = $(el).find('.js-slider-container');
+      const newslider = new Swiper(sliderContainer, {
+        loop: true,
+        speed: 500,
+        slidesPerView: 1,
+        initialSlide: 0,
+        slidesPerGroup: 1,
+        roundLengths: false,
+        resize: true,
+        preloadImages: true,
+        updateOnImagesReady: true,
+        navigation: {
+          nextEl: btnNext,
+          prevEl: btnPrev,
+        },
+        on: {
+          init() {
+            $(sliderContainer).addClass('is-visible');
           },
         },
       });

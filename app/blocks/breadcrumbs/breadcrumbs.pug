@@ -4,3 +4,9 @@ mixin breadcrumbs(json)
       +e.LI.item
         +link._bordered.__link(href='#')
           =crumb
+
+mixin nd-breadcrumbs(json)
+  +b.UL.nd-breadcrumbs&attributes(attributes)
+    each item in json
+      +e.LI.item
+        +e(item[1] ? 'a' : 'span').link(href=item[1])!= item[0]

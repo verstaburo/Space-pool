@@ -1,0 +1,9 @@
+mixin address(icon, svg)
+  +b.address&attributes(attributes)
+    +e.icon
+      if svg
+        +icon(icon)
+      else
+        img(src=icon)
+    +e.text
+      block
