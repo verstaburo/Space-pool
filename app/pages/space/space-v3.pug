@@ -6,7 +6,7 @@ block head
 block header
   - var headerClass = ' is-login nd-header_border'
   - var pageClass = ''
-  - var isMap = true
+  - var isMap = false
   - var host = true
 
 block content
@@ -24,7 +24,7 @@ block content
 
       +nd-content-main
         +nd-section._space._mt114
-          +gallery(["assets/images/nd/nd-space-lead.jpg", "assets/images/space-lead1.jpg", "assets/images/space-lead2.jpg", "assets/images/space-lead3.jpg", "assets/images/space-lead4.jpg"], "spacegallery").__gallery.js-nd-gallery
+          +gallery({images: ["assets/images/nd/nd-space-lead.jpg", "assets/images/space-lead1.jpg", "assets/images/space-lead2.jpg", "assets/images/space-lead3.jpg", "assets/images/space-lead4.jpg"], gallerytag: "spacegallery", buttons: true}).__gallery.js-nd-gallery
           +nd-section-header
             +e.boxes.nd-hide-from-md
               +nd-box._orange._size10
@@ -68,6 +68,20 @@ block content
         +nd-section
           +nd-section-header
             +nd-section-title._fz30 More places
+          +nd-slider(false, false, true).__slider_spaces.js-nd-double-space-slider
+            each item in getData('nd-spaces-search-around.json')
+              +nd-space()._card.__slide_card.swiper-slide
+                +gallery(item.gallery)._space.__media.js-nd-gallery
+                +e.describe
+                  //- +nd-space-colors
+                    each bxs in item.offers
+                      +nd-box()(class=bxs.box + ' __box')
+                  +e.address
+                    each el in item.address
+                      span!= el
+                  +e.title_fz20._proxima._bold!=item.title
+                  //- +e.text!=item.text
+                  +offer-table(item.offers).__list
 
 block panels
   //- +main-menu

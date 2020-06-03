@@ -1,0 +1,12 @@
+mixin offer-table(data)
+  +b.TABLE.offer-table&attributes(attributes)
+    tbody
+      each item in data
+        +e.TR.row
+          +e.TD.cell
+            +e.offer
+              +nd-box()(class=item.box + ' __box')
+              +e.name!=item.name
+          +e.TD.cell
+            +e.price!=item.price
+    block

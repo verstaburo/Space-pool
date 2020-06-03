@@ -194,6 +194,28 @@
         }
       }
     }
+
+    &_spaces {
+      &:not(:first-child) {
+        margin-top: 62px;
+
+        @include screen('xl', max, 2) {
+          margin-top: 42px;
+        }
+
+        @include screen('lg', max, 2) {
+          margin-top: pxtovw(42, 1366);
+        }
+
+        @include screen('md', max, 2) {
+          margin-top: pxtovw(35, 960);
+        }
+
+        @include screen('sm', max, 2) {
+          margin-top: pxtovw(24, 375);
+        }
+      }
+    }
   }
 
   &__content {

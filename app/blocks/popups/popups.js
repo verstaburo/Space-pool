@@ -347,7 +347,7 @@ export default function popups() {
     // родительский контейнер
     const parentSlider = $(self).closest('.js-nd-gallery');
     // ищем не дублирующиеся слайды
-    const slides = $(parentSlider).find('.swiper-slide:not(.swiper-slide-duplicate)');
+    const slides = $(parentSlider).find('.gallery__slide:not(.gallery__slide_duplicate)');
     // из них выбираем те, которые являются целевыми для галереи
     const targets = $(slides).find('[data-target]').filter((i, el) => $(el).is(`[data-target="${targetName}"]`));
     // массив для храниения источников изображений
@@ -357,7 +357,7 @@ export default function popups() {
     $(targets).each((i, el) => {
       const src = $(el).attr('srcset') || $(el).attr('src');
       // определяем индекс активного элемента
-      if ($(el).closest('.swiper-slide').is('.swiper-slide-active')) {
+      if ($(el).closest('.gallery__slide').is('.gallery__slide_active')) {
         activeIndex = i;
       }
       // делаем первичноге наполнение массива

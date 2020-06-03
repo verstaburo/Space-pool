@@ -18,6 +18,7 @@ export default function slider() {
   const ndBlogSlider = $('.js-nd-blog-slider');
   const ndPromoSlider = $('[data-promo-slider]');
   const ndGallery = $('.js-nd-gallery');
+  const ndDoubleSlider = $('.js-nd-double-space-slider');
 
   function setBtnContainerHeight(el) {
     const btnContainer = $(el).find('[data-slider-buttons]');
@@ -506,9 +507,10 @@ export default function slider() {
 
   if (ndGallery.length > 0) {
     $(ndGallery).each((i, el) => {
-      const btnPrev = $(el).find('.js-slider-button-prev')[0];
-      const btnNext = $(el).find('.js-slider-button-next')[0];
-      const sliderContainer = $(el).find('.js-slider-container');
+      const btnPrev = $(el).find('.js-gallery-button-prev')[0];
+      const btnNext = $(el).find('.js-gallery-button-next')[0];
+      const sliderContainer = $(el).find('.js-gallery-container');
+      const pagination = $(el).find('.js-gallery-pagination')[0];
       const newslider = new Swiper(sliderContainer, {
         loop: true,
         speed: 500,
@@ -519,13 +521,75 @@ export default function slider() {
         resize: true,
         preloadImages: true,
         updateOnImagesReady: true,
+        observeParents: true,
+        observer: true,
         navigation: {
           nextEl: btnNext,
           prevEl: btnPrev,
         },
+        pagination: {
+          el: pagination,
+        },
         on: {
           init() {
             $(sliderContainer).addClass('is-visible');
+          },
+        },
+        containerModifierClass: 'gallery__slider_',
+        wrapperClass: 'gallery__wrapper',
+        slideClass: 'gallery__slide',
+        slideActiveClass: 'gallery__slide_active',
+        slideDuplicateActiveClass: 'gallery__slide_duplicate_active',
+        slideVisibleClass: 'gallery__slide_visible',
+        slideDuplicateClass: 'gallery__slide_duplicate',
+        slideNextClass: 'gallery__slide_next',
+        slideDuplicateNextClass: 'gallery__slide_duplicate_next',
+        slidePrevClass: 'gallery__slide_prev',
+        slideDuplicatePrevClass: 'gallery__slide_duplicate_prev',
+      });
+    });
+  }
+
+  if (ndDoubleSlider.length > 0) {
+    $(ndDoubleSlider).each((i, el) => {
+      const btnPrev = $(el).find('.js-slider-button-prev')[0];
+      const btnNext = $(el).find('.js-slider-button-next')[0];
+      const sliderContainer = $(el).find('.js-slider-container');
+      const newslider = new Swiper(sliderContainer, {
+        speed: 500,
+        spaceBetween: 0,
+        slidesPerView: 'auto',
+        slidesPerGroup: 1,
+        nested: true,
+        roundLengths: true,
+        noSwiping: true,
+        noSwipingClass: 'gallery',
+        navigation: {
+          nextEl: btnNext,
+          prevEl: btnPrev,
+        },
+        breakpoints: {
+          768: {
+            slidesPerView: 3,
+            slidesPerGroup: 1,
+            spaceBetween: 20,
+          },
+          1600: {
+            slidesPerView: 4,
+            slidesPerGroup: 1,
+            spaceBetween: 50,
+          },
+        },
+        on: {
+          init() {
+            $(sliderContainer).addClass('is-visible');
+          },
+          resize() {
+            if (window.Modernizr.mq('(max-width: 767px)')) {
+              $(this.slides).each((ix, slide) => {
+                $(slide).removeAttr('style');
+              });
+            }
           },
         },
       });

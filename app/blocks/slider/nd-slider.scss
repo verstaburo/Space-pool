@@ -105,6 +105,15 @@
   }
 
   &__slide {
+    height: auto;
+
+    &_card {
+      @include screen('sm', max, 2) {
+        width: pxtovw(250, 375);
+        margin-right: pxtovw(20, 375);
+      }
+    }
+
     &_space {
       @include screen('md', max, 2) {
         width: pxtovw(250, 960);

@@ -10,6 +10,16 @@
     display: block;
     width: 100%;
 
+    #{$b}_card & {
+      box-sizing: border-box;
+      padding-top: 63.3%;
+      flex: none;
+
+      @include screen('xlg', max, 2) {
+        padding-top: 65.5%;
+      }
+    }
+
     &:not(:first-child) {
       margin-top: 16px;
 
@@ -174,6 +184,73 @@
     a:hover & {
       text-decoration: underline;
     }
+
+    &_proxima {
+      font-family: $font-main;
+    }
+
+    &_bold {
+      font-weight: 700;
+    }
+
+    &_fz20 {
+      font-size: 20px;
+      line-height: (24 / 20);
+
+      @include screen('xlg', max, 2) {
+        font-size: 18px;
+        line-height: (22 / 18);
+      }
+
+      @include screen('lg', max, 2) {
+        font-size: pxtovw(18, 1366);
+      }
+
+      @include screen('md', max, 2) {
+        font-size: pxtovw(18, 960);
+      }
+
+      @include screen('sm', max, 2) {
+        font-size: pxtovw(20, 375);
+        line-height: (24 / 20);
+      }
+    }
+
+    #{$b}_card & {
+      margin-bottom: 16px;
+
+      @include screen('lg', max, 2) {
+        margin-bottom: pxtovw(16, 1366);
+      }
+
+      @include screen('md', max, 2) {
+        margin-bottom: pxtovw(16, 960);
+      }
+
+      @include screen('sm', max, 2) {
+        margin-bottom: pxtovw(16, 375);
+      }
+
+      &:not(:first-child) {
+        margin-top: 10px;
+
+        @include screen('xl', max, 2) {
+          margin-top: 10px;
+        }
+
+        @include screen('lg', max, 2) {
+          margin-top: pxtovw(10, 1366);
+        }
+
+        @include screen('md', max, 2) {
+          margin-top: pxtovw(10, 960);
+        }
+
+        @include screen('sm', max, 2) {
+          margin-top: pxtovw(10, 375);
+        }
+      }
+    }
   }
 
   &__text {
@@ -238,6 +315,130 @@
       @include screen('sm', max, 2) {
         margin-top: pxtovw(4, 375);
       }
+    }
+  }
+
+  &__describe {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    box-sizing: border-box;
+    padding: 15px 19px;
+    flex: 1;
+
+    @include screen('xlg', max, 2) {
+      padding: 12px 15px;
+    }
+
+    @include screen('lg', max, 2) {
+      padding: pxtovw(12, 1366) pxtovw(15, 1366);
+    }
+
+    @include screen('md', max, 2) {
+      padding: pxtovw(12, 960) pxtovw(15, 960);
+    }
+
+    @include screen('sm', max, 2) {
+      padding: pxtovw(13, 375) pxtovw(16, 375);
+    }
+  }
+
+  &__list {
+    margin-top: auto;
+    width: 100%;
+  }
+
+  &__address {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    box-sizing: border-box;
+    font-size: 12px;
+    line-height: (15 / 12);
+    color: $color-gray-lightest;
+
+    @include screen('lg', max, 2) {
+      font-size: pxtovw(12, 1366);
+    }
+
+    @include screen('md', max, 2) {
+      font-size: pxtovw(12, 960);
+    }
+
+    @include screen('sm', max, 2) {
+      font-size: pxtovw(12, 375);
+    }
+
+    span, a {
+      position: relative;
+      display: block;
+      box-sizing: border-box;
+
+      &:not(:last-child) {
+        padding-right: 23px;
+
+        @include screen('lg', max, 2) {
+          padding-right: pxtovw(23, 1366);
+        }
+
+        @include screen('md', max, 2) {
+          padding-right: pxtovw(23, 960);
+        }
+
+        @include screen('sm', max, 2) {
+          padding-right: pxtovw(23, 375);
+        }
+        &::after {
+          position: absolute;
+          display: inline-block;
+          content: '-';
+          height: 100%;
+          width: 23px;
+          text-align: center;
+          vertical-align: middle;
+          top: 50%;
+          right: 0;
+          transform: translate3d(0, -50%, 0);
+
+          @include screen('lg', max, 2) {
+            width: pxtovw(23, 1366);
+          }
+
+          @include screen('md', max, 2) {
+            width: pxtovw(23, 960);
+          }
+
+          @include screen('sm', max, 2) {
+            width: pxtovw(23, 375);
+          }
+        }
+      }
+    }
+  }
+
+  &_card {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    background-color: $nd-color-basic-light;
+    border-radius: 3px;
+    box-shadow: 1px 1px 1px rgba(0, 0, 0, .03), 2px 2px 2px rgba(0, 0, 0, .04), 3px 3px 3px rgba(0, 0, 0, .02);
+    margin-bottom: 3px;
+    overflow: hidden;
+
+    @include screen('lg', max, 2) {
+      border-radius: pxtovw(3, 1366);
+    }
+
+    @include screen('md', max, 2) {
+      border-radius: pxtovw(3, 960);
+    }
+
+    @include screen('sm', max, 2) {
+      border-radius: pxtovw(3, 375);
     }
   }
 }

@@ -1,6 +1,11 @@
-mixin nd-slider(buttons, pagination)
+mixin nd-slider(buttons, pagination, nocontainer)
   +b.nd-slider__&attributes(attributes)
-    .nd-container
+    if !nocontainer
+      .nd-container
+        +e.container.swiper-container.js-slider-container
+          .swiper-wrapper
+            block
+    else
       +e.container.swiper-container.js-slider-container
         .swiper-wrapper
           block
