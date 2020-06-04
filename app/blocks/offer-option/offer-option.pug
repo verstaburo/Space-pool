@@ -8,6 +8,10 @@ mixin offer-option(data)
     +e.price
       +e.amount!=data.price.number
       +e.time
-        +e.tfull!=data.price.time.full
-        +e.tshort!=data.price.time.short
+        if data.price.time.full
+          +e.tfull!=data.price.time.full
+        if data.price.time.short
+          +e.tshort!=data.price.time.short
+        if data.price.time.name
+          span!=data.price.time.name
     block

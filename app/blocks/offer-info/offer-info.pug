@@ -4,12 +4,11 @@ mixin offer-info(tag, price, price2, price2Class)
       block
     if price
       +e.price!= price
-    - if (price2 === 'noprice') {
+    if (price2 == 'noprice')
       +e.cost N/A
-    - } else if (price2) {
+    else if price2
       +e.cost
         +price(price2)(class=price2Class)
-    -}
 
 mixin offer-info-radio(name, data)
   +b.LABEL.offer-info-radio&attributes(attributes)
@@ -24,6 +23,6 @@ mixin offer-info-radio(name, data)
       else
         +input(type="radio" name=name value=data.value data-offer-input="true")
 
-    +offer-option(data)(data-select-value)
+    +offer-option(data)(data-select-value class=(data.class || ''))
     //- +offer-info('', price)(data-select-value)
       block

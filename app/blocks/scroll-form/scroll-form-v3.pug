@@ -1,0 +1,23 @@
+mixin scroll-form-v3()
+  - var offers = getData('offer-select-nd.json')
+  +b.FORM.scroll-form_nd&attributes(attributes)
+    +e.header
+      +e.indicators
+        +e.boxes
+          +nd-box()._orange.__box
+          +nd-box()._red.__box
+          +nd-box()._blue.__box
+          +nd-box()._green.__box
+        +e.A.favorite.nd-hide-lg
+          +icon('nd-favorite')
+      +e.H3.title House of Creative - 229 Shoreditch High Street
+      +address('assets/images/nd/nd-subway.svg').__address Liverpool Street
+    +offer-select(true)._right._nd.__select
+      each item in offers
+        +offer-select-item(item)
+    +nd-input-number({ name: 'count', value: 1 }).__counter
+    +e.buttons
+      +nd-button('a')(href="#reservation-request" data-rr-wrapper-target="scrollForm" data-rr-need-to-show="true").__button Request reservation
+      +nd-button('a')(href="#")._black.__button Arrange viewing
+    +e.note prices are exclusive of VAT
+    +e.panel(data-rr-wrapper-block="scrollForm")

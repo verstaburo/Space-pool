@@ -1,3 +1,106 @@
 .facility-list {
   $b: &;
+
+  display: block;
+  width: 100%;
+  column-count: 4;
+  column-gap: 30px;
+  color: $nd-color-basic;
+  fill: currentColor;
+
+  @include screen('xlg', max, 2) {
+    column-count: 3;
+  }
+
+  @include screen('lg', max, 2) {
+    column-gap: pxtovw(30, 1366);
+  }
+
+  @include screen('md', max, 2) {
+    column-gap: pxtovw(30, 960);
+  }
+
+  @include screen('sm', max, 2) {
+    column-gap: pxtovw(15, 375);
+    column-count: 2;
+  }
+
+  &__item {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    column-span: none;
+    transition: color $ease-main;
+    margin-bottom: 20px;
+
+    &.is-disabled {
+      color: #bfc3c5;
+    }
+  }
+
+  &__icon {
+    display: inline-block;
+    font-size: 0;
+    line-height: 0;
+    width: 23px;
+    height: 23px;
+    flex: none;
+
+    @include screen('lg', max, 2) {
+      width: pxtovw(23, 1366);
+      height: pxtovw(23, 1366);
+    }
+
+    @include screen('md', max, 2) {
+      width: pxtovw(23, 960);
+      height: pxtovw(23, 960);
+    }
+
+    @include screen('sm', max, 2) {
+      width: pxtovw(18, 375);
+      height: pxtovw(18, 375);
+    }
+
+    svg {
+      fill: inherit;
+      width: 100%;
+      max-height: 100%;
+    }
+  }
+
+  &__name {
+    display: inline-block;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: (26 / 18);
+
+    @include screen('lg', max, 2) {
+      font-size: pxtovw(18, 1366);
+    }
+
+    @include screen('md', max, 2) {
+      font-size: pxtovw(18, 960);
+    }
+
+    @include screen('sm', max, 2) {
+      font-size: pxtovw(15, 375);
+      line-height: (26 / 15);
+    }
+
+    &:not(:first-child) {
+      margin-left: 20px;
+
+      @include screen('lg', max, 2) {
+        margin-left: pxtovw(20, 1366);
+      }
+
+      @include screen('md', max, 2) {
+        margin-left: pxtovw(20, 960);
+      }
+
+      @include screen('sm', max, 2) {
+        margin-left: pxtovw(13, 375);
+      }
+    }
+  }
 }

@@ -1,6 +1,19 @@
 mixin nd-input()
   input.nd-input&attributes(attributes)
 
+mixin nd-input-number(data)
+  - var val = data.value || 0;
+  - var addClass = data.readonly ? ' is-readonly' : '';
+  +b.LABEL.nd-input-numberbox&attributes(attributes)(class=addClass)
+    +e.field
+      +e.label amount:
+      if data.readonly
+        +e.INPUT.input.js-numberbox-input(type="text" name=data.name value=val readonly)
+      else
+        +e.INPUT.input.js-numberbox-input(type="text" name=data.name value=val)
+    +e.button.js-numberbox-minus
+    +e.button.js-numberbox-plus
+
 //- mixin input-number(name, value)
 //-   - var val = value || 0;
 //-   +b.LABEL.input-numberbox&attributes(attributes)

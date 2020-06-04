@@ -1,3 +1,8 @@
 mixin facility-list()
   +b.facility-list&attributes(attributes)
+    each item in getData('nd-facility-list.json')
+      +e.item(class=(item.disabled ? 'is-disabled' : ''))
+        +e.icon
+          +icon(item.icon)
+        +e.name!=item.name
     block

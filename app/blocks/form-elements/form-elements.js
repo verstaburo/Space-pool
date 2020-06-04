@@ -869,7 +869,7 @@ export function numberinput() {
   $(document).on('click', '.js-numberbox-minus, .js-numberbox-plus', function (e) {
     e.preventDefault();
 
-    const input = $(this).closest('.input-numberbox, .input-numbers').find('.js-numberbox-input');
+    const input = $(this).closest('.input-numberbox, .input-numbers, .nd-input-numberbox').find('.js-numberbox-input');
     let val;
     const min = parseInt($(input).attr('data-min'), 10) || 0;
     const max = parseInt($(input).attr('data-max'), 10) || false;
@@ -906,15 +906,15 @@ export function numberinput() {
 // автосайз для textarea
 export function textareaAutosize() {
   function autosizeAll(elements) {
-    const el = elements || $('.textarea').not('.no-sm-autosize');
+    const el = elements || $('.textarea, .nd-textarea').not('.no-sm-autosize');
     autosize(el);
   }
 
   function smnoAutosize() {
     if (window.Modernizr.mq(`(max-width: ${window.globalOptions.sizes.sm - 1}px)`)) {
-      autosize.destroy($('.textarea.no-sm-autosize'));
+      autosize.destroy($('.textarea.no-sm-autosize, .nd-textarea.no-sm-autosize'));
     } else {
-      autosize($('.textarea.no-sm-autosize'));
+      autosize($('.textarea.no-sm-autosize, .nd-textarea.no-sm-autosize'));
     }
   }
 

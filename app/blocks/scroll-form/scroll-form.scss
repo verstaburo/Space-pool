@@ -5,12 +5,87 @@
   box-sizing: border-box;
   padding: 29px 39px 20px;
 
+  $b: &;
+
+  &_nd {
+    padding: 38px 33px 25px;
+
+    @include screen('xlg', max, 2) {
+      padding: 26px 33px 20px;
+    }
+
+    @include screen('lg', max, 2) {
+      padding: pxtovw(26, 1366) pxtovw(33, 1366) pxtovw(20, 1366);
+    }
+  }
+
+  &__boxes {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+  }
+
+  &__box {
+    width: 11px;
+    height: 11px;
+
+    @include screen('xlg', max, 2) {
+      width: 9px;
+      height: 9px;
+    }
+
+    @include screen('lg', max, 2) {
+      width: pxtovw(9, 1366);
+      height: pxtovw(9, 1366);
+    }
+
+    @include screen('md', max, 2) {
+      width: pxtovw(9, 960);
+      height: pxtovw(9, 960);
+    }
+
+    @include screen('sm', max, 2) {
+      width: pxtovw(9, 375);
+      height: pxtovw(9, 375);
+    }
+  }
+
   &__title {
     @include heading-3;
 
     font-weight: 700;
     line-height: (26/25);
     margin-bottom: 28px;
+
+    #{$b}_nd & {
+      font-family: $font-stolzl;
+      font-size: 26px;
+      line-height: 1.07;
+      color: $nd-color-basic;
+      font-weight: 400;
+      margin-bottom: 30px;
+      letter-spacing: normal;
+
+      @include screen('xlg', max, 2) {
+        font-size: 22px;
+        margin-bottom: 19px;
+      }
+
+      @include screen('lg', max, 2) {
+        font-size: pxtovw(22, 1366);
+        margin-bottom: pxtovw(19, 1366);
+      }
+
+      @include screen('md', max, 2) {
+        font-size: pxtovw(22, 960);
+        margin-bottom: pxtovw(19, 960);
+      }
+
+      @include screen('sm', max, 2) {
+        font-size: pxtovw(22, 375);
+        margin-bottom: pxtovw(19, 375);
+      }
+    }
   }
 
   &__subtitle {
@@ -72,6 +147,28 @@
     &:not(:last-child) {
       margin-bottom: 10px;
     }
+
+    #{$b}_nd & {
+      &:not(:last-child) {
+        margin-bottom: 33px;
+
+        @include screen('xlg', max, 2) {
+          margin-bottom: 18px;
+        }
+
+        @include screen('lg', max, 2) {
+          margin-bottom: pxtovw(18, 1366);
+        }
+
+        @include screen('md', max, 2) {
+          margin-bottom: pxtovw(18, 960);
+        }
+
+        @include screen('sm', max, 2) {
+          margin-bottom: pxtovw(18, 375);
+        }
+      }
+    }
   }
 
   &__text {
@@ -90,6 +187,28 @@
     &:not(:last-child) {
       margin-bottom: 23px;
     }
+
+    #{$b}_nd & {
+      &:not(:last-child) {
+        margin-bottom: 48px;
+
+        @include screen('xlg', max, 2) {
+          margin-bottom: 28px;
+        }
+
+        @include screen('lg', max, 2) {
+          margin-bottom: pxtovw(28, 1366);
+        }
+
+        @include screen('md', max, 2) {
+          margin-bottom: pxtovw(28, 960);
+        }
+
+        @include screen('sm', max, 2) {
+          margin-bottom: pxtovw(28, 375);
+        }
+      }
+    }
   }
 
   &__buttons {
@@ -102,6 +221,24 @@
         margin-top: auto;
       }
     }
+
+    #{$b}_nd & {
+      &:not(:last-child) {
+        margin-bottom: 19px;
+
+        @include screen('lg', max, 2) {
+          margin-bottom: pxtovw(19, 1366);
+        }
+
+        @include screen('md', max, 2) {
+          margin-bottom: pxtovw(19, 960);
+        }
+
+        @include screen('sm', max, 2) {
+          margin-bottom: pxtovw(19, 375);
+        }
+      }
+    }
   }
 
   &__button {
@@ -109,6 +246,22 @@
 
     &:not(:last-child) {
       margin-bottom: 22px;
+    }
+
+    #{$b}_nd & {
+      &:not(:last-child) {
+        @include screen('lg', max, 2) {
+          margin-bottom: pxtovw(22, 1366);
+        }
+
+        @include screen('md', max, 2) {
+          margin-bottom: pxtovw(22, 960);
+        }
+
+        @include screen('sm', max, 2) {
+          margin-bottom: pxtovw(22, 375);
+        }
+      }
     }
   }
 
@@ -137,6 +290,68 @@
 
     &:not(:last-child) {
       margin-bottom: 15px;
+    }
+
+    #{$b}_nd & {
+      display: inline-block;
+      color: $nd-color-gray-text;
+      font-size: 12px;
+      line-height: (15 / 12);
+      font-weight: 400;
+      letter-spacing: normal;
+      text-align: center;
+      box-sizing: border-box;
+      width: 100%;
+
+      @include screen('lg', max, 2) {
+        font-size: pxtovw(12, 1366);
+      }
+
+      @include screen('md', max, 2) {
+        font-size: pxtovw(12, 960);
+      }
+
+      @include screen('sm', max, 2) {
+        font-size: pxtovw(12, 375);
+      }
+
+      &:not(:last-child) {
+        margin-bottom: 0;
+      }
+
+      &::before {
+        display: inline-block;
+        vertical-align: middle;
+        content: '';
+        height: 15px;
+        width: 15px;
+        background-repeat: no-repeat;
+        background-position: 50% 50%;
+        background-size: 6px;
+        background-image: url("data:image/svg+xml,%3Csvg width='6' height='6' viewBox='0 0 6 6' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M3.458 5.909L3.363 3.819L5.111 4.94L5.719 3.914L3.876 2.964L5.719 2.014L5.111 0.969L3.363 2.09L3.458 0H2.261L2.356 2.09L0.589 0.969L0 2.014L1.843 2.964L0 3.914L0.589 4.94L2.356 3.819L2.261 5.909H3.458Z' fill='%2386919E'/%3E%3C/svg%3E%0A");
+        margin-right: 5px;
+
+        @include screen('lg', max, 2) {
+          width: pxtovw(15, 1366);
+          height: pxtovw(15, 1366);
+          background-size: pxtovw(6, 1366);
+          margin-right: pxtovw(5, 1366);
+        }
+
+        @include screen('md', max, 2) {
+          width: pxtovw(15, 960);
+          height: pxtovw(15, 960);
+          background-size: pxtovw(6, 960);
+          margin-right: pxtovw(5, 960);
+        }
+
+        @include screen('sm', max, 2) {
+          width: pxtovw(15, 375);
+          height: pxtovw(15, 375);
+          background-size: pxtovw(6, 375);
+          margin-right: pxtovw(5, 375);
+        }
+      }
     }
   }
 
@@ -212,6 +427,141 @@
       pointer-events: auto;
       opacity: 1;
       visibility: visible;
+    }
+
+    #{$b}_nd & {
+      .reservation-request {
+        display: flex;
+        height: 100%;
+      }
+    }
+  }
+
+  &__header {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+
+    &:not(:last-child) {
+      margin-bottom: 36px;
+
+      @include screen('xlg', max, 2) {
+        margin-bottom: 16px;
+      }
+
+      @include screen('lg', max, 2) {
+        margin-bottom: pxtovw(16, 1366);
+      }
+
+      @include screen('md', max, 2) {
+        margin-bottom: pxtovw(16, 960);
+      }
+
+      @include screen('sm', max, 2) {
+        margin-bottom: pxtovw(16, 375);
+      }
+    }
+  }
+
+  &__indicators {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
+    margin-bottom: 22px;
+
+    @include screen('xlg', max, 2) {
+      margin-bottom: 18px;
+    }
+
+    @include screen('lg', max, 2) {
+      margin-bottom: pxtovw(18, 1366);
+    }
+
+    @include screen('md', max, 2) {
+      margin-bottom: pxtovw(18, 960);
+    }
+
+    @include screen('sm', max, 2) {
+      margin-bottom: pxtovw(13, 375);
+    }
+  }
+
+  &__favorite {
+    display: inline-block;
+    flex: none;
+    width: 17px;
+    height: 17px;
+    color: $nd-color-border4;
+    font-size: 0;
+    line-height: 0;
+    text-decoration: none;
+    fill: currentColor;
+    cursor: pointer;
+    transition: color $ease-main;
+
+    @include screen('lg', max, 2) {
+      width: pxtovw(17, 1366);
+      height: pxtovw(17, 1366);
+    }
+
+    @include screen('md', max, 2) {
+      width: pxtovw(17, 960);
+      height: pxtovw(17, 960);
+    }
+
+    @include screen('sm', max, 2) {
+      width: pxtovw(17, 375);
+      height: pxtovw(17, 375);
+    }
+
+    &:hover {
+      color: $nd-color-main;
+    }
+
+    &.is-active {
+      color: $nd-color-main;
+    }
+
+    &:not(:first-child) {
+      margin-left: 30px;
+
+      @include screen('lg', max, 2) {
+        margin-left: pxtovw(30, 1366);
+      }
+
+      @include screen('md', max, 2) {
+        margin-left: pxtovw(30, 960);
+      }
+
+      @include screen('sm', max, 2) {
+        margin-left: pxtovw(30, 375);
+      }
+    }
+
+    svg, img {
+      width: 100%;
+      height: 100%;
+      fill: inherit;
+    }
+  }
+
+  &__address {
+    @include screen('xlg', max, 2) {
+      font-size: 13px;
+      line-height: (16 / 13);
+    }
+
+    @include screen('lg', max, 2) {
+      font-size: pxtovw(13, 1366);
+    }
+
+    @include screen('md', max, 2) {
+      font-size: pxtovw(13, 960);
+    }
+
+    @include screen('sm', max, 2) {
+      font-size: pxtovw(13, 375);
     }
   }
 }

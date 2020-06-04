@@ -1,0 +1,208 @@
+.nd-input-numberbox {
+  display: flex;
+  width: 100%;
+  border: 1px solid $nd-color-border4;
+  border-radius: 3px;
+  transition: box-shadow $ease-main;
+  height: 50px;
+  box-sizing: border-box;
+  $b: &;
+
+  @include screen('xlg', max, 2) {
+    height: 40px;
+  }
+
+  @include screen('lg', max, 2) {
+    height: pxtovw(40, 1366);
+    border-radius: pxtovw(3, 1366);
+  }
+
+  @include screen('md', max, 2) {
+    height: pxtovw(40, 960);
+    border-radius: pxtovw(3, 960);
+  }
+
+  @include screen('sm', max, 2) {
+    height: pxtovw(40, 375);
+    border-radius: pxtovw(3, 375);
+  }
+
+  &:hover {
+    box-shadow: 1px 1px 8px rgba(34, 42, 46, .18);
+  }
+
+  &__field {
+    display: inline-flex;
+    align-items: center;
+    flex: 1;
+    box-sizing: border-box;
+    padding-left: 13px;
+    max-width: calc(100% - 167px);
+
+    @include screen('xlg') {
+      max-width: calc(100% - 130px);
+    }
+
+    @include screen('lg', max, 2) {
+      padding-left: pxtovw(13, 1366);
+      max-width: calc(100% - ((13000 / 1366) * 1vw));
+    }
+
+    @include screen('md', max, 2) {
+      padding-left: pxtovw(13, 960);
+      max-width: calc(100% - ((13000 / 960) * 1vw));
+    }
+
+    @include screen('sm', max, 2) {
+      padding-left: pxtovw(13, 375);
+      max-width: calc(100% - ((13000 / 375) * 1vw));
+    }
+  }
+
+  &__button {
+    position: relative;
+    width: 82px;
+    flex: none;
+    margin-top: -1px;
+    margin-bottom: -1px;
+    border: 1px solid $color-border-light;
+    border-right-color: transparent;
+    cursor: pointer;
+    transition: border $ease-main;
+
+    @include screen('xlg') {
+      width: 65px;
+    }
+
+    @include screen('lg', max, 2) {
+      width: pxtovw(65, 1366);
+    }
+
+    @include screen('md', max, 2) {
+      width: pxtovw(65, 960);
+    }
+
+    @include screen('sm', max, 2) {
+      width: pxtovw(65, 375);
+    }
+
+    &:not(:last-child) {
+      margin-right: -1px;
+      z-index: 1;
+    }
+
+    &:last-child {
+      border-radius: 0 3px 3px 0;
+
+      @include screen('lg', max, 2) {
+        border-radius: 0 pxtovw(3, 1366) pxtovw(3, 1366) 0;
+      }
+
+      @include screen('md', max, 2) {
+        border-radius: 0 pxtovw(3, 960) pxtovw(3, 960) 0;
+      }
+
+      @include screen('sm', max, 2) {
+        border-radius: 0 pxtovw(3, 375) pxtovw(3, 375) 0;
+      }
+    }
+
+    &:hover {
+      border-color: $color-text-light;
+    }
+
+    &::before,&::after {
+      @include pseudo;
+
+      top: 50%;
+      left: 50%;
+      transform-origin: 50% 50%;
+      width: 12px;
+      height: 1px;
+      background-color: $nd-color-basic;
+      transform: translate3d(-50%, -50%, 0);
+
+      @include screen('lg', max, 2) {
+        width: pxtovw(12, 1366);
+      }
+
+      @include screen('md', max, 2) {
+        width: pxtovw(12, 960);
+      }
+
+      @include screen('sm', max, 2) {
+        width: pxtovw(12, 375);
+      }
+    }
+
+    &.js-numberbox-minus {
+      &::after {
+        display: none;
+      }
+    }
+
+    &.js-numberbox-plus {
+      &::after {
+        transform: translate3d(-50%, -50%, 0) rotate(90deg);
+      }
+    }
+
+    #{$b}.is-readonly & {
+      opacity: .2;
+      pointer-events: none;
+    }
+  }
+
+  &__input {
+    font-size: 18px;
+    letter-spacing: -.02em;
+    font-weight: 700;
+    line-height: (22 / 18);
+    color: $nd-color-basic;
+    width: auto;
+    min-width: 0;
+    text-align: center;
+
+    @include screen('lg', max, 2) {
+      font-size: pxtovw(18, 1366);
+    }
+
+    @include screen('md', max, 2) {
+      font-size: pxtovw(18, 960);
+    }
+
+    @include screen('sm', max, 2) {
+      font-size: pxtovw(18, 375);
+    }
+  }
+
+  &__label {
+    font-size: 15px;
+    letter-spacing: -.02em;
+    line-height: (18 / 15);
+    font-weight: 700;
+    text-transform: uppercase;
+    color: $nd-color-gray-text;
+    margin-right: 5px;
+
+    @include screen('lg', max, 2) {
+      font-size: pxtovw(15, 1366);
+      margin-right: pxtovw(5, 1366);
+    }
+
+    @include screen('md', max, 2) {
+      font-size: pxtovw(15, 960);
+      margin-right: pxtovw(5, 960);
+    }
+
+    @include screen('sm', max, 2) {
+      font-size: pxtovw(15, 375);
+      margin-right: pxtovw(5, 375);
+    }
+  }
+
+  &.is-disabled {
+    opacity: .5;
+    pointer-events: none;
+  }
+}

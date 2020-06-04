@@ -9,6 +9,28 @@
   @include grid-template-columns(1fr 100px);
   @include grid-template-rows(auto auto);
 
+  &_nd {
+    color: $nd-color-basic;
+
+    @include screen('lg', max, 2) {
+      @include grid-template-columns(1fr pxtovw(100, 1366));
+
+      padding: pxtovw(9, 1366) 0 pxtovw(9, 1366) pxtovw(14, 1366);
+    }
+
+    @include screen('md', max, 2) {
+      @include grid-template-columns(1fr pxtovw(100, 960));
+
+      padding: pxtovw(9, 960) 0 pxtovw(9, 960) pxtovw(14, 960);
+    }
+
+    @include screen('sm', max, 2) {
+      @include grid-template-columns(1fr pxtovw(100, 375));
+
+      padding: pxtovw(9, 375) 0 pxtovw(9, 375) pxtovw(14, 375);
+    }
+  }
+
   &__type {
     display: flex;
     justify-content: flex-start;
@@ -22,6 +44,40 @@
     &:not(:last-child) {
       margin-right: 4px;
     }
+
+    #{$b}_nd & {
+      width: 8px;
+      height: 8px;
+
+      @include screen('lg', max, 2) {
+        width: pxtovw(8, 1366);
+        height: pxtovw(8, 1366);
+      }
+
+      @include screen('md', max, 2) {
+        width: pxtovw(8, 960);
+        height: pxtovw(8, 960);
+      }
+
+      @include screen('sm', max, 2) {
+        width: pxtovw(8, 375);
+        height: pxtovw(8, 375);
+      }
+
+      &:not(:last-child) {
+        @include screen('lg', max, 2) {
+          margin-right: pxtovw(4, 1366);
+        }
+
+        @include screen('md', max, 2) {
+          margin-right: pxtovw(4, 960);
+        }
+
+        @include screen('sm', max, 2) {
+          margin-right: pxtovw(4, 375);
+        }
+      }
+    }
   }
 
   &__title {
@@ -30,6 +86,24 @@
     line-height: 1;
     font-weight: 700;
     color: $color-text-light;
+
+    #{$b}_nd & {
+      font-size: 12px;
+      letter-spacing: normal;
+      color: $nd-color-gray-text;
+
+      @include screen('lg', max, 2) {
+        font-size: pxtovw(12, 1366);
+      }
+
+      @include screen('md', max, 2) {
+        font-size: pxtovw(12, 960);
+      }
+
+      @include screen('sm', max, 2) {
+        font-size: pxtovw(12, 375);
+      }
+    }
   }
 
   &__describe {
@@ -51,6 +125,36 @@
     &:not(:first-child) {
       margin-top: 12px;
     }
+
+    #{$b}_nd & {
+      color: $nd-color-basic;
+
+      @include screen('lg', max, 2) {
+        font-size: pxtovw(16, 1366);
+      }
+
+      @include screen('md', max, 2) {
+        font-size: pxtovw(16, 960);
+      }
+
+      @include screen('sm', max, 2) {
+        font-size: pxtovw(16, 375);
+      }
+
+      &:not(:first-child) {
+        @include screen('lg', max, 2) {
+          margin-top: pxtovw(12, 1366);
+        }
+
+        @include screen('md', max, 2) {
+          margin-top: pxtovw(12, 960);
+        }
+
+        @include screen('sm', max, 2) {
+          margin-top: pxtovw(12, 375);
+        }
+      }
+    }
   }
 
   &__price {
@@ -67,12 +171,48 @@
     @include grid-row(1, 3);
 
     line-height: (17 / 18);
+
+    #{$b}_nd & {
+      @include screen('lg', max, 2) {
+        font-size: pxtovw(18, 1366);
+        padding-top: pxtovw(20, 1366);
+      }
+
+      @include screen('md', max, 2) {
+        font-size: pxtovw(18, 960);
+        padding-top: pxtovw(20, 960);
+      }
+
+      @include screen('sm', max, 2) {
+        font-size: pxtovw(18, 375);
+        padding-top: pxtovw(20, 375);
+      }
+    }
   }
 
   &__time {
     display: block;
     width: 100%;
     text-align: center;
+
+    #{$b}_nd & {
+      font-size: 12px;
+      line-height: (14 / 12);
+      font-weight: 400;
+      letter-spacing: -.02em;
+
+      @include screen('lg', max, 2) {
+        font-size: pxtovw(12, 1366);
+      }
+
+      @include screen('md', max, 2) {
+        font-size: pxtovw(12, 960);
+      }
+
+      @include screen('sm', max, 2) {
+        font-size: pxtovw(12, 375);
+      }
+    }
   }
 
   &__tfull {
@@ -80,11 +220,39 @@
 
     font-weight: 400;
     line-height: (14/12);
+
+    #{$b}_nd & {
+      @include screen('lg', max, 2) {
+        font-size: pxtovw(12, 1366);
+      }
+
+      @include screen('md', max, 2) {
+        font-size: pxtovw(12, 960);
+      }
+
+      @include screen('sm', max, 2) {
+        font-size: pxtovw(12, 375);
+      }
+    }
   }
 
   &__tshort {
     display: none;
     padding-left: 4px;
+
+    #{$b}_nd & {
+      @include screen('lg', max, 2) {
+        padding-left: pxtovw(4, 1366);
+      }
+
+      @include screen('md', max, 2) {
+        padding-left: pxtovw(4, 960);
+      }
+
+      @include screen('sm', max, 2) {
+        padding-left: pxtovw(4, 375);
+      }
+    }
   }
 
   .offer-select__label & {
@@ -129,6 +297,132 @@
 
       &:not(:first-child) {
         margin-top: 9px;
+      }
+    }
+  }
+
+  .offer-select__label &_nd {
+    #{$b} {
+      &__title {
+        font-size: 11px;
+        line-height: (13 / 11);
+
+        @include screen('lg', max, 2) {
+          font-size: pxtovw(11, 1366);
+        }
+
+        @include screen('md', max, 2) {
+          font-size: pxtovw(11, 960);
+        }
+
+        @include screen('sm', max, 2) {
+          font-size: pxtovw(11, 375);
+        }
+      }
+
+      &__time {
+        margin-left: .27em;
+        font-weight: 700;
+        font-size: 15px;
+        line-height: (18 / 15);
+        letter-spacing: normal;
+
+        @include screen('xlg', max, 2) {
+          margin-left: .3em;
+          font-size: 13px;
+          line-height: (16 / 13);
+        }
+
+        @include screen('lg', max, 2) {
+          font-size: pxtovw(13, 1366);
+        }
+
+        @include screen('md', max, 2) {
+          font-size: pxtovw(13, 960);
+        }
+
+        @include screen('sm', max, 2) {
+          font-size: pxtovw(13, 375);
+        }
+      }
+
+      &__price {
+        font-size: 15px;
+        line-height: (18 / 15);
+        font-weight: 700;
+        letter-spacing: normal;
+
+        @include screen('xlg', max, 2) {
+          font-size: 13px;
+          line-height: (16 / 13);
+        }
+
+        @include screen('lg', max, 2) {
+          font-size: pxtovw(13, 1366);
+        }
+
+        @include screen('md', max, 2) {
+          font-size: pxtovw(13, 960);
+        }
+
+        @include screen('sm', max, 2) {
+          font-size: pxtovw(13, 375);
+        }
+
+        &:not(:first-child) {
+          margin-top: 4px;
+
+          @include screen('lg', max, 2) {
+            margin-top: pxtovw(4, 1366);
+          }
+
+          @include screen('md', max, 2) {
+            margin-top: pxtovw(4, 960);
+          }
+
+          @include screen('sm', max, 2) {
+            margin-top: pxtovw(4, 375);
+          }
+        }
+      }
+
+      &__describe {
+        font-size: 15px;
+        line-height: (18 / 15);
+        font-weight: 400;
+
+        @include screen('xlg', max, 2) {
+          font-size: 13px;
+          line-height: (16 / 13);
+        }
+
+        @include screen('lg', max, 2) {
+          font-size: pxtovw(13, 1366);
+        }
+
+        @include screen('md', max, 2) {
+          font-size: pxtovw(13, 960);
+        }
+
+        @include screen('sm', max, 2) {
+          font-size: pxtovw(13, 375);
+        }
+
+        &:not(:first-child) {
+          margin-top: 5px;
+
+          @include screen('lg', max, 2) {
+            margin-top: pxtovw(5, 1366);
+          }
+
+          @include screen('md', max, 2) {
+            margin-top: pxtovw(5, 960);
+          }
+
+          @include screen('sm', max, 2) {
+            margin-top: pxtovw(5, 375);
+          }
+        }
       }
     }
   }

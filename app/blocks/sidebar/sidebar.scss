@@ -67,4 +67,21 @@
   &_no-bg {
     background-color: transparent;
   }
+
+  &.nd-sidebar {
+    border-radius: 3px;
+    z-index: 2;
+
+    @include screen('lg', max, 2) {
+      border-radius: pxtovw(3, 1366);
+    }
+
+    @include screen('md', max, 2) {
+      border-radius: pxtovw(3, 960);
+    }
+
+    @include screen('sm', max, 2) {
+      border-radius: pxtovw(3, 375);
+    }
+  }
 }
