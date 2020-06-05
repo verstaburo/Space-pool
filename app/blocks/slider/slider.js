@@ -523,6 +523,7 @@ export default function slider() {
         updateOnImagesReady: true,
         observeParents: true,
         observer: true,
+        watchOverflow: true,
         navigation: {
           nextEl: btnNext,
           prevEl: btnPrev,

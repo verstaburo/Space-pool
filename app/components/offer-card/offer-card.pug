@@ -1,0 +1,50 @@
+mixin offer-card()
+  +b.SECTION.offer-card&attributes(attributes)
+    block
+
+mixin offer-card-header()
+  +e.header&attributes(attributes)
+    block
+
+mixin offer-card-main()
+  +e.main&attributes(attributes)
+    block
+
+mixin offer-card-footer()
+  +e.footer&attributes(attributes)
+    block
+
+mixin offer-card-for-space(item, cls)
+  +offer-card()(class=(cls || ''))
+    +offer-card-header
+      +space-type._gray.__type
+        +nd-box()(class=item.type.box + ' __box')
+        +e.name!=item.type.name
+      +e.info
+        +e.period.nd-hide-sm Minimum term: <b>3 months</b>
+        +e.state AVAILABLE NOW
+    +offer-card-main()(class=(item.plan ? '_private' : ''))
+      +e.media
+        +gallery(item.gallery).__gallery.js-nd-gallery
+      +e.H4.title!=item.title
+      +e.describe
+        +e.summary!=item.shortDescribe
+        +e.details
+          +e.content
+            ul
+              li Super fast Wifi
+              li Community events
+              li Mail handling
+              li Barista coffee
+              li Dog friendly areas
+              li Reservation form
+          +nd-link._underline.__more.nd-hide-from-sm(href="#") Read more
+      if item.plan
+        +e.FIGURE.plan
+          +e.FIGCAPTION.plan-caption Floor plan
+          +e.plan-image
+            IMG(src=item.plan)
+      +e.price!=(item.price.amount + ' <span class="offer-card__price-period" data-text="' + item.price.period + '" data-mobile-text="' + item.price.periodshort + '"></span>')
+      +e.buttons
+        +nd-button().__button(href="#") Request reservation
+        +nd-button()._black.__button(href="#") Arrange viewing

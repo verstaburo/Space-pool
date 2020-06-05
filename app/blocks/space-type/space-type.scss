@@ -6,8 +6,30 @@
   align-items: center;
   box-sizing: border-box;
   color: $nd-color-basic;
+  font-family: $font-stolzl;
+  font-weight: 500;
+  font-size: 10px;
+  line-height: 1.2;
+  text-transform: uppercase;
+  letter-spacing: normal;
+
+  @include screen('lg', max, 2) {
+    font-size: pxtovw(10, 1366);
+  }
+
+  @include screen('md', max, 2) {
+    font-size: pxtovw(7, 960);
+    line-height: (8 / 7);
+  }
+
+  @include screen('sm', max, 2) {
+    font-size: pxtovw(7, 375);
+  }
 
   &__box {
+    font-size: 0;
+    line-height: 0;
+
     @include screen('md', max, 2) {
       width: pxtovw(7, 960);
       height: pxtovw(7, 960);
@@ -40,24 +62,14 @@
   }
 
   &__name {
-    font-family: $font-stolzl;
-    font-weight: 500;
-    font-size: 10px;
-    line-height: 1.2;
-    text-transform: uppercase;
-    letter-spacing: normal;
+    font-weight: inherit;
+    font-size: inherit;
+    line-height: inherit;
+    letter-spacing: inherit;
+    color: currentColor;
+  }
 
-    @include screen('lg', max, 2) {
-      font-size: pxtovw(10, 1366);
-    }
-
-    @include screen('md', max, 2) {
-      font-size: pxtovw(7, 960);
-      line-height: (8 / 7);
-    }
-
-    @include screen('sm', max, 2) {
-      font-size: pxtovw(7, 375);
-    }
+  &_gray {
+    color: $nd-color-gray-text;
   }
 }

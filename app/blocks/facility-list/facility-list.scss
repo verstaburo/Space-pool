@@ -31,7 +31,19 @@
     align-items: center;
     column-span: none;
     transition: color $ease-main;
-    margin-bottom: 20px;
+    margin-bottom: 27px;
+
+    @include screen('lg', max, 2) {
+      margin-bottom: pxtovw(27, 1366);
+    }
+
+    @include screen('md', max, 2) {
+      margin-bottom: pxtovw(27, 960);
+    }
+
+    @include screen('sm', max, 2) {
+      margin-bottom: pxtovw(16, 375);
+    }
 
     &.is-disabled {
       color: #bfc3c5;
@@ -88,14 +100,14 @@
     }
 
     &:not(:first-child) {
-      margin-left: 20px;
+      margin-left: 17px;
 
       @include screen('lg', max, 2) {
-        margin-left: pxtovw(20, 1366);
+        margin-left: pxtovw(19, 1366);
       }
 
       @include screen('md', max, 2) {
-        margin-left: pxtovw(20, 960);
+        margin-left: pxtovw(19, 960);
       }
 
       @include screen('sm', max, 2) {

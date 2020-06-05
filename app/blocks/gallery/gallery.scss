@@ -745,23 +745,27 @@
   }
 
   &__pagination {
+    position: absolute;
+    top: 0;
+    left: 0;
     display: flex;
     justify-content: center;
     align-items: center;
     width: 100%;
     box-sizing: border-box;
-    padding: 11px;
+    padding: 15px;
+    z-index: 3;
 
     @include screen('lg', max, 2) {
-      padding: pxtovw(11, 1366);
+      padding: pxtovw(15, 1366);
     }
 
     @include screen('md', max, 2) {
-      padding: pxtovw(11, 960);
+      padding: pxtovw(15, 960);
     }
 
     @include screen('sm', max, 2) {
-      padding: pxtovw(11, 375);
+      padding: pxtovw(15, 375);
     }
 
     #{$b}_space & {
@@ -769,6 +773,19 @@
       top: 0;
       left: 0;
       z-index: 3;
+      padding: 11px;
+
+      @include screen('lg', max, 2) {
+        padding: pxtovw(11, 1366);
+      }
+
+      @include screen('md', max, 2) {
+        padding: pxtovw(11, 960);
+      }
+
+      @include screen('sm', max, 2) {
+        padding: pxtovw(11, 375);
+      }
     }
 
     .swiper-pagination-bullet {
