@@ -155,6 +155,8 @@
   }
 
   &__slider {
+    overflow: hidden;
+
     &:not(:first-child) {
       margin-top: 52px;
 
@@ -216,6 +218,12 @@
     }
 
     &_spaces {
+      @include screen('sm', max, 2) {
+        margin: 0 pxtovw(-20, 375);
+        width: calc(100% + ((4000 / 375) * 1vw));
+        padding: 0 pxtovw(20, 375);
+      }
+
       &:not(:first-child) {
         margin-top: 62px;
 

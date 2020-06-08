@@ -14,3 +14,16 @@ mixin offer-panel()
       ul.offer-panel__list
         each item in offers
           +offer-item(item).offer-panel__item
+
+mixin nd-offer-panel()
+  +b.nd-offer-panel&attributes(attributes)
+    .nd-container
+      +e.boxes
+        +nd-box._orange.__box
+        +nd-box._red.__box
+        +nd-box._blue.__box
+        +nd-box._green.__box
+      +e.head
+        +e.header
+          +e.title House of Creative - 229 Shoreditch High Street
+        +nd-button()._fz15._sm-fz15._pad10._h30(href="#").__button Request

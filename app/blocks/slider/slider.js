@@ -368,7 +368,7 @@ export default function slider() {
     $(ndSlider).each((i, el) => {
       const btnPrev = $(el).find('.js-slider-button-prev')[0];
       const btnNext = $(el).find('.js-slider-button-next')[0];
-      const sliderContainer = $(el).find('.js-slider-container');
+      const sliderContainer = $(el).find('.js-slider-container')[0];
       const newslider = new Swiper(sliderContainer, {
         speed: 500,
         spaceBetween: 0,
@@ -380,6 +380,10 @@ export default function slider() {
           prevEl: btnPrev,
         },
         breakpoints: {
+          320: {
+            slidesPerView: 'auto',
+            spaceBetween: 0,
+          },
           1030: {
             slidesPerView: 5,
             slidesPerGroup: 1,
@@ -402,14 +406,19 @@ export default function slider() {
         on: {
           init() {
             $(sliderContainer).addClass('is-visible');
+            // if (window.Modernizr.mq('(max-width: 1029px)')) {
+            //   $(this.slides).each((ix, slide) => {
+            //     $(slide).removeAttr('style');
+            //   });
+            // }
             setBtnContainerHeight(el);
           },
           resize() {
-            if (window.Modernizr.mq('(max-width: 1029px)')) {
-              $(this.slides).each((ix, slide) => {
-                $(slide).removeAttr('style');
-              });
-            }
+            // if (window.Modernizr.mq('(max-width: 1029px)')) {
+            //   $(this.slides).each((ix, slide) => {
+            //     $(slide).removeAttr('style');
+            //   });
+            // }
             setBtnContainerHeight(el);
           },
         },
@@ -421,7 +430,7 @@ export default function slider() {
     $(ndBlogSlider).each((i, el) => {
       const btnPrev = $(el).find('.js-slider-button-prev')[0];
       const btnNext = $(el).find('.js-slider-button-next')[0];
-      const sliderContainer = $(el).find('.js-slider-container');
+      const sliderContainer = $(el).find('.js-slider-container')[0];
       const newslider = new Swiper(sliderContainer, {
         speed: 500,
         spaceBetween: 0,
@@ -429,32 +438,38 @@ export default function slider() {
         slidesPerGroup: 1,
         roundLengths: true,
         breakpoints: {
+          320: {
+            slidesPerView: 'auto',
+            spaceBetween: 0,
+          },
           1030: {
             slidesPerView: 3,
-            slidesPerGroup: 1,
             spaceBetween: 42,
           },
           1400: {
             slidesPerView: 3,
-            slidesPerGroup: 1,
             spaceBetween: 42,
           },
           1850: {
             slidesPerView: 3,
-            slidesPerGroup: 1,
             spaceBetween: 50,
           },
         },
         on: {
           init() {
             $(sliderContainer).addClass('is-visible');
+            // if (window.Modernizr.mq('(max-width: 1029px)')) {
+            //   $(this.slides).each((ix, slide) => {
+            //     $(slide).removeAttr('style');
+            //   });
+            // }
           },
           resize() {
-            if (window.Modernizr.mq('(max-width: 1029px)')) {
-              $(this.slides).each((ix, slide) => {
-                $(slide).removeAttr('style');
-              });
-            }
+            // if (window.Modernizr.mq('(max-width: 1029px)')) {
+            //   $(this.slides).each((ix, slide) => {
+            //     $(slide).removeAttr('style');
+            //   });
+            // }
           },
         },
       });
@@ -570,14 +585,16 @@ export default function slider() {
           prevEl: btnPrev,
         },
         breakpoints: {
+          320: {
+            slidesPerView: 'auto',
+            spaceBetween: 0,
+          },
           768: {
             slidesPerView: 3,
-            slidesPerGroup: 1,
             spaceBetween: 20,
           },
           1600: {
             slidesPerView: 4,
-            slidesPerGroup: 1,
             spaceBetween: 50,
           },
         },

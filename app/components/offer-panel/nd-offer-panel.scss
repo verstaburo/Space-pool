@@ -1,0 +1,113 @@
+.nd-offer-panel {
+  $b: &;
+
+  display: none;
+  position: fixed;
+  width: 100vw;
+  overflow: hidden;
+  box-sizing: border-box;
+  border-bottom: 1px solid $nd-color-border4;
+
+  @include screen('md', max, 2) {
+    display: block;
+    padding: pxtovw(9, 960) 0;
+    height: pxtovw(60, 960);
+    bottom: pxtovw(60, 960);
+    left: 0;
+    background-color: $nd-color-basic-light;
+    z-index: 3;
+  }
+
+  @include screen('sm', max, 2) {
+    padding: pxtovw(9, 375) 0;
+    height: pxtovw(60, 375);
+    bottom: pxtovw(60, 375);
+  }
+
+  &__boxes {
+    display: flex;
+    justify-content: flex-start;
+  }
+
+  &__box {
+    @include screen('md', max, 2) {
+      width: pxtovw(5, 960);
+      height: pxtovw(5, 960);
+    }
+
+    @include screen('sm', max, 2) {
+      width: pxtovw(5, 375);
+      height: pxtovw(5, 375);
+    }
+  }
+
+  &__head {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+  }
+
+  &__header {
+    display: block;
+    overflow: hidden;
+    position: relative;
+
+    @include screen('md', max, 2) {
+      width: calc(100% - ((11300 / 960) * 1vw));
+    }
+
+    @include screen('sm', max, 2) {
+      width: calc(100% - ((11300 / 375) * 1vw));
+    }
+
+    &::after {
+      @include pseudo;
+
+      top: 0;
+      right: 0;
+      height: 100%;
+      background-image: linear-gradient(to left, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0));
+
+      @include screen('md', max, 2) {
+        width: pxtovw(50, 960);
+      }
+
+      @include screen('sm', max, 2) {
+        width: pxtovw(50, 375);
+      }
+    }
+  }
+
+  &__title {
+    display: inline-block;
+    white-space: nowrap;
+    text-overflow: clip;
+    font-family: $font-stolzl;
+    line-height: 1.2;
+    letter-spacing: normal;
+    max-width: 100%;
+
+    @include screen('md', max, 2) {
+      font-size: pxtovw(15, 960);
+    }
+
+    @include screen('sm', max, 2) {
+      font-size: pxtovw(15, 375);
+    }
+  }
+
+  &__button {
+    flex: none;
+
+    @include screen('md', max, 2) {
+      margin-left: pxtovw(15, 960);
+      min-width: pxtovw(98, 960);
+    }
+
+    @include screen('md', max, 2) {
+      margin-left: pxtovw(15, 375);
+      min-width: pxtovw(98, 375);
+    }
+  }
+}
