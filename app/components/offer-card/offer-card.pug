@@ -15,7 +15,7 @@ mixin offer-card-footer()
     block
 
 mixin offer-card-for-space(item, cls)
-  +offer-card()(class=(cls || ''))
+  +offer-card()(class=(cls + ' js-show-offer-details' || ' js-show-offer-details'))
     +offer-card-header
       +space-type._gray.__type
         +nd-box()(class=item.type.box + ' __box')
@@ -28,7 +28,8 @@ mixin offer-card-for-space(item, cls)
         +gallery(item.gallery).__gallery.js-nd-gallery
       +e.H4.title!=item.title
       +e.describe
-        +e.summary!=item.shortDescribe
+        +e.summary
+          +e.summary-text(data-text=item.shortDescribe)!=item.shortDescribe
         +e.details
           +e.content
             ul
@@ -38,7 +39,9 @@ mixin offer-card-for-space(item, cls)
               li Barista coffee
               li Dog friendly areas
               li Reservation form
-          +nd-link._underline.__more.nd-hide-from-sm(href="#") Read more
+          +nd-link._underline.__more.js-sm-show-offer-details.nd-hide-from-sm(href="#")
+            span(data-closed) Read more
+            span(data-opened) Hide
       if item.plan
         +e.FIGURE.plan
           +e.FIGCAPTION.plan-caption Floor plan

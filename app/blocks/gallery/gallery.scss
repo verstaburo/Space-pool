@@ -624,6 +624,24 @@
     @include screen('md', max, 2) {
       display: none;
     }
+
+    &_small {
+      display: flex;
+      box-sizing: border-box;
+      padding: 0 10px;
+
+      @include screen('lg', max, 2) {
+        padding: 0 pxtovw(10, 1366);
+      }
+
+      @include screen('md', max, 2) {
+        padding: 0 pxtovw(10, 960);
+      }
+
+      @include screen('sm', max, 2) {
+        padding: 0 pxtovw(5, 375);
+      }
+    }
   }
 
   &__button {
@@ -648,6 +666,16 @@
     @include screen('lg', max, 2) {
       width: pxtovw(40, 1366);
       height: pxtovw(114, 1366);
+    }
+
+    @include screen('md', max, 2) {
+      width: pxtovw(40, 960);
+      height: pxtovw(114, 960);
+    }
+
+    @include screen('sm', max, 2) {
+      width: pxtovw(40, 375);
+      height: pxtovw(114, 375);
     }
 
     &:hover {
@@ -678,6 +706,69 @@
       @include screen('lg', max, 2) {
         width: pxtovw(13, 1366);
         height: pxtovw(38, 1366);
+      }
+
+      @include screen('md', max, 2) {
+        width: pxtovw(13, 960);
+        height: pxtovw(38, 960);
+      }
+
+      @include screen('sm', max, 2) {
+        width: pxtovw(13, 375);
+        height: pxtovw(38, 375);
+      }
+    }
+
+    #{$b}__buttons_small & {
+      width: 30px;
+      height: 40px;
+      background-color: transparent;
+      stroke: rgba($nd-color-border4, .7);
+
+      @include screen('xlg', max, 2) {
+        width: 30px;
+        height: 40px;
+      }
+
+      @include screen('lg', max, 2) {
+        width: pxtovw(30, 1366);
+        height: pxtovw(40, 1366);
+      }
+
+      @include screen('md', max, 2) {
+        width: pxtovw(30, 960);
+        height: pxtovw(40, 960);
+      }
+
+      @include screen('sm', max, 2) {
+        width: pxtovw(20, 375);
+        height: pxtovw(30, 375);
+      }
+
+      &:hover {
+        background-color: transparent;
+        stroke: $nd-color-border4;
+      }
+
+      svg {
+        filter: drop-shadow(0 1px 0 rgba(0, 0, 0, .46));
+        width: 13px;
+        height: 38px;
+
+        @include screen('lg', max, 2) {
+          width: pxtovw(13, 1366);
+          height: pxtovw(38, 1366);
+        }
+
+        @include screen('md', max, 2) {
+          width: pxtovw(13, 960);
+          height: pxtovw(38, 960);
+        }
+
+        @include screen('sm', max, 2) {
+          width: pxtovw(10, 375);
+          height: pxtovw(22, 375);
+        }
       }
     }
   }

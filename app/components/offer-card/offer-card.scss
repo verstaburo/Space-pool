@@ -9,22 +9,24 @@
   transition: border $ease-main;
   border-radius: 3px;
   width: 100%;
-  padding: 25px 34px 35px 38px;
+  padding: 22px 35px 35px;
   box-sizing: border-box;
+  cursor: pointer;
 
-  @include screen('lg') {
-    padding: pxtovw(25, 1366) pxtovw(34, 1366) pxtovw(35, 1366) pxtovw(38, 1366);
+  @include screen('lg', max, 2) {
+    padding: pxtovw(22, 1366) pxtovw(35, 1366) pxtovw(35, 1366);
     border-radius: pxtovw(3, 1366);
   }
 
-  @include screen('md') {
-    padding: pxtovw(25, 960) pxtovw(34, 960) pxtovw(35, 960) pxtovw(38, 960);
+  @include screen('md', max, 2) {
+    padding: pxtovw(22, 960) pxtovw(35, 960) pxtovw(35, 960);
     border-radius: pxtovw(3, 960);
   }
 
-  @include screen('sm') {
-    padding: pxtovw(15, 375) pxtovw(16, 375) pxtovw(40, 375);
+  @include screen('sm', max, 2) {
+    padding: pxtovw(12, 375) pxtovw(14, 375) pxtovw(40, 375);
     border-radius: pxtovw(3, 375);
+    cursor: default;
   }
 
   &.is-active {
@@ -168,7 +170,7 @@
   &__main {
     @include display-grid;
     @include grid-template-columns(220px 44px 1fr);
-    @include grid-template-rows(auto auto auto auto);
+    @include grid-template-rows(auto 1fr auto auto);
 
     @include screen('lg', max, 2) {
       @include grid-template-columns(pxtovw(220, 1366) pxtovw(44, 1366) 1fr);
@@ -184,14 +186,14 @@
     }
 
     &:not(:first-child) {
-      margin-top: 25px;
+      margin-top: 23px;
 
       @include screen('lg', max, 2) {
-        margin-top: pxtovw(25, 1366);
+        margin-top: pxtovw(23, 1366);
       }
 
       @include screen('md', max, 2) {
-        margin-top: pxtovw(25, 960);
+        margin-top: pxtovw(23, 960);
       }
 
       @include screen('sm', max, 2) {
@@ -219,15 +221,15 @@
 
   &__media {
     @include grid-column(1, 2);
-    @include grid-row(1, 5);
+    @include grid-row(1, 4);
 
     position: relative;
 
     @include screen('sm', max, 2) {
       @include grid-row(1, 2);
 
-      margin: 0 pxtovw(-18, 375);
-      width: calc(100% + ((3600 / 375) * 1vw));
+      margin: 0 pxtovw(-16, 375);
+      width: calc(100% + ((3200 / 375) * 1vw));
     }
   }
 
@@ -246,6 +248,7 @@
     line-height: (24 / 20);
     font-weight: 400;
     letter-spacing: normal;
+    margin-top: -.27em;
 
     @include screen('lg', max, 2) {
       font-size: pxtovw(20, 1366);
@@ -261,6 +264,7 @@
 
       font-size: pxtovw(17, 375);
       line-height: (20 / 17);
+      margin-top: pxtovw(30, 375);
     }
 
     #{$b}__main_private & {
@@ -293,7 +297,7 @@
       @include grid-row(3, 4);
 
       font-size: pxtovw(15, 375);
-      line-height: (26 / 15);
+      line-height: 1.75;
     }
 
     #{$b}__main_private & {
@@ -301,6 +305,22 @@
 
       @include screen('sm', max, 2) {
         @include grid-column(1, 2);
+      }
+    }
+
+    &:not(:first-child) {
+      margin-top: 13px;
+
+      @include screen('lg', max, 2) {
+        margin-top: pxtovw(13, 1366);
+      }
+
+      @include screen('md', max, 2) {
+        margin-top: pxtovw(13, 960);
+      }
+
+      @include screen('sm', max, 2) {
+        margin-top: pxtovw(15, 375);
       }
     }
 
@@ -364,43 +384,43 @@
         background-repeat: no-repeat;
         background-size: contain;
         background-position: 50% 50%;
-        width: 10px;
+        width: 12px;
         height: 19px;
         vertical-align: top;
-        margin-right: 10px;
+        margin-right: 15px;
 
         @include screen('lg', max, 2) {
-          width: pxtovw(10, 1366);
+          width: pxtovw(12, 1366);
           height: pxtovw(19, 1366);
-          margin-right: pxtovw(10, 1366);
+          margin-right: pxtovw(15, 1366);
         }
 
         @include screen('md', max, 2) {
-          width: pxtovw(10, 960);
+          width: pxtovw(12, 960);
           height: pxtovw(19, 960);
-          margin-right: pxtovw(10, 960);
+          margin-right: pxtovw(15, 960);
         }
 
         @include screen('sm', max, 2) {
-          width: pxtovw(10, 375);
+          width: pxtovw(12, 375);
           height: pxtovw(26, 375);
-          margin-right: pxtovw(5, 375);
+          margin-right: pxtovw(10, 375);
         }
       }
 
       &:not(:first-child) {
-        margin-top: 14px;
+        margin-top: 15px;
 
         @include screen('lg', max, 2) {
-          margin-top: pxtovw(14, 1366);
+          margin-top: pxtovw(15, 1366);
         }
 
         @include screen('md', max, 2) {
-          margin-top: pxtovw(14, 960);
+          margin-top: pxtovw(15, 960);
         }
 
         @include screen('sm', max, 2) {
-          margin-top: pxtovw(8, 375);
+          margin-top: pxtovw(9, 375);
         }
       }
     }
@@ -413,10 +433,21 @@
     margin: 0;
     padding: 0;
     width: 100%;
+    margin-top: 12px;
+
+    @include screen('lg', max, 2) {
+      margin-top: pxtovw(12, 1366);
+    }
+
+    @include screen('md', max, 2) {
+      margin-top: pxtovw(12, 960);
+    }
 
     @include screen('sm', max, 2) {
       @include grid-column(1, 2);
       @include grid-row(4, 5);
+
+      margin-top: pxtovw(30, 375);
     }
   }
 
@@ -439,7 +470,144 @@
 
     @include screen('sm', max, 2) {
       font-size: pxtovw(15, 375);
-      line-height: (26 / 15);
+      line-height: 1.75;
+    }
+  }
+
+  $lines: 2;
+  $mdlines: 3;
+  $smlines: 4;
+  $line-height: (19 / 16);
+  $smline-height: 1.75;
+
+  @keyframes css-acc {
+    0% {
+      max-height: $lines * $line-height * 1em;
+    }
+
+    100% {
+      max-height: 500px;
+    }
+  }
+
+  @keyframes css-acc-md {
+    0% {
+      max-height: $mdlines * $line-height * 1em;
+    }
+
+    100% {
+      max-height: 2000px;
+    }
+  }
+
+  @keyframes css-acc-sm {
+    0% {
+      max-height: $smlines * $smline-height * 1em;
+    }
+
+    100% {
+      max-height: 2000px;
+    }
+  }
+
+  &__summary {
+    display: block;
+    position: relative;
+    overflow: hidden;
+    line-height: $line-height;
+    max-height: $lines * $line-height * 1em; //one more line
+    text-overflow: ellipsis;
+
+    @include screen('xlg', max, 2) {
+      max-height: $mdlines * $line-height * 1em;
+    }
+
+    @include screen('sm', max, 2) {
+      line-height: $smline-height;
+      max-height: $smlines * $smline-height * 1em;
+    }
+
+    #{$b}.is-active & {
+      max-height: none;
+    }
+  }
+
+  &__summary-text {
+    display: inline-block;
+    position: relative;
+    max-height: ($lines + 1) * $line-height * 1em; //one more line
+    display: -webkit-box;
+    -webkit-line-clamp: $lines;
+    -webkit-box-orient: vertical;
+    line-clamp: $lines;
+
+    @include screen('xlg', max, 2) {
+      max-height: ($mdlines + 1) * $line-height * 1em;
+      -webkit-line-clamp: $mdlines;
+      line-clamp: $mdlines;
+    }
+
+    @include screen('sm', max, 2) {
+      max-height: ($smlines + 1) * $smline-height * 1em;
+      -webkit-line-clamp: $smlines;
+      line-clamp: $smlines;
+    }
+
+    &::before {
+      background: #fff; // fallback for old IE
+      background: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1) 50%);
+      bottom: $line-height * 1em;
+      content: '\02026';
+      height: $line-height * 1em;
+      position: absolute;
+      right: 0;
+      text-align: right;
+      width: 4em;
+
+      @include screen('sm', max, 2) {
+        bottom: $smline-height * 1em;
+        height: $smline-height * 1em;
+      }
+    }
+
+    &::after { // to cover all but the last line of text
+      background: #fff;
+      content: attr(data-text);
+      left: 0;
+      height: ($lines - 1) * $line-height * 1em;
+      overflow: hidden;
+      position: absolute;
+      top: 0;
+      width: 100%;
+
+      @include screen('xlg', max, 2) {
+        height: ($mdlines - 1) * $line-height * 1em;
+      }
+
+      @include screen('sm', max, 2) {
+        height: ($smlines - 1) * $smline-height * 1em;
+      }
+    }
+
+    @supports (-webkit-line-clamp: 2) {
+      &::before, &::after {
+        content: none;
+      }
+    }
+
+    #{$b}.is-active & {
+      -webkit-line-clamp: unset;
+      line-clamp: unset;
+      max-height: none;
+      animation: css-acc .5s ease-out;
+
+      @include screen('xlg', max, 2) {
+        animation: css-acc-md .5s ease-out;
+      }
+
+      @include screen('sm', max, 2) {
+        animation: css-acc-sm .5s ease-out;
+      }
     }
   }
 
@@ -495,6 +663,7 @@
   &__price {
     @include grid-column(3, 4);
     @include grid-row(3, 4);
+    @include grid-align-self(end);
 
     position: relative;
     z-index: 2;
@@ -527,7 +696,7 @@
       line-height: (18 / 15);
       font-weight: 600;
       padding: pxtovw(4, 375) pxtovw(10, 375);
-      margin-right: pxtovw(-18, 375);
+      margin-right: pxtovw(-16, 375);
     }
 
     #{$b}__main_private & {
@@ -570,16 +739,39 @@
     @include grid-column(3, 4);
     @include grid-row(4, 5);
 
-    display: flex;
+    display: none;
     flex-direction: row-reverse;
     justify-content: space-between;
     align-items: center;
+    max-height: 0;
+    padding-bottom: 18px;
+
+    @include screen('lg', max, 2) {
+      padding-bottom: pxtovw(18, 1366);
+    }
+
+    @include screen('md', max, 2) {
+      padding-bottom: pxtovw(18, 960);
+    }
 
     @include screen('sm', max, 2) {
       @include grid-column(1, 2);
       @include grid-row(4, 5);
 
       display: block;
+      max-height: none;
+      padding-bottom: 0;
+    }
+
+    #{$b}.is-active & {
+      display: flex;
+      max-height: none;
+      animation: css-accordion .5s ease-out;
+
+      @include screen('sm', max, 2) {
+        display: block;
+        animation: none;
+      }
     }
 
     &:not(:first-child) {
@@ -610,6 +802,22 @@
 
   &__more {
     font-weight: 600;
+
+    span[data-closed] {
+      display: inline;
+
+      #{$b}.is-active & {
+        display: none;
+      }
+    }
+
+    span[data-opened] {
+      display: none;
+
+      #{$b}.is-active & {
+        display: inline;
+      }
+    }
   }
 
   &__button {
@@ -639,19 +847,60 @@
   }
 
   &__details {
+    display: none;
+    max-height: 0;
+
+    @include screen('sm', max, 2) {
+      display: block;
+      max-height: none;
+    }
+
+    #{$b}.is-active & {
+      display: block;
+      max-height: none;
+      animation: css-accordion .5s ease-out;
+
+      @include screen('sm', max, 2) {
+        animation: none;
+      }
+    }
+
     &:not(:first-child) {
-      margin-top: 30px;
+      margin-top: 40px;
 
       @include screen('lg', max, 2) {
-        margin-top: pxtovw(30, 1366);
+        margin-top: pxtovw(40, 1366);
       }
 
       @include screen('md', max, 2) {
-        margin-top: pxtovw(30, 960);
+        margin-top: pxtovw(40, 960);
       }
 
       @include screen('sm', max, 2) {
-        margin-top: pxtovw(30, 375);
+        margin-top: pxtovw(12, 375);
+      }
+    }
+  }
+
+  &__content {
+    display: block;
+
+    @include screen('sm', max, 2) {
+      display: none;
+      max-height: 0;
+    }
+
+    #{$b}.is-active & {
+      @include screen('sm', max, 2) {
+        display: block;
+        max-height: none;
+        animation: css-accordion .5s ease-out;
+      }
+    }
+
+    &:not(:last-child) {
+      @include screen('sm', max, 2) {
+        margin-bottom: pxtovw(12, 375);
       }
     }
   }

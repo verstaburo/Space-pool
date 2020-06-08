@@ -112,6 +112,24 @@
         @include screen('md', max, 2) {
           @include grid-row(3, 4);
         }
+
+        &:not(:first-child) {
+          @include screen('xlg', max, 2) {
+            margin-top: 127px;
+          }
+
+          @include screen('lg', max, 2) {
+            margin-top: pxtovw(127, 1366);
+          }
+
+          @include screen('md', max, 2) {
+            margin-top: pxtovw(77, 960);
+          }
+
+          @include screen('sm', max, 2) {
+            margin-top: pxtovw(90, 375);
+          }
+        }
       }
     }
   }
