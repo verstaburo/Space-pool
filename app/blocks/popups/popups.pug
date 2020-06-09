@@ -73,3 +73,37 @@ mixin popup-close()
     svg.popup__close-icon(xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15.36 15.36")
       rect(x="-2.43" y="6.94" width="20.23" height="1.49" transform="translate(18.55 7.68) rotate(135)")
       rect(x="-2.43" y="6.94" width="20.23" height="1.49" transform="translate(7.68 -3.18) rotate(45)")
+
+mixin nd-popup()
+  +b.nd-popup&attributes(attributes)
+    div.nd-popup__container
+      div.nd-popup__wrapper
+        block
+
+mixin nd-popup-header()
+  div.nd-popup__header&attributes(attributes)
+    block
+
+mixin nd-popup-close()
+  div.nd-popup__close&attributes(attributes)(data-fancybox-close)
+    block
+
+mixin nd-popup-close-fancy()
+  div.nd-popup__close&attributes(attributes)(data-fancybox-close)
+    block
+
+mixin nd-popup-back()
+  a.nd-popup__back&attributes(attributes)
+    block
+
+mixin nd-popup-title()
+  h3.nd-popup__title&attributes(attributes)
+    block
+
+mixin nd-popup-footer()
+  div.nd-popup__footer&attributes(attributes)
+    block
+
+mixin nd-popup-content()
+  div.nd-popup__content&attributes(attributes)
+    block

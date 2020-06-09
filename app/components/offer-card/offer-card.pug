@@ -25,7 +25,12 @@ mixin offer-card-for-space(item, cls)
         +e.state AVAILABLE NOW
     +offer-card-main()(class=(item.plan ? '_private' : ''))
       +e.media
-        +gallery(item.gallery).__gallery.js-nd-gallery
+        if item.gallery
+          +gallery(item.gallery).__gallery.js-nd-gallery(data-blind-zone)
+        if item.image
+          +e.PICTURE.image
+            option(srcset=item.image)
+            img(srcset=item.image)
       +e.H4.title!=item.title
       +e.describe
         +e.summary
@@ -48,6 +53,23 @@ mixin offer-card-for-space(item, cls)
           +e.plan-image
             IMG(src=item.plan)
       +e.price!=(item.price.amount + ' <span class="offer-card__price-period" data-text="' + item.price.period + '" data-mobile-text="' + item.price.periodshort + '"></span>')
-      +e.buttons
+      +e.buttons(data-blind-zone)
         +nd-button()._sm-fz15.__button(href="#") Request reservation
         +nd-button()._sm-fz15._black.__button(href="#") Arrange viewing
+
+
+mixin offer-card-for-space-panel(data)
+  +offer-card()._short(class=(data.cls + ' js-show-short-offer-details' || ' js-show-short-offer-details'))
+    +offer-card-main()._short
+      +e.media
+        if data.gallery
+          +gallery(data.gallery).__gallery.js-nd-gallery
+        if data.image
+          +e.PICTURE.image
+            option(srcset=data.image)
+            img(srcset=data.image)
+      +e.H4.title!=data.title
+      +e.price!=(data.price.amount + ' <span class="offer-card__price-period" data-text="' + data.price.period + '" data-mobile-text="' + data.price.periodshort + '"></span>')
+      +e.buttons(data-blind-zone)
+        +nd-button()._h30._md-fz15.__button(href="#") Request reservation
+        +nd-button()._h30._md-fz15._black.__button.js-nd-popup(href="#nd-popup-arrange-viewing") Arrange viewing

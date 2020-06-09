@@ -38,4 +38,19 @@ export default function offerCard() {
       }
     }
   });
+
+  $(document).on('click', '[data-blind-zone]', (evt) => {
+    evt.preventDefault();
+    evt.stopPropagation();
+  });
+
+  $(document).on('click', '.js-show-short-offer-details', (evt) => {
+    evt.preventDefault();
+    const self = evt.currentTarget;
+    if ($(self).is('.is-active')) {
+      offerCardMethods.close(self);
+    } else {
+      offerCardMethods.open(self);
+    }
+  });
 }

@@ -6,6 +6,8 @@
 }
 
 .fancybox {
+  $f: &;
+
   &-content {
     background-color: transparent;
   }
@@ -32,14 +34,52 @@
     }
   }
 
+  &--nd {
+    @include screen('md', max, 2) {
+      transform: translate3d(100%, 0, 0);
+      transition: transform .3s ease-in-out;
+    }
+
+    &.fancybox-is-open {
+      @include screen('md', max, 2) {
+        transform: translate3d(0, 0, 0);
+      }
+    }
+
+    &.fancybox-is-closing {
+      @include screen('md', max, 2) {
+        transform: translate3d(100%, 0, 0);
+      }
+
+      #{$f}-slide {
+        @include screen('md', max, 2) {
+          opacity: 1;
+        }
+      }
+    }
+  }
+
   &-container_shift {
     @include screen('md') {
       transform: translate3d(100%, 0, 0);
+      transition: transform .3s ease-in-out;
     }
 
     &.fancybox-is-open {
       @include screen('md') {
         transform: translate3d(0, 0, 0);
+      }
+    }
+
+    &.fancybox-is-closing {
+      @include screen('md') {
+        transform: translate3d(100%, 0, 0);
+      }
+
+      #{$f}-slide {
+        @include screen('md', max, 2) {
+          opacity: 1;
+        }
       }
     }
   }

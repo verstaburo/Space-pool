@@ -6,11 +6,10 @@
   width: 100vw;
   overflow: hidden;
   box-sizing: border-box;
-  border-bottom: 1px solid $nd-color-border4;
+  box-shadow: inset 0 -1px 0 0 $nd-color-border4;
 
   @include screen('md', max, 2) {
-    display: block;
-    padding: pxtovw(9, 960) 0;
+    display: flex;
     height: pxtovw(60, 960);
     bottom: pxtovw(60, 960);
     left: 0;
@@ -19,14 +18,28 @@
   }
 
   @include screen('sm', max, 2) {
-    padding: pxtovw(9, 375) 0;
     height: pxtovw(60, 375);
     bottom: pxtovw(60, 375);
   }
 
+  .nd-container {
+    display: flex;
+  }
+
   &__boxes {
+    position: absolute;
+    top: 10px;
+    left: 0;
     display: flex;
     justify-content: flex-start;
+
+    @include screen('md', max, 2) {
+      top: pxtovw(10, 960);
+    }
+
+    @include screen('sm', max, 2) {
+      top: pxtovw(10, 375);
+    }
   }
 
   &__box {
@@ -42,24 +55,27 @@
   }
 
   &__head {
+    position: relative;
     display: flex;
     justify-content: flex-start;
     align-items: center;
+    box-sizing: border-box;
     width: 100%;
+
+    @include screen('md', max, 2) {
+      padding: pxtovw(15, 960) 0;
+    }
+
+    @include screen('sm', max, 2) {
+      padding: pxtovw(15, 375) 0;
+    }
   }
 
   &__header {
     display: block;
     overflow: hidden;
     position: relative;
-
-    @include screen('md', max, 2) {
-      width: calc(100% - ((11300 / 960) * 1vw));
-    }
-
-    @include screen('sm', max, 2) {
-      width: calc(100% - ((11300 / 375) * 1vw));
-    }
+    flex: 1;
 
     &::after {
       @include pseudo;
@@ -102,10 +118,10 @@
 
     @include screen('md', max, 2) {
       margin-left: pxtovw(15, 960);
-      min-width: pxtovw(98, 960);
+      min-width: pxtovw(200, 960);
     }
 
-    @include screen('md', max, 2) {
+    @include screen('sm', max, 2) {
       margin-left: pxtovw(15, 375);
       min-width: pxtovw(98, 375);
     }

@@ -1,0 +1,168 @@
+.nd-popup {
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  padding: 0;
+  overflow: hidden;
+
+  &__container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+  }
+
+  &__wrapper {
+    position: relative;
+    display: flex;
+    background-color: $nd-color-basic-light;
+    pointer-events: auto;
+
+    @include screen('md', max, 2) {
+      width: 100%;
+    }
+  }
+
+  &__content {
+    display: block;
+    width: 100%;
+    overflow: auto;
+    box-sizing: border-box;
+    padding: 60px 0;
+
+    @include screen('lg', max, 2) {
+      padding: pxtovw(60, 1366) 0;
+    }
+
+    @include screen('md', max, 2) {
+      padding: pxtovw(60, 960) 0;
+    }
+
+    @include screen('sm', max, 2) {
+      padding: pxtovw(60, 375) 0;
+    }
+  }
+
+  &__header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    z-index: 5;
+    box-sizing: border-box;
+    padding: 0 60px;
+    background-color: $nd-color-basic-light;
+
+    @include screen('lg', max, 2) {
+      padding: 0 pxtovw(60, 1366);
+    }
+
+    @include screen('md', max, 2) {
+      height: pxtovw(60, 960);
+      padding: 0 pxtovw(60, 960);
+      border-bottom: 1px solid $nd-color-border5;
+    }
+
+    @include screen('sm', max, 2) {
+      height: pxtovw(60, 375);
+      padding: 0 pxtovw(60, 375);
+    }
+  }
+
+  &__title {
+    font-family: $font-stolzl;
+    font-size: 17px;
+    line-height: (20 / 17);
+    text-align: center;
+    font-weight: 400;
+
+    @include screen('lg', max, 2) {
+      font-size: pxtovw(17, 1366);
+    }
+
+    @include screen('md', max, 2) {
+      font-size: pxtovw(17, 960);
+    }
+
+    @include screen('sm', max, 2) {
+      font-size: pxtovw(17, 375);
+    }
+  }
+
+  &__close {
+    position: absolute;
+    font-size: 0;
+    line-height: 0;
+    top: 0;
+    right: 0;
+    display: block;
+    cursor: pointer;
+    width: 56px;
+    height: 60px;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    background-size: 18px;
+    background-image: url("data:image/svg+xml,%3Csvg width='18' height='18' viewBox='0 0 18 18' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1L17 17' stroke='black'/%3E%3Cpath d='M17 1L1 17' stroke='black'/%3E%3C/svg%3E%0A");
+    z-index: 3;
+
+    @include screen('lg', max, 2) {
+      width: pxtovw(56, 1366);
+      height: pxtovw(60, 1366);
+      background-size: pxtovw(18, 1366);
+    }
+
+    @include screen('md', max, 2) {
+      left: 0;
+      width: pxtovw(56, 960);
+      height: pxtovw(60, 960);
+      background-size: pxtovw(18, 960);
+    }
+
+    @include screen('sm', max, 2) {
+      width: pxtovw(56, 375);
+      height: pxtovw(60, 375);
+      background-size: pxtovw(18, 375);
+    }
+  }
+
+  &__back {
+    position: absolute;
+    font-size: 0;
+    line-height: 0;
+    top: 0;
+    right: 0;
+    display: block;
+    cursor: pointer;
+    width: 62px;
+    height: 60px;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    background-size: 22px 11px;
+    background-image: url("data:image/svg+xml,%3Csvg width='22' height='11' viewBox='0 0 22 11' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M6.27769 0.999641L2.00032 5.22764L6.37988 9.55664' stroke='black' stroke-width='2' stroke-miterlimit='10' stroke-linecap='round'/%3E%3Cpath d='M2.0008 5.22852L20.2344 5.22852' stroke='black' stroke-width='2' stroke-miterlimit='10' stroke-linecap='round'/%3E%3C/svg%3E%0A");
+    z-index: 3;
+
+    @include screen('lg', max, 2) {
+      width: pxtovw(62, 1366);
+      height: pxtovw(60, 1366);
+      background-size: pxtovw(22, 1366) pxtovw(11, 1366);
+    }
+
+    @include screen('md', max, 2) {
+      left: 0;
+      width: pxtovw(62, 960);
+      height: pxtovw(60, 960);
+      background-size: pxtovw(22, 960) pxtovw(11, 960);
+    }
+
+    @include screen('sm', max, 2) {
+      width: pxtovw(62, 375);
+      height: pxtovw(60, 375);
+      background-size: pxtovw(22, 375) pxtovw(11, 375);
+    }
+  }
+}

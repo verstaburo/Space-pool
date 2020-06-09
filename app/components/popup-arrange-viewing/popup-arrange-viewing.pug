@@ -35,3 +35,12 @@ mixin popup-arrange-viewing()
                         - }
               +e.buttons
                 +button('button')(type="submit")._short._wide Request viewing
+
+mixin nd-popup-arrange-viewing()
+  +nd-popup.nd-popup-arrange-viewing__&attributes(attributes)
+    +nd-popup-header
+      +nd-popup-back().js-nd-popup(href="#popup-offer-types") Back
+      +nd-popup-title Set viewing date/time
+    +nd-popup-content
+      block
+    +nd-popup-footer

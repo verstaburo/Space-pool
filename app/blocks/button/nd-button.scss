@@ -199,6 +199,17 @@
     }
   }
 
+  &_md-fz15 {
+    @include screen('md', max, 2) {
+      font-size: pxtovw(15, 960);
+      line-height: (18 / 15);
+    }
+
+    @include screen('sm', max, 2) {
+      font-size: pxtovw(15, 375);
+    }
+  }
+
   &_sm-fz15 {
     @include screen('sm', max, 2) {
       font-size: pxtovw(15, 375);
@@ -224,16 +235,20 @@
 
   &_h30 {
     height: 30px;
+    border-radius: 15px;
 
     @include screen('lg', max, 2) {
+      border-radius: pxtovw(15, 1366);
       height: pxtovw(30, 1366);
     }
 
     @include screen('md', max, 2) {
+      border-radius: pxtovw(15, 960);
       height: pxtovw(30, 960);
     }
 
     @include screen('sm', max, 2) {
+      border-radius: pxtovw(15, 375);
       height: pxtovw(30, 375);
     }
   }

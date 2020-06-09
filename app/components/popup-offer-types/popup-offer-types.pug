@@ -1,0 +1,28 @@
+mixin popup-offer-types()
+  +nd-popup.popup-offer-types__&attributes(attributes)
+    +nd-popup-header
+      +nd-popup-close-fancy Close
+      +nd-popup-title Choose offer
+    +nd-popup-content
+      .nd-container
+        +e.SECTION.section
+          +e.H4.title Hot desks
+          +e.list
+            each item in getData('nd-offers-mobile.json').hot
+              +offer-card-for-space-panel(item)
+        +e.SECTION.section
+          +e.H4.title Fixed desks
+          +e.list
+            each item in getData('nd-offers-mobile.json').fixed
+              +offer-card-for-space-panel(item)
+        +e.SECTION.section
+          +e.H4.title Meeting Rooms
+          +e.list
+            each item in getData('nd-offers-mobile.json').meetings
+              +offer-card-for-space-panel(item)
+        +e.SECTION.section
+          +e.H4.title Private office
+          +e.list
+            each item in getData('nd-offers-mobile.json').private
+              +offer-card-for-space-panel(item)
+        block

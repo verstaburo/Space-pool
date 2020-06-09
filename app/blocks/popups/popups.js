@@ -9,6 +9,35 @@ const $ = window.$;
 const bp = window.globalOptions.sizes;
 
 export default function popups() {
+  // настройки нового попапа
+  const ndOptionsStPopup = {
+    baseClass: 'fancybox--nd',
+    infobar: false,
+    autoFocus: false,
+    animationDuration: 500,
+    animationEffect: 'fade',
+    transitionEffect: 'fade',
+    clickSlide: false,
+    onDeactivate(i) {
+      i.close();
+    },
+    onActivate() {
+      freeze();
+    },
+    afterLoad() {
+      freeze();
+    },
+    beforeClose() {
+      unfreeze();
+    },
+    smallBtn: false,
+    toolbar: false,
+    touch: false,
+    idleTime: false,
+    gutter: 0,
+    preventCaptionOverlap: false,
+  };
+
   // настройки стандартного попапа
   const optionsStPopup = {
     autoFocus: false,
@@ -68,7 +97,7 @@ export default function popups() {
   // настройки мобильного попапа
   const optionsMobPopup = {
     autoFocus: false,
-    animationEffect: 'fade',
+    animationEffect: 'shift',
     animationDuration: 400,
     transitionDuration: 400,
     transitionEffect: 'fade',
@@ -195,8 +224,14 @@ export default function popups() {
   // $('.js-popup').fancybox(optionsStPopup);
   // $('.js-popup-mobile').fancybox(optionsMobPopup);
 
-  window.globalFunctions.openPopup = (popupEl, isMobile) => {
-    const options = isMobile ? optionsMobPopup : optionsStPopup;
+  window.globalFunctions.openPopup = (popupEl, isMobile, isNewDesign) => {
+    let options = optionsStPopup;
+    if (isMobile) {
+      options = optionsMobPopup;
+    }
+    if (isNewDesign) {
+      options = ndOptionsStPopup;
+    }
     $.fancybox.open({
       src: popupEl,
       type: 'inline',
@@ -244,7 +279,7 @@ export default function popups() {
     const source = $(popupId);
     $.fancybox.open({
       src: source,
-      type: 'inline',
+      type: 'html',
       opts: optionsMobPopup,
     });
   });
@@ -393,5 +428,18 @@ export default function popups() {
     const self = evt.currentTarget;
     const footer = $(self).closest('.popup__footer');
     $(footer).toggleClass('is-open');
+  });
+
+  $(document).on('click', '.js-nd-popup', (evt) => {
+    const self = evt.currentTarget;
+    const popupClasses = $(self).attr('data-popup-classes') || '';
+    if ($(self).attr('data-stoppropagation')) {
+      evt.stopPropagation();
+    }
+    const data = $(self).attr('data-src') || $(self).attr('href');
+    const popupId = `#${data.split('#').pop()}`;
+    const source = $(popupId);
+    $(source).addClass(popupClasses);
+    window.globalFunctions.openPopup(source, false, true);
   });
 }

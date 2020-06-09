@@ -33,6 +33,25 @@
     border-color: $nd-color-main;
   }
 
+  &_short {
+    border: 1px solid #e5eef0;
+    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.03), 2px 2px 2px rgba(0, 0, 0, 0.04), 3px 3px 3px rgba(0, 0, 0, 0.02);
+    cursor: pointer;
+    transition: border $ease-main, box-shadow $ease-main;
+
+    @include screen('md', max, 2) {
+      padding: pxtovw(14, 960) pxtovw(14, 960) pxtovw(11, 960);
+    }
+
+    @include screen('sm', max, 2) {
+      padding: pxtovw(14, 375) pxtovw(14, 375) pxtovw(11, 375);
+    }
+
+    &.is-active {
+      box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.03), 2px 2px 2px rgba(0, 0, 0, 0.04), 3px 3px 3px rgba(0, 0, 0, 0.02), inset 0 0 0 1px $nd-color-main;
+    }
+  }
+
   &__header {
     display: flex;
     justify-content: space-between;
@@ -217,6 +236,23 @@
         @include grid-template-rows(auto auto auto auto auto);
       }
     }
+
+    &_short {
+      @include grid-template-rows(auto auto auto);
+      @include grid-template-columns(220px 40px 1fr);
+
+      @include screen('lg', max, 2) {
+        @include grid-template-columns(pxtovw(220, 1366) pxtovw(40, 1366) 1fr);
+      }
+
+      @include screen('md', max, 2) {
+        @include grid-template-columns(pxtovw(77, 960) pxtovw(13, 960) 1fr);
+      }
+
+      @include screen('sm', max, 2) {
+        @include grid-template-columns(pxtovw(77, 375) pxtovw(13, 375) 1fr);
+      }
+    }
   }
 
   &__media {
@@ -231,10 +267,59 @@
       margin: 0 pxtovw(-16, 375);
       width: calc(100% + ((3200 / 375) * 1vw));
     }
+
+    #{$b}__main_short & {
+      @include grid-column(1, 2);
+      @include grid-row(1, 2);
+
+      border-radius: 3px;
+      overflow: hidden;
+
+      @include screen('lg', max, 2) {
+        border-radius: pxtovw(3, 1366);
+      }
+
+      @include screen('md', max, 2) {
+        border-radius: pxtovw(3, 960);
+      }
+
+      @include screen('sm', max, 2) {
+        border-radius: pxtovw(3, 375);
+        margin: 0;
+        width: 100%;
+      }
+    }
   }
 
   &__gallery {
     padding-top: 63.3%;
+
+    #{$b}__main_short & {
+      padding-top: 70%;
+    }
+  }
+
+  &__image {
+    position: relative;
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    padding-top: 63.3%;
+    font-size: 0;
+    line-height: 0;
+    overflow: hidden;
+
+    #{$b}__main_short & {
+      padding-top: 70%;
+    }
+
+    img {
+      @include fill-img;
+
+      display: block;
+      font-size: 0;
+      line-height: 0;
+    }
   }
 
   &__title {
@@ -272,6 +357,24 @@
 
       @include screen('sm', max, 2) {
         @include grid-column(1, 2);
+      }
+    }
+
+    #{$b}__main_short & {
+      @include grid-column(3, 4);
+      @include grid-row(1, 2);
+
+      margin-top: 0;
+      font-family: $font-main;
+      font-weight: 500;
+
+      @include screen('md', max, 2) {
+        font-size: pxtovw(15, 960);
+        line-height: 1.13;
+      }
+
+      @include screen('sm', max, 2) {
+        font-size: pxtovw(15, 375);
       }
     }
   }
@@ -707,6 +810,31 @@
       }
     }
 
+    #{$b}__main_short & {
+      @include grid-column(1, 4);
+      @include grid-row(2, 3);
+      @include grid-align-self(end);
+      @include grid-justify-self(end);
+
+      text-align: right;
+
+      @include screen('md', max, 2) {
+        font-size: pxtovw(15, 960);
+        line-height: 1.13;
+      }
+
+      @include screen('sm', max, 2) {
+        background-color: transparent;
+        color: $nd-color-basic;
+        height: auto;
+        width: auto;
+        font-size: pxtovw(15, 375);
+        font-weight: 700;
+        padding: 0;
+        margin-right: 0;
+      }
+    }
+
     &:not(:first-child) {
       margin-top: 30px;
 
@@ -720,6 +848,16 @@
 
       @include screen('sm', max, 2) {
         margin-top: 0;
+      }
+
+      #{$b}__main_short & {
+        @include screen('md', max, 2) {
+          margin-top: pxtovw(10, 960);
+        }
+
+        @include screen('sm', max, 2) {
+          margin-top: pxtovw(10, 375);
+        }
       }
     }
   }
@@ -774,6 +912,16 @@
       }
     }
 
+    #{$b}_short.is-active & {
+      display: flex;
+      max-height: none;
+      animation: css-accordion .5s ease-out;
+
+      @include screen('sm', max, 2) {
+        display: block;
+      }
+    }
+
     &:not(:first-child) {
       margin-top: 50px;
 
@@ -788,6 +936,16 @@
       @include screen('sm', max, 2) {
         margin-top: pxtovw(35, 375);
       }
+
+      #{$b}__main_short & {
+        @include screen('md', max, 2) {
+          margin-top: pxtovw(42, 960);
+        }
+
+        @include screen('sm', max, 2) {
+          margin-top: pxtovw(42, 375);
+        }
+      }
     }
 
     #{$b}__main_private & {
@@ -796,6 +954,18 @@
       @include screen('sm', max, 2) {
         @include grid-column(1, 2);
         @include grid-row(5, 6);
+      }
+    }
+
+    #{$b}__main_short & {
+      @include grid-column(1, 4);
+      @include grid-row(3, 4);
+
+      display: none;
+      max-height: 0;
+
+      @include screen('sm', max, 2) {
+        padding-bottom: pxtovw(13, 375);
       }
     }
   }
@@ -842,6 +1012,23 @@
       @include screen('sm', max, 2) {
         margin-right: 0;
         margin-top: pxtovw(20, 375);
+      }
+
+      #{$b}__main_short & {
+        margin-right: 30px;
+
+        @include screen('lg', max, 2) {
+          margin-right: pxtovw(30, 1366);
+        }
+
+        @include screen('md', max, 2) {
+          margin-right: pxtovw(18, 960);
+        }
+
+        @include screen('sm', max, 2) {
+          margin-right: 0;
+          margin-top: pxtovw(18, 375);
+        }
       }
     }
   }
