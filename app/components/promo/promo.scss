@@ -10,7 +10,11 @@
     margin-top: 129px;
 
     @include screen('xl', max, 2) {
-      margin-top: 120px;
+      margin-top: 123px;
+    }
+
+    @include screen('xlg', max, 2) {
+      margin-top: pxtovw(129, 1660);
     }
 
     @include screen('lg', max, 2) {
@@ -29,8 +33,8 @@
   &:not(:last-child) {
     margin-bottom: 84px;
 
-    @include screen('xl', max, 2) {
-      margin-bottom: 116px;
+    @include screen('xlg', max, 2) {
+      margin-bottom: pxtovw(84, 1660);
     }
 
     @include screen('lg', max, 2) {
@@ -58,8 +62,8 @@
     width: 100%;
     min-height: 471px;
 
-    @include screen('xl', max, 2) {
-      min-height: 434px;
+    @include screen('xlg', max, 2) {
+      min-height: pxtovw(471, 1660);
     }
 
     @include screen('lg', max, 2) {
@@ -82,6 +86,10 @@
     overflow: hidden;
     z-index: 1;
     border-radius: 3px;
+
+    @include screen('xlg', max, 2) {
+      border-radius: pxtovw(3, 1660);
+    }
 
     @include screen('lg', max, 2) {
       border-radius: pxtovw(3, 1366);
@@ -128,7 +136,11 @@
     width: 100%;
 
     @include screen('xl', max, 2) {
-      padding: 86px 109px 32px;
+      padding: 100px 100px 32px;
+    }
+
+    @include screen('xlg', max, 2) {
+      padding: pxtovw(100, 1660) pxtovw(100, 1660) pxtovw(32, 1660);
     }
 
     @include screen('lg', max, 2) {
@@ -154,9 +166,9 @@
     letter-spacing: normal;
     max-width: 750px;
 
-    @include screen('xl', max, 2) {
-      font-size: 36px;
-      max-width: 590px;
+    @include screen('xlg', max, 2) {
+      font-size: pxtovw(43, 1660);
+      max-width: pxtovw(750, 1660);
     }
 
     @include screen('lg', max, 2) {
@@ -178,8 +190,28 @@
   &__button {
     min-width: 200px;
 
+    @include screen('xlg', max, 2) {
+      min-width: pxtovw(200, 1660);
+    }
+
+    @include screen('lg', max, 2) {
+      min-width: pxtovw(200, 1366);
+    }
+
+    @include screen('md', max, 2) {
+      min-width: pxtovw(200, 960);
+    }
+
+    @include screen('sm', max, 2) {
+      min-width: pxtovw(200, 375);
+    }
+
     &:not(:first-child) {
       margin-top: 30px;
+
+      @include screen('xlg', max, 2) {
+        margin-top: pxtovw(30, 1660);
+      }
 
       @include screen('lg', max, 2) {
         margin-top: pxtovw(30, 1366);
@@ -219,6 +251,10 @@
     font-weight: 400;
     letter-spacing: normal;
     color: $nd-color-gray-text7;
+
+    @include screen('xlg', max, 2) {
+      font-size: pxtovw(15, 1660);
+    }
 
     @include screen('lg', max, 2) {
       font-size: pxtovw(15, 1366);

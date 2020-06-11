@@ -12,8 +12,8 @@
     &:not(:first-child) {
       margin-top: 45px;
 
-      @include screen('xl', max, 2) {
-        margin-top: 45px;
+      @include screen('xlg', max, 2) {
+        margin-top: pxtovw(45, 1660);
       }
 
       @include screen('lg', max, 2) {
@@ -35,6 +35,10 @@
     width: 100%;
     border-radius: 3px;
 
+    @include screen('xlg', max, 2) {
+      border-radius: pxtovw(3, 1660);
+    }
+
     @include screen('lg', max, 2) {
       border-radius: pxtovw(3, 1366);
     }
@@ -53,6 +57,10 @@
       line-height: 0;
       border-radius: 3px;
       width: 100%;
+
+      @include screen('xlg', max, 2) {
+        border-radius: pxtovw(3, 1660);
+      }
 
       @include screen('lg', max, 2) {
         border-radius: pxtovw(3, 1366);
@@ -73,9 +81,9 @@
       box-sizing: border-box;
       padding-top: 66.1%;
 
-      @include screen('xl', max, 2) {
-        padding-top: 73.4%;
-      }
+      // @include screen('xl', max, 2) {
+      //   padding-top: 73.4%;
+      // }
 
       @include screen('md', max, 2) {
         padding-top: 73.3%;
@@ -100,8 +108,8 @@
     line-height: 1.2;
     letter-spacing: normal;
 
-    @include screen('xl', max, 2) {
-      font-size: 36px;
+    @include screen('xlg', max, 2) {
+      font-size: pxtovw(43, 1660);
     }
 
     @include screen('lg', max, 2) {
@@ -129,8 +137,8 @@
     &:not(:first-child) {
       margin-top: 45px;
 
-      @include screen('xl', max, 2) {
-        margin-top: 45px;
+      @include screen('xlg', max, 2) {
+        margin-top: pxtovw(45, 1660);
       }
 
       @include screen('lg', max, 2) {
@@ -159,11 +167,12 @@
     line-height: 1.63;
     letter-spacing: -.02em;
 
-    @include screen('xl', max, 2) {
-      line-height: 1.7;
+    @include screen('xlg', max, 2) {
+      font-size: pxtovw(17, 1660);
     }
 
     @include screen('lg', max, 2) {
+      line-height: 1.7;
       font-size: pxtovw(17, 1366);
     }
 
@@ -179,8 +188,8 @@
     &:not(:first-child) {
       margin-top: 45px;
 
-      @include screen('xl', max, 2) {
-        margin-top: 54px;
+      @include screen('xlg', max, 2) {
+        margin-top: pxtovw(54, 1660);
       }
 
       @include screen('lg', max, 2) {
@@ -223,6 +232,10 @@
     &:not(:first-child) {
       margin-top: 40px;
 
+      @include screen('xlg', max, 2) {
+        margin-top: pxtovw(40, 1660);
+      }
+
       @include screen('lg', max, 2) {
         margin-top: pxtovw(40, 1366);
       }
@@ -241,8 +254,8 @@
     &:not(:first-child) {
       margin-top: 60px;
 
-      @include screen('xl', max, 2) {
-        margin-top: 58px;
+      @include screen('xlg', max, 2) {
+        margin-top: pxtovw(60, 1660);
       }
 
       @include screen('lg', max, 2) {
@@ -264,6 +277,10 @@
     line-height: 1.64;
     letter-spacing: -.02em;
 
+    @include screen('xlg', max, 2) {
+      font-size: pxtovw(17, 1660);
+    }
+
     @include screen('lg', max, 2) {
       font-size: pxtovw(17, 1366);
     }
@@ -284,6 +301,18 @@
   &__button {
     min-width: 200px;
 
+    @include screen('xlg', max, 2) {
+      min-width: pxtovw(200, 1660);
+    }
+
+    @include screen('lg', max, 2) {
+      min-width: pxtovw(200, 1366);
+    }
+
+    @include screen('md', max, 2) {
+      min-width: pxtovw(200, 960);
+    }
+
     @include screen('sm', max, 2) {
       min-width: 0;
       width: 100%;
@@ -296,7 +325,11 @@
     @include grid-template-rows(auto);
 
     @include screen('xl', max, 2) {
-      @include grid-template-columns(49.2% 134px 1fr);
+      @include grid-template-columns(49.4% 150px 1fr);
+    }
+
+    @include screen('xlg', max, 2) {
+      @include grid-template-columns(49.4% pxtovw(150, 1660) 1fr);
     }
 
     @include screen('lg', max, 2) {
@@ -331,6 +364,10 @@
       &__title {
         margin-top: -9px;
 
+        @include screen('xlg', max, 2) {
+          margin-top: pxtovw(-9, 1660);
+        }
+
         @include screen('lg', max, 2) {
           margin-top: 0;
         }
@@ -347,7 +384,11 @@
       &__content {
         max-width: 510px;
 
-        @include screen('xl', max, 2) {
+        @include screen('xlg', max, 2) {
+          max-width: pxtovw(510, 1660);
+        }
+
+        @include screen('lg', max, 2) {
           max-width: none;
         }
 
@@ -358,8 +399,8 @@
         &:not(:first-child) {
           margin-top: 37px;
 
-          @include screen('xl', max, 2) {
-            margin-top: 37px;
+          @include screen('xlg', max, 2) {
+            margin-top: pxtovw(37, 1660);
           }
 
           @include screen('lg', max, 2) {
@@ -382,12 +423,16 @@
       @include grid-template-rows(auto auto 1fr);
 
       @include screen('xl', max, 2) {
-        @include grid-template-columns(49.2% 134px 1fr);
-        @include grid-template-rows(auto 1fr auto);
+        @include grid-template-columns(49.4% 150px 1fr);
+      }
+
+      @include screen('xlg', max, 2) {
+        @include grid-template-columns(49.4% pxtovw(150, 1660) 1fr);
       }
 
       @include screen('lg', max, 2) {
         @include grid-template-columns(49.2% pxtovw(124, 1366) 1fr);
+        @include grid-template-rows(auto 1fr auto);
       }
 
       @include screen('md', max, 2) {
@@ -419,6 +464,14 @@
 
           margin-top: -11px;
 
+          @include screen('xl', max, 2) {
+            margin-top: -15px;
+          }
+
+          @include screen('xlg', max, 2) {
+            margin-top: pxtovw(-15, 1660);
+          }
+
           @include screen('lg', max, 2) {
             margin-top: pxtovw(-11, 1366);
           }
@@ -443,8 +496,8 @@
           &:not(:first-child) {
             margin-top: 66px;
 
-            @include screen('xl', max, 2) {
-              margin-top: 100px;
+            @include screen('xlg', max, 2) {
+              margin-top: pxtovw(66, 1660);
             }
 
             @include screen('lg', max, 2) {
@@ -477,8 +530,8 @@
           &:not(:first-child) {
             margin-top: 45px;
 
-            @include screen('xl', max, 2) {
-              margin-top: 58px;
+            @include screen('xlg', max, 2) {
+              margin-top: pxtovw(45, 1660);
             }
 
             @include screen('lg', max, 2) {

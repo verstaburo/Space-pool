@@ -379,6 +379,11 @@
         box-sizing: border-box;
         transition: transform $ease-main, color $ease-main, font $ease-main, background $ease-main, padding $ease-main;
 
+        @include screen('xlg', max, 2) {
+          font-size: pxtovw(17, 1660);
+          padding: pxtovw(11, 1660) pxtovw(7, 1660) pxtovw(7, 1660);
+        }
+
         @include screen('lg', max, 2) {
           font-size: pxtovw(17, 1366);
           padding: pxtovw(11, 1366) pxtovw(7, 1366) pxtovw(7, 1366);
@@ -404,6 +409,12 @@
       transform: translate3d(5px, -30px, 0);
       padding: 4px;
       background-color: $nd-color-bg;
+
+      @include screen('xlg', max, 2) {
+        transform: translate3d(pxtovw(5, 1660), pxtovw(-30, 1660), 0);
+        font-size: pxtovw(11, 1660);
+        padding: pxtovw(4, 1660);
+      }
 
       @include screen('lg', max, 2) {
         transform: translate3d(pxtovw(5, 1366), pxtovw(-30, 1366), 0);

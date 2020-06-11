@@ -394,7 +394,7 @@ export default function slider() {
             slidesPerView: 5,
             slidesPerGroup: 1,
             // freeMode: false,
-            spaceBetween: 22,
+            spaceBetween: 25,
           },
           1850: {
             slidesPerView: 5,
@@ -406,19 +406,9 @@ export default function slider() {
         on: {
           init() {
             $(sliderContainer).addClass('is-visible');
-            // if (window.Modernizr.mq('(max-width: 1029px)')) {
-            //   $(this.slides).each((ix, slide) => {
-            //     $(slide).removeAttr('style');
-            //   });
-            // }
             setBtnContainerHeight(el);
           },
           resize() {
-            // if (window.Modernizr.mq('(max-width: 1029px)')) {
-            //   $(this.slides).each((ix, slide) => {
-            //     $(slide).removeAttr('style');
-            //   });
-            // }
             setBtnContainerHeight(el);
           },
         },
@@ -448,7 +438,7 @@ export default function slider() {
           },
           1400: {
             slidesPerView: 3,
-            spaceBetween: 42,
+            spaceBetween: 47,
           },
           1850: {
             slidesPerView: 3,
@@ -458,18 +448,6 @@ export default function slider() {
         on: {
           init() {
             $(sliderContainer).addClass('is-visible');
-            // if (window.Modernizr.mq('(max-width: 1029px)')) {
-            //   $(this.slides).each((ix, slide) => {
-            //     $(slide).removeAttr('style');
-            //   });
-            // }
-          },
-          resize() {
-            // if (window.Modernizr.mq('(max-width: 1029px)')) {
-            //   $(this.slides).each((ix, slide) => {
-            //     $(slide).removeAttr('style');
-            //   });
-            // }
           },
         },
       });
@@ -593,7 +571,7 @@ export default function slider() {
             slidesPerView: 3,
             spaceBetween: 20,
           },
-          1600: {
+          1400: {
             slidesPerView: 4,
             spaceBetween: 50,
           },

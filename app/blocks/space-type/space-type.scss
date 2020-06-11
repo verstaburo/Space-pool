@@ -13,6 +13,10 @@
   text-transform: uppercase;
   letter-spacing: normal;
 
+  @include screen('xlg', max, 2) {
+    font-size: pxtovw(10, 1660);
+  }
+
   @include screen('lg', max, 2) {
     font-size: pxtovw(10, 1366);
   }
@@ -43,8 +47,8 @@
     &:not(:last-child) {
       margin-right: 4px;
 
-      @include screen('xl', max, 2) {
-        margin-right: 4px;
+      @include screen('xlg', max, 2) {
+        margin-right: pxtovw(4, 1660);
       }
 
       @include screen('lg', max, 2) {

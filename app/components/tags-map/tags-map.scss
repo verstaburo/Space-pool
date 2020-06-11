@@ -5,8 +5,8 @@
   width: 100%;
   margin-bottom: 94px;
 
-  @include screen('xl', max, 2) {
-    margin-bottom: 114px;
+  @include screen('xlg', max, 2) {
+    margin-bottom: pxtovw(94, 1660);
   }
 
   @include screen('lg', max, 2) {
@@ -23,6 +23,14 @@
 
   &:not(:first-child) {
     margin-top: 49px;
+
+    @include screen('xl', max, 2) {
+      margin-top: 54px;
+    }
+
+    @include screen('xlg', max, 2) {
+      margin-top: pxtovw(54, 1660);
+    }
 
     @include screen('lg', max, 2) {
       margin-top: pxtovw(49, 1366);
@@ -48,8 +56,12 @@
     padding: 34px 38px 42px;
 
     @include screen('xl', max, 2) {
-      padding: 30px 36px 42px;
-      width: 320px;
+      padding: 30px 38px 42px;
+    }
+
+    @include screen('xlg', max, 2) {
+      padding: pxtovw(30, 1660) pxtovw(38, 1660) pxtovw(42, 1660);
+      width: pxtovw(370, 1660);
     }
 
     @include screen('lg', max, 2) {
@@ -69,6 +81,10 @@
 
       @include screen('xl', max, 2) {
         margin-right: 20px;
+      }
+
+      @include screen('xlg', max, 2) {
+        margin-right: pxtovw(20, 1660);
       }
 
       @include screen('lg', max, 2) {
@@ -91,19 +107,28 @@
     margin: 20px -5px 0;
     width: calc(100% + 10px);
 
+    @include screen('xl', max, 2) {
+      margin: 22px -5px 0;
+    }
+
+    @include screen('xlg', max, 2) {
+      margin: pxtovw(22, 1660) pxtovw(-5, 1660) 0;
+      width: calc(100% + ((1000 / 1660) * 1vw));
+    }
+
     @include screen('lg', max, 2) {
       margin: pxtovw(22, 1366) pxtovw(-5, 1366) 0;
-      width: calc(100% + (1000 / 1366));
+      width: calc(100% + ((1000 / 1366) * 1vw));
     }
 
     @include screen('md', max, 2) {
       margin: pxtovw(22, 960) pxtovw(-5, 960) 0;
-      width: calc(100% + (1000 / 375));
+      width: calc(100% + ((1000 / 375) * 1vw));
     }
 
     @include screen('sm', max, 2) {
       margin: pxtovw(22, 375) pxtovw(-5, 375) 0;
-      width: calc(100% + (1000 / 375));
+      width: calc(100% + ((1000 / 375) * 1vw));
     }
   }
 
@@ -115,6 +140,10 @@
     color: $nd-color-basic;
     font-size: 16px;
     line-height: (19 / 16);
+
+    @include screen('xlg', max, 2) {
+      font-size: pxtovw(16, 1660);
+    }
 
     @include screen('lg', max, 2) {
       font-size: pxtovw(16, 1366);
@@ -136,6 +165,11 @@
     border-color: $nd-color-border3;
     white-space: nowrap;
     height: 34px;
+
+    @include screen('xlg', max, 2) {
+      height: pxtovw(34, 1660);
+      margin: pxtovw(14, 1660) pxtovw(5, 1660) 0;
+    }
 
     @include screen('lg', max, 2) {
       height: pxtovw(34, 1366);
@@ -162,6 +196,10 @@
     &:not(:first-child) {
       margin-top: 48px;
 
+      @include screen('xlg', max, 2) {
+        margin-top: pxtovw(48, 1660);
+      }
+
       @include screen('lg', max, 2) {
         margin-top: pxtovw(48, 1366);
       }
@@ -182,6 +220,10 @@
     font-weight: 700;
     color: $nd-color-basic;
 
+    @include screen('xlg', max, 2) {
+      font-size: pxtovw(18, 1660);
+    }
+
     @include screen('lg', max, 2) {
       font-size: pxtovw(18, 1366);
     }
@@ -201,6 +243,11 @@
     min-height: 469px;
     background-color: $nd-color-gray-text7;
     border-radius: 3px;
+
+    @include screen('xlg', max, 2) {
+      min-height: pxtovw(469, 1660);
+      border-radius: pxtovw(3, 1660);
+    }
 
     @include screen('lg', max, 2) {
       min-height: pxtovw(469, 1366);

@@ -18,6 +18,12 @@
     width: 28px;
     height: 25px;
 
+    @include screen('xlg', max, 2) {
+      min-width: pxtovw(28, 1660);
+      width: pxtovw(28, 1660);
+      height: pxtovw(25, 1660);
+    }
+
     @include screen('lg', max, 2) {
       min-width: pxtovw(23, 1366);
       width: pxtovw(23, 1366);
@@ -97,6 +103,12 @@
       right: -4px;
       background-color: $nd-color-fixeddesk;
       transform: translate3d(0, -50%, 0);
+
+      @include screen('xlg', max, 2) {
+        width: pxtovw(9, 1660);
+        height: pxtovw(9, 1660);
+        right: pxtovw(-4, 1660);
+      }
 
       @include screen('lg', max, 2) {
         width: pxtovw(7, 1366);

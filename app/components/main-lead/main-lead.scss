@@ -11,8 +11,12 @@
     @include grid-template-rows(auto 200px);
 
     @include screen('xl', max, 2) {
-      @include grid-template-columns(42.4% 15.4% 42.2%);
-      @include grid-template-rows(auto 166px);
+      @include grid-template-columns(39.9% 22.1% 38%);
+    }
+
+    @include screen('xlg', max, 2) {
+      @include grid-template-columns(39.9% 22.1% 38%);
+      @include grid-template-rows(auto pxtovw(200, 1660));
     }
 
     @include screen('lg', max, 2) {
@@ -48,9 +52,9 @@
     box-sizing: border-box;
     padding: 25px 30px 30px 20px;
 
-    @include screen('xl', max, 2) {
-      font-size: 36px;
-      padding: 34px 30px;
+    @include screen('xlg', max, 2) {
+      font-size: pxtovw(40, 1660);
+      padding: pxtovw(25, 1660) pxtovw(30, 1660) pxtovw(30, 1660) pxtovw(20, 1660);
     }
 
     @include screen('lg', max, 2) {
@@ -106,8 +110,8 @@
     overflow: hidden;
     border-radius: 3px;
 
-    @include screen('xl', max, 2) {
-      padding-top: 52.3%;
+    @include screen('xlg', max, 2) {
+      border-radius: pxtovw(3, 1660);
     }
 
     @include screen('lg', max, 2) {
@@ -145,6 +149,10 @@
       border-radius: 3px;
 
       @include fill-img;
+
+      @include screen('xlg', max, 2) {
+        border-radius: pxtovw(3, 1660);
+      }
 
       @include screen('lg', max, 2) {
         border-radius: pxtovw(3, 1366);

@@ -35,6 +35,10 @@
       line-height: (21 / 17);
       letter-spacing: -.04em;
 
+      @include screen('xlg', max, 2) {
+        font-size: pxtovw(17, 1660);
+      }
+
       @include screen('lg', max, 2) {
         font-size: pxtovw(15, 1366);
         line-height: (18 / 15);
@@ -55,6 +59,10 @@
       &__item {
         &:not(:last-child) {
           margin-right: 34px;
+
+          @include screen('xlg', max, 2) {
+            margin-right: pxtovw(34, 1660);
+          }
 
           @include screen('lg', max, 2) {
             margin-right: pxtovw(34, 1366);

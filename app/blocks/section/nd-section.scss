@@ -7,8 +7,8 @@
   &:not(:first-child) {
     margin-top: 78px;
 
-    @include screen('xl', max, 2) {
-      margin-top: 96px;
+    @include screen('xlg', max, 2) {
+      margin-top: pxtovw(78, 1660);
     }
 
     @include screen('lg', max, 2) {
@@ -27,6 +27,10 @@
   &_mt80:not(:first-child) {
     margin-top: 80px;
 
+    @include screen('xlg', max, 2) {
+      margin-top: pxtovw(80, 1660);
+    }
+
     @include screen('lg', max, 2) {
       margin-top: pxtovw(80, 1366);
     }
@@ -44,7 +48,7 @@
     margin-top: 114px;
 
     @include screen('xlg', max, 2) {
-      margin-top: 75px;
+      margin-top: pxtovw(114, 1660);
     }
 
     @include screen('lg', max, 2) {
@@ -64,7 +68,7 @@
     margin-top: 130px;
 
     @include screen('xlg', max, 2) {
-      margin-top: 97px;
+      margin-top: pxtovw(130, 1660);
     }
 
     @include screen('lg', max, 2) {
@@ -89,6 +93,10 @@
       &:not(:first-child) {
         margin-top: 14px;
 
+        @include screen('xlg', max, 2) {
+          margin-top: pxtovw(14, 1660);
+        }
+
         @include screen('lg', max, 2) {
           margin-top: pxtovw(14, 1366);
         }
@@ -112,13 +120,13 @@
     font-size: 22px;
     line-height: (26 / 22);
 
-    @include screen('xl', max, 2) {
-      font-size: 20px;
-      line-height: (24 / 20);
+    @include screen('xlg', max, 2) {
+      font-size: pxtovw(22, 1660);
     }
 
     @include screen('lg', max, 2) {
       font-size: pxtovw(20, 1366);
+      line-height: (24 / 20);
     }
 
     @include screen('md', max, 2) {
@@ -133,6 +141,10 @@
       font-size: 30px;
       line-height: 1.19;
       letter-spacing: normal;
+
+      @include screen('xlg', max, 2) {
+        font-size: pxtovw(30, 1660);
+      }
 
       @include screen('lg', max, 2) {
         font-size: pxtovw(30, 1366);
@@ -160,8 +172,8 @@
     &:not(:first-child) {
       margin-top: 52px;
 
-      @include screen('xl', max, 2) {
-        margin-top: 38px;
+      @include screen('xlg', max, 2) {
+        margin-top: pxtovw(52, 1660);
       }
 
       @include screen('lg', max, 2) {
@@ -181,7 +193,11 @@
       margin-bottom: 165px;
 
       @include screen('xl', max, 2) {
-        margin-bottom: 155px;
+        margin-bottom: 182px;
+      }
+
+      @include screen('xlg', max, 2) {
+        margin-bottom: pxtovw(182, 1660);
       }
 
       @include screen('lg', max, 2) {
@@ -199,8 +215,8 @@
       &:not(:first-child) {
         margin-top: 60px;
 
-        @include screen('xl', max, 2) {
-          margin-top: 48px;
+        @include screen('xlg', max, 2) {
+          margin-top: pxtovw(60, 1660);
         }
 
         @include screen('lg', max, 2) {
@@ -218,6 +234,8 @@
     }
 
     &_spaces {
+      padding-bottom: 10px;
+
       @include screen('sm', max, 2) {
         margin: 0 pxtovw(-20, 375);
         width: calc(100% + ((4000 / 375) * 1vw));
@@ -227,8 +245,8 @@
       &:not(:first-child) {
         margin-top: 62px;
 
-        @include screen('xl', max, 2) {
-          margin-top: 42px;
+        @include screen('xlg', max, 2) {
+          margin-top: pxtovw(62, 1660);
         }
 
         @include screen('lg', max, 2) {
@@ -263,7 +281,11 @@
       margin-top: 66px;
 
       @include screen('xl', max, 2) {
-        margin-top: 54px;
+        margin-top: 70px;
+      }
+
+      @include screen('xlg', max, 2) {
+        margin-top: pxtovw(70, 1660);
       }
 
       @include screen('lg', max, 2) {
@@ -287,8 +309,12 @@
       margin-bottom: 84px;
 
       @include screen('xl', max, 2) {
-        padding-top: 13px;
-        margin-bottom: -28px;
+        padding-top: 68px;
+      }
+
+      @include screen('xlg', max, 2) {
+        padding-top: pxtovw(68, 1660);
+        margin-bottom: pxtovw(84, 1660);
       }
 
       @include screen('lg', max, 2) {
@@ -315,8 +341,13 @@
           padding-top: 54px;
 
           @include screen('xl', max, 2) {
-            width: 26.9%;
-            padding-top: 26px;
+            width: 28.3%;
+            padding-top: 52px;
+          }
+
+          @include screen('xlg', max, 2) {
+            width: pxtovw(436, 1660);
+            padding-top: pxtovw(52, 1660);
           }
 
           @include screen('lg', max, 2) {
@@ -342,8 +373,13 @@
           width: (100% - 27.2%);
 
           @include screen('xl', max, 2) {
-            width: (100% - 26.9%);
-            padding-left: 100px;
+            width: (100% - 28.3%);
+            padding-left: 15px;
+          }
+
+          @include screen('xlg', max, 2) {
+            width: pxtovw((1540 - 436), 1660);
+            padding-left: pxtovw(15, 1660);
           }
 
           @include screen('lg', max, 2) {
@@ -392,6 +428,10 @@
     line-height: 1.45;
     font-weight: 400;
 
+    @include screen('xlg', max, 2) {
+      font-size: pxtovw(18, 1660);
+    }
+
     @include screen('lg', max, 2) {
       font-size: pxtovw(18, 1366);
     }
@@ -409,6 +449,10 @@
   &__map {
     &:not(:first-child) {
       margin-top: 42px;
+
+      @include screen('xlg', max, 2) {
+        margin-top: pxtovw(42, 1660);
+      }
 
       @include screen('lg', max, 2) {
         margin-top: pxtovw(42, 1366);
@@ -428,7 +472,7 @@
     margin-bottom: 142px;
 
     @include screen('xlg', max, 2) {
-      margin-bottom: 86px;
+      margin-bottom: pxtovw(142, 1660);
     }
 
     @include screen('lg', max, 2) {
@@ -445,6 +489,10 @@
 
     &:not(:first-child) {
       margin-top: 26px;
+
+      @include screen('xlg', max, 2) {
+        margin-top: pxtovw(26, 1660);
+      }
 
       @include screen('lg', max, 2) {
         margin-top: pxtovw(26, 1366);
@@ -467,6 +515,10 @@
     &:not(:first-child) {
       margin-top: 35px;
 
+      @include screen('xlg', max, 2) {
+        margin-top: pxtovw(35, 1660);
+      }
+
       @include screen('lg', max, 2) {
         margin-top: pxtovw(35, 1366);
       }
@@ -488,6 +540,10 @@
     &:not(:first-child) {
       margin-top: 40px;
 
+      @include screen('xlg', max, 2) {
+        margin-top: pxtovw(40, 1660);
+      }
+
       @include screen('lg', max, 2) {
         margin-top: pxtovw(40, 1366);
       }
@@ -507,7 +563,11 @@
       margin-top: 136px;
 
       @include screen('xl', max, 2) {
-        margin-top: 125px;
+        margin-top: 146px;
+      }
+
+      @include screen('xlg', max, 2) {
+        margin-top: pxtovw(146, 1660);
       }
 
       @include screen('lg', max, 2) {
@@ -528,7 +588,11 @@
         margin-top: 96px;
 
         @include screen('xl', max, 2) {
-          margin-top: 71px;
+          margin-top: 73px;
+        }
+
+        @include screen('xlg', max, 2) {
+          margin-top: pxtovw(73, 1660);
         }
 
         @include screen('lg', max, 2) {
@@ -566,7 +630,7 @@
           margin-top: 74px;
 
           @include screen('xlg', max, 2) {
-            margin-top: 58px;
+            margin-top: pxtovw(74, 1660);
           }
 
           @include screen('lg', max, 2) {
@@ -591,12 +655,15 @@
         padding-top: 61.6%;
 
         @include screen('xlg', max, 2) {
-          margin: 0;
-          width: 100%;
-          padding-top: 57%;
+          margin: 0 0 0 pxtovw(-96, 1660);
+          width: calc(100% + ((9600 / 1660) * 1vw));
+          border-radius: pxtovw(3, 1660);
         }
 
         @include screen('lg', max, 2) {
+          margin: 0;
+          width: 100%;
+          padding-top: 57%;
           border-radius: pxtovw(3, 1366);
         }
 
@@ -617,6 +684,10 @@
 
         &:not(:first-child) {
           margin-top: 50px;
+
+          @include screen('xlg', max, 2) {
+            margin-top: pxtovw(50, 1660);
+          }
 
           @include screen('lg', max, 2) {
             margin-top: pxtovw(50, 1366);
@@ -653,7 +724,7 @@
           margin-top: 52px;
 
           @include screen('xlg', max, 2) {
-            margin-top: 37px;
+            margin-top: pxtovw(52, 1660);
           }
 
           @include screen('lg', max, 2) {
@@ -677,6 +748,10 @@
 
     &:not(:first-child) {
       margin-top: 80px;
+
+      @include screen('xlg', max, 2) {
+        margin-top: pxtovw(80, 1660);
+      }
 
       @include screen('lg', max, 2) {
         margin-top: pxtovw(82, 1366);

@@ -12,8 +12,12 @@
   margin-top: 165px;
 
   @include screen('xl', max, 2) {
-    padding: 53px 0 72px;
-    margin-top: 145px;
+    margin-top: 153px;
+  }
+
+  @include screen('xlg', max, 2) {
+    padding: pxtovw(78, 1660) 0 pxtovw(107, 1660);
+    margin-top: pxtovw(153, 1660);
   }
 
   @include screen('lg', max, 2) {
@@ -40,9 +44,15 @@
     padding-bottom: 39px;
 
     @include screen('xl', max, 2) {
-      @include grid-template-columns(250px 193px 1fr);
+      @include grid-template-columns(260px 207px 1fr);
 
-      padding-bottom: 23px;
+      padding-bottom: 41px;
+    }
+
+    @include screen('xlg', max, 2) {
+      @include grid-template-columns(pxtovw(260, 1660) pxtovw(207, 1660) 1fr);
+
+      padding-bottom: pxtovw(41, 1660);
     }
 
     @include screen('lg', max, 2) {
@@ -70,6 +80,10 @@
     display: block;
     box-sizing: border-box;
     padding-right: 30px;
+
+    @include screen('xlg', max, 2) {
+      padding-right: pxtovw(30, 1660);
+    }
 
     @include screen('lg', max, 2) {
       padding-right: pxtovw(30, 1366);
@@ -226,12 +240,10 @@
         @include grid-column(1, 2);
         @include grid-row(2, 3);
 
-        @include screen('xl', max, 2) {
+        @include screen('lg', max, 2) {
           @include grid-column(1, 3);
           @include grid-row(2, 3);
-        }
 
-        @include screen('lg', max, 2) {
           column-gap: pxtovw(30, 1366);
         }
 
@@ -257,7 +269,7 @@
         @include grid-align-self(start);
         @include grid-justify-self(end);
 
-        @include screen('xl', max, 2) {
+        @include screen('lg', max, 2) {
           @include grid-column(2, 3);
           @include grid-row(1, 2);
         }
@@ -284,6 +296,10 @@
     font-weight: 700;
     letter-spacing: -.02em;
 
+    @include screen('xlg', max, 2) {
+      font-size: pxtovw(20, 1660);
+    }
+
     @include screen('lg', max, 2) {
       font-size: pxtovw(20, 1366);
     }
@@ -299,8 +315,8 @@
     &:not(:last-child) {
       margin-bottom: 19px;
 
-      @include screen('xl', max, 2) {
-        margin-bottom: 15px;
+      @include screen('xlg', max, 2) {
+        margin-bottom: pxtovw(19, 1660);
       }
 
       @include screen('lg', max, 2) {
@@ -325,6 +341,10 @@
     font-weight: 400;
     column-span: none;
     white-space: nowrap;
+
+    @include screen('xlg', max, 2) {
+      font-size: pxtovw(17, 1660);
+    }
 
     @include screen('lg', max, 2) {
       font-size: pxtovw(17, 1366);
@@ -367,8 +387,8 @@
     line-height: (28 / 18);
     letter-spacing: normal;
 
-    @include screen('xl', max, 2) {
-      line-height: (32 / 18);
+    @include screen('xlg', max, 2) {
+      font-size: pxtovw(18, 1660);
     }
 
     @include screen('lg', max, 2) {
@@ -394,9 +414,15 @@
     padding-top: 44px;
 
     @include screen('xl', max, 2) {
-      @include grid-template-columns(250px 1fr auto);
+      @include grid-template-columns(260px 1fr auto);
 
-      padding-top: 39px;
+      padding-top: 42px;
+    }
+
+    @include screen('xlg', max, 2) {
+      @include grid-template-columns(pxtovw(260, 1660) 1fr auto);
+
+      padding-top: pxtovw(42, 1660);
     }
 
     @include screen('lg', max, 2) {
@@ -446,7 +472,11 @@
     @include grid-row(1, 2);
 
     @include screen('xl', max, 2) {
-      max-width: 354px;
+      max-width: 382px;
+    }
+
+    @include screen('xlg', max, 2) {
+      max-width: pxtovw(382, 1660);
     }
 
     @include screen('lg', max, 2) {
@@ -490,6 +520,10 @@
     letter-spacing: -.02em;
     color: $nd-color-gray-text5;
 
+    @include screen('xlg', max, 2) {
+      font-size: pxtovw(15, 1660);
+    }
+
     @include screen('lg', max, 2) {
       font-size: pxtovw(15, 1366);
     }
@@ -505,8 +539,8 @@
     &:not(:first-child) {
       margin-top: 50px;
 
-      @include screen('xl', max, 2) {
-        margin-top: 40px;
+      @include screen('xlg', max, 2) {
+        margin-top: pxtovw(50, 1660);
       }
 
       @include screen('lg', max, 2) {
@@ -528,8 +562,8 @@
     &:not(:first-child) {
       margin-top: 17px;
 
-      @include screen('xl', max, 2) {
-        margin-top: 12px;
+      @include screen('xlg', max, 2) {
+        margin-top: pxtovw(17, 1660);
       }
 
       @include screen('lg', max, 2) {

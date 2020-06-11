@@ -94,8 +94,9 @@
       z-index: 10;
       top: 15px;
 
-      @include screen('xl', max, 2) {
-        top: 19px;
+      @include screen('xlg', max, 2) {
+        height: pxtovw(60, 1660);
+        top: pxtovw(15, 1660);
       }
 
       @include screen('lg', max, 2) {
@@ -121,6 +122,10 @@
         transition:
           background .15s ease,
           border .15s ease;
+
+        @include screen('xlg', max, 2) {
+          height: pxtovw(60, 1660);
+        }
 
         @include screen('lg', max, 2) {
           height: pxtovw(60, 1366);
@@ -213,6 +218,10 @@
       justify-content: flex-start;
       align-items: center;
       color: $nd-color-logo;
+
+      @include screen('xlg', max, 2) {
+        margin-right: pxtovw(50, 1660);
+      }
 
       @include screen('lg', max, 2) {
         margin-right: pxtovw(50, 1366);
@@ -312,6 +321,10 @@
       margin-left: 73px;
       align-self: center;
 
+      @include screen('xlg', max, 2) {
+        margin-left: pxtovw(73, 1660);
+      }
+
       @include screen('lg', max, 2) {
         margin-left: pxtovw(60, 1366);
       }
@@ -377,8 +390,8 @@
   &.nd-header {
     height: 90px;
 
-    @include screen('xl', max, 2) {
-      height: 98px;
+    @include screen('xlg', max, 2) {
+      height: pxtovw(90, 1660);
     }
 
     @include screen('lg', max, 2) {

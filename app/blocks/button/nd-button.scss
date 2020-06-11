@@ -19,6 +19,13 @@
   letter-spacing: normal;
   padding: 0 34px;
 
+  @include screen('xlg', max, 2) {
+    height: pxtovw(40, 1660);
+    font-size: pxtovw(18, 1660);
+    padding: 0 pxtovw(34, 1660);
+    border-radius: pxtovw(20, 1660);
+  }
+
   @include screen('lg', max, 2) {
     height: pxtovw(40, 1366);
     font-size: pxtovw(18, 1366);
@@ -103,6 +110,11 @@
       width: 12px;
       height: 12px;
 
+      @include screen('xlg', max, 2) {
+        width: pxtovw(12, 1660);
+        height: pxtovw(12, 1660);
+      }
+
       @include screen('lg', max, 2) {
         width: pxtovw(12, 1366);
         height: pxtovw(12, 1366);
@@ -143,6 +155,11 @@
       background-position: 50% 50%;
       background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 14.39 15.18'%3E%3Ctitle%3End-user%3C/title%3E%3Cpath d='M7.19,9A4.42,4.42,0,0,1,2.86,4.49,4.42,4.42,0,0,1,7.19,0a4.41,4.41,0,0,1,4.33,4.49A4.41,4.41,0,0,1,7.19,9Zm0-8A3.42,3.42,0,0,0,3.86,4.49,3.41,3.41,0,0,0,7.19,8a3.41,3.41,0,0,0,3.33-3.48A3.41,3.41,0,0,0,7.19,1Z' fill='%23525a65'/%3E%3Cpath d='M13.89,15.18a.5.5,0,0,1-.5-.5c0-1.94-2.84-3.58-6.2-3.58S1,12.74,1,14.68a.5.5,0,0,1-.5.5.5.5,0,0,1-.5-.5c0-2.57,3.16-4.58,7.19-4.58s7.2,2,7.2,4.58A.5.5,0,0,1,13.89,15.18Z' fill='%23525a65'/%3E%3C/svg%3E");
 
+      @include screen('xlg', max, 2) {
+        width: pxtovw(13, 1660);
+        height: pxtovw(13, 1660);
+      }
+
       @include screen('lg', max, 2) {
         width: pxtovw(13, 1366);
         height: pxtovw(13, 1366);
@@ -164,6 +181,10 @@
     font-size: 17px;
     line-height: (21 / 17);
 
+    @include screen('xlg', max, 2) {
+      font-size: pxtovw(17, 1660);
+    }
+
     @include screen('lg', max, 2) {
       font-size: pxtovw(17, 1366);
     }
@@ -181,12 +202,12 @@
     font-size: 15px;
     line-height: (18 / 15);
 
-    @include screen('xl', max, 2) {
-      font-size: 13px;
-      line-height: (16 / 13);
+    @include screen('xlg', max, 2) {
+      font-size: pxtovw(15, 1660);
     }
 
     @include screen('lg', max, 2) {
+      line-height: (16 / 13);
       font-size: pxtovw(13, 1366);
     }
 
@@ -220,6 +241,10 @@
   &_pad10 {
     padding: 0 10px;
 
+    @include screen('xlg', max, 2) {
+      padding: 0 pxtovw(10, 1660);
+    }
+
     @include screen('lg', max, 2) {
       padding: 0 pxtovw(10, 1366);
     }
@@ -236,6 +261,11 @@
   &_h30 {
     height: 30px;
     border-radius: 15px;
+
+    @include screen('xlg', max, 2) {
+      border-radius: pxtovw(15, 1660);
+      height: pxtovw(30, 1660);
+    }
 
     @include screen('lg', max, 2) {
       border-radius: pxtovw(15, 1366);
@@ -268,6 +298,10 @@
   &_icon_start {
     padding: 0 16px 0 30px;
 
+    @include screen('xlg', max, 2) {
+      padding: 0 pxtovw(16, 1660) 0 pxtovw(30, 1660);
+    }
+
     @include screen('lg', max, 2) {
       padding: 0 pxtovw(16, 1366) 0 pxtovw(30, 1366);
     }
@@ -288,6 +322,10 @@
         transform: translate3d(0, -50%, 0);
         transform-origin: 50% 50%;
 
+        @include screen('xlg', max, 2) {
+          left: pxtovw(9, 1660);
+        }
+
         @include screen('lg', max, 2) {
           left: pxtovw(9, 1366);
         }
@@ -302,6 +340,10 @@
 
         &_user {
           left: 15px;
+
+          @include screen('xlg', max, 2) {
+            left: pxtovw(15, 1660);
+          }
 
           @include screen('lg', max, 2) {
             left: pxtovw(15, 1366);

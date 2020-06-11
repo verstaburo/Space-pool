@@ -52,7 +52,11 @@
   box-sizing: border-box;
 
   @include screen('xl', max, 2) {
-    padding: 0 50px;
+    padding: 0 60px;
+  }
+
+  @include screen('xlg', max, 2) {
+    padding: 0 pxtovw(60, 1660);
   }
 
   @include screen('lg', max, 2) {
@@ -150,10 +154,18 @@
   display: none !important;
 }
 
-// спрятать на cреднем десктопе и ниже
+// спрятать на cредне большом десктопе и ниже
 
 .nd-hide-xl {
   @include screen('xl', max, 2) {
+    display: none;
+  }
+}
+
+// спрятать на среднем десктопе и ниже
+
+.nd-hide-xlg {
+  @include screen('xlg', max, 2) {
     display: none;
   }
 }
@@ -202,6 +214,14 @@
 
 .nd-hide-from-lg {
   @include screen('lg', min, 2) {
+    display: none;
+  }
+}
+
+// спрятать на средне больших десктопах
+
+.nd-hide-from-xlg {
+  @include screen('xlg', min, 2) {
     display: none;
   }
 }
