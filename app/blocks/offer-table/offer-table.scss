@@ -10,6 +10,10 @@
     box-sizing: border-box;
     padding: 6px 0;
 
+    @include screen('xlg', max, 2) {
+      padding: pxtovw(6, 1660) 0;
+    }
+
     @include screen('lg', max, 2) {
       padding: pxtovw(6, 1366) 0;
     }
@@ -39,6 +43,11 @@
     width: 8px;
     height: 8px;
 
+    @include screen('xlg', max, 2) {
+      width: pxtovw(8, 1660);
+      height: pxtovw(8, 1660);
+    }
+
     @include screen('lg', max, 2) {
       width: pxtovw(8, 1366);
       height: pxtovw(8, 1366);
@@ -62,6 +71,10 @@
     line-height: (13 / 12);
     font-size: 11px;
 
+    @include screen('xlg', max, 2) {
+      font-size: pxtovw(11, 1660);
+    }
+
     @include screen('lg', max, 2) {
       font-size: pxtovw(11, 1366);
     }
@@ -76,6 +89,10 @@
 
     &:not(:first-child) {
       margin-left: 8px;
+
+      @include screen('xlg', max, 2) {
+        margin-left: pxtovw(8, 1660);
+      }
 
       @include screen('lg', max, 2) {
         margin-left: pxtovw(8, 1366);
@@ -100,6 +117,10 @@
     font-weight: 400;
     text-align: right;
     width: 100%;
+
+    @include screen('xlg', max, 2) {
+      font-size: pxtovw(13, 1660);
+    }
 
     @include screen('lg', max, 2) {
       font-size: pxtovw(13, 1366);

@@ -7,7 +7,7 @@
   padding: 26px 0;
 
   @include screen('xlg', max, 2) {
-    padding: 29px 0;
+    padding: pxtovw(26, 1660) 0;
   }
 
   @include screen('lg', max, 2) {
@@ -47,6 +47,10 @@
       box-sizing: border-box;
       padding-left: 66px;
 
+      @include screen('xlg', max, 2) {
+        padding-left: pxtovw(66, 1660);
+      }
+
       @include screen('lg', max, 2) {
         padding-left: pxtovw(66, 1366);
       }
@@ -68,6 +72,11 @@
         top: 50%;
         left: 33px;
         transform: translate3d(0, -50%, 0);
+
+        @include screen('xlg', max, 2) {
+          left: pxtovw(33, 1660);
+          height: pxtovw(20, 1660);
+        }
 
         @include screen('lg', max, 2) {
           left: pxtovw(33, 1366);
@@ -92,6 +101,22 @@
     font-weight: 700;
     letter-spacing: -.02em;
 
+    @include screen('xlg', max, 2) {
+      font-size: pxtovw(16, 1660);
+    }
+
+    @include screen('lg', max, 2) {
+      font-size: pxtovw(16, 1366);
+    }
+
+    @include screen('md', max, 2) {
+      font-size: pxtovw(16, 960);
+    }
+
+    @include screen('sm', max, 2) {
+      font-size: pxtovw(16, 375);
+    }
+
     .nd-link {
       &__text {
         @include screen('sm', max, 2) {
@@ -104,6 +129,10 @@
   &__breadcrumbs {
     &:not(:last-child) {
       margin-right: 50px;
+
+      @include screen('xlg', max, 2) {
+        margin-right: pxtovw(50, 1660);
+      }
 
       @include screen('lg', max, 2) {
         margin-right: pxtovw(50, 1366);
@@ -130,7 +159,7 @@
       @include grid-template-rows(auto);
 
       @include screen('xlg', max, 2) {
-        @include grid-template-columns(301px 20px 1fr);
+        @include grid-template-columns(pxtovw(368, 1660) pxtovw(50, 1660) 1fr);
       }
 
       @include screen('lg', max, 2) {

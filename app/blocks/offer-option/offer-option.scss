@@ -12,6 +12,12 @@
   &_nd {
     color: $nd-color-basic;
 
+    @include screen('xlg', max, 2) {
+      @include grid-template-columns(1fr pxtovw(100, 1660));
+
+      padding: pxtovw(9, 1660) 0 pxtovw(9, 1660) pxtovw(14, 1660);
+    }
+
     @include screen('lg', max, 2) {
       @include grid-template-columns(1fr pxtovw(100, 1366));
 
@@ -46,25 +52,40 @@
     }
 
     #{$b}_nd & {
+      min-width: 8px;
       width: 8px;
       height: 8px;
+      flex: none;
+
+      @include screen('xlg', max, 2) {
+        min-width: pxtovw(8, 1660);
+        width: pxtovw(8, 1660);
+        height: pxtovw(8, 1660);
+      }
 
       @include screen('lg', max, 2) {
+        min-width: pxtovw(8, 1366);
         width: pxtovw(8, 1366);
         height: pxtovw(8, 1366);
       }
 
       @include screen('md', max, 2) {
+        min-width: pxtovw(8, 960);
         width: pxtovw(8, 960);
         height: pxtovw(8, 960);
       }
 
       @include screen('sm', max, 2) {
+        min-width: pxtovw(8, 375);
         width: pxtovw(8, 375);
         height: pxtovw(8, 375);
       }
 
       &:not(:last-child) {
+        @include screen('xlg', max, 2) {
+          margin-right: pxtovw(4, 1660);
+        }
+
         @include screen('lg', max, 2) {
           margin-right: pxtovw(4, 1366);
         }
@@ -91,6 +112,10 @@
       font-size: 12px;
       letter-spacing: normal;
       color: $nd-color-gray-text;
+
+      @include screen('xlg', max, 2) {
+        font-size: pxtovw(12, 1660);
+      }
 
       @include screen('lg', max, 2) {
         font-size: pxtovw(12, 1366);
@@ -128,6 +153,10 @@
 
     #{$b}_nd & {
       color: $nd-color-basic;
+
+      @include screen('xlg', max, 2) {
+        font-size: pxtovw(16, 1660);
+      }
 
       @include screen('lg', max, 2) {
         font-size: pxtovw(16, 1366);
@@ -173,6 +202,11 @@
     line-height: (17 / 18);
 
     #{$b}_nd & {
+      @include screen('xlg', max, 2) {
+        font-size: pxtovw(18, 1660);
+        padding-top: pxtovw(20, 1660);
+      }
+
       @include screen('lg', max, 2) {
         font-size: pxtovw(18, 1366);
         padding-top: pxtovw(20, 1366);
@@ -201,6 +235,10 @@
       font-weight: 400;
       letter-spacing: -.02em;
 
+      @include screen('xlg', max, 2) {
+        font-size: pxtovw(12, 1660);
+      }
+
       @include screen('lg', max, 2) {
         font-size: pxtovw(12, 1366);
       }
@@ -222,6 +260,10 @@
     line-height: (14/12);
 
     #{$b}_nd & {
+      @include screen('xlg', max, 2) {
+        font-size: pxtovw(12, 1660);
+      }
+
       @include screen('lg', max, 2) {
         font-size: pxtovw(12, 1366);
       }
@@ -241,6 +283,10 @@
     padding-left: 4px;
 
     #{$b}_nd & {
+      @include screen('xlg', max, 2) {
+        padding-left: pxtovw(4, 1660);
+      }
+
       @include screen('lg', max, 2) {
         padding-left: pxtovw(4, 1366);
       }
@@ -307,6 +353,10 @@
         font-size: 11px;
         line-height: (13 / 11);
 
+        @include screen('xlg', max, 2) {
+          font-size: pxtovw(11, 1660);
+        }
+
         @include screen('lg', max, 2) {
           font-size: pxtovw(11, 1366);
         }
@@ -328,12 +378,12 @@
         letter-spacing: normal;
 
         @include screen('xlg', max, 2) {
-          margin-left: .3em;
-          font-size: 13px;
-          line-height: (16 / 13);
+          font-size: pxtovw(15, 1660);
         }
 
         @include screen('lg', max, 2) {
+          margin-left: .3em;
+          line-height: (16 / 13);
           font-size: pxtovw(13, 1366);
         }
 
@@ -353,11 +403,11 @@
         letter-spacing: normal;
 
         @include screen('xlg', max, 2) {
-          font-size: 13px;
-          line-height: (16 / 13);
+          font-size: pxtovw(15, 1660);
         }
 
         @include screen('lg', max, 2) {
+          line-height: (16 / 13);
           font-size: pxtovw(13, 1366);
         }
 
@@ -371,6 +421,10 @@
 
         &:not(:first-child) {
           margin-top: 4px;
+
+          @include screen('xlg', max, 2) {
+            margin-top: pxtovw(4, 1660);
+          }
 
           @include screen('lg', max, 2) {
             margin-top: pxtovw(4, 1366);
@@ -392,11 +446,11 @@
         font-weight: 400;
 
         @include screen('xlg', max, 2) {
-          font-size: 13px;
-          line-height: (16 / 13);
+          font-size: pxtovw(15, 1660);
         }
 
         @include screen('lg', max, 2) {
+          line-height: (16 / 13);
           font-size: pxtovw(13, 1366);
         }
 
@@ -410,6 +464,10 @@
 
         &:not(:first-child) {
           margin-top: 5px;
+
+          @include screen('xlg', max, 2) {
+            margin-top: pxtovw(5, 1660);
+          }
 
           @include screen('lg', max, 2) {
             margin-top: pxtovw(5, 1366);

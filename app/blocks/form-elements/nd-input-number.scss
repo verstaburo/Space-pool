@@ -9,7 +9,7 @@
   $b: &;
 
   @include screen('xlg', max, 2) {
-    height: 40px;
+    height: pxtovw(50, 1660);
   }
 
   @include screen('lg', max, 2) {
@@ -39,8 +39,9 @@
     padding-left: 13px;
     max-width: calc(100% - 167px);
 
-    @include screen('xlg') {
-      max-width: calc(100% - 130px);
+    @include screen('xlg', max, 2) {
+      padding-left: pxtovw(13, 1660);
+      max-width: calc(100% - ((16700 / 1660) * 1vw));
     }
 
     @include screen('lg', max, 2) {
@@ -70,8 +71,8 @@
     cursor: pointer;
     transition: border $ease-main;
 
-    @include screen('xlg') {
-      width: 65px;
+    @include screen('xlg', max, 2) {
+      width: pxtovw(82, 1660);
     }
 
     @include screen('lg', max, 2) {
@@ -93,6 +94,10 @@
 
     &:last-child {
       border-radius: 0 3px 3px 0;
+
+      @include screen('xlg', max, 2) {
+        border-radius: 0 pxtovw(3, 1660) pxtovw(3, 1660) 0;
+      }
 
       @include screen('lg', max, 2) {
         border-radius: 0 pxtovw(3, 1366) pxtovw(3, 1366) 0;
@@ -121,6 +126,10 @@
       height: 1px;
       background-color: $nd-color-basic;
       transform: translate3d(-50%, -50%, 0);
+
+      @include screen('xlg', max, 2) {
+        width: pxtovw(12, 1660);
+      }
 
       @include screen('lg', max, 2) {
         width: pxtovw(12, 1366);
@@ -163,6 +172,10 @@
     min-width: 0;
     text-align: center;
 
+    @include screen('xlg', max, 2) {
+      font-size: pxtovw(18, 1660);
+    }
+
     @include screen('lg', max, 2) {
       font-size: pxtovw(18, 1366);
     }
@@ -184,6 +197,11 @@
     text-transform: uppercase;
     color: $nd-color-gray-text;
     margin-right: 5px;
+
+    @include screen('xlg', max, 2) {
+      font-size: pxtovw(15, 1660);
+      margin-right: pxtovw(5, 1660);
+    }
 
     @include screen('lg', max, 2) {
       font-size: pxtovw(15, 1366);

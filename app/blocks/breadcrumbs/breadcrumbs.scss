@@ -77,12 +77,32 @@
   line-height: (19 / 16);
   font-weight: 400;
 
+  @include screen('xlg', max, 2) {
+    font-size: pxtovw(16, 1660);
+  }
+
+  @include screen('lg', max, 2) {
+    font-size: pxtovw(16, 1366);
+  }
+
+  @include screen('md', max, 2) {
+    font-size: pxtovw(16, 960);
+  }
+
+  @include screen('sm', max, 2) {
+    font-size: pxtovw(16, 375);
+  }
+
   &__item {
     position: relative;
     display: inline-block;
 
     &:not(:last-child) {
       padding-right: 30px;
+
+      @include screen('xlg', max, 2) {
+        padding-right: pxtovw(30, 1660);
+      }
 
       @include screen('lg', max, 2) {
         padding-right: pxtovw(30, 1366);
@@ -106,6 +126,10 @@
         right: 0;
         width: 30px;
         height: 100%;
+
+        @include screen('xlg', max, 2) {
+          width: pxtovw(30, 1660);
+        }
 
         @include screen('lg', max, 2) {
           width: pxtovw(30, 1366);

@@ -37,6 +37,10 @@
     height: 10px;
     border-bottom-color: $nd-color-border4;
 
+    @include screen('xlg', max, 2) {
+      height: pxtovw(10, 1660);
+    }
+
     @include screen('lg', max, 2) {
       height: pxtovw(10, 1366);
     }
@@ -85,7 +89,7 @@
       border-color: $nd-color-border4;
 
       @include screen('xlg', max, 2) {
-        height: 76px;
+        height: pxtovw(80, 1660);
       }
 
       @include screen('lg', max, 2) {
@@ -109,6 +113,10 @@
     // }
 
     #{$b}_nd.is-open & {
+      @include screen('xlg', max, 2) {
+        border-radius: pxtovw(3, 1660) pxtovw(3, 1660) 0 0;
+      }
+
       @include screen('lg', max, 2) {
         border-radius: pxtovw(3, 1366) pxtovw(3, 1366) 0 0;
       }
@@ -140,6 +148,10 @@
     }
 
     #{$b}_nd & {
+      @include screen('xlg', max, 2) {
+        right: pxtovw(18, 1660);
+      }
+
       @include screen('lg', max, 2) {
         right: pxtovw(18, 1366);
       }
@@ -161,6 +173,10 @@
     padding: 10px 35px 0 15px;
 
     #{$b}_nd & {
+      @include screen('xlg', max, 2) {
+        padding: pxtovw(10, 1660) pxtovw(35, 1660) 0 pxtovw(15, 1660);
+      }
+
       @include screen('lg', max, 2) {
         padding: pxtovw(10, 1366) pxtovw(35, 1366) 0 pxtovw(15, 1366);
       }
@@ -199,6 +215,12 @@
       background-repeat: no-repeat;
       background-image: url("data:image/svg+xml,%3Csvg width='6' height='6' viewBox='0 0 6 6' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M3.458 5.909L3.363 3.819L5.111 4.94L5.719 3.914L3.876 2.964L5.719 2.014L5.111 0.969L3.363 2.09L3.458 0H2.261L2.356 2.09L0.589 0.969L0 2.014L1.843 2.964L0 3.914L0.589 4.94L2.356 3.819L2.261 5.909H3.458Z' fill='%2386919E'/%3E%3C/svg%3E%0A");
 
+      @include screen('xlg', max, 2) {
+        width: pxtovw(22, 1660);
+        height: pxtovw(22, 1660);
+        background-size: pxtovw(6, 1660);
+      }
+
       @include screen('lg', max, 2) {
         width: pxtovw(22, 1366);
         height: pxtovw(22, 1366);
@@ -225,6 +247,11 @@
     color: currentColor;
 
     #{$b}_nd & {
+      @include screen('xlg', max, 2) {
+        width: pxtovw(12, 1660);
+        height: pxtovw(7, 1660);
+      }
+
       @include screen('lg', max, 2) {
         width: pxtovw(12, 1366);
         height: pxtovw(7, 1366);
@@ -287,6 +314,12 @@
       border-radius: 3px 0 3px 3px;
       // border-color: $nd-color-basic;
 
+      @include screen('xlg', max, 2) {
+        width: calc(100% + ((9400 / 1660) * 1vw));
+        max-height: pxtovw(326, 1660);
+        border-radius: pxtovw(3, 1660) 0 pxtovw(3, 1660) pxtovw(3, 1660);
+      }
+
       @include screen('lg', max, 2) {
         width: calc(100% + ((9400 / 1366) * 1vw));
         max-height: pxtovw(326, 1366);
@@ -309,6 +342,10 @@
     #{$b}_nd.offer-select_right & {
       border-radius: 3px 0 3px 3px;
 
+      @include screen('xlg', max, 2) {
+        border-radius: pxtovw(3, 1660) 0 pxtovw(3, 1660) pxtovw(3, 1660);
+      }
+
       @include screen('lg', max, 2) {
         border-radius: pxtovw(3, 1366) 0 pxtovw(3, 1366) pxtovw(3, 1366);
       }
@@ -324,6 +361,10 @@
 
     #{$b}_nd.offer-select_left & {
       border-radius: 0 3px 3px;
+
+      @include screen('xlg', max, 2) {
+        border-radius: 0 pxtovw(3, 1660) pxtovw(3, 1660);
+      }
 
       @include screen('lg', max, 2) {
         border-radius: 0 pxtovw(3, 1366) pxtovw(3, 1366);
@@ -360,6 +401,10 @@
     }
 
     #{$b}_nd & {
+      @include screen('xlg', max, 2) {
+        min-height: pxtovw(83, 1660);
+      }
+
       @include screen('lg', max, 2) {
         min-height: pxtovw(83, 1366);
       }
@@ -373,6 +418,10 @@
       }
 
       .offer-item {
+        @include screen('xlg', max, 2) {
+          padding: pxtovw(13, 1660) pxtovw(15, 1660);
+        }
+
         @include screen('lg', max, 2) {
           padding: pxtovw(13, 1366) pxtovw(15, 1366);
         }

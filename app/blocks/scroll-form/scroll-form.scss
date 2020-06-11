@@ -11,7 +11,7 @@
     padding: 35px 33px 25px;
 
     @include screen('xlg', max, 2) {
-      padding: 26px 33px 20px;
+      padding: pxtovw(35, 1660) pxtovw(33, 1660) pxtovw(25, 1660);
     }
 
     @include screen('lg', max, 2) {
@@ -30,8 +30,8 @@
     height: 11px;
 
     @include screen('xlg', max, 2) {
-      width: 9px;
-      height: 9px;
+      width: pxtovw(11, 1660);
+      height: pxtovw(11, 1660);
     }
 
     @include screen('lg', max, 2) {
@@ -67,8 +67,8 @@
       letter-spacing: normal;
 
       @include screen('xlg', max, 2) {
-        font-size: 22px;
-        margin-bottom: 19px;
+        font-size: pxtovw(26, 1660);
+        margin-bottom: pxtovw(30, 1660);
       }
 
       @include screen('lg', max, 2) {
@@ -153,7 +153,7 @@
         margin-bottom: 33px;
 
         @include screen('xlg', max, 2) {
-          margin-bottom: 18px;
+          margin-bottom: pxtovw(33, 1660);
         }
 
         @include screen('lg', max, 2) {
@@ -193,7 +193,7 @@
         margin-bottom: 48px;
 
         @include screen('xlg', max, 2) {
-          margin-bottom: 28px;
+          margin-bottom: pxtovw(48, 1660);
         }
 
         @include screen('lg', max, 2) {
@@ -226,6 +226,10 @@
       &:not(:last-child) {
         margin-bottom: 19px;
 
+        @include screen('xlg', max, 2) {
+          margin-bottom: pxtovw(19, 1660);
+        }
+
         @include screen('lg', max, 2) {
           margin-bottom: pxtovw(19, 1366);
         }
@@ -250,6 +254,10 @@
 
     #{$b}_nd & {
       &:not(:last-child) {
+        @include screen('xlg', max, 2) {
+          margin-bottom: pxtovw(22, 1660);
+        }
+
         @include screen('lg', max, 2) {
           margin-bottom: pxtovw(22, 1366);
         }
@@ -303,6 +311,10 @@
       box-sizing: border-box;
       width: 100%;
 
+      @include screen('xlg', max, 2) {
+        font-size: pxtovw(12, 1660);
+      }
+
       @include screen('lg', max, 2) {
         font-size: pxtovw(12, 1366);
       }
@@ -330,6 +342,13 @@
         background-size: 6px;
         background-image: url("data:image/svg+xml,%3Csvg width='6' height='6' viewBox='0 0 6 6' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M3.458 5.909L3.363 3.819L5.111 4.94L5.719 3.914L3.876 2.964L5.719 2.014L5.111 0.969L3.363 2.09L3.458 0H2.261L2.356 2.09L0.589 0.969L0 2.014L1.843 2.964L0 3.914L0.589 4.94L2.356 3.819L2.261 5.909H3.458Z' fill='%2386919E'/%3E%3C/svg%3E%0A");
         margin-right: 5px;
+
+        @include screen('xlg', max, 2) {
+          width: pxtovw(15, 1660);
+          height: pxtovw(15, 1660);
+          background-size: pxtovw(6, 1660);
+          margin-right: pxtovw(5, 1660);
+        }
 
         @include screen('lg', max, 2) {
           width: pxtovw(15, 1366);
@@ -446,7 +465,7 @@
       margin-bottom: 36px;
 
       @include screen('xlg', max, 2) {
-        margin-bottom: 16px;
+        margin-bottom: pxtovw(36, 1660);
       }
 
       @include screen('lg', max, 2) {
@@ -471,7 +490,7 @@
     margin-bottom: 22px;
 
     @include screen('xlg', max, 2) {
-      margin-bottom: 18px;
+      margin-bottom: pxtovw(22, 1660);
     }
 
     @include screen('lg', max, 2) {
@@ -500,6 +519,11 @@
     cursor: pointer;
     transition: color $ease-main;
 
+    @include screen('xlg', max, 2) {
+      width: pxtovw(17, 1660);
+      height: pxtovw(17, 1660);
+    }
+
     @include screen('lg', max, 2) {
       width: pxtovw(17, 1366);
       height: pxtovw(17, 1366);
@@ -526,6 +550,10 @@
     &:not(:first-child) {
       margin-left: 30px;
 
+      @include screen('xlg', max, 2) {
+        margin-left: pxtovw(30, 1660);
+      }
+
       @include screen('lg', max, 2) {
         margin-left: pxtovw(30, 1366);
       }
@@ -547,12 +575,8 @@
   }
 
   &__address {
-    @include screen('xlg', max, 2) {
-      font-size: 13px;
-      line-height: (16 / 13);
-    }
-
     @include screen('lg', max, 2) {
+      line-height: (16 / 13);
       font-size: pxtovw(13, 1366);
     }
 

@@ -10,12 +10,33 @@
   font-weight: 400;
   color: $nd-color-gray-text;
 
+  @include screen('xlg', max, 2) {
+    font-size: pxtovw(15, 1660);
+  }
+
+  @include screen('lg', max, 2) {
+    font-size: pxtovw(15, 1366);
+  }
+
+  @include screen('md', max, 2) {
+    font-size: pxtovw(15, 960);
+  }
+
+  @include screen('sm', max, 2) {
+    font-size: pxtovw(15, 375);
+  }
+
   &__icon {
     display: flex;
     justify-content: flex-start;
     align-items: center;
     width: 20px;
     height: 17px;
+
+    @include screen('xlg', max, 2) {
+      width: pxtovw(20, 1660);
+      height: pxtovw(17, 1660);
+    }
 
     @include screen('lg', max, 2) {
       width: pxtovw(20, 1366);
@@ -47,6 +68,10 @@
 
     &:not(:first-child) {
       margin-left: 10px;
+
+      @include screen('xlg', max, 2) {
+        margin-left: pxtovw(10, 1660);
+      }
 
       @include screen('lg', max, 2) {
         margin-left: pxtovw(10, 1366);

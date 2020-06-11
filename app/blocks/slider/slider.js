@@ -410,6 +410,11 @@ export default function slider() {
           },
           resize() {
             setBtnContainerHeight(el);
+            if (window.Modernizr.mq('(max-width: 1029px)')) {
+              $(this.slides).each((ix, slide) => {
+                $(slide).removeAttr('style');
+              });
+            }
           },
         },
       });
@@ -448,6 +453,13 @@ export default function slider() {
         on: {
           init() {
             $(sliderContainer).addClass('is-visible');
+          },
+          resize() {
+            if (window.Modernizr.mq('(max-width: 1029px)')) {
+              $(this.slides).each((ix, slide) => {
+                $(slide).removeAttr('style');
+              });
+            }
           },
         },
       });
