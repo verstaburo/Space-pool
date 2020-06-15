@@ -80,6 +80,7 @@ import stpFormSwitch from './functions/stepForm';
 import reservationRequestShow from '../components/reservation-request/reservation-request';
 import autocompleteList from '../blocks/autocomplete-list/autocomplete-list';
 import offerCard from '../components/offer-card/offer-card';
+import dates from '../blocks/datepicker/datepicker';
 
 const $ = window.$;
 
@@ -149,4 +150,5 @@ $(() => {
   reservationRequestShow();
   autocompleteList();
   offerCard();
+  dates();
 });
