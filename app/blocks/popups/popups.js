@@ -224,13 +224,13 @@ export default function popups() {
   // $('.js-popup').fancybox(optionsStPopup);
   // $('.js-popup-mobile').fancybox(optionsMobPopup);
 
-  window.globalFunctions.openPopup = (popupEl, isMobile, isNewDesign) => {
+  window.globalFunctions.openPopup = (popupEl, isMobile, opts) => {
     let options = optionsStPopup;
     if (isMobile) {
       options = optionsMobPopup;
     }
-    if (isNewDesign) {
-      options = ndOptionsStPopup;
+    if (opts) {
+      options = (typeof opts === 'boolean') ? ndOptionsStPopup : opts;
     }
     $.fancybox.open({
       src: popupEl,

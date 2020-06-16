@@ -1,8 +1,39 @@
+import {
+  freeze,
+  unfreeze,
+} from '../../scripts/functions/freeze';
 import DatePicker from './Dates';
 
 const $ = window.$;
 
 export default function dates() {
+  const ndOptionsStPopup = {
+    baseClass: 'fancybox--nd',
+    infobar: false,
+    autoFocus: false,
+    animationDuration: 500,
+    animationEffect: 'fade',
+    transitionEffect: 'fade',
+    onDeactivate(i) {
+      i.close();
+    },
+    onActivate() {
+      freeze();
+    },
+    afterLoad() {
+      freeze();
+    },
+    beforeClose() {
+      unfreeze();
+    },
+    smallBtn: false,
+    toolbar: false,
+    touch: false,
+    idleTime: false,
+    gutter: 0,
+    preventCaptionOverlap: false,
+  };
+
   $(document).on('click', '.js-nd-arrange-viewing', (evt) => {
     evt.preventDefault();
     const self = evt.currentTarget;
@@ -23,6 +54,7 @@ export default function dates() {
 
     calendar.init();
 
-    window.globalFunctions.openPopup($(baseElement), false, true);
+    window.globalFunctions.openPopup($(baseElement), false, ndOptionsStPopup);
+    calendar.sw.update();
   });
 }

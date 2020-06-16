@@ -1,0 +1,173 @@
+.dates-table {
+  $b: &;
+
+  display: block;
+  color: $nd-color-basic;
+
+  &__head {
+    display: block;
+    width: 100%;
+  }
+
+  &__title {
+    font-family: $font-stolzl;
+    display: block;
+    width: 100%;
+    font-size: 17px;
+    line-height: 1.2;
+    font-weight: 400;
+    box-sizing: border-box;
+    padding-left: 10px;
+
+    @include screen('xlg', max, 2) {
+      font-size: pxtovw(17, 1660);
+      padding-left: pxtovw(10, 1660);
+    }
+
+    @include screen('lg', max, 2) {
+      font-size: pxtovw(17, 1366);
+      padding-left: pxtovw(10, 1366);
+    }
+
+    @include screen('md', max, 2) {
+      font-size: pxtovw(17, 960);
+      padding-left: pxtovw(10, 960);
+    }
+
+    @include screen('sm', max, 2) {
+      font-size: pxtovw(17, 375);
+      padding-left: pxtovw(10, 375);
+    }
+  }
+
+  &__month {
+    display: inline-block;
+  }
+
+  &__year {
+    display: inline-block;
+  }
+
+  &__days {
+    display: flex;
+    align-items: center;
+  }
+
+  &__body {
+    display: flex;
+    align-items: center;
+    align-content: flex-start;
+    flex-wrap: wrap;
+  }
+
+  &__cell {
+    display: block;
+    box-sizing: border-box;
+    font-weight: 500;
+    width: (100 / 6) * 1%;
+    text-align: center;
+    font-size: 15px;
+    line-height: 1.13;
+    transition: color $ease-main;
+    margin-top: 14px;
+
+    @include screen('xlg', max, 2) {
+      font-size: pxtovw(15, 1660);
+      margin-top: pxtovw(14, 1660);
+    }
+
+    @include screen('lg', max, 2) {
+      font-size: pxtovw(15, 1366);
+      margin-top: pxtovw(14, 1366);
+    }
+
+    @include screen('md', max, 2) {
+      font-size: pxtovw(15, 960);
+      margin-top: pxtovw(14, 960);
+    }
+
+    @include screen('sm', max, 2) {
+      font-size: pxtovw(15, 375);
+      margin-top: pxtovw(14, 375);
+    }
+
+    &:nth-child(7n + 1) {
+      text-align: left;
+      width: (100 / 12) * 1%;
+    }
+
+    &:nth-child(7n) {
+      text-align: right;
+      width: (100 / 12) * 1%;
+    }
+
+    span {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      transition: background $ease-main, border $ease-main;
+      font-size: inherit;
+      line-height: inherit;
+      font-weight: inherit;
+      color: inherit;
+      box-sizing: border-box;
+      border: 2px solid transparent;
+
+      @include screen('xlg', max, 2) {
+        width: pxtovw(40, 1660);
+        height: pxtovw(40, 1660);
+      }
+
+      @include screen('lg', max, 2) {
+        width: pxtovw(40, 1366);
+        height: pxtovw(40, 1366);
+      }
+
+      @include screen('md', max, 2) {
+        width: pxtovw(40, 960);
+        height: pxtovw(40, 960);
+      }
+
+      @include screen('sm', max, 2) {
+        width: pxtovw(40, 375);
+        height: pxtovw(40, 375);
+      }
+    }
+
+    &_week {
+      cursor: default;
+    }
+
+    &_day {
+      cursor: pointer;
+
+      &:hover {
+        span {
+          border-color: $nd-color-main;
+        }
+      }
+    }
+
+    &.is-current {
+      font-weight: 700;
+    }
+
+    &.is-selected {
+      color: $nd-color-basic-light;
+
+      span {
+        border-color: $nd-color-main;
+        background-color: $nd-color-main;
+      }
+    }
+
+    &.is-disabled, &_other-month {
+      color: $nd-color-border4;
+      pointer-events: none;
+      cursor: default;
+    }
+  }
+}

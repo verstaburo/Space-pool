@@ -1,0 +1,13 @@
+mixin arrange-viewing-form()
+  +b.FORM.arrange-viewing-form&attributes(attributes)
+    +e.top
+      +nd-input()(type="hidden" name="arrangeViewingDate" data-dates-result)
+      +e.date(data-dates-alternative-result)
+    +e.bottom
+      +e.time
+        +nd-form-box
+          +select(name="arrangeViewingTime")
+      +e.buttons
+        +nd-button('button', true)(type="submit") Arrange viewing
+
+    block

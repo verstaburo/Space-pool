@@ -853,7 +853,7 @@
                                     </ul>
                                 </div>
                             </div><label class="nd-input-numberbox scroll-form__counter"><span class="nd-input-numberbox__field"><span class="nd-input-numberbox__label">amount:</span><input class="nd-input-numberbox__input js-numberbox-input" type="text" name="count" value="1" /></span><span class="nd-input-numberbox__button js-numberbox-minus"></span><span class="nd-input-numberbox__button js-numberbox-plus"></span></label>
-                            <div class="scroll-form__buttons"><a class="nd-button scroll-form__button" href="#reservation-request" data-rr-wrapper-target="scrollForm" data-rr-need-to-show="true"><span class="nd-button__text">Request reservation</span></a><a class="nd-button nd-button_black scroll-form__button js-nd-arrange-viewing" href="#nd-popup-arrange-viewing" data-startdate="2020-12-10"><span class="nd-button__text">Arrange viewing</span></a></div>
+                            <div class="scroll-form__buttons"><a class="nd-button scroll-form__button" href="#reservation-request" data-rr-wrapper-target="scrollForm" data-rr-need-to-show="true"><span class="nd-button__text">Request reservation</span></a><a class="nd-button nd-button_black scroll-form__button"><span class="nd-button__text">Arrange viewing</span></a></div>
                             <div class="scroll-form__note">prices are exclusive of VAT</div>
                             <div class="scroll-form__panel" data-rr-wrapper-block="scrollForm"></div>
                         </form>
@@ -1124,7 +1124,21 @@
                     <div class="nd-popup__content">
                         <div class="nd-popup-arrange-viewing__calendar" data-dates-container="data-dates-container"></div>
                     </div>
-                    <div class="nd-popup__footer"></div>
+                    <div class="nd-popup__footer">
+                        <form class="arrange-viewing-form">
+                            <div class="arrange-viewing-form__top"><input class="nd-input" type="hidden" name="arrangeViewingDate" data-dates-result="data-dates-result" />
+                                <div class="arrange-viewing-form__date" data-dates-alternative-result="data-dates-alternative-result"></div>
+                            </div>
+                            <div class="arrange-viewing-form__bottom">
+                                <div class="arrange-viewing-form__time"><label class="form-box nd-form-box"><select class="select" name="arrangeViewingTime"></select></label></div>
+                                <div class="arrange-viewing-form__buttons"><button class="nd-button" type="submit"><span class="nd-button__text">Arrange viewing</span>
+                                        <div class="nd-button__preloader">
+                                            <div class="loader loader_small"></div>
+                                        </div>
+                                    </button></div>
+                            </div>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
