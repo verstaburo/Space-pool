@@ -5,9 +5,18 @@ mixin arrange-viewing-form()
       +e.date(data-dates-alternative-result)
     +e.bottom
       +e.time
-        +nd-form-box
-          +select(name="arrangeViewingTime")
+        +nd-form-box('Time')._bg-white
+          +nd-select()(name="arrangeViewingTime" data-choices-classes=" nd-choices_white nd-choices_h40" data-mobile-title="Pick a time").js-nd-select
+            - for (var i = 0; i < 24; i++) {
+              - var zeroi = (`0${i}`).slice(-2);
+              if (i === 12)
+                option(value=zeroi + ':00' selected)!=(zeroi + ':00')
+                option(value=zeroi + ':30')!=(zeroi + ':30')
+              else
+                option(value=zeroi + ':00')!=(zeroi + ':00')
+                option(value=zeroi + ':30')!=(zeroi + ':30')
+            - }
       +e.buttons
-        +nd-button('button', true)(type="submit") Arrange viewing
+        +nd-button('button', true)._pad10._md-fz15(type="submit") Arrange viewing
 
     block

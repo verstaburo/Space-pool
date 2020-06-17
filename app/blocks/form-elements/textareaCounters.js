@@ -2,7 +2,6 @@ const $ = window.$;
 
 export default function textareaCounters() {
   function counterUpdate(evt) {
-    console.log(evt);
     const self = evt.currentTarget;
     const counterField = $(self).siblings('[data-symbol-counter]');
     const value = $(self).val().length;

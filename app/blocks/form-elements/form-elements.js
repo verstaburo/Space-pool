@@ -7,9 +7,6 @@ import noUiSlider from 'nouislider';
 // https://github.com/t1m0n/air-datepicker
 import 'air-datepicker';
 
-// https://www.jacklmoore.com/autosize/
-import autosize from 'autosize';
-
 const $ = window.$;
 
 export function selects() {
@@ -438,87 +435,7 @@ export function selects() {
     });
   }
 
-  // добавляем состояние сделанного выбора у списков
-  if ($('select').length) {
-    $('select').each((i, el) => {
-      const value = el.value;
-      const container = $(el).closest('.choices');
-      // if (value !== 'placeholder' && container.length > 0) {
-      if (value !== '' && container.length > 0) {
-        $(container).addClass('is-item-select');
-      } else {
-        $(container).removeClass('is-item-select');
-      }
-    });
-
-    $(document).on('change', 'select', (evt) => {
-      const self = evt.target;
-      const value = self.value;
-      const container = $(self).closest('.choices');
-      // if (value !== 'placeholder' && container.length > 0) {
-      if (value !== '' && container.length > 0) {
-        $(container).addClass('is-item-select');
-      } else {
-        $(container).removeClass('is-item-select');
-      }
-    });
-
-    $(document).on('showDropdown', 'select', () => {
-      $('body').addClass('is-choices-dropdown-showed');
-    });
-
-    $(document).on('hideDropdown', 'select', () => {
-      $('body').removeClass('is-choices-dropdown-showed');
-    });
-  }
-
-  // следим чтобы не вылезали за правую границу страницы
-  function sideOpen() {
-    $('.choices').each((i, el) => {
-      const self = el;
-      const dropdown = $(el).find('.choices__list--dropdown');
-      const dropdownWidth = $(dropdown).width();
-      const pageWidth = $(window).width();
-      const selfLeft = $(self).offset().left;
-      const diff = pageWidth - selfLeft;
-      if (diff < dropdownWidth) {
-        $(self).addClass('is-open-right');
-      } else {
-        $(self).removeClass('is-open-right');
-      }
-    });
-  }
-
-  sideOpen();
-  $(window).on('resize', sideOpen);
   /* eslint-enable no-unused-vars */
-
-  $(document).on('click', '.js-select-close', (evt) => {
-    evt.preventDefault();
-    const self = evt.currentTarget;
-    self.choices.hideDropdown();
-  });
-
-  $(document).on('showDropdown', 'select', (evt) => {
-    const self = evt.currentTarget;
-    const popup = $(self).closest('.popup');
-    const advansedFilter = $(self).closest('.advanced-filter');
-    if (window.Modernizr.mq(`(max-width: ${window.globalOptions.sizes.sm - 1}px)`)) {
-      $(popup).addClass('is-select-opened');
-      $(advansedFilter).addClass('is-select-opened');
-      window.globalFunctions.freeze();
-    }
-  });
-  $(document).on('hideDropdown', 'select', (evt) => {
-    const self = evt.currentTarget;
-    const popup = $(self).closest('.popup');
-    const advansedFilter = $(self).closest('.advanced-filter');
-    if (window.Modernizr.mq(`(max-width: ${window.globalOptions.sizes.sm - 1}px)`)) {
-      $(popup).removeClass('is-select-opened');
-      $(advansedFilter).removeClass('is-select-opened');
-      window.globalFunctions.unfreeze();
-    }
-  });
 }
 
 export function sliders() {
@@ -863,65 +780,4 @@ export function datepicker() {
     window.setLabelPosition(end);
     $(end).siblings('[data-copy-date]').text('');
   });
-}
-
-export function numberinput() {
-  $(document).on('click', '.js-numberbox-minus, .js-numberbox-plus', function (e) {
-    e.preventDefault();
-
-    const input = $(this).closest('.input-numberbox, .input-numbers, .nd-input-numberbox').find('.js-numberbox-input');
-    let val;
-    const min = parseInt($(input).attr('data-min'), 10) || 0;
-    const max = parseInt($(input).attr('data-max'), 10) || false;
-
-    const minus = $(this).is('[class*="minus"]') || false;
-
-    if (!input.val()) {
-      val = min;
-      input.val(min);
-    } else {
-      val = +input.val();
-    }
-
-    if (minus) {
-      input.val(val > min ? (val -= 1) : min);
-    } else if (max) {
-      input.val(val < max ? (val += 1) : max);
-    } else {
-      input.val(val += 1);
-    }
-    input[0].focus();
-  });
-
-  $(document).on('keyup change', '.js-numberbox-input', function () {
-    const min = parseInt($(this).attr('data-min'), 10) || 0;
-    const max = parseInt($(this).attr('data-max'), 10) || false;
-    this.value = this.value.replace(/[^\d]/, '');
-    if ($(this).val() < min) $(this).val(min);
-    if (max && $(this).val() > max) $(this).val(max);
-    this.focus();
-  });
-}
-
-// автосайз для textarea
-export function textareaAutosize() {
-  function autosizeAll(elements) {
-    const el = elements || $('.textarea, .nd-textarea').not('.no-sm-autosize');
-    autosize(el);
-  }
-
-  function smnoAutosize() {
-    if (window.Modernizr.mq(`(max-width: ${window.globalOptions.sizes.sm - 1}px)`)) {
-      autosize.destroy($('.textarea.no-sm-autosize, .nd-textarea.no-sm-autosize'));
-    } else {
-      autosize($('.textarea.no-sm-autosize, .nd-textarea.no-sm-autosize'));
-    }
-  }
-
-  autosizeAll();
-  smnoAutosize();
-
-  window.autosizeTextarea = autosizeAll;
-
-  $(window).on('resize', smnoAutosize);
 }

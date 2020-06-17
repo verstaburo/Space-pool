@@ -16,13 +16,14 @@ import {
 } from './functions/freeze';
 import scrollbar from '../blocks/scrollbar/scrollbar';
 import scrollanimation from './functions/scrollanimation';
+import ndSelects from '../blocks/form-elements/nd-select';
 import {
   selects,
   sliders,
   datepicker,
-  numberinput,
-  textareaAutosize,
 } from '../blocks/form-elements/form-elements';
+import textareaAutosize from '../blocks/form-elements/textareaAutosize';
+import numberinput from '../blocks/form-elements/numberinputs';
 import maskForm from '../blocks/form-elements/form-elements-masking';
 import popups from '../blocks/popups/popups';
 import header from '../components/header/header';
@@ -95,6 +96,7 @@ $(() => {
   freezebuttons();
   scrollbar();
   selects();
+  ndSelects();
   sliders();
   datepicker();
   popups();

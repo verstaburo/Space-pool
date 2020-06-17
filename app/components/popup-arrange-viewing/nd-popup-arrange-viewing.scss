@@ -22,10 +22,31 @@
       @include screen('sm', max, 2) {
         padding-bottom: pxtovw(111, 375);
       }
+
+      .nd-container {
+        display: flex;
+      }
     }
 
     &__footer {
-      box-shadow: 0px -1px 2px rgba(0, 0, 0, .05);
+      height: 111px;
+      box-shadow: 0 -1px 2px rgba(0, 0, 0, .05);
+
+      @include screen('xlg', max, 2) {
+        height: pxtovw(111, 1660);
+      }
+
+      @include screen('lg', max, 2) {
+        height: pxtovw(111, 1366);
+      }
+
+      @include screen('md', max, 2) {
+        height: pxtovw(111, 960);
+      }
+
+      @include screen('sm', max, 2) {
+        height: pxtovw(111, 375);
+      }
     }
   }
 
