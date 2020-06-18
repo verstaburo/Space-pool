@@ -51,6 +51,23 @@
   &__days {
     display: flex;
     align-items: center;
+    margin-top: 8px;
+
+    @include screen('xlg', max, 2) {
+      margin-top: pxtovw(8, 1660);
+    }
+
+    @include screen('lg', max, 2) {
+      margin-top: pxtovw(8, 1366);
+    }
+
+    @include screen('md', max, 2) {
+      margin-top: pxtovw(8, 960);
+    }
+
+    @include screen('sm', max, 2) {
+      margin-top: pxtovw(8, 375);
+    }
   }
 
   &__body {
@@ -61,44 +78,49 @@
   }
 
   &__cell {
-    display: block;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     box-sizing: border-box;
     font-weight: 500;
-    width: (100 / 6) * 1%;
     text-align: center;
     font-size: 15px;
     line-height: 1.13;
     transition: color $ease-main;
-    margin-top: 14px;
+    margin-top: 16px;
+    width: 40px;
+    margin-right: calc((100% - (40px * 7)) / 6);
 
     @include screen('xlg', max, 2) {
       font-size: pxtovw(15, 1660);
-      margin-top: pxtovw(14, 1660);
+      margin-top: pxtovw(16, 1660);
+      width: pxtovw(40, 1660);
+      margin-right: calc((100% - ((4000 * 7vw) / 1660)) / 6);
     }
 
     @include screen('lg', max, 2) {
       font-size: pxtovw(15, 1366);
-      margin-top: pxtovw(14, 1366);
+      margin-top: pxtovw(16, 1366);
+      width: pxtovw(40, 1366);
+      margin-right: calc((100% - ((4000 * 7vw) / 1366)) / 6);
     }
 
     @include screen('md', max, 2) {
       font-size: pxtovw(15, 960);
-      margin-top: pxtovw(14, 960);
+      margin-top: pxtovw(16, 960);
+      width: pxtovw(40, 960);
+      margin-right: calc((100% - ((4000 * 7vw) / 960)) / 6);
     }
 
     @include screen('sm', max, 2) {
       font-size: pxtovw(15, 375);
-      margin-top: pxtovw(14, 375);
-    }
-
-    &:nth-child(7n + 1) {
-      text-align: left;
-      width: (100 / 12) * 1%;
+      margin-top: pxtovw(16, 375);
+      width: pxtovw(40, 375);
+      margin-right: calc((100% - ((4000 * 7vw) / 375)) / 6);
     }
 
     &:nth-child(7n) {
-      text-align: right;
-      width: (100 / 12) * 1%;
+      margin-right: 0;
     }
 
     span {
@@ -137,7 +159,8 @@
       }
     }
 
-    &_week {
+    &_name {
+      pointer-events: none;
       cursor: default;
     }
 

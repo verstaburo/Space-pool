@@ -1,35 +1,75 @@
 .nd-input {
   font-size: 17px;
-  line-height: (21 / 17);
-  border: 1px solid transparent;
+  line-height: (26 / 17);
+  border: 1px solid $nd-color-field-border;
   width: 100%;
   box-sizing: border-box;
-  border-radius: 0;
+  border-radius: 3px;
   color: $nd-color-basic;
   font-weight: 400;
-  padding: 11px 7px 7px;
+  padding: 14px 11px 8px;
   transition: border $ease-main, box-shadow $ease-main;
-  border-bottom-color: $nd-color-gray-text;
   box-shadow: inset 0 0 0 1px transparent;
+  min-height: 50px;
 
   @include screen('xlg', max, 2) {
+    border-radius: pxtovw(3, 1660);
     font-size: pxtovw(17, 1660);
-    padding: pxtovw(11, 1660) pxtovw(7, 1660) pxtovw(7, 1660);
+    padding: pxtovw(14, 1660) pxtovw(11, 1660) pxtovw(8, 1660);
+    min-height: pxtovw(50, 1660);
   }
 
   @include screen('lg', max, 2) {
+    border-radius: pxtovw(3, 1366);
     font-size: pxtovw(17, 1366);
-    padding: pxtovw(11, 1366) pxtovw(7, 1366) pxtovw(7, 1366);
+    padding: pxtovw(14, 1366) pxtovw(11, 1366) pxtovw(8, 1366);
+    min-height: pxtovw(50, 1366);
   }
 
   @include screen('md', max, 2) {
+    border-radius: pxtovw(3, 960);
     font-size: pxtovw(17, 960);
-    padding: pxtovw(11, 960) pxtovw(7, 960) pxtovw(7, 960);
+    padding: pxtovw(14, 960) pxtovw(11, 960) pxtovw(8, 960);
+    min-height: pxtovw(50, 960);
   }
 
   @include screen('sm', max, 2) {
+    border-radius: pxtovw(3, 375);
     font-size: pxtovw(15, 375);
+    line-height: (26 / 15);
     padding: pxtovw(11, 375) pxtovw(11, 375) pxtovw(8, 375);
+    min-height: pxtovw(40, 375);
+  }
+
+  &_h40 {
+    padding: 9px 11px 3px;
+    min-height: 40px;
+
+    @include screen('xlg', max, 2) {
+      padding: pxtovw(9, 1660) pxtovw(11, 1660) pxtovw(3, 1660);
+      min-height: pxtovw(40, 1660);
+    }
+
+    @include screen('lg', max, 2) {
+      padding: pxtovw(9, 1366) pxtovw(11, 1366) pxtovw(3, 1366);
+      min-height: pxtovw(40, 1366);
+    }
+
+    @include screen('md', max, 2) {
+      padding: pxtovw(9, 960) pxtovw(11, 960) pxtovw(3, 960);
+      min-height: pxtovw(40, 960);
+    }
+
+    @include screen('sm', max, 2) {
+      padding: pxtovw(9, 375) pxtovw(11, 375) pxtovw(3, 375);
+      min-height: pxtovw(40, 375);
+    }
+  }
+
+  &_open {
+    border-radius: 0;
+    border-color: transparent;
+    border-bottom-color: $nd-color-field-border;
   }
 
   &:-ms-input-placeholder {
@@ -43,7 +83,7 @@
   }
 
   &:hover {
-    border-color: $nd-color-gray-text;
+    border-color: $nd-color-field-border-hover;
     box-shadow: inset 0 0 0 1px transparent;
     border-radius: 3px;
 

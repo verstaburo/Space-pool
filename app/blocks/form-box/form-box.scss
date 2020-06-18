@@ -369,34 +369,41 @@
     #{$b} {
       &__label {
         font-size: 17px;
-        line-height: (21 / 17);
+        line-height: (26 / 17);
         font-weight: 400;
-        padding: 11px 7px 7px;
+        padding: 13px 4px 9px;
         color: $nd-color-input-placeholder;
         background-color: transparent;
         bottom: 0;
-        left: 0;
+        left: 7px;
         box-sizing: border-box;
-        transition: transform $ease-main, color $ease-main, font $ease-main, background $ease-main, padding $ease-main;
+        transition: transform $ease-main, color $ease-main, font $ease-main, background $ease-main, padding $ease-main, opacity $ease-main;
+        z-index: 1;
+        transform: translate3d(0, 0, 0);
 
         @include screen('xlg', max, 2) {
+          left: pxtovw(7, 1660);
           font-size: pxtovw(17, 1660);
-          padding: pxtovw(11, 1660) pxtovw(7, 1660) pxtovw(7, 1660);
+          padding: pxtovw(13, 1660) pxtovw(4, 1660) pxtovw(9, 1660);
         }
 
         @include screen('lg', max, 2) {
+          left: pxtovw(7, 1366);
           font-size: pxtovw(17, 1366);
-          padding: pxtovw(11, 1366) pxtovw(7, 1366) pxtovw(7, 1366);
+          padding: pxtovw(13, 1366) pxtovw(4, 1366) pxtovw(9, 1366);
         }
 
         @include screen('md', max, 2) {
+          left: pxtovw(7, 960);
           font-size: pxtovw(17, 960);
-          padding: pxtovw(11, 960) pxtovw(7, 960) pxtovw(7, 960);
+          padding: pxtovw(13, 960) pxtovw(4, 960) pxtovw(9, 960);
         }
 
         @include screen('sm', max, 2) {
+          left: pxtovw(9, 375);
           font-size: pxtovw(15, 375);
-          padding: pxtovw(11, 375) pxtovw(11, 375) pxtovw(8, 375);
+          line-height: (26 / 15);
+          padding: pxtovw(8, 375) pxtovw(2, 375) pxtovw(4, 375);
         }
       }
     }
@@ -406,30 +413,31 @@
       line-height: (13 / 11);
       font-weight: 400;
       color: $nd-color-basic;
-      transform: translate3d(5px, -30px, 0);
+      transform: translate3d(0, -39px, 0);
+      transform-origin: 0 50%;
       padding: 4px;
       background-color: $nd-color-bg;
 
       @include screen('xlg', max, 2) {
-        transform: translate3d(pxtovw(5, 1660), pxtovw(-30, 1660), 0);
+        transform: translate3d(0, pxtovw(-39, 1660), 0);
         font-size: pxtovw(11, 1660);
         padding: pxtovw(4, 1660);
       }
 
       @include screen('lg', max, 2) {
-        transform: translate3d(pxtovw(5, 1366), pxtovw(-30, 1366), 0);
+        transform: translate3d(0, pxtovw(-39, 1366), 0);
         font-size: pxtovw(11, 1366);
         padding: pxtovw(4, 1366);
       }
 
       @include screen('md', max, 2) {
-        transform: translate3d(pxtovw(5, 960), pxtovw(-30, 960), 0);
+        transform: translate3d(0, pxtovw(-39, 960), 0);
         font-size: pxtovw(11, 960);
         padding: pxtovw(4, 960);
       }
 
       @include screen('sm', max, 2) {
-        transform: translate3d(pxtovw(10, 375), pxtovw(-31, 375), 0);
+        transform: translate3d(0, pxtovw(-31, 375), 0);
         padding: pxtovw(2, 375);
         font-size: pxtovw(10, 375);
         line-height: (12 / 10);
@@ -439,11 +447,101 @@
         color: $nd-color-basic;
       }
     }
+
+    .nd-choices.is-flipped ~ #{$b}__label {
+      opacity: 0;
+    }
+  }
+
+  &.nd-form-box_h40 {
+    #{$b} {
+      &__label {
+        padding: 8px 4px 4px;
+
+        @include screen('xlg', max, 2) {
+          padding: pxtovw(8, 1660) pxtovw(4, 1660) pxtovw(4, 1660);
+        }
+
+        @include screen('lg', max, 2) {
+          padding: pxtovw(8, 1366) pxtovw(4, 1366) pxtovw(4, 1366);
+        }
+
+        @include screen('md', max, 2) {
+          padding: pxtovw(8, 960) pxtovw(4, 960) pxtovw(4, 960);
+        }
+
+        @include screen('sm', max, 2) {
+          padding: pxtovw(8, 375) pxtovw(2, 375) pxtovw(4, 375);
+        }
+      }
+    }
+
+    &.is-top #{$b}__label,.nd-choices.is-item-select ~ #{$b}__label,.nd-choices.is-open ~ #{$b}__label {
+      transform: translate3d(0, -30px, 0);
+
+      @include screen('xlg', max, 2) {
+        transform: translate3d(0, pxtovw(-30, 1660), 0);
+      }
+
+      @include screen('lg', max, 2) {
+        transform: translate3d(0, pxtovw(-30, 1366), 0);
+      }
+
+      @include screen('md', max, 2) {
+        transform: translate3d(0, pxtovw(-30, 960), 0);
+      }
+
+      @include screen('sm', max, 2) {
+        transform: translate3d(0, pxtovw(-31, 375), 0);
+      }
+    }
   }
 
   &.nd-form-box_bg-white {
     &.is-top #{$b}__label, .nd-choices.is-item-select ~ #{$b}__label, .nd-choices.is-open ~ #{$b}__label {
       background-color: $nd-color-basic-light;
+    }
+  }
+
+  &__dates {
+    display: block;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translate3d(-50%, 0, 0);
+    visibility: hidden;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity $ease-main;
+    will-change: visibility;
+    width: 700px;
+    z-index: 2;
+    background-color: $nd-color-bg;
+
+    @include screen('xlg', max, 2) {
+      width: pxtovw(700, 1660);
+    }
+
+    @include screen('lg', max, 2) {
+      width: pxtovw(700, 1366);
+    }
+
+    @include screen('md', max, 2) {
+      width: pxtovw(700, 960);
+    }
+
+    @include screen('sm', max, 2) {
+      width: pxtovw(350, 375);
+    }
+
+    &_white {
+      background-color: $nd-color-basic-light;
+    }
+
+    #{$b}.is-active & {
+      opacity: 1;
+      pointer-events: auto;
+      visibility: visible;
     }
   }
 }

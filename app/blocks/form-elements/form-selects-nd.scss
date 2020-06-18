@@ -3,27 +3,9 @@
 
   position: relative;
   margin-bottom: 0;
-  font-size: 17px;
-  line-height: (26 / 17);
-  font-weight: 400;
+  font-size: 0;
+  line-height: 0;
   color: $nd-color-basic;
-
-  @include screen('xlg', max, 2) {
-    font-size: pxtovw(17, 1660);
-  }
-
-  @include screen('lg', max, 2) {
-    font-size: pxtovw(17, 1366);
-  }
-
-  @include screen('md', max, 2) {
-    font-size: pxtovw(17, 960);
-  }
-
-  @include screen('sm', max, 2) {
-    font-size: pxtovw(15, 375);
-    line-height: (26 / 15);
-  }
 
   &:focus {
     outline: none;
@@ -233,10 +215,6 @@
     background-color: transparent;
     border: 1px solid $nd-color-field-border;
     border-radius: 3px;
-    font-size: inherit;
-    line-height: inherit;
-    font-weight: inherit;
-    letter-spacing: inherit;
     overflow: hidden;
     padding: 14px 11px 8px;
     box-sizing: border-box;
@@ -268,6 +246,14 @@
 
     #{$b}:hover & {
       border-color: $nd-color-field-border-hover;
+    }
+
+    .is-item-select & {
+      border-color: $nd-color-basic;
+    }
+
+    .is-error & {
+      border-color: $nd-color-input-error-border;
     }
 
     .is-focused &, .is-focused:hover & {
@@ -317,6 +303,31 @@
         border-radius: 0 0 pxtovw(3, 375) pxtovw(3, 375);
       }
     }
+
+    #{$b}_h40 & {
+      padding: 9px 11px 3px;
+      min-height: 40px;
+
+      @include screen('xlg', max, 2) {
+        padding: pxtovw(9, 1660) pxtovw(11, 1660) pxtovw(3, 1660);
+        min-height: pxtovw(40, 1660);
+      }
+
+      @include screen('lg', max, 2) {
+        padding: pxtovw(9, 1366) pxtovw(11, 1366) pxtovw(3, 1366);
+        min-height: pxtovw(40, 1366);
+      }
+
+      @include screen('md', max, 2) {
+        padding: pxtovw(9, 960) pxtovw(11, 960) pxtovw(3, 960);
+        min-height: pxtovw(40, 960);
+      }
+
+      @include screen('sm', max, 2) {
+        padding: pxtovw(9, 375) pxtovw(11, 375) pxtovw(3, 375);
+        min-height: pxtovw(40, 375);
+      }
+    }
   }
 
   &__list {
@@ -324,6 +335,24 @@
     padding-left: 0;
     list-style: none;
     z-index: 4;
+    scrollbar-color: $nd-color-basic $nd-color-bg;
+    scrollbar-width: thin;
+    -ms-overflow-style: none;
+
+    &::-webkit-scrollbar-track {
+      width: 6px;
+      background-color: $nd-color-bg;
+    }
+
+    &::-webkit-scrollbar {
+      width: 4px;
+      background-color: $nd-color-bg;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      width: 4px;
+      background-color: $nd-color-basic;
+    }
 
     &--single {
       display: inline-block;
@@ -370,8 +399,28 @@
         vertical-align: middle;
         padding: 0;
         width: 100%;
+        font-size: 17px;
+        line-height: (26 / 17);
+        font-weight: 400;
 
         @include ellipsis(100%);
+
+        @include screen('xlg', max, 2) {
+          font-size: pxtovw(17, 1660);
+        }
+
+        @include screen('lg', max, 2) {
+          font-size: pxtovw(17, 1366);
+        }
+
+        @include screen('md', max, 2) {
+          font-size: pxtovw(17, 960);
+        }
+
+        @include screen('sm', max, 2) {
+          font-size: pxtovw(15, 375);
+          line-height: (26 / 15);
+        }
       }
     }
 
@@ -387,29 +436,37 @@
         background-color: $nd-color-bg;
         word-break: break-all;
         box-sizing: border-box;
+        font-size: 17px;
+        line-height: (26 / 17);
+        font-weight: 400;
 
         @include screen('xlg', max, 2) {
           padding: 0 pxtovw(10, 1660);
           margin-right: pxtovw(4, 1660);
           margin-bottom: pxtovw(4, 1660);
+          font-size: pxtovw(17, 1660);
         }
 
         @include screen('lg', max, 2) {
           padding: 0 pxtovw(10, 1366);
           margin-right: pxtovw(4, 1366);
           margin-bottom: pxtovw(4, 1366);
+          font-size: pxtovw(17, 1366);
         }
 
         @include screen('md', max, 2) {
           padding: 0 pxtovw(10, 960);
           margin-right: pxtovw(4, 960);
           margin-bottom: pxtovw(4, 960);
+          font-size: pxtovw(17, 960);
         }
 
         @include screen('sm', max, 2) {
           padding: 0 pxtovw(10, 375);
           margin-right: pxtovw(4, 375);
           margin-bottom: pxtovw(4, 375);
+          font-size: pxtovw(15, 375);
+          line-height: (26 / 15);
         }
 
         &[data-deletable] {
@@ -461,7 +518,7 @@
 
     &--dropdown {
       position: absolute;
-      z-index: 1;
+      z-index: 2;
       top: 100%;
       margin-top: -1px;
       box-sizing: border-box;
@@ -536,27 +593,27 @@
         line-height: (26 / 17);
         font-weight: 400;
         color: $nd-color-basic;
-        padding: 0 11px;
+        padding: 11px;
 
         @include screen('xlg', max, 2) {
           font-size: pxtovw(17, 1660);
-          padding: 0 pxtovw(11, 1660);
+          padding: pxtovw(11, 1660);
         }
 
         @include screen('lg', max, 2) {
           font-size: pxtovw(17, 1366);
-          padding: 0 pxtovw(11, 1366);
+          padding: pxtovw(11, 1366);
         }
 
         @include screen('md', max, 2) {
           font-size: pxtovw(17, 960);
-          padding: 0 pxtovw(11, 960);
+          padding: pxtovw(11, 960);
         }
 
         @include screen('sm', max, 2) {
           font-size: pxtovw(15, 375);
           line-height: (26 / 15);
-          padding: 0 pxtovw(11, 375);
+          padding: pxtovw(6, 375) pxtovw(11, 375);
         }
 
         [dir='rtl'] & {
@@ -569,6 +626,33 @@
           &.is-highlighted {
             background-color: $nd-color-basic;
             color: $nd-color-basic-light;
+          }
+        }
+
+        #{$b}_h40 & {
+          padding: 6px 11px;
+
+          @include screen('xlg', max, 2) {
+            padding: pxtovw(6, 1660) pxtovw(11, 1660);
+          }
+
+          @include screen('lg', max, 2) {
+            padding: pxtovw(6, 1366) pxtovw(11, 1366);
+          }
+
+          @include screen('md', max, 2) {
+            padding: pxtovw(6, 960) pxtovw(11, 960);
+          }
+
+          @include screen('sm', max, 2) {
+            padding: pxtovw(6, 375) pxtovw(11, 375);
+          }
+        }
+
+        #{$b}_popup & {
+          @include screen('sm', max, 2) {
+            padding-left: pxtovw(20, 375);
+            padding-right: pxtovw(20, 375);
           }
         }
       }
@@ -597,6 +681,13 @@
         @include screen('sm', max, 2) {
           max-height: pxtovw(200, 375);
         }
+
+        #{$b}_popup & {
+          @include screen('sm', max, 2) {
+            box-sizing: border-box;
+            max-height: 100%;
+          }
+        }
       }
 
       #{$b}__placeholder {
@@ -609,6 +700,23 @@
 
       #{$b}_white & {
         background-color: $nd-color-basic-light;
+      }
+
+      #{$b}_popup & {
+        @include screen('sm', max, 2) {
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          border-color: transparent;
+          z-index: 100;
+          background-color: $nd-color-basic-light;
+          box-shadow: 0 0 0 0 transparent;
+          border-radius: 0;
+          padding-top: pxtovw(60, 375);
+          box-sizing: border-box;
+        }
       }
     }
   }
@@ -629,6 +737,29 @@
 
   &__placeholder {
     opacity: 1;
+    font-size: 17px;
+    line-height: (26 / 17);
+    font-weight: 400;
+    color: $nd-color-placeholder;
+
+    @include ellipsis(100%);
+
+    @include screen('xlg', max, 2) {
+      font-size: pxtovw(17, 1660);
+    }
+
+    @include screen('lg', max, 2) {
+      font-size: pxtovw(17, 1366);
+    }
+
+    @include screen('md', max, 2) {
+      font-size: pxtovw(17, 960);
+    }
+
+    @include screen('sm', max, 2) {
+      font-size: pxtovw(15, 375);
+      line-height: (26 / 15);
+    }
   }
 
   &__input {
@@ -676,24 +807,24 @@
     font-size: inherit;
     line-height: inherit;
     font-weight: 700;
-    padding: 10px;
+    padding: 20px;
     border-bottom: 1px solid $nd-color-field-border;
     color: $nd-color-basic;
 
     @include screen('xlg', max, 2) {
-      padding: pxtovw(10, 1660);
+      padding: pxtovw(20, 1660);
     }
 
     @include screen('lg', max, 2) {
-      padding: pxtovw(10, 1366);
+      padding: pxtovw(20, 1366);
     }
 
     @include screen('md', max, 2) {
-      padding: pxtovw(10, 960);
+      padding: pxtovw(20, 960);
     }
 
     @include screen('sm', max, 2) {
-      padding: pxtovw(10, 375);
+      padding: pxtovw(20, 375);
     }
   }
 
@@ -714,52 +845,54 @@
 
   &__header {
     display: none;
-    color: $color-basic;
-    padding: 0 40px;
+    color: $nd-color-basic;
     box-sizing: border-box;
-    background-color: $color-white;
+    background-color: $nd-color-basic-light;
     z-index: 5;
-    height: 70px;
 
-    @include screen('sm') {
+    @include screen('sm', max, 2) {
       display: flex;
       justify-content: flex-end;
       align-items: center;
       position: absolute;
-      padding: 0 19px;
+      padding: 0 pxtovw(20, 375);
       top: 0;
       left: 0;
       width: 100%;
-      height: 48px;
-      border-bottom: 1px solid $color-border-light;
+      height: pxtovw(60, 375);
+      border-bottom: 1px solid $nd-color-field-border;
       z-index: 2;
     }
 
     &-title {
-      @include heading-3;
-
       font-weight: 700;
       user-select: none;
 
-      @include screen('sm') {
-        @include heading-4;
+      @include screen('sm', max, 2) {
+        font-size: pxtovw(20, 375);
+        line-height: 1.2;
+        font-weight: 700;
       }
     }
   }
 
   &__close {
     position: absolute;
-    top: 6px;
-    left: 9px;
+    top: 0;
+    left: 0;
     z-index: 2;
-  }
+    display: none;
+    background-image: $icon-cross;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    background-size: 18px;
 
-  &_popup {
-
-  }
-
-  &_h40 {
-
+    @include screen('sm', max, 2) {
+      display: block;
+      width: pxtovw(56, 375);
+      height: pxtovw(60, 375);
+      background-size: pxtovw(18, 375);
+    }
   }
 
   &.is-disabled #{$b} {

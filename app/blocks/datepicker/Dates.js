@@ -1,7 +1,8 @@
 /* eslint-disable class-methods-use-this */
 /* eslint-disable no-plusplus */
 
-import Swiper from 'swiper';
+// http://idangero.us/swiper/#.WcIu5oy0OHs
+import * as Swiper from 'swiper/js/swiper';
 import moment from 'moment';
 
 const $ = window.$;
@@ -27,6 +28,7 @@ export default class DatePicker {
   constructor(el, opts) {
     this.el = $(el);
     this.container = $(el).find('[data-dates-container]');
+    this.autoactivate = opts.autoactivate || false;
     this.input = opts.resultField ? $(opts.resultField) : $(el).find('input[data-dates-result]');
     this.days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
     this.daysShort = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
@@ -41,13 +43,15 @@ export default class DatePicker {
     this.maxDate = opts.maxDate !== undefined ? moment(opts.maxDate) : moment([3000, 0, 1]);
     this.resultFormat = opts.resultFormat || 'YYYY-MM-DD';
     this.firstDay = 1;
-    this.viewType = opts.viewType || 'vertical-scroll';
+    this.viewType = opts.viewType || 'vertical';
     this._template = {
       sliderBase: '<div class="dates swiper-container"><div class="dates__wrapper swiper-wrapper"></div><div class="dates__navigation"><div class="dates__buttons"><div class="dates__button dates__button_prev"></div><div class="dates__button dates__button_next"></div></div><div class="dates__scrollbar"></div></div></div>',
       slideElem: '<div class="dates-table swiper-slide"><div class="dates-table__head"><div class="dates-table__title"></div><div class="dates-table__days"></div></div><div class="dates-table__body"></div></div>',
     };
     this.weekends = [6, 0];
     this._generateNewSlide = this._generateNewSlide.bind(this);
+    this._hideDates = this._hideDates.bind(this);
+    this._showDates = this._showDates.bind(this);
   }
 
   init() {
@@ -57,17 +61,21 @@ export default class DatePicker {
     t._sliderInit();
     t._setSelectedDateInFieldsOnInit();
     t._bindEvents();
+    if (t.autoactivate) {
+      t._showDates();
+    }
   }
 
   _bindEvents() {
     const t = this;
+    if (t.autoactivate) {
+      $(t.el).on('blur', t._hideDates);
+    }
     $(t.container).on('click', '.dates-table__cell', $.proxy(t._onClickCell, t));
-  }
-
-  _getFormattedDate(date, mask) {
-    const t = this;
-    const view = mask || t.resultFormat;
-    return moment(date).format(view);
+    $(t.container).on('click', (evt) => {
+      evt.preventDefault();
+      evt.stopPropagation();
+    });
   }
 
   _getDisabledDates() {
@@ -88,6 +96,10 @@ export default class DatePicker {
     $(t.container).empty();
     $(container).append(t._template.sliderBase);
     t.slider = $(t.container).find('.dates')[0];
+
+    if (t.autoactivate) {
+      $(t.slider).addClass('dates_drop');
+    }
   }
 
   _getSliderOptions(index) {
@@ -96,43 +108,59 @@ export default class DatePicker {
     const initialSlide = index || 0;
     const btnPrev = $(t.container).find('.dates__button_prev')[0];
     const btnNext = $(t.container).find('.dates__button_next')[0];
-    if (t.viewType === 'vertical-scroll') {
-      options = {
-        direction: 'vertical',
-        initialSlide,
-        watchOverflow: true,
-        slidesPerView: 'auto',
-        observer: true,
-        observeParents: true,
-        observeSlideChildren: true,
-        mouseweel: true,
-        runCallbacksOnInit: false,
-        navigation: {
-          nextEl: btnNext,
-          prevEl: btnPrev,
-        },
-        on: {
-          slideChangeTransitionEnd: t._generateNewSlide,
-        },
-      };
-    }
-    if (t.viewType === 'horizontal-scroll') {
-      options = {
-        watchOverflow: true,
-        slidesPerView: 'auto',
-        initialSlide,
-        observer: true,
-        observeParents: true,
-        observeSlideChildren: true,
-        runCallbacksOnInit: false,
-        navigation: {
-          nextEl: btnNext,
-          prevEl: btnPrev,
-        },
-        on: {
-          slideChangeTransitionEnd: t._generateNewSlide,
-        },
-      };
+    switch (t.viewType) {
+      case 'vertical': {
+        options = {
+          direction: 'vertical',
+          initialSlide,
+          watchOverflow: true,
+          slidesPerView: 'auto',
+          observer: true,
+          observeParents: true,
+          observeSlideChildren: true,
+          mouseweel: true,
+          runCallbacksOnInit: false,
+          navigation: {
+            nextEl: btnNext,
+            prevEl: btnPrev,
+          },
+          on: {
+            slideChangeTransitionEnd: t._generateNewSlide,
+          },
+        };
+        break;
+      }
+      case 'horizontal': {
+        options = {
+          watchOverflow: true,
+          slidesPerView: 1,
+          spaceBetween: 30,
+          initialSlide,
+          observer: true,
+          observeParents: true,
+          observeSlideChildren: true,
+          runCallbacksOnInit: true,
+          autoHeight: true,
+          navigation: {
+            nextEl: btnNext,
+            prevEl: btnPrev,
+          },
+          on: {
+            slideChangeTransitionEnd: t._generateNewSlide,
+          },
+          breakpoints: {
+            300: {
+              slidesPerView: 1,
+            },
+            768: {
+              slidesPerView: 2,
+            },
+          },
+        };
+        break;
+      }
+      default:
+        break;
     }
     return options;
   }
@@ -253,7 +281,6 @@ export default class DatePicker {
 
   _render() {
     const t = this;
-    const baseDate = t.startDate;
     const val = $(t.input).val();
     if (t.startDate) {
       t.selectedDate = t.startDate;
@@ -261,6 +288,7 @@ export default class DatePicker {
     if (val) {
       t.selectedDate = moment(val);
     }
+    const baseDate = t.selectedDate;
     const year = baseDate.year();
     const month = baseDate.month();
     const startDate = month - 4;
@@ -295,20 +323,18 @@ export default class DatePicker {
     const prevIndex = sw.previousIndex;
     const lastSlide = sw.slides.length - 1;
     const direction = activeIndex - prevIndex;
-    if (direction < 0 && activeIndex < 3) {
-      const firstGenSlide = t.firstGenSlide;
+    if (direction < 0 && activeIndex < 4) {
+      const firstGenSlide = moment($(sw.slides[0]).attr('data-dates-month'));
       const newSlideDate = firstGenSlide.subtract(1, 'months');
       const newSlide = t._renderSlideItem(newSlideDate);
       sw.removeSlide(lastSlide);
       sw.prependSlide(newSlide);
-      t.firstGenSlide = newSlideDate;
-    } else if (direction > 0 && (lastSlide - activeIndex) < 3) {
-      const lastGenSlide = t.lastGenSlide;
+    } else if (direction > 0 && (lastSlide - activeIndex) < 4) {
+      const lastGenSlide = moment($(sw.slides[lastSlide]).attr('data-dates-month'));
       const newSlideDate = lastGenSlide.add(1, 'months');
       const newSlide = t._renderSlideItem(newSlideDate);
       sw.removeSlide(0);
       sw.appendSlide(newSlide);
-      t.lastGenSlide = newSlideDate;
     }
   }
 
@@ -335,6 +361,9 @@ export default class DatePicker {
     }
     $(el).addClass('is-selected');
     $(t.input).trigger('change');
+    if (t.autoactivate) {
+      t._hideDates();
+    }
   }
 
   _setSelectedDateInFieldsOnInit() {
@@ -345,6 +374,27 @@ export default class DatePicker {
       $(t.alternativeField).html(date.format(t.alternativeFormat));
       $(t.input).trigger('change');
     }
+  }
+
+  _setSelectedDateInFieldsOnOpen() {
+    const t = this;
+    const date = t.selectedDate;
+    if (!$(t.input).val().length > 0) {
+      $(t.input).val(date.format(t.resultFormat));
+      $(t.alternativeField).html(date.format(t.alternativeFormat));
+    }
+  }
+
+  _showDates() {
+    const t = this;
+    const self = t.el;
+    $(self).addClass('is-active');
+  }
+
+  _hideDates() {
+    const t = this;
+    const self = t.el;
+    $(self).removeClass('is-active');
   }
 }
 /* eslint-enable no-plusplus */
