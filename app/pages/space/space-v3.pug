@@ -6,7 +6,7 @@ block head
 block header
   - var headerClass = ' is-login nd-header_border'
   - var pageClass = ''
-  - var isMap = false
+  - var isMap = true
   - var host = true
 
 block content
@@ -80,14 +80,10 @@ block content
               +nd-space()._card.__slide_card.swiper-slide
                 +gallery(item.gallery)._space.__media.js-nd-gallery
                 +e.describe
-                  //- +nd-space-colors
-                    each bxs in item.offers
-                      +nd-box()(class=bxs.box + ' __box')
                   +e.address
                     each el in item.address
                       span!= el
                   +e.title_fz20._proxima._bold!=item.title
-                  //- +e.text!=item.text
                   +offer-table(item.offers).__list
 
 block panels
