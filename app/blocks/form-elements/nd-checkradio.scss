@@ -1,0 +1,136 @@
+.nd-checkradio {
+  $b: &;
+
+  position: relative;
+  display: inline-flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  cursor: pointer;
+  font-size: 18px;
+  line-height: 18px;
+  color: $nd-color-basic;
+
+  @include screen('xlg', max, 2) {
+    font-size: pxtovw(18, 1660);
+    line-height: pxtovw(18, 1660);
+  }
+
+  @include screen('lg', max, 2) {
+    font-size: pxtovw(18, 1366);
+    line-height: pxtovw(18, 1366);
+  }
+
+  @include screen('md', max, 2) {
+    font-size: pxtovw(18, 960);
+    line-height: pxtovw(18, 960);
+  }
+
+  @include screen('sm', max, 2) {
+    font-size: pxtovw(15, 375);
+    line-height: pxtovw(18, 375);
+  }
+
+  &.is-disabled {
+    opacity: .2;
+    cursor: default;
+    pointer-events: none;
+  }
+
+  &__input {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 0;
+    height: 0;
+    visibility: hidden;
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  &__box {
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    box-sizing: border-box;
+    border: 1px solid $nd-color-basic;
+    transition: background $ease-main, opacity $ease-main;
+    border-radius: 50%;
+
+    @include screen('xlg', max, 2) {
+      width: pxtovw(18, 1660);
+      height: pxtovw(18, 1660);
+    }
+
+    @include screen('lg', max, 2) {
+      width: pxtovw(18, 1366);
+      height: pxtovw(18, 1366);
+    }
+
+    @include screen('md', max, 2) {
+      width: pxtovw(18, 960);
+      height: pxtovw(18, 960);
+    }
+
+    @include screen('sm', max, 2) {
+      width: pxtovw(18, 375);
+      height: pxtovw(18, 375);
+    }
+
+    #{$b}__input:checked ~ & {
+      background-color: $nd-color-basic-light;
+      box-shadow: inset 0 0 0 4px $nd-color-main;
+
+      @include screen('xlg', max, 2) {
+        box-shadow: inset 0 0 0 pxtovw(4, 1660) $nd-color-main;
+      }
+
+      @include screen('lg', max, 2) {
+        box-shadow: inset 0 0 0 pxtovw(4, 1366) $nd-color-main;
+      }
+
+
+      @include screen('md', max, 2) {
+        box-shadow: inset 0 0 0 pxtovw(4, 960) $nd-color-main;
+      }
+
+      @include screen('sm', max, 2) {
+        box-shadow: inset 0 0 0 pxtovw(4, 375) $nd-color-main;
+      }
+    }
+
+    #{$b}__input:disabled ~ & {
+      opacity: .2;
+    }
+
+    #{$b}:hover & {
+      background-color: $nd-color-basic-light;
+    }
+  }
+
+  &__content {
+    font-size: inherit;
+    font-weight: inherit;
+    line-height: inherit;
+    letter-spacing: inherit;
+
+    &:not(:first-child) {
+      margin-left: 9px;
+
+      @include screen('xlg', max, 2) {
+        margin-left: pxtovw(9, 1660);
+      }
+
+      @include screen('lg', max, 2) {
+        margin-left: pxtovw(9, 1366);
+      }
+
+      @include screen('md', max, 2) {
+        margin-left: pxtovw(9, 960);
+      }
+
+      @include screen('sm', max, 2) {
+        margin-left: pxtovw(9, 375);
+      }
+    }
+  }
+}

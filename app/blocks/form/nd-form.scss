@@ -1,0 +1,256 @@
+.nd-form {
+  $b: &;
+
+  position: relative;
+  display: block;
+  width: 100%;
+  color: $nd-color-basic;
+
+  &__section {
+    display: block;
+    width: 100%;
+    -webkit-appearance: none;
+    border: none;
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    transition: opacity $ease-main;
+
+    &.is-disabled {
+      opacity: .4;
+      pointer-events: none;
+    }
+  }
+
+  &__content {
+    display: block;
+    width: 100%;
+    transition: opacity $ease-main;
+    position: relative;
+
+    &.is-disabled {
+      opacity: .4;
+      pointer-events: none;
+    }
+  }
+
+  &__header {
+    position: relative;
+    display: block;
+    width: 100%;
+  }
+
+  &__title {
+    font-size: 30px;
+    font-family: $font-stolzl;
+    font-weight: 500;
+    line-height: 1.2;
+    user-select: none;
+
+    @include screen('xlg', max, 2) {
+      font-size: pxtovw(30, 1660);
+    }
+
+    @include screen('lg', max, 2) {
+      font-size: pxtovw(30, 1366);
+    }
+
+    @include screen('md', max, 2) {
+      font-size: pxtovw(30, 960);
+    }
+
+    @include screen('sm', max, 2) {
+      font-size: pxtovw(25, 375);
+    }
+
+    &:not(:last-child) {
+      margin-bottom: 8px;
+
+      @include screen('sm') {
+        margin-bottom: 14px;
+      }
+    }
+
+    &_proxima {
+      font-family: $font-main;
+    }
+
+    &_fw400 {
+      font-weight: 400;
+    }
+
+    &_fw700 {
+      font-weight: 700;
+    }
+  }
+
+  &__text {
+    font-size: 18px;
+    font-weight: 400;
+    line-height: (26 / 18);
+
+    @include screen('sm', max, 2) {
+      font-size: pxtovw(15, 375);
+      line-height: (18 / 15);
+    }
+
+    &_fw700 {
+      font-weight: 700;
+    }
+
+    a {
+      text-decoration: underline;
+      text-underline-offset: 1px;
+
+      &:hover {
+        text-decoration: none;
+      }
+    }
+  }
+
+  &__wrapper {
+    position: relative;
+    display: flex;
+    justify-content: flex-start;
+    width: 100%;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    margin-top: 40px;
+
+    @include screen('xlg', max, 2) {
+      margin-top: pxtovw(40, 1660);
+    }
+
+    @include screen('lg', max, 2) {
+      margin-top: pxtovw(40, 1366);
+    }
+
+    @include screen('md', max, 2) {
+      margin-top: pxtovw(40, 960);
+    }
+
+    @include screen('sm', max, 2) {
+      margin-top: pxtovw(23, 375);
+    }
+
+    &_mt0 {
+      margin-top: 0;
+    }
+  }
+
+  &__methods {
+    display: block;
+    width: 100%;
+    transition: opacity $ease-main;
+
+    &.is-disabled {
+      opacity: .4;
+      pointer-events: none;
+    }
+
+    .nd-button {
+      width: 100%;
+
+      &:not(:first-child) {
+        margin-top: 32px;
+
+        @include screen('xlg', max, 2) {
+          margin-top: pxtovw(32, 1660);
+        }
+
+        @include screen('lg', max, 2) {
+          margin-top: pxtovw(32, 1366);
+        }
+
+        @include screen('md', max, 2) {
+          margin-top: pxtovw(32, 960);
+        }
+
+        @include screen('sm', max, 2) {
+          margin-top: pxtovw(22, 375);
+        }
+      }
+    }
+  }
+
+  &__buttons {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+
+    &:not(:first-child) {
+      margin-top: 50px;
+    }
+  }
+
+  &__field {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    width: 100%;
+
+    &_row3 {
+      flex-wrap: nowrap;
+
+      @include screen('sm') {
+        flex-wrap: wrap;
+      }
+
+      &:not(:first-child) {
+        margin-top: -4px;
+      }
+
+      #{$b}__wrapper {
+        flex: 63;
+
+        &:first-child {
+          flex: 352;
+
+          @include screen('sm') {
+            width: 100%;
+            flex: none;
+          }
+        }
+
+        &:last-child {
+          flex: 126;
+        }
+
+        &:not(:last-child) {
+          margin-right: 20px;
+        }
+      }
+    }
+  }
+
+  &__count {
+    flex: 2.35;
+
+    @include screen('sm') {
+      flex: 1.425;
+    }
+
+    &:not(:last-child) {
+      margin-right: 14px;
+
+      @include screen('sm') {
+        margin-right: 10px;
+      }
+    }
+  }
+
+  &__row {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  &__column {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    box-sizing: border-box;
+  }
+}

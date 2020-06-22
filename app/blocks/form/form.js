@@ -59,7 +59,7 @@ export default function formManipulations() {
     // сбрасываем селекты
     const selects = $(form).find('select');
     $(selects).each((i, el) => {
-      const isChoices = $(el).closest('.choices').length;
+      const isChoices = $(el).closest('.choices, .nd-choices').length;
       const selectValue = el.defaultSelectedValue;
       if (isChoices) {
         el.choices.setChoiceByValue(selectValue);
@@ -131,6 +131,8 @@ export default function formManipulations() {
       stateElements.disabled(targetEl);
     }
   }
+
+  window.globalFunctions.changeFormState = changeState;
 
   function parseDataCustomProperty(el) {
     const result = {};

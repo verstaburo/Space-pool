@@ -1,0 +1,121 @@
+.nd-checkbox {
+  $b: &;
+
+  position: relative;
+  display: inline-flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  cursor: pointer;
+  font-size: 18px;
+  line-height: 20px;
+  color: $nd-color-basic;
+
+  @include screen('xlg', max, 2) {
+    font-size: pxtovw(18, 1660);
+    line-height: pxtovw(20, 1660);
+  }
+
+  @include screen('lg', max, 2) {
+    font-size: pxtovw(18, 1366);
+    line-height: pxtovw(20, 1366);
+  }
+
+  @include screen('md', max, 2) {
+    font-size: pxtovw(18, 960);
+    line-height: pxtovw(20, 960);
+  }
+
+  @include screen('sm', max, 2) {
+    font-size: pxtovw(15, 375);
+    line-height: pxtovw(20, 375);
+  }
+
+  &.is-disabled {
+    opacity: .2;
+    cursor: default;
+    pointer-events: none;
+  }
+
+  &__input {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 0;
+    height: 0;
+    visibility: hidden;
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  &__box {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 1px solid $nd-color-basic;
+    transition: background $ease-main, opacity $ease-main;
+    background-repeat: no-repeat;
+    background-position: 60% 50%;
+    background-size: 80% 65%;
+    box-sizing: border-box;
+
+    @include screen('xlg', max, 2) {
+      width: pxtovw(20, 1660);
+      height: pxtovw(20, 1660);
+    }
+
+    @include screen('lg', max, 2) {
+      width: pxtovw(20, 1366);
+      height: pxtovw(20, 1366);
+    }
+
+    @include screen('md', max, 2) {
+      width: pxtovw(20, 960);
+      height: pxtovw(20, 960);
+    }
+
+    @include screen('sm', max, 2) {
+      width: pxtovw(20, 375);
+      height: pxtovw(20, 375);
+    }
+
+    #{$b}__input:checked ~ & {
+      background-color: $nd-color-main;
+      background-image: $icon-check-white;
+    }
+
+    #{$b}__input:disabled ~ & {
+      opacity: .2;
+    }
+
+    #{$b}:hover & {
+      background-color: $nd-color-main;
+    }
+  }
+
+  &__content {
+    font-size: inherit;
+    font-weight: inherit;
+    line-height: inherit;
+    letter-spacing: inherit;
+
+    &:not(:first-child) {
+      margin-left: 15px;
+
+      @include screen('xlg', max, 2) {
+        margin-left: pxtovw(15, 1660);
+      }
+
+      @include screen('lg', max, 2) {
+        margin-left: pxtovw(15, 1366);
+      }
+
+      @include screen('md', max, 2) {
+        margin-left: pxtovw(15, 960);
+      }
+
+      @include screen('sm', max, 2) {
+        margin-left: pxtovw(11, 375);
+      }
+    }
+  }
+}

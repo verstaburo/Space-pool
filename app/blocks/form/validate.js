@@ -55,10 +55,10 @@ $('[data-validated-form]').parsley({
   successClass: 'is-valid',
   excluded: 'input[type=button], input[type = submit], input[type = reset], input[type = hidden], [disabled], [data-not-verified]',
   classHandler(el) {
-    return $(el.element).closest('.form__wrapper');
+    return $(el.element).closest('.form__wrapper, .nd-form__wrapper');
   },
   errorsContainer(el) {
-    return $(el.element).closest('.form__wrapper').find('.error-message');
+    return $(el.element).closest('.form__wrapper, .nd-form__wrapper').find('.error-message');
   },
 });
 

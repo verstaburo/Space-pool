@@ -80,12 +80,16 @@ block content
           +nd-button()(href="#")._border .nd-button_border
           +nd-button('button')(disabled) .nd-button:disabled
           +nd-button()._border.is-disabled(href="#") .nd-button.is-disabled (если ссылка)
-          +nd-button-icon('', 'select-arrow')(href="#") .nd-button_icon
+          +nd-button-icon('', {icon: 'select-arrow'})(href="#") .nd-button_icon
+          +nd-button-icon('', {icon: 'select-arrow', iconLeft: true})(href="#") .nd-button_icon
           +nd-button()._pad10(href="#") .nd-button_pad10
+          +nd-button()._fz17 .nd-button_fz17
           +nd-button()._fz15 .nd-button_fz15
           +nd-button()._md-fz15 .nd-button_md-fz15
           +nd-button()._sm-fz15 .nd-button_sm-fz15
           +nd-button()._black .nd-button_black
+          +nd-button()._h30 .nd-button_h30
+          +nd-button()._h60 .nd-button_h60
         +ui-description Кнопки с лоадером
           +nd-button('', true)(href="#").is-loading .button.is-loading
           +nd-button('', true)(href="#")._border.is-loading .button_border.is-loading
@@ -96,6 +100,18 @@ block content
           +nd-button()(href="#").js-freeze .js-freeze
           +nd-button()(href="#").js-unfreeze .js-unfreeze
 
+    //- Ссылки
+    +ui-section
+      +ui-section-head
+        h2 Ссылки
+        p Блок: blocks/link
+      +ui-section-content()
+        +ui-elements-list()
+          +nd-link() .nd-link
+          +nd-link()._underline .nd-link_underline
+          +nd-link-icon('nd-user') .nd-link_icon
+          +nd-link-icon('arrow5')._back .nd-link_back
+
     //- Элементы формы
     +ui-section
       +ui-section-head
@@ -103,38 +119,59 @@ block content
         p Блок: blocks/form-elements и blocks/form-box
       +ui-section-content()
         +ui-elements-list()
-          +nd-form-box('.nd-input')
-            +nd-input()(type="text" name="v1")
-          +nd-form-box('.nd-input_h40')._h40
-            +nd-input()._h40(type="text" name="v2")
-          +nd-form-box('.nd-input_open')
-            +nd-input()._open(type="text" name="v3")
-          +nd-form-box('.nd-input_date').js-nd-datepicker
-            +nd-input()._date(type="text" name="v3" data-dates-result readonly)
-            +e.dates(data-dates-container)
-          +nd-form-box('.nd-choices')
-            +nd-select().js-nd-select(name="v4")
-              each item in [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-                option(value=item) option #{item}
-          +nd-form-box('.nd-choices_h40')._h40
-            +nd-select().js-nd-select(name="v5" data-choices-classes="nd-choices_h40")
-              each item in [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-                option(value=item) option #{item}
-          +nd-form-box('.nd-choices_open')
-            +nd-select().js-nd-select(name="v6" data-choices-classes="nd-choices_open")
-              each item in [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-                option(value=item) option #{item}
-          +nd-form-box('.nd-choices_popup')
-            +nd-select().js-nd-select(name="v7" data-choices-popup="data-choices-popup" data-mobile-title="Choices Popup")
-              each item in [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-                option(value=item) option #{item}
-          +nd-form-box('.nd-choices_white')
-            +nd-select().js-nd-select(name="v8" data-choices-classes="nd-choices_white")
-              each item in [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-                option(value=item) option #{item}
-
-
-
+          li
+            +nd-form-box('.nd-input')
+              +nd-input()(type="text" name="v1")
+          li
+            +nd-form-box('.nd-input_h40')._h40
+              +nd-input()._h40(type="text" name="v2")
+          li
+            +nd-form-box('.nd-input_open')
+              +nd-input()._open(type="text" name="v3")
+          li
+            +nd-form-box('.nd-input_date').js-nd-datepicker
+              +nd-input()._date(type="text" name="v3" data-dates-result readonly)
+              +e.dates(data-dates-container)
+          li
+            +nd-form-box('.nd-choices')
+              +nd-select().js-nd-select(name="v4")
+                each item in [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+                  option(value=item) option #{item}
+          li
+            +nd-form-box('.nd-choices_h40')._h40
+              +nd-select().js-nd-select(name="v5" data-choices-classes="nd-choices_h40")
+                each item in [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+                  option(value=item) option #{item}
+          li
+            +nd-form-box('.nd-choices_open')
+              +nd-select().js-nd-select(name="v6" data-choices-classes="nd-choices_open")
+                each item in [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+                  option(value=item) option #{item}
+          li
+            +nd-form-box('.nd-choices_popup')
+              +nd-select().js-nd-select(name="v7" data-choices-popup="data-choices-popup" data-mobile-title="Choices Popup")
+                each item in [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+                  option(value=item) option #{item}
+          li
+            +nd-form-box('.nd-choices_white')
+              +nd-select().js-nd-select(name="v8" data-choices-classes="nd-choices_white")
+                each item in [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+                  option(value=item) option #{item}
+          li
+            +nd-form-box('.nd-textarea')
+              +nd-textarea()(name="textarea")
+          li
+            +nd-checkbox({name: 'checkbox', value: 'check1', checked: false}) .nd-checkbox no checked
+          li
+            +nd-checkbox({name: 'checkbox', value: 'check2', checked: true}) .nd-checkbox no checked
+          li
+            +nd-radio({name: 'radio', value: 'radio1', checked: false}) .nd-radio no checked
+          li
+            +nd-radio({name: 'radio', value: 'radio2', checked: true}) .nd-radio checked
+          li
+            +radio-button({name: 'radio2', value: 'radio1', checked: false}) .radio-button no checked
+          li
+            +radio-button({name: 'radio2', value: 'radio2', checked: true}) .radio-button checked
 
 block panels
   +main-menu

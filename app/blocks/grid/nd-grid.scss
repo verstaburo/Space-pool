@@ -1,0 +1,93 @@
+.nd-grid {
+  $b: &;
+  $default-breakpoit-name: xl;
+  $default-breakpoint-value: map_has_key($nd-breakpoints, $default-breakpoit-name);
+  $new-breakpoints: map_remove($nd-breakpoints, $default-breakpoit-name);
+
+  font-size: 0;
+  line-height: 0;
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: -46px / 2;
+  margin-right: -46px / 2;
+  margin-top: -40px;
+
+  &_gap25 {
+    margin-left: -24px / 2;
+    margin-right: -24px / 2;
+  }
+
+  &_int28 {
+    margin-top: -28px;
+  }
+
+  &__col {
+    display: inline-block; // fallback для старых браузеров
+    box-sizing: border-box;
+    padding: 40px (46px / 2) 0;
+    margin: 0;
+    font-size: 18px;
+    line-height: 1.2;
+
+    @for $i from 1 through 15 {
+      &_#{$default-breakpoit-name}_#{$i} {
+        width: $i * $grid-col-width;
+      }
+    }
+
+    @each $key, $val in $new-breakpoints {
+      @for $i from 1 through 15 {
+        @include screen($key) {
+          &_#{$key}_#{$i} {
+            width: $i * $grid-col-width;
+          }
+        }
+      }
+    }
+
+    #{$b}_c14 & {
+      @for $i from 1 through 15 {
+        &_#{$default-breakpoit-name}_#{$i} {
+          width: $i * $grid14-col-width;
+        }
+      }
+
+      @each $key, $val in $new-breakpoints {
+        @for $i from 1 through 15 {
+          @include screen($key) {
+            &_#{$key}_#{$i} {
+              width: $i * $grid14-col-width;
+            }
+          }
+        }
+      }
+    }
+
+    #{$b}_c9 & {
+      @for $i from 1 through 15 {
+        &_#{$default-breakpoit-name}_#{$i} {
+          width: $i * $grid9-col-width;
+        }
+      }
+
+      @each $key, $val in $new-breakpoints {
+        @for $i from 1 through 15 {
+          @include screen($key) {
+            &_#{$key}_#{$i} {
+              width: $i * $grid9-col-width;
+            }
+          }
+        }
+      }
+    }
+
+    #{$b}_gap25 & {
+      padding-left: 24px / 2;
+      padding-right: 24px / 2;
+    }
+
+    #{$b}_int28 & {
+      padding-top: 28px;
+    }
+  }
+}

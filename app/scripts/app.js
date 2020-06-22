@@ -82,6 +82,7 @@ import reservationRequestShow from '../components/reservation-request/reservatio
 import autocompleteList from '../blocks/autocomplete-list/autocomplete-list';
 import offerCard from '../components/offer-card/offer-card';
 import dates from '../blocks/datepicker/datepicker';
+import switchFormContent from './functions/switchFormContent';
 
 const $ = window.$;
 
@@ -153,4 +154,5 @@ $(() => {
   autocompleteList();
   offerCard();
   dates();
+  switchFormContent();
 });

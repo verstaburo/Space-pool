@@ -18,6 +18,7 @@
   font-weight: 700;
   letter-spacing: normal;
   padding: 0 34px;
+  z-index: 0;
 
   @include screen('xlg', max, 2) {
     height: pxtovw(40, 1660);
@@ -99,6 +100,28 @@
     font-size: 0;
     line-height: 0;
     fill: inherit;
+    width: 20px;
+    height: 20px;
+
+    @include screen('xlg', max, 2) {
+      width: pxtovw(20, 1660);
+      height: pxtovw(20, 1660);
+    }
+
+    @include screen('lg', max, 2) {
+      width: pxtovw(20, 1366);
+      height: pxtovw(20, 1366);
+    }
+
+    @include screen('md', max, 2) {
+      width: pxtovw(20, 960);
+      height: pxtovw(20, 960);
+    }
+
+    @include screen('sm', max, 2) {
+      width: pxtovw(20, 375);
+      height: pxtovw(20, 375);
+    }
 
     #{$b}.is-loading & {
       opacity: 0;
@@ -283,12 +306,45 @@
     }
   }
 
+  &_h60 {
+    height: 60px;
+    border-radius: 30px;
+
+    @include screen('xlg', max, 2) {
+      border-radius: pxtovw(30, 1660);
+      height: pxtovw(60, 1660);
+    }
+
+    @include screen('lg', max, 2) {
+      border-radius: pxtovw(30, 1366);
+      height: pxtovw(60, 1366);
+    }
+
+    @include screen('md', max, 2) {
+      border-radius: pxtovw(30, 960);
+      height: pxtovw(60, 960);
+    }
+
+    @include screen('sm', max, 2) {
+      border-radius: pxtovw(20, 375);
+      height: pxtovw(40, 375);
+    }
+  }
+
   &_border {
     box-sizing: border-box;
     border: 1px solid $nd-color-border;
     background-color: transparent;
     color: $nd-color-basic;
     transition: border $ease-main;
+
+    &_gray {
+      border-color: $nd-color-border3;
+    }
+
+    &_gray-txt {
+      color: $nd-color-logo;
+    }
 
     &:hover {
       border-color: currentColor;
