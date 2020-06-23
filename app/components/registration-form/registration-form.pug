@@ -6,24 +6,24 @@ mixin registration-form(data)
       if data.registration
         if data.reg2subtitle
           +e.text(data-step="startSelection") No monthly charges, uncomplicated, quick and secure
-        +e.text.hide(data-step="registrationForm") Fill out the form, considering that all fields are mandatory.
+        +e.text_mt25.hide(data-step="registrationForm") Fill out the form, considering that all fields are mandatory.
       if data.confirmemail
         +e.text Choose an option and continue registration as:
       if (data.registration)
-        +nd-checkbox({name: 'termsAndConditions', value: "accept", checker: 'registrationMethod'})(data-step="startSelection") I agree with&nbsp;
+        +nd-checkbox({name: 'termsAndConditions', value: "accept", checker: 'registrationMethod'}).__selection(data-step="startSelection") I agree with&nbsp;
           +nd-link()._underline(href="#") Terms and Conditions
     if (data.registration || data.login)
       +form-section(data-step="startSelection")
         if data.registration
           +e.methods(data-checker-target="registrationMethod")
-            +nd-button()._h60.js-stp-form-next(href="javascript();" data-next-step="registrationForm") Sign up with E-mail
-            +nd-button-icon('a', {image: {src: 'assets/images/nd/google.svg', cls: '_gg'}})._border._border_gray._border_gray-txt._h60(href="#") Sign up with Google
-            +nd-button-icon('a', {image: {src: 'assets/images/nd/facebook.svg', cls: "_fb"}})._border._border_gray._border_gray-txt._h60(href="#") Sign up with Facebook
+            +nd-button()._sm-fz15._h60.js-stp-form-next(href="javascript();" data-next-step="registrationForm") Sign up with E-mail
+            +nd-button-icon('a', {image: {src: 'assets/images/nd/google.svg', cls: '_gg'}})._sm-fz15._border._border_gray._border_gray-txt._h60(href="#") Sign up with Google
+            +nd-button-icon('a', {image: {src: 'assets/images/nd/facebook.svg', cls: "_fb"}})._sm-fz15._border._border_gray._border_gray-txt._h60(href="#") Sign up with Facebook
         if data.login
           +e.methods
-            +nd-button()._h60.js-stp-form-next(href="javascript();" data-next-step="loginForm") Login with E-mail
-            +nd-button-icon('a', {image: 'assets/images/nd/google.svg'})._border._border_gray._border_gray-txt._h60(href="#") Login with Google
-            +nd-button-icon('a', {image: 'assets/images/nd/facebook.svg'})._border._border_gray._border_gray-txt._h60(href="#") Login with Facebook
+            +nd-button()._sm-fz15._h60.js-stp-form-next(href="javascript();" data-next-step="loginForm") Login with E-mail
+            +nd-button-icon('a', {image: 'assets/images/nd/google.svg'})._sm-fz15._border._border_gray._border_gray-txt._h60(href="#") Login with Google
+            +nd-button-icon('a', {image: 'assets/images/nd/facebook.svg'})._sm-fz15._border._border_gray._border_gray-txt._h60(href="#") Login with Facebook
     if (data.registration)
       +form-section.hide(data-step="registrationForm")
         +nd-grid
@@ -44,10 +44,10 @@ mixin registration-form(data)
               +nd-form-box('Password')
                 +nd-input(type="password" name="password" required)
         +e.buttons
-          +nd-button('button', true)(type="submit") Sign Up
+          +nd-button('button', true).__button_wide(type="submit") Sign Up
     if (data.login)
-      +form-section.hide(data-step="loginForm")
-        +nd-grid
+      +form-section._mt70.hide(data-step="loginForm")
+        +nd-grid.nd-grid_int28
           +nd-grid-col({xl: 12})
             +form-section-wrapper
               +nd-form-box('Email')
@@ -56,8 +56,8 @@ mixin registration-form(data)
             +form-section-wrapper
               +nd-form-box('Password')
                 +nd-input(type="password" name="password" required)
-        +e.buttons
-          +nd-button('button', true)(type="submit") Login
+        +e.buttons_mt34
+          +nd-button('button', true).__button_wide(type="submit") Login
         +e.links
           +nd-link().__link Forgot password?
     if (data.confirmemail)
@@ -149,8 +149,8 @@ mixin registration-form(data)
               +form-section-wrapper
                 +nd-form-box('Company business area')
                   +nd-input(type="text" name="companyBusinessArea" placeholder="Company business area")
-        +e.block(data-form-switchable-item="legalEntity")
-          +e.H3.title_fz25(class=headerClass) Company director details
+        +e.block_mt86(data-form-switchable-item="legalEntity")
+          +e.H3.title_fz22._fw400._mb(class=headerClass) Company director details
           +nd-grid
             +nd-grid-col({xl: 6, sm: 12})
               +form-section-wrapper
@@ -184,13 +184,215 @@ mixin registration-form(data)
                   +nd-input(type="text" name="firstName" placeholder="Date of birth" required readonly)._date
                   +e.calendar(data-dates-container)
         +e.buttons
-          +nd-button('button', true)(type="submit") Create account
+          +nd-button('button', true).__button_wide(type="submit")
+            span(data-form-switchable-item="privatePerson") Continue
+            span(data-form-switchable-item="legalEntity") Create account
     if data.registration
-      .registration-form__bottom(data-step="startSelection")
-        .registration-form__question Already have an account?
-        +nd-button()(href="#").registration-form__button Login
+      .registration-form__bottom
+        .registration-form__question You already Have an account?
+        +nd-button()(href="#")._pad10.registration-form__button Login
     if data.login
-      .registration-form__bottom(data-step="startSelection")
+      .registration-form__bottom
         .registration-form__question Don’t have an account yet?
-        +nd-button()(href="#").registration-form__button Sign Up
+        +nd-button()(href="#")._pad10.registration-form__button Sign Up
+    block
+
+
+
+mixin registration-form-summary(data)
+  +nd-form.registration-form&attributes(attributes)(data-validated-form)
+    +form-section-header()._tal(class=data.headerCls)
+      +e.H2.title!=data.title
+      if data.registration
+        if data.reg2subtitle
+          +e.text_md-fz16._sm-fz13(data-step="startSelection") No monthly charges, uncomplicated, quick and secure
+        +e.text_mt25._md-fz16._sm-fz13.hide(data-step="registrationForm") Fill out the form, considering that all fields are mandatory.
+      if data.confirmemail
+        +e.text._md-fz16._sm-fz13 Choose an option and continue registration as:
+      if (data.registration)
+        +nd-checkbox({name: 'termsAndConditions', value: "accept", checker: 'registrationMethod'}).__selection_mt60(data-step="startSelection") I agree with&nbsp;
+          +nd-link()._underline(href="#") Terms and Conditions
+    if (data.registration || data.login)
+      +form-section(data-step="startSelection")
+        if data.registration
+          +e.methods(data-checker-target="registrationMethod")
+            +nd-button()._sm-fz15._h60.js-stp-form-next(href="javascript();" data-next-step="registrationForm") Sign up with E-mail
+            +nd-button-icon('a', {image: {src: 'assets/images/nd/google.svg', cls: '_gg'}})._sm-fz15._border._border_gray._border_gray-txt._h60(href="#") Sign up with Google
+            +nd-button-icon('a', {image: {src: 'assets/images/nd/facebook.svg', cls: "_fb"}})._sm-fz15._border._border_gray._border_gray-txt._h60(href="#") Sign up with Facebook
+        if data.login
+          +e.methods
+            +nd-button()._sm-fz15._h60.js-stp-form-next(href="javascript();" data-next-step="loginForm") Login with E-mail
+            +nd-button-icon('a', {image: 'assets/images/nd/google.svg'})._sm-fz15._border._border_gray._border_gray-txt._h60(href="#") Login with Google
+            +nd-button-icon('a', {image: 'assets/images/nd/facebook.svg'})._sm-fz15._border._border_gray._border_gray-txt._h60(href="#") Login with Facebook
+    if (data.registration)
+      +form-section.hide(data-step="registrationForm")
+        +nd-grid
+          +nd-grid-col({xl: 6, sm: 12})
+            +form-section-wrapper
+              +nd-form-box('First name')
+                +nd-input(type="text" name="firstName" required)
+          +nd-grid-col({xl: 6, sm: 12})
+            +form-section-wrapper
+              +nd-form-box('Last name')
+                +nd-input(type="text" name="lastName" required)
+          +nd-grid-col({xl: 12})
+            +form-section-wrapper
+              +nd-form-box('Email')
+                +nd-input(type="email" name="email" required)
+          +nd-grid-col({xl: 12})
+            +form-section-wrapper
+              +nd-form-box('Password')
+                +nd-input(type="password" name="password" required)
+        +e.buttons
+          +nd-button('button', true).__button_wide(type="submit") Sign Up
+    if (data.login)
+      +form-section_mt70.hide(data-step="loginForm")
+        +nd-grid.nd-grid_int28
+          +nd-grid-col({xl: 12})
+            +form-section-wrapper
+              +nd-form-box('Email')
+                +nd-input(type="email" name="email" required)
+          +nd-grid-col({xl: 12})
+            +form-section-wrapper
+              +nd-form-box('Password')
+                +nd-input(type="password" name="password" required)
+        +e.buttons_mt34
+          +nd-button('button', true).__button_wide(type="submit") Login
+        +e.links
+          +nd-link().__link Forgot password?
+    if (data.confirmemail)
+      +form-section
+        +e.block
+          +nd-grid
+            +nd-grid-col({xl: 6})
+              +form-section-wrapper
+                +radio-button({name: 'user', value: 'privatePerson', checked: true, switch: 'privatePerson'}) Private person
+            +nd-grid-col({xl: 6})
+              +form-section-wrapper
+                +radio-button({name: 'user', value: 'legalEntity', checked: false, switch: 'legalEntity'}) Legal entity
+        +e.block
+          +nd-grid
+            +nd-grid-col({xl: 6, sm: 12})
+              +form-section-wrapper
+                +nd-form-box('First name')
+                  +nd-input(type="text" name="firstName" placeholder="First name" required)
+            +nd-grid-col({xl: 6, sm: 12})
+              +form-section-wrapper
+                +nd-form-box('Last name')
+                  +nd-input(type="text" name="lastName" placeholder="Last name" required)
+            +nd-grid-col({xl: 12})(data-form-switchable-item="privatePerson")
+              +form-section-wrapper
+                +nd-form-box('Date of birth').js-nd-datepicker
+                  +nd-input(type="text" name="firstName" placeholder="Date of birth" required readonly)._date
+                  +e.calendar(data-dates-container)
+            +nd-grid-col({xl: 6, sm: 12})(data-form-switchable-item="privatePerson")
+              +form-section-wrapper
+                +nd-form-box('Nationality')
+                  +nd-select(name="nationality" placeholder="Nationality" required).js-nd-select
+                    option(value="" placeholder)
+                    option(value="1") Russian
+                    option(value="2") Latvian
+                    option(value="3") German
+                    option(value="4") English
+            +nd-grid-col({xl: 6, sm: 12})(data-form-switchable-item="privatePerson")
+              +form-section-wrapper
+                +nd-form-box('Country of residence')
+                  +nd-select(name="countryOfResidence" placeholder="Country of residence" required).js-nd-select
+                    option(value="" placeholder)
+                    option(value="1") Russia
+                    option(value="2") Latvia
+                    option(value="3") Germany
+                    option(value="4") England
+            +nd-grid-col({xl: 12})(data-form-switchable-item="legalEntity")
+              +form-section-wrapper
+                +nd-form-box('Company name')
+                  +nd-input(type="text" name="companyName" placeholder="Company name" required)
+            +nd-grid-col({xl: 12})(data-form-switchable-item="legalEntity")
+              +form-section-wrapper
+                +nd-form-box('Company Registration No.')
+                  +nd-input(type="text" name="companyRegNum" placeholder="Company Registration No." required)
+            +nd-grid-col({xl: 12})(data-form-switchable-item="legalEntity")
+              +form-section-wrapper
+                +nd-form-box('VAT number (if applicable)')
+                  +nd-input(type="text" name="vatNumber" placeholder="VAT number (if applicable)")
+            +nd-grid-col({xl: 12})(data-form-switchable-item="legalEntity")
+              +form-section-wrapper
+                +nd-form-box('Address line 1')
+                  +nd-input(type="text" name="addressLine1" placeholder="Address line 1")
+            +nd-grid-col({xl: 12})(data-form-switchable-item="legalEntity")
+              +form-section-wrapper
+                +nd-form-box('Address line 2')
+                  +nd-input(type="text" name="addressLine2" placeholder="Address line 2")
+            +nd-grid-col({xl: 6, sm: 12})(data-form-switchable-item="legalEntity")
+              +form-section-wrapper
+                +nd-form-box('City')
+                  +nd-select(name="city" placeholder="City").js-nd-select
+                    option(value="" placeholder)
+                    option(value="1") London
+                    option(value="2") Moscow
+                    option(value="3") Berlin
+                    option(value="4") Riga
+            +nd-grid-col({xl: 6, sm: 12})(data-form-switchable-item="legalEntity")
+              +form-section-wrapper
+                +nd-form-box('Country')
+                  +nd-select(name="country" placeholder="Country" required).js-nd-select
+                    option(value="" placeholder)
+                    option(value="1") Russia
+                    option(value="2") Latvia
+                    option(value="3") Germany
+                    option(value="4") England
+            +nd-grid-col({xl: 12})(data-form-switchable-item="legalEntity")
+              +form-section-wrapper
+                +nd-form-box('Postcode / ZIP')
+                  +nd-input(type="text" name="postcodeZip" placeholder="Postcode / ZIP")
+            +nd-grid-col({xl: 12})(data-form-switchable-item="legalEntity")
+              +form-section-wrapper
+                +nd-form-box('Company business area')
+                  +nd-input(type="text" name="companyBusinessArea" placeholder="Company business area")
+        +e.block_mt86(data-form-switchable-item="legalEntity")
+          +e.H3.title_fz22._tal._fw400._mb(class=headerClass) Company director details
+          +nd-grid
+            +nd-grid-col({xl: 6, sm: 12})
+              +form-section-wrapper
+                +nd-form-box('First name')
+                  +nd-input(type="text" name="firstNameDirector" placeholder="First name" required)
+            +nd-grid-col({xl: 6, sm: 12})
+              +form-section-wrapper
+                +nd-form-box('Last name')
+                  +nd-input(type="text" name="lastNameDirector" placeholder="Last name" required)
+            +nd-grid-col({xl: 6, sm: 12})
+              +form-section-wrapper
+                +nd-form-box('Nationality')
+                  +nd-select(name="nationalityDirector" placeholder="Nationality" required).js-nd-select
+                    option(value="" placeholder)
+                    option(value="1") Russian
+                    option(value="2") Latvian
+                    option(value="3") German
+                    option(value="4") English
+            +nd-grid-col({xl: 6, sm: 12})
+              +form-section-wrapper
+                +nd-form-box('Country of residence')
+                  +nd-select(name="countryOfResidenceDirector" placeholder="Country of residence" required).js-nd-select
+                    option(value="" placeholder)
+                    option(value="1") Russia
+                    option(value="2") Latvia
+                    option(value="3") Germany
+                    option(value="4") England
+            +nd-grid-col({xl: 12})
+              +form-section-wrapper
+                +nd-form-box('Date of birth').js-nd-datepicker
+                  +nd-input(type="text" name="firstName" placeholder="Date of birth" required readonly)._date
+                  +e.calendar(data-dates-container)
+        +e.buttons
+          +nd-button('button', true).__button_wide(type="submit")
+            span(data-form-switchable-item="privatePerson") Continue
+            span(data-form-switchable-item="legalEntity") Create account
+    if data.registration
+      .registration-form__bottom
+        .registration-form__question You already Have an account?
+        +nd-button()(href="#")._pad10.registration-form__button Login
+    if data.login
+      .registration-form__bottom
+        .registration-form__question Don’t have an account yet?
+        +nd-button()(href="#")._pad10.registration-form__button Sign Up
     block

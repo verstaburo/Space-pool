@@ -8,26 +8,96 @@
   line-height: 0;
   display: flex;
   flex-wrap: wrap;
-  margin-left: -46px / 2;
-  margin-right: -46px / 2;
-  margin-top: -40px;
+  margin: -20px -23px 0;
+
+  @include screen('xlg', max, 2) {
+    margin: pxtovw(-20, 1660) pxtovw(-23, 1660) 0;
+  }
+
+  @include screen('lg', max, 2) {
+    margin: pxtovw(-20, 1366) pxtovw(-23, 1366) 0;
+  }
+
+  @include screen('md', max, 2) {
+    margin: pxtovw(-20, 960) pxtovw(-23, 960) 0;
+  }
+
+  @include screen('sm', max, 2) {
+    margin: pxtovw(-23, 375) pxtovw(-12, 375) 0;
+  }
 
   &_gap25 {
-    margin-left: -24px / 2;
-    margin-right: -24px / 2;
+    margin-left: -12px;
+    margin-right: -12px;
+
+    @include screen('xlg', max, 2) {
+      margin-left: pxtovw(-12, 1660);
+      margin-right: pxtovw(-12, 1660);
+    }
+
+    @include screen('lg', max, 2) {
+      margin-left: pxtovw(-12, 1366);
+      margin-right: pxtovw(-12, 1366);
+    }
+
+    @include screen('md', max, 2) {
+      margin-left: pxtovw(-12, 960);
+      margin-right: pxtovw(-12, 960);
+    }
+
+    @include screen('sm', max, 2) {
+      margin-left: pxtovw(-12, 375);
+      margin-right: pxtovw(-12, 375);
+    }
   }
 
   &_int28 {
     margin-top: -28px;
+
+    @include screen('xlg', max, 2) {
+      margin-top: pxtovw(-28, 1660);
+    }
+
+    @include screen('lg', max, 2) {
+      margin-top: pxtovw(-28, 1366);
+    }
+
+    @include screen('md', max, 2) {
+      margin-top: pxtovw(-28, 960);
+    }
+
+    @include screen('sm', max, 2) {
+      margin-top: pxtovw(-28, 375);
+    }
   }
 
   &__col {
     display: inline-block; // fallback для старых браузеров
     box-sizing: border-box;
-    padding: 40px (46px / 2) 0;
+    padding: 40px 23px 0;
     margin: 0;
     font-size: 18px;
     line-height: 1.2;
+
+    @include screen('xlg', max, 2) {
+      padding: pxtovw(40, 1660) pxtovw(23, 1660) 0;
+      font-size: pxtovw(18, 1660);
+    }
+
+    @include screen('lg', max, 2) {
+      padding: pxtovw(40, 1366) pxtovw(23, 1366) 0;
+      font-size: pxtovw(18, 1366);
+    }
+
+    @include screen('md', max, 2) {
+      padding: pxtovw(40, 960) pxtovw(23, 960) 0;
+      font-size: pxtovw(18, 960);
+    }
+
+    @include screen('sm', max, 2) {
+      padding: pxtovw(23, 375) pxtovw(12, 375) 0;
+      font-size: pxtovw(15, 375);
+    }
 
     @for $i from 1 through 15 {
       &_#{$default-breakpoit-name}_#{$i} {
@@ -82,12 +152,48 @@
     }
 
     #{$b}_gap25 & {
-      padding-left: 24px / 2;
-      padding-right: 24px / 2;
+      padding-left: 12px;
+      padding-right: 12px;
+
+      @include screen('xlg', max, 2) {
+        padding-left: pxtovw(12, 1660);
+        padding-right: pxtovw(12, 1660);
+      }
+
+      @include screen('lg', max, 2) {
+        padding-left: pxtovw(12, 1366);
+        padding-right: pxtovw(12, 1366);
+      }
+
+      @include screen('md', max, 2) {
+        padding-left: pxtovw(12, 960);
+        padding-right: pxtovw(12, 960);
+      }
+
+      @include screen('sm', max, 2) {
+        padding-left: pxtovw(12, 375);
+        padding-right: pxtovw(12, 375);
+      }
     }
 
     #{$b}_int28 & {
       padding-top: 28px;
+
+      @include screen('xlg', max, 2) {
+        padding-top: pxtovw(28, 1660);
+      }
+
+      @include screen('lg', max, 2) {
+        padding-top: pxtovw(28, 1366);
+      }
+
+      @include screen('md', max, 2) {
+        padding-top: pxtovw(28, 960);
+      }
+
+      @include screen('sm', max, 2) {
+        padding-top: pxtovw(28, 375);
+      }
     }
   }
 }

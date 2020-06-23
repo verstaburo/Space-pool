@@ -1,3 +1,186 @@
 .registration-form {
   $b: &;
+
+  display: block;
+  width: 100%;
+  max-width: 510px;
+  box-sizing: border-box;
+  padding-top: 122px;
+
+  @include screen('xlg', max, 2) {
+    padding-top: pxtovw(122, 1660);
+    max-width: pxtovw(510, 1660);
+  }
+
+  @include screen('lg', max, 2) {
+    padding-top: pxtovw(90, 1366);
+    max-width: pxtovw(510, 1366);
+  }
+
+  @include screen('md', max, 2) {
+    padding-top: pxtovw(75, 960);
+    max-width: pxtovw(510, 960);
+  }
+
+  @include screen('sm', max, 2) {
+    padding-top: pxtovw(23, 375);
+    max-width: none;
+  }
+
+  .nd-form {
+    &__header {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: center;
+
+      &_tal {
+        align-items: flex-start;
+      }
+    }
+
+    &__title {
+      text-align: center;
+
+      &_tal {
+        text-align: left;
+      }
+    }
+
+    &__selection {
+      &:not(:first-child) {
+        margin-top: 88px;
+
+        @include screen('xlg', max, 2) {
+          margin-top: pxtovw(88, 1660);
+        }
+
+        @include screen('lg', max, 2) {
+          margin-top: pxtovw(60, 1366);
+        }
+
+        @include screen('md', max, 2) {
+          margin-top: pxtovw(60, 960);
+        }
+
+        @include screen('sm', max, 2) {
+          margin-top: pxtovw(36, 375);
+        }
+      }
+    }
+
+    &__methods {
+      margin-top: 32px;
+
+      @include screen('xlg', max, 2) {
+        margin-top: pxtovw(32, 1660);
+      }
+
+      @include screen('lg', max, 2) {
+        margin-top: pxtovw(25, 1366);
+      }
+
+      @include screen('md', max, 2) {
+        margin-top: pxtovw(25, 960);
+      }
+
+      @include screen('sm', max, 2) {
+        margin-top: pxtovw(2, 375);
+      }
+    }
+  }
+
+  &__bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
+    width: 100%;
+    border-top: 1px solid $nd-color-border4;
+    padding: 18px 0;
+    margin-top: 83px;
+
+    @include screen('xlg', max, 2) {
+      margin-top: pxtovw(83, 1660);
+      padding: pxtovw(18, 1660) 0;
+    }
+
+    @include screen('lg', max, 2) {
+      margin-top: pxtovw(73, 1366);
+      padding: pxtovw(18, 1366) 0;
+    }
+
+    @include screen('md', max, 2) {
+      margin-top: pxtovw(83, 960);
+      padding: pxtovw(18, 960) 0;
+    }
+
+    @include screen('sm') {
+      padding: pxtovw(14, 375) 0;
+      margin-top: pxtovw(60, 375);
+      flex-wrap: wrap;
+    }
+  }
+
+  &__question {
+    display: inline-block;
+    box-sizing: border-box;
+    font-size: 18px;
+    line-height: (26 / 18);
+    font-weight: 700;
+    padding-right: 37px;
+    background-repeat: no-repeat;
+    background-position: 100% 50%;
+    background-image: $icon-arrow-next;
+    background-size: 13px 8px;
+
+    @include screen('xlg', max, 2) {
+      font-size: pxtovw(18, 1660);
+      padding-right: pxtovw(37, 1660);
+      background-size: pxtovw(13, 1660) pxtovw(8, 1660);
+    }
+
+    @include screen('lg', max, 2) {
+      font-size: pxtovw(18, 1366);
+      padding-right: pxtovw(37, 1366);
+      background-size: pxtovw(13, 1366) pxtovw(8, 1366);
+    }
+
+    @include screen('md', max, 2) {
+      font-size: pxtovw(18, 960);
+      padding-right: pxtovw(37, 960);
+      background-size: pxtovw(13, 960) pxtovw(8, 960);
+    }
+
+    @include screen('sm', max, 2) {
+      font-size: pxtovw(18, 375);
+      padding-right: 0;
+      background-image: none;
+      width: 100%;
+      text-align: center;
+    }
+  }
+
+  &__button {
+    flex: none;
+    min-width: 125px;
+
+    @include screen('xlg', max, 2) {
+      min-width: pxtovw(125, 1660);
+    }
+
+    @include screen('lg', max, 2) {
+      min-width: pxtovw(125, 1366);
+    }
+
+    @include screen('md', max, 2) {
+      min-width: pxtovw(125, 960);
+    }
+
+    @include screen('sm', max, 2) {
+      min-width: 0;
+      width: 100%;
+      margin-top: pxtovw(19, 375);
+    }
+  }
 }

@@ -119,8 +119,8 @@
     }
 
     @include screen('sm', max, 2) {
-      width: pxtovw(20, 375);
-      height: pxtovw(20, 375);
+      width: pxtovw(18, 375);
+      height: pxtovw(18, 375);
     }
 
     #{$b}.is-loading & {
@@ -351,6 +351,52 @@
     }
   }
 
+  &_icon {
+    #{$b} {
+      &__text {
+        &:not(:first-child) {
+          margin-left: 9px;
+
+          @include screen('xlg', max, 2) {
+            margin-left: pxtovw(9, 1660);
+          }
+
+          @include screen('lg', max, 2) {
+            margin-left: pxtovw(9, 1366);
+          }
+
+          @include screen('md', max, 2) {
+            margin-left: pxtovw(9, 960);
+          }
+
+          @include screen('sm', max, 2) {
+            margin-left: pxtovw(7, 375);
+          }
+        }
+
+        &:not(:last-child) {
+          margin-right: 9px;
+
+          @include screen('xlg', max, 2) {
+            margin-right: pxtovw(9, 1660);
+          }
+
+          @include screen('lg', max, 2) {
+            margin-right: pxtovw(9, 1366);
+          }
+
+          @include screen('md', max, 2) {
+            margin-right: pxtovw(9, 960);
+          }
+
+          @include screen('sm', max, 2) {
+            margin-right: pxtovw(7, 375);
+          }
+        }
+      }
+    }
+  }
+
   &_icon_start {
     padding: 0 16px 0 30px;
 
@@ -371,6 +417,16 @@
     }
 
     #{$b} {
+      &__text {
+        &:not(:first-child) {
+          margin-left: 0;
+        }
+
+        &:not(:last-child) {
+          margin-right: 0;
+        }
+      }
+
       &__icon {
         position: absolute;
         top: 50%;

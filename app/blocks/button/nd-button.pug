@@ -10,14 +10,14 @@ mixin nd-button-icon(newtag, data)
   +b(newtag || 'a').nd-button_icon&attributes(attributes)
     if data.image
       +e.IMG.icon(src=data.image.src class=data.image.cls)
-    if data.iconLeft
+    if (data.iconLeft && !data.image)
       if data.iconBlock
         +e.SPAN(class="__icon_" + data.icon)
       else
         +icon(icon)(class="__icon_" + data.icon)
     +e.SPAN.text
       block
-    if !data.iconLeft
+    if (!data.iconLeft && !data.image)
       if data.iconBlock
         +e.SPAN(class="__icon_" + data.icon)
       else

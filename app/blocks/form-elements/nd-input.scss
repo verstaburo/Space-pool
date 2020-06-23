@@ -126,6 +126,38 @@
     }
   }
 
+  &_date {
+    background-image: $icon-input-calendar;
+    background-repeat: no-repeat;
+    background-size: 15px;
+    background-position: calc(100% - 8px) 50%;
+    padding-right: 32px;
+
+    @include screen('xlg', max, 2) {
+      background-size: pxtovw(15, 1660);
+      padding-right: pxtovw(32, 1660);
+      background-position: calc(100% - ((800 / 1660) * 1vw)) 50%;
+    }
+
+    @include screen('lg', max, 2) {
+      background-size: pxtovw(15, 1366);
+      padding-right: pxtovw(32, 1366);
+      background-position: calc(100% - ((800 / 1366) * 1vw)) 50%;
+    }
+
+    @include screen('md', max, 2) {
+      background-size: pxtovw(15, 960);
+      padding-right: pxtovw(32, 960);
+      background-position: calc(100% - ((800 / 960) * 1vw)) 50%;
+    }
+
+    @include screen('sm', max, 2) {
+      background-size: pxtovw(15, 375);
+      padding-right: pxtovw(32, 375);
+      background-position: calc(100% - ((800 / 375) * 1vw)) 50%;
+    }
+  }
+
   .is-top & {
     border-color: $nd-color-basic;
     box-shadow: inset 0 0 0 1px transparent;
