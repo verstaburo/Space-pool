@@ -45,6 +45,36 @@
       &_tal {
         text-align: left;
       }
+
+      &_wide {
+        margin-left: -150px;
+        margin-right: -150px;
+        width: calc(100% + 300px);
+
+        @include screen('xlg', max, 2) {
+          margin-left: pxtovw(-150, 1660);
+          margin-right: pxtovw(-150, 1660);
+          width: calc(100% + ((30000 / 1660) * 1vw));
+        }
+
+        @include screen('lg', max, 2) {
+          margin-left: pxtovw(-150, 1366);
+          margin-right: pxtovw(-150, 1366);
+          width: calc(100% + ((30000 / 1366) * 1vw));
+        }
+
+        @include screen('md', max, 2) {
+          margin-left: pxtovw(-150, 960);
+          margin-right: pxtovw(-150, 960);
+          width: calc(100% + ((30000 / 960) * 1vw));
+        }
+
+        @include screen('sm', max, 2) {
+          margin-left: 0;
+          margin-right: 0;
+          width: 100%;
+        }
+      }
     }
 
     &__text {
@@ -128,6 +158,26 @@
       margin-top: pxtovw(60, 375);
       flex-wrap: wrap;
     }
+
+    &_mt58 {
+      margin-top: 58px;
+
+      @include screen('xlg', max, 2) {
+        margin-top: pxtovw(58, 1660);
+      }
+
+      @include screen('lg', max, 2) {
+        margin-top: pxtovw(58, 1366);
+      }
+
+      @include screen('md', max, 2) {
+        margin-top: pxtovw(58, 960);
+      }
+
+      @include screen('sm') {
+        margin-top: pxtovw(60, 375);
+      }
+    }
   }
 
   &__question {
@@ -167,6 +217,26 @@
       width: 100%;
       text-align: center;
     }
+
+    &:not(:last-child) {
+      margin-right: 20px;
+
+      @include screen('xlg', max, 2) {
+        margin-right: pxtovw(20, 1660);
+      }
+
+      @include screen('lg', max, 2) {
+        margin-right: pxtovw(20, 1366);
+      }
+
+      @include screen('md', max, 2) {
+        margin-right: pxtovw(20, 960);
+      }
+
+      @include screen('sm', max, 2) {
+        margin-right: 0;
+      }
+    }
   }
 
   &__button {
@@ -189,6 +259,27 @@
       min-width: 0;
       width: 100%;
       margin-top: pxtovw(19, 375);
+    }
+
+    &_mw110 {
+      min-width: 110px;
+
+      @include screen('xlg', max, 2) {
+        min-width: pxtovw(110, 1660);
+      }
+
+      @include screen('lg', max, 2) {
+        min-width: pxtovw(110, 1366);
+      }
+
+      @include screen('md', max, 2) {
+        min-width: pxtovw(110, 960);
+      }
+
+      @include screen('sm', max, 2) {
+        min-width: 0;
+        width: 100%;
+      }
     }
   }
 }
