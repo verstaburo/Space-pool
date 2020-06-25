@@ -62,7 +62,10 @@ import calendar from '../blocks/calendar/calendar';
 import uploader from '../blocks/uploader/uploader';
 import toggleFilter from '../components/search-filter/search-filter';
 import truncateBlocks from './functions/lineClamp';
-import mapManipulations from '../components/search-map/search-map';
+import {
+  mapManipulations,
+  ndSearchMapManipulations,
+} from '../components/search-map/search-map';
 import advancedSearch from '../components/advanced-filter/advanced-filter';
 import textareaCounters from '../blocks/form-elements/textareaCounters';
 import infoEditable from '../blocks/info-editable/info-editable';
@@ -155,4 +158,5 @@ $(() => {
   offerCard();
   dates();
   switchFormContent();
+  ndSearchMapManipulations();
 });

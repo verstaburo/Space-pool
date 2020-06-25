@@ -1,0 +1,39 @@
+extends ../../layouts/redesign-default
+
+block head
+  - var pageTitle = 'Spacepool - Search'
+
+block bodyClasses
+  - var bodyCls = '';
+
+block header
+  - var headerClass = ' is-login'
+  - var pageClass = ''
+  - var isMap = true
+  - var host = false
+
+block content
+  +nd-search-filter
+  +nd-content._map
+    .nd-container
+      +nd-content-main
+        +nd-results
+          each item in getData('nd-spaces-search.json')
+            +nd-results-item
+              +nd-space()._search-card
+                +gallery(item.gallery)._space.__media.js-nd-gallery
+                +e.describe
+                  +e.address
+                    each el in item.address
+                      span!= el
+                  +e.title_fz20._proxima._bold!=item.title
+                  +e.clip-text
+                    +e.text(data-text=item.text)!=item.text
+                  +offer-table(item.offers).__list
+      +nd-content-aside
+        +nd-search-map
+
+block panels
+  +nd-search-map-button
+
+block popups

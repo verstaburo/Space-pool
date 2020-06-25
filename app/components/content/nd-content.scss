@@ -41,6 +41,24 @@
     }
   }
 
+  &_map .nd-container {
+    @include grid-template-columns(calc(100% - 695px) 50px 645px);
+    @include grid-template-rows(auto auto);
+
+    @include screen('xlg', max, 2) {
+      @include grid-template-columns(pxtovw(845, 1660) pxtovw(50, 1660) pxtovw(645, 1660));
+    }
+
+    @include screen('lg', max, 2) {
+      @include grid-template-columns(pxtovw(837, 1366) pxtovw(20, 1366) pxtovw(409, 1366));
+    }
+
+    @include screen('md', max, 2) {
+      @include grid-template-columns(100%);
+      @include grid-template-rows(auto auto auto);
+    }
+  }
+
   &__column {
     &_aside {
       @include grid-column(1, 2);
@@ -58,6 +76,41 @@
       @include screen('md', max, 2) {
         @include grid-column(1, 2);
         @include grid-row(2, 3);
+      }
+    }
+
+    #{$b}_map & {
+      &_main {
+        @include grid-column(1, 2);
+        @include grid-row(1, 2);
+
+        will-change: width;
+
+        @include screen('md', max, 2) {
+          @include grid-row(2, 3);
+        }
+
+        .is-search-map-hide & {
+          @include grid-column(1, 4);
+
+          @include screen('md', max, 2) {
+            @include grid-column(1, 2);
+          }
+        }
+      }
+
+      &_aside {
+        @include grid-column(3, 4);
+        @include grid-row(1, 2);
+
+        @include screen('lg', max, 2) {
+          @include grid-row(1, 3);
+        }
+
+        @include screen('md', max, 2) {
+          @include grid-column(1, 2);
+          @include grid-row(1, 2);
+        }
       }
     }
 

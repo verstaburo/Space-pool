@@ -12,3 +12,26 @@ mixin switch(name, value, checked, comment)
       +e.toggle
       +e.status_disabled NOT AVAILABLE
       +e.status_active AVIALABLE NOW
+
+mixin nd-switch(data)
+  - var switchCls = data.type == 'twoSide' ? '_two-side' : (data.type == 'oneSide' ? '_one-side' : '')
+  +b.LABEL.nd-switch&attributes(attributes)
+    if data.checked
+      if data.callback
+        +nd-input(type="checkbox" name=data.name value=data.value checked="checked" class=data.inputClass data-callback=data.callback).__input
+      else
+        +nd-input(type="checkbox" name=data.name value=data.value checked="checked" class=data.inputClass).__input
+    else
+      if data.callback
+        +nd-input(type="checkbox" name=data.name value=data.value class=data.inputClass data-callback=data.callback).__input
+      else
+        +nd-input(type="checkbox" name=data.name value=data.value class=data.inputClass).__input
+    if data.type == 'twoSide'
+      +e.label_off!=data.labels.off
+      +e.toggle
+      +e.label_on!=data.labels.on
+    if data.type == 'oneSide'
+      +e.toggle
+      +e.label(data-label-on=data.labels.on data-label-off=data.labels.off)
+    if data.type == 'simple'
+      +e.toggle

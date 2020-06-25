@@ -1,0 +1,295 @@
+.nd-switch {
+  $b: &;
+
+  display: flex;
+  align-items: center;
+  pointer-events: none;
+  cursor: default;
+
+  &__input {
+    display: none;
+  }
+
+  &__toggle {
+    position: relative;
+    display: block;
+    width: 32px;
+    height: 18px;
+    background-color: $nd-color-basic;
+    box-sizing: border-box;
+    border-radius: 21px;
+    cursor: pointer;
+    pointer-events: auto;
+    transition: border $ease-main, background $ease-main;
+
+    @include screen('xlg', max, 2) {
+      width: pxtovw(32, 1660);
+      height: pxtovw(18, 1660);
+      border-radius: pxtovw(21, 1660);
+    }
+
+    @include screen('lg', max, 2) {
+      width: pxtovw(32, 1366);
+      height: pxtovw(18, 1366);
+      border-radius: pxtovw(21, 1366);
+    }
+
+    @include screen('md', max, 2) {
+      width: pxtovw(32, 960);
+      height: pxtovw(18, 960);
+      border-radius: pxtovw(21, 960);
+    }
+
+    @include screen('sm', max, 2) {
+      width: pxtovw(32, 375);
+      height: pxtovw(18, 375);
+      border-radius: pxtovw(21, 375);
+    }
+
+    &:not(:last-child) {
+      margin-right: 10px;
+
+      @include screen('xlg', max, 2) {
+        margin-right: pxtovw(10, 1660);
+      }
+
+      @include screen('lg', max, 2) {
+        margin-right: pxtovw(10, 1366);
+      }
+
+      @include screen('md', max, 2) {
+        margin-right: pxtovw(10, 960);
+      }
+
+      @include screen('sm', max, 2) {
+        margin-right: pxtovw(10, 375);
+      }
+    }
+
+    #{$b}_light & {
+      width: 50px;
+      height: 27px;
+      box-sizing: border-box;
+      border: 1px solid $nd-color-border;
+      background-color: $nd-color-basic-light;
+
+      @include screen('xlg', max, 2) {
+        width: pxtovw(50, 1660);
+        height: pxtovw(27, 1660);
+      }
+
+      @include screen('lg', max, 2) {
+        width: pxtovw(50, 1366);
+        height: pxtovw(27, 1366);
+      }
+
+      @include screen('md', max, 2) {
+        width: pxtovw(50, 960);
+        height: pxtovw(27, 960);
+      }
+
+      @include screen('sm', max, 2) {
+        width: pxtovw(50, 375);
+        height: pxtovw(27, 375);
+      }
+
+      &:hover {
+        border-color: $nd-color-main;
+      }
+    }
+
+    #{$b}_light #{$b}__input:checked ~ & {
+      border-color: $nd-color-blue;
+      background-color: $nd-color-main;
+    }
+
+    &::before {
+      @include pseudo;
+
+      top: 3px;
+      left: 3px;
+      width: 12px;
+      height: 12px;
+      background-color: $nd-color-basic-light;
+      border-radius: 50%;
+      transition: background $ease-main, transform $ease-main;
+      transform: translate3d(0, 0, 0);
+
+      @include screen('xlg', max, 2) {
+        top: pxtovw(3, 1660);
+        left: pxtovw(3, 1660);
+        width: pxtovw(12, 1660);
+        height: pxtovw(12, 1660);
+      }
+
+      @include screen('lg', max, 2) {
+        top: pxtovw(3, 1366);
+        left: pxtovw(3, 1366);
+        width: pxtovw(12, 1366);
+        height: pxtovw(12, 1366);
+      }
+
+      @include screen('md', max, 2) {
+        top: pxtovw(3, 960);
+        left: pxtovw(3, 960);
+        width: pxtovw(12, 960);
+        height: pxtovw(12, 960);
+      }
+
+      @include screen('sm', max, 2) {
+        top: pxtovw(3, 375);
+        left: pxtovw(3, 375);
+        width: pxtovw(12, 375);
+        height: pxtovw(12, 375);
+      }
+
+      #{$b}__input:checked ~ & {
+        transform: translate3d(14px, 0, 0);
+
+        @include screen('xlg', max, 2) {
+          transform: translate3d(pxtovw(14, 1660), 0, 0);
+        }
+
+        @include screen('lg', max, 2) {
+          transform: translate3d(pxtovw(14, 1366), 0, 0);
+        }
+
+        @include screen('md', max, 2) {
+          transform: translate3d(pxtovw(14, 960), 0, 0);
+        }
+
+        @include screen('sm', max, 2) {
+          transform: translate3d(pxtovw(14, 375), 0, 0);
+        }
+      }
+
+      #{$b}_light & {
+        top: 2px;
+        left: 2px;
+        width: 21px;
+        height: 21px;
+        background-color: $nd-color-gray2;
+
+        @include screen('xlg', max, 2) {
+          top: pxtovw(2, 1660);
+          left: pxtovw(2, 1660);
+          width: pxtovw(21, 1660);
+          height: pxtovw(21, 1660);
+        }
+
+        @include screen('lg', max, 2) {
+          top: pxtovw(2, 1366);
+          left: pxtovw(2, 1366);
+          width: pxtovw(21, 1366);
+          height: pxtovw(21, 1366);
+        }
+
+        @include screen('md', max, 2) {
+          top: pxtovw(2, 960);
+          left: pxtovw(2, 960);
+          width: pxtovw(21, 960);
+          height: pxtovw(21, 960);
+        }
+
+        @include screen('sm', max, 2) {
+          top: pxtovw(2, 375);
+          left: pxtovw(2, 375);
+          width: pxtovw(21, 375);
+          height: pxtovw(21, 375);
+        }
+      }
+
+      #{$b}_light #{$b}__input:checked ~ & {
+        background-color: $nd-color-basic-light;
+        transform: translate3d(23px, 0, 0);
+
+        @include screen('xlg', max, 2) {
+          transform: translate3d(pxtovw(23, 1660), 0, 0);
+        }
+
+        @include screen('lg', max, 2) {
+          transform: translate3d(pxtovw(23, 1366), 0, 0);
+        }
+
+        @include screen('md', max, 2) {
+          transform: translate3d(pxtovw(23, 960), 0, 0);
+        }
+
+        @include screen('sm', max, 2) {
+          transform: translate3d(pxtovw(23, 375), 0, 0);
+        }
+      }
+    }
+  }
+
+  &__label {
+    font-size: 16px;
+    line-height: (19 / 16);
+    letter-spacing: -.02em;
+    font-weight: 700;
+    transition: color $ease-main;
+
+    @include screen('xlg', max, 2) {
+      font-size: pxtovw(16, 1660);
+    }
+
+    @include screen('lg', max, 2) {
+      font-size: pxtovw(16, 1366);
+    }
+
+    @include screen('md', max, 2) {
+      font-size: pxtovw(16, 960);
+    }
+
+    @include screen('sm', max, 2) {
+      font-size: pxtovw(16, 375);
+    }
+
+    &::before {
+      display: inline;
+      content: attr(data-label-off);
+    }
+
+    &:not(:last-child) {
+      margin-right: 10px;
+
+      @include screen('xlg', max, 2) {
+        margin-right: pxtovw(10, 1660);
+      }
+
+      @include screen('lg', max, 2) {
+        margin-right: pxtovw(10, 1366);
+      }
+
+      @include screen('md', max, 2) {
+        margin-right: pxtovw(10, 960);
+      }
+
+      @include screen('sm', max, 2) {
+        margin-right: pxtovw(10, 375);
+      }
+    }
+
+    &_off {
+      color: $nd-color-basic;
+    }
+
+    &_on {
+      color: $nd-color-gray-text;
+    }
+
+    #{$b}__input:checked ~ & {
+      &::before {
+        content: attr(data-label-on);
+      }
+
+      &_off {
+        color: $nd-color-gray-text;
+      }
+
+      &_on {
+        color: $nd-color-basic;
+      }
+    }
+  }
+}

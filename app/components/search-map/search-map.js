@@ -6,7 +6,7 @@ from '../../scripts/functions/freeze';
 
 const $ = window.$;
 
-export default function mapManipulations() {
+export function mapManipulations() {
   const bp = window.globalOptions.sizes;
   const mapper = {
     open(mapname) {
@@ -112,5 +112,39 @@ export default function mapManipulations() {
 
   $(document).on('mouseleave', '.js-map-marker-activator', () => {
     $('.map').click();
+  });
+}
+
+export function ndSearchMapManipulations() {
+  $(document).on('change', '.js-search-map-switch', (evt) => {
+    const self = evt.currentTarget;
+    const isChecked = $(self).prop('checked');
+    if (window.Modernizr.mq(`(min-width: ${window.globalOptions.ndsizes.md}px)`)) {
+      if (isChecked) {
+        $('body').addClass('is-search-map-hide');
+      } else {
+        $('body').removeClass('is-search-map-hide');
+      }
+    }
+  });
+
+  $(document).on('click', '.js-search-map-show', () => {
+    $('body').addClass('is-search-map-active');
+    freeze();
+  });
+
+  $(document).on('click', '.js-search-map-close', () => {
+    $('body').removeClass('is-search-map-active');
+    unfreeze();
+  });
+
+  $(window).on('resize', () => {
+    if (window.Modernizr.mq(`(min-width: ${window.globalOptions.ndsizes.md}px)`)) {
+      $('body').removeClass('is-search-map-active');
+    } else {
+      $('body').removeClass('is-search-map-hide');
+      $('.js-search-map-switch').prop('checked', false);
+      $('.js-search-map-switch').trigger('change');
+    }
   });
 }

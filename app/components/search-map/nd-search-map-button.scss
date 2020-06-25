@@ -1,0 +1,68 @@
+.nd-search-map-button {
+  position: fixed;
+  right: 30px;
+  bottom: 60px;
+  display: none;
+  width: 50px;
+  height: 50px;
+  background-color: $nd-color-main;
+  border-radius: 50%;
+  z-index: 3;
+  box-sizing: border-box;
+  padding-top: 35px;
+  background-image: $icon-map;
+  background-repeat: no-repeat;
+  background-size: 28px 23px;
+  background-position: 50% 10px;
+  cursor: pointer;
+  text-align: center;
+  letter-spacing: .09em;
+  font-weight: 500;
+  font-size: 7px;
+  line-height: 1.3;
+  color: $nd-color-basic-light;
+  text-transform: uppercase;
+
+  @include screen('xlg', max, 2) {
+    font-size: pxtovw(7, 1660);
+    background-size: pxtovw(28, 1660) pxtovw(23, 1660);
+    background-position: 50% pxtovw(10, 1660);
+    padding-top: pxtovw(35, 1660);
+    right: pxtovw(30, 1660);
+    width: pxtovw(50, 1660);
+    height: pxtovw(50, 1660);
+  }
+
+  @include screen('lg', max, 2) {
+    font-size: pxtovw(7, 1366);
+    background-size: pxtovw(28, 1366) pxtovw(23, 1366);
+    background-position: 50% pxtovw(10, 1366);
+    padding-top: pxtovw(35, 1366);
+    right: pxtovw(30, 1366);
+    width: pxtovw(50, 1366);
+    height: pxtovw(50, 1366);
+  }
+
+  @include screen('md', max, 2) {
+    display: block;
+    font-size: pxtovw(7, 960);
+    background-size: pxtovw(28, 960) pxtovw(23, 960);
+    background-position: 50% pxtovw(10, 960);
+    padding-top: pxtovw(35, 960);
+    bottom: pxtovw(70, 960);
+    right: pxtovw(30, 960);
+    width: pxtovw(50, 960);
+    height: pxtovw(50, 960);
+  }
+
+  @include screen('sm', max, 2) {
+    font-size: pxtovw(7, 375);
+    background-size: pxtovw(28, 375) pxtovw(23, 375);
+    background-position: 50% pxtovw(10, 375);
+    padding-top: pxtovw(35, 375);
+    bottom: pxtovw(75, 375);
+    right: pxtovw(10, 375);
+    width: pxtovw(50, 375);
+    height: pxtovw(50, 375);
+  }
+}

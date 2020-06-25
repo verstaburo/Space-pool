@@ -20,6 +20,49 @@
       }
     }
 
+    #{$b}_search-card & {
+      box-sizing: border-box;
+      flex: none;
+      width: 284px;
+      height: 180px;
+      padding-top: 0;
+
+      @include screen('xlg', max, 2) {
+        width: pxtovw(284, 1660);
+        height: pxtovw(180, 1660);
+      }
+
+      @include screen('lg', max, 2) {
+        width: pxtovw(196, 1366);
+        height: pxtovw(138, 1366);
+      }
+
+      @include screen('md', max, 2) {
+        width: pxtovw(219, 960);
+        height: pxtovw(151, 960);
+      }
+
+      @include screen('sm', max, 2) {
+        width: 100%;
+        height: auto;
+        padding-top: 63.3%;
+      }
+    }
+
+    .is-search-map-hide #{$b}_search-card & {
+      width: 100%;
+      height: auto;
+      padding-top: 63.3%;
+
+      @include screen('md', max, 2) {
+        padding-top: 63.7%;
+      }
+
+      @include screen('sm', max, 2) {
+        padding-top: 63.3%;
+      }
+    }
+
     &:not(:first-child) {
       margin-top: 16px;
 
@@ -270,6 +313,9 @@
     }
   }
 
+  $lines: 2;
+  $line-height: (18 / 15);
+
   &__text {
     display: block;
     width: 100%;
@@ -337,6 +383,82 @@
         margin-top: pxtovw(4, 375);
       }
     }
+
+    #{$b}_search-card & {
+      display: inline-block;
+      position: relative;
+      font-size: inherit;
+      font-weight: inherit;
+      letter-spacing: inherit;
+      line-height: inherit;
+      max-height: ($lines + 1) * $line-height * 1em;
+      display: -webkit-box;
+      -webkit-line-clamp: $lines;
+      -webkit-box-orient: vertical;
+      line-clamp: $lines;
+
+      @include screen('sm', max, 2) {
+        display: none;
+      }
+
+      &::before {
+        background: #fff; // fallback for old IE
+        background: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1) 50%);
+        bottom: $line-height * 1em;
+        content: '\02026';
+        height: $line-height * 1em;
+        position: absolute;
+        right: 0;
+        text-align: right;
+        width: 4em;
+      }
+
+      &::after { // to cover all but the last line of text
+        background: #fff;
+        content: attr(data-text);
+        left: 0;
+        height: ($lines - 1) * $line-height * 1em;
+        overflow: hidden;
+        position: absolute;
+        top: 0;
+        width: 100%;
+      }
+
+      @supports (-webkit-line-clamp: 2) {
+        &::before,&::after {
+          content: none;
+        }
+      }
+    }
+  }
+
+  &__clip-text {
+    display: block;
+    overflow: hidden;
+    line-height: $line-height;
+    max-height: $lines * $line-height * 1em;
+    text-overflow: ellipsis;
+
+    @include screen('xlg', max, 2) {
+      font-size: pxtovw(15, 1660);
+    }
+
+    @include screen('lg', max, 2) {
+      font-size: pxtovw(15, 1366);
+    }
+
+    @include screen('md', max, 2) {
+      font-size: pxtovw(15, 960);
+    }
+
+    @include screen('sm', max, 2) {
+      display: none;
+      font-size: pxtovw(15, 375);
+    }
+
+    .is-search-map-hide & {
+      display: none;
+    }
   }
 
   &__describe {
@@ -363,6 +485,53 @@
 
     @include screen('sm', max, 2) {
       padding: pxtovw(13, 375) pxtovw(16, 375);
+    }
+
+    #{$b}_search-card & {
+      padding: 0;
+      padding-left: 30px;
+
+      @include screen('xlg', max, 2) {
+        padding-left: pxtovw(30, 1660);
+      }
+
+      @include screen('lg', max, 2) {
+        padding-left: pxtovw(30, 1366);
+      }
+
+      @include screen('md', max, 2) {
+        padding-left: pxtovw(25, 960);
+      }
+
+      @include screen('sm', max, 2) {
+        padding: pxtovw(13, 375) pxtovw(16, 375);
+      }
+
+      .is-search-map-hide & {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+        box-sizing: border-box;
+        padding: 15px 19px;
+        flex: 1;
+
+        @include screen('xlg', max, 2) {
+          padding: pxtovw(15, 1660) pxtovw(19, 1660);
+        }
+
+        @include screen('lg', max, 2) {
+          padding: pxtovw(12, 1366) pxtovw(15, 1366);
+        }
+
+        @include screen('md', max, 2) {
+          padding: pxtovw(12, 960) pxtovw(15, 960);
+        }
+
+        @include screen('sm', max, 2) {
+          padding: pxtovw(13, 375) pxtovw(16, 375);
+        }
+      }
     }
   }
 
@@ -476,6 +645,50 @@
 
     @include screen('sm', max, 2) {
       border-radius: pxtovw(3, 375);
+    }
+  }
+
+  &_search-card {
+    box-sizing: border-box;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    background-color: $nd-color-basic-light;
+    border-radius: 3px;
+    box-shadow: 1px 1px 1px rgba(0, 0, 0, .03), 2px 2px 2px rgba(0, 0, 0, .04), 3px 3px 3px rgba(0, 0, 0, .02);
+    overflow: hidden;
+    padding: 25px;
+
+    @include screen('xlg', max, 2) {
+      border-radius: pxtovw(3, 1660);
+      padding: pxtovw(25, 1660);
+    }
+
+    @include screen('lg', max, 2) {
+      border-radius: pxtovw(3, 1366);
+      padding: pxtovw(25, 1366);
+    }
+
+    @include screen('md', max, 2) {
+      border-radius: pxtovw(3, 960);
+      padding: pxtovw(25, 960);
+    }
+
+    @include screen('sm', max, 2) {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: center;
+      border-radius: pxtovw(3, 375);
+      padding: 0;
+    }
+
+    .is-search-map-hide & {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: center;
+      padding: 0;
     }
   }
 }

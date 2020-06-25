@@ -1,0 +1,105 @@
+.nd-search-filter {
+  $b: &;
+
+  position: sticky;
+  top: 60px;
+  display: flex;
+  width: 100%;
+  box-sizing: border-box;
+  z-index: 3;
+  // padding: 10px 0;
+  border-top: 1px solid $nd-color-border4;
+  border-bottom: 1px solid $nd-color-border4;
+  background-color: $nd-color-bg;
+  height: 50px;
+
+  @include screen('xlg', max, 2) {
+    top: pxtovw(60, 1660);
+    // padding: pxtovw(10, 1660) 0;
+    height: pxtovw(50, 1660);
+  }
+
+  @include screen('lg', max, 2) {
+    top: pxtovw(60, 1366);
+    // padding: pxtovw(10, 1366) 0;
+    height: pxtovw(50, 1366);
+  }
+
+  @include screen('md', max, 2) {
+    top: pxtovw(60, 960);
+    // padding: pxtovw(10, 960) 0;
+    height: pxtovw(50, 960);
+  }
+
+  @include screen('sm', max, 2) {
+    top: 0;
+    // padding: pxtovw(10, 375) 0;
+    border-color: transparent;
+    height: pxtovw(50, 375);
+  }
+
+  .is-search-map-active & {
+    position: relative;
+    z-index: 26;
+  }
+
+  &__wrapper {
+    padding: 10px 0;
+    box-sizing: border-box;
+    display: flex;
+    height: 50px;
+
+    @include screen('xlg', max, 2) {
+      padding: pxtovw(10, 1660) 0;
+      height: pxtovw(50, 1660);
+    }
+
+    @include screen('lg', max, 2) {
+      padding: pxtovw(10, 1366) 0;
+      height: pxtovw(50, 1366);
+    }
+
+    @include screen('md', max, 2) {
+      padding: pxtovw(10, 960) 0;
+      height: pxtovw(50, 960);
+    }
+
+    @include screen('sm', max, 2) {
+      padding: pxtovw(10, 375) 0;
+      height: pxtovw(50, 375);
+    }
+
+    .is-search-map-active & {
+      @include screen('md', max, 2) {
+        position: fixed;
+        opacity: 0;
+        top: pxtovw(11, 375);
+        background-color: transparent;
+        border-color: transparent;
+        pointer-events: none;
+        animation: fadeIn .3s ease forwards;
+      }
+    }
+  }
+
+  .nd-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__filter {
+    .is-search-map-active & {
+      @include screen('md', max, 2) {
+        opacity: 0;
+        pointer-events: auto;
+      }
+    }
+  }
+
+  &__switch {
+    @include screen('md', max, 2) {
+      // display: none;
+    }
+  }
+}

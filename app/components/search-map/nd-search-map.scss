@@ -1,0 +1,116 @@
+.nd-search-map {
+  position: sticky;
+  top: 110px;
+  display: flex;
+  width: calc(100% + 150px);
+  margin: 0 -150px 0 0;
+  height: calc(100vh - 110px);
+  transform: translate3d(0, 0, 0);
+  transition: visibility 0s linear, transform $ease-main, opacity $ease-main;
+  pointer-events: auto;
+
+  @include screen('xlg', max, 2) {
+    top: pxtovw(110, 1660);
+    width: calc(100% + ((6000 / 1660) * 1vw));
+    height: calc(100vh - ((11000 / 1660) * 1vw));
+    margin: 0 pxtovw(-60, 1660) 0 0;
+  }
+
+  @include screen('lg', max, 2) {
+    top: pxtovw(110, 1366);
+    width: calc(100% + ((5000 / 1366) * 1vw));
+    height: calc(100vh - ((11000 / 1366) * 1vw));
+    margin: 0 pxtovw(-50, 1366) 0 0;
+  }
+
+  @include screen('md', max, 2) {
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    transform: translate3d(100%, 0, 0);
+    pointer-events: none;
+    opacity: 0;
+    z-index: 25;
+  }
+
+  .is-search-map-hide & {
+    @include screen('md', min, 2) {
+      opacity: 0;
+      transform: translate3d(100%, 0, 0);
+      pointer-events: none;
+    }
+  }
+
+  .is-search-map-active & {
+    @include screen('md', max, 2) {
+      opacity: 1;
+      transform: translate3d(0, 0, 0);
+      pointer-events: auto;
+    }
+  }
+
+  &__wrapper {
+    position: relative;
+    display: flex;
+    width: 100%;
+  }
+
+  &__close {
+    position: absolute;
+    display: none;
+    border: 1px solid $nd-color-border2;
+    font-size: 0;
+    line-height: 0;
+    background-image: $icon-cross;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    background-size: 44%;
+    z-index: 2;
+
+    @include screen('md', max, 2) {
+      top: pxtovw(20, 960);
+      left: pxtovw(50, 960);
+      display: block;
+      background-color: $nd-color-basic-light;
+      border-radius: 50%;
+      box-shadow: pxtovw(2, 960) pxtovw(4, 960) pxtovw(8, 960) rgba(0, 0, 0, .25);
+      width: pxtovw(36, 960);
+      height: pxtovw(36, 960);
+      box-sizing: border-box;
+      // background-position: pxtovw(9, 960) pxtovw(9, 960);
+      // background-size: pxtovw(15, 960) pxtovw(15, 960);
+    }
+
+    @include screen('sm', max, 2) {
+      top: pxtovw(20, 375);
+      left: pxtovw(20, 375);
+      width: pxtovw(36, 375);
+      height: pxtovw(36, 375);
+      box-shadow: pxtovw(2, 375) pxtovw(4, 375) pxtovw(8, 375) rgba(0, 0, 0, .25);
+      // background-position: pxtovw(9, 375) pxtovw(9, 375);
+      // background-size: pxtovw(15, 375) pxtovw(15, 375);
+    }
+  }
+
+  &__map {
+    position: relative;
+    width: 100%;
+    background-color: $nd-color-border4;
+    z-index: 1;
+  }
+
+  &__results {
+    position: absolute;
+    display: none;
+    z-index: 2;
+
+    @include screen('md', max, 2) {
+      left: 0;
+      bottom: 0;
+      display: block;
+    }
+  }
+}

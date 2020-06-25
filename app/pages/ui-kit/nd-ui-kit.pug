@@ -81,7 +81,7 @@ block content
           +nd-button('button')(disabled) .nd-button:disabled
           +nd-button()._border.is-disabled(href="#") .nd-button.is-disabled (если ссылка)
           +nd-button-icon('', {icon: 'select-arrow'})(href="#") .nd-button_icon
-          +nd-button-icon('', {icon: 'select-arrow', iconLeft: true})(href="#") .nd-button_icon
+          +nd-button-icon('', {icon: 'nd-user', iconLeft: true})(href="#") .nd-button_icon
           +nd-button()._pad10(href="#") .nd-button_pad10
           +nd-button()._fz17 .nd-button_fz17
           +nd-button()._fz15 .nd-button_fz15
@@ -90,6 +90,8 @@ block content
           +nd-button()._black .nd-button_black
           +nd-button()._h30 .nd-button_h30
           +nd-button()._h60 .nd-button_h60
+          +nd-button()(href="#")._border._border_gray .nd-button_border_gray
+          +nd-button()(href="#")._border._border_gray-txt .nd-button_border_gray-txt
         +ui-description Кнопки с лоадером
           +nd-button('', true)(href="#").is-loading .button.is-loading
           +nd-button('', true)(href="#")._border.is-loading .button_border.is-loading
@@ -106,11 +108,15 @@ block content
         h2 Ссылки
         p Блок: blocks/link
       +ui-section-content()
-        +ui-elements-list()
-          +nd-link() .nd-link
-          +nd-link()._underline .nd-link_underline
-          +nd-link-icon('nd-user') .nd-link_icon
-          +nd-link-icon('arrow5')._back .nd-link_back
+        +ui-elements-list()(style="font-size: 18px; line-height: 1.2")
+          li
+            +nd-link()(href="#") .nd-link
+          li
+            +nd-link()._underline(href="#") .nd-link_underline
+          li
+            +nd-link-icon('nd-user')(href="#") .nd-link_icon
+          li
+            +nd-link-icon('arrow5')._back(href="#") .nd-link_back
 
     //- Элементы формы
     +ui-section
@@ -173,6 +179,102 @@ block content
           li
             +radio-button({name: 'radio2', value: 'radio2', checked: true}) .radio-button checked
 
+    //- Хлебные крошки
+    +ui-section
+      +ui-section-head
+        h2 Breadcrumbs
+        p Блок: blocks/breadcrums
+      +ui-section-content()
+        +nd-breadcrumbs([["London", "#"], ["Mayfare", "#"], ["EC2A 4SD"]]).__breadcrumbs
+
+    //- Адрес
+    +ui-section
+      +ui-section-head
+        h2 Адрес
+        p Блок: blocks/address
+      +ui-section-content()
+        +address('assets/images/nd/nd-subway.svg') Liverpool Street
+
+    //- Галлерея
+    +ui-section
+      +ui-section-head
+        h2 Галлерея
+        p Блок: blocks/gallery
+      +ui-section-content()
+        +gallery({images: ["assets/images/nd/nd-space-lead.jpg", "assets/images/space-lead1.jpg", "assets/images/space-lead2.jpg", "assets/images/space-lead3.jpg", "assets/images/space-lead4.jpg"], gallerytag: "spacegallery", buttons: true, dots: true, dotsClass: ' nd-hide-from-sm'}).js-nd-gallery
+
+    //- Routes
+    +ui-section
+      +ui-section-head
+        h2 Таблица маршрутов
+        p Блок: blocks/routes
+      +ui-section-content()
+        +routes
+
+    //- Facility
+    +ui-section
+      +ui-section-head
+        h2 Facilities
+        p Блок: blocks/facility-list
+      +ui-section-content()
+        +facility-list
+
+    //- Spaces
+    +ui-section
+      +ui-section-head
+        h2 Space
+        p Блок blocks/space
+      +ui-section-content
+        +ui-elements-list
+          li
+            - var item = getData('nd-spaces.json')[0]
+            +nd-space('a')(href="#")
+              +nd-space-media()
+                img(src=item.image)
+              +nd-space-colors
+                each box in item.boxes
+                  +nd-box()(class=box + ' __box')
+              +nd-space-title()!=item.title
+              +nd-space-text()!=item.text
+          li
+            - var item = getData('nd-spaces-2.json')[0]
+            +nd-space('a')(href="#")
+              +nd-space-media()
+                img(src=item.image)
+              +space-type.__type
+                +nd-box()(class=item.type.box + ' __box')
+                +e.name!=item.type.name
+              +nd-space-title()!=item.title
+              +nd-space-text()._any-fz15!=item.text
+          li
+            - var item = getData('nd-spaces-search-around.json')[0];
+            +nd-space()._card
+              +gallery(item.gallery)._space.__media.js-nd-gallery
+              +e.describe
+                +e.address
+                  each el in item.address
+                    span!= el
+                +e.title_fz20._proxima._bold!=item.title
+                +offer-table(item.offers).__list
+
+    //- Offer table
+    +ui-section
+      +ui-section-head
+        h2 Offer-table
+        p Блок blocks/offer-table
+      +ui-section-content
+        - var item = getData('nd-spaces-search-around.json')[0];
+        +offer-table(item.offers)
+
+    //- Switch
+    +ui-section
+      +ui-section-head
+        h2 Switch
+        p Блок: blocks/switch
+      +ui-section-content()
+        +nd-switch({name: 'sw1', value: "1", type: 'twoSide', labels: {on: 'on', off: 'off'}})
+        +nd-switch({name: 'sw2', value: "1", type: 'oneSide', labels: {on: 'on', off: 'off'}})
+        +nd-switch({name: 'sw3', value: "1", type: 'simple', labels: {on: 'on', off: 'off'}})._light
 block panels
   +main-menu
 
