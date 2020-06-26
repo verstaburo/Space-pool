@@ -26,10 +26,11 @@ block content
                   +e.address
                     each el in item.address
                       span!= el
-                  +e.title_fz20._proxima._bold!=item.title
+                  +e.title!=item.title
                   +e.clip-text
                     +e.text(data-text=item.text)!=item.text
-                  +offer-table(item.offers).__list
+                  +offer-table(item.offers)._transforma.__list
+        +nd-pagination
       +nd-content-aside
         +nd-search-map
 

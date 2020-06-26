@@ -1,0 +1,21 @@
+mixin offer-slider(data)
+  +b.DIV.js-offer-slider.offer-slider__&attributes(attributes)
+    +e.container.js-offer-slider-container
+      +e.wrapper
+        each item in data
+          +e.slide
+            +e.media
+              +e.PICTURE.image
+                +e.SOURCE(srcset=item.image)
+                +e.IMG(srcset=image)
+            +e.describe
+              +e.cell!=item.describe
+              +e.cell!=item.price
+    +e.navigation
+      +e.buttons
+        +e.button_prev.js-offer-slider-button-prev
+          +icon('nd-slider-arrow')
+        +e.button_next.js-offer-slider-button-next
+          +icon('nd-slider-arrow')
+      +e.pagination.js-offer-slider-pagination
+    block

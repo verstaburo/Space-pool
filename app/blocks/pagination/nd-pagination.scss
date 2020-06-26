@@ -1,0 +1,181 @@
+.nd-pagination {
+  $b: &;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &:not(:first-child) {
+    margin-top: 84px;
+
+    @include screen('xlg', max, 2) {
+      margin-top: pxtovw(84, 1660);
+    }
+
+    @include screen('lg', max, 2) {
+      margin-top: pxtovw(70, 1366);
+    }
+
+    @include screen('md', max, 2) {
+      margin-top: pxtovw(70, 960);
+    }
+
+    @include screen('sm', max, 2) {
+      margin-top: pxtovw(42, 375);
+    }
+  }
+
+  &__item {
+    display: block;
+    box-sizing: border-box;
+    font-size: 0;
+    line-height: 0;
+
+    &:not(:last-child) {
+      margin-right: 25px;
+
+      @include screen('xlg', max, 2) {
+        margin-right: pxtovw(25, 1660);
+      }
+
+      @include screen('lg', max, 2) {
+        margin-right: pxtovw(25, 1366);
+      }
+
+      @include screen('md', max, 2) {
+        margin-right: pxtovw(25, 960);
+      }
+
+      @include screen('sm') {
+        margin-right: pxtovw(25, 375);
+      }
+    }
+  }
+
+  &__link {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    transition: color $ease-main;
+    cursor: pointer;
+    font-size: 17px;
+    font-weight: 700;
+    line-height: 1.63;
+    letter-spacing: -.02em;
+    color: $nd-color-field-border;
+
+    @include screen('xlg', max, 2) {
+      font-size: pxtovw(17, 1660);
+    }
+
+    @include screen('lg', max, 2) {
+      font-size: pxtovw(17, 1366);
+    }
+
+    @include screen('md', max, 2) {
+      font-size: pxtovw(17, 960);
+    }
+
+    @include screen('sm', max, 2) {
+      font-size: pxtovw(17, 375);
+    }
+
+    &:hover, &.is-active {
+      color: $nd-color-basic;
+    }
+  }
+
+  &__arrow {
+    position: relative;
+    display: inline-block;
+    fill: currentColor;
+    font-size: 0;
+    line-height: 0;
+    cursor: pointer;
+    width: 42px;
+    height: 42px;
+    box-sizing: border-box;
+    border: 1px solid $nd-color-basic;
+    border-radius: 50%;
+    color: $nd-color-border-light;
+    transition: color $ease-main;
+    text-align: center;
+    vertical-align: middle;
+    transform-origin: 50% 50%;
+
+    @include screen('xlg', max, 2) {
+      width: pxtovw(42, 1660);
+      height: pxtovw(42, 1660);
+    }
+
+    @include screen('lg', max, 2) {
+      width: pxtovw(42, 1366);
+      height: pxtovw(42, 1366);
+    }
+
+    @include screen('md', max, 2) {
+      width: pxtovw(42, 960);
+      height: pxtovw(42, 960);
+    }
+
+    @include screen('sm', max, 2) {
+      width: pxtovw(42, 375);
+      height: pxtovw(42, 375);
+    }
+
+    &:hover {
+      color: $nd-color-basic;
+    }
+
+    &.is-disabled {
+      cursor: default;
+      pointer-events: none;
+      opacity: .2;
+    }
+
+    svg {
+      position: absolute;
+      display: block;
+      stroke: currentColor;
+      font-size: 0;
+      line-height: 0;
+      width: 9px;
+      height: 20px;
+      top: 10px;
+      left: 15px;
+
+      @include screen('xlg', max, 2) {
+        width: pxtovw(9, 1660);
+        height: pxtovw(20, 1660);
+        top: pxtovw(10, 1660);
+        left: pxtovw(15, 1660);
+      }
+
+      @include screen('lg', max, 2) {
+        width: pxtovw(9, 1366);
+        height: pxtovw(20, 1366);
+        top: pxtovw(10, 1366);
+        left: pxtovw(15, 1366);
+      }
+
+      @include screen('md', max, 2) {
+        width: pxtovw(9, 960);
+        height: pxtovw(20, 960);
+        top: pxtovw(10, 960);
+        left: pxtovw(15, 960);
+      }
+
+      @include screen('sm', max, 2) {
+        width: pxtovw(9, 375);
+        height: pxtovw(20, 375);
+        top: pxtovw(10, 375);
+        left: pxtovw(15, 375);
+      }
+    }
+
+    &_next {
+      transform: rotate(180deg);
+    }
+  }
+}

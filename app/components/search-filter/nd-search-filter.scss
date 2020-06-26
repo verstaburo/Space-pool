@@ -39,45 +39,58 @@
   }
 
   .is-search-map-active & {
-    position: relative;
-    z-index: 26;
+    @include screen('md', max, 2) {
+      position: relative;
+      z-index: 26;
+      background-color: transparent;
+      border-color: transparent;
+      pointer-events: none;
+    }
   }
 
   &__wrapper {
+    width: 100%;
     padding: 10px 0;
     box-sizing: border-box;
     display: flex;
-    height: 50px;
+    height: 100%;
+    background-color: transparent;
 
     @include screen('xlg', max, 2) {
       padding: pxtovw(10, 1660) 0;
-      height: pxtovw(50, 1660);
+      // height: pxtovw(50, 1660);
     }
 
     @include screen('lg', max, 2) {
       padding: pxtovw(10, 1366) 0;
-      height: pxtovw(50, 1366);
+      // height: pxtovw(50, 1366);
     }
 
     @include screen('md', max, 2) {
       padding: pxtovw(10, 960) 0;
-      height: pxtovw(50, 960);
+      // height: pxtovw(50, 960);
     }
 
     @include screen('sm', max, 2) {
       padding: pxtovw(10, 375) 0;
-      height: pxtovw(50, 375);
+      // height: pxtovw(50, 375);
     }
 
     .is-search-map-active & {
       @include screen('md', max, 2) {
         position: fixed;
-        opacity: 0;
-        top: pxtovw(11, 375);
+        opacity: 1;
+        top: pxtovw(13, 960);
         background-color: transparent;
         border-color: transparent;
         pointer-events: none;
         animation: fadeIn .3s ease forwards;
+        height: pxtovw(50, 960);
+      }
+
+      @include screen('sm', max, 2) {
+        top: pxtovw(13, 375);
+        height: pxtovw(50, 375);
       }
     }
   }
@@ -86,20 +99,32 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+
+    .is-search-map-active & {
+      @include screen('md', max, 2) {
+        justify-content: flex-end;
+      }
+    }
   }
 
   &__filter {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+
     .is-search-map-active & {
       @include screen('md', max, 2) {
-        opacity: 0;
+        opacity: 1;
         pointer-events: auto;
       }
     }
   }
 
   &__switch {
+    display: block;
+
     @include screen('md', max, 2) {
-      // display: none;
+      display: none;
     }
   }
 }

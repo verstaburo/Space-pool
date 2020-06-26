@@ -59,6 +59,24 @@
     }
   }
 
+  .is-search-by-offer-type &_map .nd-container {
+    @include grid-template-columns(calc(50% - 25px) 50px calc(50% - 25px));
+    @include grid-template-rows(auto auto);
+
+    @include screen('xlg', max, 2) {
+      @include grid-template-columns(pxtovw(745, 1660) pxtovw(50, 1660) pxtovw(745, 1660));
+    }
+
+    @include screen('lg', max, 2) {
+      @include grid-template-columns(pxtovw(737, 1366) pxtovw(40, 1366) pxtovw(489, 1366));
+    }
+
+    @include screen('md', max, 2) {
+      @include grid-template-columns(100%);
+      @include grid-template-rows(auto auto auto);
+    }
+  }
+
   &__column {
     &_aside {
       @include grid-column(1, 2);

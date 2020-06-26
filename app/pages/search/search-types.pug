@@ -1,0 +1,37 @@
+extends ../../layouts/redesign-default
+
+block head
+  - var pageTitle = 'Spacepool - Search for offer type filter'
+
+block bodyClasses
+  - var bodyCls = 'is-search-by-offer-type';
+
+block header
+  - var headerClass = ' is-login'
+  - var pageClass = ''
+  - var isMap = true
+  - var host = false
+
+block content
+  +nd-search-filter
+  +nd-content._map
+    .nd-container
+      +nd-content-main
+        +nd-results
+          each item in getData('nd-spaces-search-offer.json')
+            +nd-results-item
+              +nd-space()._search-offer
+                +e.head
+                  +space-type._big._gray.__type
+                    +nd-box()(class=item.type.box + ' __box')
+                    +e.name!=item.type.name
+                  +nd-space-title()!=item.title
+                +offer-slider(item.offers).__offer-slider
+        +nd-pagination
+      +nd-content-aside
+        +nd-search-map
+
+block panels
+  +nd-search-map-button
+
+block popups

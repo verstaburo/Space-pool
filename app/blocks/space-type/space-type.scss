@@ -44,6 +44,31 @@
       height: pxtovw(7, 375);
     }
 
+    #{$b}_big & {
+      width: 9px;
+      height: 9px;
+
+      @include screen('xlg', max, 2) {
+        width: pxtovw(9, 1660);
+        height: pxtovw(9, 1660);
+      }
+
+      @include screen('lg', max, 2) {
+        width: pxtovw(9, 1366);
+        height: pxtovw(9, 1366);
+      }
+
+      @include screen('md', max, 2) {
+        width: pxtovw(7, 960);
+        height: pxtovw(7, 960);
+      }
+
+      @include screen('sm', max, 2) {
+        width: pxtovw(8, 375);
+        height: pxtovw(8, 375);
+      }
+    }
+
     &:not(:last-child) {
       margin-right: 4px;
 
@@ -63,6 +88,51 @@
         margin-right: pxtovw(3, 375);
       }
     }
+
+    #{$b}_big & {
+      width: 9px;
+      height: 9px;
+
+      @include screen('xlg', max, 2) {
+        width: pxtovw(9, 1660);
+        height: pxtovw(9, 1660);
+      }
+
+      @include screen('lg', max, 2) {
+        width: pxtovw(9, 1366);
+        height: pxtovw(9, 1366);
+      }
+
+      @include screen('md', max, 2) {
+        width: pxtovw(7, 960);
+        height: pxtovw(7, 960);
+      }
+
+      @include screen('sm', max, 2) {
+        width: pxtovw(8, 375);
+        height: pxtovw(8, 375);
+      }
+
+      &:not(:last-child) {
+        margin-right: 8px;
+
+        @include screen('xlg', max, 2) {
+          margin-right: pxtovw(8, 1660);
+        }
+
+        @include screen('lg', max, 2) {
+          margin-right: pxtovw(8, 1366);
+        }
+
+        @include screen('md', max, 2) {
+          margin-right: pxtovw(6, 960);
+        }
+
+        @include screen('sm', max, 2) {
+          margin-right: pxtovw(7, 375);
+        }
+      }
+    }
   }
 
   &__name {
@@ -75,5 +145,28 @@
 
   &_gray {
     color: $nd-color-gray-text;
+  }
+
+  &_big {
+    font-size: 12px;
+    line-height: (15 / 12);
+
+    @include screen('xlg', max, 2) {
+      font-size: pxtovw(12, 1660);
+    }
+
+    @include screen('lg', max, 2) {
+      font-size: pxtovw(12, 1366);
+    }
+
+    @include screen('md', max, 2) {
+      font-size: pxtovw(10, 960);
+      line-height: (12 / 10);
+    }
+
+    @include screen('sm', max, 2) {
+      font-size: pxtovw(12, 375);
+      line-height: (15 / 12);
+    }
   }
 }
