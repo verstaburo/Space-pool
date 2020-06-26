@@ -81,6 +81,7 @@ $(document).ready(function () {
   function initGMap() {
     var tagsMap = document.getElementById('tagsMap');
     var spaceMap = document.getElementById('spaceMap');
+    var searchMap = document.getElementById('search-map');
 
     // Карта на главной
     if (tagsMap) {
@@ -129,6 +130,32 @@ $(document).ready(function () {
           anchor: new google.maps.Point(20, 54),
           scaledSize: new google.maps.Size(40, 54),
         },
+      });
+    }
+
+    // Карта в поиске
+    if (searchMap) {
+      var map3 = new google.maps.Map(
+        searchMap, {
+          zoom: 13,
+          center: uluru,
+          disableDefaultUI: true,
+        });
+
+      var markers3 = locations.map(function (location, i) {
+        return new google.maps.Marker({
+          position: location,
+          map: map3,
+          icon: {
+            url: 'assets/images/nd/nd-map-marker.svg',
+            size: new google.maps.Size(23, 31),
+            // The origin for this image is (0, 0).
+            origin: new google.maps.Point(0, 0),
+            // The anchor for this image is the base of the flagpole at (0, 32).
+            anchor: new google.maps.Point(12, 31),
+            scaledSize: new google.maps.Size(23, 31),
+          },
+        });
       });
     }
   }
