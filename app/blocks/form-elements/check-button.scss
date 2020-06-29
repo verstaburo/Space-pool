@@ -1,0 +1,172 @@
+.check-button {
+  $b: &;
+
+  display: inline-block;
+
+  &__input {
+    display: none;
+  }
+
+  &__content {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    box-sizing: border-box;
+    border: 1px solid $nd-color-border3;
+    border-radius: 20px;
+    font-size: 15px;
+    line-height: 1.2;
+    letter-spacing: -.02em;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: border $ease-main, color $ease-main, background $ease-main;
+    white-space: nowrap;
+    text-align: center;
+
+    @include screen('xlg', max, 2) {
+      border-radius: pxtovw(20, 1660);
+      font-size: pxtovw(15, 1660);
+      padding: pxtovw(10, 1660) pxtovw(20, 1660);
+    }
+
+    @include screen('lg', max, 2) {
+      border-radius: pxtovw(20, 1366);
+      font-size: pxtovw(15, 1366);
+      padding: pxtovw(10, 1366) pxtovw(20, 1366);
+    }
+
+    @include screen('md', max, 2) {
+      border-radius: pxtovw(20, 960);
+      font-size: pxtovw(15, 960);
+      padding: pxtovw(10, 960) pxtovw(20, 960);
+    }
+
+    @include screen('sm', max, 2) {
+      border-radius: pxtovw(20, 375);
+      font-size: pxtovw(15, 375);
+      padding: pxtovw(10, 375) pxtovw(20, 375);
+    }
+
+    #{$b}:hover & {
+      border-color: $nd-color-basic;
+    }
+
+    #{$b}__input:checked ~ & {
+      border-color: $nd-color-basic;
+      background-color: $nd-color-basic;
+      color: $nd-color-basic-light;
+    }
+
+    #{$b}_h34 & {
+      padding: 7px 20px;
+
+      @include screen('xlg', max, 2) {
+        padding: pxtovw(7, 1660) pxtovw(20, 1660);
+      }
+
+      @include screen('lg', max, 2) {
+        padding: pxtovw(7, 1366) pxtovw(20, 1366);
+      }
+
+      @include screen('md', max, 2) {
+        padding: pxtovw(7, 960) pxtovw(20, 960);
+      }
+
+      @include screen('sm', max, 2) {
+        padding: pxtovw(7, 375) pxtovw(20, 375);
+      }
+    }
+  }
+
+  &__offer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 17px;
+    font-weight: 600;
+    line-height: 1.24;
+
+    @include screen('xlg', max, 2) {
+      font-size: pxtovw(17, 1660);
+    }
+
+    @include screen('lg', max, 2) {
+      font-size: pxtovw(17, 1366);
+    }
+
+    @include screen('md', max, 2) {
+      font-size: pxtovw(17, 960);
+    }
+
+    @include screen('sm', max, 2) {
+      font-size: pxtovw(17, 375);
+    }
+  }
+
+  &__type {
+    &:not(:last-child) {
+      margin-right: 20px;
+
+      @include screen('xlg', max, 2) {
+        margin-right: pxtovw(20, 1660);
+      }
+
+      @include screen('lg', max, 2) {
+        margin-right: pxtovw(20, 1366);
+      }
+
+      @include screen('md', max, 2) {
+        margin-right: pxtovw(20, 960);
+      }
+
+      @include screen('sm', max, 2) {
+        margin-right: pxtovw(20, 375);
+      }
+    }
+  }
+
+  &__box {
+    width: 12px;
+    height: 12px;
+
+    @include screen('xlg', max, 2) {
+      width: pxtovw(12, 1660);
+      height: pxtovw(12, 1660);
+    }
+
+    @include screen('lg', max, 2) {
+      width: pxtovw(12, 1366);
+      height: pxtovw(12, 1366);
+    }
+
+    @include screen('md', max, 2) {
+      width: pxtovw(12, 960);
+      height: pxtovw(12, 960);
+    }
+
+    @include screen('sm', max, 2) {
+      width: pxtovw(12, 375);
+      height: pxtovw(12, 375);
+    }
+
+    &:not(:last-child) {
+      margin-right: 10px;
+
+      @include screen('xlg', max, 2) {
+        margin-right: pxtovw(10, 1660);
+      }
+
+      @include screen('lg', max, 2) {
+        margin-right: pxtovw(10, 1366);
+      }
+
+      @include screen('md', max, 2) {
+        margin-right: pxtovw(10, 960);
+      }
+
+      @include screen('sm', max, 2) {
+        margin-right: pxtovw(10, 375);
+      }
+    }
+  }
+}

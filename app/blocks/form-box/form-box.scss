@@ -457,6 +457,24 @@
     }
   }
 
+  &.nd-form-box_sm-h50 {
+    #{$b} {
+      @include screen('sm', max, 2) {
+        left: pxtovw(7, 375);
+        font-size: pxtovw(17, 375);
+        padding: pxtovw(13, 375) pxtovw(4, 375) pxtovw(9, 375);
+      }
+    }
+
+    &.is-top #{$b}__label,.nd-choices.is-item-select ~ #{$b}__label,.nd-choices.is-open ~ #{$b}__label {
+      @include screen('sm', max, 2) {
+        transform: translate3d(0, pxtovw(-39, 375), 0);
+        font-size: pxtovw(11, 375);
+        padding: pxtovw(4, 375);
+      }
+    }
+  }
+
   &.nd-form-box_h40 {
     #{$b} {
       &__label {

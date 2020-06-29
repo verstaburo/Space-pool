@@ -108,35 +108,58 @@ mixin radio-button(data, tag)
         +e.SPAN.content
           block
 
-//- mixin color-radio(name, value, checked)
-//-   +b.LABEL.color-radio&attributes(attributes)
-//-     - if (checked) {
-//-       +e.INPUT.input(name=name, value=value, type="radio", checked)
-//-     - } else {
-//-       +e.INPUT.input(name=name, value=value, type="radio")
-//-     - }
-//-     +e.SPAN.content
-//-       block
+mixin check-button(data)
+  +b.LABEL.check-button&attributes(attributes)
+    if data.checked
+      if data.required
+        +e.INPUT.input(name=data.name, value=data.value, checked, type=data.type, required)
+      else if data.checker
+        +e.INPUT.input(name=data.name, value=data.value, checked, type=data.type, data-checker=data.checker)
+      else if data.switch
+        +e.INPUT.input(name=data.name, value=data.value, checked, type=data.type, data-form-switch=data.switch)
+      else if data.filterOfferTypeCheck
+        +e.INPUT.input(name=data.name, value=data.value, checked, type=data.type, data-nd-filter-offer-type=data.filterOfferTypeCheck.name)
+      else if data.filterCheck
+        +e.INPUT.input(name=data.name, value=data.value, checked, type=data.type, data-nd-filter-check=data.filterCheck.name)
+      else
+        +e.INPUT.input(name=data.name, value=data.value, checked, type=data.type)
+    else if data.required
+      if data.checker
+        +e.INPUT.input(name=data.name, value=data.value, type=data.type, required, data-checker=data.checker)
+      else if data.switch
+        +e.INPUT.input(name=data.name, value=data.value, type=data.type, required, data-form-switch=data.switch)
+      else if data.filterOfferTypeCheck
+        +e.INPUT.input(name=data.name, value=data.value, type=data.type, required, data-nd-filter-offer-type=data.filterOfferTypeCheck.name)
+      else if data.filterCheck
+        +e.INPUT.input(name=data.name, value=data.value, type=data.type, required, data-nd-filter-check=data.filterCheck.name)
+      else
+        +e.INPUT.input(name=data.name, value=data.value, type=data.type, required)
+    else
+      if data.checker
+        +e.INPUT.input(name=data.name, value=data.value, type=data.type, data-checker=data.checker)
+      else if data.switch
+        +e.INPUT.input(name=data.name, value=data.value, type=data.type, data-form-switch=data.switch)
+      else if data.filterOfferTypeCheck
+        +e.INPUT.input(name=data.name, value=data.value, type=data.type, data-nd-filter-offer-type=data.filterOfferTypeCheck.name)
+      else if data.filterCheck
+        +e.INPUT.input(name=data.name, value=data.value, type=data.type, data-nd-filter-check=data.filterCheck.name)
+      else
+        +e.INPUT.input(name=data.name, value=data.value, type=data.type)
+    +e.SPAN.content
+      block
 
-//- mixin button-radio(name, value, checked)
-//-   +b.LABEL.button-radio&attributes(attributes)
-//-     - if (checked) {
-//-       +e.INPUT.input(name=name, value=value, type="radio", checked)
-//-     - } else {
-//-       +e.INPUT.input(name=name, value=value, type="radio")
-//-     - }
-//-     +e.SPAN.content
-//-       +e.text
-//-         block
-
-//- mixin range(output)
-//-   +b.range&attributes(attributes).js-range
-//-     +e.slider(data-range-container)
-//-     if output
-//-       +e.output(data-range-output)
-//-         +e.value_min Min. <span data-range-min></span> &pound;/mo
-//-         +e.value_max Max. <span data-range-max></span> &pound;/mo
-//-     block
+mixin nd-range(data)
+  +b.nd-range&attributes(attributes).js-nd-range
+    +e.slider(data-nd-range-container)
+    if data.output
+      +e.output(data-nd-range-output)
+        +e.item
+          +nd-form-box(data.output.minLabel)
+            +nd-input(type="text" name=data.output.min placeholder=data.output.minLabel data-nd-range-input-min)
+        +e.item
+          +nd-form-box(data.output.maxLabel)
+            +nd-input(type="text" name=data.output.max placeholder=data.output.maxLabel data-nd-range-input-max)
+    block
 
 //- mixin check-input(isChecked)
 //-   +b.check-input&attributes(attributes)
