@@ -1,3 +1,25 @@
-mixin filter-menu()
-  +b.filter-menu&attributes(attributes)
+mixin filter-menu(specific)
+  +b.FORM.filter-menu&attributes(attributes)
+    +e.item_location.nd-hide-sm
+      +filter-button({class: 'js-nd-show-block-filter', name: 'London', filterName: 'location'})
+      +e.popup(data-filter-block-place="location")
+    +e.item_tags
+      +filter-tags
+    +e.item_type
+      if specific
+        +filter-button({class: '_offer is-types-hd js-nd-show-filter', name: 'All offers', currentName: 'Hot desk', filterName: 'offerType'})
+      else
+        +filter-button({class: '_offer is-types-all js-nd-show-filter', name: 'All offers', filterName: 'offerType'})
+      +e.popup(data-filter-popup="offerType")
+        +filter-popup
+    +e.item_team.nd-hide-sm
+      +filter-button({class: 'js-nd-show-block-filter', name: 'Team', filterName: 'team'})
+      +e.popup(data-filter-block-place="team")
+    +e.item_price.nd-hide-sm
+      +filter-button({class: 'js-nd-show-block-filter', name: 'Price range', filterName: 'priceRange'})
+      +e.popup(data-filter-block-place="priceRange")
+    +e.item_all.nd-hide-from-sm
+      +filter-button({class: '_all js-nd-show-filter', name: 'Filter', filterName: 'filter'})
+      +e.popup(data-filter-popup="filter")
+        +filter-popup
     block

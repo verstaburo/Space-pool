@@ -24,36 +24,39 @@
   }
 
   @include screen('md', max, 2) {
-    padding-top: pxtovw(30, 960);
+    padding-top: 0;
     margin-left: pxtovw(-10, 960);
     margin-right: pxtovw(-10, 960);
     width: calc(100% + ((2000 / 960) * 1vw));
   }
 
   @include screen('sm', max, 2) {
-    padding-top: pxtovw(30, 375);
+    margin-top: pxtovw(-9, 375);
     margin-left: pxtovw(-10, 375);
     margin-right: pxtovw(-10, 375);
     width: calc(100% + ((2000 / 375) * 1vw));
   }
 
+  .is-search-map-hide & {
+    padding-top: 0;
+  }
+
   .is-search-by-offer-type & {
+    padding-top: 0;
+
     @include screen('lg', max, 2) {
-      padding-top: pxtovw(12, 1366);
       margin-left: pxtovw(-25, 1366);
       margin-right: pxtovw(-25, 1366);
       width: calc(100% + ((5000 / 1366) * 1vw));
     }
 
     @include screen('md', max, 2) {
-      padding-top: pxtovw(30, 960);
       margin-left: pxtovw(-10, 960);
       margin-right: pxtovw(-10, 960);
       width: calc(100% + ((2000 / 960) * 1vw));
     }
 
     @include screen('sm', max, 2) {
-      padding-top: pxtovw(30, 375);
       margin-left: pxtovw(-10, 375);
       margin-right: pxtovw(-10, 375);
       width: calc(100% + ((2000 / 375) * 1vw));

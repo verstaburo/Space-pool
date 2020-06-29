@@ -603,7 +603,7 @@
     }
 
     @include screen('sm', max, 2) {
-      padding-bottom: pxtovw(43, 375);
+      padding-bottom: pxtovw(41, 375);
     }
   }
 
@@ -727,8 +727,8 @@
       }
 
       @include screen('sm', max, 2) {
-        width: pxtovw(10, 375);
-        height: pxtovw(22, 375);
+        width: pxtovw(11, 375);
+        height: pxtovw(23, 375);
       }
     }
   }
@@ -818,16 +818,16 @@
 
     &:last-child {
       flex: none;
-      padding-left: 20px;
+      padding-left: 40px;
       text-align: right;
       white-space: nowrap;
 
       @include screen('xlg', max, 2) {
-        padding-left: pxtovw(20, 1660);
+        padding-left: pxtovw(40, 1660);
       }
 
       @include screen('lg', max, 2) {
-        padding-left: pxtovw(20, 1366);
+        padding-left: pxtovw(40, 1366);
       }
 
       @include screen('md', max, 2) {
@@ -849,23 +849,23 @@
     align-items: center;
     width: 100%;
     box-sizing: border-box;
-    padding: 15px;
+    padding: 22px 18px;
     z-index: 3;
 
     @include screen('xlg', max, 2) {
-      padding: pxtovw(15, 1660);
+      padding: pxtovw(22, 1660) pxtovw(18, 1660);
     }
 
     @include screen('lg', max, 2) {
-      padding: pxtovw(15, 1366);
+      padding: pxtovw(22, 1366) pxtovw(18, 1366);
     }
 
     @include screen('md', max, 2) {
-      padding: pxtovw(15, 960);
+      padding: pxtovw(22, 960) pxtovw(18, 960);
     }
 
     @include screen('sm', max, 2) {
-      padding: pxtovw(15, 375);
+      padding: pxtovw(22, 375) pxtovw(15, 375);
     }
 
     .swiper-pagination-bullet {
@@ -878,19 +878,45 @@
       opacity: 1;
       transition: box-shadow $ease-main, background $ease-main;
 
+      @include screen('xlg', max, 2) {
+        width: pxtovw(4, 1660);
+        height: pxtovw(4, 1660);
+      }
+
+      @include screen('lg', max, 2) {
+        width: pxtovw(4, 1366);
+        height: pxtovw(4, 1366);
+      }
+
       @include screen('md', max, 2) {
-        width: 3px;
-        height: 3px;
+        width: pxtovw(3, 960);
+        height: pxtovw(3, 960);
       }
 
       @include screen('sm', max, 2) {
-        width: 4px;
-        height: 4px;
+        width: pxtovw(4, 375);
+        height: pxtovw(4, 375);
       }
 
       &.swiper-pagination-bullet-active {
-        box-shadow: 0 0 0 2px $nd-color-main;
+        box-shadow: 0 0 0 1px $nd-color-main;
         background-color: $nd-color-main;
+
+        @include screen('xlg', max, 2) {
+          box-shadow: 0 0 0 pxtovw(1, 1660) $nd-color-main;
+        }
+
+        @include screen('lg', max, 2) {
+          box-shadow: 0 0 0 pxtovw(1, 1366) $nd-color-main;
+        }
+
+        @include screen('md', max, 2) {
+          box-shadow: 0 0 0 pxtovw(1, 960) $nd-color-main;
+        }
+
+        @include screen('sm', max, 2) {
+          box-shadow: 0 0 0 pxtovw(1, 375) $nd-color-main;
+        }
       }
 
       &:not(:last-child) {

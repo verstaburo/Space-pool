@@ -1,0 +1,152 @@
+.filter-button {
+  $b: &;
+
+  display: inline-block;
+  vertical-align: middle;
+  text-align: center;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  cursor: pointer;
+  border: 1px solid $nd-color-border5;
+  transition: border $ease-main;
+  font-size: 15px;
+  line-height: 1.2;
+  letter-spacing: -.02em;
+  font-weight: 400;
+  border-radius: 21px;
+  padding: 4px 9px;
+  min-width: 78px;
+
+  @include screen('xlg', max, 2) {
+    font-size: pxtovw(15, 1660);
+    border-radius: pxtovw(21, 1660);
+    padding: pxtovw(4, 1660) pxtovw(9, 1660);
+    min-width: pxtovw(78, 1660);
+  }
+
+  @include screen('lg', max, 2) {
+    font-size: pxtovw(15, 1366);
+    border-radius: pxtovw(21, 1366);
+    padding: pxtovw(4, 1366) pxtovw(9, 1366);
+    min-width: pxtovw(78, 1366);
+  }
+
+  @include screen('md', max, 2) {
+    font-size: pxtovw(15, 960);
+    border-radius: pxtovw(21, 960);
+    padding: pxtovw(4, 960) pxtovw(9, 960);
+    min-width: pxtovw(78, 960);
+  }
+
+  @include screen('sm', max, 2) {
+    font-size: pxtovw(15, 375);
+    border-radius: pxtovw(26, 375);
+    padding: pxtovw(6, 375) pxtovw(15, 375);
+    min-width: pxtovw(106, 375);
+  }
+
+  .is-search-map-active & {
+    background-color: $nd-color-basic-light;
+    box-shadow: 2px 4px 8px rgba(0, 0, 0, .25);
+    border-color: $nd-color-border2;
+
+    @include screen('xlg', max, 2) {
+      box-shadow: pxtovw(2, 1660) pxtovw(4, 1660) pxtovw(8, 1660) rgba(0, 0, 0, .25);
+    }
+
+    @include screen('lg', max, 2) {
+      box-shadow: pxtovw(2, 1366) pxtovw(4, 1366) pxtovw(8, 1366) rgba(0, 0, 0, .25);
+    }
+
+    @include screen('md', max, 2) {
+      box-shadow: pxtovw(2, 960) pxtovw(4, 960) pxtovw(8, 960) rgba(0, 0, 0, .25);
+    }
+
+    @include screen('sm', max, 2) {
+      box-shadow: pxtovw(2, 375) pxtovw(4, 375) pxtovw(8, 375) rgba(0, 0, 0, .25);
+    }
+  }
+
+  &:hover, &.is-active {
+    border-color: $nd-color-basic;
+  }
+
+  &__name {
+    display: inline-block;
+  }
+
+  &_offer {
+    &::before {
+      display: inline-block;
+      content: '';
+      height: 6px;
+      width: 6px;
+      margin-right: 10px;
+
+      @include screen('xlg', max, 2) {
+        height: pxtovw(6, 1660);
+        width: pxtovw(6, 1660);
+        margin-right: pxtovw(10, 1660);
+      }
+
+      @include screen('lg', max, 2) {
+        height: pxtovw(6, 1366);
+        width: pxtovw(6, 1366);
+        margin-right: pxtovw(10, 1366);
+      }
+
+      @include screen('md', max, 2) {
+        height: pxtovw(6, 960);
+        width: pxtovw(6, 960);
+        margin-right: pxtovw(10, 960);
+      }
+
+      @include screen('sm', max, 2) {
+        height: pxtovw(7, 375);
+        width: pxtovw(7, 375);
+        margin-right: pxtovw(12, 375);
+      }
+    }
+
+    &.is-types-all::before {
+      background-color: $nd-color-hotdesk;
+      background-image: linear-gradient(to right, $nd-color-hotdesk 25%, $nd-color-fixeddesk 25%, $nd-color-fixeddesk 50%, $nd-color-meetingroom 50%, $nd-color-meetingroom 75%, $nd-color-privateoffice 75%);
+      background-repeat: no-repeat;
+      width: 24px;
+
+      @include screen('xlg', max, 2) {
+        width: pxtovw(24, 1660);
+      }
+
+      @include screen('lg', max, 2) {
+        width: pxtovw(24, 1366);
+      }
+
+      @include screen('md', max, 2) {
+        width: pxtovw(24, 960);
+      }
+
+      @include screen('sm', max, 2) {
+        width: pxtovw(28, 375);
+      }
+    }
+
+    &.is-types-hd::before {
+      background-color: $nd-color-hotdesk;
+    }
+
+    &.is-types-fd::before {
+      background-color: $nd-color-fixeddesk;
+    }
+
+    &.is-types-mr::before {
+      background-color: $nd-color-meetingroom;
+    }
+
+    &.is-types-po {
+      background-color: $nd-color-privateoffice;
+    }
+  }
+}

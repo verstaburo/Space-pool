@@ -332,6 +332,46 @@
         font-size: pxtovw(20, 375);
       }
 
+      &:not(:first-child) {
+        margin-top: 15px;
+
+        @include screen('xlg', max, 2) {
+          margin-top: pxtovw(15, 1660);
+        }
+
+        @include screen('lg', max, 2) {
+          margin-top: pxtovw(16, 1366);
+        }
+
+        @include screen('md', max, 2) {
+          margin-top: pxtovw(16, 960);
+        }
+
+        @include screen('sm', max, 2) {
+          margin-top: pxtovw(10, 375);
+        }
+      }
+
+      &:not(:last-child) {
+        margin-bottom: 10px;
+
+        @include screen('xlg', max, 2) {
+          margin-bottom: pxtovw(10, 1660);
+        }
+
+        @include screen('lg', max, 2) {
+          margin-bottom: pxtovw(16, 1366);
+        }
+
+        @include screen('md', max, 2) {
+          margin-bottom: pxtovw(16, 960);
+        }
+
+        @include screen('sm', max, 2) {
+          margin-bottom: pxtovw(35, 375);
+        }
+      }
+
       .is-search-map-hide & {
         font-family: $font-main;
         font-weight: 700;
@@ -355,6 +395,46 @@
           font-family: $font-stolzl;
           font-weight: 400;
         }
+
+        &:not(:first-child) {
+          margin-top: 10px;
+
+          @include screen('xlg', max, 2) {
+            margin-top: pxtovw(10, 1660);
+          }
+
+          @include screen('lg', max, 2) {
+            margin-top: pxtovw(10, 1366);
+          }
+
+          @include screen('md', max, 2) {
+            margin-top: pxtovw(10, 960);
+          }
+
+          @include screen('sm', max, 2) {
+            margin-top: pxtovw(10, 375);
+          }
+        }
+
+        &:not(:last-child) {
+          margin-bottom: 45px;
+
+          @include screen('xlg', max, 2) {
+            margin-bottom: pxtovw(45, 1660);
+          }
+
+          @include screen('lg', max, 2) {
+            margin-bottom: pxtovw(20, 1366);
+          }
+
+          @include screen('md', max, 2) {
+            margin-bottom: pxtovw(16, 960);
+          }
+
+          @include screen('sm', max, 2) {
+            margin-bottom: pxtovw(35, 375);
+          }
+        }
       }
     }
 
@@ -377,6 +457,26 @@
 
       @include screen('sm', max, 2) {
         font-size: pxtovw(18, 375);
+      }
+
+      &:not(:first-child) {
+        margin-top: 10px;
+
+        @include screen('xlg', max, 2) {
+          margin-top: pxtovw(10, 1660);
+        }
+
+        @include screen('lg', max, 2) {
+          margin-top: pxtovw(10, 1366);
+        }
+
+        @include screen('md', max, 2) {
+          margin-top: pxtovw(7, 960);
+        }
+
+        @include screen('sm', max, 2) {
+          margin-top: pxtovw(10, 375);
+        }
       }
     }
   }
@@ -527,26 +627,18 @@
     }
 
     &:not(:first-child) {
-      margin-top: 11px;
-
-      @include screen('xl', max, 2) {
-        margin-top: 7px;
-      }
-
-      @include screen('xlg', max, 2) {
-        margin-top: pxtovw(7, 1660);
-      }
+      margin-top: 0;
 
       @include screen('lg', max, 2) {
-        margin-top: pxtovw(4, 1366);
+        margin-top: pxtovw(-4, 1366);
       }
 
       @include screen('md', max, 2) {
-        margin-top: pxtovw(4, 960);
+        margin-top: pxtovw(-4, 960);
       }
 
       @include screen('sm', max, 2) {
-        margin-top: pxtovw(4, 375);
+        margin-top: pxtovw(-4, 375);
       }
     }
 
@@ -598,7 +690,7 @@
       }
 
       @include screen('sm', max, 2) {
-        padding: pxtovw(13, 375) pxtovw(16, 375);
+        padding: pxtovw(13, 375) pxtovw(16, 375) pxtovw(24, 375);
       }
 
       .is-search-map-hide & {
@@ -607,15 +699,15 @@
         justify-content: flex-start;
         align-items: flex-start;
         box-sizing: border-box;
-        padding: 15px 19px;
+        padding: 15px 19px 24px;
         flex: 1;
 
         @include screen('xlg', max, 2) {
-          padding: pxtovw(15, 1660) pxtovw(19, 1660);
+          padding: pxtovw(15, 1660) pxtovw(19, 1660) pxtovw(24, 1660);
         }
 
         @include screen('lg', max, 2) {
-          padding: pxtovw(12, 1366) pxtovw(15, 1366);
+          padding: pxtovw(12, 1366) pxtovw(18, 1366) pxtovw(16, 1366);
         }
 
         @include screen('md', max, 2) {
@@ -632,6 +724,30 @@
   &__list {
     margin-top: auto;
     width: 100%;
+
+    #{$b}_search-card & {
+      margin-top: 22px;
+
+      @include screen('xlg', max, 2) {
+        margin-top: pxtovw(22, 1660);
+      }
+
+      @include screen('lg', max, 2) {
+        margin-top: pxtovw(22, 1366);
+      }
+
+      @include screen('md', max, 2) {
+        margin-top: pxtovw(22, 960);
+      }
+
+      @include screen('sm', max, 2) {
+        margin-top: auto;
+      }
+
+      .is-search-map-hide & {
+        margin-top: auto;
+      }
+    }
   }
 
   &__address {
@@ -717,6 +833,7 @@
 
   &__head {
     display: block;
+    flex: none;
     width: 100%;
     padding: 18px 18px 0;
     box-sizing: border-box;
@@ -734,7 +851,32 @@
     }
 
     @include screen('sm', max, 2) {
-      padding: pxtovw(15, 375) pxtovw(16, 375) 0;
+      padding: pxtovw(15, 375) pxtovw(17, 375) 0;
+    }
+  }
+
+  &__offer-slider {
+    flex: 1;
+    width: 100%;
+
+    &:not(:first-child) {
+      margin-top: 16px;
+
+      @include screen('xlg', max, 2) {
+        margin-top: pxtovw(16, 1660);
+      }
+
+      @include screen('lg', max, 2) {
+        margin-top: pxtovw(14, 1366);
+      }
+
+      @include screen('md', max, 2) {
+        margin-top: pxtovw(11, 960);
+      }
+
+      @include screen('sm', max, 2) {
+        margin-top: pxtovw(9, 375);
+      }
     }
   }
 
@@ -774,21 +916,24 @@
     border-radius: 3px;
     box-shadow: 1px 1px 1px rgba(0, 0, 0, .03), 2px 2px 2px rgba(0, 0, 0, .04), 3px 3px 3px rgba(0, 0, 0, .02);
     overflow: hidden;
-    padding: 25px;
+    padding: 25px 25px 20px;
 
     @include screen('xlg', max, 2) {
       border-radius: pxtovw(3, 1660);
-      padding: pxtovw(25, 1660);
+      padding: pxtovw(25, 1660) pxtovw(25, 1660) pxtovw(20, 1660);
+      box-shadow: pxtovw(1, 1660) pxtovw(1, 1660) pxtovw(1, 1660) rgba(0, 0, 0, .03), pxtovw(2, 1660) pxtovw(2, 1660) pxtovw(2, 1660) rgba(0, 0, 0, .04), pxtovw(3, 1660) pxtovw(3, 1660) pxtovw(3, 1660) rgba(0, 0, 0, .02);
     }
 
     @include screen('lg', max, 2) {
       border-radius: pxtovw(3, 1366);
-      padding: pxtovw(25, 1366);
+      padding: pxtovw(25, 1366) pxtovw(25, 1366) pxtovw(20, 1366);
+      box-shadow: pxtovw(1, 1366) pxtovw(1, 1366) pxtovw(1, 1366) rgba(0, 0, 0, .03), pxtovw(2, 1366) pxtovw(2, 1366) pxtovw(2, 1366) rgba(0, 0, 0, .04), pxtovw(3, 1366) pxtovw(3, 1366) pxtovw(3, 1366) rgba(0, 0, 0, .02);
     }
 
     @include screen('md', max, 2) {
       border-radius: pxtovw(3, 960);
-      padding: pxtovw(25, 960);
+      padding: pxtovw(25, 960) pxtovw(25, 960) pxtovw(20, 960);
+      box-shadow: pxtovw(1, 960) pxtovw(1, 960) pxtovw(1, 960) rgba(0, 0, 0, .03), pxtovw(2, 960) pxtovw(2, 960) pxtovw(2, 960) rgba(0, 0, 0, .04), pxtovw(3, 960) pxtovw(3, 960) pxtovw(3, 960) rgba(0, 0, 0, .02);
     }
 
     @include screen('sm', max, 2) {
@@ -798,6 +943,7 @@
       align-items: center;
       border-radius: pxtovw(3, 375);
       padding: 0;
+      box-shadow: pxtovw(1, 375) pxtovw(1, 375) pxtovw(1, 375) rgba(0, 0, 0, .03), pxtovw(2, 375) pxtovw(2, 375) pxtovw(2, 375) rgba(0, 0, 0, .04), pxtovw(3, 375) pxtovw(3, 375) pxtovw(3, 375) rgba(0, 0, 0, .02);
     }
 
     .is-search-map-hide & {
@@ -811,7 +957,10 @@
 
   &_search-offer {
     box-sizing: border-box;
-    display: block;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
     background-color: $nd-color-basic-light;
     border-radius: 3px;
     box-shadow: 1px 1px 1px rgba(0, 0, 0, .03), 2px 2px 2px rgba(0, 0, 0, .04), 3px 3px 3px rgba(0, 0, 0, .02);
@@ -819,18 +968,22 @@
 
     @include screen('xlg', max, 2) {
       border-radius: pxtovw(3, 1660);
+      box-shadow: pxtovw(1, 1660) pxtovw(1, 1660) pxtovw(1, 1660) rgba(0, 0, 0, .03), pxtovw(2, 1660) pxtovw(2, 1660) pxtovw(2, 1660) rgba(0, 0, 0, .04), pxtovw(3, 1660) pxtovw(3, 1660) pxtovw(3, 1660) rgba(0, 0, 0, .02);
     }
 
     @include screen('lg', max, 2) {
       border-radius: pxtovw(3, 1366);
+      box-shadow: pxtovw(1, 1366) pxtovw(1, 1366) pxtovw(1, 1366) rgba(0, 0, 0, .03), pxtovw(2, 1366) pxtovw(2, 1366) pxtovw(2, 1366) rgba(0, 0, 0, .04), pxtovw(3, 1366) pxtovw(3, 1366) pxtovw(3, 1366) rgba(0, 0, 0, .02);
     }
 
     @include screen('md', max, 2) {
       border-radius: pxtovw(3, 960);
+      box-shadow: pxtovw(1, 960) pxtovw(1, 960) pxtovw(1, 960) rgba(0, 0, 0, .03), pxtovw(2, 960) pxtovw(2, 960) pxtovw(2, 960) rgba(0, 0, 0, .04), pxtovw(3, 960) pxtovw(3, 960) pxtovw(3, 960) rgba(0, 0, 0, .02);
     }
 
     @include screen('sm', max, 2) {
       border-radius: pxtovw(3, 375);
+      box-shadow: pxtovw(1, 375) pxtovw(1, 375) pxtovw(1, 375) rgba(0, 0, 0, .03), pxtovw(2, 375) pxtovw(2, 375) pxtovw(2, 375) rgba(0, 0, 0, .04), pxtovw(3, 375) pxtovw(3, 375) pxtovw(3, 375) rgba(0, 0, 0, .02);
     }
   }
 }
