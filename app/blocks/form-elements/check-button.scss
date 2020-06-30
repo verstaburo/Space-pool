@@ -9,7 +9,7 @@
 
   &__content {
     display: flex;
-    justify-content: flex-start;
+    justify-content: center;
     align-items: center;
     box-sizing: border-box;
     border: 1px solid $nd-color-border3;
@@ -17,7 +17,7 @@
     font-size: 15px;
     line-height: 1.2;
     letter-spacing: -.02em;
-    padding: 10px 20px;
+    padding: 10px 15px;
     cursor: pointer;
     transition: border $ease-main, color $ease-main, background $ease-main;
     white-space: nowrap;
@@ -26,25 +26,50 @@
     @include screen('xlg', max, 2) {
       border-radius: pxtovw(20, 1660);
       font-size: pxtovw(15, 1660);
-      padding: pxtovw(10, 1660) pxtovw(20, 1660);
+      padding: pxtovw(10, 1660) pxtovw(15, 1660);
     }
 
     @include screen('lg', max, 2) {
       border-radius: pxtovw(20, 1366);
       font-size: pxtovw(15, 1366);
-      padding: pxtovw(10, 1366) pxtovw(20, 1366);
+      padding: pxtovw(10, 1366) pxtovw(15, 1366);
     }
 
     @include screen('md', max, 2) {
       border-radius: pxtovw(20, 960);
       font-size: pxtovw(15, 960);
-      padding: pxtovw(10, 960) pxtovw(20, 960);
+      padding: pxtovw(10, 960) pxtovw(15, 960);
     }
 
     @include screen('sm', max, 2) {
       border-radius: pxtovw(20, 375);
       font-size: pxtovw(15, 375);
-      padding: pxtovw(10, 375) pxtovw(20, 375);
+      padding: pxtovw(10, 375) pxtovw(15, 375);
+    }
+
+    #{$b}_fw600 & {
+      font-weight: 600;
+    }
+
+    #{$b}_fz17 & {
+      font-size: 17px;
+      line-height: 1.06;
+
+      @include screen('xlg', max, 2) {
+        font-size: pxtovw(17, 1660);
+      }
+
+      @include screen('lg', max, 2) {
+        font-size: pxtovw(17, 1366);
+      }
+
+      @include screen('md', max, 2) {
+        font-size: pxtovw(17, 960);
+      }
+
+      @include screen('sm', max, 2) {
+        font-size: pxtovw(17, 375);
+      }
     }
 
     #{$b}:hover & {
@@ -76,6 +101,32 @@
         padding: pxtovw(7, 375) pxtovw(20, 375);
       }
     }
+
+    #{$b}_offer & {
+      padding-left: 20px;
+      padding-right: 20px;
+      width: 100%;
+
+      @include screen('xlg', max, 2) {
+        padding-left: pxtovw(20, 1660);
+        padding-right: pxtovw(20, 1660);
+      }
+
+      @include screen('lg', max, 2) {
+        padding-left: pxtovw(20, 1366);
+        padding-right: pxtovw(20, 1366);
+      }
+
+      @include screen('md', max, 2) {
+        padding-left: pxtovw(20, 960);
+        padding-right: pxtovw(20, 960);
+      }
+
+      @include screen('sm', max, 2) {
+        padding-left: pxtovw(20, 375);
+        padding-right: pxtovw(20, 375);
+      }
+    }
   }
 
   &__offer {
@@ -85,6 +136,7 @@
     font-size: 17px;
     font-weight: 600;
     line-height: 1.24;
+    width: 100%;
 
     @include screen('xlg', max, 2) {
       font-size: pxtovw(17, 1660);
@@ -104,6 +156,10 @@
   }
 
   &__type {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+
     &:not(:last-child) {
       margin-right: 20px;
 

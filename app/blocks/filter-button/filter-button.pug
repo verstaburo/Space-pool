@@ -1,4 +1,4 @@
 mixin filter-button(data)
   - var btnCls = data.class
-  +b.A.filter-button&attributes(attributes)(class=btnCls data-default-name=data.name data-filter-name=data.filterName href="#")
-    +e.name!=(data.currentName || data.name)
+  +b.A.filter-button&attributes(attributes)(class=btnCls data-default-name=data.name data-nd-filter-target=data.filterName data-nd-filter-target-type=data.filterType href="#")
+    +e.name(data-nd-filter-name)!=(data.currentName || data.name)

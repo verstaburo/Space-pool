@@ -1,23 +1,72 @@
 mixin filter-menu(specific)
-  +b.FORM.filter-menu&attributes(attributes)
+  - var isChecked = specific ? true : '';
+  +b.filter-menu&attributes(attributes)
     +e.item_location.nd-hide-sm
-      +filter-button({class: 'js-nd-show-block-filter', name: 'London', filterName: 'location'})
-      +filter-popup({submit: 'Save', reset: 'clear', title: 'Location'}).__popup(data-filter-block-place="location")
-    +e.item_tags
-      +filter-tags
+      +filter-button({class: 'js-nd-show-filter', name: 'London', filterName: 'location', filterType: 'popup-block'})
+      +filter-popup({submit: 'Show', reset: 'Clear', title: 'Location'}).__popup(data-nd-filter-popup="location" data-nd-filter-popup-type="popup-block")
+        +nd-form('div').__form
+          +form-section()(data-nd-filter-form-container)
+    +e.item_tags.nd-hide-sm
+      +filter-tags()(data-nd-filter-tags)
     +e.item_type
       if specific
-        +filter-button({class: '_offer is-types-hd js-nd-show-filter', name: 'All offers', currentName: 'Hot desk', filterName: 'offerType'})
+        +filter-button({class: '_offer is-types-hd js-nd-show-filter', name: 'All offers', currentName: 'Hot desk', filterName: 'offerType', filterType: 'popup'})
       else
-        +filter-button({class: '_offer is-types-all js-nd-show-filter', name: 'All offers', filterName: 'offerType'})
-      +filter-popup({submit: 'Show all offers', reset: 'clear', title: 'Offer type', offerType: true}).__popup(data-filter-popup="offerType")
+        +filter-button({class: '_offer is-types-all js-nd-show-filter', name: 'All offers', filterName: 'offerType', filterType: 'popup'})
+      +filter-popup({submit: 'Show all offers', reset: 'Clear', title: 'Offer type', offerType: true}).__popup(data-nd-filter-popup="offerType" data-nd-filter-popup-type="popup")
+        +e.offers
+          +check-button({name: 'offerType', value: 'hd', checked: isChecked, type: 'radio', filterCheck: {type: 'offerType', value: 'Hot desk', tagCreation: false, offerType: 'hd'}})._offer.__offer
+            +e.offer
+              +e.type
+                +nd-box()._orange.__box
+                +e.name Hot desk
+              +e.count 16
+          +check-button({name: 'offerType', value: 'fd', type: 'radio', filterCheck: {type: 'offerType', value: 'Fixed desk', tagCreation: false, offerType: 'fd'}})._offer.__offer
+            +e.offer
+              +e.type
+                +nd-box()._red.__box
+                +e.name Fixed desk
+              +e.count 57
+          +check-button({name: 'offerType', value: 'mr', type: 'radio', filterCheck: {type: 'offerType', value: 'Meeting Room', tagCreation: false, offerType: 'mr'}})._offer.__offer
+            +e.offer
+              +e.type
+                +nd-box()._blue.__box
+                +e.name Meeting Room
+              +e.count 8
+          +check-button({name: 'offerType', value: 'po', type: 'radio', filterCheck: {type: 'offerType', value: 'Private office', tagCreation: false, offerType: 'po'}})._offer.__offer
+            +e.offer
+              +e.type
+                +nd-box()._green.__box
+                +e.name Private office
+              +e.count 94
     +e.item_team.nd-hide-sm
-      +filter-button({class: 'js-nd-show-block-filter', name: 'Team', filterName: 'team'})
-      +filter-popup({submit: 'Save', reset: 'clear', title: 'Team'}).__popup(data-filter-block-place="team")
+      +filter-button({class: 'js-nd-show-filter', name: 'Team size', filterName: 'teamSize', filterType: 'popup-block'})
+      +filter-popup({submit: 'Show', reset: 'Clear', title: 'Team size'}).__popup(data-nd-filter-popup="teamSize" data-nd-filter-popup-type="popup-block")
+        +nd-form('div').__form
+          +form-section()(data-nd-filter-form-container)
     +e.item_price.nd-hide-sm
-      +filter-button({class: 'js-nd-show-block-filter', name: 'Price range', filterName: 'priceRange'})
-      +filter-popup({submit: 'Save', reset: 'clear', title: 'Price Range'}).__popup(data-filter-block-place="priceRange")
+      +filter-button({class: 'js-nd-show-filter', name: 'Price range', filterName: 'priceRange', filterType: 'popup-block'})
+      +filter-popup({submit: 'Show', reset: 'Clear', title: 'Price Range'}).__popup(data-nd-filter-popup="priceRange" data-nd-filter-popup-type="popup-block")
+        +nd-form('div').__form
+          +form-section()(data-nd-filter-form-container)
     +e.item_all.nd-hide-from-sm
-      +filter-button({class: '_all js-nd-show-filter', name: 'Filter', filterName: 'filter'})
-      +filter-popup({submit: 'Show results - 89', reset: 'clear', title: 'Filter'}).__popup(data-filter-popup="filter")
+      +filter-button({class: '_all js-nd-show-filter', name: 'Filter', filterName: 'filter', filterType: 'popup'})
+      +filter-popup({submit: 'Show results - 89', reset: 'Clear', title: 'Filter'}).__popup(data-nd-filter-popup="filter" data-nd-filter-popup-type="popup")
+        +nd-form('div').__form
+          +form-section._styled._mt41(data-nd-filter-form-block-place="priceRange")
+            +form-section-title._fz20._fw400 Price range
+            +form-section-content(data-nd-filter-form-block="priceRange")
+              +nd-range({output: {minLabel: 'Min', maxLabel: 'Max', max: 'maxPrice', min: 'minPrice', formboxClass: '_bg-white _sm-h50', inputClass: '_sm-h50'}})(data-start="[0, 5000]" data-connect="[false, true, false]" data-step="10" data-margin="30" data-min="0" data-max="10000" data-currency="£")
+          +form-section._styled._mt41(data-nd-filter-form-block-place="teamSize")
+            +form-section-title._fz20._fw400 Team size
+            +form-section-content(data-nd-filter-form-block="teamSize")
+              +e.checklist
+                each item in getData('filterTeamSize.json')
+                  +check-button(item.options)._fz17._fw600.__check!=item.title
+          +form-section._styled._mt41(data-nd-filter-form-block-place="location")
+            +form-section-title._fz20._fw400 Location
+            +form-section-content(data-nd-filter-form-block="location")
+              +e.checklist
+                each item in getData('filterLocation.json')
+                  +check-button(item.options)._h34.__check!=item.title
     block

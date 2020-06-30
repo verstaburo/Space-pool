@@ -276,91 +276,132 @@
             <div class="nd-search-filter__wrapper">
                 <div class="nd-container">
                     <div class="nd-search-filter__filter">
-                        <form class="filter-menu">
-                            <div class="filter-menu__item filter-menu__item_location nd-hide-sm"><a class="filter-button js-nd-show-block-filter" data-default-name="London" data-filter-name="location" href="#"><span class="filter-button__name">London</span></a>
-                                <div class="filter-popup filter-menu__popup" data-filter-block-place="location">
+                        <div class="filter-menu">
+                            <div class="filter-menu__item filter-menu__item_location nd-hide-sm"><a class="filter-button js-nd-show-filter" data-default-name="London" data-nd-filter-target="location" data-nd-filter-target-type="popup-block" href="#"><span class="filter-button__name" data-nd-filter-name="data-nd-filter-name">London</span></a>
+                                <form class="filter-popup filter-menu__popup" data-nd-filter-popup="location" data-nd-filter-popup-type="popup-block">
                                     <div class="filter-popup__header">
                                         <div class="filter-popup__close js-nd-filter-close"></div>
                                         <h4 class="filter-popup__title">Location</h4>
                                     </div>
-                                    <div class="filter-popup__content"></div>
+                                    <div class="filter-popup__content">
+                                        <div class="nd-form filter-popup__form">
+                                            <fieldset class="nd-form__section" data-nd-filter-form-container="data-nd-filter-form-container"></fieldset>
+                                        </div>
+                                    </div>
                                     <div class="filter-popup__footer">
-                                        <div class="filter-popup__buttons"><button class="nd-button" type="submit"><span class="nd-button__text">Save</span>
+                                        <div class="filter-popup__buttons"><button class="nd-button filter-popup__button" type="submit"><span class="nd-button__text">Show</span>
                                                 <div class="nd-button__preloader">
                                                     <div class="loader loader_small"></div>
                                                 </div>
-                                            </button><button class="filter-popup__clear js-nd-filter-reset" type="reset"></button></div>
+                                            </button><button class="filter-popup__clear js-nd-filter-reset" type="reset">Clear</button></div>
                                     </div>
-                                </div>
+                                </form>
                             </div>
-                            <div class="filter-menu__item filter-menu__item_tags">
-                                <div class="filter-tags"></div>
+                            <div class="filter-menu__item filter-menu__item_tags nd-hide-sm">
+                                <div class="filter-tags" data-nd-filter-tags="data-nd-filter-tags"></div>
                             </div>
-                            <div class="filter-menu__item filter-menu__item_type"><a class="filter-button filter-button_offer is-types-hd js-nd-show-filter" data-default-name="All offers" data-filter-name="offerType" href="#"><span class="filter-button__name">Hot desk</span></a>
-                                <div class="filter-popup filter-menu__popup" data-filter-popup="offerType">
+                            <div class="filter-menu__item filter-menu__item_type"><a class="filter-button filter-button_offer is-types-hd js-nd-show-filter" data-default-name="All offers" data-nd-filter-target="offerType" data-nd-filter-target-type="popup" href="#"><span class="filter-button__name" data-nd-filter-name="data-nd-filter-name">Hot desk</span></a>
+                                <form class="filter-popup filter-menu__popup" data-nd-filter-popup="offerType" data-nd-filter-popup-type="popup">
                                     <div class="filter-popup__header">
                                         <div class="filter-popup__close js-nd-filter-close"></div>
                                         <h4 class="filter-popup__title">Offer type</h4>
                                     </div>
-                                    <div class="filter-popup__content"></div>
+                                    <div class="filter-popup__content">
+                                        <div class="filter-popup__offers"><label class="check-button check-button_offer filter-popup__offer"><input class="check-button__input" name="offerType" value="hd" checked="checked" type="radio" data-nd-filter-type="offerType" data-nd-filter-value="Hot desk" data-nd-filter-offer-type="hd" /><span class="check-button__content"><span class="check-button__offer"><span class="check-button__type"><span class="nd-box nd-box_orange check-button__box"></span><span class="check-button__name">Hot desk</span></span><span class="check-button__count">16</span></span></span></label><label class="check-button check-button_offer filter-popup__offer"><input class="check-button__input" name="offerType" value="fd" type="radio" data-nd-filter-type="offerType" data-nd-filter-value="Fixed desk" data-nd-filter-offer-type="fd" /><span class="check-button__content"><span class="check-button__offer"><span class="check-button__type"><span class="nd-box nd-box_red check-button__box"></span><span class="check-button__name">Fixed desk</span></span><span class="check-button__count">57</span></span></span></label><label class="check-button check-button_offer filter-popup__offer"><input class="check-button__input" name="offerType" value="mr" type="radio" data-nd-filter-type="offerType" data-nd-filter-value="Meeting Room" data-nd-filter-offer-type="mr" /><span class="check-button__content"><span class="check-button__offer"><span class="check-button__type"><span class="nd-box nd-box_blue check-button__box"></span><span class="check-button__name">Meeting Room</span></span><span class="check-button__count">8</span></span></span></label><label class="check-button check-button_offer filter-popup__offer"><input class="check-button__input" name="offerType" value="po" type="radio" data-nd-filter-type="offerType" data-nd-filter-value="Private office" data-nd-filter-offer-type="po" /><span class="check-button__content"><span class="check-button__offer"><span class="check-button__type"><span class="nd-box nd-box_green check-button__box"></span><span class="check-button__name">Private office</span></span><span class="check-button__count">94</span></span></span></label></div>
+                                    </div>
                                     <div class="filter-popup__footer">
-                                        <div class="filter-popup__buttons"><button class="nd-button" type="submit" data-default-name="Show all offers" data-hd-name="Show hot desk offers" data-fd-name="Show fixed desk offers" data-mr-name="Show meeting room offers" data-po-name="Show private office offers"><span class="nd-button__text">Show all offers</span>
+                                        <div class="filter-popup__buttons"><button class="nd-button filter-popup__button" type="submit" data-default-name="Show all offers" data-hd-name="Show hot desk offers" data-fd-name="Show fixed desk offers" data-mr-name="Show meeting room offers" data-po-name="Show private office offers" data-offer-type-show="data-offer-type-show"><span class="nd-button__text">Show all offers</span>
                                                 <div class="nd-button__preloader">
                                                     <div class="loader loader_small"></div>
                                                 </div>
-                                            </button><button class="filter-popup__clear js-nd-filter-reset" type="reset"></button></div>
+                                            </button><button class="filter-popup__clear js-nd-filter-reset" type="reset">Clear</button></div>
                                     </div>
-                                </div>
+                                </form>
                             </div>
-                            <div class="filter-menu__item filter-menu__item_team nd-hide-sm"><a class="filter-button js-nd-show-block-filter" data-default-name="Team" data-filter-name="team" href="#"><span class="filter-button__name">Team</span></a>
-                                <div class="filter-popup filter-menu__popup" data-filter-block-place="team">
+                            <div class="filter-menu__item filter-menu__item_team nd-hide-sm"><a class="filter-button js-nd-show-filter" data-default-name="Team size" data-nd-filter-target="teamSize" data-nd-filter-target-type="popup-block" href="#"><span class="filter-button__name" data-nd-filter-name="data-nd-filter-name">Team size</span></a>
+                                <form class="filter-popup filter-menu__popup" data-nd-filter-popup="teamSize" data-nd-filter-popup-type="popup-block">
                                     <div class="filter-popup__header">
                                         <div class="filter-popup__close js-nd-filter-close"></div>
-                                        <h4 class="filter-popup__title">Team</h4>
+                                        <h4 class="filter-popup__title">Team size</h4>
                                     </div>
-                                    <div class="filter-popup__content"></div>
+                                    <div class="filter-popup__content">
+                                        <div class="nd-form filter-popup__form">
+                                            <fieldset class="nd-form__section" data-nd-filter-form-container="data-nd-filter-form-container"></fieldset>
+                                        </div>
+                                    </div>
                                     <div class="filter-popup__footer">
-                                        <div class="filter-popup__buttons"><button class="nd-button" type="submit"><span class="nd-button__text">Save</span>
+                                        <div class="filter-popup__buttons"><button class="nd-button filter-popup__button" type="submit"><span class="nd-button__text">Show</span>
                                                 <div class="nd-button__preloader">
                                                     <div class="loader loader_small"></div>
                                                 </div>
-                                            </button><button class="filter-popup__clear js-nd-filter-reset" type="reset"></button></div>
+                                            </button><button class="filter-popup__clear js-nd-filter-reset" type="reset">Clear</button></div>
                                     </div>
-                                </div>
+                                </form>
                             </div>
-                            <div class="filter-menu__item filter-menu__item_price nd-hide-sm"><a class="filter-button js-nd-show-block-filter" data-default-name="Price range" data-filter-name="priceRange" href="#"><span class="filter-button__name">Price range</span></a>
-                                <div class="filter-popup filter-menu__popup" data-filter-block-place="priceRange">
+                            <div class="filter-menu__item filter-menu__item_price nd-hide-sm"><a class="filter-button js-nd-show-filter" data-default-name="Price range" data-nd-filter-target="priceRange" data-nd-filter-target-type="popup-block" href="#"><span class="filter-button__name" data-nd-filter-name="data-nd-filter-name">Price range</span></a>
+                                <form class="filter-popup filter-menu__popup" data-nd-filter-popup="priceRange" data-nd-filter-popup-type="popup-block">
                                     <div class="filter-popup__header">
                                         <div class="filter-popup__close js-nd-filter-close"></div>
                                         <h4 class="filter-popup__title">Price Range</h4>
                                     </div>
-                                    <div class="filter-popup__content"></div>
+                                    <div class="filter-popup__content">
+                                        <div class="nd-form filter-popup__form">
+                                            <fieldset class="nd-form__section" data-nd-filter-form-container="data-nd-filter-form-container"></fieldset>
+                                        </div>
+                                    </div>
                                     <div class="filter-popup__footer">
-                                        <div class="filter-popup__buttons"><button class="nd-button" type="submit"><span class="nd-button__text">Save</span>
+                                        <div class="filter-popup__buttons"><button class="nd-button filter-popup__button" type="submit"><span class="nd-button__text">Show</span>
                                                 <div class="nd-button__preloader">
                                                     <div class="loader loader_small"></div>
                                                 </div>
-                                            </button><button class="filter-popup__clear js-nd-filter-reset" type="reset"></button></div>
+                                            </button><button class="filter-popup__clear js-nd-filter-reset" type="reset">Clear</button></div>
                                     </div>
-                                </div>
+                                </form>
                             </div>
-                            <div class="filter-menu__item filter-menu__item_all nd-hide-from-sm"><a class="filter-button filter-button_all js-nd-show-filter" data-default-name="Filter" data-filter-name="filter" href="#"><span class="filter-button__name">Filter</span></a>
-                                <div class="filter-popup filter-menu__popup" data-filter-popup="filter">
+                            <div class="filter-menu__item filter-menu__item_all nd-hide-from-sm"><a class="filter-button filter-button_all js-nd-show-filter" data-default-name="Filter" data-nd-filter-target="filter" data-nd-filter-target-type="popup" href="#"><span class="filter-button__name" data-nd-filter-name="data-nd-filter-name">Filter</span></a>
+                                <form class="filter-popup filter-menu__popup" data-nd-filter-popup="filter" data-nd-filter-popup-type="popup">
                                     <div class="filter-popup__header">
                                         <div class="filter-popup__close js-nd-filter-close"></div>
                                         <h4 class="filter-popup__title">Filter</h4>
                                     </div>
-                                    <div class="filter-popup__content"></div>
+                                    <div class="filter-popup__content">
+                                        <div class="nd-form filter-popup__form">
+                                            <fieldset class="nd-form__section nd-form__section_styled nd-form__section_mt41" data-nd-filter-form-block-place="priceRange">
+                                                <h3 class="nd-form__title nd-form__title_fz20 nd-form__title_fw400">Price range</h3>
+                                                <div class="nd-form__content" data-nd-filter-form-block="priceRange">
+                                                    <div class="nd-range js-nd-range" data-start="[0, 5000]" data-connect="[false, true, false]" data-step="10" data-margin="30" data-min="0" data-max="10000" data-currency="£">
+                                                        <div class="nd-range__slider" data-nd-range-container="data-nd-range-container"></div>
+                                                        <div class="nd-range__output" data-nd-range-output="data-nd-range-output">
+                                                            <div class="nd-range__item"><label class="form-box nd-form-box nd-form-box_bg-white nd-form-box_sm-h50"><input class="nd-input nd-input_sm-h50" type="text" name="minPrice" placeholder="Min" data-nd-range-input-min="data-nd-range-input-min" /><span class="form-box__label">Min</span></label></div>
+                                                            <div class="nd-range__item"><label class="form-box nd-form-box nd-form-box_bg-white nd-form-box_sm-h50"><input class="nd-input nd-input_sm-h50" type="text" name="maxPrice" placeholder="Max" data-nd-range-input-max="data-nd-range-input-max" /><span class="form-box__label">Max</span></label></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </fieldset>
+                                            <fieldset class="nd-form__section nd-form__section_styled nd-form__section_mt41" data-nd-filter-form-block-place="teamSize">
+                                                <h3 class="nd-form__title nd-form__title_fz20 nd-form__title_fw400">Team size</h3>
+                                                <div class="nd-form__content" data-nd-filter-form-block="teamSize">
+                                                    <div class="nd-form__checklist"><label class="check-button check-button_fz17 check-button_fw600 nd-form__check"><input class="check-button__input" name="teamSize" value="1+" type="radio" data-nd-filter-type="teamSize" data-nd-filter-value="1 - 4 people" /><span class="check-button__content">1+</span></label><label class="check-button check-button_fz17 check-button_fw600 nd-form__check"><input class="check-button__input" name="teamSize" value="5+" type="radio" data-nd-filter-type="teamSize" data-nd-filter-value="5 - 9 people" /><span class="check-button__content">5+</span></label><label class="check-button check-button_fz17 check-button_fw600 nd-form__check"><input class="check-button__input" name="teamSize" value="10+" checked="checked" type="radio" data-nd-filter-type="teamSize" data-nd-filter-value="10 - 19 people" /><span class="check-button__content">10+</span></label><label class="check-button check-button_fz17 check-button_fw600 nd-form__check"><input class="check-button__input" name="teamSize" value="20+" type="radio" data-nd-filter-type="teamSize" data-nd-filter-value="20 - 29 people" /><span class="check-button__content">20+</span></label><label class="check-button check-button_fz17 check-button_fw600 nd-form__check"><input class="check-button__input" name="teamSize" value="30+" type="radio" data-nd-filter-type="teamSize" data-nd-filter-value="30 and more people" /><span class="check-button__content">30+</span></label></div>
+                                                </div>
+                                            </fieldset>
+                                            <fieldset class="nd-form__section nd-form__section_styled nd-form__section_mt41" data-nd-filter-form-block-place="location">
+                                                <h3 class="nd-form__title nd-form__title_fz20 nd-form__title_fw400">Location</h3>
+                                                <div class="nd-form__content" data-nd-filter-form-block="location">
+                                                    <div class="nd-form__checklist"><label class="check-button check-button_h34 nd-form__check"><input class="check-button__input" name="location" value="Canary Wharf" type="checkbox" data-nd-filter-type="location" data-nd-filter-value="Canary Wharf" data-nd-filter-tag-create="data-nd-filter-tag-create" /><span class="check-button__content">Canary Wharf</span></label><label class="check-button check-button_h34 nd-form__check"><input class="check-button__input" name="location" value="Clerkenwell" type="checkbox" data-nd-filter-type="location" data-nd-filter-value="Clerkenwell" data-nd-filter-tag-create="data-nd-filter-tag-create" /><span class="check-button__content">Clerkenwell</span></label><label class="check-button check-button_h34 nd-form__check"><input class="check-button__input" name="location" value="Euston" type="checkbox" data-nd-filter-type="location" data-nd-filter-value="Euston" data-nd-filter-tag-create="data-nd-filter-tag-create" /><span class="check-button__content">Euston</span></label><label class="check-button check-button_h34 nd-form__check"><input class="check-button__input" name="location" value="Farringdon" type="checkbox" data-nd-filter-type="location" data-nd-filter-value="Farringdon" data-nd-filter-tag-create="data-nd-filter-tag-create" /><span class="check-button__content">Farringdon</span></label><label class="check-button check-button_h34 nd-form__check"><input class="check-button__input" name="location" value="King's Cross" checked="checked" type="checkbox" data-nd-filter-type="location" data-nd-filter-value="King's Cross" data-nd-filter-tag-create="data-nd-filter-tag-create" /><span class="check-button__content">King's Cross</span></label><label class="check-button check-button_h34 nd-form__check"><input class="check-button__input" name="location" value="Liverpool St" type="checkbox" data-nd-filter-type="location" data-nd-filter-value="Liverpool St" data-nd-filter-tag-create="data-nd-filter-tag-create" /><span class="check-button__content">Liverpool St</span></label><label class="check-button check-button_h34 nd-form__check"><input class="check-button__input" name="location" value="London Bridge" type="checkbox" data-nd-filter-type="location" data-nd-filter-value="London Bridge" data-nd-filter-tag-create="data-nd-filter-tag-create" /><span class="check-button__content">London Bridge</span></label><label class="check-button check-button_h34 nd-form__check"><input class="check-button__input" name="location" value="Marylebone" type="checkbox" data-nd-filter-type="location" data-nd-filter-value="Marylebone" data-nd-filter-tag-create="data-nd-filter-tag-create" /><span class="check-button__content">Marylebone</span></label><label class="check-button check-button_h34 nd-form__check"><input class="check-button__input" name="location" value="Mayfair" type="checkbox" data-nd-filter-type="location" data-nd-filter-value="Mayfair" data-nd-filter-tag-create="data-nd-filter-tag-create" /><span class="check-button__content">Mayfair</span></label><label class="check-button check-button_h34 nd-form__check"><input class="check-button__input" name="location" value="Moorgate" type="checkbox" data-nd-filter-type="location" data-nd-filter-value="Moorgate" data-nd-filter-tag-create="data-nd-filter-tag-create" /><span class="check-button__content">Moorgate</span></label><label class="check-button check-button_h34 nd-form__check"><input class="check-button__input" name="location" value="Old Street" type="checkbox" data-nd-filter-type="location" data-nd-filter-value="Old Street" data-nd-filter-tag-create="data-nd-filter-tag-create" /><span class="check-button__content">Old Street</span></label><label class="check-button check-button_h34 nd-form__check"><input class="check-button__input" name="location" value="Paddington" type="checkbox" data-nd-filter-type="location" data-nd-filter-value="Paddington" data-nd-filter-tag-create="data-nd-filter-tag-create" /><span class="check-button__content">Paddington</span></label><label class="check-button check-button_h34 nd-form__check"><input class="check-button__input" name="location" value="Shoreditch" type="checkbox" data-nd-filter-type="location" data-nd-filter-value="Shoreditch" data-nd-filter-tag-create="data-nd-filter-tag-create" /><span class="check-button__content">Shoreditch</span></label><label class="check-button check-button_h34 nd-form__check"><input class="check-button__input" name="location" value="Soho" type="checkbox" data-nd-filter-type="location" data-nd-filter-value="Soho" data-nd-filter-tag-create="data-nd-filter-tag-create" /><span class="check-button__content">Soho</span></label><label class="check-button check-button_h34 nd-form__check"><input class="check-button__input" name="location" value="Canary Wharf" checked="checked" type="checkbox" data-nd-filter-type="location" data-nd-filter-value="Canary Wharf" data-nd-filter-tag-create="data-nd-filter-tag-create" /><span class="check-button__content">Canary Wharf</span></label><label class="check-button check-button_h34 nd-form__check"><input class="check-button__input" name="location" value="Clerkenwell" type="checkbox" data-nd-filter-type="location" data-nd-filter-value="Clerkenwell" data-nd-filter-tag-create="data-nd-filter-tag-create" /><span class="check-button__content">Clerkenwell</span></label><label class="check-button check-button_h34 nd-form__check"><input class="check-button__input" name="location" value="Euston" type="checkbox" data-nd-filter-type="location" data-nd-filter-value="Euston" data-nd-filter-tag-create="data-nd-filter-tag-create" /><span class="check-button__content">Euston</span></label><label class="check-button check-button_h34 nd-form__check"><input class="check-button__input" name="location" value="Farringdon" type="checkbox" data-nd-filter-type="location" data-nd-filter-value="Farringdon" data-nd-filter-tag-create="data-nd-filter-tag-create" /><span class="check-button__content">Farringdon</span></label><label class="check-button check-button_h34 nd-form__check"><input class="check-button__input" name="location" value="King's Cross" type="checkbox" data-nd-filter-type="location" data-nd-filter-value="King's Cross" data-nd-filter-tag-create="data-nd-filter-tag-create" /><span class="check-button__content">King's Cross</span></label><label class="check-button check-button_h34 nd-form__check"><input class="check-button__input" name="location" value="Liverpool St" type="checkbox" data-nd-filter-type="location" data-nd-filter-value="Liverpool St" data-nd-filter-tag-create="data-nd-filter-tag-create" /><span class="check-button__content">Liverpool St</span></label><label class="check-button check-button_h34 nd-form__check"><input class="check-button__input" name="location" value="London Bridge" type="checkbox" data-nd-filter-type="location" data-nd-filter-value="London Bridge" data-nd-filter-tag-create="data-nd-filter-tag-create" /><span class="check-button__content">London Bridge</span></label><label class="check-button check-button_h34 nd-form__check"><input class="check-button__input" name="location" value="Marylebone" type="checkbox" data-nd-filter-type="location" data-nd-filter-value="Marylebone" data-nd-filter-tag-create="data-nd-filter-tag-create" /><span class="check-button__content">Marylebone</span></label><label class="check-button check-button_h34 nd-form__check"><input class="check-button__input" name="location" value="Mayfair" checked="checked" type="checkbox" data-nd-filter-type="location" data-nd-filter-value="Mayfair" data-nd-filter-tag-create="data-nd-filter-tag-create" /><span class="check-button__content">Mayfair</span></label><label class="check-button check-button_h34 nd-form__check"><input class="check-button__input" name="location" value="Moorgate" type="checkbox" data-nd-filter-type="location" data-nd-filter-value="Moorgate" data-nd-filter-tag-create="data-nd-filter-tag-create" /><span class="check-button__content">Moorgate</span></label><label class="check-button check-button_h34 nd-form__check"><input class="check-button__input" name="location" value="Old Street" type="checkbox" data-nd-filter-type="location" data-nd-filter-value="Old Street" data-nd-filter-tag-create="data-nd-filter-tag-create" /><span class="check-button__content">Old Street</span></label><label class="check-button check-button_h34 nd-form__check"><input class="check-button__input" name="location" value="Paddington" type="checkbox" data-nd-filter-type="location" data-nd-filter-value="Paddington" data-nd-filter-tag-create="data-nd-filter-tag-create" /><span class="check-button__content">Paddington</span></label><label class="check-button check-button_h34 nd-form__check"><input class="check-button__input" name="location" value="Shoreditch" type="checkbox" data-nd-filter-type="location" data-nd-filter-value="Shoreditch" data-nd-filter-tag-create="data-nd-filter-tag-create" /><span class="check-button__content">Shoreditch</span></label><label class="check-button check-button_h34 nd-form__check"><input class="check-button__input" name="location" value="Soho" type="checkbox" data-nd-filter-type="location" data-nd-filter-value="Soho" data-nd-filter-tag-create="data-nd-filter-tag-create" /><span class="check-button__content">Soho</span></label></div>
+                                                </div>
+                                            </fieldset>
+                                        </div>
+                                    </div>
                                     <div class="filter-popup__footer">
-                                        <div class="filter-popup__buttons"><button class="nd-button" type="submit"><span class="nd-button__text">Show results - 89</span>
+                                        <div class="filter-popup__buttons"><button class="nd-button filter-popup__button" type="submit"><span class="nd-button__text">Show results - 89</span>
                                                 <div class="nd-button__preloader">
                                                     <div class="loader loader_small"></div>
                                                 </div>
-                                            </button><button class="filter-popup__clear js-nd-filter-reset" type="reset"></button></div>
+                                            </button><button class="filter-popup__clear js-nd-filter-reset" type="reset">Clear</button></div>
                                     </div>
-                                </div>
+                                </form>
                             </div>
-                        </form>
+                        </div>
                     </div>
                     <div class="nd-search-filter__switch"><label class="nd-switch"><input class="nd-input js-search-map-switch nd-switch__input" type="checkbox" name="mapSwitch" value="mapHide" /><span class="nd-switch__label nd-switch__label_off">Map view</span><span class="nd-switch__toggle"></span><span class="nd-switch__label nd-switch__label_on">Tile view</span></label></div>
                 </div>

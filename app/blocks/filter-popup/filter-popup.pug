@@ -1,5 +1,5 @@
 mixin filter-popup(data)
-  +b.filter-popup&attributes(attributes)
+  +b.FORM.filter-popup&attributes(attributes)
     +e.header
       +e.close.js-nd-filter-close
       +e.H4.title!=data.title
@@ -8,8 +8,8 @@ mixin filter-popup(data)
     +e.footer
       +e.buttons
         if data.offerType
-          +nd-button('button', true)(type="submit" data-default-name="Show all offers" data-hd-name="Show hot desk offers" data-fd-name="Show fixed desk offers" data-mr-name="Show meeting room offers" data-po-name="Show private office offers")!=data.submit
+          +nd-button('button', true).__button(type="submit" data-default-name="Show all offers" data-hd-name="Show hot desk offers" data-fd-name="Show fixed desk offers" data-mr-name="Show meeting room offers" data-po-name="Show private office offers" data-offer-type-show)!=data.submit
         else
-          +nd-button('button', true)(type="submit")!=data.submit
+          +nd-button('button', true).__button(type="submit")!=data.submit
         if (data.reset)
-          +e.BUTTON.clear.js-nd-filter-reset(type="reset")
+          +e.BUTTON.clear.js-nd-filter-reset(type="reset")!=data.reset

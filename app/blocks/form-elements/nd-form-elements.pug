@@ -117,10 +117,11 @@ mixin check-button(data)
         +e.INPUT.input(name=data.name, value=data.value, checked, type=data.type, data-checker=data.checker)
       else if data.switch
         +e.INPUT.input(name=data.name, value=data.value, checked, type=data.type, data-form-switch=data.switch)
-      else if data.filterOfferTypeCheck
-        +e.INPUT.input(name=data.name, value=data.value, checked, type=data.type, data-nd-filter-offer-type=data.filterOfferTypeCheck.name)
       else if data.filterCheck
-        +e.INPUT.input(name=data.name, value=data.value, checked, type=data.type, data-nd-filter-check=data.filterCheck.name)
+        if data.filterCheck.offerType
+          +e.INPUT.input(name=data.name, value=data.value, checked, type=data.type, data-nd-filter-type=data.filterCheck.type, data-nd-filter-value=data.filterCheck.value, data-nd-filter-tag-create=data.filterCheck.tagCreation, data-nd-filter-offer-type=data.filterCheck.offerType)
+        else
+          +e.INPUT.input(name=data.name, value=data.value, checked, type=data.type, data-nd-filter-type=data.filterCheck.type, data-nd-filter-value=data.filterCheck.value, data-nd-filter-tag-create=data.filterCheck.tagCreation)
       else
         +e.INPUT.input(name=data.name, value=data.value, checked, type=data.type)
     else if data.required
@@ -128,10 +129,11 @@ mixin check-button(data)
         +e.INPUT.input(name=data.name, value=data.value, type=data.type, required, data-checker=data.checker)
       else if data.switch
         +e.INPUT.input(name=data.name, value=data.value, type=data.type, required, data-form-switch=data.switch)
-      else if data.filterOfferTypeCheck
-        +e.INPUT.input(name=data.name, value=data.value, type=data.type, required, data-nd-filter-offer-type=data.filterOfferTypeCheck.name)
       else if data.filterCheck
-        +e.INPUT.input(name=data.name, value=data.value, type=data.type, required, data-nd-filter-check=data.filterCheck.name)
+        if data.filterCheck.offerType
+          +e.INPUT.input(name=data.name, value=data.value, required, type=data.type, data-nd-filter-type=data.filterCheck.type, data-nd-filter-value=data.filterCheck.value, data-nd-filter-tag-create=data.filterCheck.tagCreation, data-nd-filter-offer-type=data.filterCheck.offerType)
+        else
+          +e.INPUT.input(name=data.name, value=data.value, type=data.type, required, data-nd-filter-type=data.filterCheck.type, data-nd-filter-value=data.filterCheck.value, data-nd-filter-tag-create=data.filterCheck.tagCreation)
       else
         +e.INPUT.input(name=data.name, value=data.value, type=data.type, required)
     else
@@ -139,10 +141,11 @@ mixin check-button(data)
         +e.INPUT.input(name=data.name, value=data.value, type=data.type, data-checker=data.checker)
       else if data.switch
         +e.INPUT.input(name=data.name, value=data.value, type=data.type, data-form-switch=data.switch)
-      else if data.filterOfferTypeCheck
-        +e.INPUT.input(name=data.name, value=data.value, type=data.type, data-nd-filter-offer-type=data.filterOfferTypeCheck.name)
       else if data.filterCheck
-        +e.INPUT.input(name=data.name, value=data.value, type=data.type, data-nd-filter-check=data.filterCheck.name)
+        if data.filterCheck.offerType
+          +e.INPUT.input(name=data.name, value=data.value, type=data.type, data-nd-filter-type=data.filterCheck.type, data-nd-filter-value=data.filterCheck.value, data-nd-filter-tag-create=data.filterCheck.tagCreation, data-nd-filter-offer-type=data.filterCheck.offerType)
+        else
+          +e.INPUT.input(name=data.name, value=data.value, type=data.type, data-nd-filter-type=data.filterCheck.type, data-nd-filter-value=data.filterCheck.value, data-nd-filter-tag-create=data.filterCheck.tagCreation)
       else
         +e.INPUT.input(name=data.name, value=data.value, type=data.type)
     +e.SPAN.content
@@ -154,11 +157,11 @@ mixin nd-range(data)
     if data.output
       +e.output(data-nd-range-output)
         +e.item
-          +nd-form-box(data.output.minLabel)
-            +nd-input(type="text" name=data.output.min placeholder=data.output.minLabel data-nd-range-input-min)
+          +nd-form-box(data.output.minLabel)(class=(data.output.formboxClass || ''))
+            +nd-input(type="text" name=data.output.min placeholder=data.output.minLabel data-nd-range-input-min class=(data.output.inputClass || ''))
         +e.item
-          +nd-form-box(data.output.maxLabel)
-            +nd-input(type="text" name=data.output.max placeholder=data.output.maxLabel data-nd-range-input-max)
+          +nd-form-box(data.output.maxLabel)(class=(data.output.formboxClass || ''))
+            +nd-input(type="text" name=data.output.max placeholder=data.output.maxLabel data-nd-range-input-max class=(data.output.inputClass || ''))
     block
 
 //- mixin check-input(isChecked)
