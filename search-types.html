@@ -298,7 +298,9 @@
                                 </form>
                             </div>
                             <div class="filter-menu__item filter-menu__item_tags nd-hide-sm">
-                                <div class="filter-tags" data-nd-filter-tags="data-nd-filter-tags"></div>
+                                <div class="js-filter-tag-slider filter-tags">
+                                    <div class="filter-tags__wrapper swiper-wrapper" data-nd-filter-tags="data-nd-filter-tags"></div>
+                                </div>
                             </div>
                             <div class="filter-menu__item filter-menu__item_type"><a class="filter-button filter-button_offer is-types-hd js-nd-show-filter" data-default-name="All offers" data-nd-filter-target="offerType" data-nd-filter-target-type="popup" href="#"><span class="filter-button__name" data-nd-filter-name="data-nd-filter-name">Hot desk</span></a>
                                 <form class="filter-popup filter-menu__popup" data-nd-filter-popup="offerType" data-nd-filter-popup-type="popup">
@@ -311,46 +313,6 @@
                                     </div>
                                     <div class="filter-popup__footer">
                                         <div class="filter-popup__buttons"><button class="nd-button filter-popup__button" type="submit" data-default-name="Show all offers" data-hd-name="Show hot desk offers" data-fd-name="Show fixed desk offers" data-mr-name="Show meeting room offers" data-po-name="Show private office offers" data-offer-type-show="data-offer-type-show"><span class="nd-button__text">Show all offers</span>
-                                                <div class="nd-button__preloader">
-                                                    <div class="loader loader_small"></div>
-                                                </div>
-                                            </button><button class="filter-popup__clear js-nd-filter-reset" type="reset">Clear</button></div>
-                                    </div>
-                                </form>
-                            </div>
-                            <div class="filter-menu__item filter-menu__item_team nd-hide-sm"><a class="filter-button js-nd-show-filter" data-default-name="Team size" data-nd-filter-target="teamSize" data-nd-filter-target-type="popup-block" href="#"><span class="filter-button__name" data-nd-filter-name="data-nd-filter-name">Team size</span></a>
-                                <form class="filter-popup filter-menu__popup" data-nd-filter-popup="teamSize" data-nd-filter-popup-type="popup-block">
-                                    <div class="filter-popup__header">
-                                        <div class="filter-popup__close js-nd-filter-close"></div>
-                                        <h4 class="filter-popup__title">Team size</h4>
-                                    </div>
-                                    <div class="filter-popup__content">
-                                        <div class="nd-form filter-popup__form">
-                                            <fieldset class="nd-form__section" data-nd-filter-form-container="data-nd-filter-form-container"></fieldset>
-                                        </div>
-                                    </div>
-                                    <div class="filter-popup__footer">
-                                        <div class="filter-popup__buttons"><button class="nd-button filter-popup__button" type="submit"><span class="nd-button__text">Show</span>
-                                                <div class="nd-button__preloader">
-                                                    <div class="loader loader_small"></div>
-                                                </div>
-                                            </button><button class="filter-popup__clear js-nd-filter-reset" type="reset">Clear</button></div>
-                                    </div>
-                                </form>
-                            </div>
-                            <div class="filter-menu__item filter-menu__item_price nd-hide-sm"><a class="filter-button js-nd-show-filter" data-default-name="Price range" data-nd-filter-target="priceRange" data-nd-filter-target-type="popup-block" href="#"><span class="filter-button__name" data-nd-filter-name="data-nd-filter-name">Price range</span></a>
-                                <form class="filter-popup filter-menu__popup" data-nd-filter-popup="priceRange" data-nd-filter-popup-type="popup-block">
-                                    <div class="filter-popup__header">
-                                        <div class="filter-popup__close js-nd-filter-close"></div>
-                                        <h4 class="filter-popup__title">Price Range</h4>
-                                    </div>
-                                    <div class="filter-popup__content">
-                                        <div class="nd-form filter-popup__form">
-                                            <fieldset class="nd-form__section" data-nd-filter-form-container="data-nd-filter-form-container"></fieldset>
-                                        </div>
-                                    </div>
-                                    <div class="filter-popup__footer">
-                                        <div class="filter-popup__buttons"><button class="nd-button filter-popup__button" type="submit"><span class="nd-button__text">Show</span>
                                                 <div class="nd-button__preloader">
                                                     <div class="loader loader_small"></div>
                                                 </div>
@@ -394,6 +356,46 @@
                                     </div>
                                     <div class="filter-popup__footer">
                                         <div class="filter-popup__buttons"><button class="nd-button filter-popup__button" type="submit"><span class="nd-button__text">Show results - 89</span>
+                                                <div class="nd-button__preloader">
+                                                    <div class="loader loader_small"></div>
+                                                </div>
+                                            </button><button class="filter-popup__clear js-nd-filter-reset" type="reset">Clear</button></div>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="filter-menu__item filter-menu__item_team nd-hide-sm"><a class="filter-button js-nd-show-filter" data-default-name="Team size" data-nd-filter-target="teamSize" data-nd-filter-target-type="popup-block" href="#"><span class="filter-button__name" data-nd-filter-name="data-nd-filter-name">Team size</span></a>
+                                <form class="filter-popup filter-menu__popup" data-nd-filter-popup="teamSize" data-nd-filter-popup-type="popup-block">
+                                    <div class="filter-popup__header">
+                                        <div class="filter-popup__close js-nd-filter-close"></div>
+                                        <h4 class="filter-popup__title">Team size</h4>
+                                    </div>
+                                    <div class="filter-popup__content">
+                                        <div class="nd-form filter-popup__form">
+                                            <fieldset class="nd-form__section" data-nd-filter-form-container="data-nd-filter-form-container"></fieldset>
+                                        </div>
+                                    </div>
+                                    <div class="filter-popup__footer">
+                                        <div class="filter-popup__buttons"><button class="nd-button filter-popup__button" type="submit"><span class="nd-button__text">Show</span>
+                                                <div class="nd-button__preloader">
+                                                    <div class="loader loader_small"></div>
+                                                </div>
+                                            </button><button class="filter-popup__clear js-nd-filter-reset" type="reset">Clear</button></div>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="filter-menu__item filter-menu__item_price nd-hide-sm"><a class="filter-button js-nd-show-filter" data-default-name="Price range" data-nd-filter-target="priceRange" data-nd-filter-target-type="popup-block" href="#"><span class="filter-button__name" data-nd-filter-name="data-nd-filter-name">Price range</span></a>
+                                <form class="filter-popup filter-menu__popup" data-nd-filter-popup="priceRange" data-nd-filter-popup-type="popup-block">
+                                    <div class="filter-popup__header">
+                                        <div class="filter-popup__close js-nd-filter-close"></div>
+                                        <h4 class="filter-popup__title">Price Range</h4>
+                                    </div>
+                                    <div class="filter-popup__content">
+                                        <div class="nd-form filter-popup__form">
+                                            <fieldset class="nd-form__section" data-nd-filter-form-container="data-nd-filter-form-container"></fieldset>
+                                        </div>
+                                    </div>
+                                    <div class="filter-popup__footer">
+                                        <div class="filter-popup__buttons"><button class="nd-button filter-popup__button" type="submit"><span class="nd-button__text">Show</span>
                                                 <div class="nd-button__preloader">
                                                     <div class="loader loader_small"></div>
                                                 </div>
@@ -930,7 +932,208 @@
                     <div class="nd-search-map" id="popup-search-map">
                         <div class="nd-search-map__wrapper"><button class="nd-search-map__close js-search-map-close">Close</button>
                             <div class="nd-search-map__map" id="search-map"></div>
-                            <div class="nd-search-map__results"></div>
+                            <div class="nd-search-map__results">
+                                <div class="nd-slider nd-search-map__slider js-nd-slider">
+                                    <div class="nd-container">
+                                        <div class="nd-slider__container swiper-container js-slider-container">
+                                            <div class="swiper-wrapper"><a class="nd-space nd-space_map-card nd-slider__slide nd-slider__slide_map-card swiper-slide" href="#"><span class="nd-space__top">
+                                                        <div class="nd-space__media">
+                                                            <div class="nd-space__image"><img src="assets/images/nd/space17.jpg" /></div>
+                                                        </div>
+                                                        <h3 class="nd-space__title">The Finsbury Business Centre</h3>
+                                                    </span>
+                                                    <table class="offer-table offer-table_map nd-space__list">
+                                                        <tbody>
+                                                            <tr class="offer-table__row">
+                                                                <td class="offer-table__cell">
+                                                                    <div class="offer-table__offer">
+                                                                        <div class="nd-box nd-box_orange offer-table__box"></div>
+                                                                        <div class="offer-table__name">HOT DESK</div>
+                                                                    </div>
+                                                                </td>
+                                                                <td class="offer-table__cell">
+                                                                    <div class="offer-table__price">£ 560.00 mo</div>
+                                                                </td>
+                                                            </tr>
+                                                            <tr class="offer-table__row">
+                                                                <td class="offer-table__cell">
+                                                                    <div class="offer-table__offer">
+                                                                        <div class="nd-box nd-box_red offer-table__box"></div>
+                                                                        <div class="offer-table__name">FIXED DESK</div>
+                                                                    </div>
+                                                                </td>
+                                                                <td class="offer-table__cell">
+                                                                    <div class="offer-table__price">£ 560.00 mo</div>
+                                                                </td>
+                                                            </tr>
+                                                            <tr class="offer-table__row">
+                                                                <td class="offer-table__cell">
+                                                                    <div class="offer-table__offer">
+                                                                        <div class="nd-box nd-box_blue offer-table__box"></div>
+                                                                        <div class="offer-table__name">MEETING ROOM</div>
+                                                                    </div>
+                                                                </td>
+                                                                <td class="offer-table__cell">
+                                                                    <div class="offer-table__price">£ 560.00 mo</div>
+                                                                </td>
+                                                            </tr>
+                                                            <tr class="offer-table__row">
+                                                                <td class="offer-table__cell">
+                                                                    <div class="offer-table__offer">
+                                                                        <div class="nd-box nd-box_green offer-table__box"></div>
+                                                                        <div class="offer-table__name">PRIVATE OFFICE</div>
+                                                                    </div>
+                                                                </td>
+                                                                <td class="offer-table__cell">
+                                                                    <div class="offer-table__price">£ 5 960.00 mo</div>
+                                                                </td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </a><a class="nd-space nd-space_map-card nd-slider__slide nd-slider__slide_map-card swiper-slide" href="#"><span class="nd-space__top">
+                                                        <div class="nd-space__media">
+                                                            <div class="nd-space__image"><img src="assets/images/nd/space16.jpg" /></div>
+                                                        </div>
+                                                        <h3 class="nd-space__title">The Finsbury Business Centre</h3>
+                                                    </span>
+                                                    <table class="offer-table offer-table_map nd-space__list">
+                                                        <tbody>
+                                                            <tr class="offer-table__row">
+                                                                <td class="offer-table__cell">
+                                                                    <div class="offer-table__offer">
+                                                                        <div class="nd-box nd-box_orange offer-table__box"></div>
+                                                                        <div class="offer-table__name">HOT DESK</div>
+                                                                    </div>
+                                                                </td>
+                                                                <td class="offer-table__cell">
+                                                                    <div class="offer-table__price">£ 560.00 mo</div>
+                                                                </td>
+                                                            </tr>
+                                                            <tr class="offer-table__row">
+                                                                <td class="offer-table__cell">
+                                                                    <div class="offer-table__offer">
+                                                                        <div class="nd-box nd-box_red offer-table__box"></div>
+                                                                        <div class="offer-table__name">FIXED DESK</div>
+                                                                    </div>
+                                                                </td>
+                                                                <td class="offer-table__cell">
+                                                                    <div class="offer-table__price">£ 560.00 mo</div>
+                                                                </td>
+                                                            </tr>
+                                                            <tr class="offer-table__row">
+                                                                <td class="offer-table__cell">
+                                                                    <div class="offer-table__offer">
+                                                                        <div class="nd-box nd-box_blue offer-table__box"></div>
+                                                                        <div class="offer-table__name">MEETING ROOM</div>
+                                                                    </div>
+                                                                </td>
+                                                                <td class="offer-table__cell">
+                                                                    <div class="offer-table__price">£ 560.00 mo</div>
+                                                                </td>
+                                                            </tr>
+                                                            <tr class="offer-table__row">
+                                                                <td class="offer-table__cell">
+                                                                    <div class="offer-table__offer">
+                                                                        <div class="nd-box nd-box_green offer-table__box"></div>
+                                                                        <div class="offer-table__name">PRIVATE OFFICE</div>
+                                                                    </div>
+                                                                </td>
+                                                                <td class="offer-table__cell">
+                                                                    <div class="offer-table__price">£ 5 960.00 mo</div>
+                                                                </td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </a><a class="nd-space nd-space_map-card nd-slider__slide nd-slider__slide_map-card swiper-slide" href="#"><span class="nd-space__top">
+                                                        <div class="nd-space__media">
+                                                            <div class="nd-space__image"><img src="assets/images/nd/space18.jpg" /></div>
+                                                        </div>
+                                                        <h3 class="nd-space__title">First Base - Cannon Street</h3>
+                                                    </span>
+                                                    <table class="offer-table offer-table_map nd-space__list">
+                                                        <tbody>
+                                                            <tr class="offer-table__row">
+                                                                <td class="offer-table__cell">
+                                                                    <div class="offer-table__offer">
+                                                                        <div class="nd-box nd-box_orange offer-table__box"></div>
+                                                                        <div class="offer-table__name">HOT DESK</div>
+                                                                    </div>
+                                                                </td>
+                                                                <td class="offer-table__cell">
+                                                                    <div class="offer-table__price">£ 560.00 mo</div>
+                                                                </td>
+                                                            </tr>
+                                                            <tr class="offer-table__row">
+                                                                <td class="offer-table__cell">
+                                                                    <div class="offer-table__offer">
+                                                                        <div class="nd-box nd-box_red offer-table__box"></div>
+                                                                        <div class="offer-table__name">FIXED DESK</div>
+                                                                    </div>
+                                                                </td>
+                                                                <td class="offer-table__cell">
+                                                                    <div class="offer-table__price">£ 560.00 mo</div>
+                                                                </td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </a><a class="nd-space nd-space_map-card nd-slider__slide nd-slider__slide_map-card swiper-slide" href="#"><span class="nd-space__top">
+                                                        <div class="nd-space__media">
+                                                            <div class="nd-space__image"><img src="assets/images/nd/space9.jpg" /></div>
+                                                        </div>
+                                                        <h3 class="nd-space__title">Finsbury Business Centre</h3>
+                                                    </span>
+                                                    <table class="offer-table offer-table_map nd-space__list">
+                                                        <tbody>
+                                                            <tr class="offer-table__row">
+                                                                <td class="offer-table__cell">
+                                                                    <div class="offer-table__offer">
+                                                                        <div class="nd-box nd-box_blue offer-table__box"></div>
+                                                                        <div class="offer-table__name">MEETING ROOM</div>
+                                                                    </div>
+                                                                </td>
+                                                                <td class="offer-table__cell">
+                                                                    <div class="offer-table__price">£ 560.00 mo</div>
+                                                                </td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </a><a class="nd-space nd-space_map-card nd-slider__slide nd-slider__slide_map-card swiper-slide" href="#"><span class="nd-space__top">
+                                                        <div class="nd-space__media">
+                                                            <div class="nd-space__image"><img src="assets/images/nd/space19.jpg" /></div>
+                                                        </div>
+                                                        <h3 class="nd-space__title">Finsbury Business Centre</h3>
+                                                    </span>
+                                                    <table class="offer-table offer-table_map nd-space__list">
+                                                        <tbody>
+                                                            <tr class="offer-table__row">
+                                                                <td class="offer-table__cell">
+                                                                    <div class="offer-table__offer">
+                                                                        <div class="nd-box nd-box_orange offer-table__box"></div>
+                                                                        <div class="offer-table__name">HOT DESK</div>
+                                                                    </div>
+                                                                </td>
+                                                                <td class="offer-table__cell">
+                                                                    <div class="offer-table__price">£ 560.00 mo</div>
+                                                                </td>
+                                                            </tr>
+                                                            <tr class="offer-table__row">
+                                                                <td class="offer-table__cell">
+                                                                    <div class="offer-table__offer">
+                                                                        <div class="nd-box nd-box_red offer-table__box"></div>
+                                                                        <div class="offer-table__name">FIXED DESK</div>
+                                                                    </div>
+                                                                </td>
+                                                                <td class="offer-table__cell">
+                                                                    <div class="offer-table__price">£ 560.00 mo</div>
+                                                                </td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </a></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
