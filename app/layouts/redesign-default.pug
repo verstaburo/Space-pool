@@ -8,6 +8,8 @@ html(lang='en')
   - var bodyClass = bodyCls || ''
   body(class='no-js-scale nd ' + bodyClass)
     block header
+    - var noHeader = isNoHeader || false
+    - var noFooter = isNoFooter || false
     - var addClass = headerClass || ''
     - var pageCls = pageClass || ''
     - var messages = getData('notices-message.json')
@@ -17,8 +19,8 @@ html(lang='en')
     - var map = isMap || false
     if gradients
       +gradients-redesign
-
-    +nd-header(isHost)(class=addClass)
+    if !noHeader
+      +nd-header(isHost)(class=addClass)
     +nd-user-menu-panel(isHost)
     +info-notices({indicator: 2, title: 'Events', link: {mdname: 'View all events', xlname: 'Show all events'}})#events-list
       each item in events
@@ -38,7 +40,8 @@ html(lang='en')
 
     block panels
 
-    +nd-footer
+    if !noFooter
+      +nd-footer
 
     script(src='assets/scripts/libs/object-assign-auto.min.js')
     script(src='assets/scripts/app.min.js')

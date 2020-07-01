@@ -5,6 +5,10 @@ if (navigator.userAgent.indexOf('MSIE') !== -1 ||
   $('body').addClass('is-IE');
 }
 
+if (navigator.userAgent.indexOf('Edge') !== -1) {
+  $('body').addClass('is-Edge');
+}
+
 function setDevice() {
   if (!$('body').is('.no-js-scale')) {
     $(document).find('meta[name="viewport"]').attr('content', 'width=device-width, initial-scale=1, maximum-scale=1, minimal-ui');

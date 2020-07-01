@@ -1,26 +1,33 @@
 .nd-search-map {
-  position: sticky;
+  // position: sticky;
+  position: fixed;
   top: 110px;
   display: flex;
-  width: calc(100% + 150px);
-  margin: 0 -150px 0 0;
-  height: calc(100vh - 110px);
+  width: 795px;
+  height: calc(100% - 110px);
+  // width: calc(100% + 150px);
+  // margin: 0 -150px 0 0;
+  // height: calc(100vh - 110px);
   transform: translate3d(0, 0, 0);
   transition: visibility 0s linear, transform $ease-main, opacity $ease-main;
   pointer-events: auto;
 
   @include screen('xlg', max, 2) {
     top: pxtovw(110, 1660);
-    width: calc(100% + ((6000 / 1660) * 1vw));
-    height: calc(100vh - ((11000 / 1660) * 1vw));
-    margin: 0 pxtovw(-60, 1660) 0 0;
+    width: pxtovw(705, 1660);
+    height: calc(100% - ((11000 / 1660) * 1vw));
+    // width: calc(100% + ((6000 / 1660) * 1vw));
+    // height: calc(100vh - ((11000 / 1660) * 1vw));
+    // margin: 0 pxtovw(-60, 1660) 0 0;
   }
 
   @include screen('lg', max, 2) {
     top: pxtovw(110, 1366);
-    width: calc(100% + ((5000 / 1366) * 1vw));
-    height: calc(100vh - ((11000 / 1366) * 1vw));
-    margin: 0 pxtovw(-50, 1366) 0 0;
+    width: pxtovw(459, 1366);
+    height: calc(100% - ((11000 / 1366) * 1vw));
+    // width: calc(100% + ((5000 / 1366) * 1vw));
+    // height: calc(100vh - ((11000 / 1366) * 1vw));
+    // margin: 0 pxtovw(-50, 1366) 0 0;
   }
 
   @include screen('md', max, 2) {
@@ -34,6 +41,22 @@
     pointer-events: none;
     opacity: 0;
     z-index: 25;
+  }
+
+  .is-search-by-offer-type & {
+    width: calc(50% - 25px);
+
+    @include screen('xlg', max, 2) {
+      width: calc(50% - ((2500 / 1660) * 1vw));
+    }
+
+    @include screen('lg', max, 2) {
+      width: pxtovw(489, 1366);
+    }
+
+    @include screen('md', max, 2) {
+      width: 100%;
+    }
   }
 
   .is-search-map-hide & {

@@ -38,6 +38,32 @@
     height: pxtovw(50, 375);
   }
 
+  .is-IE &, .is-Edge {
+    position: relative;
+    top: 0;
+  }
+
+  .is-IE .header.is-short ~ .nd-page &, .is-Edge .header.is-short ~ .nd-page & {
+    position: fixed;
+    top: 60px;
+
+    @include screen('xlg', max, 2) {
+      top: pxtovw(60, 1660);
+    }
+
+    @include screen('lg', max, 2) {
+      top: pxtovw(60, 1366);
+    }
+
+    @include screen('md', max, 2) {
+      top: pxtovw(60, 960);
+    }
+
+    @include screen('sm', max, 2) {
+      top: 0;
+    }
+  }
+
   .is-filter-popup-opened & {
     z-index: 29;
   }
