@@ -1,4 +1,4 @@
-mixin offer-table(data)
+mixin offer-table(data, isFrom)
   +b.TABLE.offer-table&attributes(attributes)
     tbody
       each item in data
@@ -8,5 +8,8 @@ mixin offer-table(data)
               +nd-box()(class=item.box + ' __box')
               +e.name!=item.name
           +e.TD.cell
-            +e.price <span>from</span>&nbsp;#{item.price}
+            if isFrom
+              +e.price <span>from</span>&nbsp;#{item.price}
+            else
+              +e.price!=item.price
     block

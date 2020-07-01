@@ -53,22 +53,58 @@
     }
 
     &_tags {
-      &:not(:last-child) {
-        margin-right: 44px;
+      position: relative;
+      box-sizing: border-box;
+      overflow: hidden;
+
+      &::after {
+        @include pseudo;
+
+        top: 0;
+        right: 0;
+        width: 10px;
+        height: 100%;
+        background-image: linear-gradient(to left, $nd-color-bg, rgba(255, 255, 255, 0));
+        z-index: 2;
 
         @include screen('xlg', max, 2) {
-          margin-right: pxtovw(44, 1660);
+          width: pxtovw(10, 1660);
         }
 
         @include screen('lg', max, 2) {
-          margin-right: pxtovw(44, 1366);
+          width: pxtovw(10, 1366);
         }
 
         @include screen('md', max, 2) {
-          margin-right: pxtovw(44, 960);
+          width: pxtovw(10, 960);
         }
 
         @include screen('sm', max, 2) {
+          display: none;
+        }
+      }
+
+      &:not(:last-child) {
+        padding-right: 10px;
+        margin-right: 34px;
+
+        @include screen('xlg', max, 2) {
+          padding-right: pxtovw(10, 1660);
+          margin-right: pxtovw(34, 1660);
+        }
+
+        @include screen('lg', max, 2) {
+          padding-right: pxtovw(10, 1366);
+          margin-right: pxtovw(34, 1366);
+        }
+
+        @include screen('md', max, 2) {
+          padding-right: pxtovw(10, 960);
+          margin-right: pxtovw(34, 960);
+        }
+
+        @include screen('sm', max, 2) {
+          padding-right: 0;
           margin-right: 0;
         }
       }
@@ -106,9 +142,23 @@
       transform: translate3d(100%, 0, 0);
     }
 
-    #{$b}__item_location & {
+    #{$b}__item:first-child & {
       left: 0;
       transform: translate3d(0, 0, 0);
+    }
+
+    #{$b}__item:last-child & {
+      @include screen('md', max, 2) {
+        left: auto;
+        right: 0;
+        transform: translate3d(0, 0, 0);
+      }
+
+      @include screen('sm', max, 2) {
+        left: 0;
+        right: auto;
+        transform: translate3d(100%, 0, 0);
+      }
     }
 
     .filter-button.is-active ~ & {

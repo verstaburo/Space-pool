@@ -7,7 +7,7 @@ mixin filter-menu(specific)
         +nd-form('div').__form
           +form-section()(data-nd-filter-form-container)
     +e.item_tags.nd-hide-sm
-      +filter-tags()(data-nd-filter-tags)
+      +filter-tags()
     +e.item_type
       if specific
         +filter-button({class: '_offer is-types-hd js-nd-show-filter', name: 'All offers', currentName: 'Hot desk', filterName: 'offerType', filterType: 'popup'})
@@ -39,16 +39,6 @@ mixin filter-menu(specific)
                 +nd-box()._green.__box
                 +e.name Private office
               +e.count 94
-    +e.item_team.nd-hide-sm
-      +filter-button({class: 'js-nd-show-filter', name: 'Team size', filterName: 'teamSize', filterType: 'popup-block'})
-      +filter-popup({submit: 'Show', reset: 'Clear', title: 'Team size'}).__popup(data-nd-filter-popup="teamSize" data-nd-filter-popup-type="popup-block")
-        +nd-form('div').__form
-          +form-section()(data-nd-filter-form-container)
-    +e.item_price.nd-hide-sm
-      +filter-button({class: 'js-nd-show-filter', name: 'Price range', filterName: 'priceRange', filterType: 'popup-block'})
-      +filter-popup({submit: 'Show', reset: 'Clear', title: 'Price Range'}).__popup(data-nd-filter-popup="priceRange" data-nd-filter-popup-type="popup-block")
-        +nd-form('div').__form
-          +form-section()(data-nd-filter-form-container)
     +e.item_all.nd-hide-from-sm
       +filter-button({class: '_all js-nd-show-filter', name: 'Filter', filterName: 'filter', filterType: 'popup'})
       +filter-popup({submit: 'Show results - 89', reset: 'Clear', title: 'Filter'}).__popup(data-nd-filter-popup="filter" data-nd-filter-popup-type="popup")
@@ -69,4 +59,14 @@ mixin filter-menu(specific)
               +e.checklist
                 each item in getData('filterLocation.json')
                   +check-button(item.options)._h34.__check!=item.title
+    +e.item_team.nd-hide-sm
+      +filter-button({class: 'js-nd-show-filter', name: 'Team size', filterName: 'teamSize', filterType: 'popup-block'})
+      +filter-popup({submit: 'Show', reset: 'Clear', title: 'Team size'}).__popup(data-nd-filter-popup="teamSize" data-nd-filter-popup-type="popup-block")
+        +nd-form('div').__form
+          +form-section()(data-nd-filter-form-container)
+    +e.item_price.nd-hide-sm
+      +filter-button({class: 'js-nd-show-filter', name: 'Price range', filterName: 'priceRange', filterType: 'popup-block'})
+      +filter-popup({submit: 'Show', reset: 'Clear', title: 'Price Range'}).__popup(data-nd-filter-popup="priceRange" data-nd-filter-popup-type="popup-block")
+        +nd-form('div').__form
+          +form-section()(data-nd-filter-form-container)
     block

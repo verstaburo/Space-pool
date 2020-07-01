@@ -4,6 +4,15 @@ mixin nd-search-map()
       +e.BUTTON.close.js-search-map-close Close
       +e.map#search-map
       +e.results
+        +nd-slider(false, false, true).__slider.js-nd-slider
+          each item in getData('nd-spaces-search-map.json')
+            +nd-space('a')._map-card.__slide_map-card.swiper-slide(href="#")
+              +e.top
+                +nd-space-media()
+                  img(src=item.image)
+                +nd-space-title()!=item.title
+              +offer-table(item.offers)._map.__list
+
     block
 
 mixin nd-search-map-button()

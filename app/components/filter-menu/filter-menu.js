@@ -19,7 +19,7 @@ export default function filterMenu() {
           $('body').removeClass('is-filter-popup-opened');
           setTimeout(() => {
             $(popupContainer).append(popupSection);
-          }, 300);
+          }, 100);
         } else {
           closeAllFiltersPopup();
           const popupSection = $(`[data-nd-filter-form-block="${name}"]`);
@@ -153,11 +153,14 @@ export default function filterMenu() {
             $(tag).attr('data-nd-filter-tag', tagId);
             $(el).attr('data-nd-filter-check-tag', tagId);
             $(tagContainer).append(tag);
+            $(tagContainer).closest('.js-filter-tag-slider')[0].swiper.update();
           }
         } else {
           const tagId = $(el).attr('data-nd-filter-check-tag');
           const tag = $(`[data-nd-filter-tag="${tagId}"]`);
+          const slider = $(tag).closest('.js-filter-tag-slider')[0];
           $(tag).remove();
+          slider.swiper.update();
           setDefaultName(type);
         }
         break;
@@ -177,9 +180,9 @@ export default function filterMenu() {
     });
     const rangeSource = $(form).find('.js-nd-range');
     const range = $(rangeSource).find('[data-nd-range-container]').get(0);
-    const rangeMin = +$(rangeSource).attr('data-min');
-    const rangeMax = +$(rangeSource).attr('data-max');
-    range.noUiSlider.set([rangeMin, rangeMax]);
+    setTimeout(() => {
+      window.globalFunctions.resetRange(range);
+    }, 50);
     $('.js-nd-show-filter').each((i, el) => {
       const type = $(el).attr('data-nd-filter-target');
       setDefaultName(type);
@@ -204,7 +207,9 @@ export default function filterMenu() {
   $(document).on('click', '[data-nd-filter-tag]', (evt) => {
     const self = evt.currentTarget;
     const tagId = $(self).attr('data-nd-filter-tag');
+    const slider = $(self).closest('.js-filter-tag-slider')[0];
     $(self).remove();
+    slider.swiper.update();
     clearTagCheckbox(tagId);
   });
 

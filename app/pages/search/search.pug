@@ -20,7 +20,7 @@ block content
         +nd-results
           each item in getData('nd-spaces-search.json')
             +nd-results-item
-              +nd-space()._search-card
+              +nd-space()._search-card.js-map-marker-link(data-marker-name=('marker' + parseInt((Math.random() * 13) + 1)))
                 +gallery(item.gallery)._space.__media.js-nd-gallery
                 +e.describe
                   +e.address
@@ -29,7 +29,7 @@ block content
                   +e.title!=item.title
                   +e.clip-text
                     +e.text(data-text=item.text)!=item.text
-                  +offer-table(item.offers)._transforma.__list
+                  +offer-table(item.offers, true)._transforma.__list
         +nd-pagination
       +nd-content-aside
         +nd-search-map

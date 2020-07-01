@@ -473,6 +473,15 @@ export function sliders() {
     });
   });
 
+  function resetRange(range) {
+    const rangeParent = $(range).closest('.js-nd-range');
+    // const output = $(rangeParent).find('[data-nd-range-output]');
+    const startValues = $(rangeParent).data('start');
+    range.noUiSlider.set(startValues);
+  }
+
+  window.globalFunctions.resetRange = resetRange;
+
   // Параметры берутся из дата-атрибутов
   $('.js-nd-range').each(function () {
     const el = $(this);

@@ -106,11 +106,18 @@
     position: absolute;
     display: none;
     z-index: 2;
+    width: 100%;
 
     @include screen('md', max, 2) {
       left: 0;
       bottom: 0;
       display: block;
+      box-sizing: border-box;
+      padding: pxtovw(20, 960) pxtovw(50, 960);
+    }
+
+    @include screen('sm', max, 2) {
+      padding: pxtovw(20, 375);
     }
   }
 }
