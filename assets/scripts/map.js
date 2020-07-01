@@ -1,77 +1,119 @@
 $(document).ready(function () {
   var locations = [{
+    coords: {
+      lat: 51.93,
+      lng: 30.325,
+    },
+    selfName: 'marker0',
+  }, {
+    coords: {
       lat: 51.934,
       lng: 30.315,
     },
-    {
+    selfName: 'marker1',
+  }, {
+    coords: {
       lat: 59.9345,
       lng: 30.3156,
     },
-    {
+    selfName: 'marker2',
+  }, {
+    coords: {
       lat: 59.924,
       lng: 30.335,
     },
-    {
+    selfName: 'marker3',
+  }, {
+    coords: {
       lat: 59.924,
       lng: 30.305,
     },
-    {
+    selfName: 'marker4',
+  }, {
+    coords: {
       lat: 59.924,
       lng: 30.335,
     },
-    {
+    selfName: 'marker5',
+  }, {
+    coords: {
       lat: 59.914,
       lng: 30.335,
     },
-    {
+    selfName: 'marker6',
+  }, {
+    coords: {
       lat: 59.934,
       lng: 30.325,
     },
-    {
+    selfName: 'marker7',
+  }, {
+    coords: {
       lat: 59.900,
-      lng: 30.315
+      lng: 30.315,
     },
-    {
+    selfName: 'marker8',
+  }, {
+    coords: {
       lat: 59.934,
       lng: 30.300,
     },
-    {
+    selfName: 'marker9',
+  }, {
+    coords: {
       lat: 59.913,
-      lng: 30.330
+      lng: 30.330,
     },
-    {
+    selfName: 'marker10',
+  }, {
+    coords: {
       lat: 59.927,
       lng: 30.338,
     },
-    {
+    selfName: 'marker11',
+  }, {
+    coords: {
       lat: 59.948,
       lng: 30.34,
     },
-    {
+    selfName: 'marker12',
+  }, {
+    coords: {
       lat: 59.988,
       lng: 30.324,
     },
-    {
+    selfName: 'marker13',
+  }, {
+    coords: {
       lat: 59.9,
       lng: 30.34476,
     },
-    {
+    selfName: 'marker14',
+  }, {
+    coords: {
       lat: 59.939,
       lng: 30.76,
     },
-    {
+    selfName: 'marker15',
+  }, {
+    coords: {
       lat: 59.941,
-      lng: 30.9
+      lng: 30.9,
     },
-    {
+    selfName: 'marker16',
+  }, {
+    coords: {
       lat: 59.966,
       lng: 30.8,
     },
-    {
+    selfName: 'marker17',
+  }, {
+    coords: {
       lat: 59.977,
       lng: 30.73735,
-    }
-  ];
+    },
+    selfName: 'marker18',
+  }];
 
   var uluru = {
     lat: 59.914,
@@ -95,7 +137,7 @@ $(document).ready(function () {
 
       var markers = locations.map(function (location, i) {
         return new google.maps.Marker({
-          position: location,
+          position: location.coords,
           map: map,
           icon: {
             url: 'assets/images/nd/nd-map-marker.svg',
@@ -142,12 +184,21 @@ $(document).ready(function () {
           disableDefaultUI: true,
         });
 
+      var markerSymbol = {
+        path: 'M46.5 23.7858C46.5 33.9179 40.7138 43.859 34.8568 51.3131C31.9359 55.0306 29.0138 58.109 26.8218 60.2579C25.7261 61.3321 24.8136 62.1733 24.1759 62.7452C23.8966 62.9957 23.67 63.1945 23.5039 63.3386C23.3374 63.1908 23.1095 62.9862 22.8281 62.7282C22.1901 62.1433 21.2774 61.2843 20.1814 60.1902C17.9888 58.0015 15.066 54.8755 12.1444 51.1258C6.28472 43.6053 0.5 33.6648 0.5 23.7858C0.5 10.9035 10.7871 0.5 23.5 0.5C36.2129 0.5 46.5 10.9035 46.5 23.7858Z',
+        fillColor: '#0085ff',
+        strokeColor: 'rgba(31, 31, 31)',
+        strokeOpacity: 0.28,
+        scale: 2.9,
+      };
+
       var markers3 = locations.map(function (location, i) {
         return new google.maps.Marker({
-          position: location,
+          position: location.coords,
           map: map3,
+          selfName: location.selfName,
           icon: {
-            url: 'assets/images/nd/nd-map-marker.svg',
+            url: "data:image/svg+xml,%3Csvg width='23' height='31' viewBox='0 0 23 31' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M23 11.5213C23 21.5047 11.5 31 11.5 31C11.5 31 0 21.2606 0 11.5213C0 5.15039 5.14089 0 11.5 0C17.8591 0 23 5.15039 23 11.5213Z' fill='%230085FF'/%3E%3Cpath d='M22.5 11.5213C22.5 16.3378 19.7155 21.0944 16.8584 24.6936C15.4376 26.4834 14.0156 27.9662 12.9487 29.0015C12.4155 29.5189 11.9718 29.9238 11.6622 30.1986C11.6047 30.2496 11.5518 30.2962 11.5038 30.3382C11.4549 30.2944 11.4008 30.2457 11.3419 30.1922C11.032 29.9111 10.588 29.4975 10.0545 28.9704C8.98702 27.9156 7.56436 26.4094 6.14288 24.6036C3.283 20.9706 0.5 16.2147 0.5 11.5213C0.5 5.42566 5.4179 0.5 11.5 0.5C17.5821 0.5 22.5 5.42566 22.5 11.5213Z' stroke='%231F1F1F' stroke-opacity='0.28'/%3E%3Ccircle cx='11.5' cy='10.5' r='4.5' fill='white'/%3E%3C/svg%3E ",
             size: new google.maps.Size(23, 31),
             // The origin for this image is (0, 0).
             origin: new google.maps.Point(0, 0),
@@ -155,6 +206,40 @@ $(document).ready(function () {
             anchor: new google.maps.Point(12, 31),
             scaledSize: new google.maps.Size(23, 31),
           },
+        });
+      });
+
+      $(document).on('mouseenter', '.js-map-marker-link', function (evt) {
+        var self = evt.currentTarget;
+        var markerName = $(self).data('marker-name');
+        var mark = $(markers3).filter(function (i, el) {
+          return el.selfName === markerName;
+        });
+        mark[0].setIcon({
+          url: "data:image/svg+xml,%3Csvg width='23' height='31' viewBox='0 0 23 31' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M23 11.5213C23 21.5047 11.5 31 11.5 31C11.5 31 0 21.2606 0 11.5213C0 5.15039 5.14089 0 11.5 0C17.8591 0 23 5.15039 23 11.5213Z' fill='black'/%3E%3Cpath d='M22.5 11.5213C22.5 16.3378 19.7155 21.0944 16.8584 24.6936C15.4376 26.4834 14.0156 27.9662 12.9487 29.0015C12.4155 29.5189 11.9718 29.9238 11.6622 30.1986C11.6047 30.2496 11.5518 30.2962 11.5038 30.3382C11.4549 30.2944 11.4008 30.2457 11.3419 30.1922C11.032 29.9111 10.588 29.4975 10.0545 28.9704C8.98702 27.9156 7.56436 26.4094 6.14288 24.6036C3.283 20.9706 0.5 16.2147 0.5 11.5213C0.5 5.42566 5.4179 0.5 11.5 0.5C17.5821 0.5 22.5 5.42566 22.5 11.5213Z' stroke='black' stroke-opacity='0.28'/%3E%3Ccircle cx='11.5' cy='10.5' r='4.5' fill='white'/%3E%3C/svg%3E ",
+          size: new google.maps.Size(47, 64),
+          // The origin for this image is (0, 0).
+          origin: new google.maps.Point(0, 0),
+          // The anchor for this image is the base of the flagpole at (0, 32).
+          anchor: new google.maps.Point(23.5, 64),
+          scaledSize: new google.maps.Size(47, 64),
+        });
+      });
+
+      $(document).on('mouseleave', '.js-map-marker-link', function (evt) {
+        var self = evt.currentTarget;
+        var markerName = $(self).data('marker-name');
+        var mark = $(markers3).filter(function (i, el) {
+          return el.selfName === markerName;
+        });
+        mark[0].setIcon({
+          url: "data:image/svg+xml,%3Csvg width='23' height='31' viewBox='0 0 23 31' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M23 11.5213C23 21.5047 11.5 31 11.5 31C11.5 31 0 21.2606 0 11.5213C0 5.15039 5.14089 0 11.5 0C17.8591 0 23 5.15039 23 11.5213Z' fill='%230085FF'/%3E%3Cpath d='M22.5 11.5213C22.5 16.3378 19.7155 21.0944 16.8584 24.6936C15.4376 26.4834 14.0156 27.9662 12.9487 29.0015C12.4155 29.5189 11.9718 29.9238 11.6622 30.1986C11.6047 30.2496 11.5518 30.2962 11.5038 30.3382C11.4549 30.2944 11.4008 30.2457 11.3419 30.1922C11.032 29.9111 10.588 29.4975 10.0545 28.9704C8.98702 27.9156 7.56436 26.4094 6.14288 24.6036C3.283 20.9706 0.5 16.2147 0.5 11.5213C0.5 5.42566 5.4179 0.5 11.5 0.5C17.5821 0.5 22.5 5.42566 22.5 11.5213Z' stroke='%231F1F1F' stroke-opacity='0.28'/%3E%3Ccircle cx='11.5' cy='10.5' r='4.5' fill='white'/%3E%3C/svg%3E ",
+          size: new google.maps.Size(23, 31),
+          // The origin for this image is (0, 0).
+          origin: new google.maps.Point(0, 0),
+          // The anchor for this image is the base of the flagpole at (0, 32).
+          anchor: new google.maps.Point(12, 31),
+          scaledSize: new google.maps.Size(23, 31),
         });
       });
     }
