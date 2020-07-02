@@ -6,10 +6,11 @@ html(lang='en')
   include head-redesign
   block bodyClasses
   - var bodyClass = bodyCls || ''
+  - var noFooter = isNoFooter || false
+  - if (noFooter) bodyClass += ' is-nofooter'
   body(class='no-js-scale nd ' + bodyClass)
     block header
     - var noHeader = isNoHeader || false
-    - var noFooter = isNoFooter || false
     - var addClass = headerClass || ''
     - var pageCls = pageClass || ''
     - var messages = getData('notices-message.json')
