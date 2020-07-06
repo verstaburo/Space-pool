@@ -4,3 +4,37 @@ mixin side-navigation(note)
       block
       if note
         +note._side.hide-sm!= note
+
+mixin nd-side-navigation(data, activeName)
+  +b.DIV.nd-side-navigation&attributes(attributes)
+    if data.space
+      +nd-space('div')._side-nav.__space(class=data.space.class)
+        +e.head
+          +nd-space-title()!=data.space.title
+          +space-type._fz11._gray.__type
+            +nd-box()._size8(class=data.space.type.box + ' __box')
+            +e.name!=data.space.type.name
+        +nd-space-media-e
+          +e.PICTURE.image
+            option(srcset=data.space.image)
+            img(srcset=data.space.image)
+    if data.menu
+      +e.UL.list(class=(data.menuCls || ''))
+        each item in data.menu
+          - var addClass = (item.name == activeName) ? ' is-active' : ''
+          - if (item.list) addClass += ' is-multilevel'
+          +e.LI.item
+            +e.A.link(class=addClass href=item.href)!=item.name
+            if item.list
+              +e.UL.sublist
+                each link in item.list
+                  - var subClass = (link.name == 'Basic information') ? ' is-active' : ''
+                  +e.LI.subitem
+                    +e.A.sublink(href=link.href class=subClass)!=link.name
+    if data.note
+      each item in data.menu
+        if (item.name == activeName)
+          +e.note!=data.item.note
+    if data.iconLink
+      +e.links
+        +nd-link-icon(data.iconLink.icon)(class=data.iconLink.class href=data.iconLink.href)._icon_blue.__btn-link!=data.iconLink.name

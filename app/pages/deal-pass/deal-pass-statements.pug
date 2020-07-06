@@ -1,0 +1,80 @@
+extends ../../layouts/redesign-default
+
+block head
+  - var pageTitle = 'Spacepool - Deal Passport'
+
+block bodyClasses
+  - var bodyCls = ' is-sm-noheader';
+  - var isNoFooter = true
+
+block header
+  - var headerClass = ' is-login'
+  - var pageClass = ''
+  - var isMap = true
+  - var host = false
+
+block content
+  +nd-page-header._grid
+    .nd-container
+      +nd-page-header-side
+        +nd-link-icon('arrow5')._underline._back._back_md21.__back_md-noname Back to deal list
+      +nd-page-header-main
+        - var menuList = getData('sideNavDealPassRent.json').menu;
+        +e.dt-menu.nd-hide-md
+          +nd-breadcrumbs([["Home", "#"], ["Spaces", "#"], ["Clerkenworks London"]]).__breadcrumbs
+          +person().__person
+            +e.position Client:
+            +nd-short-profile-data({ava: {img: 'assets/images/nd/user-avatar-2.jpg', class: '_sz34'}, name: 'Mike Regent', nameClass: '_fz17'})._nd.__profile
+        +e.mb-menu.nd-hide-from-md
+          +slider-navigation(menuList, 4, 'Statements')
+
+
+  +nd-content
+    .nd-container
+      +nd-content-aside
+        +sidebar.nd-sidebar.nd-hide-md
+          - var nav = getData('sideNavDealPassRent.json')
+          +nd-side-navigation(nav, 'Statements')
+      +nd-content-main
+        +dashboard
+          +board._pad35.__board
+            +board-header
+              +board-title('h2')._fz22 Statements
+              +e.pay-info
+                +e.pay-describe Fund source | Direct Debit:
+                +e.pay-source Company card (15346347)
+                +nd-link._blue.__link Change...
+            +nd-table._rent-state.__table
+              thead
+                tr
+                  th Issued
+                  th.nd-hide-sm Due date
+                  th Price
+                  th.nd-hide-sm Status
+                  th Invoice
+              tbody
+                tr
+                  td
+                    b 24 April 2020
+                  td.nd-hide-sm
+                    b 20.04.2020
+                  td
+                    b £ 860.00
+                  td.nd-hide-sm
+                    b Pending
+                  td
+                    +nd-link-pdf({})(href="#")
+                - for (var i = 0; i < 11; i ++) {
+                  tr
+                    td
+                      b 24 April 2020
+                    td.nd-hide-sm 20.04.2020
+                    td  £ 860.00
+                    td.nd-hide-sm Paid
+                    td
+                      +nd-link-pdf({})(href="#")
+                - }
+
+block panels
+
+block popups

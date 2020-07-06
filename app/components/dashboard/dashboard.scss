@@ -1,0 +1,302 @@
+.dashboard {
+  $b: &;
+
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  margin-top: -20px;
+
+  @include screen('xlg', max, 2) {
+    margin-top: pxtovw(-20, 1660);
+  }
+
+  @include screen('lg', max, 2) {
+    margin-top: pxtovw(-20, 1366);
+  }
+
+  @include screen('md', max, 2) {
+    margin-top: pxtovw(-20, 960);
+  }
+
+  @include screen('sm', max, 2) {
+    margin-top: pxtovw(-20, 375);
+  }
+
+  &__board {
+    margin-top: 20px;
+
+    @include screen('xlg', max, 2) {
+      margin-top: pxtovw(20, 1660);
+    }
+
+    @include screen('lg', max, 2) {
+      margin-top: pxtovw(20, 1366);
+    }
+
+    @include screen('md', max, 2) {
+      margin-top: pxtovw(20, 960);
+    }
+
+    @include screen('sm', max, 2) {
+      margin-top: pxtovw(20, 375);
+    }
+
+    &_rent {
+      &_rs {
+        @include grid-column(3, 4);
+        @include grid-row(1, 2);
+
+        @include screen('md', max, 2) {
+          @include grid-column(1, 4);
+        }
+
+        @include screen('sm', max, 2) {
+          @include grid-column(1, 2);
+        }
+      }
+
+      &_contract {
+        @include grid-column(1, 2);
+        @include grid-row(1, 2);
+
+        @include screen('md', max, 2) {
+          @include grid-column(3, 4);
+          @include grid-row(2, 3);
+        }
+
+        @include screen('sm', max, 2) {
+          @include grid-column(1, 2);
+          @include grid-row(3, 4);
+        }
+      }
+
+      &_chat {
+        @include grid-column(5, 6);
+        @include grid-row(1, 2);
+
+        @include screen('lg', max, 2) {
+          @include grid-column(1, 2);
+          @include grid-row(2, 3);
+        }
+      }
+
+      &_state {
+        @include grid-column(1, 4);
+        @include grid-row(2, 3);
+
+        @include screen('lg', max, 2) {
+          @include grid-column(1, 4);
+          @include grid-row(3, 4);
+        }
+
+        @include screen('sm', max, 2) {
+          @include grid-column(1, 2);
+          @include grid-row(5, 6);
+        }
+      }
+
+      &_overview {
+        @include grid-column(5, 6);
+        @include grid-row(2, 3);
+
+        @include screen('lg', max, 2) {
+          @include grid-column(3, 4);
+          @include grid-row(2, 3);
+        }
+
+        @include screen('md', max, 2) {
+          @include grid-column(1, 4);
+          @include grid-row(4, 5);
+        }
+
+        @include screen('sm', max, 2) {
+          @include grid-column(1, 2);
+          @include grid-row(6, 7);
+        }
+      }
+    }
+
+    &_contract {
+      &_doc {
+        @include grid-column(1, 2);
+        @include grid-row(1, 3);
+
+        @include screen('sm', max, 2) {
+          @include grid-row(2, 3);
+        }
+      }
+
+      &_side {
+        @include grid-column(3, 4);
+        @include grid-row(1, 2);
+
+        @include screen('sm', max, 2) {
+          @include grid-column(1, 2);
+          @include grid-row(1, 2);
+        }
+      }
+    }
+
+    &_rs {
+      margin-top: 0;
+
+      @include screen('sm', max, 2) {
+        margin-top: pxtovw(20, 375);
+      }
+
+      &_main {
+        @include grid-column(1, 4);
+        @include grid-row(1, 2);
+
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+
+        @include screen('sm', max, 2) {
+          @include grid-column(1, 2);
+
+          border-bottom-left-radius: pxtovw(3, 375);
+          border-bottom-right-radius: pxtovw(3, 375);
+        }
+      }
+
+      &_payments {
+        @include grid-column(1, 2);
+        @include grid-row(2, 3);
+
+        position: relative;
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+
+        @include screen('sm', max, 2) {
+          @include grid-column(1, 2);
+          @include grid-row(2, 3);
+
+          border-top-left-radius: pxtovw(3, 375);
+          border-top-right-radius: pxtovw(3, 375);
+        }
+
+        &:not(:last-child) {
+          &::before {
+            @include pseudo;
+
+            width: 50px;
+            height: 100%;
+            top: 0;
+            left: 100%;
+            background-color: $nd-color-basic-light;
+
+            @include screen('xlg', max, 2) {
+              width: pxtovw(50, 1660);
+            }
+
+            @include screen('lg', max, 2) {
+              width: pxtovw(20, 1366);
+            }
+
+            @include screen('md', max, 2) {
+              width: pxtovw(5, 960);
+            }
+
+            @include screen('sm', max, 2) {
+              display: none;
+            }
+          }
+        }
+      }
+
+      &_times {
+        @include grid-column(3, 4);
+        @include grid-row(2, 3);
+
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+
+        @include screen('sm', max, 2) {
+          @include grid-column(1, 2);
+          @include grid-row(3, 4);
+
+          border-top-left-radius: pxtovw(3, 375);
+          border-top-right-radius: pxtovw(3, 375);
+        }
+      }
+    }
+  }
+
+  &_rent {
+    @include display-grid;
+    @include grid-template-columns(1fr 20px 1fr 20px 1fr);
+    @include grid-template-rows(auto auto);
+
+    @include screen('xlg', max, 2) {
+      @include grid-template-columns(1fr pxtovw(20, 1660) 1fr pxtovw(20, 1660) 1fr);
+    }
+
+    @include screen('lg', max, 2) {
+      @include grid-template-columns(1fr pxtovw(20, 1366) 1fr);
+      @include grid-template-rows(auto auto auto);
+    }
+
+    @include screen('md', max, 2) {
+      @include grid-template-columns(1fr pxtovw(20, 960) 1fr);
+      @include grid-template-rows(auto auto auto auto);
+    }
+
+    @include screen('sm', max, 2) {
+      @include grid-template-columns(100%);
+      @include grid-template-rows(auto auto auto auto auto);
+    }
+  }
+
+  &_contract {
+    @include display-grid;
+    @include grid-template-columns(1fr 50px 368px);
+    @include grid-template-rows(auto auto);
+
+    @include screen('xlg', max, 2) {
+      @include grid-template-columns(1fr pxtovw(50, 1660) pxtovw(3680, 1660));
+    }
+
+    @include screen('lg', max, 2) {
+      @include grid-template-columns(1fr pxtovw(20, 1366) pxtovw(301, 1366));
+    }
+
+    @include screen('md', max, 2) {
+      @include grid-template-columns(1fr pxtovw(20, 960) pxtovw(301, 960));
+    }
+
+    @include screen('sm', max, 2) {
+      @include grid-template-columns(100%);
+    }
+  }
+
+  &_rs {
+    @include display-grid;
+    @include grid-template-columns(1fr 50px 1fr);
+    @include grid-template-rows(auto auto);
+
+    margin-top: 0;
+
+    @include screen('xlg', max, 2) {
+      @include grid-template-columns(1fr pxtovw(50, 1660) 1fr);
+    }
+
+    @include screen('lg', max, 2) {
+      @include grid-template-columns(1fr pxtovw(20, 1366) 1fr);
+    }
+
+    @include screen('md', max, 2) {
+      @include grid-template-columns(1fr pxtovw(5, 960) 1fr);
+    }
+
+    @include screen('sm', max, 2) {
+      @include grid-template-columns(100%);
+      @include grid-template-rows(auto auto auto);
+
+      margin-top: pxtovw(-20, 375);
+    }
+  }
+
+  &_view {
+
+  }
+}

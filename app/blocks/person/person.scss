@@ -1,0 +1,53 @@
+.person {
+  $b: &;
+
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+
+  &__position {
+    font-size: 16px;
+    line-height: (19 / 16);
+    color: $nd-color-gray-text;
+
+    @include screen('xlg', max, 2) {
+      font-size: pxtovw(16, 1660);
+    }
+
+    @include screen('lg', max, 2) {
+      font-size: pxtovw(16, 1366);
+    }
+
+    @include screen('md', max, 2) {
+      font-size: pxtovw(16, 960);
+    }
+
+    @include screen('sm', max, 2) {
+      font-size: pxtovw(16, 375);
+    }
+  }
+
+  &__profile {
+    flex: none;
+
+    &:not(:first-child) {
+      margin-left: 20px;
+
+      @include screen('xlg', max, 2) {
+        margin-left: pxtovw(20, 1660);
+      }
+
+      @include screen('lg', max, 2) {
+        margin-left: pxtovw(20, 1366);
+      }
+
+      @include screen('md', max, 2) {
+        margin-left: pxtovw(20, 960);
+      }
+
+      @include screen('sm', max, 2) {
+        margin-left: pxtovw(20, 375);
+      }
+    }
+  }
+}

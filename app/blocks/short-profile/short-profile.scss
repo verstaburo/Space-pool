@@ -46,6 +46,26 @@
         margin-right: 10px;
       }
     }
+
+    #{$b}_nd & {
+      margin-right: 14px;
+
+      @include screen('xlg', max, 2) {
+        margin-right: pxtovw(14, 1660);
+      }
+
+      @include screen('lg', max, 2) {
+        margin-right: pxtovw(14, 1366);
+      }
+
+      @include screen('md', max, 2) {
+        margin-right: pxtovw(14, 960);
+      }
+
+      @include screen('sm', max, 2) {
+        margin-right: pxtovw(14, 375);
+      }
+    }
   }
 
   &__name {
@@ -66,6 +86,30 @@
 
         line-height: (26/14);
         display: inline-block;
+      }
+    }
+
+    &_fz17 {
+      font-size: 17px;
+      line-height: (21 / 17);
+      letter-spacing: normal;
+      color: $nd-color-basic;
+
+      @include screen('xlg', max, 2) {
+        font-size: pxtovw(17, 1660);
+      }
+
+      @include screen('lg', max, 2) {
+        font-size: pxtovw(17, 1366);
+      }
+
+      @include screen('md', max, 2) {
+        font-size: pxtovw(15, 960);
+        line-height: (18 / 15);
+      }
+
+      @include screen('sm', max, 2) {
+        font-size: pxtovw(15, 375);
       }
     }
 
@@ -137,7 +181,6 @@
   }
 
   &:hover {
-
     #{$b}__name {
       color: $color-basic-dark;
     }

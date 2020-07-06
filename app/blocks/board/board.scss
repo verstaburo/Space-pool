@@ -1,0 +1,110 @@
+.board {
+  $b: &;
+
+  display: block;
+  border-radius: 3px;
+  background-color: $nd-color-basic-light;
+  padding: 26px 26px 19px;
+
+  @include screen('xlg', max, 2) {
+    padding: pxtovw(26, 1660) pxtovw(26, 1660) pxtovw(19, 1660);
+    border-radius: pxtovw(3, 1660);
+  }
+
+  @include screen('lg', max, 2) {
+    padding: pxtovw(26, 1366) pxtovw(26, 1366) pxtovw(19, 1366);
+    border-radius: pxtovw(3, 1366);
+  }
+
+  @include screen('md', max, 2) {
+    padding: pxtovw(26, 960) pxtovw(26, 960) pxtovw(19, 960);
+    border-radius: pxtovw(3, 960);
+  }
+
+  @include screen('sm', max, 2) {
+    padding: pxtovw(26, 375) pxtovw(18, 375) pxtovw(18, 375);
+    border-radius: pxtovw(3, 375);
+  }
+
+  &__title {
+    font-family: $font-stolzl;
+    font-size: 22px;
+    line-height: 1.2;
+    font-weight: 400;
+    letter-spacing: -.015em;
+
+    @include screen('xlg', max, 2) {
+      font-size: pxtovw(22, 1660);
+    }
+
+    @include screen('lg', max, 2) {
+      font-size: pxtovw(20, 1366);
+    }
+
+    @include screen('md', max, 2) {
+      font-size: pxtovw(20, 960);
+    }
+
+    @include screen('sm', max, 2) {
+      font-size: pxtovw(20, 375);
+    }
+
+    &_fz20 {
+      font-size: 20px;
+
+      @include screen('xlg', max, 2) {
+        font-size: pxtovw(20, 1660);
+      }
+
+      @include screen('lg', max, 2) {
+        font-size: pxtovw(20, 1366);
+      }
+
+      @include screen('md', max, 2) {
+        font-size: pxtovw(20, 960);
+      }
+
+      @include screen('sm', max, 2) {
+        font-size: pxtovw(20, 375);
+      }
+    }
+
+    &_fz22 {
+      @include screen('lg', max, 2) {
+        font-size: pxtovw(22, 1366);
+      }
+
+      @include screen('md', max, 2) {
+        font-size: pxtovw(22, 960);
+      }
+
+      @include screen('sm', max, 2) {
+        font-size: pxtovw(20, 375);
+      }
+    }
+
+    &_wide {
+      width: 100%;
+    }
+  }
+
+  &_shadow {
+    box-shadow: 1px 1px 1px rgba(0, 0, 0, .03), 2px 2px 2px rgba(0, 0, 0, .04), 3px 3px 3px rgba(0, 0, 0, .02);
+
+    @include screen('xlg', max, 2) {
+      box-shadow: pxtovw(1, 1660) pxtovw(1, 1660) pxtovw(1, 1660) rgba(0, 0, 0, .03), pxtovw(2, 1660) pxtovw(2, 1660) pxtovw(2, 1660) rgba(0, 0, 0, .04), pxtovw(3, 1660) pxtovw(3, 1660) pxtovw(3, 1660) rgba(0, 0, 0, .02);
+    }
+
+    @include screen('lg', max, 2) {
+      box-shadow: pxtovw(1, 1366) pxtovw(1, 1366) pxtovw(1, 1366) rgba(0, 0, 0, .03), pxtovw(2, 1366) pxtovw(2, 1366) pxtovw(2, 1366) rgba(0, 0, 0, .04), pxtovw(3, 1366) pxtovw(3, 1366) pxtovw(3, 1366) rgba(0, 0, 0, .02);
+    }
+
+    @include screen('md', max, 2) {
+      box-shadow: pxtovw(1, 960) pxtovw(1, 960) pxtovw(1, 960) rgba(0, 0, 0, .03), pxtovw(2, 960) pxtovw(2, 960) pxtovw(2, 960) rgba(0, 0, 0, .04), pxtovw(3, 960) pxtovw(3, 960) pxtovw(3, 960) rgba(0, 0, 0, .02);
+    }
+
+    @include screen('sm', max, 2) {
+      box-shadow: pxtovw(1, 375) pxtovw(1, 375) pxtovw(1, 375) rgba(0, 0, 0, .03), pxtovw(2, 375) pxtovw(2, 375) pxtovw(2, 375) rgba(0, 0, 0, .04), pxtovw(3, 375) pxtovw(3, 375) pxtovw(3, 375) rgba(0, 0, 0, .02);
+    }
+  }
+}

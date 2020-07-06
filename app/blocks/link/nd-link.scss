@@ -128,49 +128,142 @@
       }
     }
 
-    #{$b}_back & {
-      width: 13px;
-      height: 7px;
+    &_nd-cancel {
+      width: 17px;
+      height: 19px;
 
       @include screen('xlg', max, 2) {
-        width: pxtovw(13, 1660);
-        height: pxtovw(7, 1660);
+        width: pxtovw(17, 1660);
+        height: pxtovw(19, 1660);
       }
 
       @include screen('lg', max, 2) {
-        width: pxtovw(13, 1366);
-        height: pxtovw(7, 1366);
+        width: pxtovw(17, 1366);
+        height: pxtovw(19, 1366);
       }
 
       @include screen('md', max, 2) {
-        width: pxtovw(13, 960);
-        height: pxtovw(7, 960);
+        width: pxtovw(17, 960);
+        height: pxtovw(19, 960);
       }
 
       @include screen('sm', max, 2) {
-        width: pxtovw(21, 375);
-        height: pxtovw(11, 375);
+        width: pxtovw(17, 375);
+        height: pxtovw(19, 375);
       }
 
       &:not(:last-child) {
-        margin-right: 32px;
+        margin-right: 8px;
 
         @include screen('xlg', max, 2) {
-          margin-right: pxtovw(32, 1660);
+          margin-right: pxtovw(8, 1660);
         }
 
         @include screen('lg', max, 2) {
-          margin-right: pxtovw(32, 1366);
+          margin-right: pxtovw(8, 1366);
         }
 
         @include screen('md', max, 2) {
-          margin-right: pxtovw(32, 960);
+          margin-right: pxtovw(8, 960);
         }
 
         @include screen('sm', max, 2) {
-          margin-right: pxtovw(32, 375);
+          margin-right: pxtovw(8, 375);
         }
       }
+    }
+
+    &_nd-document {
+      width: 15px;
+      height: 18px;
+
+      @include screen('xlg', max, 2) {
+        width: pxtovw(15, 1660);
+        height: pxtovw(18, 1660);
+      }
+
+      @include screen('lg', max, 2) {
+        width: pxtovw(15, 1366);
+        height: pxtovw(18, 1366);
+      }
+
+      @include screen('md', max, 2) {
+        width: pxtovw(15, 960);
+        height: pxtovw(18, 960);
+      }
+
+      @include screen('sm', max, 2) {
+        width: pxtovw(15, 375);
+        height: pxtovw(18, 375);
+      }
+
+      &:not(:last-child) {
+        margin-right: 8px;
+
+        @include screen('xlg', max, 2) {
+          margin-right: pxtovw(8, 1660);
+        }
+
+        @include screen('lg', max, 2) {
+          margin-right: pxtovw(8, 1366);
+        }
+
+        @include screen('md', max, 2) {
+          margin-right: pxtovw(8, 960);
+        }
+
+        @include screen('sm', max, 2) {
+          margin-right: pxtovw(8, 375);
+        }
+      }
+    }
+  }
+
+  &__type {
+    display: inline-block;
+    box-sizing: border-box;
+    font-size: 13px;
+    line-height: 18px;
+    color: $nd-color-basic-light;
+    text-transform: uppercase;
+    font-weight: 600;
+    background-color: $nd-color-border4;
+    transition: background $ease-main;
+    min-width: 40px;
+    text-align: center;
+    border-radius: 3px;
+    white-space: nowrap;
+
+    @include screen('xlg', max, 2) {
+      font-size: pxtovw(13, 1660);
+      line-height: pxtovw(18, 1660);
+      min-width: pxtovw(40, 1660);
+      border-radius: pxtovw(3, 1660);
+    }
+
+    @include screen('lg', max, 2) {
+      font-size: pxtovw(13, 1366);
+      line-height: pxtovw(18, 1366);
+      min-width: pxtovw(40, 1366);
+      border-radius: pxtovw(3, 1366);
+    }
+
+    @include screen('md', max, 2) {
+      font-size: pxtovw(13, 960);
+      line-height: pxtovw(18, 960);
+      min-width: pxtovw(40, 960);
+      border-radius: pxtovw(3, 960);
+    }
+
+    @include screen('sm', max, 2) {
+      font-size: pxtovw(13, 375);
+      line-height: pxtovw(18, 375);
+      min-width: pxtovw(40, 375);
+      border-radius: pxtovw(3, 375);
+    }
+
+    #{$b}:hover & {
+      background-color: $nd-color-basic;
     }
   }
 
@@ -182,5 +275,118 @@
 
   &_icon_gray {
     fill: $nd-color-gray-text4;
+  }
+
+  &_icon_blue {
+    fill: $nd-color-main;
+  }
+
+  &_back {
+    #{$b} {
+      &__icon {
+        width: 13px;
+        height: 7px;
+
+        @include screen('xlg', max, 2) {
+          width: pxtovw(13, 1660);
+          height: pxtovw(7, 1660);
+        }
+
+        @include screen('lg', max, 2) {
+          width: pxtovw(13, 1366);
+          height: pxtovw(7, 1366);
+        }
+
+        @include screen('md', max, 2) {
+          width: pxtovw(13, 960);
+          height: pxtovw(7, 960);
+        }
+
+        @include screen('sm', max, 2) {
+          width: pxtovw(21, 375);
+          height: pxtovw(11, 375);
+        }
+
+        &:not(:last-child) {
+          margin-right: 32px;
+
+          @include screen('xlg', max, 2) {
+            margin-right: pxtovw(32, 1660);
+          }
+
+          @include screen('lg', max, 2) {
+            margin-right: pxtovw(32, 1366);
+          }
+
+          @include screen('md', max, 2) {
+            margin-right: pxtovw(32, 960);
+          }
+
+          @include screen('sm', max, 2) {
+            margin-right: pxtovw(32, 375);
+          }
+        }
+      }
+    }
+
+    &_md21 {
+      #{$b} {
+        &__icon {
+          @include screen('md', max, 2) {
+            width: pxtovw(21, 960);
+            height: pxtovw(11, 960);
+          }
+
+          @include screen('sm', max, 2) {
+            width: pxtovw(21, 375);
+            height: pxtovw(11, 375);
+          }
+
+          &:not(:last-child) {
+            @include screen('md', max, 2) {
+              margin-right: 0;
+            }
+          }
+        }
+      }
+    }
+
+    &_sm-cross {
+      @include screen('sm', max, 2) {
+        position: relative;
+      }
+
+      &::before {
+        @include screen('sm', max, 2) {
+          @include pseudo;
+
+          top: 50%;
+          left: 0;
+          width: pxtovw(20, 375);
+          height: pxtovw(20, 375);
+          background-position: 0 50%;
+          background-size: pxtovw(15, 375);
+          background-repeat: no-repeat;
+          transform: translate3d(0, -50%, 0);
+          background-image: $icon-bold-cross;
+        }
+      }
+
+      #{$b} {
+        &__icon {
+          @include screen('sm', max, 2) {
+            opacity: 0;
+          }
+        }
+      }
+    }
+  }
+
+  &_pdf {
+    display: inline-flex;
+  }
+
+  &_blue {
+    color: $nd-color-main;
   }
 }

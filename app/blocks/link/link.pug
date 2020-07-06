@@ -19,3 +19,12 @@ mixin nd-link-icon(iconname, tag)
     +icon(iconname)(class="__icon _" + iconname)
     +e.SPAN.text
       block
+
+mixin nd-link-pdf(data)
+  +b(data.tag || 'a').nd-link_pdf&attributes(attributes)
+    if data.icon
+      +icon(data.icon)(class="__icon _" + data.icon)
+    if data.text
+      +e.SPAN.text!=data.text
+    +e.type!=(data.type || 'pdf')
+    block

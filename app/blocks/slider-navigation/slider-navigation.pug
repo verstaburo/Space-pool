@@ -1,0 +1,12 @@
+mixin slider-navigation(data, startSlide, activeName)
+  +b.js-nav-slider.slider-navigation__&attributes(attributes)(data-first-slide-index=startSlide)
+    .swiper-wrapper
+      each item in data
+        - var addClass = (item.name == activeName) ? ' is-active' : '';
+        +e.slide.swiper-slide
+          if item.marker
+            +e.A.link.is-new(href=item.href class=addClass)!=item.name
+              +e.marker!=item.marker
+          else
+            +e.A.link(href=item.href class=addClass)!=item.name
+    block

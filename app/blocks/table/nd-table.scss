@@ -1,0 +1,135 @@
+.nd-table {
+  display: table;
+  border-collapse: collapse;
+  width: 100%;
+
+  tbody {
+    padding: 0;
+    margin: 0;
+  }
+
+  tr {
+    padding: 0;
+    margin: 0;
+    border-bottom: 1px solid $nd-color-table-border;
+  }
+
+  td {
+    vertical-align: top;
+
+    &:last-child {
+      padding-right: 0;
+    }
+  }
+
+  th, td {
+    font-size: 16px;
+    line-height: 1;
+
+    @include screen('xlg', max, 2) {
+      font-size: pxtovw(16, 1660);
+    }
+
+    @include screen('lg', max, 2) {
+      font-size: pxtovw(16, 1366);
+    }
+
+    @include screen('md', max, 2) {
+      font-size: pxtovw(15, 960);
+    }
+
+    @include screen('sm', max, 2) {
+      font-size: pxtovw(15, 375);
+    }
+
+    &:last-child {
+      text-align: right;
+    }
+  }
+
+  &_rent-state {
+    thead tr {
+      border-width: 0;
+    }
+
+    td, th {
+      padding: 12px 12px 12px 0;
+      text-align: right;
+
+      @include screen('xlg', max, 2) {
+        padding: pxtovw(12, 1660) pxtovw(12, 1660) pxtovw(12, 1660) 0;
+      }
+
+      @include screen('lg', max, 2) {
+        padding: pxtovw(12, 1366) pxtovw(12, 1366) pxtovw(12, 1366) 0;
+      }
+
+      @include screen('md', max, 2) {
+        padding: pxtovw(12, 960) pxtovw(12, 960) pxtovw(12, 960) 0;
+      }
+
+      @include screen('sm', max, 2) {
+        padding: pxtovw(12, 375) pxtovw(12, 375) pxtovw(12, 375) 0;
+      }
+
+      &:nth-child(1), &:nth-child(2) {
+        text-align: left;
+      }
+
+      &:last-child {
+        padding-right: 0;
+      }
+    }
+
+    th {
+      font-size: 13px;
+      line-height: 1;
+      color: $nd-color-gray-text;
+      font-weight: 400;
+
+      @include screen('xlg', max, 2) {
+        font-size: pxtovw(13, 1660);
+      }
+
+      @include screen('lg', max, 2) {
+        font-size: pxtovw(13, 1366);
+      }
+
+      @include screen('md', max, 2) {
+        font-size: pxtovw(13, 960);
+      }
+
+      @include screen('sm', max, 2) {
+        font-size: pxtovw(13, 375);
+      }
+
+      b {
+        font-weight: 700;
+      }
+    }
+
+    td {
+      line-height: 18px;
+
+      @include screen('xlg', max, 2) {
+        font-size: pxtovw(18, 1660);
+      }
+
+      @include screen('lg', max, 2) {
+        font-size: pxtovw(18, 1366);
+      }
+
+      @include screen('md', max, 2) {
+        font-size: pxtovw(18, 960);
+      }
+
+      @include screen('sm', max, 2) {
+        font-size: pxtovw(18, 375);
+      }
+
+      b {
+        font-weight: 700;
+      }
+    }
+  }
+}

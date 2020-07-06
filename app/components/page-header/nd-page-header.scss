@@ -124,6 +124,16 @@
         }
       }
     }
+
+    &_md-noname {
+      .nd-link {
+        &__text {
+          @include screen('md', max, 2) {
+            display: none;
+          }
+        }
+      }
+    }
   }
 
   &__breadcrumbs {
@@ -152,7 +162,40 @@
     margin-left: auto;
   }
 
+  &__dt-menu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+  }
+
+  &__mb-menu {
+    display: block;
+    width: 100%;
+  }
+
   &_grid {
+    display: flex;
+    height: 85px;
+    padding: 0;
+    overflow: hidden;
+
+    @include screen('xlg', max, 2) {
+      height: pxtovw(85, 1660);
+    }
+
+    @include screen('lg', max, 2) {
+      height: pxtovw(85, 1366);
+    }
+
+    @include screen('md', max, 2) {
+      height: pxtovw(85, 960);
+    }
+
+    @include screen('sm', max, 2) {
+      height: pxtovw(85, 375);
+    }
+
     .nd-container {
       @include display-grid;
       @include grid-template-columns(368px 50px 1fr);
@@ -167,6 +210,10 @@
       }
 
       @include screen('md', max, 2) {
+        @include grid-template-columns(pxtovw(55, 960) pxtovw(20, 960) 1fr);
+      }
+
+      @include screen('sm', max, 2) {
         @include grid-template-columns(100%);
         @include grid-template-rows(auto auto);
       }
@@ -174,11 +221,13 @@
 
     #{$b} {
       &__column {
+        display: flex;
+
         &_side {
           @include grid-column(1, 2);
           @include grid-row(1, 2);
 
-          @include screen('md', max, 2) {
+          @include screen('sm', max, 2) {
             @include grid-row(1, 2);
           }
         }
@@ -186,13 +235,27 @@
         &_main {
           @include grid-column(3, 4);
           @include grid-row(1, 2);
+          @include grid-align-self(center);
 
-          @include screen('md', max, 2) {
+          @include screen('sm', max, 2) {
             @include grid-column(1, 2);
             @include grid-row(2, 3);
+            @include grid-align-self(end);
           }
         }
       }
+    }
+  }
+
+  .is-sm-noheader & {
+    @include screen('md', max, 2) {
+      margin-top: pxtovw(22, 960);
+    }
+
+    @include screen('sm', max, 2) {
+      margin-top: 0;
+      padding-top: pxtovw(15, 375);
+      background-color: $nd-color-basic-light;
     }
   }
 }

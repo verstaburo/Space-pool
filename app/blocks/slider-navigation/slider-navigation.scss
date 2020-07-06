@@ -1,0 +1,178 @@
+.slider-navigation {
+  $b: &;
+
+  display: block;
+  width: 100%;
+  overflow: hidden;
+
+  @include screen('md', max, 2) {
+    width: calc(100% + ((5000 / 960) * 1vw));
+    margin: 0 pxtovw(-50, 960) 0 0;
+  }
+
+  @include screen('sm', max, 2) {
+    width: 100%;
+    overflow: visible;
+    margin: 0;
+  }
+
+  &__slide {
+    display: inline-block;
+    width: auto;
+
+    &:not(:last-child) {
+      margin-right: 50px;
+
+      @include screen('xlg', max, 2) {
+        margin-right: pxtovw(50, 1660);
+      }
+
+      @include screen('lg', max, 2) {
+        margin-right: pxtovw(50, 1366);
+      }
+
+      @include screen('md', max, 2) {
+        margin-right: pxtovw(50, 960);
+      }
+
+      @include screen('sm', max, 2) {
+        margin-right: pxtovw(35, 375);
+      }
+    }
+  }
+
+  &__link {
+    display: inline-block;
+    font-family: $font-stolzl;
+    font-size: 16px;
+    line-height: (19 / 16);
+    font-weight: 400;
+    letter-spacing: -.015em;
+    padding: 10px 0;
+    transition: color $ease-main, box-shadow $ease-main;
+    cursor: pointer;
+
+    @include screen('xlg', max, 2) {
+      font-size: pxtovw(16, 1660);
+      padding: pxtovw(10, 1660) 0;
+    }
+
+    @include screen('lg', max, 2) {
+      font-size: pxtovw(16, 1366);
+      padding: pxtovw(10, 1366) 0;
+    }
+
+    @include screen('md', max, 2) {
+      font-size: pxtovw(16, 960);
+      padding: pxtovw(10, 960) 0;
+    }
+
+    @include screen('sm', max, 2) {
+      line-height: (16 / 13);
+      font-size: pxtovw(13, 375);
+      padding: pxtovw(9, 375) 0;
+    }
+
+    &:hover {
+      color: $nd-color-gray-text;
+    }
+
+    &.is-active {
+      color: $nd-color-gray-text;
+      box-shadow: inset 0 -3px 0 0 $nd-color-main;
+
+      @include screen('xlg', max, 2) {
+        box-shadow: inset 0 pxtovw(-3, 1660) 0 0 $nd-color-main;
+      }
+
+      @include screen('lg', max, 2) {
+        box-shadow: inset 0 pxtovw(-3, 1366) 0 0 $nd-color-main;
+      }
+
+      @include screen('md', max, 2) {
+        box-shadow: inset 0 pxtovw(-3, 960) 0 0 $nd-color-main;
+      }
+
+      @include screen('sm', max, 2) {
+        box-shadow: inset 0 pxtovw(-3, 375) 0 0 $nd-color-main;
+      }
+    }
+
+    &.is-new {
+      display: inline-flex;
+      justify-content: flex-start;
+      align-items: center;
+    }
+  }
+
+  &__marker {
+    display: none;
+    position: relative;
+    vertical-align: middle;
+    text-align: center;
+    font-size: 8px;
+    font-weight: 700;
+    line-height: 1;
+    color: $nd-color-basic-light;
+    background-color: $nd-color-fixeddesk;
+    margin-left: 11px;
+    flex: none;
+
+    @include screen('xlg', max, 2) {
+      font-size: pxtovw(8, 1660);
+      margin-left: pxtovw(11, 1660);
+    }
+
+    @include screen('lg', max, 2) {
+      font-size: pxtovw(8, 1366);
+      margin-left: pxtovw(11, 1366);
+    }
+
+    @include screen('md', max, 2) {
+      font-size: pxtovw(8, 960);
+      margin-left: pxtovw(11, 960);
+    }
+
+    @include screen('sm', max, 2) {
+      font-size: pxtovw(8, 375);
+      margin-left: pxtovw(11, 375);
+    }
+
+    &::before {
+      @include pseudo;
+
+      top: 50%;
+      left: 50%;
+      transform: translate3d(-50%, -50%, 0);
+      border-radius: 100%;
+      width: 13px;
+      height: 13px;
+      background-color: $nd-color-fixeddesk;
+      z-index: -1;
+
+      @include screen('xlg', max, 2) {
+        width: pxtovw(13, 1660);
+        height: pxtovw(13, 1660);
+      }
+
+      @include screen('lg', max, 2) {
+        width: pxtovw(13, 1366);
+        height: pxtovw(13, 1366);
+      }
+
+      @include screen('md', max, 2) {
+        width: pxtovw(13, 960);
+        height: pxtovw(13, 960);
+      }
+
+      @include screen('sm', max, 2) {
+        width: pxtovw(13, 375);
+        height: pxtovw(13, 375);
+      }
+    }
+
+    #{$b}__link.is-new & {
+      display: inline-block;
+    }
+  }
+}

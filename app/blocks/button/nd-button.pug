@@ -15,8 +15,9 @@ mixin nd-button-icon(newtag, data)
         +e.SPAN(class="__icon_" + data.icon)
       else
         +icon(icon)(class="__icon_" + data.icon)
-    +e.SPAN.text
-      block
+    if !data.notext
+      +e.SPAN.text
+        block
     if (!data.iconLeft && !data.image)
       if data.iconBlock
         +e.SPAN(class="__icon_" + data.icon)

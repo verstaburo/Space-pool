@@ -235,8 +235,8 @@ block content
         h2 Space
         p Блок blocks/space
       +ui-section-content
-        +ui-elements-list
-          li
+        +nd-grid
+          +nd-grid-col({xl: 4})
             - var item = getData('nd-spaces.json')[0]
             +nd-space('a')(href="#")
               +nd-space-media()
@@ -246,7 +246,7 @@ block content
                   +nd-box()(class=box + ' __box')
               +nd-space-title()!=item.title
               +nd-space-text()!=item.text
-          li
+          +nd-grid-col({xl: 4})
             - var item = getData('nd-spaces-2.json')[0]
             +nd-space('a')(href="#")
               +nd-space-media()
@@ -256,7 +256,7 @@ block content
                 +e.name!=item.type.name
               +nd-space-title()!=item.title
               +nd-space-text()._any-fz15!=item.text
-          li
+          +nd-grid-col({xl: 4})
             - var item = getData('nd-spaces-search-around.json')[0];
             +nd-space()._card
               +gallery(item.gallery)._space.__media.js-nd-gallery
@@ -285,6 +285,24 @@ block content
         +nd-switch({name: 'sw1', value: "1", type: 'twoSide', labels: {on: 'on', off: 'off'}})
         +nd-switch({name: 'sw2', value: "1", type: 'oneSide', labels: {on: 'on', off: 'off'}})
         +nd-switch({name: 'sw3', value: "1", type: 'simple', labels: {on: 'on', off: 'off'}})._light
+
+    //- Side Navigation
+    +ui-section
+      +ui-section-head
+        h2 Side navigation
+        p Блок: components/side-navigation
+      +ui-section-content()
+        - var sideDealRent = getData('sideNavDealPassRent');
+        - var sideDealView = getData('sideNavDealPassView');
+        - var sideProfile = getData('sideNavProfile');
+        +nd-grid
+          +nd-grid-col({xl: 4})
+            +nd-side-navigation(sideDealRent, 'Chat')
+          +nd-grid-col({xl: 4})
+            +nd-side-navigation(sideDealView, 'Chat')
+          +nd-grid-col({xl: 4})
+            +nd-side-navigation(sideProfile, 'Account settings')._profile
+
 block panels
   +main-menu
 

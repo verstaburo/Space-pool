@@ -1,0 +1,372 @@
+.nd-side-navigation {
+  $b: &;
+
+  display: block;
+  width: 100%;
+  background: $nd-color-basic-light;
+  color: $nd-color-basic;
+  padding: 25px 0 36px;
+
+  @include screen('xlg', max, 2) {
+    padding: pxtovw(25, 1660) 0 pxtovw(36, 1660);
+  }
+
+  @include screen('lg', max, 2) {
+    padding: pxtovw(25, 1366) 0 pxtovw(36, 1366);
+  }
+
+  @include screen('md', max, 2) {
+    padding: pxtovw(25, 960) 0 pxtovw(36, 960);
+  }
+
+  @include screen('sm', max, 2) {
+    padding: pxtovw(25, 375) 0 pxtovw(36, 375);
+  }
+
+  &__list {
+    display: block;
+    width: 100%;
+    letter-spacing: none;
+
+    &:not(:first-child) {
+      margin-top: 28px;
+
+      @include screen('xlg', max, 2) {
+        margin-top: pxtovw(28, 1660);
+      }
+
+      @include screen('lg', max, 2) {
+        margin-top: pxtovw(28, 1366);
+      }
+
+      @include screen('md', max, 2) {
+        margin-top: pxtovw(28, 960);
+      }
+
+      @include screen('sm', max, 2) {
+        margin-top: pxtovw(28, 375);
+      }
+    }
+
+    &_small {
+      &:not(:first-child) {
+        @include screen('lg', max, 2) {
+          margin-top: pxtovw(22, 1366);
+        }
+
+        @include screen('md', max, 2) {
+          margin-top: pxtovw(22, 960);
+        }
+
+        @include screen('sm', max, 2) {
+          margin-top: pxtovw(22, 375);
+        }
+      }
+    }
+  }
+
+  &__sublist {
+    display: none;
+    max-height: 0;
+    margin-top: 18px;
+
+    @include screen('xlg', max, 2) {
+      margin-top: pxtovw(18, 1660);
+    }
+
+    @include screen('lg', max, 2) {
+      margin-top: pxtovw(18, 1366);
+    }
+
+    @include screen('md', max, 2) {
+      margin-top: pxtovw(18, 960);
+    }
+
+    @include screen('sm', max, 2) {
+      margin-top: pxtovw(18, 375);
+    }
+  }
+
+  &__item, &__links, &__note {
+    position: relative;
+    box-sizing: border-box;
+    padding: 0 30px;
+
+    @include screen('xlg', max, 2) {
+      padding: 0 pxtovw(30, 1660);
+    }
+
+    @include screen('lg', max, 2) {
+      padding: 0 pxtovw(30, 1366);
+    }
+
+    @include screen('md', max, 2) {
+      padding: 0 pxtovw(30, 960);
+    }
+
+    @include screen('sm', max, 2) {
+      padding: 0 pxtovw(30, 375);
+    }
+
+    #{$b}_profile & {
+      padding: 0 40px;
+
+      @include screen('xlg', max, 2) {
+        padding: 0 pxtovw(40, 1660);
+      }
+
+      @include screen('lg', max, 2) {
+        padding: 0 pxtovw(40, 1366);
+      }
+
+      @include screen('md', max, 2) {
+        padding: 0 pxtovw(40, 960);
+      }
+
+      @include screen('sm', max, 2) {
+        padding: 0 pxtovw(40, 375);
+      }
+    }
+  }
+
+  &__item {
+    &:not(:first-child) {
+      margin-top: 18px;
+
+      @include screen('xlg', max, 2) {
+        margin-top: pxtovw(18, 1660);
+      }
+
+      @include screen('lg', max, 2) {
+        margin-top: pxtovw(18, 1366);
+      }
+
+      @include screen('md', max, 2) {
+        margin-top: pxtovw(18, 960);
+      }
+
+      @include screen('sm', max, 2) {
+        margin-top: pxtovw(18, 375);
+      }
+
+      #{$b}__list_small & {
+        @include screen('lg', max, 2) {
+          margin-top: pxtovw(14, 1366);
+        }
+
+        @include screen('md', max, 2) {
+          margin-top: pxtovw(14, 960);
+        }
+
+        @include screen('sm', max, 2) {
+          margin-top: pxtovw(14, 375);
+        }
+      }
+    }
+  }
+
+  &__link {
+    display: inline-block;
+    font-size: 20px;
+    line-height: 1;
+    font-weight: 700;
+    cursor: pointer;
+    transition: color $ease-main;
+
+    @include screen('xlg', max, 2) {
+      font-size: pxtovw(20, 1660);
+    }
+
+    @include screen('lg', max, 2) {
+      font-size: pxtovw(20, 1366);
+    }
+
+    @include screen('md', max, 2) {
+      font-size: pxtovw(20, 960);
+    }
+
+    @include screen('sm', max, 2) {
+      font-size: pxtovw(20, 375);
+    }
+
+    &:hover {
+      text-decoration: underline;
+    }
+
+    #{$b}__list_small & {
+      @include screen('lg', max, 2) {
+        font-size: pxtovw(16, 1366);
+      }
+
+      @include screen('md', max, 2) {
+        font-size: pxtovw(16, 960);
+      }
+
+      @include screen('sm', max, 2) {
+        font-size: pxtovw(16, 375);
+      }
+    }
+
+    &.is-active {
+      cursor: default;
+      pointer-events: none;
+      color: $nd-color-gray-text;
+
+      & ~ #{$b}__sublist {
+        display: block;
+        max-height: none;
+        animation: css-accordion .5s ease-out;
+      }
+
+      &.is-multilevel {
+        &::before {
+          @include pseudo;
+
+          top: 0;
+          left: 0;
+          height: 100%;
+          width: 3px;
+          background-color: $nd-color-main;
+
+          @include screen('xlg', max, 2) {
+            width: pxtovw(3, 1660);
+          }
+
+          @include screen('lg', max, 2) {
+            width: pxtovw(3, 1366);
+          }
+
+          @include screen('md', max, 2) {
+            width: pxtovw(3, 960);
+          }
+
+          @include screen('sm', max, 2) {
+            width: pxtovw(3, 375);
+          }
+        }
+      }
+    }
+  }
+
+  &__subitem {
+    &:not(:first-child) {
+      margin-top: 18px;
+
+      @include screen('xlg', max, 2) {
+        margin-top: pxtovw(18, 1660);
+      }
+
+      @include screen('lg', max, 2) {
+        margin-top: pxtovw(18, 1366);
+      }
+
+      @include screen('md', max, 2) {
+        margin-top: pxtovw(18, 960);
+      }
+
+      @include screen('sm', max, 2) {
+        margin-top: pxtovw(18, 375);
+      }
+    }
+  }
+
+  &__sublink {
+    font-size: 16px;
+    line-height: 1;
+    font-style: 400px;
+    cursor: pointer;
+
+    @include screen('xlg', max, 2) {
+      font-size: pxtovw(16, 1660);
+    }
+
+    @include screen('lg', max, 2) {
+      font-size: pxtovw(16, 1366);
+    }
+
+    @include screen('md', max, 2) {
+      font-size: pxtovw(16, 960);
+    }
+
+    @include screen('sm', max, 2) {
+      font-size: pxtovw(16, 375);
+    }
+
+    &:hover {
+      text-decoration: underline;
+    }
+
+    &.is-active {
+      pointer-events: none;
+      cursor: default;
+      color: $nd-color-gray-text;
+    }
+  }
+
+  &__note {
+    font-size: 16px;
+    line-height: (19 / 16);
+    font-style: 400px;
+    cursor: pointer;
+
+    @include screen('xlg', max, 2) {
+      font-size: pxtovw(16, 1660);
+    }
+
+    @include screen('lg', max, 2) {
+      font-size: pxtovw(16, 1366);
+    }
+
+    @include screen('md', max, 2) {
+      font-size: pxtovw(16, 960);
+    }
+
+    @include screen('sm', max, 2) {
+      font-size: pxtovw(16, 375);
+    }
+  }
+
+  &__links {
+    display: block;
+
+    &:not(:first-child) {
+      margin-top: 66px;
+
+      @include screen('xlg', max, 2) {
+        margin-top: pxtovw(66, 1660);
+      }
+
+      @include screen('lg', max, 2) {
+        margin-top: pxtovw(53, 1366);
+      }
+
+      @include screen('md', max, 2) {
+        margin-top: pxtovw(53, 960);
+      }
+
+      @include screen('sm', max, 2) {
+        margin-top: pxtovw(53, 375);
+      }
+    }
+  }
+
+  &_profile {
+    padding: 45px 0 40px;
+
+    @include screen('xlg', max, 2) {
+      padding: pxtovw(45, 1660) 0 pxtovw(40, 1660);
+    }
+
+    @include screen('lg', max, 2) {
+      padding: pxtovw(45, 1366) 0 pxtovw(40, 1366);
+    }
+
+    @include screen('md', max, 2) {
+      padding: pxtovw(45, 960) 0 pxtovw(40, 960);
+    }
+
+    @include screen('sm', max, 2) {
+      padding: pxtovw(45, 375) 0 pxtovw(40, 375);
+    }
+  }
+}

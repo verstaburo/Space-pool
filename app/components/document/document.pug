@@ -2,6 +2,10 @@ mixin document()
   +b.ARTICLE.document&attributes(attributes)
     block
 
+mixin nd-document()
+  +b.ARTICLE.document&attributes(attributes)
+    block
+
 mixin document-section()
   +e.SECTION.section&attributes(attributes)
     block
@@ -27,6 +31,10 @@ mixin document-title(icon)
     +icon(icon)(class="__title-icon _" + icon)
     +e.title-text
       block
+
+mixin document-title-txt()
+  +e.title&attributes(attributes)
+    block
 
 mixin document-legal()
   +document

@@ -21,6 +21,16 @@ mixin nd-short-profile-origin(img, name, tag)
     +e.name!= name
     block
 
+mixin nd-short-profile-data(data)
+  +b(data.tag || 'a').short-profile&attributes(attributes)
+    if data.ava
+      +avatar(data.ava.img)(class=data.ava.class + ' __avatar')
+    if data.name
+      +e.name(class=data.nameClass)!=data.name
+    if data.marker
+      +e.marker!=data.marker
+    block
+
 mixin short-profile-ext(data)
   +b(data.tag || 'a').short-profile_ext&attributes(attributes)
     +avatar(data.image).__avatar
