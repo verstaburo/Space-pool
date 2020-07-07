@@ -68,4 +68,37 @@
       padding-top: 0;
     }
   }
+
+  .is-nofooter & {
+    padding-bottom: 165px;
+
+    @include screen('xlg', max, 2) {
+      padding-bottom: pxtovw(165, 1660);
+    }
+
+    @include screen('lg', max, 2) {
+      padding-bottom: pxtovw(100, 1366);
+    }
+
+    @include screen('md', max, 2) {
+      padding-bottom: pxtovw(100, 960);
+    }
+
+    @include screen('sm', max, 2) {
+      padding-bottom: pxtovw(90, 375);
+    }
+
+    &_chat {
+      padding-bottom: 0;
+      height: 100vh;
+
+      @include screen('md', max, 2) {
+        padding-bottom: pxtovw(60, 960);
+      }
+
+      @include screen('sm', max, 2) {
+        padding-bottom: pxtovw(60, 375);
+      }
+    }
+  }
 }

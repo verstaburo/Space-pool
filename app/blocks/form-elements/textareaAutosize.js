@@ -6,7 +6,7 @@ const $ = window.$;
 // автосайз для textarea
 export default function textareaAutosize() {
   function autosizeAll(elements) {
-    const el = elements || $('.textarea, .nd-textarea').not('.no-sm-autosize');
+    const el = elements || $('.textarea, .nd-textarea, .messenger__field').not('.no-sm-autosize');
     autosize(el);
   }
 

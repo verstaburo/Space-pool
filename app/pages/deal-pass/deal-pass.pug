@@ -37,10 +37,21 @@ block content
           +nd-side-navigation(nav, 'Dashboard')
       +nd-content-main
         +dashboard._rent
-          +board._shadow.__board_rent._rent_rs
+          +board._shadow._fx.__board_rent._rent_rs
+            - var nav = getData('sideNavDealPassRent.json')
             +e.column.nd-hide-from-md
+              +nd-space('div')._side-nav.__space(class=nav.space.class)
+                +e.head
+                  +nd-space-title()!=nav.space.title
+                  +space-type._fz11._gray.__type
+                    +nd-box()._size8(class=nav.space.type.box + ' __box')
+                    +e.name!=nav.space.type.name
+                +nd-space-media-e
+                  +e.PICTURE.image
+                    option(srcset=nav.space.image)
+                    img(srcset=nav.space.image)
             +e.column
-              +board-title._wide._dbl-check Rental summary
+              +board-title._wide.is-dbl-check Rental summary
               +nd-table._info.__table
                 tbody
                   tr
@@ -53,8 +64,8 @@ block content
                     td Monthly rent
                     td £ 860.00
           +board._shadow.__board_rent._rent_contract
-            +board-title._wide._dbl-check Contract
-            +nd-table._info.__table
+            +board-title._wide.is-dbl-check Contract
+            +nd-table._info.__table_md-mt42
                 tbody
                   tr
                     td Signed by
@@ -65,17 +76,17 @@ block content
                   tr
                     td Signed on
                     td 24 April 2020
-          +board._shadow.__board_rent._rent_chat
+          +board._pt22._shadow.__board_rent._rent_chat
             +board-header
               +board-title Chat
-              +nd-short-profile-data({ava: {img: 'assets/images/nd/user-avatar-2.jpg', class: '_sz34'}, marker: '2'}).__person.is-new(href="#")
-            +e.last-msg
-              +e.TIME.time Few minutes ago
-              +e.message Well ok! I think this might work
-            +nd-button-icon('', {icon: 'nd-bubble', notext: true}).__chat-button(href="#")
+              +nd-short-profile-data({ava: {img: 'assets/images/nd/user-avatar-2.jpg', class: '_sz34'}, marker: '2'})._nd.__person.is-new(href="#")
+            +e.chat
+              +e.TIME.chat-time Few minutes ago
+              +e.chat-message Well ok! I think this might work
+              +nd-button-icon('', {icon: 'nd-bubble', notext: true})._pad10._h32.__chat-button(href="#")
           +board._shadow.__board_rent._rent_state
             +board-title Statements
-            +nd-table._rent-state.__table
+            +nd-table._rent-state.__table_mt8
               thead
                 tr
                   th Issued

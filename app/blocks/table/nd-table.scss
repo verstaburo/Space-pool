@@ -53,27 +53,128 @@
     }
 
     td, th {
-      padding: 12px 12px 12px 0;
+      padding: 11px 12px 11px 0;
       text-align: right;
+      box-sizing: border-box;
 
       @include screen('xlg', max, 2) {
-        padding: pxtovw(12, 1660) pxtovw(12, 1660) pxtovw(12, 1660) 0;
+        padding: pxtovw(11, 1660) pxtovw(12, 1660) pxtovw(11, 1660) 0;
       }
 
       @include screen('lg', max, 2) {
-        padding: pxtovw(12, 1366) pxtovw(12, 1366) pxtovw(12, 1366) 0;
+        padding: pxtovw(12, 1366) pxtovw(12, 1366) pxtovw(11, 1366) 0;
       }
 
       @include screen('md', max, 2) {
-        padding: pxtovw(12, 960) pxtovw(12, 960) pxtovw(12, 960) 0;
+        padding: pxtovw(12, 960) pxtovw(12, 960) pxtovw(11, 960) 0;
       }
 
       @include screen('sm', max, 2) {
-        padding: pxtovw(12, 375) pxtovw(12, 375) pxtovw(12, 375) 0;
+        padding: pxtovw(12, 375) pxtovw(12, 375) pxtovw(11, 375) 0;
       }
 
       &:nth-child(1), &:nth-child(2) {
         text-align: left;
+      }
+
+      &:nth-child(1) {
+        width: 163px;
+
+        @include screen('xlg', max, 2) {
+          width: pxtovw(163, 1660);
+        }
+
+        @include screen('lg', max, 2) {
+          width: pxtovw(163, 1366);
+        }
+
+        @include screen('md', max, 2) {
+          width: pxtovw(163, 960);
+        }
+
+        @include screen('sm', max, 2) {
+          width: pxtovw(110, 375);
+        }
+      }
+
+      &:nth-child(2) {
+        width: calc((100% - 354px) / 2);
+
+        @include screen('xlg', max, 2) {
+          width: calc((100% - ((35400 / 1660) * 1vw)) / 2);
+        }
+
+        @include screen('lg', max, 2) {
+          width: calc((100% - ((35400 / 1366) * 1vw)) / 2);
+        }
+
+        @include screen('md', max, 2) {
+          width: calc((100% - ((35400 / 960) * 1vw)) / 2);
+        }
+
+        @include screen('sm', max, 2) {
+          width: calc(100% - ((15900 / 375) * 1vw));
+        }
+      }
+
+      &:nth-child(3) {
+        width: calc((100% - 354px) / 2);
+
+        @include screen('xlg', max, 2) {
+          width: calc((100% - ((35400 / 1660) * 1vw)) / 2);
+        }
+
+        @include screen('lg', max, 2) {
+          width: calc((100% - ((35400 / 1366) * 1vw)) / 2);
+        }
+
+        @include screen('md', max, 2) {
+          width: calc((100% - ((35400 / 960) * 1vw)) / 2);
+        }
+
+        @include screen('sm', max, 2) {
+          width: calc(100% - ((15900 / 375) * 1vw));
+        }
+      }
+
+      &:nth-child(4) {
+        width: 122px;
+
+        @include screen('xlg', max, 2) {
+          width: pxtovw(122, 1660);
+        }
+
+        @include screen('lg', max, 2) {
+          width: pxtovw(122, 1366);
+        }
+
+        @include screen('md', max, 2) {
+          width: pxtovw(122, 960);
+        }
+
+        @include screen('sm', max, 2) {
+          width: pxtovw(122, 375);
+        }
+      }
+
+      &:nth-child(5) {
+        width: 69px;
+
+        @include screen('xlg', max, 2) {
+          width: pxtovw(69, 1660);
+        }
+
+        @include screen('lg', max, 2) {
+          width: pxtovw(69, 1366);
+        }
+
+        @include screen('md', max, 2) {
+          width: pxtovw(69, 960);
+        }
+
+        @include screen('sm', max, 2) {
+          width: pxtovw(49, 375);
+        }
       }
 
       &:last-child {
@@ -86,20 +187,25 @@
       line-height: 1;
       color: $nd-color-gray-text;
       font-weight: 400;
+      padding-bottom: 16px;
 
       @include screen('xlg', max, 2) {
+        padding-bottom: pxtovw(16, 1660);
         font-size: pxtovw(13, 1660);
       }
 
       @include screen('lg', max, 2) {
+        padding-bottom: pxtovw(16, 1366);
         font-size: pxtovw(13, 1366);
       }
 
       @include screen('md', max, 2) {
+        padding-bottom: pxtovw(16, 960);
         font-size: pxtovw(13, 960);
       }
 
       @include screen('sm', max, 2) {
+        padding-bottom: pxtovw(14, 375);
         font-size: pxtovw(13, 375);
       }
 
@@ -112,23 +218,120 @@
       line-height: 18px;
 
       @include screen('xlg', max, 2) {
-        font-size: pxtovw(18, 1660);
+        line-height: pxtovw(18, 1660);
       }
 
       @include screen('lg', max, 2) {
-        font-size: pxtovw(18, 1366);
+        line-height: pxtovw(18, 1366);
       }
 
       @include screen('md', max, 2) {
-        font-size: pxtovw(18, 960);
+        line-height: pxtovw(18, 960);
       }
 
       @include screen('sm', max, 2) {
-        font-size: pxtovw(18, 375);
+        line-height: pxtovw(18, 375);
       }
 
       b {
         font-weight: 700;
+      }
+    }
+  }
+
+  &_fw500 {
+    th, td {
+      font-weight: 500;
+    }
+  }
+
+  &_info {
+    td, th {
+      padding: 14px 6px 6px 0;
+
+      @include screen('xlg', max, 2) {
+        padding: pxtovw(14, 1660) pxtovw(6, 1660) pxtovw(6, 1660) 0;
+      }
+
+      @include screen('lg', max, 2) {
+        padding: pxtovw(14, 1366) pxtovw(6, 1366) pxtovw(6, 1366) 0;
+      }
+
+      @include screen('md', max, 2) {
+        padding: pxtovw(14, 960) pxtovw(7, 960) pxtovw(7, 960) 0;
+      }
+
+      @include screen('sm', max, 2) {
+        padding: pxtovw(14, 375) pxtovw(7, 375) pxtovw(7, 375) 0;
+      }
+
+      &:last-child {
+        padding-right: 0;
+        white-space: nowrap;
+      }
+    }
+
+    &_h30 {
+      td, th {
+        padding: 9px 6px 6px 0;
+
+        @include screen('xlg', max, 2) {
+          padding: pxtovw(9, 1660) pxtovw(6, 1660) pxtovw(6, 1660) 0;
+        }
+
+        @include screen('lg', max, 2) {
+          padding: pxtovw(9, 1366) pxtovw(6, 1366) pxtovw(6, 1366) 0;
+        }
+
+        @include screen('md', max, 2) {
+          padding: pxtovw(9, 960) pxtovw(6, 960) pxtovw(6, 960) 0;
+        }
+
+        @include screen('sm', max, 2) {
+          padding: pxtovw(9, 375) pxtovw(6, 375) pxtovw(6, 375) 0;
+        }
+
+        &:last-child {
+          padding-right: 0;
+        }
+      }
+    }
+
+    &_h50 {
+      td,th {
+        padding: 21px 12px 12px 0;
+
+        @include screen('xlg', max, 2) {
+          padding: pxtovw(21, 1660) pxtovw(12, 1660) pxtovw(12, 1660) 0;
+        }
+
+        @include screen('lg', max, 2) {
+          padding: pxtovw(21, 1366) pxtovw(12, 1366) pxtovw(12, 1366) 0;
+        }
+
+        @include screen('md', max, 2) {
+          padding: pxtovw(21, 960) pxtovw(12, 960) pxtovw(12, 960) 0;
+        }
+
+        @include screen('sm', max, 2) {
+          padding: pxtovw(21, 375) pxtovw(12, 375) pxtovw(12, 375) 0;
+        }
+
+        &:last-child {
+          padding-right: 0;
+        }
+      }
+    }
+
+    &_md-fz16 {
+      th, td {
+        @include screen('md', max, 2) {
+          font-size: pxtovw(16, 960);
+        }
+
+        @include screen('sm', max, 2) {
+          font-size: pxtovw(16, 375);
+        }
       }
     }
   }

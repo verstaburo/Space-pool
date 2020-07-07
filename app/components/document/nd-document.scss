@@ -3,4 +3,459 @@
 
   display: block;
   width: 100%;
+  background-color: $nd-color-basic-light;
+  border-radius: 1px;
+  box-sizing: border-box;
+  padding: 40px 63px 120px 39px;
+  font-family: $font-stolzl-book;
+
+  @include screen('xlg', max, 2) {
+    padding: pxtovw(40, 1660) pxtovw(39, 1660) pxtovw(120, 1660);
+  }
+
+  @include screen('lg', max, 2) {
+    padding: pxtovw(40, 1366) pxtovw(39, 1366) pxtovw(80, 1366);
+  }
+
+  @include screen('md', max, 2) {
+    padding: pxtovw(40, 960) pxtovw(39, 960) pxtovw(80, 960);
+  }
+
+  @include screen('sm', max, 2) {
+    padding: pxtovw(36, 375) pxtovw(18, 375) pxtovw(48, 375);
+  }
+
+  &__header {
+    display: block;
+    width: 100%;
+  }
+
+  &__place, &__title {
+    font-family: $font-stolzl;
+    font-weight: 400;
+  }
+
+  &__place {
+    font-size: 16px;
+    line-height: (19 / 16);
+    letter-spacing: -.015em;
+
+    @include screen('xlg', max, 2) {
+      font-size: pxtovw(16, 1660);
+    }
+
+    @include screen('lg', max, 2) {
+      font-size: pxtovw(16, 1366);
+    }
+
+    @include screen('md', max, 2) {
+      font-size: pxtovw(16, 960);
+    }
+
+    @include screen('sm', max, 2) {
+      font-size: pxtovw(16, 375);
+    }
+  }
+
+  &__address {
+    font-size: 13px;
+    line-height: (16 / 13);
+    letter-spacing: -.015em;
+    color: $nd-color-gray-text;
+
+    @include screen('xlg', max, 2) {
+      font-size: pxtovw(13, 1660);
+    }
+
+    @include screen('lg', max, 2) {
+      font-size: pxtovw(13, 1366);
+    }
+
+    @include screen('md', max, 2) {
+      font-size: pxtovw(13, 960);
+    }
+
+    @include screen('sm', max, 2) {
+      font-size: pxtovw(13, 375);
+    }
+
+    &:not(:first-child) {
+      margin-top: 2px;
+
+      @include screen('xlg', max, 2) {
+        margin-top: pxtovw(2, 1660);
+      }
+
+      @include screen('lg', max, 2) {
+        margin-top: pxtovw(2, 1366);
+      }
+
+      @include screen('md', max, 2) {
+        margin-top: pxtovw(2, 960);
+      }
+
+      @include screen('sm', max, 2) {
+        margin-top: pxtovw(2, 375);
+      }
+    }
+  }
+
+  &__title {
+    font-size: 22px;
+    line-height: (26 / 22);
+    letter-spacing: -.015em;
+
+    @include screen('xlg', max, 2) {
+      font-size: pxtovw(22, 1660);
+    }
+
+    @include screen('lg', max, 2) {
+      font-size: pxtovw(22, 1366);
+    }
+
+    @include screen('md', max, 2) {
+      font-size: pxtovw(22, 960);
+      padding-right: pxtovw(20, 960);
+    }
+
+    @include screen('sm', max, 2) {
+      font-size: pxtovw(22, 375);
+      padding-right: pxtovw(20, 375);
+    }
+
+    &:not(:first-child) {
+      margin-top: 23px;
+
+      @include screen('xlg', max, 2) {
+        margin-top: pxtovw(23, 1660);
+      }
+
+      @include screen('lg', max, 2) {
+        margin-top: pxtovw(23, 1366);
+      }
+
+      @include screen('md', max, 2) {
+        margin-top: pxtovw(23, 960);
+      }
+
+      @include screen('sm', max, 2) {
+        margin-top: pxtovw(34, 375);
+      }
+    }
+  }
+
+  &__requisites {
+    display: block;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    align-content: flex-start;
+    flex-wrap: wrap;
+    width: 100%;
+    font-size: 0;
+    line-height: 0;
+
+    &:not(:first-child) {
+      margin-top: 59px;
+
+      @include screen('xlg', max, 2) {
+        margin-top: pxtovw(59, 1660);
+      }
+
+      @include screen('lg', max, 2) {
+        margin-top: pxtovw(59, 1366);
+      }
+
+      @include screen('md', max, 2) {
+        margin-top: pxtovw(34, 960);
+      }
+
+      @include screen('sm', max, 2) {
+        margin-top: pxtovw(22, 375);
+      }
+    }
+  }
+
+  &__requisite {
+    display: inline-block;
+    width: 280px;
+    vertical-align: top;
+
+    @include screen('xlg', max, 2) {
+      width: pxtovw(280, 1660);
+    }
+
+    @include screen('lg', max, 2) {
+      width: pxtovw(251, 1366);
+    }
+
+    @include screen('md', max, 2) {
+      width: 100%;
+    }
+
+    &:not(:first-child) {
+      margin-left: 62px;
+
+      @include screen('xlg', max, 2) {
+        margin-left: pxtovw(44, 1660);
+      }
+
+      @include screen('lg', max, 2) {
+        margin-left: pxtovw(44, 1366);
+      }
+
+      @include screen('md', max, 2) {
+        margin-left: 0;
+        margin-top: pxtovw(19, 960);
+      }
+
+      @include screen('sm', max, 2) {
+        margin-top: pxtovw(17, 375);
+      }
+    }
+  }
+
+  &__requisite-title {
+    display: block;
+    width: 100%;
+    font-family: $font-stolzl;
+    font-weight: 400;
+    text-align: left;
+    padding: 16px 0;
+    border-bottom: 1px solid $nd-color-basic;
+    font-size: 16px;
+    line-height: (19 / 16);
+    letter-spacing: -.015em;
+
+    @include screen('xlg', max, 2) {
+      padding: pxtovw(16, 1660) 0;
+      font-size: pxtovw(16, 1660);
+    }
+
+    @include screen('lg', max, 2) {
+      padding: pxtovw(16, 1366) 0;
+      font-size: pxtovw(16, 1366);
+    }
+
+    @include screen('md', max, 2) {
+      padding: pxtovw(16, 960) 0;
+      font-size: pxtovw(16, 960);
+    }
+
+    @include screen('sm', max, 2) {
+      padding: pxtovw(16, 375) 0;
+      font-size: pxtovw(16, 375);
+    }
+  }
+
+  &__requisite-text {
+    display: block;
+    font-size: 13px;
+    line-height: 1.6;
+    letter-spacing: -.015em;
+    box-sizing: border-box;
+    padding: 16px 0;
+
+    @include screen('xlg', max, 2) {
+      padding: pxtovw(16, 1660) 0;
+      font-size: pxtovw(13, 1660);
+    }
+
+    @include screen('lg', max, 2) {
+      padding: pxtovw(16, 1366) 0;
+      font-size: pxtovw(13, 1366);
+    }
+
+    @include screen('md', max, 2) {
+      padding: pxtovw(16, 960) 0;
+      font-size: pxtovw(13, 960);
+    }
+
+    @include screen('sm', max, 2) {
+      padding: pxtovw(16, 375) 0;
+      font-size: pxtovw(13, 375);
+    }
+  }
+
+  &__objects {
+    display: table;
+    border-collapse: collapse;
+    font-size: 16px;
+    line-height: (19 / 16);
+    letter-spacing: -.015em;
+    width: 100%;
+
+    @include screen('xlg', max, 2) {
+      font-size: pxtovw(16, 1660);
+    }
+
+    @include screen('lg', max, 2) {
+      font-size: pxtovw(16, 1366);
+    }
+
+    @include screen('md', max, 2) {
+      font-size: pxtovw(16, 960);
+    }
+
+    @include screen('sm', max, 2) {
+      font-size: pxtovw(16, 375);
+    }
+
+    &:not(:first-child) {
+      margin-top: 45px;
+
+      @include screen('xlg', max, 2) {
+        margin-top: pxtovw(45, 1660);
+      }
+
+      @include screen('lg', max, 2) {
+        margin-top: pxtovw(5, 1366);
+      }
+
+      @include screen('md', max, 2) {
+        margin-top: pxtovw(44, 960);
+      }
+
+      @include screen('sm', max, 2) {
+        margin-top: pxtovw(32, 375);
+      }
+    }
+
+    td {
+      box-sizing: border-box;
+      vertical-align: top;
+      border-top: 1px solid $nd-color-basic;
+      border-bottom: 1px solid $nd-color-basic;
+      padding: 23px 0 21px;
+
+      @include screen('xlg', max, 2) {
+        padding: pxtovw(23, 1660) 0 pxtovw(21, 1660);
+      }
+
+      @include screen('lg', max, 2) {
+        padding: pxtovw(23, 1366) 0 pxtovw(21, 1366);
+      }
+
+      @include screen('md', max, 2) {
+        padding: pxtovw(23, 960) 0 pxtovw(21, 960);
+      }
+
+      @include screen('sm', max, 2) {
+        padding: pxtovw(23, 375) 0 pxtovw(21, 375);
+      }
+
+      &:first-child {
+        font-family: $font-stolzl;
+        font-weight: 400;
+        width: 342px;
+        padding-right: 35px;
+
+        @include screen('xlg', max, 2) {
+          width: pxtovw(324, 1660);
+          padding-right: pxtovw(35, 1660);
+        }
+
+        @include screen('lg', max, 2) {
+          width: pxtovw(209, 1366);
+          padding-right: pxtovw(35, 1366);
+        }
+
+        @include screen('md', max, 2) {
+          width: pxtovw(121, 960);
+          padding-right: pxtovw(20, 960);
+        }
+
+        @include screen('sm', max, 2) {
+          width: pxtovw(100, 375);
+          padding-right: pxtovw(20, 375);
+        }
+      }
+    }
+  }
+
+  &__body {
+    display: block;
+    width: 100%;
+    font-size: 13px;
+    line-height: 1.6;
+    letter-spacing: -.015em;
+
+    @include screen('xlg', max, 2) {
+      font-size: pxtovw(13, 1660);
+    }
+
+    @include screen('lg', max, 2) {
+      font-size: pxtovw(13, 1366);
+    }
+
+    @include screen('md', max, 2) {
+      font-size: pxtovw(13, 960);
+    }
+
+    @include screen('sm', max, 2) {
+      font-size: pxtovw(13, 375);
+    }
+
+    &:not(:first-child) {
+      margin-top: 63px;
+
+      @include screen('xlg', max, 2) {
+        margin-top: pxtovw(63, 1660);
+      }
+
+      @include screen('lg', max, 2) {
+        margin-top: pxtovw(63, 1366);
+      }
+
+      @include screen('md', max, 2) {
+        margin-top: pxtovw(63, 960);
+      }
+
+      @include screen('sm', max, 2) {
+        margin-top: pxtovw(35, 375);
+      }
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+      font-family: $font-stolzl;
+      font-weight: 400;
+    }
+
+    p {
+      display: block;
+      width: 100%;
+
+      &:not(:first-child) {
+        margin-top: 55px;
+
+        @include screen('xlg', max, 2) {
+          margin-top: pxtovw(55, 1660);
+        }
+
+        @include screen('lg', max, 2) {
+          margin-top: pxtovw(55, 1366);
+        }
+
+        @include screen('md', max, 2) {
+          margin-top: pxtovw(80, 960);
+        }
+
+        @include screen('sm', max, 2) {
+          margin-top: pxtovw(40, 375);
+        }
+      }
+    }
+
+    b {
+      font-family: $font-stolzl;
+    }
+
+    a {
+      text-decoration: underline;
+
+      &:hover {
+        text-decoration: none;
+      }
+    }
+  }
 }

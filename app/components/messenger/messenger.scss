@@ -1,3 +1,338 @@
 .messenger {
   $b: &;
+
+  position: relative;
+  display: flex;
+  width: 100%;
+  background-color: $nd-color-messenger-bg;
+  height: calc(100vh - (94px + 85px));
+  border-radius: 3px;
+
+  @include screen('xlg', max, 2) {
+    height: calc(100vh - ((9400 + 8500) / 1660) * 1vw);
+    border-radius: pxtovw(3, 1660);
+  }
+
+  @include screen('lg', max, 2) {
+    height: calc(100vh - ((9400 + 8500) / 1366) * 1vw);
+    border-radius: pxtovw(3, 1366);
+  }
+
+  @include screen('md', max, 2) {
+    height: calc(100vh - ((8600 + 8500 + 2200 + 6000) / 960) * 1vw);
+    border-radius: pxtovw(3, 960);
+  }
+
+  @include screen('sm', max, 2) {
+    height: calc(100vh - ((8600 + 6000) / 375) * 1vw);
+    background-color: transparent;
+    border-radius: pxtovw(3, 375);
+    width: 100vw;
+    margin: 0 pxtovw(-20, 375);
+  }
+
+  &__content {
+    position: relative;
+    z-index: 1;
+    scrollbar-color: #dcdfe0 transparent;
+    scrollbar-width: thin;
+    -ms-overflow-style: none;
+    box-sizing: border-box;
+    padding: 30px 30px 120px;
+
+    @include screen('xlg', max, 2) {
+      padding: pxtovw(30, 1660) pxtovw(30, 1660) pxtovw(120, 1660);
+    }
+
+    @include screen('lg', max, 2) {
+      padding: pxtovw(30, 1660) pxtovw(24, 1660) pxtovw(120, 1660);
+    }
+
+    @include screen('md', max, 2) {
+      padding: pxtovw(30, 1660) pxtovw(24, 1660) pxtovw(120, 1660);
+    }
+
+    @include screen('sm', max, 2) {
+      padding: pxtovw(30, 1660) pxtovw(10, 1660) pxtovw(120, 1660);
+    }
+
+    &::-webkit-scrollbar-track {
+      width: 14px;
+      background-color: transparent;
+
+      @include screen('xlg', max, 2) {
+        width: pxtovw(14, 1660);
+      }
+
+      @include screen('lg', max, 2) {
+        width: pxtovw(9, 1366);
+      }
+
+      @include screen('md', max, 2) {
+        width: pxtovw(9, 960);
+      }
+
+      @include screen('sm', max, 2) {
+        width: pxtovw(9, 375);
+      }
+    }
+
+    &::-webkit-scrollbar {
+      width: 14px;
+      background-color: transparent;
+
+      @include screen('xlg', max, 2) {
+        width: pxtovw(14, 1660);
+      }
+
+      @include screen('lg', max, 2) {
+        width: pxtovw(9, 1366);
+      }
+
+      @include screen('md', max, 2) {
+        width: pxtovw(9, 960);
+      }
+
+      @include screen('sm', max, 2) {
+        width: pxtovw(9, 375);
+      }
+    }
+
+    &::-webkit-scrollbar-thumb {
+      width: 14px;
+      background-color: #dcdfe0;
+      border-radius: 3px;
+
+      @include screen('xlg', max, 2) {
+        width: pxtovw(14, 1660);
+        border-radius: pxtovw(3, 1660);
+      }
+
+      @include screen('lg', max, 2) {
+        width: pxtovw(9, 1366);
+        border-radius: pxtovw(3, 1366);
+      }
+
+      @include screen('md', max, 2) {
+        width: pxtovw(9, 960);
+        border-radius: pxtovw(3, 960);
+      }
+
+      @include screen('sm', max, 2) {
+        width: pxtovw(9, 375);
+        border-radius: pxtovw(3, 375);
+      }
+    }
+  }
+
+  &__form {
+    position: absolute;
+    display: block;
+    left: 0;
+    bottom: 18px;
+    box-sizing: border-box;
+    width: 100%;
+    z-index: 2;
+    padding: 0 30px;
+
+    @include screen('xlg', max, 2) {
+      padding: 0 pxtovw(30, 1660);
+      bottom: pxtovw(18, 1660);
+    }
+
+    @include screen('lg', max, 2) {
+      padding: 0 pxtovw(24, 1366);
+      bottom: pxtovw(18, 1366);
+    }
+
+    @include screen('md', max, 2) {
+      padding: 0 pxtovw(24, 960);
+      bottom: pxtovw(18, 960);
+    }
+
+    @include screen('sm', max, 2) {
+      padding: 0 pxtovw(10, 375);
+      bottom: pxtovw(9, 375);
+    }
+  }
+
+  &__field {
+    position: relative;
+    display: block;
+    border-radius: 28px;
+    background-color: $nd-color-basic-light;
+    width: 100%;
+    padding: 17px 60px 17px 22px;
+    box-shadow: 1px 1px 1px rgba(0, 0, 0, .03), 2px 2px 2px rgba(0, 0, 0, .04), 3px 3px 3px rgba(0, 0, 0, .02);
+    z-index: 1;
+    resize: none;
+    font-size: 16px;
+    line-height: 19px;
+    color: $nd-color-basic;
+    max-height: 200px;
+    box-sizing: border-box;
+    scrollbar-color: $nd-color-messenger-bg transparent;
+    scrollbar-width: thin;
+    -ms-overflow-style: none;
+
+    @include screen('xlg', max, 2) {
+      padding: pxtovw(17, 1660) pxtovw(60, 1660) pxtovw(17, 1660) pxtovw(22, 1660);
+      font-size: pxtovw(16, 1660);
+      line-height: pxtovw(19, 1660);
+      border-radius: pxtovw(28, 1660);
+      max-height: pxtovw(200, 1660);
+      box-shadow: pxtovw(1, 1660) pxtovw(1, 1660) pxtovw(1, 1660) rgba(0, 0, 0, .03), pxtovw(2, 1660) pxtovw(2, 1660) pxtovw(2, 1660) rgba(0, 0, 0, .04), pxtovw(3, 1660) pxtovw(3, 1660) pxtovw(3, 1660) rgba(0, 0, 0, .02);
+    }
+
+    @include screen('lg', max, 2) {
+      padding: pxtovw(17, 1366) pxtovw(60, 1366) pxtovw(17, 1366) pxtovw(28, 1366);
+      font-size: pxtovw(16, 1366);
+      line-height: pxtovw(19, 1366);
+      border-radius: pxtovw(28, 1366);
+      max-height: pxtovw(200, 1366);
+      box-shadow: pxtovw(1, 1366) pxtovw(1, 1366) pxtovw(1, 1366) rgba(0, 0, 0, .03), pxtovw(2, 1366) pxtovw(2, 1366) pxtovw(2, 1366) rgba(0, 0, 0, .04), pxtovw(3, 1366) pxtovw(3, 1366) pxtovw(3, 1366) rgba(0, 0, 0, .02);
+    }
+
+    @include screen('md', max, 2) {
+      padding: pxtovw(17, 960) pxtovw(60, 960) pxtovw(17, 960) pxtovw(28, 960);
+      font-size: pxtovw(16, 960);
+      line-height: pxtovw(19, 960);
+      border-radius: pxtovw(28, 960);
+      max-height: pxtovw(200, 960);
+      box-shadow: pxtovw(1, 960) pxtovw(1, 960) pxtovw(1, 960) rgba(0, 0, 0, .03), pxtovw(2, 960) pxtovw(2, 960) pxtovw(2, 960) rgba(0, 0, 0, .04), pxtovw(3, 960) pxtovw(3, 960) pxtovw(3, 960) rgba(0, 0, 0, .02);
+    }
+
+    @include screen('sm', max, 2) {
+      padding: pxtovw(13, 375) pxtovw(50, 375) pxtovw(13, 375) pxtovw(22, 375);
+      font-size: pxtovw(16, 375);
+      line-height: pxtovw(19, 375);
+      border-radius: pxtovw(28, 375);
+      max-height: pxtovw(200, 375);
+      box-shadow: pxtovw(1, 375) pxtovw(1, 375) pxtovw(1, 375) rgba(0, 0, 0, .03), pxtovw(2, 375) pxtovw(2, 375) pxtovw(2, 375) rgba(0, 0, 0, .04), pxtovw(3, 375) pxtovw(3, 375) pxtovw(3, 375) rgba(0, 0, 0, .02);
+    }
+
+    &::-webkit-scrollbar-track {
+      width: 6px;
+      background-color: transparent;
+
+      @include screen('xlg', max, 2) {
+        width: pxtovw(6, 1660);
+      }
+
+      @include screen('lg', max, 2) {
+        width: pxtovw(6, 1366);
+      }
+
+      @include screen('md', max, 2) {
+        width: pxtovw(6, 960);
+      }
+
+      @include screen('sm', max, 2) {
+        width: pxtovw(6, 375);
+      }
+    }
+
+    &::-webkit-scrollbar {
+      width: 4px;
+      background-color: transparent;
+
+      @include screen('xlg', max, 2) {
+        width: pxtovw(4, 1660);
+      }
+
+      @include screen('lg', max, 2) {
+        width: pxtovw(4, 1366);
+      }
+
+      @include screen('md', max, 2) {
+        width: pxtovw(4, 960);
+      }
+
+      @include screen('sm', max, 2) {
+        width: pxtovw(4, 375);
+      }
+    }
+
+    &::-webkit-scrollbar-thumb {
+      width: 4px;
+      background-color: $nd-color-messenger-bg;
+      border-radius: 3px;
+
+      @include screen('xlg', max, 2) {
+        width: pxtovw(4, 1660);
+        border-radius: pxtovw(3, 1660);
+      }
+
+      @include screen('lg', max, 2) {
+        width: pxtovw(4, 1366);
+        border-radius: pxtovw(3, 1366);
+      }
+
+      @include screen('md', max, 2) {
+        width: pxtovw(4, 960);
+        border-radius: pxtovw(3, 960);
+      }
+
+      @include screen('sm', max, 2) {
+        width: pxtovw(4, 375);
+        border-radius: pxtovw(3, 375);
+      }
+    }
+
+    &:-ms-input-placeholder {
+      color: $nd-color-gray-text;
+    }
+
+    &::placeholder {
+      color: $nd-color-gray-text;
+    }
+  }
+
+  &__send {
+    position: absolute;
+    display: block;
+    right: 30px;
+    top: 0;
+    bottom: 0;
+    width: 60px;
+    z-index: 2;
+    cursor: pointer;
+    background-color: transparent;
+    font-size: 0;
+    line-height: 0;
+    background-repeat: no-repeat;
+    background-size: 10px 17px;
+    background-position: 50% 50%;
+    background-image: $icon-angle-small-next;
+    transition: transform $ease-main-short;
+    transform-origin: 50% 50%;
+
+    @include screen('xlg', max, 2) {
+      right: pxtovw(30, 1660);
+      background-size: pxtovw(10, 1660) pxtovw(17, 1660);
+      width: pxtovw(60, 1660);
+    }
+
+    @include screen('lg', max, 2) {
+      right: pxtovw(24, 1366);
+      background-size: pxtovw(10, 1366) pxtovw(17, 1366);
+      width: pxtovw(60, 1366);
+    }
+
+    @include screen('md', max, 2) {
+      right: pxtovw(24, 960);
+      background-size: pxtovw(10, 960) pxtovw(17, 960);
+      width: pxtovw(60, 960);
+    }
+
+    @include screen('sm', max, 2) {
+      right: pxtovw(10, 375);
+      background-size: pxtovw(10, 375) pxtovw(17, 375);
+      width: pxtovw(50, 375);
+    }
+
+    &:hover {
+      transform: translate3d(5%, 0, 0);
+    }
+  }
 }

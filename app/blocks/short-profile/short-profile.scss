@@ -265,6 +265,66 @@
     }
   }
 
+  &__marker {
+    flex: none;
+    display: inline-block;
+    position: relative;
+    text-align: center;
+    box-sizing: border-box;
+    width: 21px;
+    padding: 11px 0 10px;
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 0;
+    color: $nd-color-basic-light;
+    background-color: $nd-color-fixeddesk;
+    border-radius: 50%;
+
+    @include screen('xlg', max, 2) {
+      width: pxtovw(21, 1660);
+      padding: pxtovw(11, 1660) 0 pxtovw(10, 1660);
+      font-size: pxtovw(13, 1660);
+    }
+
+    @include screen('lg', max, 2) {
+      width: pxtovw(21, 1366);
+      padding: pxtovw(11, 1366) 0 pxtovw(10, 1366);
+      font-size: pxtovw(13, 1366);
+    }
+
+    @include screen('md', max, 2) {
+      width: pxtovw(21, 960);
+      padding: pxtovw(11, 960) 0 pxtovw(10, 960);
+      font-size: pxtovw(13, 960);
+    }
+
+    @include screen('sm', max, 2) {
+      width: pxtovw(21, 375);
+      padding: pxtovw(11, 375) 0 pxtovw(10, 375);
+      font-size: pxtovw(13, 375);
+    }
+
+    &:not(:first-child) {
+      margin-left: -17px;
+
+      @include screen('xlg', max, 2) {
+        margin-left: pxtovw(-17, 1660);
+      }
+
+      @include screen('lg', max, 2) {
+        margin-left: pxtovw(-17, 1366);
+      }
+
+      @include screen('md', max, 2) {
+        margin-left: pxtovw(-17, 960);
+      }
+
+      @include screen('sm', max, 2) {
+        margin-left: pxtovw(-17, 375);
+      }
+    }
+  }
+
   &_ext {
     align-items: center;
 

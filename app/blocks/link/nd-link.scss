@@ -3,10 +3,7 @@
   justify-content: flex-start;
   align-items: center;
   box-sizing: border-box;
-  font-size: inherit;
   color: currentColor;
-  font-weight: inherit;
-  line-height: inherit;
   text-decoration: none;
   fill: currentColor;
 
@@ -153,10 +150,10 @@
       }
 
       &:not(:last-child) {
-        margin-right: 8px;
+        margin-right: 15px;
 
         @include screen('xlg', max, 2) {
-          margin-right: pxtovw(8, 1660);
+          margin-right: pxtovw(15, 1660);
         }
 
         @include screen('lg', max, 2) {
@@ -198,22 +195,22 @@
       }
 
       &:not(:last-child) {
-        margin-right: 8px;
+        margin-right: 15px;
 
         @include screen('xlg', max, 2) {
-          margin-right: pxtovw(8, 1660);
+          margin-right: pxtovw(15, 1660);
         }
 
         @include screen('lg', max, 2) {
-          margin-right: pxtovw(8, 1366);
+          margin-right: pxtovw(11, 1366);
         }
 
         @include screen('md', max, 2) {
-          margin-right: pxtovw(8, 960);
+          margin-right: pxtovw(11, 960);
         }
 
         @include screen('sm', max, 2) {
-          margin-right: pxtovw(8, 375);
+          margin-right: pxtovw(11, 375);
         }
       }
     }
@@ -264,6 +261,26 @@
 
     #{$b}:hover & {
       background-color: $nd-color-basic;
+    }
+
+    &:not(:first-child) {
+      margin-left: 13px;
+
+      @include screen('xlg', max, 2) {
+        margin-left: pxtovw(13, 1660);
+      }
+
+      @include screen('lg', max, 2) {
+        margin-left: pxtovw(13, 1366);
+      }
+
+      @include screen('md', max, 2) {
+        margin-left: pxtovw(13, 960);
+      }
+
+      @include screen('sm', max, 2) {
+        margin-left: pxtovw(13, 375);
+      }
     }
   }
 
@@ -388,5 +405,33 @@
 
   &_blue {
     color: $nd-color-main;
+  }
+
+  &_next_angle {
+    padding-right: 20px;
+    background-repeat: no-repeat;
+    background-position: 100% 50%;
+    background-size: 6px 11px;
+    background-image: $icon-angle-small-next;
+
+    @include screen('xlg', max, 2) {
+      padding-right: pxtovw(20, 1660);
+      background-size: pxtovw(6, 1660) pxtovw(11, 1660);
+    }
+
+    @include screen('lg', max, 2) {
+      padding-right: pxtovw(20, 1366);
+      background-size: pxtovw(6, 1366) pxtovw(11, 1366);
+    }
+
+    @include screen('md', max, 2) {
+      padding-right: pxtovw(20, 960);
+      background-size: pxtovw(6, 960) pxtovw(11, 960);
+    }
+
+    @include screen('sm', max, 2) {
+      padding-right: pxtovw(20, 375);
+      background-size: pxtovw(6, 375) pxtovw(11, 375);
+    }
   }
 }
