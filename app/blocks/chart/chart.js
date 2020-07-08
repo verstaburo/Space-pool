@@ -131,19 +131,20 @@ export default class Chart {
     const ns = 'http://www.w3.org/2000/svg';
     const markerGroup = document.createElementNS(ns, 'g');
     const markerInner = document.createElementNS(ns, 'circle');
-    const markerOuter = document.createElementNS(ns, 'circle');
+    // const markerOuter = document.createElementNS(ns, 'circle');
     markerGroup.classList.add('donut__today');
     markerInner.setAttributeNS(null, 'cx', cx);
     markerInner.setAttributeNS(null, 'cy', cy);
-    markerInner.setAttributeNS(null, 'r', 1.68);
+    markerInner.setAttributeNS(null, 'r', 7);
     markerInner.setAttributeNS(null, 'fill', color);
+    markerInner.setAttributeNS(null, 'stroke', 'white');
     markerGroup.classList.add('donut__today');
-    markerOuter.setAttributeNS(null, 'cx', cx);
-    markerOuter.setAttributeNS(null, 'cy', cy);
-    markerOuter.setAttributeNS(null, 'r', 1.56);
-    markerOuter.setAttributeNS(null, 'fill', 'none');
-    markerOuter.setAttributeNS(null, 'stroke', 'white');
-    markerGroup.append(markerOuter);
+    // markerOuter.setAttributeNS(null, 'cx', cx);
+    // markerOuter.setAttributeNS(null, 'cy', cy);
+    // markerOuter.setAttributeNS(null, 'r', 6.5);
+    // markerOuter.setAttributeNS(null, 'fill', 'none');
+    // markerOuter.setAttributeNS(null, 'stroke', 'white');
+    // markerGroup.append(markerOuter);
     markerGroup.append(markerInner);
     return markerGroup;
   }
@@ -155,14 +156,14 @@ export default class Chart {
     donut.classList.add('donut');
     donut.setAttributeNS(null, 'width', '100%');
     donut.setAttributeNS(null, 'height', '100%');
-    donut.setAttributeNS(null, 'viewBox', '0 0 40 40');
+    donut.setAttributeNS(null, 'viewBox', '0 0 142 142');
     const ring = document.createElementNS(ns, 'circle');
     ring.classList.add('donut__ring');
-    ring.setAttributeNS(null, 'cx', 20);
-    ring.setAttributeNS(null, 'cy', 20);
-    ring.setAttributeNS(null, 'r', 15.91549430918954);
+    ring.setAttributeNS(null, 'cx', 71);
+    ring.setAttributeNS(null, 'cy', 71);
+    ring.setAttributeNS(null, 'r', 66.5);
     ring.setAttributeNS(null, 'fill', 'transparent');
-    ring.setAttributeNS(null, 'stroke-width', '1.67');
+    ring.setAttributeNS(null, 'stroke-width', 7);
     ring.setAttributeNS(null, 'stroke', _this.options.colors.base);
     donut.append(ring);
     return donut;
@@ -172,9 +173,9 @@ export default class Chart {
     const ns = 'http://www.w3.org/2000/svg';
     const segment = document.createElementNS(ns, 'circle');
     segment.classList.add('donut__segment');
-    segment.setAttributeNS(null, 'cx', 20);
-    segment.setAttributeNS(null, 'cy', 20);
-    segment.setAttributeNS(null, 'r', 15.91549430918954);
+    segment.setAttributeNS(null, 'cx', 71);
+    segment.setAttributeNS(null, 'cy', 71);
+    segment.setAttributeNS(null, 'r', 66.5);
     segment.setAttributeNS(null, 'fill', 'transparent');
     segment.setAttributeNS(null, 'stroke-width', width);
     segment.setAttributeNS(null, 'stroke', color);
@@ -183,50 +184,105 @@ export default class Chart {
     return segment;
   }
 
+  _createDonutLabels(label, color) {
+    const lbl = document.createElement('div');
+    lbl.classList.add('chart__label');
+    lbl.innerHTML = `<span class="chart__marker" style="background-color: ${color}"></span> <span class="chart__label-text">${label}<span>`;
+    return lbl;
+  }
+
+  _getRemainings() {
+    const _this = this;
+    const dates = _this.options.dates;
+    const startDate = moment(dates.startDate);
+    const endDate = moment(dates.endDate);
+    const today = moment();
+    const type = _this.options.remainFormat;
+    const fullPeriod = endDate.diff(startDate, type);
+    const progressPeriod = today.diff(startDate, type);
+    const remainingPeriod = fullPeriod - progressPeriod;
+    return {
+      total: fullPeriod,
+      current: progressPeriod,
+      remain: remainingPeriod,
+    };
+  }
+
+  _fillStatisticFields() {
+    const _this = this;
+    const type = _this.options.remainFormat;
+    let typeName = ['month', 'months'];
+    if (type === 'days') {
+      typeName = ['day', 'days'];
+    } else if (type === 'years') {
+      typeName = ['year', 'years'];
+    } else if (type === 'weeks') {
+      typeName = ['week', 'weeks'];
+    }
+    const periods = _this._getRemainings();
+    const remainings = `${periods.remain} ${(periods.remain > 1 ? typeName[1] : typeName[0])}`;
+    _this.elRemainingPeriod.innerText = remainings;
+    _this.elProgressCounter.innerText = `${periods.current}`;
+    _this.elTotalCounter.innerText = ` / ${periods.total}`;
+    _this.elRemainUnits.innerText = typeName[1];
+  }
+
   _createDonutDiagram() {
     const _this = this;
     const data = _this._getValues();
-    // const dates = _this.options.dates;
     const colors = _this.options.colors;
-    // const labels = _this.options.labels;
+    const labels = _this.options.labels;
     const el = _this._createBaseDonutHTML();
     Object.keys(data).forEach((key) => {
-      const strokeWidth = (key === 'progress' || key === 'overlay') ? '2.15' : '1.67';
-      let segmentOffset = 25;
-      console.log(data);
+      const strokeWidth = (key === 'progress' || key === 'overlay') ? 9 : 7;
+      const cL = 417.83182; // circumference
+      let segmentOffset = cL * 0.25;
       switch (key) {
         case ('progress'): {
-          segmentOffset = 25;
+          segmentOffset = cL * 0.25;
           break;
         }
         case ('base'): {
-          segmentOffset = 125 - data.progress;
+          segmentOffset = (cL * 1.25) - (cL * (data.progress / 100));
           break;
         }
         case ('overlay'): {
-          segmentOffset = 125 - data.progress;
+          segmentOffset = (cL * 1.25) - ((data.progress / 100) * cL);
           break;
         }
         case ('notice'): {
-          segmentOffset = 125 - data.base - data.progress - data.overlay;
+          segmentOffset = (cL * 1.25) - (((data.base + data.progress + data.overlay) / 100) * cL);
           break;
         }
         default:
           break;
       }
       if (key !== 'base') {
-        const segment = _this._createBaseDonutSegment(`${data[key]} ${100 - data[key]}`, segmentOffset, strokeWidth, colors[key]);
+        const segment = _this._createBaseDonutSegment(`${cL * (data[key] / 100)} ${cL - (cL * (data[key] / 100))}`, segmentOffset, strokeWidth, colors[key]);
         segment.classList.add(`is-${key}`);
         el.append(segment);
       }
     });
     const allprogress = data.progress + data.overlay;
     const angle = (2 * Math.PI * (allprogress / 100)) - (0.5 * Math.PI);
-    const cx = 20 + (15.91549430918954 * Math.cos(angle));
-    const cy = 20 + (15.91549430918954 * Math.sin(angle));
+    const cx = 71 + (66.5 * Math.cos(angle));
+    const cy = 71 + (66.5 * Math.sin(angle));
     const marker = _this._createTodayMarker(cx, cy, colors.progress);
     el.append(marker);
     _this.elContainer.append(el);
+    if (_this.elLabels) {
+      Object.keys(labels).forEach((key) => {
+        if (key === 'overlay' && data.overlay > 0) {
+          const label = _this._createDonutLabels(labels[key], colors[key]);
+          _this.elLabels.append(label);
+        }
+        if (key !== 'overlay') {
+          const label = _this._createDonutLabels(labels[key], colors[key]);
+          _this.elLabels.append(label);
+        }
+      });
+    }
+    _this._fillStatisticFields();
   }
 }
 /* eslint-enable class-methods-use-this */

@@ -1,0 +1,71 @@
+.line {
+  $b: &;
+
+  position: relative;
+  width: 100%;
+  height: 4px;
+  background-color: silver;
+  margin-top: 60px;
+  margin-bottom: 30px;
+
+  &__label {
+    position: absolute;
+
+    &_start {
+      bottom: 21px;
+      left: 0;
+    }
+
+    &_notice {
+      text-align: right;
+      left: 0;
+      bottom: 21px;
+      transform: translate3d(-50%, 0, 0);
+    }
+
+    &_end {
+      right: 0;
+      bottom: 21px;
+      text-align: right;
+    }
+
+    &_today {
+      top: 18px;
+      left: 0;
+      transform: translate3d(-50%, 0, 0);
+    }
+  }
+
+  &__segment {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 100%;
+
+    &.is-base {
+      display: none;
+      width: var(--line-base-persent);
+      z-index: 1;
+    }
+
+    &.is-notice {
+      left: calc(var(--line-progress-persent) + var(--line-base-persent) + var(--line-overlay-persent));
+      width: var(--line-notice-persent);
+      z-index: 2;
+    }
+
+    &.is-progress {
+      left: 0;
+      width: var(--line-progress-persent);
+      height: 8px;
+      z-index: 4;
+    }
+
+    &.is-overlay {
+      left: calc(var(--line-progress-persent));
+      width: var(--line-overlay-persent);
+      height: 8px;
+      z-index: 3;
+    }
+  }
+}
