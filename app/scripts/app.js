@@ -87,6 +87,7 @@ import offerCard from '../components/offer-card/offer-card';
 import dates from '../blocks/datepicker/datepicker';
 import switchFormContent from './functions/switchFormContent';
 import filterMenu from '../components/filter-menu/filter-menu';
+import initCharts from '../blocks/chart/chartInit';
 
 const $ = window.$;
 
@@ -161,4 +162,5 @@ $(() => {
   switchFormContent();
   ndSearchMapManipulations();
   filterMenu();
+  initCharts();
 });

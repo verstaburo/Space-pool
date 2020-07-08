@@ -1,0 +1,16 @@
+mixin chart(donut)
+  +b.chart&attributes(attributes)
+    if donut
+      +e.column
+        +e.labels(data-chart-labels)
+        +e.remaining
+          span(data-chart-remaining-period) 8 months
+          | &nbsp;remaining
+      +e.column
+        +e.container(data-chart-target)
+          +e.period
+            +e.SPAN.progress(data-chart-progress-counter)
+            +e.SPAN.total(data-chart-total-counter)
+            +e.SPAN.units(data-chart-remain-units)
+    else
+      +e.container(data-chart-target)

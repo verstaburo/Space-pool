@@ -10,7 +10,7 @@ block bodyClasses
 block header
   - var headerClass = ' is-login'
   - var pageClass = ''
-  - var isMap = true
+  - var isMap = false
   - var host = false
 
 block content
@@ -41,6 +41,7 @@ block content
             +board-header
               +board-title('h2')._fz22 Rental Summary
               +e.state.is-dbl-check Accepted both sides on 30 May 2020
+            +chart()._line.__chart(data-chart-data='{"type": "line", "dates": {"startDate": "2020-05-30", "endDate": "2021-05-30", "noticeDate": "2021-02-28"}, "colors": {"progress" : "#0085ff", "base": "#d4dfe2", "notice": "#fd9603", "overlay": "#2af787"}, "labels": {"start": "Rent start", "end": "End of rent", "notice": "Notice period start"}}')
           +board._pad40.__board_rs._rs_payments
             +board-title._fz20 Payment summary
             +nd-table._info._info_h50._info_md-fz16._fw500.__table
