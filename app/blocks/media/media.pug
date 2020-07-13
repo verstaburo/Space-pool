@@ -1,0 +1,8 @@
+mixin media()
+  +b.media&attributes(attributes)
+    block
+
+mixin media-image(img)
+  +e.PICTURE.image&attributes(attributes)
+    +e.OPTION(srcset=img)
+    +e.IMG(srcset=img)

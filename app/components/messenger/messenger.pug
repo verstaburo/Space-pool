@@ -1,6 +1,49 @@
-mixin messenger()
+mixin messenger(rent)
   +b.messenger&attributes(attributes)
-    +e.content
+    +e.scrollblock.js-scrollbar-messenger
+      +e.content
+        +e.message
+          +e.block We gotta start with signing the contract. Ready when you are
+        +e.message
+          +avatar('assets/images/nd/user-avatar-1.jpg', 'a')._sz34.__avatar(href="#")
+          +e.block This is the one basic information act.
+        +e.message_end
+          +e.block_blue Well thanks! A am already signing it. Thanks a lot
+        if rent
+          +e.message_sys
+            +e.system
+              +icon('nd-logo-short').__system-logo
+              +e.system-text System message:
+            +e.block
+              +notification._short
+                +notification-head('', '', 'You’ve requested Tenancy')._ai-center
+                  +offer-info
+                    +box._size16._orange
+                    +e.title._dark2._fz13 HOT DESK
+                +notification-content._spd
+                  +time-origin._sb.__time_dark
+                    +e.text_fz14 From:
+                      +e.TIME.time_fz14(datetime="2018-10-30") 30 October 2018
+                    +long-arrow._h16.__divider
+                    +e.text_fz14 Till:
+                      +e.TIME.time_fz14(datetime="2010-10-30") 30 October 2019
+                +notification-table
+                  +e.TR.row
+                    +e.TD.cell_w38
+                      +short-info('Price:')._fz14
+                        +e.text_fz17 &pound; 560.90 mo
+                    +e.TD.cell_w62
+                      +short-info('Reservation status:')._taright._fz14
+                        +e.text_fz17._bold._green Confirmed
+        +e.message_end
+          +e.block_blue Hi there! What’s next?
+        +e.message
+          +e.block We gotta start with signing the contract. Ready when you are
+        +e.message
+          +avatar('assets/images/nd/user-avatar-1.jpg', 'a')._sz34.__avatar(href="#")
+          +e.block This is the one basic information act.
+        +e.message_end
+          +e.block_blue Well thanks! A am already signing it. Thanks a lot
     +e.FORM.form
       +e.TEXTAREA.field(placeholder="Write something..." rows="1")
       +e.BUTTON.send(type="submit") Send

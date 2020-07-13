@@ -19,11 +19,78 @@
       margin-bottom: 4px;
     }
 
+    .nd & {
+      @include screen('xlg', max, 2) {
+        font-size: pxtovw(16, 1660);
+        margin-bottom: pxtovw(7, 1660);
+      }
+
+      @include screen('lg', max, 2) {
+        font-size: pxtovw(16, 1366);
+        margin-bottom: pxtovw(7, 1366);
+      }
+
+      @include screen('md', max, 2) {
+        font-size: pxtovw(16, 960);
+        margin-bottom: pxtovw(7, 960);
+      }
+
+      @include screen('sm', max, 2) {
+        font-size: pxtovw(12, 375);
+        margin-bottom: pxtovw(4, 375);
+      }
+    }
+
+    #{$b}_fz14 & {
+      font-size: 14px;
+      line-height: 1;
+      letter-spacing: -.02em;
+      margin-bottom: 10px;
+
+      @include screen('xlg', max, 2) {
+        font-size: pxtovw(14, 1660);
+        margin-bottom: pxtovw(10, 1660);
+      }
+
+      @include screen('lg', max, 2) {
+        font-size: pxtovw(14, 1366);
+        margin-bottom: pxtovw(10, 1366);
+      }
+
+      @include screen('md', max, 2) {
+        font-size: pxtovw(14, 960);
+        margin-bottom: pxtovw(10, 960);
+      }
+
+      @include screen('sm', max, 2) {
+        font-size: pxtovw(12, 375);
+        margin-bottom: pxtovw(4, 375);
+      }
+    }
+
     #{$b}_mb15 & {
       margin-bottom: 15px;
 
       @include screen('sm') {
         margin-bottom: 10px;
+      }
+
+      .nd & {
+        @include screen('xlg', max, 2) {
+          margin-bottom: pxtovw(15, 1660);
+        }
+
+        @include screen('lg', max, 2) {
+          margin-bottom: pxtovw(15, 1366);
+        }
+
+        @include screen('md', max, 2) {
+          margin-bottom: pxtovw(15, 960);
+        }
+
+        @include screen('sm', max, 2) {
+          margin-bottom: pxtovw(10, 375);
+        }
       }
     }
   }
@@ -48,6 +115,28 @@
       margin-right: 0;
       margin-left: 0;
     }
+
+    .nd & {
+      @include screen('xlg', max, 2) {
+        font-size: pxtovw(15, 1660);
+        margin-right: pxtovw(-15, 1660);
+      }
+
+      @include screen('lg', max, 2) {
+        font-size: pxtovw(15, 1366);
+        margin-right: pxtovw(-15, 1366);
+      }
+
+      @include screen('md', max, 2) {
+        font-size: pxtovw(15, 960);
+        margin-right: pxtovw(-15, 960);
+      }
+
+      @include screen('sm', max, 2) {
+        font-size: pxtovw(10, 375);
+        margin-right: 0;
+      }
+    }
   }
 
   &__text {
@@ -60,6 +149,24 @@
       @include text12;
 
       line-height: 1;
+    }
+
+    .nd & {
+      @include screen('xlg', max, 2) {
+        font-size: pxtovw(20, 1660);
+      }
+
+      @include screen('lg', max, 2) {
+        font-size: pxtovw(20, 1366);
+      }
+
+      @include screen('md', max, 2) {
+        font-size: pxtovw(20, 960);
+      }
+
+      @include screen('sm', max, 2) {
+        font-size: pxtovw(12, 375);
+      }
     }
 
     &_bold {
@@ -77,6 +184,28 @@
     &_up {
       text-transform: uppercase;
     }
+
+    &_fz17 {
+      font-size: 17px;
+      line-height: 1;
+      letter-spacing: -.02em;
+
+      @include screen('xlg', max, 2) {
+        font-size: pxtovw(17, 1660);
+      }
+
+      @include screen('lg', max, 2) {
+        font-size: pxtovw(17, 1366);
+      }
+
+      @include screen('md', max, 2) {
+        font-size: pxtovw(17, 960);
+      }
+
+      @include screen('sm', max, 2) {
+        font-size: pxtovw(12, 375);
+      }
+    }
   }
 
   .state {
@@ -90,19 +219,53 @@
       padding-right: 20px;
     }
 
+    .nd & {
+      @include screen('xlg', max, 2) {
+        padding-right: pxtovw(26, 1660);
+      }
+
+      @include screen('lg', max, 2) {
+        padding-right: pxtovw(26, 1366);
+      }
+
+      @include screen('md', max, 2) {
+        padding-right: pxtovw(26, 960);
+      }
+
+      @include screen('sm', max, 2) {
+        padding-right: pxtovw(20, 375);
+      }
+    }
+
     &.state_dcheck {
       padding-right: 37px;
 
       @include screen('sm') {
         padding-right: 30px;
       }
+
+      .nd & {
+        @include screen('xlg', max, 2) {
+          padding-right: pxtovw(37, 1660);
+        }
+
+        @include screen('lg', max, 2) {
+          padding-right: pxtovw(37, 1366);
+        }
+
+        @include screen('md', max, 2) {
+          padding-right: pxtovw(37, 960);
+        }
+
+        @include screen('sm', max, 2) {
+          padding-right: pxtovw(30, 375);
+        }
+      }
     }
   }
 
   &_taright {
-
     #{$b} {
-
       &__name {
         text-align: right;
       }
@@ -119,7 +282,6 @@
     align-items: baseline;
 
     #{$b} {
-
       &__name {
         display: inline-block;
         margin-right: 50px;
@@ -127,6 +289,24 @@
 
         @include screen('sm') {
           margin-right: 20px;
+        }
+
+        .nd & {
+          @include screen('xlg', max, 2) {
+            margin-right: pxtovw(50, 1660);
+          }
+
+          @include screen('lg', max, 2) {
+            margin-right: pxtovw(50, 1366);
+          }
+
+          @include screen('md', max, 2) {
+            margin-right: pxtovw(50, 960);
+          }
+
+          @include screen('sm', max, 2) {
+            margin-right: pxtovw(20, 375);
+          }
         }
       }
 

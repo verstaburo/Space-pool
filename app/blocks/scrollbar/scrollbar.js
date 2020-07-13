@@ -110,6 +110,20 @@ export default function scrollbar() {
     scrollbarWide(el);
   });
 
+  function scrollbarMessenger(el, isChainBlock) {
+    const inst = OverlayScrollbars(el, {
+      className: 'os-theme-custom-messenger',
+    });
+    if (isChainBlock) {
+      inst.addExt('scroll-chain');
+    }
+  }
+  window.globalFunctions.scrollbarMessenger = scrollbarMessenger;
+
+  $('.js-scrollbar-messenger').each((i, el) => {
+    scrollbarMessenger(el);
+  });
+
   function scrollbarLightOnlyMd(el) {
     const instance = OverlayScrollbars(el);
     if (instance === undefined) {
