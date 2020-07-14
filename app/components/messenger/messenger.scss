@@ -26,11 +26,16 @@
   }
 
   @include screen('sm', max, 2) {
-    height: calc(100vh - ((8600 + 6000) / 375) * 1vw);
+    position: fixed;
+    top: pxtovw(86, 375);
+    left: 0;
+    height: calc(100% - ((8600 + 6000) / 375) * 1vw);
     background-color: transparent;
     border-radius: pxtovw(3, 375);
-    width: 100vw;
-    margin: 0 pxtovw(-20, 375);
+    width: 100%;
+    margin: 0;
+    z-index: 1;
+    // margin: 0 pxtovw(-20, 375);
   }
 
   &__scrollblock {
