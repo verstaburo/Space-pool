@@ -17,9 +17,9 @@ block content
   +nd-page-header._grid
     .nd-container
       +nd-page-header-side
-        +nd-link-icon('arrow5')._underline._back._back_md21._back_sm-cross.__back_md-noname Back to search
+        +nd-link-icon('arrow5')._underline._back._back_md21._back_sm-cross.__back_md-noname Back to viewings
       +nd-page-header-main
-        - var menuList = getData('sideNavDealPassView.json').menu;
+        - var menuList = [{ name: 'Dashboard', href: 'deal-pass-view.html'}, {name: 'Chat', href: 'deal-pass-view-chat.html'}];
         +e.dt-menu.nd-hide-md
           +nd-breadcrumbs([["Home", "#"], ["Viewings", "#"], ["FBC/ Clerkenwell"]]).__breadcrumbs
           +person()._ai_base.__person
@@ -34,7 +34,7 @@ block content
       +nd-content-aside
         +sidebar.nd-sidebar.nd-hide-md
           - var nav = getData('sideNavDealPassView.json')
-          +nd-side-navigation(nav, 'Dashboard')
+          +nd-side-navigation(nav, 'Overview')._view
       +nd-content-main
         +dashboard._view
           - var nav = getData('sideNavDealPassView.json')
@@ -47,18 +47,20 @@ block content
                   +nd-box()._size8(class=nav.space.type.box + ' __box')
                   +e.name!=nav.space.type.name
           +board._pad30.__board_view._view_media.nd-hide-from-md
-            +media.__media
-              +media-image(nav.space.image)
+            +e.media
+              +media
+                +media-image(nav.space.image)
           +board._pad30.__board_view._view_date
             +e.datetime
               +e.TIME.datetime-info 24 May 2020, 13:00
               +nd-link()._blue.__datetime-change.nd-hide-sm(href="#") Change date/time
-          +board._pad30.__board_view._view_features
+          +board.__board_view._view_features
             +nd-table._features.__table
               tbody
                 tr
                   td
-                    img(src="assets/images/nd/nd-double-check.svg")
+                    +e.image
+                      img(src="assets/images/nd/nd-double-check.svg")
                   td.nd-hide-sm Viewing status
                   td Time confirmed by both sides
                 tr
@@ -68,29 +70,33 @@ block content
                   td Hot deks with terrace entrance
                 tr
                   td
-                    img(src="assets/images/nd/nd-subway.svg")
+                    +e.image
+                      img(src="assets/images/nd/nd-subway.svg")
                   td.nd-hide-sm Tube station
                   td Liverpool Street
                 tr
                   td
-                    img(src="assets/images/nd/nd-map-marker.svg")
+                    +e.image
+                      img(src="assets/images/nd/nd-map-marker.svg")
                   td.nd-hide-sm Address
                   td 40 Bowling Green Ln, Farringdon, London EC1R 0NE, UK
           +board._nopad.__board_view._view_map
             +e.map
               +e.map-container#spaceMap
-              +nd-button()._pad20._fw400._h32._h32_sm22._fz16._sm-fz12.__map-button(href="#") Open in Maps
-          +board._pt22._shadow.__board_view._view_chat
+              +nd-button()._pad10._fw400._h32._h32_sm22._fz16._sm-fz12.__map-button(href="#") Open in Maps
+          +board._pt22._shadow._fx.__board_view._view_chat
             +board-header
               +board-title Chat
               +nd-short-profile-data({ava: {img: 'assets/images/nd/user-avatar-2.jpg', class: '_sz34'}, marker: '2'})._nd.__person.is-new(href="#")
             +e.chat
-              +e.TIME.chat-time Few minutes ago
-              +e.chat-message Well ok! I think this might work
+              +e.chat-info
+                +e.TIME.chat-time Few minutes ago
+                +e.chat-message Well ok! I think this might work
               +nd-button-icon('', {icon: 'nd-bubble', notext: true})._pad10._h32.__chat-button(href="#")
-        +person()._end._ai_base.__person
-          +e.position_dark Manager contacts:
-          +nd-link()(href="mailto:mike@fbcclerkenwell.co.uk")._blue.__mail mike@fbcclerkenwell.co.uk
+        +e.person.nd-hide-from-md
+          +person()._end._ai_base
+            +e.position_dark Manager contacts:
+            +nd-link()(href="mailto:mike@fbcclerkenwell.co.uk")._blue.__mail mike@fbcclerkenwell.co.uk
 
 block panels
 

@@ -209,4 +209,25 @@
       }
     }
   }
+
+  &__person {
+    display: flex;
+    width: 100%;
+    justify-content: flex-end;
+    align-items: flex-start;
+
+    @include screen('sm', max, 2) {
+      justify-content: flex-start;
+    }
+
+    &:not(:first-child) {
+      @include screen('md', max, 2) {
+        margin-top: pxtovw(34, 960);
+      }
+
+      @include screen('sm', max, 2) {
+        margin-top: pxtovw(28, 375);
+      }
+    }
+  }
 }

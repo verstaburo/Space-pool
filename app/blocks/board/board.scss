@@ -26,6 +26,13 @@
     border-radius: pxtovw(3, 375);
   }
 
+  &_fx {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+  }
+
   &_pt22 {
     padding-top: 22px;
 
@@ -43,6 +50,26 @@
 
     @include screen('sm', max, 2) {
       padding-top: pxtovw(22, 375);
+    }
+  }
+
+  &_pad30 {
+    padding: 26px 30px 26px;
+
+    @include screen('xlg', max, 2) {
+      padding: pxtovw(26, 1660) pxtovw(30, 1660) pxtovw(26, 1660);
+    }
+
+    @include screen('lg', max, 2) {
+      padding: pxtovw(26, 1366) pxtovw(30, 1366) pxtovw(26, 1366);
+    }
+
+    @include screen('md', max, 2) {
+      padding: pxtovw(26, 960) pxtovw(26, 960) pxtovw(25, 960);
+    }
+
+    @include screen('sm', max, 2) {
+      padding: pxtovw(26, 375) pxtovw(18, 375) pxtovw(35, 375);
     }
   }
 
@@ -104,6 +131,10 @@
 
     &_align-base {
       align-items: baseline;
+    }
+
+    #{$b}_fx & {
+      width: 100%;
     }
   }
 
@@ -545,10 +576,14 @@
   }
 
   &__chat {
-    display: block;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
     width: 100%;
     overflow: hidden;
     text-align: right;
+    flex: 1;
 
     &:not(:first-child) {
       margin-top: 40px;
@@ -569,6 +604,12 @@
         margin-top: pxtovw(40, 375);
       }
     }
+  }
+
+  &__chat-info {
+    display: block;
+    width: 100%;
+    margin-bottom: auto;
   }
 
   &__chat-time {
@@ -649,6 +690,7 @@
 
   &__chat-button {
     min-width: 54px;
+    align-self: flex-end;
 
     @include screen('xlg', max, 2) {
       min-width: pxtovw(54, 1660);
@@ -944,6 +986,170 @@
         background-size: pxtovw(21, 375) pxtovw(13, 375);
       }
     }
+  }
+
+  &__media {
+    width: 100%;
+
+    @include screen('md', max, 2) {
+      width: pxtovw(154, 960);
+    }
+
+    @include screen('sm', max, 2) {
+      width: 100%;
+    }
+  }
+
+  &__map {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: auto;
+    font-size: 0;
+    line-height: 0;
+    pointer-events: none;
+  }
+
+  &__map-container {
+    position: relative;
+    display: block;
+    min-height: 308px;
+    box-sizing: border-box;
+    overflow: hidden;
+    z-index: 0;
+
+    @include screen('xlg', max, 2) {
+      min-height: pxtovw(308, 1660);
+    }
+
+    @include screen('lg', max, 2) {
+      min-height: pxtovw(308, 1366);
+    }
+
+    @include screen('md', max, 2) {
+      min-height: pxtovw(267, 960);
+    }
+
+    @include screen('sm', max, 2) {
+      min-height: pxtovw(174, 375);
+      border: pxtovw(2, 375) solid $nd-color-basic-light;
+      border-radius: 0 0 pxtovw(3, 375) pxtovw(3, 375);
+    }
+  }
+
+  &__map-button {
+    position: absolute !important;
+    bottom: 23px;
+    right: 30px;
+    pointer-events: auto;
+    min-width: 125px;
+    z-index: 3;
+
+    @include screen('xlg', max, 2) {
+      bottom: pxtovw(23, 1660);
+      right: pxtovw(30, 1660);
+      min-width: pxtovw(125, 1660);
+    }
+
+    @include screen('lg', max, 2) {
+      bottom: pxtovw(23, 1366);
+      right: pxtovw(30, 1366);
+      min-width: pxtovw(125, 1366);
+    }
+
+    @include screen('md', max, 2) {
+      bottom: pxtovw(23, 960);
+      right: pxtovw(30, 960);
+      min-width: pxtovw(125, 960);
+    }
+
+    @include screen('sm', max, 2) {
+      bottom: pxtovw(8, 375);
+      right: pxtovw(8, 375);
+      min-width: 0;
+    }
+  }
+
+  &__datetime {
+    display: block;
+    width: 100%;
+    text-align: right;
+
+    @include screen('sm', max, 2) {
+      text-align: left;
+    }
+  }
+
+  &__datetime-info {
+    display: block;
+    width: 100%;
+    font-family: $font-stolzl;
+    font-size: 30px;
+    line-height: (36 / 30);
+    letter-spacing: -.015em;
+    font-weight: 400;
+
+    @include screen('xlg', max, 2) {
+      font-size: pxtovw(30, 1660);
+    }
+
+    @include screen('lg', max, 2) {
+      font-size: pxtovw(30, 1366);
+    }
+
+    @include screen('md', max, 2) {
+      font-size: pxtovw(30, 960);
+    }
+
+    @include screen('sm', max, 2) {
+      font-size: pxtovw(24, 375);
+    }
+  }
+
+  &__datetime-change {
+    font-size: 16px;
+    line-height: 1;
+    font-weight: 500;
+
+    @include screen('xlg', max, 2) {
+      font-size: pxtovw(16, 1660);
+    }
+
+    @include screen('lg', max, 2) {
+      font-size: pxtovw(16, 1366);
+    }
+
+    @include screen('md', max, 2) {
+      font-size: pxtovw(16, 960);
+    }
+
+    @include screen('sm', max, 2) {
+      font-size: pxtovw(15, 375);
+    }
+
+    &:not(:first-child) {
+      margin-top: 10px;
+
+      @include screen('xlg', max, 2) {
+        margin-top: pxtovw(10, 1660);
+      }
+
+      @include screen('lg', max, 2) {
+        margin-top: pxtovw(8, 1366);
+      }
+
+      @include screen('md', max, 2) {
+        margin-top: pxtovw(8, 960);
+      }
+
+      @include screen('sm', max, 2) {
+        margin-top: pxtovw(8, 375);
+      }
+    }
+  }
+
+  &_nopad {
+    padding: 0;
   }
 
   &_shadow {

@@ -133,6 +133,25 @@
           max-width: none;
         }
       }
+
+      #{$b}_side-nav_view & {
+        @include screen('lg', max, 2) {
+          margin-top: pxtovw(21, 1366);
+        }
+
+        @include screen('md', max, 2) {
+          margin-top: pxtovw(21, 960);
+          max-width: pxtovw(137, 960);
+        }
+
+        @include screen('sm', max, 2) {
+          margin-top: pxtovw(15, 375);
+          margin-left: pxtovw(-18, 375);
+          margin-right: pxtovw(-18, 375);
+          width: calc(100% + ((3600 / 375) * 1vw));
+          max-width: none;
+        }
+      }
     }
   }
 
