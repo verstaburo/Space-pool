@@ -1,0 +1,170 @@
+.rs-grid {
+  $b: &;
+
+  position: relative;
+  display: block;
+  width: 100%;
+
+  .nd-container {
+    display: flex;
+    box-sizing: border-box;
+    align-content: flex-start;
+    flex-wrap: wrap;
+    min-height: 100vh;
+    max-width: 1762px;
+
+    @include screen('xlg', max, 2) {
+      max-width: pxtovw(1622, 1660);
+    }
+
+    @include screen('lg', max, 2) {
+      max-width: none;
+    }
+  }
+
+  &__logo {
+    position: absolute;
+    top: 98px;
+    color: $nd-color-logo;
+
+    @include screen('xlg', max, 2) {
+      top: pxtovw(98, 1660);
+    }
+
+    @include screen('lg', max, 2) {
+      top: pxtovw(122, 1366);
+    }
+
+    @include screen('md', max, 2) {
+      top: pxtovw(95, 960);
+    }
+
+    @include screen('sm', max, 2) {
+      display: none;
+    }
+  }
+
+  &__back {
+    position: absolute;
+    font-size: 16px;
+    line-height: 1.63;
+    font-weight: 700;
+    letter-spacing: -.02em;
+    top: 21px;
+    left: 36px;
+
+    @include screen('xlg', max, 2) {
+      font-size: pxtovw(16, 1660);
+      top: pxtovw(21, 1660);
+      left: pxtovw(36, 1660);
+    }
+
+    @include screen('lg', max, 2) {
+      font-size: pxtovw(16, 1366);
+      top: pxtovw(16, 1366);
+      left: pxtovw(32, 1366);
+    }
+
+    @include screen('md', max, 2) {
+      font-size: pxtovw(16, 960);
+      top: pxtovw(16, 960);
+      left: pxtovw(22, 960);
+    }
+
+    @include screen('sm', max, 2) {
+      position: static;
+      font-size: pxtovw(16, 375);
+    }
+
+    .nd-link {
+      &__icon {
+        &:not(:last-child) {
+          @include screen('sm', max, 2) {
+            margin-right: pxtovw(28, 375);
+          }
+        }
+      }
+
+      &__text {
+        @include screen('sm', max, 2) {
+          display: none;
+        }
+      }
+    }
+  }
+
+  &__column {
+    flex: 1;
+    box-sizing: border-box;
+
+    @include screen('sm', max, 2) {
+      flex: none;
+      width: 100%;
+    }
+
+    &:not(:last-child) {
+      border-right: 1px solid $nd-color-border4;
+
+      @include screen('sm', max, 2) {
+        border-right: none;
+      }
+    }
+
+    &_form {
+      position: relative;
+      padding: 221px 164px 221px 60px;
+
+      @include screen('xlg', max, 2) {
+        padding: pxtovw(221, 1660) pxtovw(164, 1660) pxtovw(221, 1660) pxtovw(60, 1660);
+      }
+
+      @include screen('lg', max, 2) {
+        padding: pxtovw(220, 1366) pxtovw(65, 1366) pxtovw(220, 1366) pxtovw(60, 1366);
+      }
+
+      @include screen('md', max, 2) {
+        padding: pxtovw(185, 960) pxtovw(50, 960) pxtovw(185, 960)  0;
+        flex: 581;
+      }
+
+      @include screen('sm', max, 2) {
+        padding: pxtovw(42, 375) 0 pxtovw(106, 375);
+        flex: none;
+        order: 2;
+      }
+    }
+
+    &_space {
+      padding: 206px 60px 206px 164px;
+
+      @include screen('xlg', max, 2) {
+        padding: pxtovw(206, 1660) pxtovw(60, 1660) pxtovw(206, 1660) pxtovw(164, 1660);
+      }
+
+      @include screen('lg', max, 2) {
+        padding: pxtovw(220, 1366) pxtovw(60, 1366) pxtovw(220, 1366) pxtovw(65, 1366);
+      }
+
+      @include screen('md', max, 2) {
+        padding: pxtovw(185, 960) 0 pxtovw(185, 960) pxtovw(50, 960);
+        flex: 417;
+      }
+
+      @include screen('sm', max, 2) {
+        padding: pxtovw(20, 375);
+        background-color: white;
+        flex: none;
+        width: 100vw;
+        margin: 0 pxtovw(-20, 375);
+        display: flex;
+        justify-content: flex-start;
+        align-items: flex-start;
+        box-shadow: 0 pxtovw(2, 375) pxtovw(2, 375) rgba(0, 0, 0, .04);
+      }
+    }
+  }
+
+  .registration-form {
+    padding-top: 0;
+  }
+}

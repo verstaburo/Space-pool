@@ -44,31 +44,6 @@
       height: pxtovw(7, 375);
     }
 
-    #{$b}_big & {
-      width: 9px;
-      height: 9px;
-
-      @include screen('xlg', max, 2) {
-        width: pxtovw(9, 1660);
-        height: pxtovw(9, 1660);
-      }
-
-      @include screen('lg', max, 2) {
-        width: pxtovw(9, 1366);
-        height: pxtovw(9, 1366);
-      }
-
-      @include screen('md', max, 2) {
-        width: pxtovw(7, 960);
-        height: pxtovw(7, 960);
-      }
-
-      @include screen('sm', max, 2) {
-        width: pxtovw(8, 375);
-        height: pxtovw(8, 375);
-      }
-    }
-
     &:not(:last-child) {
       margin-right: 4px;
 
@@ -133,6 +108,51 @@
         }
       }
     }
+
+    &_sz13 {
+      width: 13px;
+      height: 13px;
+
+      @include screen('xlg', max, 2) {
+        width: pxtovw(13, 1660);
+        height: pxtovw(13, 1660);
+      }
+
+      @include screen('lg', max, 2) {
+        width: pxtovw(13, 1366);
+        height: pxtovw(13, 1366);
+      }
+
+      @include screen('md', max, 2) {
+        width: pxtovw(9, 960);
+        height: pxtovw(9, 960);
+      }
+
+      @include screen('sm', max, 2) {
+        width: pxtovw(9, 375);
+        height: pxtovw(9, 375);
+      }
+
+      &:not(:last-child) {
+        margin-right: 10px;
+
+        @include screen('xlg', max, 2) {
+          margin-right: pxtovw(10, 1660);
+        }
+
+        @include screen('lg', max, 2) {
+          margin-right: pxtovw(10, 1366);
+        }
+
+        @include screen('md', max, 2) {
+          margin-right: pxtovw(6, 960);
+        }
+
+        @include screen('sm', max, 2) {
+          margin-right: pxtovw(6, 375);
+        }
+      }
+    }
   }
 
   &__name {
@@ -183,6 +203,28 @@
     }
 
     @include screen('md', max, 2) {
+      font-size: pxtovw(11, 960);
+    }
+
+    @include screen('sm', max, 2) {
+      font-size: pxtovw(11, 375);
+    }
+  }
+
+  &_fz15 {
+    font-size: 15px;
+    line-height: (18 / 15);
+
+    @include screen('xlg', max, 2) {
+      font-size: pxtovw(15, 1660);
+    }
+
+    @include screen('lg', max, 2) {
+      font-size: pxtovw(15, 1366);
+    }
+
+    @include screen('md', max, 2) {
+      line-height: (13 / 11);
       font-size: pxtovw(11, 960);
     }
 

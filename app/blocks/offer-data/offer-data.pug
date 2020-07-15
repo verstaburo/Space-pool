@@ -1,0 +1,13 @@
+mixin offer-data(data)
+  +b.offer-data&attributes(attributes)
+    each offer in data
+      +e.heading
+        +space-type._fz15._gray.__type
+          +nd-box()(class=offer.box + ' __box_sz13')
+          +e.name!=offer.name
+      +e.TABLE.list
+        each row in offer.rows
+          tr
+            td!=row.name
+            td!=row.price
+    block

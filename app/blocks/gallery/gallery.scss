@@ -625,6 +625,10 @@
       display: none;
     }
 
+    &_bg-small {
+      display: flex;
+    }
+
     &_small {
       display: flex;
       box-sizing: border-box;
@@ -707,6 +711,56 @@
       @include screen('sm', max, 2) {
         width: pxtovw(13, 375);
         height: pxtovw(38, 375);
+      }
+    }
+
+    #{$b}__buttons_bg-small & {
+      width: 21px;
+      height: 61px;
+
+      @include screen('xlg', max, 2) {
+        width: pxtovw(21, 1660);
+        height: pxtovw(61, 1660);
+      }
+
+      @include screen('lg', max, 2) {
+        width: pxtovw(21, 1366);
+        height: pxtovw(61, 1366);
+      }
+
+      @include screen('md', max, 2) {
+        width: pxtovw(13, 960);
+        height: pxtovw(38, 960);
+      }
+
+      @include screen('sm', max, 2) {
+        width: pxtovw(3, 375);
+        height: pxtovw(10, 375);
+      }
+
+      svg {
+        width: 10px;
+        height: 22px;
+
+        @include screen('xlg', max, 2) {
+          width: pxtovw(10, 1660);
+          height: pxtovw(22, 1660);
+        }
+
+        @include screen('lg', max, 2) {
+          width: pxtovw(10, 1366);
+          height: pxtovw(22, 1366);
+        }
+
+        @include screen('md', max, 2) {
+          width: pxtovw(7, 960);
+          height: pxtovw(14, 960);
+        }
+
+        @include screen('sm', max, 2) {
+          width: pxtovw(1, 375);
+          height: pxtovw(3, 375);
+        }
       }
     }
 

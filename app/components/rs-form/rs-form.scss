@@ -1,0 +1,28 @@
+.rs-form {
+  $b: &;
+
+  display: block;
+  width: 100%;
+
+  .nd-form {
+    &__section {
+      margin-top: 57px;
+
+      @include screen('xlg', max, 2) {
+        margin-top: pxtovw(57, 1660);
+      }
+
+      @include screen('lg', max, 2) {
+        margin-top: pxtovw(40, 1366);
+      }
+
+      @include screen('md', max, 2) {
+        margin-top: pxtovw(20, 960);
+      }
+
+      @include screen('sm', max, 2) {
+        margin-top: pxtovw(20, 375);
+      }
+    }
+  }
+}

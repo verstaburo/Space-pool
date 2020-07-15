@@ -200,17 +200,17 @@ mixin registration-form(data)
 
 
 mixin registration-form-summary(data)
-  +nd-form.registration-form&attributes(attributes)(data-validated-form)
+  +nd-form.registration-form_rs&attributes(attributes)(data-validated-form)
     +form-section-header()._tal(class=data.headerCls)
       +e.H2.title!=data.title
       if data.registration
         if data.reg2subtitle
           +e.text_md-fz16._sm-fz13(data-step="startSelection") No monthly charges, uncomplicated, quick and secure
-        +e.text_mt25._md-fz16._sm-fz13.hide(data-step="registrationForm") Fill out the form, considering that all fields are mandatory.
+        +e.text._md-fz16._sm-fz13.hide(data-step="registrationForm") Fill out the form, considering that all fields are mandatory.
       if data.confirmemail
         +e.text._md-fz16._sm-fz13 Choose an option and continue registration as:
       if (data.registration)
-        +nd-checkbox({name: 'termsAndConditions', value: "accept", checker: 'registrationMethod'}).__selection_mt60(data-step="startSelection") I agree with&nbsp;
+        +nd-checkbox({name: 'termsAndConditions', value: "accept", checker: 'registrationMethod'})._md-fz16.__selection(data-step="startSelection") I agree with&nbsp;
           +nd-link()._underline(href="#") Terms and Conditions
     if (data.registration || data.login)
       +form-section(data-step="startSelection")
@@ -246,7 +246,7 @@ mixin registration-form-summary(data)
         +e.buttons
           +nd-button('button', true).__button_wide(type="submit") Sign Up
     if (data.login)
-      +form-section_mt70.hide(data-step="loginForm")
+      +form-section._mt70.hide(data-step="loginForm")
         +nd-grid.nd-grid_int28
           +nd-grid-col({xl: 12})
             +form-section-wrapper
@@ -283,7 +283,7 @@ mixin registration-form-summary(data)
             +nd-grid-col({xl: 12})(data-form-switchable-item="privatePerson")
               +form-section-wrapper
                 +nd-form-box('Date of birth').js-nd-datepicker
-                  +nd-input(type="text" name="firstName" placeholder="Date of birth" data-dates-result required readonly)._date
+                  +nd-input(type="text" name="birthDate" placeholder="Date of birth" data-dates-result required readonly)._date
                   +e.dates(data-dates-container)
             +nd-grid-col({xl: 6, sm: 12})(data-form-switchable-item="privatePerson")
               +form-section-wrapper

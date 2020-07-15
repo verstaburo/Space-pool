@@ -7,10 +7,11 @@ html(lang='en')
   block bodyClasses
   - var bodyClass = bodyCls || ''
   - var noFooter = isNoFooter || false
+  - var noHeader = isNoHeader || false
   - if (noFooter) bodyClass += ' is-nofooter'
+  - if (noHeader) bodyClass += ' is-noheader'
   body(class='no-js-scale nd ' + bodyClass)
     block header
-    - var noHeader = isNoHeader || false
     - var addClass = headerClass || ''
     - var pageCls = pageClass || ''
     - var messages = getData('notices-message.json')
@@ -22,13 +23,13 @@ html(lang='en')
       +gradients-redesign
     if !noHeader
       +nd-header(isHost)(class=addClass)
-    +nd-user-menu-panel(isHost)
-    +info-notices({indicator: 2, title: 'Events', link: {mdname: 'View all events', xlname: 'Show all events'}})#events-list
-      each item in events
-        +notice(item)
-    +info-notices({indicator: 2, title: 'Messages', link: {xlname: 'View all Messages', mdname: 'Read all messages', indicator: 2}})#messages-list
-      each item in messages
-        +notice(item)
+      +nd-user-menu-panel(isHost)
+      +info-notices({indicator: 2, title: 'Events', link: {mdname: 'View all events', xlname: 'Show all events'}})#events-list
+        each item in events
+          +notice(item)
+      +info-notices({indicator: 2, title: 'Messages', link: {xlname: 'View all Messages', mdname: 'Read all messages', indicator: 2}})#messages-list
+        each item in messages
+          +notice(item)
 
     +b.MAIN(class='nd-page' + pageCls)
       block content

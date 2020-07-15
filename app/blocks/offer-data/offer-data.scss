@@ -1,0 +1,116 @@
+.offer-data {
+  $b: &;
+
+  display: block;
+  width: 100%;
+
+  &__heading {
+    display: block;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+    font-size: 0;
+  }
+
+  .space-type {
+    position: relative;
+    display: inline-flex;
+
+    &::after {
+      @include pseudo;
+
+      box-sizing: border-box;
+      height: auto;
+      font-size: 0;
+      line-height: 0;
+      border-bottom: 1px solid $nd-color-border4;
+      width: 50vw;
+      bottom: 50%;
+      left: calc(100% + 10px);
+
+      @include screen('xlg', max, 2) {
+        left: calc(100% + ((1000 / 1660) * 1vw));
+      }
+
+      @include screen('lg', max, 2) {
+        left: calc(100% + ((1000 / 1366) * 1vw));
+      }
+
+      @include screen('md', max, 2) {
+        left: calc(100% + ((1000 / 960) * 1vw));
+      }
+
+      @include screen('sm', max, 2) {
+        left: calc(100% + ((1000 / 375) * 1vw));
+      }
+    }
+  }
+
+  &__list {
+    width: 100%;
+    border-collapse: collapse;
+
+    td, th {
+      padding: 25px 0 19px;
+      border-bottom: 1px solid $nd-color-border4;
+      font-weight: 500;
+      font-size: 18px;
+      line-height: (22 / 18);
+
+      @include screen('xlg', max, 2) {
+        padding: pxtovw(25, 1660) 0 pxtovw(19, 1660);
+        font-size: pxtovw(18, 1660);
+      }
+
+      @include screen('lg', max, 2) {
+        padding: pxtovw(25, 1366) 0 pxtovw(19, 1366);
+        font-size: pxtovw(18, 1366);
+      }
+
+      @include screen('md', max, 2) {
+        line-height: (18 / 15);
+        padding: pxtovw(12, 960) 0 pxtovw(19, 960);
+        font-size: pxtovw(15, 960);
+      }
+
+      @include screen('sm', max, 2) {
+        padding: pxtovw(12, 375) 0 pxtovw(19, 375);
+        font-size: pxtovw(15, 375);
+      }
+
+      &:first-child {
+        font-weight: 700;
+      }
+
+      &:last-child {
+        text-align: right;
+      }
+    }
+
+    tr {
+      width: 100%;
+
+      &:not(:first-child) {
+        td, th {
+          padding-top: 19px;
+
+          @include screen('xlg', max, 2) {
+            padding-top: pxtovw(19, 1660);
+          }
+
+          @include screen('lg', max, 2) {
+            padding-top: pxtovw(19, 1366);
+          }
+
+          @include screen('md', max, 2) {
+            padding-top: pxtovw(19, 960);
+          }
+
+          @include screen('sm', max, 2) {
+            padding-top: pxtovw(19, 375);
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,57 @@
+mixin rs-form()
+  +nd-form.rs-form&attributes(attributes)(data-validated-form)
+    +form-section-header()._tal
+      +e.H2.title Rental summary
+      +e.text._md-fz16._sm-fz13 No monthly charges, uncomplicated, quick and secure
+    +form-section
+      +nd-grid.nd-grid_gap25.nd-grid_int28
+        +nd-grid-col({xl: 9, sm: 12})
+          +form-section-wrapper
+            +nd-form-box('Offer')
+              +nd-select(name="offer" placeholder="Offer" required data-choices-popup="data-choices-popup" data-mobile-title="Offer").js-nd-select
+                option(value="" placeholder)
+                option(value="1") First Floor Desk Area
+                option(value="2") Second Floor Desk Area
+                option(value="3") Third Floor Desk Area
+        +nd-grid-col({xl: 3, sm: 12})
+          +form-section-wrapper
+            +nd-form-box('Amount')
+              +nd-input(type="text" name="amount" value="2" required)
+        +nd-grid-col({xl: 6, sm: 12})
+          +form-section-wrapper
+            +nd-form-box('Rent start date').js-nd-datepicker
+              +nd-input(type="text" name="rentStartDate" placeholder="Rent start date" data-dates-result required readonly)._date
+              +e.dates(data-dates-container)
+        +nd-grid-col({xl: 6, sm: 12})
+          +form-section-wrapper
+            +nd-form-box('Rent period')
+              +nd-select(name="rentPeriod" placeholder="Rent period" required data-choices-popup="data-choices-popup" data-mobile-title="Rent period").js-nd-select
+                option(value="" placeholder)
+                - for (var i = 1; i <= 12; i++) {
+                  if (i==1)
+                    option(value=i) #{i} month
+                  else
+                    option(value=i) #{i} months
+                -}
+      +nd-table._info._info_amount.__table
+        tbody
+          tr
+            td
+              b Safety deposit
+            td £ 860.00
+          tr
+            td
+              b Price per unit
+            td £ 860.00 per month
+          tr
+            td
+              b Total price
+            td £ 1 720.00
+          tr
+            td.is-fz22
+              b Total
+            td
+              b £ ‭2 580‬.00
+
+      +e.buttons
+        +nd-button('button', true).__button_wide(type="submit") Continue
