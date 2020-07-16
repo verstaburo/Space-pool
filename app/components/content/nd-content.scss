@@ -96,9 +96,21 @@
         @include grid-row(2, 3);
       }
 
-      // .nd-page_chat & {
-      //   position: relative;
-      // }
+      .nd-page_chat & {
+        padding-bottom: 131px;
+
+        @include screen('xlg', max, 2) {
+          padding-bottom: pxtovw(131, 1660);
+        }
+
+        @include screen('lg', max, 2) {
+          padding-bottom: pxtovw(124, 1366);
+        }
+
+        @include screen('md', max, 2) {
+          padding-bottom: 0;
+        }
+      }
     }
 
     #{$b}_map & {
