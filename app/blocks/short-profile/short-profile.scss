@@ -66,6 +66,26 @@
         margin-right: pxtovw(14, 375);
       }
     }
+
+    #{$b}_msg & {
+      margin-right: 9px;
+
+      @include screen('xlg', max, 2) {
+        margin-right: pxtovw(9, 1660);
+      }
+
+      @include screen('lg', max, 2) {
+        margin-right: pxtovw(9, 1366);
+      }
+
+      @include screen('md', max, 2) {
+        margin-right: pxtovw(9, 960);
+      }
+
+      @include screen('sm', max, 2) {
+        margin-right: pxtovw(9, 375);
+      }
+    }
   }
 
   &__name {
@@ -135,6 +155,36 @@
 
       @include screen('sm', max, 2) {
         font-size: pxtovw(15, 375);
+      }
+    }
+
+    #{$b}_msg & {
+      font-size: 17px;
+      line-height: (18 / 17);
+      font-weight: 500;
+      letter-spacing: normal;
+      color: $nd-color-basic;
+
+      @include screen('xlg', max, 2) {
+        font-size: pxtovw(17, 1660);
+      }
+
+      @include screen('lg', max, 2) {
+        font-size: pxtovw(17, 1366);
+      }
+
+      @include screen('md', max, 2) {
+        font-size: pxtovw(17, 960);
+      }
+
+      @include screen('sm', max, 2) {
+        display: inline-block;
+        font-size: pxtovw(15, 375);
+        line-height: (18 / 15);
+      }
+
+      .is-new & {
+        font-weight: 700;
       }
     }
 
@@ -304,6 +354,21 @@
       font-size: pxtovw(13, 375);
     }
 
+    #{$b}_msg & {
+      display: none;
+
+      @include screen('sm', max, 2) {
+        position: absolute;
+        top: 50%;
+        left: pxtovw(-3, 375);
+        display: inline-block;
+        width: pxtovw(14, 375);
+        padding: pxtovw(7, 375) 0;
+        transform: translate3d(0, -50%, 0);
+        font-size: pxtovw(9, 375);
+      }
+    }
+
     &:not(:first-child) {
       margin-left: -17px;
 
@@ -321,6 +386,10 @@
 
       @include screen('sm', max, 2) {
         margin-left: pxtovw(-17, 375);
+      }
+
+      #{$b}_msg & {
+        margin: 0;
       }
     }
   }
@@ -373,5 +442,9 @@
         }
       }
     }
+  }
+
+  &_msg {
+    position: relative;
   }
 }

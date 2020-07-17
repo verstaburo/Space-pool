@@ -3,10 +3,27 @@ mixin slider-navigation(data, startSlide, activeName)
     .swiper-wrapper
       each item in data
         - var addClass = (item.name == activeName) ? ' is-active' : '';
-        +e.slide.swiper-slide
-          if item.marker
-            +e.A.link.is-new(href=item.href class=addClass)!=item.name
-              +e.marker!=item.marker
-          else
-            +e.A.link(href=item.href class=addClass)!=item.name
+        if !item.list
+          +e.slide.swiper-slide
+            if item.marker
+              +e.A.link.is-new(href=item.href class=addClass)!=item.name
+                +e.marker!=item.marker
+            else
+              +e.A.link(href=item.href class=addClass)!=item.name
+        else
+          +e.slide.swiper-slide
+            if item.marker
+              +e.A.link.is-new(href=item.href class=addClass)!=item.name
+                +e.marker!=item.marker
+            else
+              +e.A.link(href=item.href class=addClass)!=item.name
+          each subitem in item.list
+            - addClass = (subitem.name == activeName) ? ' is-active' : '';
+            +e.slide.swiper-slide
+              if subitem.marker
+                +e.A.link.is-new(href=subitem.href class=addClass)!=subitem.name
+                  +e.marker!=subitem.marker
+              else
+                +e.A.link(href=subitem.href class=addClass)!=subitem.name
+
     block

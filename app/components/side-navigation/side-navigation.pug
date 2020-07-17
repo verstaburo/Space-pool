@@ -5,7 +5,7 @@ mixin side-navigation(note)
       if note
         +note._side.hide-sm!= note
 
-mixin nd-side-navigation(data, activeName)
+mixin nd-side-navigation(data, activeName, subActiveName)
   +b.DIV.nd-side-navigation&attributes(attributes)
     if data.space
       +nd-space('div')._side-nav.__space(class=data.space.class)
@@ -28,13 +28,13 @@ mixin nd-side-navigation(data, activeName)
             if item.list
               +e.UL.sublist
                 each link in item.list
-                  - var subClass = (link.name == 'Basic information') ? ' is-active' : ''
+                  - var subClass = (link.name == subActiveName) ? ' is-active' : ''
                   +e.LI.subitem
                     +e.A.sublink(href=link.href class=subClass)!=link.name
-    if data.note
-      each item in data.menu
-        if (item.name == activeName)
-          +e.note!=data.item.note
+    each item in data.menu
+      if (item.name == activeName)
+        if item.note
+          +e.note!=item.note
     if data.iconLink
       +e.links
         +nd-link-icon(data.iconLink.icon)(class=data.iconLink.class href=data.iconLink.href)._icon_blue.__btn-link!=data.iconLink.name

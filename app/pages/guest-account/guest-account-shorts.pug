@@ -1,0 +1,38 @@
+extends ../../layouts/redesign-default
+
+block head
+  - var pageTitle = 'Spacepool - Guest Account'
+
+block bodyClasses
+  - var bodyCls = ' is-sm-noheader';
+
+block header
+  - var headerClass = ' is-login'
+  - var pageClass = ''
+  - var isMap = false
+  - var host = false
+
+block content
+  +nd-page-header._grid._grid_acc
+    .nd-container
+      +nd-page-header-side
+        +nd-link-icon('arrow5')._back.__back.nd-hide-from-sm Back
+      +nd-page-header-main
+        - var menuList = getData('sideNavProfile.json').menu;
+        +e.dt-menu.nd-hide-md
+          +nd-breadcrumbs([["Home", "#"], ["My account", "#"], ["Shortlist"]]).__breadcrumbs
+        +e.mb-menu.nd-hide-from-md
+          +slider-navigation(menuList, 2, 'Shortlist')
+
+  +nd-content
+    .nd-container
+      +nd-content-aside
+        +sidebar.nd-sidebar.nd-hide-md
+          - var nav = getData('sideNavProfile.json')
+          +nd-side-navigation(nav, 'Shortlist')
+
+      +nd-content-main
+
+block panels
+
+block popups

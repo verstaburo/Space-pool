@@ -15,3 +15,27 @@ mixin message-header(count)
 mixin message-content()
   +e.content&attributes(attributes)
     block
+
+mixin nd-message(data)
+  - var addClass = data.cls || '';
+  - addClass += (data.state.type === 'new') ? ' is-new' : ''
+  +b.nd-message&attributes(attributes)(class=addClass)
+    if data.time
+      +e.TIME.time!=data.time.value
+    if data.person
+      +e.profile
+        +nd-short-profile-data(data.person)._msg
+    if data.message
+      +e.message
+        +e.text!=data.message
+    if data.state
+      +e.state
+        if data.state.type === 'new'
+          +e.marker!=data.state.count
+        if data.state.type === 'read'
+          +e.read
+    +e.buttons
+      if (data.isDisabled)
+        +nd-button-icon('', {icon: 'nd-bubble', notext: true})._pad10._h32._sm-h26.__button.is-disabled(href="#")
+      else
+        +nd-button-icon('', {icon: 'nd-bubble', notext: true})._pad10._h32._sm-h26.__button(href="#")
