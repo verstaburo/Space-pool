@@ -293,4 +293,23 @@ export default function formManipulations() {
       }
     });
   });
+
+  $(document).on('click', '.js-show-success-popup', (evt) => {
+    evt.preventDefault();
+    const self = evt.currentTarget;
+    const fn = $(self).attr('data-callback');
+    const form = $(self).closest('form')[0];
+    $(self).addClass('is-loading');
+    window[fn](form).then((readySaved) => {
+      const btn = $(form).find('.js-show-success-popup');
+      const panel = $(btn).closest('[data-hidden-panel]');
+      $(btn).removeClass('is-loading');
+      if (readySaved) {
+        // $(btn).addClass('is-disabled');
+        // $(btn).attr('disabled', 'disabled');
+        $(panel).addClass('is-saved');
+        $(panel).removeClass('is-active');
+      }
+    });
+  });
 }

@@ -231,6 +231,18 @@
           @include screen('sm', max, 2) {
             @include grid-row(1, 2);
           }
+
+          #{$b}_grid_acc & {
+            @include screen('md', max, 2) {
+              @include grid-column(1, 4);
+              @include grid-row(1, 2);
+            }
+
+            @include screen('sm', max, 2) {
+              @include grid-column(1, 2);
+              @include grid-row(1, 2);
+            }
+          }
         }
 
         &_main {
@@ -243,6 +255,59 @@
             @include grid-row(2, 3);
             @include grid-align-self(end);
           }
+
+          #{$b}_grid_acc & {
+            @include screen('md', max, 2) {
+              @include grid-column(1, 4);
+              @include grid-row(2, 3);
+            }
+
+            @include screen('sm', max, 2) {
+              @include grid-column(1, 2);
+              @include grid-align-self(end);
+            }
+          }
+        }
+      }
+    }
+
+    &_acc {
+      @include screen('md', max, 2) {
+        overflow: hidden;
+      }
+
+      #{$b} {
+        &__column {
+          &_side {
+            @include screen('md', max, 2) {
+              @include grid-column(1, 4);
+              @include grid-row(1, 2);
+            }
+
+            @include screen('sm', max, 2) {
+              @include grid-column(1, 2);
+              @include grid-row(1, 2);
+            }
+          }
+
+          &_main {
+            @include screen('md', max, 2) {
+              @include grid-column(1, 4);
+              @include grid-row(1, 2);
+            }
+
+            @include screen('sm', max, 2) {
+              @include grid-column(1, 2);
+              @include grid-row(2, 3);
+              @include grid-align-self(end);
+            }
+          }
+        }
+      }
+
+      .slider-navigation {
+        @include screen('md', max, 2) {
+          overflow: visible;
         }
       }
     }

@@ -55,6 +55,30 @@
       }
     }
 
+    #{$b}_notice & {
+      display: flex;
+      width: 114px;
+      height: 100%;
+      max-width: none;
+      flex: none;
+
+      @include screen('xlg', max, 2) {
+        width: pxtovw(114, 1660);
+      }
+
+      @include screen('lg', max, 2) {
+        width: pxtovw(114, 1366);
+      }
+
+      @include screen('md', max, 2) {
+        width: pxtovw(114, 960);
+      }
+
+      @include screen('sm', max, 2) {
+        width: pxtovw(65, 375);
+      }
+    }
+
     #{$b}_map-card & {
       max-width: 100px;
 
@@ -236,6 +260,17 @@
 
       @include screen('md', max, 2) {
         padding-top: 63%;
+      }
+    }
+
+    #{$b}_notice & {
+      padding-top: 0;
+      height: 100%;
+      width: 100%;
+
+      @include screen('sm', max, 2) {
+        height: auto;
+        padding-top: 69.2%;
       }
     }
 
@@ -793,6 +828,56 @@
         }
       }
     }
+
+    #{$b}_notice & {
+      font-size: 18px;
+      line-height: (22 / 18);
+      font-weight: 500;
+      font-family: $font-main;
+
+      @include ellipsis(100%);
+
+      @include screen('xlg', max, 2) {
+        font-size: pxtovw(18, 1660);
+      }
+
+      @include screen('lg', max, 2) {
+        font-size: pxtovw(16, 1366);
+        line-height: (19 / 16);
+      }
+
+      @include screen('md', max, 2) {
+        font-size: pxtovw(16, 960);
+      }
+
+      @include screen('sm', max, 2) {
+        font-size: pxtovw(16, 375);
+      }
+
+      &:not(:first-child) {
+        margin-top: 4px;
+
+        @include screen('xlg', max, 2) {
+          margin-top: pxtovw(4, 1660);
+        }
+
+        @include screen('lg', max, 2) {
+          margin-top: pxtovw(4, 1366);
+        }
+
+        @include screen('md', max, 2) {
+          margin-top: pxtovw(4, 960);
+        }
+
+        @include screen('sm', max, 2) {
+          margin-top: pxtovw(1, 375);
+        }
+      }
+
+      .is-new & {
+        font-weight: 700;
+      }
+    }
   }
 
   $lines: 2;
@@ -1270,6 +1355,32 @@
         padding: 0;
       }
     }
+
+    #{$b}_notice & {
+      flex: 1;
+      padding: 0;
+      overflow: hidden;
+
+      &:not(:first-child) {
+        margin-left: 26px;
+
+        @include screen('xlg', max, 2) {
+          margin-left: pxtovw(26, 1660);
+        }
+
+        @include screen('lg', max, 2) {
+          margin-left: pxtovw(24, 1366);
+        }
+
+        @include screen('md', max, 2) {
+          margin-left: pxtovw(24, 960);
+        }
+
+        @include screen('sm', max, 2) {
+          margin-left: pxtovw(12, 375);
+        }
+      }
+    }
   }
 
   &__offers {
@@ -1561,5 +1672,13 @@
         }
       }
     }
+  }
+
+  &_notice {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    box-sizing: border-box;
+    width: 100%;
   }
 }

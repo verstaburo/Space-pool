@@ -6,3 +6,12 @@ mixin avatar-uploader()
       +e.INPUT(type="file" name="ava").input.js-upload-image
       +link-icon('img', 'span')._icon_gray-dark._icon_mid._form-underline._no-shadow._bold.__name
         block
+
+mixin nd-avatar-uploader(tag)
+  +b(tag || 'form').nd-avatar-uploader&attributes(attributes)(data-upload-container)
+    +e.preview(data-image-preview)
+      +avatar('assets/images/ava5.jpg')._big
+    +e.LABEL.content
+      +e.INPUT(type="file" name="ava").input.js-upload-image
+      +nd-link-icon('nd-up', 'span')._underline.__name Upload Picture
+        block

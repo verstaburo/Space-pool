@@ -29,9 +29,68 @@ block content
       +nd-content-aside
         +sidebar.nd-sidebar.nd-hide-md
           - var nav = getData('sideNavProfile.json')
-          +nd-side-navigation(nav, 'Account settings', 'Basic information')
+          +nd-side-navigation(nav, 'Account settings', 'Basic information')._profile
 
       +nd-content-main
+        +nd-section
+          +nd-section-header
+            +nd-section-title Account settings
+            +e.menu
+              +slider-navigation([{name: "Basic information", href: "#"}, {name: "Account password", href: "#"}, {name: "Company details", href: "#"}], 0, 'Basic information')
+          +dashboard('form')._account.__dashboard.js-form-with-hidden-panel(data-validated-form)
+            +board.__board_acc._acc_form
+              +board-title Account holder information
+              +nd-form('section').__form
+                +e.row
+                  +form-section-wrapper.__cell
+                    +nd-form-box('First name')._bg-white
+                      +nd-input(type="text" name="firstName" placeholder="First name" required value="Eugene")
+                +e.row
+                  +form-section-wrapper.__cell
+                    +nd-form-box('Last name')._bg-white
+                      +nd-input(type="text" name="lastName" placeholder="Last name" required value="Sheeleen")
+                +e.row
+                  +form-section-wrapper.__cell
+                    +nd-form-box('Email')._bg-white
+                      +nd-input(type="email" name="email" placeholder="Email" required value="esdesign.lv@gmail.com")
+                +e.row
+                  +form-section-wrapper.__cell_w144._md-wide
+                    +nd-form-box('Country code')._bg-white
+                      +nd-input(type="text" name="countryCode" placeholder="Country code")
+                  +form-section-wrapper.__cell
+                    +nd-form-box('Phone number')._bg-white
+                      +nd-input(type="tel" name="phoneNumber" placeholder="Phone number")
+            +board.__board_acc._acc_avatar
+              +board-header
+                +board-title Userpic
+                +nd-link._underline.__link Delete Current Userpic
+                +nd-avatar-uploader('section').__uploader
+            +board.__board_acc._acc_notes
+              +board-title Notifications
+              +nd-table._info.__table
+                tbody
+                  tr
+                    td Notify me about my deal activities via Email
+                    td
+                      +nd-switch({name: 'noteDeal', value: "1", type: 'simple', labels: {on: 'on', off: 'off'}})._light
+                  tr
+                    td Notify me about unread messages via Email
+                    td
+                      +nd-switch({name: 'noteRead', value: "1", type: 'simple', labels: {on: 'on', off: 'off'}})._light
+                  tr
+                    td Send me hot offers via email
+                    td
+                      +nd-switch({name: 'noteOffers', value: "1", type: 'simple', labels: {on: 'on', off: 'off'}, checked: true})._light
+
+            +nd-form-panel().is-fixed(data-hidden-panel)
+              .nd-content
+                .nd-container
+                  .nd-content__column_aside
+                  .nd-content__column_main
+                    +e.controls
+                      +nd-link-icon('nd-cross', 'button')(type="reset").__reset.js-form-reset Discard changes
+                      +nd-button('button', true).__button.js-show-success-popup(type="submit" data-callback="serverSave" data-popup="#popup-save-success") Save changes
+
 
 block panels
 

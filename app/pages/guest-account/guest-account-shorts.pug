@@ -29,9 +29,26 @@ block content
       +nd-content-aside
         +sidebar.nd-sidebar.nd-hide-md
           - var nav = getData('sideNavProfile.json')
-          +nd-side-navigation(nav, 'Shortlist')
+          +nd-side-navigation(nav, 'Shortlist')._profile
 
       +nd-content-main
+        +nd-section
+          +nd-section-header
+            +nd-section-title Shortlisted 7 hot desks
+            +e.menu
+              +slider-navigation([{name: "Hot desks", href: "#"}, {name: "Fixed desks", href: "#"}, {name: "Meeting Rooms", href: "#"}, {name: "Private Offices", href: "#"}], 0, 'Hot desks')
+          +nd-results._shortlist.__results
+            each item in getData('nd-spaces-shortlist.json')
+              +nd-results-item
+                +nd-space()._search-offer
+                  +e.head
+                    +space-type._big._gray.__type
+                      +nd-box()(class=item.type.box + ' __box')
+                      +e.name!=item.type.name
+                    +nd-space-title()!=item.title
+                    +e.heart.is-active
+                      +icon('nd-favorite')
+                  +offer-slider(item.offers).__offer-slider
 
 block panels
 

@@ -29,12 +29,12 @@ block content
       +nd-content-aside
         +sidebar.nd-sidebar.nd-hide-md
           - var nav = getData('sideNavProfile.json')
-          +nd-side-navigation(nav, 'Notifications')
+          +nd-side-navigation(nav, 'Notifications')._profile
 
       +nd-content-main
         +records
-          each item in []
-            +e.item
+          each item in getData('nd-notifications.json')
+            +nd-notice(item).__item
 
 block panels
 

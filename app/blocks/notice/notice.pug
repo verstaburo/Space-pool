@@ -30,3 +30,25 @@ mixin notice(data)
               default
                 - break
       block
+
+
+mixin nd-notice(data)
+  - var addClass = data.cls || ''
+  - addClass += data.new ? ' is-new' : ''
+  - addClass += data.signed ? ' is-signed' : ''
+  - addClass += data.sign ? ' is-sign' : ''
+  +b.nd-notice&attributes(attributes)(class=addClass)
+    +e.space
+      +nd-space._notice
+        +nd-space-media-e
+          +e.PICTURE.image
+            source(srcset=data.space.img)
+            img(srcset=data.space.img)
+        +e.head
+          +space-type._gray.__type
+            +nd-box()(class=data.space.type.box + ' __box')
+            +e.name!=data.space.type.name
+          +nd-space-title()!=data.space.title
+    +e.text!=data.note
+    +e.buttons
+      +nd-button()._pad10._fw600._fz16._lg-fz14._h32.__button Sign the agreement
