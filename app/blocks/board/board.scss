@@ -284,6 +284,12 @@
       }
     }
 
+    &_mb0 {
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+
     &:not(:first-child) {
       margin-top: 33px;
 
@@ -400,6 +406,18 @@
 
         @include screen('sm', max, 2) {
           margin-top: pxtovw(42, 375);
+        }
+      }
+    }
+
+    &_md-mt35 {
+      &:not(:first-child) {
+        @include screen('md', max, 2) {
+          margin-top: pxtovw(35, 960);
+        }
+
+        @include screen('sm', max, 2) {
+          margin-top: pxtovw(18, 375);
         }
       }
     }
@@ -527,6 +545,28 @@
       }
     }
 
+    &_fz12 {
+      font-size: 12px;
+      letter-spacing: -.015em;
+      line-height: (14 / 12);
+
+      @include screen('xlg', max, 2) {
+        font-size: pxtovw(12, 1660);
+      }
+
+      @include screen('lg', max, 2) {
+        font-size: pxtovw(12, 1366);
+      }
+
+      @include screen('md', max, 2) {
+        font-size: pxtovw(12, 960);
+      }
+
+      @include screen('sm', max, 2) {
+        font-size: pxtovw(12, 375);
+      }
+    }
+
     &_fz14 {
       font-size: 14px;
       letter-spacing: -.02em;
@@ -554,6 +594,10 @@
 
     &_bold {
       font-weight: 700;
+    }
+
+    &_stolzl {
+      font-family: $font-stolzl;
     }
   }
 
@@ -1144,6 +1188,55 @@
 
       @include screen('sm', max, 2) {
         margin-top: pxtovw(8, 375);
+      }
+    }
+  }
+
+  &__form {
+    display: block;
+    width: 100%;
+
+    &:not(:first-child) {
+      margin-top: 67px;
+
+      @include screen('xlg', max, 2) {
+        margin-top: pxtovw(67, 1660);
+      }
+
+      @include screen('lg', max, 2) {
+        margin-top: pxtovw(67, 1366);
+      }
+
+      @include screen('md', max, 2) {
+        margin-top: pxtovw(67, 960);
+      }
+
+      @include screen('sm', max, 2) {
+        margin-top: pxtovw(36, 375);
+      }
+    }
+  }
+
+  &__uploader {
+    width: 100%;
+
+    &:not(:first-child) {
+      margin-top: 36px;
+
+      @include screen('xlg', max, 2) {
+        margin-top: pxtovw(36, 1660);
+      }
+
+      @include screen('lg', max, 2) {
+        margin-top: pxtovw(36, 1366);
+      }
+
+      @include screen('md', max, 2) {
+        margin-top: pxtovw(36, 960);
+      }
+
+      @include screen('sm', max, 2) {
+        margin-top: pxtovw(40, 375);
       }
     }
   }

@@ -393,6 +393,64 @@
         }
       }
     }
+
+    &_check {
+      th, td {
+        padding: 14px 40px 14px 0;
+        font-size: 18px;
+        vertical-align: middle;
+        font-weight: 400;
+        line-height: 1.15;
+
+        @include screen('xlg', max, 2) {
+          padding: pxtovw(14, 1660) pxtovw(40, 1660) pxtovw(14, 1660) 0;
+          font-size: pxtovw(18, 1660);
+        }
+
+        @include screen('lg', max, 2) {
+          padding: pxtovw(14, 1366) pxtovw(40, 1366) pxtovw(14, 1366) 0;
+          font-size: pxtovw(16, 1366);
+        }
+
+        @include screen('md', max, 2) {
+          padding: pxtovw(14, 960) pxtovw(30, 960) pxtovw(14, 960) 0;
+          font-size: pxtovw(16, 960);
+        }
+
+        @include screen('sm', max, 2) {
+          padding: pxtovw(23, 375) pxtovw(15, 375) pxtovw(23, 375) 0;
+          font-size: pxtovw(16, 375);
+        }
+
+        &:last-child {
+          width: 50px;
+          text-align: right;
+          padding-right: 0;
+          line-height: 0;
+          font-size: 0;
+
+          @include screen('xlg', max, 2) {
+            width: pxtovw(50, 1660);
+          }
+
+          @include screen('lg', max, 2) {
+            width: pxtovw(50, 1366);
+          }
+
+          @include screen('md', max, 2) {
+            width: pxtovw(50, 960);
+          }
+
+          @include screen('sm', max, 2) {
+            width: pxtovw(50, 375);
+          }
+        }
+      }
+
+      tr:last-child {
+        border-bottom: none;
+      }
+    }
   }
 
   &_features {

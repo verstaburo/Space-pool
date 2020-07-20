@@ -33,22 +33,22 @@ block content
 
       +nd-content-main
         +nd-section
-          +nd-section-header
-            +nd-section-title Shortlisted 7 hot desks
-            +e.menu
+          +nd-section-header._fx.nd-hide-md
+            +nd-section-title._fz24 Shortlisted 7 hot desks
+            +e.menu.nd-hide-md
               +slider-navigation([{name: "Hot desks", href: "#"}, {name: "Fixed desks", href: "#"}, {name: "Meeting Rooms", href: "#"}, {name: "Private Offices", href: "#"}], 0, 'Hot desks')
           +nd-results._shortlist.__results
             each item in getData('nd-spaces-shortlist.json')
               +nd-results-item
-                +nd-space()._search-offer
+                +nd-space()._search-offer._search-offer_short
                   +e.head
-                    +space-type._big._gray.__type
+                    +space-type._gray.__type
                       +nd-box()(class=item.type.box + ' __box')
                       +e.name!=item.type.name
                     +nd-space-title()!=item.title
                     +e.heart.is-active
-                      +icon('nd-favorite')
-                  +offer-slider(item.offers).__offer-slider
+                      +icon('nd-favorite-full')
+                  +offer-slider(item.offers)._short.__offer-slider
 
 block panels
 

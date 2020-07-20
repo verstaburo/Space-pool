@@ -1,0 +1,146 @@
+.nd-form-panel {
+  $b: &;
+
+  position: fixed;
+  display: flex;
+  width: 100vw;
+  bottom: 0;
+  left: 0;
+  z-index: 23;
+  min-height: 90px;
+
+  @include screen('xlg', max, 2) {
+    min-height: pxtovw(90, 1660);
+  }
+
+  @include screen('lg', max, 2) {
+    min-height: pxtovw(90, 1366);
+  }
+
+  @include screen('md', max, 2) {
+    min-height: pxtovw(60, 960);
+    background-color: $nd-color-basic-light;
+  }
+
+  @include screen('sm', max, 2) {
+    min-height: pxtovw(60, 375);
+  }
+
+  .nd-content {
+    display: flex;
+  }
+
+  &_hidden {
+    visibility: hidden;
+    pointer-events: none;
+    opacity: 0;
+
+    &.is-active {
+      opacity: 1;
+      pointer-events: auto;
+      visibility: visible;
+    }
+  }
+
+  &.is-stop {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+  }
+
+  &.is-fixed {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100vw;
+  }
+
+  &__controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    background-color: $nd-color-basic-light;
+    padding: 0 44px;
+
+    @include screen('xlg', max, 2) {
+      padding: 0 pxtovw(44, 1660);
+    }
+
+    @include screen('lg', max, 2) {
+      padding: 0 pxtovw(30, 1366);
+    }
+
+    @include screen('md', max, 2) {
+      padding: 0;
+    }
+  }
+
+  &__reset {
+    font-family: $font-stolzl;
+    font-size: 16px;
+    letter-spacing: -.015em;
+    line-height: 1.2;
+
+    @include screen('xlg', max, 2) {
+      font-size: pxtovw(16, 1660);
+    }
+
+    @include screen('lg', max, 2) {
+      font-size: pxtovw(16, 1366);
+    }
+
+    @include screen('md', max, 2) {
+      font-size: pxtovw(16, 960);
+    }
+
+    @include screen('sm', max, 2) {
+      font-size: pxtovw(16, 375);
+    }
+
+    .nd-link__icon {
+      &:not(:last-child) {
+        margin-right: 24px;
+
+        @include screen('xlg', max, 2) {
+          margin-right: pxtovw(24, 1660);
+        }
+
+        @include screen('lg', max, 2) {
+          margin-right: pxtovw(24, 1366);
+        }
+
+        @include screen('md', max, 2) {
+          margin-right: pxtovw(24, 960);
+        }
+
+        @include screen('sm', max, 2) {
+          margin-right: pxtovw(15, 375);
+        }
+      }
+    }
+  }
+
+  &__button {
+    min-width: 273px;
+
+    @include screen('xlg', max, 2) {
+      min-width: pxtovw(273, 1660);
+    }
+
+    @include screen('lg', max, 2) {
+      min-width: pxtovw(273, 1366);
+    }
+
+    @include screen('md', max, 2) {
+      min-width: pxtovw(273, 960);
+    }
+
+    @include screen('sm', max, 2) {
+      min-width: pxtovw(163, 375);
+    }
+  }
+}

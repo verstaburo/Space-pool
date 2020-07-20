@@ -38,3 +38,24 @@ defaultImage();
 $(document).on('change', '.js-upload-image', (evt) => {
   uploadImage(evt.target);
 });
+
+$(document).on('click', '[data-uploader-clear]', (evt) => {
+  evt.preventDefault();
+  const self = evt.currentTarget;
+  const uploaderName = $(self).attr('data-uploader-clear');
+  const fn = $(self).attr('data-callback');
+  const input = $(`[data-avatar-uploader="${uploaderName}"]`);
+  window[fn](input).then((readySaved) => {
+    if (readySaved) {
+      const inputParent = $(input).parent();
+      const uploaderContainer = $(input).closest('[data-upload-container]');
+      const imageBlock = $(uploaderContainer).find('[data-image-preview] img');
+      const form = document.createElement('form');
+      $(form).append(input);
+      form.reset();
+      $(imageBlock).attr('src', "data:image/svg+xml,%3Csvg viewBox='0 0 1 1'xmlns='http://www.w3.org/2000/svg'%3E/svg%3E");
+      $(inputParent).prepend(input);
+      $(input).trigger('change');
+    }
+  });
+});

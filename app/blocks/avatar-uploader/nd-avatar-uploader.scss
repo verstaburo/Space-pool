@@ -1,0 +1,82 @@
+.nd-avatar-uploader {
+  $b: &;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  align-content: flex-start;
+  width: 100%;
+
+  @include screen('sm', max, 2) {
+    justify-content: center;
+    align-items: flex-start;
+    flex-wrap: wrap;
+  }
+
+  &__preview {
+    display: block;
+    flex: none;
+
+    .avatar {
+      background-color: #dadada;
+    }
+  }
+
+  &__content {
+    display: block;
+    cursor: pointer;
+
+    @include screen('sm', max, 2) {
+      width: 100%;
+      text-align: center;
+    }
+
+    &:not(:first-child) {
+      margin-left: 40px;
+
+      @include screen('xlg', max, 2) {
+        margin-left: pxtovw(40, 1660);
+      }
+
+      @include screen('lg', max, 2) {
+        margin-left: pxtovw(30, 1366);
+      }
+
+      @include screen('md', max, 2) {
+        margin-left: pxtovw(30, 960);
+      }
+
+      @include screen('sm', max, 2) {
+        margin-left: 0;
+        margin-top: pxtovw(43, 375);
+      }
+    }
+  }
+
+  &__input {
+    display: none;
+  }
+
+  &__name {
+    font-size: 16px;
+    line-height: (19 / 16);
+    font-family: $font-stolzl;
+    letter-spacing: -.015em;
+
+    @include screen('xlg', max, 2) {
+      font-size: pxtovw(16, 1660);
+    }
+
+    @include screen('lg', max, 2) {
+      font-size: pxtovw(16, 1366);
+    }
+
+    @include screen('md', max, 2) {
+      font-size: pxtovw(16, 960);
+    }
+
+    @include screen('sm', max, 2) {
+      font-size: pxtovw(16, 375);
+    }
+  }
+}

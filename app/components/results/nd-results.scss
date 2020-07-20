@@ -37,6 +37,30 @@
     width: calc(100% + ((2000 / 375) * 1vw));
   }
 
+  &_shortlist {
+    padding-top: 0;
+
+    &:not(:first-child) {
+      margin-top: 16px;
+
+      @include screen('xlg', max, 2) {
+        margin-top: pxtovw(16, 1660);
+      }
+
+      @include screen('lg', max, 2) {
+        margin-top: pxtovw(7, 1366);
+      }
+
+      @include screen('md', max, 2) {
+        margin-top: pxtovw(-2, 960);
+      }
+
+      @include screen('sm', max, 2) {
+        margin-top: pxtovw(-9, 375);
+      }
+    }
+  }
+
   .is-search-map-hide & {
     padding-top: 0;
   }
@@ -142,6 +166,31 @@
 
     .nd-space {
       width: 100%;
+    }
+
+    #{$b}_shortlist & {
+      width: 33.33%;
+      margin-top: 40px;
+
+      @include screen('xlg', max, 2) {
+        margin-top: pxtovw(40, 1660);
+      }
+
+      @include screen('lg', max, 2) {
+        margin-top: pxtovw(40, 1366);
+      }
+
+      @include screen('md', max, 2) {
+        margin-top: pxtovw(30, 960);
+      }
+
+      @include screen('sm', max, 2) {
+        margin-top: pxtovw(30, 375);
+      }
+
+      @include screen('sm', max, 2) {
+        width: 100%;
+      }
     }
   }
 }

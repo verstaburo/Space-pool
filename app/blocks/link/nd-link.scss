@@ -100,6 +100,31 @@
       }
     }
 
+    &_cross {
+      width: 14px;
+      height: 14px;
+
+      @include screen('xlg', max, 2) {
+        width: pxtovw(14, 1660);
+        height: pxtovw(14, 1660);
+      }
+
+      @include screen('lg', max, 2) {
+        width: pxtovw(14, 1366);
+        height: pxtovw(14, 1366);
+      }
+
+      @include screen('md', max, 2) {
+        width: pxtovw(14, 960);
+        height: pxtovw(14, 960);
+      }
+
+      @include screen('sm', max, 2) {
+        width: pxtovw(14, 375);
+        height: pxtovw(14, 375);
+      }
+    }
+
     &_arrow5 {
       width: 13px;
       height: 7px;
@@ -393,6 +418,57 @@
         &__icon {
           @include screen('sm', max, 2) {
             opacity: 0;
+          }
+        }
+      }
+    }
+  }
+
+  &_upload {
+    #{$b} {
+      &__icon {
+        width: 16px;
+        height: 14px;
+        order: 2;
+
+        @include screen('xlg', max, 2) {
+          width: pxtovw(16, 1660);
+          height: pxtovw(14, 1660);
+        }
+
+        @include screen('lg', max, 2) {
+          width: pxtovw(16, 1366);
+          height: pxtovw(14, 1366);
+        }
+
+        @include screen('md', max, 2) {
+          width: pxtovw(16, 960);
+          height: pxtovw(14, 960);
+        }
+
+        @include screen('sm', max, 2) {
+          width: pxtovw(16, 375);
+          height: pxtovw(14, 375);
+        }
+
+        &:not(:last-child) {
+          margin-right: 0;
+          margin-left: 15px;
+
+          @include screen('xlg', max, 2) {
+            margin-left: pxtovw(15, 1660);
+          }
+
+          @include screen('lg', max, 2) {
+            margin-left: pxtovw(15, 1366);
+          }
+
+          @include screen('md', max, 2) {
+            margin-left: pxtovw(15, 960);
+          }
+
+          @include screen('sm', max, 2) {
+            margin-left: pxtovw(15, 375);
           }
         }
       }

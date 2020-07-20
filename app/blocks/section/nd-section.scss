@@ -110,6 +110,23 @@
         }
       }
     }
+
+    &_fx {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+
+      @include screen('lg', max, 2) {
+        align-items: center;
+      }
+    }
+
+    &_md-pg-head {
+      @include screen('md', max, 2) {
+        margin-top: pxtovw(22, 960);
+        min-height: pxtovw(85, 960);
+      }
+    }
   }
 
   &__title {
@@ -137,6 +154,27 @@
       font-size: pxtovw(20, 375);
     }
 
+    &_fz24  {
+      font-size: 24px;
+      line-height: 1;
+
+      @include screen('xlg', max, 2) {
+        font-size: pxtovw(24, 1660);
+      }
+
+      @include screen('lg', max, 2) {
+        font-size: pxtovw(24, 1366);
+      }
+
+      @include screen('md', max, 2) {
+        font-size: pxtovw(24, 960);
+      }
+
+      @include screen('sm', max, 2) {
+        font-size: pxtovw(20, 375);
+      }
+    }
+
     &_fz30 {
       font-size: 30px;
       line-height: 1.19;
@@ -162,6 +200,35 @@
     &_sm-fz26 {
       @include screen('sm', max, 2) {
         font-size: pxtovw(26, 375);
+      }
+    }
+  }
+
+  &__menu {
+    width: 100%;
+    max-width: 65%;
+
+    @include screen('md', max, 2) {
+      max-width: pxtovw(540, 960);
+    }
+
+    &:not(:first-child) {
+      margin-left: 30px;
+
+      @include screen('xlg', max, 2) {
+        margin-left: pxtovw(30, 1660);
+      }
+
+      @include screen('lg', max, 2) {
+        margin-left: pxtovw(30, 1366);
+      }
+
+      @include screen('md', max, 2) {
+        margin-left: pxtovw(30, 960);
+      }
+
+      @include screen('sm', max, 2) {
+        margin-left: pxtovw(30, 375);
       }
     }
   }
@@ -558,6 +625,10 @@
         margin-top: pxtovw(30, 375);
       }
     }
+  }
+
+  &__dashboard {
+    width: 100%;
   }
 
   &_dpo {
