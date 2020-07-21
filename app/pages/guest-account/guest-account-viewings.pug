@@ -9,7 +9,7 @@ block bodyClasses
 block header
   - var headerClass = ' is-login'
   - var pageClass = ''
-  - var isMap = false
+  - var isMap = true
   - var host = false
 
 block content
@@ -33,6 +33,8 @@ block content
 
       +nd-content-main
         +records
+          each item in getData('nd-guest-acc-viewings.json')
+            +space-card(item)._view._view_g.__item_view
 
 block panels
 

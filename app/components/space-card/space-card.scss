@@ -1,3 +1,532 @@
 .space-card {
   $b: &;
+
+  @include display-grid;
+
+  width: 100%;
+  background-color: $nd-color-basic-light;
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, .03), 2px 2px 2px rgba(0, 0, 0, .04), 3px 3px 3px rgba(0, 0, 0, .02);
+  border-radius: 3px;
+  padding: 48px 45px 60px;
+  box-sizing: border-box;
+
+  @include screen('xlg', max, 2) {
+    box-shadow: pxtovw(1, 1660) pxtovw(1, 1660) pxtovw(1, 1660) rgba(0, 0, 0, .03), pxtovw(2, 1660) pxtovw(2, 1660) pxtovw(2, 1660) rgba(0, 0, 0, .04), pxtovw(3, 1660) pxtovw(3, 1660) pxtovw(3, 1660) rgba(0, 0, 0, .02);
+    border-radius: pxtovw(3, 1660);
+    padding: pxtovw(48, 1660) pxtovw(45, 1660) pxtovw(60, 1660);
+  }
+
+  @include screen('lg', max, 2) {
+    box-shadow: pxtovw(1, 1366) pxtovw(1, 1366) pxtovw(1, 1366) rgba(0, 0, 0, .03), pxtovw(2, 1366) pxtovw(2, 1366) pxtovw(2, 1366) rgba(0, 0, 0, .04), pxtovw(3, 1366) pxtovw(3, 1366) pxtovw(3, 1366) rgba(0, 0, 0, .02);
+    border-radius: pxtovw(3, 1366);
+    padding: pxtovw(30, 1366) pxtovw(40, 1366) pxtovw(44, 1366) pxtovw(45, 1366);
+  }
+
+  @include screen('md', max, 2) {
+    box-shadow: pxtovw(1, 960) pxtovw(1, 960) pxtovw(1, 960) rgba(0, 0, 0, .03), pxtovw(2, 960) pxtovw(2, 960) pxtovw(2, 960) rgba(0, 0, 0, .04), pxtovw(3, 960) pxtovw(3, 960) pxtovw(3, 960) rgba(0, 0, 0, .02);
+    border-radius: pxtovw(3, 960);
+    padding: pxtovw(30, 960) pxtovw(40, 960) pxtovw(26, 960) pxtovw(45, 960);
+  }
+
+  @include screen('sm', max, 2) {
+    box-shadow: none;
+    border-radius: pxtovw(3, 375);
+    padding: pxtovw(28, 375) pxtovw(18, 375) pxtovw(33, 375);
+  }
+
+  &__type {
+    @include grid-column(1, 2);
+    @include grid-row(1, 2);
+
+    #{$b}_view_g & {
+      @include grid-column(1, 2);
+    }
+
+    &.space-type {
+      font-weight: 600;
+      line-height: 1;
+      font-size: 13px;
+
+      @include screen('xlg', max, 2) {
+        font-size: pxtovw(13, 1660);
+      }
+
+      @include screen('lg', max, 2) {
+        font-size: pxtovw(13, 1366);
+      }
+
+      @include screen('md', max, 2) {
+        font-size: pxtovw(13, 960);
+      }
+
+      @include screen('sm', max, 2) {
+        font-size: pxtovw(11, 375);
+        line-height: (13 / 11);
+      }
+    }
+  }
+
+  &__title {
+    @include grid-column(1, 3);
+    @include grid-row(2, 3);
+
+    font-family: $font-stolzl;
+    font-size: 30px;
+    line-height: 1;
+    font-weight: 400;
+
+    @include screen('xlg', max, 2) {
+      font-size: pxtovw(30, 1660);
+    }
+
+    @include screen('lg', max, 2) {
+      font-size: pxtovw(25, 1366);
+    }
+
+    @include screen('md', max, 2) {
+      font-size: pxtovw(25, 960);
+    }
+
+    @include screen('sm', max, 2) {
+      line-height: 1.1;
+      font-size: pxtovw(20, 375);
+    }
+
+    #{$b}_view_g & {
+      @include grid-column(1, 3);
+
+      @include screen('xlg', max, 2) {
+        font-size: pxtovw(30, 1660);
+      }
+
+      @include screen('lg', max, 2) {
+        font-size: pxtovw(30, 1366);
+      }
+
+      @include screen('md', max, 2) {
+        font-size: pxtovw(30, 960);
+      }
+
+      @include screen('sm', max, 2) {
+        @include grid-column(1, 2);
+        @include grid-row(2, 3);
+
+        line-height: 1.1;
+        font-size: pxtovw(20, 375);
+      }
+    }
+  }
+
+  &__location {
+    @include grid-column(1, 3);
+    @include grid-row(3, 4);
+
+    color: $color-gray-lightest;
+    font-size: 12px;
+    line-height: (15 / 12);
+
+    @include screen('xlg', max, 2) {
+      font-size: pxtovw(12, 1660);
+    }
+
+    @include screen('lg', max, 2) {
+      font-size: pxtovw(12, 1366);
+    }
+
+    @include screen('md', max, 2) {
+      font-size: pxtovw(12, 960);
+    }
+
+    @include screen('sm', max, 2) {
+      @include grid-column(1, 2);
+      @include grid-row(3, 4);
+
+      font-size: pxtovw(12, 375);
+    }
+
+    &_dark {
+      color: $nd-color-basic;
+    }
+
+    &_marker {
+      position: relative;
+      box-sizing: border-box;
+      padding-left: 31px;
+
+      @include screen('xlg', max, 2) {
+        padding-left: pxtovw(31, 1660);
+      }
+
+      @include screen('lg', max, 2) {
+        padding-left: pxtovw(31, 1366);
+      }
+
+      @include screen('md', max, 2) {
+        padding-left: pxtovw(31, 960);
+      }
+
+      @include screen('sm', max, 2) {
+        padding-left: pxtovw(22, 375);
+      }
+
+      &::before {
+        position: absolute;
+        display: block;
+        content: '';
+        top: -2px;
+        left: 0;
+        width: 16px;
+        height: 22px;
+        background-image: url("data:image/svg+xml,%3Csvg width='16' height='22' viewBox='0 0 16 22' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M16 8.17638C16 15.2614 8 22 8 22C8 22 0 15.0882 0 8.17638C0 3.65512 3.57627 0 8 0C12.4237 0 16 3.65512 16 8.17638Z' fill='%230085FF'/%3E%3Cpath d='M15.5 8.17638C15.5 11.547 13.5872 14.8911 11.6054 17.438C10.6218 18.702 9.63715 19.7496 8.89824 20.4811C8.52908 20.8465 8.22202 21.1323 8.00813 21.326C8.00669 21.3273 8.00525 21.3286 8.00381 21.3299C8.00119 21.3275 7.99856 21.325 7.99591 21.3226C7.78176 21.1243 7.47441 20.8323 7.10495 20.4599C6.36546 19.7145 5.3801 18.6502 4.39585 17.3747C2.41133 14.8028 0.5 11.4593 0.5 8.17638C0.5 3.92093 3.86264 0.5 8 0.5C12.1374 0.5 15.5 3.92093 15.5 8.17638Z' stroke='%231F1F1F' stroke-opacity='0.28'/%3E%3Cellipse cx='8.00153' cy='7.45136' rx='3.13044' ry='3.19355' fill='white'/%3E%3C/svg%3E ");
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: 50% 50%;
+
+        @include screen('xlg', max, 2) {
+          width: pxtovw(16, 1660);
+          height: pxtovw(22, 1660);
+          top: pxtovw(-2, 1660);
+        }
+
+        @include screen('lg', max, 2) {
+          width: pxtovw(16, 1366);
+          height: pxtovw(22, 1366);
+          top: pxtovw(-2, 1366);
+        }
+
+        @include screen('md', max, 2) {
+          width: pxtovw(16, 960);
+          height: pxtovw(22, 960);
+          top: pxtovw(-2, 960);
+        }
+
+        @include screen('sm', max, 2) {
+          width: pxtovw(12, 375);
+          height: pxtovw(16, 375);
+          top: pxtovw(-2, 375);
+        }
+      }
+    }
+
+    &_fz16 {
+      font-size: 16px;
+      line-height: 1.2;
+
+      @include screen('xlg', max, 2) {
+        font-size: pxtovw(16, 1660);
+      }
+
+      @include screen('lg', max, 2) {
+        font-size: pxtovw(16, 1366);
+      }
+
+      @include screen('md', max, 2) {
+        font-size: pxtovw(16, 960);
+      }
+
+      @include screen('sm', max, 2) {
+        font-size: pxtovw(13, 960);
+      }
+    }
+
+    #{$b}_view_g & {
+      @include grid-column(1, 3);
+
+      @include screen('sm', max, 2) {
+        @include grid-column(1, 2);
+        @include grid-row(5, 6);
+      }
+    }
+  }
+
+  &__contacts {
+    @include grid-column(2, 3);
+    @include grid-row(1, 2);
+
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    box-sizing: border-box;
+
+    @include screen('sm', max, 2) {
+      @include grid-column(1, 2);
+      @include grid-row(6, 7);
+
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: pxtovw(15, 375);
+      border-bottom: 1px solid $nd-color-border4;
+    }
+
+    #{$b}_view_g & {
+      @include grid-column(2, 4);
+
+      @include screen('sm', max, 2) {
+        @include grid-column(1, 2);
+        @include grid-row(7, 8);
+      }
+    }
+  }
+
+  &__chat {
+    min-width: 54px;
+
+    @include screen('xlg', max, 2) {
+      min-width: pxtovw(54, 1660);
+    }
+
+    @include screen('lg', max, 2) {
+      min-width: pxtovw(54, 1366);
+    }
+
+    @include screen('md', max, 2) {
+      min-width: pxtovw(54, 960);
+    }
+
+    @include screen('sm', max, 2) {
+      min-width: pxtovw(54, 375);
+    }
+
+    &:not(:first-child) {
+      margin-left: 26px;
+
+      @include screen('xlg', max, 2) {
+        margin-left: pxtovw(26, 1660);
+      }
+
+      @include screen('lg', max, 2) {
+        margin-left: pxtovw(26, 1366);
+      }
+
+      @include screen('md', max, 2) {
+        margin-left: pxtovw(26, 960);
+      }
+
+      @include screen('sm', max, 2) {
+        margin-left: pxtovw(26, 375);
+      }
+    }
+  }
+
+  &__map {
+    @include grid-column(1, 2);
+    @include grid-row(4, 6);
+
+    position: relative;
+    display: flex;
+    width: 100%;
+    height: auto;
+    font-size: 0;
+    line-height: 0;
+    pointer-events: none;
+
+    @include screen('sm', max, 2) {
+      @include grid-column(1, 2);
+      @include grid-row(6, 7);
+    }
+  }
+
+  &__map-container {
+    position: relative;
+    display: block;
+    box-sizing: border-box;
+    overflow: hidden;
+    z-index: 0;
+  }
+
+  &__map-button {
+    position: absolute !important;
+    bottom: 27px;
+    left: 50%;
+    pointer-events: auto;
+    min-width: 125px;
+    z-index: 3;
+    transform: translate3d(-50%, 0, 0);
+
+    @include screen('xlg', max, 2) {
+      bottom: pxtovw(27, 1660);
+      min-width: pxtovw(125, 1660);
+    }
+
+    @include screen('lg', max, 2) {
+      bottom: pxtovw(27, 1366);
+      min-width: pxtovw(125, 1366);
+    }
+
+    @include screen('md', max, 2) {
+      bottom: pxtovw(27, 960);
+      min-width: pxtovw(125, 960);
+    }
+
+    @include screen('sm', max, 2) {
+      bottom: pxtovw(27, 375);
+      min-width: pxtovw(125, 375);
+    }
+  }
+
+  &__media {
+    @include grid-column(1, 2);
+    @include grid-row(4, 5);
+
+    @include screen('sm', max, 2) {
+      @include grid-column(1, 2);
+      @include grid-row(4, 5);
+    }
+
+    #{$b}_view_g & {
+      @include grid-column(2, 3);
+      @include grid-row(4, 6);
+
+      @include screen('sm', max, 2) {
+        @include grid-column(1, 2);
+        @include grid-row(3, 4);
+      }
+    }
+  }
+
+  &__datetime {
+    @include grid-column(3, 4);
+    @include grid-row(4, 5);
+
+    text-align: right;
+    font-family: $font-stolzl;
+    font-size: 30px;
+    line-height: (36 / 30);
+    font-weight: 400;
+    letter-spacing: -.015em;
+
+    @include screen('xlg', max, 2) {
+      font-size: pxtovw(30, 1660);
+    }
+
+    @include screen('lg', max, 2) {
+      font-size: pxtovw(30, 1366);
+    }
+
+    @include screen('md', max, 2) {
+      font-size: pxtovw(30, 960);
+    }
+
+    @include screen('sm', max, 2) {
+      @include grid-column(1, 2);
+      @include grid-row(4, 5);
+
+      line-height: (30 / 25);
+      font-size: pxtovw(25, 375);
+    }
+  }
+
+  &__table {
+    @include grid-column(2, 3);
+    @include grid-row(4, 5);
+
+    @include screen('sm', max, 2) {
+      @include grid-column(1, 2);
+      @include grid-row(5, 6);
+    }
+  }
+
+  &__links {
+    @include grid-column(1, 3);
+    @include grid-row(5, 6);
+
+    display: flex;
+    width: 100%;
+    justify-content: flex-end;
+    align-items: center;
+
+    @include screen('sm', max, 2) {
+      @include grid-column(1, 2);
+      @include grid-row(7, 8);
+    }
+
+    #{$b}_view_g & {
+      @include grid-column(3, 4);
+      @include grid-row(5, 6);
+
+      @include screen('sm', max, 2) {
+        @include grid-column(1, 2);
+        @include grid-row(8, 9);
+      }
+    }
+  }
+
+  &__link {
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 1.63;
+    letter-spacing: -.02;
+
+    @include screen('xlg', max, 2) {
+      font-size: pxtovw(20, 1660);
+    }
+
+    @include screen('lg', max, 2) {
+      font-size: pxtovw(20, 1366);
+    }
+
+    @include screen('md', max, 2) {
+      font-size: pxtovw(20, 960);
+    }
+
+    @include screen('sm', max, 2) {
+      font-size: pxtovw(15, 375);
+    }
+  }
+
+  &_rent {
+    &_g {
+      @include grid-template-columns(442px 1fr);
+      @include grid-template-rows(grid-repeat(5, auto));
+
+      @include screen('xlg', max, 2) {
+        @include grid-template-columns(pxtovw(442, 1660) 1fr);
+      }
+
+      @include screen('lg', max, 2) {
+        @include grid-template-columns(pxtovw(364, 1366) 1fr);
+      }
+
+      @include screen('md', max, 2) {
+        @include grid-template-columns(pxtovw(302, 960) 1fr);
+      }
+
+      @include screen('sm', max, 2) {
+        @include grid-template-columns(100%);
+        @include grid-template-rows(grid-repeat(7, auto));
+      }
+    }
+
+    &_h {
+
+    }
+  }
+
+  &_view {
+    &_g {
+      @include grid-template-columns(255px 392px 1fr);
+      @include grid-template-rows(grid-repeat(5, auto));
+
+      @include screen('xlg', max, 2) {
+        @include grid-template-columns(pxtovw(255, 1660) pxtovw(392, 1660) 1fr);
+      }
+
+      @include screen('lg', max, 2) {
+        @include grid-template-columns(pxtovw(227, 1366) pxtovw(350, 1366) 1fr);
+      }
+
+      @include screen('md', max, 2) {
+        @include grid-template-columns(pxtovw(206, 960) pxtovw(317, 960) 1fr);
+      }
+
+      @include screen('sm', max, 2) {
+        @include grid-template-columns(100%);
+        @include grid-template-rows(grid-repeat(8, auto));
+      }
+    }
+
+    &_h {
+
+    }
+  }
 }

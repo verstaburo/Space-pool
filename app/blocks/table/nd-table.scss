@@ -49,6 +49,11 @@
     }
   }
 
+  &__state {
+    color: $nd-color-main;
+    font-weight: 700;
+  }
+
   &_rent-state {
     thead tr {
       border-width: 0;
@@ -646,6 +651,44 @@
           max-width: 100%;
           max-height: 100%;
         }
+      }
+    }
+  }
+
+  &_resume {
+    th, td {
+      font-size: 16px;
+      line-height: (19 / 16);
+      padding-top: 18px;
+      padding-bottom: 15px;
+
+      @include screen('xlg', max, 2) {
+        font-size: pxtovw(16, 1660);
+        padding-top: pxtovw(18, 1660);
+        padding-bottom: pxtovw(15, 1660);
+      }
+
+      @include screen('lg', max, 2) {
+        font-size: pxtovw(16, 1366);
+        padding-top: pxtovw(18, 1366);
+        padding-bottom: pxtovw(15, 1366);
+      }
+
+      @include screen('md', max, 2) {
+        font-size: pxtovw(16, 960);
+        padding-top: pxtovw(18, 960);
+        padding-bottom: pxtovw(15, 960);
+      }
+
+      @include screen('sm', max, 2) {
+        line-height: (18 / 15);
+        font-size: pxtovw(15, 375);
+        padding-top: pxtovw(14, 375);
+        padding-bottom: pxtovw(16, 375);
+      }
+
+      &:first-child {
+        font-weight: 700;
       }
     }
   }

@@ -615,4 +615,54 @@
   &_black {
     background-color: $nd-color-basic;
   }
+
+  &.is-new::before {
+    display: block;
+    position: absolute;
+    content: attr(data-counter);
+    padding: 11px 0 10px;
+    width: 21px;
+    text-align: center;
+    line-height: 0;
+    font-size: 13px;
+    font-weight: 700;
+    top: -5px;
+    right: -7px;
+    border-radius: 50%;
+    background-color: $nd-color-fixeddesk;
+    color: $nd-color-basic-light;
+    z-index: 2;
+
+    @include screen('xlg', max, 2) {
+      padding: pxtovw(11, 1660) 0 pxtovw(10, 1660);
+      width: pxtovw(21, 1660);
+      font-size: pxtovw(13, 1660);
+      top: pxtovw(-5, 1660);
+      right: pxtovw(-7, 1660);
+    }
+
+    @include screen('lg', max, 2) {
+      padding: pxtovw(11, 1366) 0 pxtovw(10, 1366);
+      width: pxtovw(21, 1366);
+      font-size: pxtovw(13, 1366);
+      top: pxtovw(-5, 1366);
+      right: pxtovw(-7, 1366);
+    }
+
+    @include screen('md', max, 2) {
+      padding: pxtovw(11, 960) 0 pxtovw(10, 960);
+      width: pxtovw(21, 960);
+      font-size: pxtovw(13, 960);
+      top: pxtovw(-5, 960);
+      right: pxtovw(-7, 960);
+    }
+
+    @include screen('sm', max, 2) {
+      padding: pxtovw(11, 375) 0 pxtovw(10, 375);
+      width: pxtovw(21, 375);
+      font-size: pxtovw(13, 375);
+      top: pxtovw(-5, 375);
+      right: pxtovw(-7, 375);
+    }
+  }
 }

@@ -25,7 +25,12 @@ mixin nd-short-profile-data(data)
   +b(data.tag || 'a').short-profile&attributes(attributes)
     if data.ava
       +avatar(data.ava.img)(class=data.ava.class + ' __avatar')
-    if data.name
+    if data.position
+      +e.info
+        +e.position(class=(data.position.cls || ''))!=data.position.name
+        if data.name
+          +e.name(class=data.nameClass)!=data.name
+    else if data.name
       +e.name(class=data.nameClass)!=data.name
     if data.marker
       +e.marker!=data.marker

@@ -123,6 +123,8 @@ $(document).ready(function () {
   function initGMap() {
     var tagsMap = document.getElementById('tagsMap');
     var spaceMap = document.getElementById('spaceMap');
+    var spaceMap1 = document.getElementById('spaceMap1');
+    var spaceMap2 = document.getElementById('spaceMap2');
     var searchMap = document.getElementById('search-map');
 
     // Карта на главной
@@ -165,6 +167,48 @@ $(document).ready(function () {
       var marker = new google.maps.Marker({
         position: uluru,
         map: map2,
+        icon: {
+          url: 'assets/images/nd/nd-map-marker.svg',
+          size: new google.maps.Size(40, 54),
+          origin: new google.maps.Point(0, 0),
+          anchor: new google.maps.Point(20, 54),
+          scaledSize: new google.maps.Size(40, 54),
+        },
+      });
+    }
+
+    if (spaceMap1) {
+      var mapSp1 = new google.maps.Map(
+        spaceMap1, {
+          zoom: 13,
+          center: uluru,
+          disableDefaultUI: true,
+        });
+
+      var markerSp1 = new google.maps.Marker({
+        position: uluru,
+        map: mapSp1,
+        icon: {
+          url: 'assets/images/nd/nd-map-marker.svg',
+          size: new google.maps.Size(40, 54),
+          origin: new google.maps.Point(0, 0),
+          anchor: new google.maps.Point(20, 54),
+          scaledSize: new google.maps.Size(40, 54),
+        },
+      });
+    }
+
+    if (spaceMap2) {
+      var mapSp2 = new google.maps.Map(
+        spaceMap2, {
+          zoom: 13,
+          center: uluru,
+          disableDefaultUI: true,
+        });
+
+      var markerSp2 = new google.maps.Marker({
+        position: uluru,
+        map: mapSp2,
         icon: {
           url: 'assets/images/nd/nd-map-marker.svg',
           size: new google.maps.Size(40, 54),

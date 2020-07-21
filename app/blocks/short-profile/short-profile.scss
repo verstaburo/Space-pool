@@ -129,6 +129,12 @@
       }
     }
 
+    &_sm-visible {
+      @include screen('sm', max, 2) {
+        display: block;
+      }
+    }
+
     &_fz17 {
       font-size: 17px;
       line-height: (21 / 17);
@@ -150,6 +156,28 @@
 
       @include screen('sm', max, 2) {
         font-size: pxtovw(15, 375);
+      }
+    }
+
+    &_fz16 {
+      font-size: 16px;
+      line-height: 1;
+      letter-spacing: normal;
+
+      @include screen('xlg', max, 2) {
+        font-size: pxtovw(16, 1660);
+      }
+
+      @include screen('lg', max, 2) {
+        font-size: pxtovw(16, 1366);
+      }
+
+      @include screen('md', max, 2) {
+        font-size: pxtovw(16, 960);
+      }
+
+      @include screen('sm', max, 2) {
+        font-size: pxtovw(16, 375);
       }
     }
 
@@ -178,6 +206,10 @@
 
     &_stolzl {
       font-family: $font-stolzl;
+      font-weight: 400;
+    }
+
+    &_fw400 {
       font-weight: 400;
     }
 

@@ -211,6 +211,27 @@
     }
   }
 
+  &_fz13 {
+    font-size: 13px;
+    line-height: 1;
+
+    @include screen('xlg', max, 2) {
+      font-size: pxtovw(13, 1660);
+    }
+
+    @include screen('lg', max, 2) {
+      font-size: pxtovw(13, 1366);
+    }
+
+    @include screen('md', max, 2) {
+      font-size: pxtovw(13, 960);
+    }
+
+    @include screen('sm', max, 2) {
+      font-size: pxtovw(13, 375);
+    }
+  }
+
   &_fz15 {
     font-size: 15px;
     line-height: (18 / 15);
@@ -229,6 +250,13 @@
     }
 
     @include screen('sm', max, 2) {
+      font-size: pxtovw(11, 375);
+    }
+  }
+
+  &_sm-fz11 {
+    @include screen('sm', max, 2) {
+      line-height: (13 / 11);
       font-size: pxtovw(11, 375);
     }
   }
