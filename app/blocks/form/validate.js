@@ -62,4 +62,34 @@ $('[data-validated-form]').parsley({
   },
 });
 
+$(document).on('click', '.js-show-success-popup', (evt) => {
+  evt.preventDefault();
+  const self = evt.currentTarget;
+  const fn = $(self).attr('data-callback');
+  const form = $(self).closest('form')[0];
+  $(form).parsley().whenValidate().done(() => {
+    $(self).addClass('is-loading');
+    window[fn](form).then((readySaved) => {
+      const btn = $(form).find('.js-show-success-popup');
+      const panel = $(btn).closest('[data-hidden-panel]');
+      const popupId = $(btn).attr('data-popup');
+      const popup = $(popupId);
+      $(btn).removeClass('is-loading');
+      if (readySaved) {
+        // $(btn).addClass('is-disabled');
+        // $(btn).attr('disabled', 'disabled');
+        $(panel).addClass('is-saved');
+        $(panel).removeClass('is-active');
+        window.globalFunctions.openPopup(popup, false, {
+          smallBtn: false,
+          toolbar: false,
+          idleTime: false,
+          gutter: 0,
+          preventCaptionOverlap: false,
+        });
+      }
+    });
+  });
+});
+
 /* eslint-enable no-unused-vars */

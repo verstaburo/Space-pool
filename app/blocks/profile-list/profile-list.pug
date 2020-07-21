@@ -1,0 +1,14 @@
+mixin profile-list()
+  +b.SECTION.profile-list&attributes(attributes)
+    .nd-container
+      +nd-short-profile-data({tag: 'div', ava: {img: 'assets/images/nd/user-avatar-1.jpg', class: '_sz34'}, name: 'Marge Landlordy', nameClass: '_fz19 _stolzl'})._acc.__profile
+      +e.UL.list
+        each item in getData('nd-guest-acc-list.json')
+          +e.LI.item
+            +e.A.link(href=item.href)
+              +e.SPAN.name!=item.name
+              +e.IMG.image(src=item.icon)
+      +e.exit
+        +nd-link('button')._blue.__button(type="button") Exit my account
+
+    block

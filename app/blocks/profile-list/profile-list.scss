@@ -1,0 +1,170 @@
+.profile-list {
+  $b: &;
+
+  display: block;
+  width: 100%;
+  margin-top: 11px;
+
+  @include screen('xlg', max, 2) {
+    margin-top: pxtovw(11, 1660);
+  }
+
+  @include screen('lg', max, 2) {
+    margin-top: pxtovw(11, 1366);
+  }
+
+  @include screen('md', max, 2) {
+    margin-top: pxtovw(11, 960);
+  }
+
+  @include screen('sm', max, 2) {
+    margin-top: pxtovw(11, 375);
+  }
+
+  &__profile {
+    width: 100%;
+  }
+
+  &__list {
+    display: block;
+    width: 100%;
+
+    &:not(:first-child) {
+      margin-top: 26px;
+
+      @include screen('xlg', max, 2) {
+        margin-top: pxtovw(26, 1660);
+      }
+
+      @include screen('lg', max, 2) {
+        margin-top: pxtovw(26, 1366);
+      }
+
+      @include screen('md', max, 2) {
+        margin-top: pxtovw(26, 960);
+      }
+
+      @include screen('sm', max, 2) {
+        margin-top: pxtovw(26, 375);
+      }
+    }
+  }
+
+  &__item {
+    display: block;
+    width: 100%;
+    border-bottom: 1px solid $nd-color-table-border;
+  }
+
+  &__link {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
+    cursor: pointer;
+    transition: color $ease-main;
+    padding: 10px 0;
+    font-size: 16px;
+    line-height: 1.92;
+    font-family: $font-stolzl;
+
+    @include screen('xlg', max, 2) {
+      padding: pxtovw(10, 1660) 0;
+      font-size: pxtovw(16, 1660);
+    }
+
+    @include screen('lg', max, 2) {
+      padding: pxtovw(10, 1366) 0;
+      font-size: pxtovw(16, 1366);
+    }
+
+    @include screen('md', max, 2) {
+      padding: pxtovw(10, 960) 0;
+      font-size: pxtovw(16, 960);
+    }
+
+    @include screen('sm', max, 2) {
+      padding: pxtovw(10, 375) 0;
+      font-size: pxtovw(15, 375);
+    }
+
+    &:hover {
+      color: $nd-color-main;
+    }
+  }
+
+  &__image {
+    display: block;
+    width: 24px;
+    height: 19px;
+    font-size: 0;
+    line-height: 0;
+
+    @include screen('xlg', max, 2) {
+      width: pxtovw(24, 1660);
+      height: pxtovw(19, 1660);
+    }
+
+    @include screen('lg', max, 2) {
+      width: pxtovw(24, 1366);
+      height: pxtovw(19, 1366);
+    }
+
+    @include screen('md', max, 2) {
+      width: pxtovw(24, 960);
+      height: pxtovw(19, 960);
+    }
+
+    @include screen('sm', max, 2) {
+      width: pxtovw(24, 375);
+      height: pxtovw(19, 375);
+    }
+  }
+
+  &__exit {
+    display: block;
+    width: 100%;
+
+    &:not(:first-child) {
+      margin-top: 40px;
+
+      @include screen('xlg', max, 2) {
+        margin-top: pxtovw(40, 1660);
+      }
+
+      @include screen('lg', max, 2) {
+        margin-top: pxtovw(40, 1366);
+      }
+
+      @include screen('md', max, 2) {
+        margin-top: pxtovw(40, 960);
+      }
+
+      @include screen('sm', max, 2) {
+        margin-top: pxtovw(40, 375);
+      }
+    }
+  }
+
+  &__button {
+    font-size: 16px;
+    line-height: 1.2;
+    font-family: $font-stolzl;
+
+    @include screen('xlg', max, 2) {
+      font-size: pxtovw(16, 1660);
+    }
+
+    @include screen('lg', max, 2) {
+      font-size: pxtovw(16, 1366);
+    }
+
+    @include screen('md', max, 2) {
+      font-size: pxtovw(16, 960);
+    }
+
+    @include screen('sm', max, 2) {
+      font-size: pxtovw(15, 375);
+    }
+  }
+}

@@ -15,6 +15,26 @@
       margin-right: 0;
     }
 
+    #{$b}_acc & {
+      margin-right: 11px;
+
+      @include screen('xlg', max, 2) {
+        margin-right: pxtovw(11, 1660);
+      }
+
+      @include screen('lg', max, 2) {
+        margin-right: pxtovw(11, 1366);
+      }
+
+      @include screen('md', max, 2) {
+        margin-right: pxtovw(11, 960);
+      }
+
+      @include screen('sm', max, 2) {
+        margin-right: pxtovw(11, 375);
+      }
+    }
+
     #{$b}_login & {
       margin-right: 11px;
 
@@ -133,6 +153,34 @@
       }
     }
 
+    &_fz19 {
+      font-size: 19px;
+      line-height: (23 / 19);
+      letter-spacing: normal;
+      color: $nd-color-basic;
+
+      @include screen('xlg', max, 2) {
+        font-size: pxtovw(19, 1660);
+      }
+
+      @include screen('lg', max, 2) {
+        font-size: pxtovw(19, 1366);
+      }
+
+      @include screen('md', max, 2) {
+        font-size: pxtovw(19, 960);
+      }
+
+      @include screen('sm', max, 2) {
+        font-size: pxtovw(19, 375);
+      }
+    }
+
+    &_stolzl {
+      font-family: $font-stolzl;
+      font-weight: 400;
+    }
+
     #{$b}_login & {
       font-size: 17px;
       line-height: (21 / 17);
@@ -207,6 +255,10 @@
 
     #{$b}_light & {
       color: $color-white;
+    }
+
+    #{$b}_acc & {
+      display: block;
     }
   }
 

@@ -5,6 +5,10 @@
   width: 100%;
   color: $nd-color-basic;
 
+  &_gray {
+    color: $nd-color-gray-text;
+  }
+
   &__media {
     display: block;
     width: 100%;
@@ -124,6 +128,30 @@
       font-size: pxtovw(20, 375);
     }
 
+    &_fz30 {
+      font-family: $font-stolzl;
+      font-size: 30px;
+      font-weight: 400;
+      line-height: 1;
+      letter-spacing: normal;
+
+      @include screen('xlg', max, 2) {
+        font-size: pxtovw(30, 1660);
+      }
+
+      @include screen('lg', max, 2) {
+        font-size: pxtovw(30, 1366);
+      }
+
+      @include screen('md', max, 2) {
+        font-size: pxtovw(30, 960);
+      }
+
+      @include screen('sm', max, 2) {
+        font-size: pxtovw(25, 375);
+      }
+    }
+
     &_md-fz28 {
       @include screen('md', max, 2) {
         font-size: pxtovw(28, 960);
@@ -185,6 +213,29 @@
       line-height: 1.63;
     }
 
+    &_fz18 {
+      font-size: 18px;
+      line-height: (26 / 18);
+      letter-spacing: normal;
+
+      @include screen('xlg', max, 2) {
+        font-size: pxtovw(18, 1660);
+      }
+
+      @include screen('lg', max, 2) {
+        font-size: pxtovw(18, 1366);
+      }
+
+      @include screen('md', max, 2) {
+        font-size: pxtovw(18, 960);
+      }
+
+      @include screen('sm', max, 2) {
+        font-size: pxtovw(15, 375);
+        line-height: (26 / 15);
+      }
+    }
+
     &:not(:first-child) {
       margin-top: 45px;
 
@@ -226,6 +277,28 @@
         text-decoration: none;
       }
     }
+
+    #{$b}_empty & {
+      &:not(:first-child) {
+        margin-top: 16px;
+
+        @include screen('xlg', max, 2) {
+          margin-top: pxtovw(16, 1660);
+        }
+
+        @include screen('lg', max, 2) {
+          margin-top: pxtovw(16, 1366);
+        }
+
+        @include screen('md', max, 2) {
+          margin-top: pxtovw(16, 960);
+        }
+
+        @include screen('sm', max, 2) {
+          margin-top: pxtovw(22, 375);
+        }
+      }
+    }
   }
 
   &__links {
@@ -246,6 +319,28 @@
 
       @include screen('sm', max, 2) {
         margin-top: pxtovw(38, 375);
+      }
+    }
+
+    #{$b}_empty & {
+      &:not(:first-child) {
+        margin-top: 60px;
+
+        @include screen('xlg', max, 2) {
+          margin-top: pxtovw(60, 1660);
+        }
+
+        @include screen('lg', max, 2) {
+          margin-top: pxtovw(60, 1366);
+        }
+
+        @include screen('md', max, 2) {
+          margin-top: pxtovw(60, 960);
+        }
+
+        @include screen('sm', max, 2) {
+          margin-top: pxtovw(51, 375);
+        }
       }
     }
   }
@@ -291,6 +386,32 @@
 
     @include screen('sm', max, 2) {
       font-size: pxtovw(17, 375);
+    }
+
+    &_fz16 {
+      font-size: 16px;
+      line-height: (19 / 16);
+      letter-spacing: -.015em;
+
+      @include screen('xlg', max, 2) {
+        font-size: pxtovw(16, 1660);
+      }
+
+      @include screen('lg', max, 2) {
+        font-size: pxtovw(16, 1366);
+      }
+
+      @include screen('md', max, 2) {
+        font-size: pxtovw(16, 960);
+      }
+
+      @include screen('sm', max, 2) {
+        font-size: pxtovw(15, 375);
+      }
+    }
+
+    &_stolzl {
+      font-family: $font-stolzl;
     }
 
     &_bold {
