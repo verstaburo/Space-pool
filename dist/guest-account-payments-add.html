@@ -331,7 +331,54 @@
                         </div>
                     </aside>
                 </div>
-                <div class="nd-content__column nd-content__column_main"></div>
+                <div class="nd-content__column nd-content__column_main">
+                    <form class="nd-form payment-form" data-validated-form="data-validated-form">
+                        <div class="nd-form__header nd-form__header_tac">
+                            <h2 class="nd-form__title">Add payment method</h2>
+                            <div class="nd-form__text nd-form__text_mt25">Slect prefered payment method type and fill the form below</div>
+                        </div>
+                        <fieldset class="nd-form__section">
+                            <div class="nd-form__block">
+                                <div class="nd-grid">
+                                    <div class="nd-grid__col grid__col_xl_6">
+                                        <div class="nd-form__wrapper"><label class="radio-button"><input class="radio-button__input" name="method" value="iban" type="radio" data-form-switch="iban" /><span class="radio-button__wrapper"><span class="radio-button__box"></span><span class="radio-button__content">IBAN account</span></span></label>
+                                            <div class="error-message"></div>
+                                        </div>
+                                    </div>
+                                    <div class="nd-grid__col grid__col_xl_6">
+                                        <div class="nd-form__wrapper"><label class="radio-button"><input class="radio-button__input" name="method" value="sortCode" checked="checked" type="radio" data-form-switch="sortCode" /><span class="radio-button__wrapper"><span class="radio-button__box"></span><span class="radio-button__content">Sort code&nbsp;<span class="nd-hide-from-sm">acc</span><span class="nd-hide-sm">account</span></span></span></label>
+                                            <div class="error-message"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="nd-form__block">
+                                <div class="nd-grid nd-grid_int37">
+                                    <div class="nd-grid__col grid__col_xl_12">
+                                        <div class="nd-form__wrapper"><label class="form-box nd-form-box"><input class="nd-input" type="text" name="accNumber" placeholder="Account Number" required="required" /><span class="form-box__label">Account Number</span></label>
+                                            <div class="error-message"></div>
+                                        </div>
+                                    </div>
+                                    <div class="nd-grid__col grid__col_xl_12" data-form-switchable-item="iban">
+                                        <div class="nd-form__wrapper"><label class="form-box nd-form-box"><input class="nd-input" type="text" name="iban" placeholder="Your IBAN" required="required" /><span class="form-box__label">Your IBAN</span></label>
+                                            <div class="error-message"></div>
+                                        </div>
+                                    </div>
+                                    <div class="nd-grid__col grid__col_xl_12" data-form-switchable-item="sortCode">
+                                        <div class="nd-form__wrapper"><label class="form-box nd-form-box"><input class="nd-input" type="text" name="sortCode" placeholder="Sort Code" required="required" /><span class="form-box__label">Sort Code</span></label>
+                                            <div class="error-message"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="nd-form__buttons"><button class="nd-button nd-form__button nd-form__button_wide" type="submit"><span class="nd-button__text">Add payment method</span>
+                                        <div class="nd-button__preloader">
+                                            <div class="loader loader_small"></div>
+                                        </div>
+                                    </button></div>
+                            </div>
+                        </fieldset>
+                    </form>
+                </div>
             </div>
         </section>
     </main>

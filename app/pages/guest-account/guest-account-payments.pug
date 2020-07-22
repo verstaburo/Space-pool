@@ -32,7 +32,11 @@ block content
           +nd-side-navigation(nav, 'Payment methods')._profile
 
       +nd-content-main
-        +records
+        +records._acc
+          each item in getData('nd-guest-acc-payments.json')
+            +payment-method(item).__item_pay
+        +e.buttons
+          +nd-button-icon('a', {iconLeft: true, iconBlock: true, icon: 'plus'}).__button_add(href="guest-account-payments-add.html") Add payment method
 
 block panels
 

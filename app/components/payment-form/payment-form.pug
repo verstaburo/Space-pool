@@ -1,0 +1,31 @@
+mixin payment-form()
+  +nd-form.payment-form&attributes(attributes)(data-validated-form)
+    +form-section-header._tac
+      +e.H2.title Add payment method
+      +e.text_mt25 Slect prefered payment method type and fill the form below
+    +form-section
+      +e.block
+        +nd-grid
+          +nd-grid-col({xl: 6})
+            +form-section-wrapper
+              +radio-button({name: 'method', value: 'iban', checked: false, switch: 'iban'}) IBAN account
+          +nd-grid-col({xl: 6})
+            +form-section-wrapper
+              +radio-button({name: 'method', value: 'sortCode', checked: true, switch: 'sortCode'}) Sort code&nbsp;<span class="nd-hide-from-sm">acc</span><span class="nd-hide-sm">account</span>
+      +e.block
+        +nd-grid.nd-grid_int37
+          +nd-grid-col({xl: 12})
+            +form-section-wrapper
+              +nd-form-box('Account Number')
+                +nd-input(type="text" name="accNumber" placeholder="Account Number" required)
+          +nd-grid-col({xl: 12})(data-form-switchable-item="iban")
+            +form-section-wrapper
+              +nd-form-box('Your IBAN')
+                +nd-input(type="text" name="iban" placeholder="Your IBAN" required)
+          +nd-grid-col({xl: 12})(data-form-switchable-item="sortCode")
+            +form-section-wrapper
+              +nd-form-box('Sort Code')
+                +nd-input(type="text" name="sortCode" placeholder="Sort Code" required)
+        +e.buttons
+          +nd-button('button', true).__button_wide(type="submit") Add payment method
+    block

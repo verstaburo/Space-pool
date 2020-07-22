@@ -1,0 +1,98 @@
+.payment-form {
+  $b: &;
+
+  box-sizing: border-box;
+  display: block;
+  width: 100%;
+  max-width: 508px;
+  margin: 0 auto;
+  padding-top: 41px;
+
+  @include screen('xlg', max, 2) {
+    padding-top: pxtovw(41, 1660);
+    max-width: pxtovw(508, 1660);
+  }
+
+  @include screen('lg', max, 2) {
+    padding-top: pxtovw(44, 1366);
+    max-width: pxtovw(508, 1366);
+  }
+
+  @include screen('md', max, 2) {
+    padding-top: pxtovw(47, 960);
+    max-width: pxtovw(508, 960);
+  }
+
+  @include screen('sm', max, 2) {
+    padding-top: pxtovw(40, 375);
+    max-width: none;
+  }
+
+  .nd-form {
+    &__section {
+      &:not(:first-child) {
+        margin-top: 11px;
+
+        @include screen('xlg', max, 2) {
+          margin-top: pxtovw(11, 1660);
+        }
+
+        @include screen('lg', max, 2) {
+          margin-top: pxtovw(11, 1366);
+        }
+
+        @include screen('md', max, 2) {
+          margin-top: pxtovw(11, 960);
+        }
+
+        @include screen('sm', max, 2) {
+          margin-top: pxtovw(40, 375);
+        }
+      }
+    }
+
+    &__block {
+      &:not(:first-child) {
+        margin-top: 41px;
+
+        @include screen('xlg', max, 2) {
+          margin-top: pxtovw(41, 1660);
+        }
+
+        @include screen('lg', max, 2) {
+          margin-top: pxtovw(41, 1366);
+        }
+
+        @include screen('md', max, 2) {
+          margin-top: pxtovw(41, 960);
+        }
+
+        @include screen('sm', max, 2) {
+          margin-top: pxtovw(24, 375);
+        }
+      }
+    }
+
+    &__buttons {
+      &:not(:first-child) {
+        margin-top: 42px;
+
+        @include screen('xlg', max, 2) {
+          margin-top: pxtovw(42, 1660);
+        }
+
+        @include screen('lg', max, 2) {
+          margin-top: pxtovw(42, 1366);
+        }
+
+        @include screen('md', max, 2) {
+          margin-top: pxtovw(42, 960);
+        }
+
+        @include screen('sm', max, 2) {
+          margin-top: pxtovw(23, 375);
+        }
+      }
+    }
+  }
+}

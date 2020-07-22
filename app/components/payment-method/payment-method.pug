@@ -1,0 +1,25 @@
+mixin payment-method(data)
+  +b.SECTION.payment-method&attributes(attributes)
+    +e.describe
+      if data.type
+        +e.type!=data.type.name
+      if data.title
+        +e.H3.title!=data.title.name
+    if data.resume
+      +e.table
+        +nd-table._resume
+          tbody
+            each item in data.resume
+              tr
+                td!=item.name
+                if item.value
+                  td!=item.value
+                if item.state
+                  +e.TD.state(class=(item.state.class || ''))!=item.state.value
+    if data.button
+      +e.buttons
+        +nd-button('button')(type="button" class=(data.button.class || '')).nd-button_pad10.__button_add!=data.button.name
+        if data.button.help
+          +nd-info-tooltip().js-tooltip.__info(href="#" title=(data.button.help || 'Help mesage'))
+
+    block

@@ -28,4 +28,58 @@
     line-height: 0;
     fill: currentColor;
   }
+
+  .nd & {
+    display: block;
+    box-sizing: border-box;
+    background-color: $nd-color-main;
+    line-height: 0;
+    font-size: 15px;
+    padding: 8px 0;
+    width: 16px;
+    height: auto;
+    text-align: center;
+    font-weight: 700;
+    color: $nd-color-basic-light;
+    border-radius: 50%;
+    cursor: pointer;
+
+    @include screen('xlg', max, 2) {
+      font-size: pxtovw(15, 1660);
+      padding: pxtovw(8, 1660) 0;
+      width: pxtovw(16, 1660);
+    }
+
+    @include screen('lg', max, 2) {
+      font-size: pxtovw(15, 1366);
+      padding: pxtovw(8, 1366) 0;
+      width: pxtovw(16, 1366);
+    }
+
+    @include screen('md', max, 2) {
+      font-size: pxtovw(15, 960);
+      padding: pxtovw(8, 960) 0;
+      width: pxtovw(16, 960);
+    }
+
+    @include screen('sm', max, 2) {
+      font-size: pxtovw(15, 375);
+      padding: pxtovw(8, 375) 0;
+      width: pxtovw(16, 375);
+    }
+
+    &::before {
+      display: none;
+    }
+
+    &__icon {
+      position: static;
+      display: block;
+      width: 100%;
+      height: auto;
+      font-size: inherit;
+      line-height: inherit;
+      font-weight: inherit;
+    }
+  }
 }
