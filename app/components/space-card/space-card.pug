@@ -13,15 +13,16 @@ mixin space-card(data)
         +person
           if data.contacts.position
             +e.position!=data.contacts.position
-          +nd-short-profile-data(data.contacts.person).__profile
+          +nd-short-profile-data(data.contacts.person)._acc.__profile
         if data.contacts.newMessages
           +nd-button-icon('', {icon: 'nd-bubble', notext: true})._pad10._h32.__chat.is-new(data-counter=data.contacts.newMessages)
         else
           +nd-button-icon('', {icon: 'nd-bubble', notext: true})._pad10._h32.__chat
     if data.map
       +e.map(class=(data.map.class || ''))
-        +e.map-container(id=data.map.id)
-        +nd-button()._pad10._fw400._h32._fz16.__map-button(href="#") Open in Maps
+        +e.map-wrapper
+          +e.map-container(id=data.map.id)
+          +nd-button()._pad10._fw400._h32._fz16.__map-button(href="#") Open in Maps
     if data.gallery
       +gallery(data.gallery)._space.__media.js-nd-gallery
     if data.datetime
@@ -29,15 +30,16 @@ mixin space-card(data)
         +e.date!=data.datetime.date
         +e.time!=data.datetime.time
     if data.resume
-      +nd-table._resume.__table
-        tbody
-          each item in data.resume
-            tr
-              td!=item.name
-              if item.value
-                td!=item.value
-              if item.state
-                +e.TD.state(class=(item.state.class || ''))!=item.state.value
+      +e.table
+        +nd-table._resume
+          tbody
+            each item in data.resume
+              tr
+                td!=item.name
+                if item.value
+                  td!=item.value
+                if item.state
+                  +e.TD.state(class=(item.state.class || ''))!=item.state.value
     if data.link
       +e.links
         +nd-link-icon('arrow4')._next._underline.__link(href=(data.link.href || '#') class=(data.link.class || ''))!=data.link.name

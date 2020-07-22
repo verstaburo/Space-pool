@@ -12,6 +12,12 @@
     margin-top: pxtovw(30, 375);
   }
 
+  &_acc {
+    @include screen('sm', max, 2) {
+      margin-top: pxtovw(23, 375);
+    }
+  }
+
   &__item {
     width: 100%;
 
@@ -32,6 +38,50 @@
 
       @include screen('sm', max, 2) {
         margin-top: pxtovw(23, 375);
+      }
+    }
+
+    &_rent {
+      &:not(:first-child) {
+        margin-top: 26px;
+
+        @include screen('xlg', max, 2) {
+          margin-top: pxtovw(26, 1660);
+        }
+
+        @include screen('lg', max, 2) {
+          margin-top: pxtovw(30, 1366);
+        }
+
+        @include screen('md', max, 2) {
+          margin-top: pxtovw(30, 960);
+        }
+
+        @include screen('sm', max, 2) {
+          margin-top: pxtovw(30, 375);
+        }
+      }
+    }
+
+    &_view {
+      &:not(:first-child) {
+        margin-top: 40px;
+
+        @include screen('xlg', max, 2) {
+          margin-top: pxtovw(40, 1660);
+        }
+
+        @include screen('lg', max, 2) {
+          margin-top: pxtovw(34, 1366);
+        }
+
+        @include screen('md', max, 2) {
+          margin-top: pxtovw(30, 960);
+        }
+
+        @include screen('sm', max, 2) {
+          margin-top: pxtovw(30, 375);
+        }
       }
     }
   }
