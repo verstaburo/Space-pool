@@ -18,7 +18,8 @@ export default function ndSelects() {
     const title = $(self).attr('data-mobile-title') || $(self).find('option[placeholder]').text() || $(self).attr('placeholder') || 'Select';
     const sorter = ($(self).attr('data-no-sort') === undefined) ? srtFunc : undefined;
     const choices = new Choices(self, {
-      // searchEnabled: false,
+      searchEnabled: true,
+      searchPlaceholderValue: 'Search...',
       itemSelectText: '',
       classNames: {
         containerOuter: containerClasses,
@@ -118,12 +119,26 @@ export default function ndSelects() {
       }
     });
 
-    $(document).on('showDropdown', 'select', () => {
+    $(document).on('showDropdown', 'select', (evt) => {
+      const self = evt.currentTarget;
+      const input = self.choices.input.element;
+      if (window.Modernizr.mq(`(min-width: ${window.globalOptions.sizes.sm}px)`)) {
+        setTimeout(() => {
+          input.focus();
+        }, 50);
+      }
       $('body').addClass('is-choices-dropdown-showed');
     });
 
-    $(document).on('hideDropdown', 'select', () => {
+    $(document).on('hideDropdown', 'select', (evt) => {
+      const self = evt.currentTarget;
+      const cho = self.choices;
+      const chs = cho.containerOuter.element;
       $('body').removeClass('is-choices-dropdown-showed');
+      if (window.Modernizr.mq(`(min-width: ${window.globalOptions.sizes.sm}px)`)) {
+        chs.focus();
+        cho.clearinput();
+      }
     });
   }
 

@@ -33,6 +33,7 @@
       background-size: 10px 7px;
       transform-origin: 50% 50%;
       transition: transform $ease-main;
+      z-index: 2;
 
       @include screen('xlg', max, 2) {
         width: pxtovw(30, 1660);
@@ -57,6 +58,8 @@
 
     &.is-open::after {
       transform: rotate(-180deg);
+      z-index: 4;
+      pointer-events: auto;
     }
 
     #{$b} {
@@ -566,39 +569,42 @@
 
     &--dropdown {
       position: absolute;
-      z-index: 2;
-      top: 100%;
-      margin-top: -1px;
+      z-index: 3;
+      top: 0;
+      display: flex;
+      flex-direction: column;
+      // top: 100%;
+      // margin-top: -1px;
       box-sizing: border-box;
       background-color: $nd-color-bg;
       border: 1px solid $nd-color-main;
-      border-top-color: $nd-color-field-border;
+      // border-top-color: $nd-color-field-border;
       width: 100%;
       transition: opacity $ease-main, visibility $ease-main;
       opacity: 0;
       pointer-events: none;
       touch-action: none;
       visibility: hidden;
-      border-radius: 0 0 3px 3px;
+      border-radius: 3px;
       overflow: hidden;
       word-break: break-all;
       will-change: visibility;
-      box-shadow: inset -1px -1px 0 0 $nd-color-main, inset 1px -1px 0 0 $nd-color-main;
+      box-shadow: inset 0 0 0 1px $nd-color-main;
 
       @include screen('xlg', max, 2) {
-        border-radius: 0 0 pxtovw(3, 1660) pxtovw(3, 1660);
+        border-radius: pxtovw(3, 1660);
       }
 
       @include screen('lg', max, 2) {
-        border-radius: 0 0 pxtovw(3, 1366) pxtovw(3, 1366);
+        border-radius: pxtovw(3, 1366);
       }
 
       @include screen('md', max, 2) {
-        border-radius: 0 0 pxtovw(3, 960) pxtovw(3, 960);
+        border-radius: pxtovw(3, 960);
       }
 
       @include screen('sm', max, 2) {
-        border-radius: 0 0 pxtovw(3, 375) pxtovw(3, 375);
+        border-radius: pxtovw(3, 375);
       }
 
       &.is-active {
@@ -608,30 +614,44 @@
         touch-action: auto;
       }
 
-      .is-flipped & {
-        top: auto;
-        bottom: 100%;
-        margin-top: 0;
-        margin-bottom: -1px;
-        border-radius: 3px 3px 0 0;
-        border-top-color: $nd-color-main;
-        border-bottom-color: $nd-color-field-border;
-        box-shadow: inset -1px 1px 0 0 $nd-color-main, inset 1px 1px 0 0 $nd-color-main;
-
-        @include screen('xlg', max, 2) {
-          border-radius: pxtovw(3, 1660) pxtovw(3, 1660) 0 0;
-        }
-
-        @include screen('lg', max, 2) {
-          border-radius: pxtovw(3, 1366) pxtovw(3, 1366) 0 0;
-        }
-
-        @include screen('md', max, 2) {
-          border-radius: pxtovw(3, 960) pxtovw(3, 960) 0 0;
-        }
-
+      #{$b}_popup & {
         @include screen('sm', max, 2) {
-          border-radius: pxtovw(3, 375) pxtovw(3, 375) 0 0;
+          display: block;
+        }
+      }
+
+      .is-flipped & {
+        flex-direction: column-reverse;
+        top: auto;
+        bottom: 0;
+        // bottom: 100%;
+        // margin-top: 0;
+        // margin-bottom: -1px;
+        // border-radius: 3px 3px 0 0;
+        // border-top-color: $nd-color-main;
+        // border-bottom-color: $nd-color-field-border;
+        box-shadow: inset 0 0 0 1px $nd-color-main;
+
+        // @include screen('xlg', max, 2) {
+        //   border-radius: pxtovw(3, 1660);
+        // }
+
+        // @include screen('lg', max, 2) {
+        //   border-radius: pxtovw(3, 1366);
+        // }
+
+        // @include screen('md', max, 2) {
+        //   border-radius: pxtovw(3, 960);
+        // }
+
+        // @include screen('sm', max, 2) {
+        //   border-radius: pxtovw(3, 375);
+        // }
+
+        #{$b}_popup & {
+          @include screen('sm', max, 2) {
+            display: block;
+          }
         }
       }
 
@@ -812,33 +832,88 @@
 
   &__input {
     display: block;
-    margin: 0;
-    font-size: 15px;
-    line-height: 1;
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: (100 / 15) * 1em;
-    height: (20 / 15) * 1em;
+    font-size: 17px;
+    line-height: (26 / 17);
+    border-bottom: 1px solid $nd-color-field-border;
+    width: 100%;
     box-sizing: border-box;
-    background-color: rgba($color-white, .4);
-    padding: 0 ((5 / 15) * 1em);
-    z-index: 6;
+    border-radius: 3px;
+    color: $nd-color-basic;
+    font-weight: 400;
+    padding: 14px 11px 8px;
+    transition: border $ease-main, box-shadow $ease-main;
+    min-height: 50px;
 
     @include screen('xlg', max, 2) {
-      font-size: pxtovw(15, 1660);
+      border-radius: pxtovw(3, 1660);
+      font-size: pxtovw(17, 1660);
+      padding: pxtovw(14, 1660) pxtovw(11, 1660) pxtovw(8, 1660);
+      min-height: pxtovw(50, 1660);
     }
 
     @include screen('lg', max, 2) {
-      font-size: pxtovw(15, 1366);
+      border-radius: pxtovw(3, 1366);
+      font-size: pxtovw(17, 1366);
+      padding: pxtovw(14, 1366) pxtovw(11, 1366) pxtovw(8, 1366);
+      min-height: pxtovw(50, 1366);
     }
 
     @include screen('md', max, 2) {
-      font-size: pxtovw(15, 960);
+      border-radius: pxtovw(3, 960);
+      font-size: pxtovw(17, 960);
+      padding: pxtovw(14, 960) pxtovw(11, 960) pxtovw(8, 960);
+      min-height: pxtovw(50, 960);
     }
 
     @include screen('sm', max, 2) {
+      border-radius: pxtovw(3, 375);
       font-size: pxtovw(15, 375);
+      line-height: (26 / 15);
+      padding: pxtovw(9, 375) pxtovw(11, 375) pxtovw(3, 375);
+      min-height: pxtovw(40, 375);
+    }
+
+    #{$b}_sm-h50 {
+      @include screen('sm', max, 2) {
+        font-size: pxtovw(17, 375);
+        padding: pxtovw(14, 375) pxtovw(11, 375) pxtovw(8, 375);
+        min-height: pxtovw(50, 375);
+      }
+    }
+
+    #{$b}_h40 & {
+      padding: 9px 11px 3px;
+      min-height: 40px;
+
+      @include screen('xlg', max, 2) {
+        padding: pxtovw(9, 1660) pxtovw(11, 1660) pxtovw(3, 1660);
+        min-height: pxtovw(40, 1660);
+      }
+
+      @include screen('lg', max, 2) {
+        padding: pxtovw(9, 1366) pxtovw(11, 1366) pxtovw(3, 1366);
+        min-height: pxtovw(40, 1366);
+      }
+
+      @include screen('md', max, 2) {
+        padding: pxtovw(9, 960) pxtovw(11, 960) pxtovw(3, 960);
+        min-height: pxtovw(40, 960);
+      }
+
+      @include screen('sm', max, 2) {
+        padding: pxtovw(9, 375) pxtovw(11, 375) pxtovw(3, 375);
+        min-height: pxtovw(40, 375);
+      }
+    }
+
+    &:-ms-input-placeholder {
+      color: $nd-color-placeholder;
+      font-weight: 400;
+    }
+
+    &::placeholder {
+      color: $nd-color-placeholder;
+      font-weight: 400;
     }
 
     &:focus {
@@ -848,6 +923,20 @@
     [dir='rtl'] & {
       right: auto;
       left: 0;
+    }
+
+    #{$b}.is-flipped & {
+      border-bottom: none;
+      border-top: 1px solid $nd-color-field-border;
+    }
+
+    #{$b}_popup &, #{$b}_popup.is-flipped & {
+      @include screen('sm', max, 2) {
+        padding-left: pxtovw(20, 375);
+        padding-right: pxtovw(20, 375);
+        border-top: auto;
+        border-bottom: 1px solid $nd-color-field-border;
+      }
     }
   }
 

@@ -383,7 +383,7 @@
         left: 7px;
         box-sizing: border-box;
         transition: transform $ease-main-2s, color $ease-main-2s, font $ease-main-2s, background $ease-main-2s, padding $ease-main-2s, opacity $ease-main-2s;
-        z-index: 1;
+        z-index: 2;
         transform: translate3d(0, 0, 0);
 
         @include screen('xlg', max, 2) {
@@ -411,6 +411,10 @@
           padding: pxtovw(8, 375) pxtovw(2, 375) pxtovw(4, 375);
         }
       }
+    }
+
+    .nd-choices.is-open ~ #{$b}__label, .nd-choices.is-focused ~ #{$b}__label {
+      z-index: 4;
     }
 
     &.is-top #{$b}__label,.nd-choices.is-item-select ~ #{$b}__label,.nd-choices.is-open ~ #{$b}__label {
@@ -454,7 +458,7 @@
     }
 
     .nd-choices.is-flipped ~ #{$b}__label {
-      opacity: 0;
+      // opacity: 0;
     }
   }
 
