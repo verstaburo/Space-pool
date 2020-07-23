@@ -134,10 +134,12 @@ export default function ndSelects() {
       const self = evt.currentTarget;
       const cho = self.choices;
       const chs = cho.containerOuter.element;
+      const input = cho.input.element;
       $('body').removeClass('is-choices-dropdown-showed');
       if (window.Modernizr.mq(`(min-width: ${window.globalOptions.sizes.sm}px)`)) {
+        cho.clearInput();
+        window.setLabelPosition(input);
         chs.focus();
-        cho.clearinput();
       }
     });
   }
