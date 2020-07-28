@@ -2,7 +2,6 @@ const $ = window.$;
 
 export default function switchFormContent() {
   function hideAndShow(name) {
-    console.log(name);
     const newElements = $(`[data-form-switchable-item*="${name}"]`);
     const newActiveElements = $(newElements).find('input, textarea, select');
     const allElements = $('[data-form-switchable-item]').not(newElements);

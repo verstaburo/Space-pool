@@ -3,6 +3,12 @@
 
   display: inline-block;
 
+  &_offer {
+    @include screen('sm', min, 2) {
+      position: relative;
+    }
+  }
+
   &__input {
     display: none;
   }
@@ -103,28 +109,61 @@
     }
 
     #{$b}_offer & {
-      padding-left: 20px;
-      padding-right: 20px;
+      padding-left: 35px;
+      padding-right: 12px;
       width: 100%;
 
       @include screen('xlg', max, 2) {
-        padding-left: pxtovw(20, 1660);
-        padding-right: pxtovw(20, 1660);
+        padding-left: pxtovw(35, 1660);
+        padding-right: pxtovw(12, 1660);
       }
 
       @include screen('lg', max, 2) {
-        padding-left: pxtovw(20, 1366);
-        padding-right: pxtovw(20, 1366);
+        padding-left: pxtovw(35, 1366);
+        padding-right: pxtovw(12, 1366);
       }
 
       @include screen('md', max, 2) {
-        padding-left: pxtovw(20, 960);
-        padding-right: pxtovw(20, 960);
+        padding-left: pxtovw(35, 960);
+        padding-right: pxtovw(12, 960);
       }
 
       @include screen('sm', max, 2) {
         padding-left: pxtovw(20, 375);
         padding-right: pxtovw(20, 375);
+      }
+    }
+
+    #{$b}_nobox & {
+      padding-left: 12px;
+      padding-right: 12px;
+
+      @include screen('xlg', max, 2) {
+        padding-left: pxtovw(12, 1660);
+        padding-right: pxtovw(12, 1660);
+      }
+
+      @include screen('lg', max, 2) {
+        padding-left: pxtovw(12, 1366);
+        padding-right: pxtovw(12, 1366);
+      }
+
+      @include screen('md', max, 2) {
+        padding-left: pxtovw(12, 960);
+        padding-right: pxtovw(12, 960);
+      }
+
+      @include screen('sm', max, 2) {
+        padding-left: pxtovw(20, 375);
+        padding-right: pxtovw(20, 375);
+      }
+    }
+  }
+
+  &__count {
+    #{$b}_offer & {
+      @include screen('sm', min, 2) {
+        display: none;
       }
     }
   }
@@ -135,7 +174,7 @@
     align-items: center;
     font-size: 17px;
     font-weight: 600;
-    line-height: 1.24;
+    line-height: 1.06;
     width: 100%;
 
     @include screen('xlg', max, 2) {
@@ -152,6 +191,15 @@
 
     @include screen('sm', max, 2) {
       font-size: pxtovw(17, 375);
+      line-height: 1.24;
+    }
+
+    #{$b}_offer & {
+      @include screen('sm', min, 2) {
+        justify-content: center;
+        letter-spacing: -.02em;
+        width: auto;
+      }
     }
   }
 
@@ -177,6 +225,14 @@
 
       @include screen('sm', max, 2) {
         margin-right: pxtovw(20, 375);
+      }
+    }
+
+    #{$b}_offer & {
+      &:not(:last-child) {
+        @include screen('sm', min, 2) {
+          margin-right: 0;
+        }
       }
     }
   }
@@ -222,6 +278,46 @@
 
       @include screen('sm', max, 2) {
         margin-right: pxtovw(10, 375);
+      }
+    }
+
+    #{$b}_offer & {
+      width: 14px;
+      height: 14px;
+      left: 9px;
+      box-sizing: border-box;
+
+      @include screen('xlg', max, 2) {
+        width: pxtovw(14, 1660);
+        height: pxtovw(14, 1660);
+        left: pxtovw(9, 1660);
+      }
+
+      @include screen('lg', max, 2) {
+        width: pxtovw(14, 1366);
+        height: pxtovw(14, 1366);
+        left: pxtovw(9, 1366);
+      }
+
+      @include screen('md', max, 2) {
+        width: pxtovw(14, 960);
+        height: pxtovw(14, 960);
+        left: pxtovw(9, 960);
+      }
+
+      @include screen('sm', max, 2) {
+        width: pxtovw(12, 375);
+        height: pxtovw(12, 375);
+        left: auto;
+      }
+
+      @include screen('sm', min, 2) {
+        border-radius: 50%;
+        position: absolute;
+        top: 50%;
+        transform: translate3d(0, -50%, 0);
+        background-color: transparent;
+        border: 1px solid currentColor;
       }
     }
   }

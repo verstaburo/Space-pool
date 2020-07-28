@@ -47,14 +47,31 @@
     min-width: pxtovw(106, 375);
   }
 
+  &:hover, &.is-active {
+    border-color: $nd-color-filter-border;
+  }
+
   &.is-choose {
-    border-color: $nd-color-basic;
-    box-shadow: inset 0 0 0 1px $nd-color-basic;
+    border-color: $nd-color-filter-border;
+    box-shadow: inset 0 0 0 1px $nd-color-filter-border;
+
+    &:hover {
+      border-color: $nd-color-main;
+      box-shadow: inset 0 0 0 1px $nd-color-main;
+    }
   }
 
   &_offer.is-choose {
-    border-color: $nd-color-border5;
-    box-shadow: none;
+    border-color: $nd-color-filter-border;
+    background-color: $nd-color-basic;
+    color: $nd-color-basic-light;
+
+    &:hover {
+      border-color: $nd-color-main;
+      background-color: transparent;
+      color: $nd-color-basic;
+      box-shadow: inset 0 0 0 1px $nd-color-main;
+    }
   }
 
   .is-search-map-active & {
@@ -77,10 +94,6 @@
     @include screen('sm', max, 2) {
       box-shadow: pxtovw(2, 375) pxtovw(4, 375) pxtovw(8, 375) rgba(0, 0, 0, .25);
     }
-  }
-
-  &:hover, &.is-active {
-    border-color: $nd-color-basic;
   }
 
   &__name {

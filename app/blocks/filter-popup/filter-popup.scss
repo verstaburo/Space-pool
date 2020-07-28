@@ -2,24 +2,24 @@
   $b: &;
 
   display: flex;
-  width: 350px;
+  width: 850px;
   background-color: $nd-color-basic-light;
   border-radius: 3px;
   box-shadow: 1px 1px 1px rgba(0, 0, 0, .03), 2px 2px 2px rgba(0, 0, 0, .04), 3px 3px 3px rgba(0, 0, 0, .02);
   box-sizing: border-box;
 
   @include screen('xlg', max, 2) {
-    width: pxtovw(350, 1660);
+    width: pxtovw(850, 1660);
     border-radius: pxtovw(3, 1660);
   }
 
   @include screen('lg', max, 2) {
-    width: pxtovw(350, 1366);
+    width: pxtovw(850, 1366);
     border-radius: pxtovw(3, 1366);
   }
 
   @include screen('md', max, 2) {
-    width: pxtovw(350, 960);
+    width: pxtovw(850, 960);
     border-radius: pxtovw(3, 960);
   }
 
@@ -29,35 +29,56 @@
     box-shadow: none;
   }
 
+  &_short {
+    width: 487px;
+
+    @include screen('xlg', max, 2) {
+      width: pxtovw(487, 1660);
+    }
+
+    @include screen('lg', max, 2) {
+      width: pxtovw(487, 1366);
+    }
+
+    @include screen('md', max, 2) {
+      width: pxtovw(487, 960);
+    }
+
+    @include screen('sm', max, 2) {
+      width: 100%;
+    }
+  }
+
   &__header {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 60px;
-    display: none;
-    padding: 0 20px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 26px 36px 0;
     box-sizing: border-box;
     background-color: $nd-color-basic-light;
     z-index: 2;
 
     @include screen('xlg', max, 2) {
       height: pxtovw(60, 1660);
-      padding: 0 pxtovw(20, 1660);
+      padding: pxtovw(26, 1660) pxtovw(36, 1660) 0;
     }
 
     @include screen('lg', max, 2) {
       height: pxtovw(60, 1366);
-      padding: 0 pxtovw(20, 1366);
+      padding: pxtovw(26, 1366) pxtovw(36, 1366) 0;
     }
 
     @include screen('md', max, 2) {
       height: pxtovw(60, 960);
-      padding: 0 pxtovw(20, 960);
+      padding: pxtovw(26, 960) pxtovw(36, 960) 0;
     }
 
     @include screen('sm', max, 2) {
-      display: flex;
       justify-content: center;
       align-items: center;
       height: pxtovw(60, 375);
@@ -126,28 +147,25 @@
     position: relative;
     display: block;
     overflow: auto;
-    max-height: 350px;
+    max-height: 50vh;
     box-sizing: border-box;
     width: 100%;
     scrollbar-color: $nd-color-basic $nd-color-bg;
     scrollbar-width: thin;
     -ms-overflow-style: none;
-    padding: 25px 20px 80px;
+    padding: 80px 36px 115px;
     z-index: 1;
 
     @include screen('xlg', max, 2) {
-      max-height: pxtovw(350, 1660);
-      padding: pxtovw(25, 1660) pxtovw(20, 1660) pxtovw(80, 1660);
+      padding: pxtovw(80, 1660) pxtovw(36, 1660) pxtovw(115, 1660);
     }
 
     @include screen('lg', max, 2) {
-      max-height: pxtovw(350, 1366);
-      padding: pxtovw(25, 1366) pxtovw(20, 1366) pxtovw(80, 1366);
+      padding: pxtovw(80, 1366) pxtovw(36, 1366) pxtovw(115, 1366);
     }
 
     @include screen('md', max, 2) {
-      max-height: pxtovw(350, 960);
-      padding: pxtovw(25, 960) pxtovw(20, 960) pxtovw(80, 960);
+      padding: pxtovw(80, 960) pxtovw(36, 960) pxtovw(115, 960);
     }
 
     @include screen('sm', max, 2) {
@@ -217,6 +235,86 @@
         width: pxtovw(4, 375);
       }
     }
+
+    #{$b}_location & {
+      padding: 68px 36px 101px;
+
+      @include screen('xlg', max, 2) {
+        padding: pxtovw(68, 1660) pxtovw(36, 1660) pxtovw(101, 1660);
+      }
+
+      @include screen('lg', max, 2) {
+        padding: pxtovw(68, 1366) pxtovw(36, 1366) pxtovw(101, 1366);
+      }
+
+      @include screen('md', max, 2) {
+        padding: pxtovw(68, 960) pxtovw(36, 960) pxtovw(101, 960);
+      }
+
+      @include screen('sm', max, 2) {
+        padding: pxtovw(60, 375) pxtovw(20, 375) pxtovw(80, 375);
+      }
+    }
+
+    #{$b}_location & {
+      padding: 68px 36px 101px;
+
+      @include screen('xlg', max, 2) {
+        padding: pxtovw(68, 1660) pxtovw(36, 1660) pxtovw(101, 1660);
+      }
+
+      @include screen('lg', max, 2) {
+        padding: pxtovw(68, 1366) pxtovw(36, 1366) pxtovw(101, 1366);
+      }
+
+      @include screen('md', max, 2) {
+        padding: pxtovw(68, 960) pxtovw(36, 960) pxtovw(101, 960);
+      }
+
+      @include screen('sm', max, 2) {
+        padding: pxtovw(60, 375) pxtovw(20, 375) pxtovw(80, 375);
+      }
+    }
+
+    #{$b}_offers & {
+      padding: 57px 36px 125px;
+
+      @include screen('xlg', max, 2) {
+        padding: pxtovw(57, 1660) pxtovw(36, 1660) pxtovw(125, 1660);
+      }
+
+      @include screen('lg', max, 2) {
+        padding: pxtovw(57, 1366) pxtovw(36, 1366) pxtovw(125, 1366);
+      }
+
+      @include screen('md', max, 2) {
+        padding: pxtovw(57, 960) pxtovw(36, 960) pxtovw(125, 960);
+      }
+
+      @include screen('sm', max, 2) {
+        padding: pxtovw(60, 375) pxtovw(20, 375) pxtovw(80, 375);
+      }
+    }
+
+    #{$b}_team & {
+      padding: 60px 36px 109px;
+
+      @include screen('xlg', max, 2) {
+        padding: pxtovw(60, 1660) pxtovw(36, 1660) pxtovw(109, 1660);
+      }
+
+      @include screen('lg', max, 2) {
+        padding: pxtovw(60, 1366) pxtovw(36, 1366) pxtovw(109, 1366);
+      }
+
+      @include screen('md', max, 2) {
+        padding: pxtovw(60, 960) pxtovw(36, 960) pxtovw(109, 960);
+      }
+
+      @include screen('sm', max, 2) {
+        padding: pxtovw(60, 375) pxtovw(20, 375) pxtovw(80, 375);
+      }
+    }
   }
 
   &__footer {
@@ -225,20 +323,20 @@
     left: 0;
     width: 100%;
     box-sizing: border-box;
-    padding: 20px;
+    padding: 10px 36px 30px;
     z-index: 4;
     background-color: $nd-color-basic-light;
 
     @include screen('xlg', max, 2) {
-      padding: pxtovw(20, 1660);
+      padding: pxtovw(10, 1660) pxtovw(36, 1660) pxtovw(30, 1660);
     }
 
     @include screen('lg', max, 2) {
-      padding: pxtovw(20, 1366);
+      padding: pxtovw(10, 1366) pxtovw(36, 1366) pxtovw(30, 1366);
     }
 
     @include screen('md', max, 2) {
-      padding: pxtovw(20, 960);
+      padding: pxtovw(20, 960) pxtovw(36, 960) pxtovw(30, 960);
     }
 
     @include screen('sm', max, 2) {
@@ -249,23 +347,29 @@
 
   &__buttons {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     align-content: flex-start;
-
-    @include screen('sm', max, 2) {
-      justify-content: space-between;
-    }
   }
 
   &__button {
-    flex: 1;
+    flex: none;
+    min-width: 200px;
 
-    @include screen('sm', min, 2) {
-      display: none;
+    @include screen('xlg', max, 2) {
+      min-width: pxtovw(200, 1660);
+    }
+
+    @include screen('lg', max, 2) {
+      min-width: pxtovw(200, 1366);
+    }
+
+    @include screen('md', max, 2) {
+      min-width: pxtovw(200, 960);
     }
 
     @include screen('sm', max, 2) {
+      min-width: 0;
       width: 100%;
     }
 
@@ -291,74 +395,150 @@
   }
 
   &__clear {
-    display: inline-block;
-    text-align: right;
-    font-size: 17px;
+    display: inline-flex;
+    justify-content: flex-start;
+    align-items: center;
+    text-align: left;
+    font-size: 15px;
     line-height: 1.2;
     font-weight: 400;
     cursor: pointer;
+    transition: opacity $ease-main;
+    letter-spacing: -.02em;
 
     @include screen('xlg', max, 2) {
-      font-size: pxtovw(17, 1660);
+      font-size: pxtovw(15, 1660);
     }
 
     @include screen('lg', max, 2) {
-      font-size: pxtovw(17, 1366);
+      font-size: pxtovw(15, 1366);
     }
 
     @include screen('md', max, 2) {
-      font-size: pxtovw(17, 960);
+      font-size: pxtovw(15, 960);
     }
 
     @include screen('sm', max, 2) {
       position: fixed;
+      display: inline-block;
       font-size: pxtovw(15, 375);
       z-index: 2;
+      text-align: right;
       right: pxtovw(20, 375);
       top: pxtovw(21, 375);
       transform: translate3d(0, 0, 0);
+      letter-spacing: normal;
+    }
+
+    &:disabled, &.is-disabled {
+      opacity: .3;
+      pointer-events: none;
+      cursor: default;
     }
 
     &:hover {
       text-decoration: underline;
     }
+
+    &::before {
+      display: inline-block;
+      content: '';
+      width: 24px;
+      height: 24px;
+      border: 1px solid $nd-color-border2;
+      box-sizing: border-box;
+      border-radius: 50%;
+      margin-right: 10px;
+      background-repeat: no-repeat;
+      background-image: $icon-cross;
+      background-position: 50% 50%;
+      background-size: 8px;
+
+      @include screen('xlg', max, 2) {
+        width: pxtovw(24, 1660);
+        height: pxtovw(24, 1660);
+        margin-right: pxtovw(10, 1660);
+        background-size: pxtovw(8, 1660);
+      }
+
+      @include screen('lg', max, 2) {
+        width: pxtovw(24, 1366);
+        height: pxtovw(24, 1366);
+        margin-right: pxtovw(10, 1366);
+        background-size: pxtovw(8, 1366);
+      }
+
+      @include screen('md', max, 2) {
+        width: pxtovw(24, 960);
+        height: pxtovw(24, 960);
+        margin-right: pxtovw(10, 960);
+        background-size: pxtovw(8, 960);
+      }
+
+      @include screen('sm', max, 2) {
+        display: none;
+      }
+    }
   }
 
   &__offers {
-    display: block;
-    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: auto;
+    margin: 0 -6px;
+
+    @include screen('xlg', max, 2) {
+      margin: 0 pxtovw(-6, 1660);
+    }
+
+    @include screen('lg', max, 2) {
+      margin: 0 pxtovw(-6, 1366);
+    }
+
+    @include screen('md', max, 2) {
+      margin: 0 pxtovw(-6, 960);
+    }
 
     @include screen('sm', max, 2) {
       display: flex;
+      width: 100%;
       height: 100%;
       flex-direction: column;
       justify-content: flex-end;
       align-items: center;
       box-sizing: border-box;
       padding-bottom: pxtovw(83, 375);
+      margin: 0;
     }
   }
 
   &__offer {
-    margin-top: auto;
-    width: 100%;
+    margin: 18px 6px 0;
+    width: auto;
+
+    @include screen('xlg', max, 2) {
+      margin: pxtovw(18, 1660) pxtovw(6, 1660) 0;
+    }
+
+    @include screen('lg', max, 2) {
+      margin: pxtovw(18, 1366) pxtovw(6, 1366) 0;
+    }
+
+    @include screen('md', max, 2) {
+      margin: pxtovw(18, 960) pxtovw(6, 960) 0;
+    }
+
+    @include screen('sm', max, 2) {
+      margin: 0;
+      width: 100%;
+    }
 
     &:not(:first-child) {
-      margin-top: 18px;
-
-      @include screen('xlg', max, 2) {
-        margin-top: pxtovw(18, 1660);
-      }
-
-      @include screen('lg', max, 2) {
-        margin-top: pxtovw(18, 1366);
-      }
-
-      @include screen('md', max, 2) {
-        margin-top: pxtovw(18, 960);
-      }
+      flex: 1;
 
       @include screen('sm', max, 2) {
+        flex: none;
         margin-top: pxtovw(18, 375);
       }
     }
@@ -383,6 +563,57 @@
 
     @include screen('sm', max, 2) {
       padding-bottom: pxtovw(1, 375);
+    }
+  }
+
+  &__note {
+    display: block;
+    width: 100%;
+    font-size: 13px;
+    font-weight: 300;
+    line-height: (16 / 13);
+    letter-spacing: -.02em;
+    color: $nd-color-gray-text2;
+
+    @include screen('xlg', max, 2) {
+      font-size: pxtovw(13, 1660);
+    }
+
+    @include screen('lg', max, 2) {
+      font-size: pxtovw(13, 1366);
+    }
+
+    @include screen('md', max, 2) {
+      font-size: pxtovw(13, 960);
+    }
+
+    @include screen('sm', max, 2) {
+      font-size: pxtovw(13, 375);
+    }
+
+    b {
+      display: inline-block;
+      font-weight: 600;
+
+      &:not(:first-child) {
+        margin-left: 20px;
+
+        @include screen('xlg', max, 2) {
+          margin-left: pxtovw(20, 1660);
+        }
+
+        @include screen('lg', max, 2) {
+          margin-left: pxtovw(20, 1366);
+        }
+
+        @include screen('md', max, 2) {
+          margin-left: pxtovw(20, 960);
+        }
+
+        @include screen('sm', max, 2) {
+          margin-left: pxtovw(20, 375);
+        }
+      }
     }
   }
 }

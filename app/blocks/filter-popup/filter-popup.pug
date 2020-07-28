@@ -12,9 +12,11 @@ mixin filter-popup(data)
       block
     +e.footer
       +e.buttons
+        if (data.reset)
+          +e.BUTTON.clear.js-nd-filter-reset(type="reset" disabled)!=data.reset
         if data.offerType
-          +nd-button('button', true).__button(type="submit" data-default-name="Show all offers" data-hd-name="Show hot desk offers" data-fd-name="Show fixed desk offers" data-mr-name="Show meeting room offers" data-po-name="Show private office offers" data-offer-type-show)!=data.submit
+          +nd-button('button', true).__button(type="submit" data-default-name="Show all offers" data-hd-name="Show hot desk offers" data-fd-name="Show fixed desk offers" data-mr-name="Show meeting room offers" data-po-name="Show private office offers" data-offer-type-show)
+            span.nd-hide-from-sm(data-sm-name)!=data.submit
+            span.nd-hide-sm(data-xl-name) Show results - 27
         else
           +nd-button('button', true).__button(type="submit")!=data.submit
-        if (data.reset)
-          +e.BUTTON.clear.js-nd-filter-reset(type="reset")!=data.reset
