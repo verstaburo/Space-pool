@@ -170,6 +170,10 @@
     width: 100%;
   }
 
+  &__person {
+    margin-left: auto;
+  }
+
   &__mb-menu {
     display: block;
     width: 100%;
@@ -319,9 +323,15 @@
     }
 
     @include screen('sm', max, 2) {
+      position: fixed;
+      width: 100%;
+      top: 0;
+      left: 0;
       margin-top: 0;
       padding-top: pxtovw(15, 375);
       background-color: $nd-color-basic-light;
+      z-index: 3;
+      overscroll-behavior: none;
     }
   }
 }

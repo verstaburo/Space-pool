@@ -28,13 +28,6 @@
     height: 50px;
   }
 
-  // body.is-login:not(.is-panel) & {
-  //   @include screen('md') {
-  //     opacity: 1;
-  //     pointer-events: auto;
-  //   }
-  // }
-
   &__list {
     display: flex;
     align-items: center;
@@ -110,6 +103,20 @@
           opacity: 1;
         }
       }
+    }
+  }
+
+  .is-md-no-userpanel & {
+    @include screen('md', max, 2) {
+      visibility: hidden;
+      pointer-events: none;
+    }
+  }
+
+  .is-sm-noheader &, .is-sm-no-userpanel & {
+    @include screen('md', max, 2) {
+      visibility: hidden;
+      pointer-events: none;
     }
   }
 }

@@ -1,5 +1,5 @@
 mixin search-panel()
-  +b.SECTION.search-panel&attributes(attributes)(data-steps-container)
+  +b.SECTION.search-panel&attributes(attributes)(data-steps-container data-search-panel)
     +e.heading
       +e.title(data-step="default") Search by:
       +e.A.back.hide.js-stp-form-next(data-step="spaces, teams, location" href="#" data-next-step="default")
@@ -22,24 +22,39 @@ mixin search-panel()
         +e.note Choose how to search or simply view all spaces.
       +e.block.hide(data-step="spaces")
         +e.offers
-          +nd-button-icon('a', {icon: 'circle _circle_orange', iconBlock: true})._icon_start._border._fz17.__link(href="#") Hot Desk
-          +nd-button-icon('a', {icon: 'circle _circle_red', iconBlock: true})._icon_start._border._fz17.__link(href="#") Fixed desk
-          +nd-button-icon('a', {icon: 'circle _circle_blue', iconBlock: true})._icon_start._border._fz17.__link(href="#") Meeting Room
-          +nd-button-icon('a', {icon: 'circle _circle_green', iconBlock: true})._icon_start._border._fz17.__link(href="#") Private office
-        +e.note Pick the type of workspace you want.
+          +nd-button-icon('a', {icon: 'circle _circle_orange', iconBlock: true})._icon_start._border._fz17.__link_type(href="#") Hot Desk
+          +nd-button-icon('a', {icon: 'circle _circle_red', iconBlock: true})._icon_start._border._fz17.__link_type(href="#") Fixed desk
+          +nd-button-icon('a', {icon: 'circle _circle_blue', iconBlock: true})._icon_start._border._fz17.__link_type(href="#") Meeting Room
+          +nd-button-icon('a', {icon: 'circle _circle_green', iconBlock: true})._icon_start._border._fz17.__link_type(href="#") Private office
+        +e.describe
+          +e.head.nd-hide-from-sm
+            +e.A.back.js-stp-form-next(href="#" data-next-step="default" title="Back")
+            +e.title Search by space type
+          +e.toggle-icon_big._space.nd-hide-from-sm
+          +e.note Pick the type of workspace you want.
       +e.block.hide(data-step="teams")
         +e.teams
-          +nd-button-icon('a', {icon: 'user', iconBlock: true})._icon_start._border.__link(href="#") 1+
+          +nd-button-icon('a', {icon: 'user', iconBlock: true})._icon_start._border.__link_icon(href="#") 1+
           +nd-button('a')._pad10._border._fz17.__link(href="#") 5+
           +nd-button('a')._pad10._border._fz17.__link(href="#") 10+
           +nd-button('a')._pad10._border._fz17.__link(href="#") 20+
           +nd-button('a')._pad10._border._fz17.__link(href="#") 30+
-        +e.note Start-up, scale-up, big business or just you – we have a perfect match for you.
+        +e.describe
+          +e.head.nd-hide-from-sm
+            +e.A.back.js-stp-form-next(href="#" data-next-step="default" title="Back")
+            +e.title Search by team size
+          +e.toggle-icon_big._team.nd-hide-from-sm
+          +e.note Start-up, scale-up, big business or just you – we have a perfect match for you.
       +e.FORM.block.hide(data-step="location")
         +e.locations
-          +nd-form-box('Location')._bg-white._h40
-            +nd-input()._h40._open.js-autocomplete(type="text" name="location" placeholder="location" data-autocomplete-url="assets/data/locations-autocomplete.json" autocomplete="off")
-            +autocomplete-list
-        +nd-button('button', true).__button(type="submit") Show
-        +e.note Search by area, tube station or the name of the space to find your match.
+          +nd-form-box('Location')._bg-white._h40._sm-h50
+            +nd-input()._h40._sm-h50._open.js-autocomplete(type="text" name="location" placeholder="location" data-autocomplete-url="assets/data/locations-autocomplete.json" autocomplete="off")
+            +autocomplete-list()
+        +nd-button('button', true).__button.nd-hide-sm(type="submit") Show
+        +e.describe
+          +e.head.nd-hide-from-sm
+            +e.A.back.js-stp-form-next(href="#" data-next-step="default" title="Back")
+            +e.title Search by location
+          +e.toggle-icon_big._location.nd-hide-from-sm
+          +e.note Search by area, tube station or the name of the space to find your match.
     block

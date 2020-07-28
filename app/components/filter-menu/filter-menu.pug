@@ -3,7 +3,7 @@ mixin filter-menu(specific)
   +b.filter-menu&attributes(attributes)
     +e.item_location.nd-hide-sm
       +filter-button({class: 'js-nd-show-filter', name: 'London', filterName: 'location', filterType: 'popup-block'})
-      +filter-popup({submit: 'Show', reset: 'Clear', title: 'Location'}).__popup(data-nd-filter-popup="location" data-nd-filter-popup-type="popup-block")
+      +filter-popup({submit: 'Show results - 27', reset: 'Clear locations', title: 'Location', note: {text: "Please mark the areas you would like to search", nb: "Maximum 3 at a time"}}).__popup(data-nd-filter-popup="location" data-nd-filter-popup-type="popup-block")
         +nd-form('div').__form
           +form-section()(data-nd-filter-form-container)
     +e.item_tags.nd-hide-sm
@@ -13,9 +13,15 @@ mixin filter-menu(specific)
         +filter-button({class: '_offer is-types-hd js-nd-show-filter', name: 'All offers', currentName: 'Hot desk', filterName: 'offerType', filterType: 'popup'})
       else
         +filter-button({class: '_offer is-types-all js-nd-show-filter', name: 'All offers', filterName: 'offerType', filterType: 'popup'})
-      +filter-popup({submit: 'Show all offers', reset: 'Clear', title: 'Offer type', offerType: true}).__popup(data-nd-filter-popup="offerType" data-nd-filter-popup-type="popup")
+      +filter-popup({submit: 'Show all offers', reset: '<span class="nd-hide-from-sm">Clear</span><span class="nd-hide-sm">Clear listing type</span>', title: 'Offer type', offerType: true, note: {text: "Pick the type of workspaces you want."}}).__popup(data-nd-filter-popup="offerType" data-nd-filter-popup-type="popup")
         +e.offers
-          +check-button({name: 'offerType', value: 'hd', checked: isChecked, type: 'radio', filterCheck: {type: 'offerType', value: 'Hot desk', tagCreation: false, offerType: 'hd'}})._offer.__offer
+          +check-button({name: 'offerType', value: 'all', checked: isChecked, type: 'radio', filterCheck: {type: 'offerType', value: 'All listings', tagCreation: false, offerType: 'all'}})._offer.__offer.nd-hide-sm
+            +e.offer
+              +e.type
+                +nd-box()._orange.__box
+                +e.name Hot desk
+              +e.count 16
+          +check-button({name: 'offerType', value: 'hd', type: 'radio', filterCheck: {type: 'offerType', value: 'Hot desk', tagCreation: false, offerType: 'hd'}})._offer.__offer
             +e.offer
               +e.type
                 +nd-box()._orange.__box
@@ -61,12 +67,12 @@ mixin filter-menu(specific)
                   +check-button(item.options)._h34.__check!=item.title
     +e.item_team.nd-hide-sm
       +filter-button({class: 'js-nd-show-filter', name: 'Team size', filterName: 'teamSize', filterType: 'popup-block'})
-      +filter-popup({submit: 'Show', reset: 'Clear', title: 'Team size'}).__popup(data-nd-filter-popup="teamSize" data-nd-filter-popup-type="popup-block")
+      +filter-popup({submit: 'Show results - 27', reset: 'Clear team size filter', title: 'Team size', note: {text: "Start-up, scale-up, big business or just you – we have a perfect match for you."}}).__popup(data-nd-filter-popup="teamSize" data-nd-filter-popup-type="popup-block")
         +nd-form('div').__form
           +form-section()(data-nd-filter-form-container)
     +e.item_price.nd-hide-sm
       +filter-button({class: 'js-nd-show-filter', name: 'Price range', filterName: 'priceRange', filterType: 'popup-block'})
-      +filter-popup({submit: 'Show', reset: 'Clear', title: 'Price Range'}).__popup(data-nd-filter-popup="priceRange" data-nd-filter-popup-type="popup-block")
+      +filter-popup({submit: 'Show results - 27', reset: 'Clear price gap', title: 'Price Range', note: {text: "Start-up, scale-up, big business or just you – we have a perfect match for you."}}).__popup(data-nd-filter-popup="priceRange" data-nd-filter-popup-type="popup-block")
         +nd-form('div').__form
           +form-section()(data-nd-filter-form-container)
     block

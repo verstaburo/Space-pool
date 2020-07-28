@@ -15,7 +15,7 @@ button::-moz-focus-inner {
 ########## */
 
 ::selection {
-  background: $color-main;
+  background: $nd-color-main;
   color: white;
 }
 
@@ -27,7 +27,7 @@ input,
 textarea {
 
   &::placeholder {
-    color: $color-placeholder;
+    color: $nd-color-placeholder;
   }
 }
 
@@ -36,7 +36,7 @@ textarea {
 ########## */
 
 input:-webkit-autofill {
-  -webkit-text-fill-color: $color-input !important; // Поменять цвет на аналогичный цвету input
+  -webkit-text-fill-color: $nd-color-basic !important; // Поменять цвет на аналогичный цвету input
 }
 
 input:-webkit-autofill,
@@ -63,14 +63,17 @@ body {
 body {
   font-family: $font-main; // Задаем основной шрифт
   font-size: 18px;
-  color: $color-basic;
+  color: $nd-color-basic;
   background: $color-bg;
   overflow-x: hidden;
-  letter-spacing: -.02em;
 
   &.nd {
     color: $nd-color-basic;
     letter-spacing: normal;
+
+    @include screen('xlg', max, 2) {
+      font-size: pxtovw(18, 1660);
+    }
 
     @include screen('lg', max, 2) {
       font-size: pxtovw(17, 1366);
@@ -126,7 +129,7 @@ span {
 
 a {
   text-decoration: none;
-  color: $color-basic;
+  color: currentColor;
   cursor: pointer;
 }
 
@@ -150,7 +153,7 @@ select,
 input,
 textarea,
 button {
-  color: $color-input;
+  color: $nd-color-basic;
   margin: 0;
   padding: 0;
   border: 0;

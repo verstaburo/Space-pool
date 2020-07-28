@@ -12,8 +12,11 @@
   box-sizing: border-box;
   border-radius: 3px;
   max-height: 220px;
-  overflow: hidden;
+  overflow: auto;
   color: $nd-color-basic;
+  scrollbar-color: $nd-color-basic $nd-color-bg;
+  scrollbar-width: thin;
+  -ms-overflow-style: none;
 
   @include screen('xlg', max, 2) {
     border-radius: pxtovw(3, 1660);
@@ -37,6 +40,76 @@
     border-radius: pxtovw(3, 375);
     max-height: pxtovw(220, 375);
     box-shadow: 0 0 pxtovw(4, 375) rgba(56, 58, 68, .09), 0 pxtovw(3, 375) pxtovw(14, 375) rgba(0, 0, 0, .13);
+  }
+
+  &::-webkit-scrollbar-track {
+    width: 6px;
+    background-color: $nd-color-bg;
+
+    @include screen('xlg', max, 2) {
+      width: pxtovw(6, 1660);
+    }
+
+    @include screen('lg', max, 2) {
+      width: pxtovw(6, 1366);
+    }
+
+    @include screen('md', max, 2) {
+      width: pxtovw(6, 960);
+    }
+
+    @include screen('sm', max, 2) {
+      width: pxtovw(6, 375);
+    }
+  }
+
+  &::-webkit-scrollbar {
+    width: 4px;
+    background-color: $nd-color-bg;
+
+    @include screen('xlg', max, 2) {
+      width: pxtovw(4, 1660);
+    }
+
+    @include screen('lg', max, 2) {
+      width: pxtovw(4, 1366);
+    }
+
+    @include screen('md', max, 2) {
+      width: pxtovw(4, 960);
+    }
+
+    @include screen('sm', max, 2) {
+      width: pxtovw(4, 375);
+    }
+  }
+
+  &::-webkit-scrollbar-thumb {
+    width: 4px;
+    background-color: $nd-color-basic;
+
+    @include screen('xlg', max, 2) {
+      width: pxtovw(4, 1660);
+    }
+
+    @include screen('lg', max, 2) {
+      width: pxtovw(4, 1366);
+    }
+
+    @include screen('md', max, 2) {
+      width: pxtovw(4, 960);
+    }
+
+    @include screen('sm', max, 2) {
+      width: pxtovw(4, 375);
+    }
+  }
+
+  .search-panel__locations & {
+    @include screen('sm', max, 2) {
+      box-shadow: none;
+      border-radius: 0;
+    }
   }
 
   ul {
@@ -91,6 +164,15 @@
       padding: 0 pxtovw(18, 375);
       font-size: pxtovw(15, 375);
     }
+
+    .search-panel__locations & {
+      @include screen('sm', max, 2) {
+        padding-left: 0;
+        padding-right: 0;
+        font-size: pxtovw(20, 375);
+        line-height: 2.6;
+      }
+    }
   }
 
   li {
@@ -136,6 +218,16 @@
       background-size: pxtovw(16, 375);
     }
 
+    .search-panel__locations & {
+      @include screen('sm', max, 2) {
+        font-size: pxtovw(20, 375);
+        line-height: 2.6;
+        padding: 0 0 0 pxtovw(29, 375);
+        background-position: 0 50%;
+        background-size: pxtovw(16, 375);
+      }
+    }
+
     b {
       background-color: $nd-color-main;
       color: $nd-color-basic-light;
@@ -170,6 +262,12 @@
         background-size: pxtovw(12, 375) pxtovw(16, 375);
         background-position: pxtovw(20, 375) 50%;
       }
+
+      .search-panel__locations & {
+        @include screen('sm', max, 2) {
+          background-position: 0 50%;
+        }
+      }
     }
 
     &.icon-subway {
@@ -197,6 +295,12 @@
         background-size: pxtovw(16, 375) pxtovw(14, 375);
         background-position: pxtovw(17, 375) 50%;
       }
+
+      .search-panel__locations & {
+        @include screen('sm', max, 2) {
+          background-position: 0 50%;
+        }
+      }
     }
 
     &.icon-building {
@@ -223,6 +327,12 @@
       @include screen('sm', max, 2) {
         background-size: pxtovw(12, 375) pxtovw(12, 375);
         background-position: pxtovw(18, 375) 50%;
+      }
+
+      .search-panel__locations & {
+        @include screen('sm', max, 2) {
+          background-position: 0 50%;
+        }
       }
     }
   }

@@ -27,29 +27,83 @@
     }
   }
 
-  &_drop {
-    padding: 20px 10px;
-    box-shadow: 0 0 4px rgba(56, 58, 68, .09), 0 3px 14px rgba(0, 0, 0, .13);
-    border-radius: 3px;
+  &__button {
+    width: 30px;
+    height: 30px;
+    box-sizing: border-box;
+    border-radius: 50%;
+    border: 1px solid $nd-color-basic;
+    pointer-events: auto;
+    cursor: pointer;
+    background-color: $nd-color-basic-light;
+    background-size: 7px 16px;
+    background-repeat: no-repeat;
 
     @include screen('xlg', max, 2) {
-      padding: pxtovw(20, 1660) pxtovw(10, 1660);
-      border-radius: pxtovw(3, 1660);
+      width: pxtovw(30, 1660);
+      height: pxtovw(30, 1660);
+      background-size: pxtovw(7, 1660) pxtovw(16, 1660);
     }
 
     @include screen('lg', max, 2) {
-      padding: pxtovw(20, 1366) pxtovw(10, 1366);
-      border-radius: pxtovw(3, 1366);
+      width: pxtovw(30, 1366);
+      height: pxtovw(30, 1366);
+      background-size: pxtovw(7, 1366) pxtovw(16, 1366);
     }
 
     @include screen('md', max, 2) {
-      padding: pxtovw(20, 960) pxtovw(10, 960);
-      border-radius: pxtovw(3, 960);
+      width: pxtovw(30, 960);
+      height: pxtovw(30, 960);
+      background-size: pxtovw(7, 960) pxtovw(16, 960);
     }
 
     @include screen('sm', max, 2) {
-      padding: pxtovw(20, 375)  pxtovw(5, 375);
-      border-radius: pxtovw(3, 375);
+      width: pxtovw(30, 375);
+      height: pxtovw(30, 375);
+      background-size: pxtovw(7, 375) pxtovw(16, 375);
+    }
+
+    &.swiper-button-disabled {
+      opacity: .3;
+      pointer-events: none;
+      cursor: default;
+    }
+
+    &_next {
+      background-position: 50% 50%;
+      background-image: $icon-angle-arrow-next;
+    }
+
+    &_prev {
+      background-position: 50% 50%;
+      background-image: $icon-angle-arrow-back;
+    }
+  }
+
+  &__buttons {
+    #{$b}_drop & {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      padding: 38px 35px 0;
+      box-sizing: border-box;
+
+      @include screen('xlg', max, 2) {
+        padding: pxtovw(38, 1660) pxtovw(35, 1660) 0;
+      }
+
+      @include screen('lg', max, 2) {
+        padding: pxtovw(38, 1366) pxtovw(35, 1366) 0;
+      }
+
+      @include screen('md', max, 2) {
+        padding: pxtovw(38, 960) pxtovw(35, 960) 0;
+      }
+
+      @include screen('sm', max, 2) {
+        padding: pxtovw(15, 375) pxtovw(10, 375) 0;
+      }
     }
   }
 
@@ -60,5 +114,37 @@
     width: 100%;
     height: 100%;
     pointer-events: none;
+    z-index: 2;
+  }
+
+  &_drop {
+    padding: 42px 41px;
+    box-shadow: 0 4px 19px rgba(0, 0, 0, .06), 0 2px 11px rgba(0, 0, 0, .09);
+    border-radius: 3px;
+    background-color: $nd-color-basic-light;
+
+    @include screen('xlg', max, 2) {
+      padding: pxtovw(42, 1660) pxtovw(41, 1660);
+      border-radius: pxtovw(3, 1660);
+      box-shadow: 0 pxtovw(4, 1660) pxtovw(19, 1660) rgba(0, 0, 0, .06), 0 pxtovw(2, 1660) pxtovw(11, 1660) rgba(0, 0, 0, .09);
+    }
+
+    @include screen('lg', max, 2) {
+      padding: pxtovw(42, 1366) pxtovw(41, 1366);
+      border-radius: pxtovw(3, 1366);
+      box-shadow: 0 pxtovw(4, 1366) pxtovw(19, 1366) rgba(0, 0, 0, .06), 0 pxtovw(2, 1366) pxtovw(11, 1366) rgba(0, 0, 0, .09);
+    }
+
+    @include screen('md', max, 2) {
+      padding: pxtovw(42, 960) pxtovw(41, 960);
+      border-radius: pxtovw(3, 960);
+      box-shadow: 0 pxtovw(4, 960) pxtovw(19, 960) rgba(0, 0, 0, .06), 0 pxtovw(2, 960) pxtovw(11, 960) rgba(0, 0, 0, .09);
+    }
+
+    @include screen('sm', max, 2) {
+      padding: pxtovw(20, 375);
+      border-radius: pxtovw(3, 375);
+      box-shadow: 0 pxtovw(4, 375) pxtovw(19, 375) rgba(0, 0, 0, .06), 0 pxtovw(2, 375) pxtovw(11, 375) rgba(0, 0, 0, .09);
+    }
   }
 }

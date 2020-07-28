@@ -12,6 +12,15 @@ export default function stpFormSwitch() {
     $('[data-step]').addClass('hide');
     $(`[data-step*=${nxtStep}]`).removeClass('hide');
     $(form).attr('data-current-step', nxtStep);
+    if ($(form).is('[data-search-panel]')) {
+      if (nxtStep !== 'default') {
+        $(form).addClass('is-float-up');
+        window.globalFunctions.freeze();
+      } else {
+        $(form).removeClass('is-float-up');
+        window.globalFunctions.unfreeze();
+      }
+    }
   }
 
   window.stpFormGoToNextStep = goToNextStep;

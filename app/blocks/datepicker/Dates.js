@@ -69,7 +69,8 @@ export default class DatePicker {
   _bindEvents() {
     const t = this;
     if (t.autoactivate) {
-      $(t.el).on('blur', t._hideDates);
+      $(t.input).on('focus', $.proxy(t._showDates, t));
+      $(document).on('click', $.proxy(t._hideDates, t));
     }
     $(t.container).on('click', '.dates-table__cell', $.proxy(t._onClickCell, t));
     $(t.container).on('click', (evt) => {
@@ -134,7 +135,7 @@ export default class DatePicker {
         options = {
           watchOverflow: true,
           slidesPerView: 1,
-          spaceBetween: 30,
+          spaceBetween: 80,
           initialSlide,
           observer: true,
           observeParents: true,
@@ -391,10 +392,17 @@ export default class DatePicker {
     $(self).addClass('is-active');
   }
 
-  _hideDates() {
+  _hideDates(evt) {
     const t = this;
     const self = t.el;
-    $(self).removeClass('is-active');
+    if (evt) {
+      const target = evt.target;
+      if ($(target).closest('.dates').length === 0 && $(target).closest('.js-nd-datepicker').length === 0 && $(target).not('.js-nd-datepicker')) {
+        $(self).removeClass('is-active');
+      }
+    } else {
+      $(self).removeClass('is-active');
+    }
   }
 }
 /* eslint-enable no-plusplus */

@@ -19,6 +19,7 @@
   letter-spacing: normal;
   padding: 0 34px;
   z-index: 0;
+  transition: background $ease-main;
 
   @include screen('xlg', max, 2) {
     height: pxtovw(40, 1660);
@@ -46,6 +47,10 @@
     font-size: pxtovw(18, 375);
     padding: 0 pxtovw(34, 375);
     border-radius: pxtovw(20, 375);
+  }
+
+  &:hover {
+    background-color: $nd-button-hover-color;
   }
 
   [data-enabled-text] {
@@ -516,7 +521,8 @@
     }
 
     &:hover {
-      border-color: currentColor;
+      background-color: transparent;
+      border-color: $nd-color-field-border-hover;
     }
   }
 
@@ -635,7 +641,7 @@
           }
 
           @include screen('sm', max, 2) {
-            left: pxtovw(9, 375);
+            left: pxtovw(15, 375);
           }
         }
       }

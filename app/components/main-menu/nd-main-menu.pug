@@ -1,0 +1,21 @@
+mixin nd-main-menu(data)
+  +b.nd-main-menu&attributes(attributes)
+    .nd-container
+      +e.content
+        if data
+          +e.UL.list
+            each item in data
+              +e.LI.item
+                +e.A.link(href=item.href)
+                  +e.SPAN.name!=item.name
+                  +e.IMG.image(src=item.icon)
+        +e.UL.list
+          each item in [{name: 'About Spacepool', href: '#'}, {name: 'Help & Support', href: '#'}, {name: 'Get listed', href: '#'}, {name: 'Blog', href: '#'}]
+            +e.LI.item_noborder
+              +e.A.link_short(href=item.href)
+                +e.SPAN.name!=item.name
+        +e.footer
+          if data
+            +e.A.link_bold._ls(href='#')
+              +e.SPAN.name Exit account
+          +nd-socials({icon: '_small', item: '_mg17'}).__socials

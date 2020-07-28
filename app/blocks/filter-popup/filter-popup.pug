@@ -1,8 +1,13 @@
 mixin filter-popup(data)
   +b.FORM.filter-popup&attributes(attributes)
     +e.header
-      +e.close.js-nd-filter-close
-      +e.H4.title!=data.title
+      +e.close.nd-hide-from-sm.js-nd-filter-close
+      +e.H4.title.nd-hide-from-sm!=data.title
+      if data.note
+        +e.note.nd-hide-sm
+          span!=data.note.text
+          if data.note.nb
+            b!=data.note.nb
     +e.content
       block
     +e.footer

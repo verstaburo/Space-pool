@@ -20,11 +20,12 @@ mixin socials-big()
     +e.item
       +social('sc-inst')._big._inst(href="#" title="instagram")
 
-mixin nd-socials()
+mixin nd-socials(clss)
+  - var cls = clss || {}
   +b.UL.nd-socials&attributes(attributes)
-    +e.item
-      +nd-social('nd-facebook')._fb(href="#" title="facebook")
-    +e.item
-      +nd-social('nd-instagram')._inst(href="#" title="instagram")
-    +e.item
-      +nd-social('nd-linkedin')._ln(href="#" title="linkedIn")
+    +e.item(class=(cls.item || ''))
+      +nd-social('nd-facebook')._fb(href="#" title="facebook" class=(cls.icon || ''))
+    +e.item(class=(cls.item || ''))
+      +nd-social('nd-instagram')._inst(href="#" title="instagram" class=(cls.icon || ''))
+    +e.item(class=(cls.item || ''))
+      +nd-social('nd-linkedin')._ln(href="#" title="linkedIn" class=(cls.icon || ''))

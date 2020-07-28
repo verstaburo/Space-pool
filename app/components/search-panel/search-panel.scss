@@ -27,6 +27,12 @@
     padding: pxtovw(22, 375) pxtovw(20, 375) pxtovw(36, 375);
   }
 
+  &.is-float-up {
+    @include screen('sm', max, 2) {
+      z-index: 30;
+    }
+  }
+
   &__heading {
     position: relative;
     display: block;
@@ -87,6 +93,14 @@
       pointer-events: none;
       opacity: 0;
     }
+
+    #{$b}__describe & {
+      @include screen('sm', max, 2) {
+        display: inline-block;
+        width: auto;
+        margin-bottom: 0;
+      }
+    }
   }
 
   &__content {
@@ -104,6 +118,8 @@
     flex-wrap: wrap;
     width: 100%;
     transition: opacity .5s ease-out;
+    pointer-events: auto;
+    opacity: 1;
 
     &.hide {
       display: flex !important;
@@ -117,6 +133,18 @@
       left: 0;
       width: 100%;
       height: 100%;
+
+      @include screen('sm', max, 2) {
+        position: fixed;
+        flex-direction: column;
+        justify-content: flex-start;
+        flex-wrap: nowrap;
+        align-items: flex-start;
+        background-color: $nd-color-basic-light;
+        overflow-x: auto;
+        box-sizing: border-box;
+        padding: 0 pxtovw(20, 375) pxtovw(88, 375);
+      }
     }
   }
 
@@ -264,6 +292,12 @@
       height: pxtovw(16, 375);
     }
 
+    &_big {
+      @include screen('sm', max, 2) {
+        height: pxtovw(25, 375);
+      }
+    }
+
     &:not(:last-child) {
       margin-right: 10px;
 
@@ -305,6 +339,12 @@
       @include screen('sm', max, 2) {
         width: pxtovw(26, 375);
       }
+
+      &.search-panel__toggle-icon_big {
+        @include screen('sm', max, 2) {
+          width: pxtovw(35, 375);
+        }
+      }
     }
 
     &_space {
@@ -326,6 +366,12 @@
       @include screen('sm', max, 2) {
         width: pxtovw(15, 375);
       }
+
+      &.search-panel__toggle-icon_big {
+        @include screen('sm', max, 2) {
+          width: pxtovw(25, 375);
+        }
+      }
     }
 
     &_location {
@@ -346,6 +392,21 @@
 
       @include screen('sm', max, 2) {
         width: pxtovw(17, 375);
+      }
+
+      &.search-panel__toggle-icon_big {
+        @include screen('sm', max, 2) {
+          width: pxtovw(25, 375);
+        }
+      }
+    }
+
+    #{$b}__describe & {
+      &:not(:first-child) {
+        @include screen('sm', max, 2) {
+          margin-top: pxtovw(46, 375);
+          margin-bottom: 0;
+        }
       }
     }
   }
@@ -387,6 +448,37 @@
     }
   }
 
+  &__describe {
+    display: inline-block;
+    width: 100%;
+    font-size: 0;
+    line-height: 0;
+
+    @include screen('sm', max, 2) {
+      order: 1;
+    }
+
+    &:not(:first-child) {
+      margin-top: 20px;
+
+      @include screen('xlg', max, 2) {
+        margin-top: pxtovw(20, 1660);
+      }
+
+      @include screen('lg', max, 2) {
+        margin-top: pxtovw(20, 1366);
+      }
+
+      @include screen('md', max, 2) {
+        margin-top: pxtovw(20, 960);
+      }
+
+      @include screen('sm', max, 2) {
+        margin-top: 0;
+      }
+    }
+  }
+
   &__note {
     display: inline-block;
     width: 100%;
@@ -410,27 +502,28 @@
 
     @include screen('sm', max, 2) {
       font-size: pxtovw(13, 375);
-      order: 2;
     }
 
     &:not(:first-child) {
-      margin-top: 20px;
-
-      @include screen('xlg', max, 2) {
-        margin-top: pxtovw(20, 1660);
-      }
-
-      @include screen('lg', max, 2) {
-        margin-top: pxtovw(20, 1366);
-      }
-
-      @include screen('md', max, 2) {
-        margin-top: pxtovw(20, 960);
-      }
-
       @include screen('sm', max, 2) {
         text-align: center;
         margin-top: pxtovw(17, 375);
+      }
+    }
+
+    #{$b}__describe & {
+      @include screen('sm', max, 2) {
+        text-align: left;
+        font-size: pxtovw(16, 375);
+        line-height: (19 / 16);
+        color: $nd-color-basic;
+      }
+
+      &:not(:first-child) {
+        @include screen('sm', max, 2) {
+          text-align: left;
+          margin-top: pxtovw(15, 375);
+        }
       }
     }
   }
@@ -468,14 +561,39 @@
     }
 
     @include screen('sm', max, 2) {
-      font-size: pxtovw(17, 375);
-      margin-top: pxtovw(-4, 375);
+      position: static;
+      background-repeat: no-repeat;
+      background-size: pxtovw(19, 375) pxtovw(10, 375);
+      background-position: 0 50%;
+      background-image: url("data:image/svg+xml,%3Csvg width='22' height='11' viewBox='0 0 22 11' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M6.457 0.999999L2.00019 5.40536L6.56348 9.91597' stroke='black' stroke-width='2' stroke-miterlimit='10' stroke-linecap='round'/%3E%3Cpath d='M2.00005 5.40619L20.9985 5.40619' stroke='black' stroke-width='2' stroke-miterlimit='10' stroke-linecap='round'/%3E%3C/svg%3E ");
+      font-size: 0;
+      margin-top: 0;
+      height: pxtovw(58, 375);
+      width: pxtovw(40, 375);
+      // font-size: pxtovw(17, 375);
+      // margin-top: pxtovw(-4, 375);
     }
 
     &.hide {
       display: inline-flex !important;
       pointer-events: none;
       opacity: 0;
+    }
+
+    #{$b}__heading & {
+      @include screen('sm', max, 2) {
+        display: none;
+      }
+    }
+  }
+
+  &__head {
+    @include screen('sm', max, 2) {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-sizing: border-box;
+      width: 100%;
     }
   }
 
@@ -595,7 +713,23 @@
     }
 
     @include screen('sm', max, 2) {
-      margin: pxtovw(10, 375) pxtovw(10, 375) 0;
+      margin: pxtovw(31, 375) 0 0;
+      flex: none;
+      width: 100%;
+    }
+
+    &_type {
+      @include screen('sm', max, 2) {
+        justify-content: flex-start;
+        text-align: left;
+        padding-left: pxtovw(44, 375);
+      }
+    }
+
+    &_icon {
+      @include screen('sm', max, 2) {
+        padding: 0 pxtovw(30, 375);
+      }
     }
   }
 
@@ -624,13 +758,24 @@
     }
 
     @include screen('sm', max, 2) {
-      margin: pxtovw(-10, 375) pxtovw(-10, 375) 0;
-      width: calc(100% + ((2000 / 375) * 1vw));
+      margin: pxtovw(37, 375) 0 0;
+      width: 100%;
+      flex-direction: column;
+      justify-content: flex-end;
+      align-items: flex-start;
+      order: 2;
+      flex: 1;
     }
   }
 
   &__locations {
     flex: 1;
+
+    @include screen('sm', max, 2) {
+      order: 2;
+      margin-top: pxtovw(45, 375);
+      width: 100%;
+    }
 
     &:not(:last-child) {
       margin-right: 43px;

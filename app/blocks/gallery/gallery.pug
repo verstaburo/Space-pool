@@ -8,6 +8,11 @@ mixin gallery(data)
               +e.PICTURE.image
                 +e.SOURCE(srcset=image)
                 +e.IMG(srcset=image data-target=data.gallerytag)
+          else if data.fancygallery
+            +e.slide
+              +e.PICTURE.image(data-fancybox=data.fancygallery data-src=image)
+                +e.SOURCE(srcset=image )
+                +e.IMG(srcset=image )
           else
             +e.slide
               +e.PICTURE.image

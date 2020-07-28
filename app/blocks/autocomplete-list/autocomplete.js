@@ -113,7 +113,7 @@ export default class Autocomplete {
       t.closeAllLists();
       const wrapper = document.createElement('DIV');
       const arr = t.sourceList;
-      wrapper.setAttribute('class', 'autocomplete-list js-scrollbar');
+      wrapper.setAttribute('class', 'autocomplete-list');
       t.container.appendChild(wrapper);
       const list = document.createElement('UL');
       for (let i = 0; i < arr.length; i += 1) {

@@ -19,17 +19,18 @@ html(lang='en')
     - var gradients = isGradients || false
     - var isHost = host || false
     - var map = isMap || false
+    - var noUser = isNoUser || false
+    - var menuData = getData('nd-guest-acc-list.json')
+    if isHost
+      - menuData = getData('nd-guest-acc-list.json')
+    if noUser
+      - menuData = ''
     if gradients
       +gradients-redesign
     if !noHeader
       +nd-header(isHost)(class=addClass)
       +nd-user-menu-panel(isHost)
-      +info-notices({indicator: 2, title: 'Events', link: {mdname: 'View all events', xlname: 'Show all events'}})#events-list
-        each item in events
-          +notice(item)
-      +info-notices({indicator: 2, title: 'Messages', link: {xlname: 'View all Messages', mdname: 'Read all messages', indicator: 2}})#messages-list
-        each item in messages
-          +notice(item)
+      +nd-main-menu(menuData)
 
     +b.MAIN(class='nd-page' + pageCls)
       block content
@@ -37,8 +38,6 @@ html(lang='en')
     +popups
       +popup-signin#popup-signin
       block popups
-
-    +overlay
 
     block panels
 

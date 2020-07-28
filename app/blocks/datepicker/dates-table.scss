@@ -38,6 +38,11 @@
       font-size: pxtovw(17, 375);
       padding-left: pxtovw(10, 375);
     }
+
+    .dates_drop & {
+      text-align: center;
+      padding-left: 0;
+    }
   }
 
   &__month {
@@ -191,6 +196,13 @@
       color: $nd-color-border4;
       pointer-events: none;
       cursor: default;
+
+      &.is-selected {
+        span {
+          border-color: transparent;
+          background-color: transparent;
+        }
+      }
     }
   }
 }
