@@ -5,7 +5,6 @@
   display: inline-flex;
   justify-content: flex-start;
   align-items: flex-start;
-  cursor: pointer;
   font-size: 18px;
   line-height: 20px;
   color: $nd-color-basic;
@@ -41,7 +40,6 @@
   }
 
   &.is-disabled {
-    opacity: .2;
     cursor: default;
     pointer-events: none;
   }
@@ -67,6 +65,7 @@
     background-position: 60% 50%;
     background-size: 80% 65%;
     box-sizing: border-box;
+    cursor: pointer;
 
     @include screen('xlg', max, 2) {
       width: pxtovw(20, 1660);
@@ -93,12 +92,18 @@
       background-image: $icon-check-white;
     }
 
-    #{$b}__input:disabled ~ & {
-      opacity: .2;
+    #{$b}__input:disabled ~ &, .is-disabled & {
+      border-color: $nd-color-border3;
+      cursor: default;
+      pointer-events: none;
+    }
+
+    #{$b}__input:checked:disabled ~ &, .is-disabled #{$b}__input:checked & {
+      background-color: rgba($nd-color-main, .3);
+      border-color: $nd-color-border3;
     }
 
     #{$b}:hover & {
-      background-color: $nd-color-main;
     }
   }
 
@@ -107,6 +112,7 @@
     font-weight: inherit;
     line-height: inherit;
     letter-spacing: inherit;
+    cursor: pointer;
 
     &:not(:first-child) {
       margin-left: 15px;
@@ -126,6 +132,12 @@
       @include screen('sm', max, 2) {
         margin-left: pxtovw(11, 375);
       }
+    }
+
+    #{$b}__input:disabled ~ &, .is-disabled & {
+      color: $nd-color-border-light;
+      cursor: default;
+      pointer-events: none;
     }
   }
 }

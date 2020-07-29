@@ -10,6 +10,8 @@ export default function filterMenu() {
 
   function filterPopupOpen(name, type) {
     const self = $(`.js-nd-show-filter[data-nd-filter-target="${name}"]`);
+    const ppp = $(`[data-nd-filter-popup="${name}"]`);
+    window.globalFunctions.itemPositioning(ppp, true);
     switch (type) {
       case 'popup-block': {
         if ($(self).is('.is-active')) {

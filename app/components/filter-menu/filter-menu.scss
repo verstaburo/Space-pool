@@ -145,25 +145,6 @@
       transform: translate3d(100%, 0, 0);
     }
 
-    #{$b}__item:first-child & {
-      left: 0;
-      transform: translate3d(0, 0, 0);
-    }
-
-    #{$b}__item:last-child & {
-      @include screen('md', max, 2) {
-        left: auto;
-        right: 0;
-        transform: translate3d(0, 0, 0);
-      }
-
-      @include screen('sm', max, 2) {
-        left: 0;
-        right: auto;
-        transform: translate3d(100%, 0, 0);
-      }
-    }
-
     .filter-button.is-active ~ & {
       opacity: 1;
       pointer-events: auto;

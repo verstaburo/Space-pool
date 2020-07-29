@@ -22,15 +22,15 @@ html(lang='en')
     - var noUser = isNoUser || false
     - var menuData = getData('nd-guest-acc-list.json')
     if isHost
-      - menuData = getData('nd-guest-acc-list.json')
-    if noUser
-      - menuData = ''
+      - menuData = getData('nd-host-acc-list.json')
+    if isHost == 'manager'
+      - menuData = getData('nd-manager-acc-list.json')
     if gradients
       +gradients-redesign
     if !noHeader
       +nd-header(isHost)(class=addClass)
       +nd-user-menu-panel(isHost)
-      +nd-main-menu(menuData)
+      +nd-main-menu(menuData, isHost)
 
     +b.MAIN(class='nd-page' + pageCls)
       block content

@@ -88,6 +88,8 @@ import dates from '../blocks/datepicker/datepicker';
 import switchFormContent from './functions/switchFormContent';
 import filterMenu from '../components/filter-menu/filter-menu';
 import initCharts from '../blocks/chart/chartInit';
+import buttonHover from '../blocks/button/button';
+import positioning from './functions/position';
 
 const $ = window.$;
 
@@ -163,4 +165,6 @@ $(() => {
   ndSearchMapManipulations();
   filterMenu();
   initCharts();
+  buttonHover();
+  positioning();
 });

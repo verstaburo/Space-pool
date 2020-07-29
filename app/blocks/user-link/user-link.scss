@@ -64,10 +64,20 @@
       width: 100%;
       height: 100%;
       fill: $nd-color-basic;
+
+      path {
+        transition: fill $ease-main;
+      }
     }
 
     #{$b}:hover & {
       fill: $color-basic-dark;
+    }
+
+    #{$b}.nd-user-link:hover & {
+      path {
+        fill: $nd-color-main;
+      }
     }
 
     #{$b}.is-active & {
@@ -75,6 +85,12 @@
 
       &:hover {
         fill: $color-user-link-active;
+      }
+    }
+
+    #{$b}.nd-user-link.is-active & {
+      path {
+        fill: $nd-color-main;
       }
     }
   }

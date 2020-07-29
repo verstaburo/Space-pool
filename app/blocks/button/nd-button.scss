@@ -19,7 +19,12 @@
   letter-spacing: normal;
   padding: 0 34px;
   z-index: 0;
-  transition: background $ease-main;
+  background-repeat: no-repeat;
+  background-position: 0 50%;
+  background-size: 200% 100%;
+  transition: transform $ease-main;
+  transform-origin: 50% 50%;
+  will-change: background-position;
 
   @include screen('xlg', max, 2) {
     height: pxtovw(40, 1660);
@@ -50,7 +55,11 @@
   }
 
   &:hover {
-    background-color: $nd-button-hover-color;
+    background-image: linear-gradient(90.5deg, rgba(#0085ff, 0) 25.06%, #00b2ff 48.74%, rgba(#0085ff, 0) 74.96%);
+  }
+
+  &:active {
+    transform: scale(.96);
   }
 
   [data-enabled-text] {
@@ -510,7 +519,7 @@
     border: 1px solid $nd-color-border;
     background-color: transparent;
     color: $nd-color-basic;
-    transition: border $ease-main;
+    transition: border $ease-main, transform $ease-main;
 
     &_gray {
       border-color: $nd-color-border3;
@@ -523,6 +532,7 @@
     &:hover {
       background-color: transparent;
       border-color: $nd-color-field-border-hover;
+      background-image: none;
     }
   }
 

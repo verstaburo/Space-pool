@@ -215,15 +215,42 @@
         margin-top: pxtovw(32, 375);
       }
     }
+
+    &_bmt {
+      &:not(:first-child) {
+        margin-top: 120px;
+
+        @include screen('xlg', max, 2) {
+          margin-top: pxtovw(120, 1660);
+        }
+
+        @include screen('lg', max, 2) {
+          margin-top: pxtovw(120, 1366);
+        }
+
+        @include screen('md', max, 2) {
+          margin-top: pxtovw(120, 960);
+        }
+
+        @include screen('sm', max, 2) {
+          margin-top: pxtovw(120, 375);
+        }
+      }
+    }
   }
 
   &__item {
     display: block;
     width: 100%;
     border-bottom: 1px solid $nd-color-table-border;
+    transition: border $ease-main;
 
     &_noborder {
       border-bottom: none;
+    }
+
+    &:hover {
+      border-color: $nd-color-main;
     }
   }
 
@@ -277,6 +304,32 @@
       @include screen('sm', max, 2) {
         padding: pxtovw(5, 375) 0 pxtovw(6, 375);
       }
+
+      span {
+        background-repeat: repeat-x;
+        background-position: 0 calc(50% + .5em);
+        background-size: 2px 2px;
+
+        @include screen('xlg', max, 2) {
+          background-size: pxtovw(2, 1660) pxtovw(2, 1660);
+        }
+
+        @include screen('lg', max, 2) {
+          background-size: pxtovw(2, 1366) pxtovw(2, 1366);
+        }
+
+        @include screen('md', max, 2) {
+          background-size: pxtovw(2, 960) pxtovw(2, 960);
+        }
+
+        @include screen('sm', max, 2) {
+          background-size: pxtovw(2, 375) pxtovw(2, 375);
+        }
+      }
+
+      &:hover span {
+        background-image: linear-gradient($nd-color-main, $nd-color-main);
+      }
     }
 
     &_bold {
@@ -287,8 +340,8 @@
       letter-spacing: -.015em;
     }
 
-    &:hover {
-      color: $nd-color-main;
+    &.is-active {
+      color: $nd-color-gray-text;
     }
   }
 

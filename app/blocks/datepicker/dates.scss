@@ -28,6 +28,9 @@
   }
 
   &__button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 30px;
     height: 30px;
     box-sizing: border-box;
@@ -36,31 +39,27 @@
     pointer-events: auto;
     cursor: pointer;
     background-color: $nd-color-basic-light;
-    background-size: 7px 16px;
-    background-repeat: no-repeat;
+    color: $nd-color-border-light;
+    transition: color $ease-main, opacity $ease-main;
 
     @include screen('xlg', max, 2) {
       width: pxtovw(30, 1660);
       height: pxtovw(30, 1660);
-      background-size: pxtovw(7, 1660) pxtovw(16, 1660);
     }
 
     @include screen('lg', max, 2) {
       width: pxtovw(30, 1366);
       height: pxtovw(30, 1366);
-      background-size: pxtovw(7, 1366) pxtovw(16, 1366);
     }
 
     @include screen('md', max, 2) {
       width: pxtovw(30, 960);
       height: pxtovw(30, 960);
-      background-size: pxtovw(7, 960) pxtovw(16, 960);
     }
 
     @include screen('sm', max, 2) {
       width: pxtovw(30, 375);
       height: pxtovw(30, 375);
-      background-size: pxtovw(7, 375) pxtovw(16, 375);
     }
 
     &.swiper-button-disabled {
@@ -69,14 +68,34 @@
       cursor: default;
     }
 
-    &_next {
-      background-position: 50% 50%;
-      background-image: $icon-angle-arrow-next;
+    &:hover {
+      color: $nd-color-basic;
     }
 
-    &_prev {
-      background-position: 50% 50%;
-      background-image: $icon-angle-arrow-back;
+    svg {
+      width: 7px;
+      height: 16px;
+      stroke: currentColor;
+
+      @include screen('xlg', max, 2) {
+        width: pxtovw(7, 1660);
+        height: pxtovw(16, 1660);
+      }
+
+      @include screen('lg', max, 2) {
+        width: pxtovw(7, 1366);
+        height: pxtovw(16, 1366);
+      }
+
+      @include screen('md', max, 2) {
+        width: pxtovw(7, 960);
+        height: pxtovw(16, 960);
+      }
+
+      @include screen('sm', max, 2) {
+        width: pxtovw(7, 375);
+        height: pxtovw(16, 375);
+      }
     }
   }
 

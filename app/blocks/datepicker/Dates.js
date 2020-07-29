@@ -45,7 +45,7 @@ export default class DatePicker {
     this.firstDay = 1;
     this.viewType = opts.viewType || 'vertical';
     this._template = {
-      sliderBase: '<div class="dates swiper-container"><div class="dates__wrapper swiper-wrapper"></div><div class="dates__navigation"><div class="dates__buttons"><div class="dates__button dates__button_prev"></div><div class="dates__button dates__button_next"></div></div><div class="dates__scrollbar"></div></div></div>',
+      sliderBase: '<div class="dates swiper-container"><div class="dates__wrapper swiper-wrapper"></div><div class="dates__navigation"><div class="dates__buttons"><div class="dates__button dates__button_prev"><svg width="7" height="16" viewBox="0 0 7 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6.14453 1.41016L1.14453 8.05415" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round"/><path d="M1.14453 8.05469L6.14453 14.6987" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round"/></svg></div><div class="dates__button dates__button_next"><svg width="7" height="16" viewBox="0 0 7 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0.857422 1.41016L5.81859 8.00255" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round"/><path d="M5.81859 8.00391L0.857422 14.5963" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round"/></svg></div></div><div class="dates__scrollbar"></div></div></div>',
       slideElem: '<div class="dates-table swiper-slide"><div class="dates-table__head"><div class="dates-table__title"></div><div class="dates-table__days"></div></div><div class="dates-table__body"></div></div>',
     };
     this.weekends = [6, 0];
@@ -389,7 +389,10 @@ export default class DatePicker {
   _showDates() {
     const t = this;
     const self = t.el;
-    $(self).addClass('is-active');
+    window.globalFunctions.itemPositioning(t.container);
+    setTimeout(() => {
+      $(self).addClass('is-active');
+    }, 0);
   }
 
   _hideDates(evt) {

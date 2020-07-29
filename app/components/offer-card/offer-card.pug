@@ -50,7 +50,7 @@ mixin offer-card-for-space(item, cls)
       if item.plan
         +e.FIGURE.plan
           +e.FIGCAPTION.plan-caption Floor plan
-          +e.plan-image(data-fancybox=item.planTag data-src=item.plan)
+          +e.plan-image(data-fancybox=item.planTag data-src=item.plan data-blind-zone)
             IMG(src=item.plan)
       +e.price!=(item.price.amount + ' <span class="offer-card__price-period" data-text="' + item.price.period + '" data-mobile-text="' + item.price.periodshort + '"></span>')
       +e.buttons(data-blind-zone)

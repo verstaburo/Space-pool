@@ -1,21 +1,26 @@
-mixin nd-main-menu(data)
+mixin nd-main-menu(data, host, activeMenu)
+  - var active = activeMenu || 'Notifications'
+  - var bottomMenu = [{name: 'About Spacepool', href: '#'}, {name: 'Help & Support', href: '#'}, {name: 'Get listed', href: '#'}, {name: 'Blog', href: '#'}]
+  - if (host) bottomMenu = [{name: 'About Spacepool', href: '#'}, {name: 'Help & Support', href: '#'}, {name: 'Blog', href: '#'}]
+  - var listClass = (host) ? '_bmt' : ''
   +b.nd-main-menu&attributes(attributes)
     .nd-container
       +e.content
         if data
           +e.UL.list
             each item in data
+              - var addClass = (item.name === active) ? ' is-active' : ''
               +e.LI.item
-                +e.A.link(href=item.href)
+                +e.A.link(href=item.href class=addClass)
                   +e.SPAN.name!=item.name
                   +e.IMG.image(src=item.icon)
-        +e.UL.list
-          each item in [{name: 'About Spacepool', href: '#'}, {name: 'Help & Support', href: '#'}, {name: 'Get listed', href: '#'}, {name: 'Blog', href: '#'}]
+        +e.UL.list(class=listClass)
+          each item in bottomMenu
             +e.LI.item_noborder
               +e.A.link_short(href=item.href)
                 +e.SPAN.name!=item.name
         +e.footer
-          if data
+          if data || host
             +e.A.link_bold._ls(href='#')
               +e.SPAN.name Exit account
           +nd-socials({icon: '_small', item: '_mg17'}).__socials

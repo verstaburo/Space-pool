@@ -10,7 +10,7 @@
   box-sizing: border-box;
   cursor: pointer;
   border: 1px solid $nd-color-border5;
-  transition: border $ease-main;
+  transition: border $ease-main, background $ease-main, color $ease-main;
   font-size: 15px;
   line-height: 1.2;
   letter-spacing: -.02em;
@@ -93,6 +93,19 @@
 
     @include screen('sm', max, 2) {
       box-shadow: pxtovw(2, 375) pxtovw(4, 375) pxtovw(8, 375) rgba(0, 0, 0, .25);
+    }
+
+    &_offer.is-choose {
+      border-color: $nd-color-filter-border;
+      background-color: $nd-color-basic;
+      color: $nd-color-basic-light;
+
+      &:hover {
+        border-color: $nd-color-main;
+        background-color: $nd-color-basic-light;
+        color: $nd-color-basic;
+        box-shadow: inset 0 0 0 1px $nd-color-main;
+      }
     }
   }
 

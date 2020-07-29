@@ -35,7 +35,7 @@
     height: pxtovw(30, 375);
   }
 
-  .is-navigation-open & {
+  .is-navigation-open &, &:hover {
     color: $nd-color-main;
   }
 
@@ -179,9 +179,29 @@
     }
 
     svg {
+      position: relative;
       stroke: currentColor;
       width: 100%;
       height: 100%;
+    }
+  }
+
+  &__border {
+    transform-origin: 0% 50%;
+
+    &_top {
+      .is-navigation-open & {
+      }
+    }
+
+    &_mid {
+      .is-navigation-open & {
+      }
+    }
+
+    &_bottom {
+      .is-navigation-open & {
+      }
     }
   }
 }

@@ -17,9 +17,25 @@
     line-height: inherit;
     transition: background $ease-main;
     text-decoration: none;
-    background-position: 0 95%;
+    background-position: 0 calc(50% + .5em);
     background-size: 2px 2px;
     background-repeat: repeat-x;
+
+    @include screen('xlg', max, 2) {
+      background-size: pxtovw(2, 1660) pxtovw(2, 1660);
+    }
+
+    @include screen('lg', max, 2) {
+      background-size: pxtovw(2, 1366) pxtovw(2, 1366);
+    }
+
+    @include screen('md', max, 2) {
+      background-size: pxtovw(2, 960) pxtovw(2, 960);
+    }
+
+    @include screen('sm', max, 2) {
+      background-size: pxtovw(2, 375) pxtovw(2, 375);
+    }
 
     #{$b}_underline & {
       text-decoration: underline;
@@ -315,6 +331,13 @@
   &_underline:hover {
     #{$b}__text {
       text-decoration: none;
+      background-image: none;
+    }
+  }
+
+  &_underline_hovertoo:hover {
+    #{$b}__text {
+      text-decoration: underline;
       background-image: none;
     }
   }

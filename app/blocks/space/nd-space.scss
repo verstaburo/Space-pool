@@ -1668,6 +1668,7 @@
     box-shadow: 1px 1px 1px rgba(0, 0, 0, .03), 2px 2px 2px rgba(0, 0, 0, .04), 3px 3px 3px rgba(0, 0, 0, .02);
     overflow: hidden;
     padding: 25px 25px 20px;
+    transition: box-shadow $ease-main;
 
     @include screen('xlg', max, 2) {
       border-radius: pxtovw(3, 1660);
@@ -1704,6 +1705,30 @@
       align-items: center;
       padding: 0;
     }
+
+    &:hover {
+      box-shadow: 1px 1px 1px rgba(0, 0, 0, .03), 2px 2px 2px rgba(0, 0, 0, .04), 3px 3px 3px rgba(0, 0, 0, .07);
+
+      @include screen('xlg', max, 2) {
+        box-shadow: pxtovw(1, 1660) pxtovw(1, 1660) pxtovw(1, 1660) rgba(0, 0, 0, .03), pxtovw(2, 1660) pxtovw(2, 1660) pxtovw(2, 1660) rgba(0, 0, 0, .04), pxtovw(3, 1660) pxtovw(3, 1660) pxtovw(3, 1660) rgba(0, 0, 0, .07);
+      }
+
+      @include screen('lg', max, 2) {
+        box-shadow: pxtovw(1, 1366) pxtovw(1, 1366) pxtovw(1, 1366) rgba(0, 0, 0, .03), pxtovw(2, 1366) pxtovw(2, 1366) pxtovw(2, 1366) rgba(0, 0, 0, .04), pxtovw(3, 1366) pxtovw(3, 1366) pxtovw(3, 1366) rgba(0, 0, 0, .07);
+      }
+
+      @include screen('md', max, 2) {
+        box-shadow: pxtovw(1, 960) pxtovw(1, 960) pxtovw(1, 960) rgba(0, 0, 0, .03), pxtovw(2, 960) pxtovw(2, 960) pxtovw(2, 960) rgba(0, 0, 0, .04), pxtovw(3, 960) pxtovw(3, 960) pxtovw(3, 960) rgba(0, 0, 0, .07);
+      }
+
+      @include screen('sm', max, 2) {
+        box-shadow: pxtovw(1, 375) pxtovw(1, 375) pxtovw(1, 375) rgba(0, 0, 0, .03), pxtovw(2, 375) pxtovw(2, 375) pxtovw(2, 375) rgba(0, 0, 0, .04), pxtovw(3, 375) pxtovw(3, 375) pxtovw(3, 375) rgba(0, 0, 0, .07);
+      }
+
+      #{$b}__title {
+        text-decoration: none;
+      }
+    }
   }
 
   &_search-offer {
@@ -1716,6 +1741,7 @@
     border-radius: 3px;
     box-shadow: 1px 1px 1px rgba(0, 0, 0, .03), 2px 2px 2px rgba(0, 0, 0, .04), 3px 3px 3px rgba(0, 0, 0, .02);
     overflow: hidden;
+    transition: box-shadow $ease-main;
 
     @include screen('xlg', max, 2) {
       border-radius: pxtovw(3, 1660);
@@ -1735,6 +1761,50 @@
     @include screen('sm', max, 2) {
       border-radius: pxtovw(3, 375);
       box-shadow: pxtovw(1, 375) pxtovw(1, 375) pxtovw(1, 375) rgba(0, 0, 0, .03), pxtovw(2, 375) pxtovw(2, 375) pxtovw(2, 375) rgba(0, 0, 0, .04), pxtovw(3, 375) pxtovw(3, 375) pxtovw(3, 375) rgba(0, 0, 0, .02);
+    }
+
+    &:hover {
+      box-shadow: 1px 1px 1px rgba(0, 0, 0, .03), 2px 2px 2px rgba(0, 0, 0, .04), 3px 3px 3px rgba(0, 0, 0, .07);
+
+      @include screen('xlg', max, 2) {
+        box-shadow: pxtovw(1, 1660) pxtovw(1, 1660) pxtovw(1, 1660) rgba(0, 0, 0, .03), pxtovw(2, 1660) pxtovw(2, 1660) pxtovw(2, 1660) rgba(0, 0, 0, .04), pxtovw(3, 1660) pxtovw(3, 1660) pxtovw(3, 1660) rgba(0, 0, 0, .07);
+      }
+
+      @include screen('lg', max, 2) {
+        box-shadow: pxtovw(1, 1366) pxtovw(1, 1366) pxtovw(1, 1366) rgba(0, 0, 0, .03), pxtovw(2, 1366) pxtovw(2, 1366) pxtovw(2, 1366) rgba(0, 0, 0, .04), pxtovw(3, 1366) pxtovw(3, 1366) pxtovw(3, 1366) rgba(0, 0, 0, .07);
+      }
+
+      @include screen('md', max, 2) {
+        box-shadow: pxtovw(1, 960) pxtovw(1, 960) pxtovw(1, 960) rgba(0, 0, 0, .03), pxtovw(2, 960) pxtovw(2, 960) pxtovw(2, 960) rgba(0, 0, 0, .04), pxtovw(3, 960) pxtovw(3, 960) pxtovw(3, 960) rgba(0, 0, 0, .07);
+      }
+
+      @include screen('sm', max, 2) {
+        box-shadow: pxtovw(1, 375) pxtovw(1, 375) pxtovw(1, 375) rgba(0, 0, 0, .03), pxtovw(2, 375) pxtovw(2, 375) pxtovw(2, 375) rgba(0, 0, 0, .04), pxtovw(3, 375) pxtovw(3, 375) pxtovw(3, 375) rgba(0, 0, 0, .07);
+      }
+
+      #{$b}__title {
+        text-decoration: none;
+      }
+    }
+
+    &:active {
+      box-shadow: 1px 1px 1px rgba(0, 0, 0, .03), 2px 2px 2px rgba(0, 0, 0, .04);
+
+      @include screen('xlg', max, 2) {
+        box-shadow: pxtovw(1, 1660) pxtovw(1, 1660) pxtovw(1, 1660) rgba(0, 0, 0, .03), pxtovw(2, 1660) pxtovw(2, 1660) pxtovw(2, 1660) rgba(0, 0, 0, .04);
+      }
+
+      @include screen('lg', max, 2) {
+        box-shadow: pxtovw(1, 1366) pxtovw(1, 1366) pxtovw(1, 1366) rgba(0, 0, 0, .03), pxtovw(2, 1366) pxtovw(2, 1366) pxtovw(2, 1366) rgba(0, 0, 0, .04);
+      }
+
+      @include screen('md', max, 2) {
+        box-shadow: pxtovw(1, 960) pxtovw(1, 960) pxtovw(1, 960) rgba(0, 0, 0, .03), pxtovw(2, 960) pxtovw(2, 960) pxtovw(2, 960) rgba(0, 0, 0, .04);
+      }
+
+      @include screen('sm', max, 2) {
+        box-shadow: pxtovw(1, 375) pxtovw(1, 375) pxtovw(1, 375) rgba(0, 0, 0, .03), pxtovw(2, 375) pxtovw(2, 375) pxtovw(2, 375) rgba(0, 0, 0, .04);
+      }
     }
   }
 
