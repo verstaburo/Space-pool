@@ -18,6 +18,7 @@
   border-radius: 21px;
   padding: 4px 9px;
   min-width: 78px;
+  background-color: transparent;
 
   @include screen('xlg', max, 2) {
     font-size: pxtovw(15, 1660);
@@ -47,7 +48,7 @@
     min-width: pxtovw(106, 375);
   }
 
-  &:hover, &.is-active {
+  &:hover {
     border-color: $nd-color-filter-border;
   }
 
@@ -61,17 +62,10 @@
     }
   }
 
-  &_offer.is-choose {
+  &.is-active {
     border-color: $nd-color-filter-border;
     background-color: $nd-color-basic;
     color: $nd-color-basic-light;
-
-    &:hover {
-      border-color: $nd-color-main;
-      background-color: transparent;
-      color: $nd-color-basic;
-      box-shadow: inset 0 0 0 1px $nd-color-main;
-    }
   }
 
   .is-search-map-active & {
@@ -93,19 +87,6 @@
 
     @include screen('sm', max, 2) {
       box-shadow: pxtovw(2, 375) pxtovw(4, 375) pxtovw(8, 375) rgba(0, 0, 0, .25);
-    }
-
-    &_offer.is-choose {
-      border-color: $nd-color-filter-border;
-      background-color: $nd-color-basic;
-      color: $nd-color-basic-light;
-
-      &:hover {
-        border-color: $nd-color-main;
-        background-color: $nd-color-basic-light;
-        color: $nd-color-basic;
-        box-shadow: inset 0 0 0 1px $nd-color-main;
-      }
     }
   }
 

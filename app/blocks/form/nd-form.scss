@@ -257,6 +257,12 @@
       }
     }
 
+    &_sm-fz15 {
+      @include screen('sm', max, 2) {
+        font-size: pxtovw(15, 375);
+      }
+    }
+
     &_mb {
       &:not(:last-child) {
         margin-bottom: 10px;
@@ -277,6 +283,11 @@
           margin-bottom: pxtovw(10, 375);
         }
       }
+    }
+
+    i {
+      color: $nd-color-main;
+      font-style: normal;
     }
   }
 
@@ -735,6 +746,23 @@
             }
           }
         }
+      }
+    }
+  }
+
+  &__range-block {
+    display: block;
+    width: 100%;
+
+    &_active {
+      .is-link-inactive & {
+        display: none;
+      }
+    }
+
+    &_inactive {
+      .is-link-active & {
+        display: none;
       }
     }
   }

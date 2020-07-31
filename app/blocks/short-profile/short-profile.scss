@@ -36,6 +36,7 @@
     }
 
     #{$b}_login & {
+      transition: box-shadow $ease-main;
       margin-right: 11px;
 
       @include screen('xlg', max, 2) {
@@ -58,6 +59,26 @@
     #{$b}_login_host & {
       @include screen('md', max, 2) {
         margin-right: 0;
+      }
+    }
+
+    #{$b}_login:hover & {
+      box-shadow: 0 0 0 2px $nd-color-main;
+
+      @include screen('xlg', max, 2) {
+        box-shadow: 0 0 0 pxtovw(2, 1660) $nd-color-main;
+      }
+
+      @include screen('lg', max, 2) {
+        box-shadow: 0 0 0 pxtovw(2, 1366) $nd-color-main;
+      }
+
+      @include screen('md', max, 2) {
+        box-shadow: 0 0 0 pxtovw(2, 960) $nd-color-main;
+      }
+
+      @include screen('sm', max, 2) {
+        box-shadow: 0 0 0 pxtovw(2, 375) $nd-color-main;
       }
     }
 
