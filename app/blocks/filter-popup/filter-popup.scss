@@ -85,6 +85,12 @@
       padding: 0 pxtovw(20, 375);
       border-bottom: 1px solid $nd-color-border5;
     }
+
+    .is-link-inactive & {
+      @include screen('sm', min, 2) {
+        display: none;
+      }
+    }
   }
 
   &__close {
@@ -146,8 +152,9 @@
   &__content {
     position: relative;
     display: block;
+    overflow-x: hidden;
     overflow: auto;
-    max-height: 50vh;
+    max-height: 60vh;
     box-sizing: border-box;
     width: 100%;
     scrollbar-color: $nd-color-basic $nd-color-bg;
@@ -257,18 +264,18 @@
     }
 
     #{$b}_location & {
-      padding: 68px 36px 101px;
+      padding: 58px 36px 101px;
 
       @include screen('xlg', max, 2) {
-        padding: pxtovw(68, 1660) pxtovw(36, 1660) pxtovw(101, 1660);
+        padding: pxtovw(58, 1660) pxtovw(36, 1660) pxtovw(101, 1660);
       }
 
       @include screen('lg', max, 2) {
-        padding: pxtovw(68, 1366) pxtovw(36, 1366) pxtovw(101, 1366);
+        padding: pxtovw(58, 1366) pxtovw(36, 1366) pxtovw(101, 1366);
       }
 
       @include screen('md', max, 2) {
-        padding: pxtovw(68, 960) pxtovw(36, 960) pxtovw(101, 960);
+        padding: pxtovw(58, 960) pxtovw(36, 960) pxtovw(101, 960);
       }
 
       @include screen('sm', max, 2) {
@@ -315,6 +322,27 @@
         padding: pxtovw(60, 375) pxtovw(20, 375) pxtovw(80, 375);
       }
     }
+
+    .is-link-inactive & {
+      padding: 46px 36px;
+
+      @include screen('xlg', max, 2) {
+        padding: pxtovw(46, 1660) pxtovw(36, 1660);
+      }
+
+      @include screen('lg', max, 2) {
+        padding: pxtovw(46, 1366) pxtovw(36, 1366);
+      }
+
+      @include screen('md', max, 2) {
+        padding: pxtovw(46, 960) pxtovw(36, 960);
+      }
+
+      @include screen('sm', max, 2) {
+        max-height: 100%;
+        padding: pxtovw(60, 375) pxtovw(20, 375) pxtovw(80, 375);
+      }
+    }
   }
 
   &__footer {
@@ -342,6 +370,12 @@
     @include screen('sm', max, 2) {
       padding: pxtovw(20, 375);
       background-color: transparent;
+    }
+
+    .is-link-inactive & {
+      @include screen('sm', min, 2) {
+        display: none;
+      }
     }
   }
 
@@ -546,7 +580,6 @@
 
   &__form {
     width: 100%;
-    overflow: hidden;
     padding-bottom: 1px;
 
     @include screen('xlg', max, 2) {

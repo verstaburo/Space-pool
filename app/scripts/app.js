@@ -14,6 +14,7 @@ import anchor from './functions/anchor';
 import {
   freezebuttons,
 } from './functions/freeze';
+import positioning from './functions/position';
 import scrollbar from '../blocks/scrollbar/scrollbar';
 import scrollanimation from './functions/scrollanimation';
 import ndSelects from '../blocks/form-elements/nd-select';
@@ -89,7 +90,6 @@ import switchFormContent from './functions/switchFormContent';
 import filterMenu from '../components/filter-menu/filter-menu';
 import initCharts from '../blocks/chart/chartInit';
 import buttonHover from '../blocks/button/button';
-import positioning from './functions/position';
 
 const $ = window.$;
 
@@ -102,6 +102,7 @@ $(() => {
   objectFitImages();
   anchor();
   freezebuttons();
+  positioning();
   scrollbar();
   selects();
   ndSelects();
@@ -166,5 +167,4 @@ $(() => {
   filterMenu();
   initCharts();
   buttonHover();
-  positioning();
 });

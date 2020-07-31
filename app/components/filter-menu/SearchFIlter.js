@@ -33,6 +33,7 @@ export default class SearchFilter {
     }
 
     _this._linkStatusChange(_this.jailers);
+    _this._popupsPositioning();
 
     _this._bindEvents();
   }
@@ -59,6 +60,27 @@ export default class SearchFilter {
       evt.preventDefault();
       const self = evt.currentTarget;
       _this._removeTag(self);
+    });
+
+    $(document).on('click', '.js-nd-filter-reset', (evt) => {
+      const self = evt.currentTarget;
+      _this._clearFilter(self);
+    });
+
+    $(document).on('change', '.filter-popup input, .filter-popup textarea, .filter-popup select', (evt) => {
+      const self = evt.currentTarget;
+      const popup = $(self).closest('.filter-popup');
+      const reset = $(popup).find('.js-nd-filter-reset');
+      $(reset).prop('disabled', false);
+    });
+
+    $(window).on('resize', $.proxy(_this._popupsPositioning, _this));
+  }
+
+  _popupsPositioning() {
+    const _this = this;
+    $(_this.popups).each((i, el) => {
+      window.globalFunctions.itemPositioning(el, true);
     });
   }
 
@@ -140,7 +162,6 @@ export default class SearchFilter {
   _handleClosePopup(evt) {
     evt.preventDefault();
     const self = evt.currentTarget;
-    console.log(self);
     const _this = this;
     const popup = $(self).closest('[data-nd-filter-popup]');
     const name = $(popup).attr('data-nd-filter-popup');
@@ -211,8 +232,9 @@ export default class SearchFilter {
 
   _howMuchChoosed() {
     const _this = this;
-    const buttons = $(_this.buttons).not('[data-nd-filter-target="offerType"]');
-    const choosed = $(buttons).filter((i, el) => $(el).is('is-choosed'));
+    const buttons = $(_this.buttons).not('[data-nd-filter-target="offerType"], [data-nd-filter-target="filter"]');
+    const choosed = $(buttons).filter((i, el) => $(el).is('.is-choose'));
+    _this.totalChoosed = choosed.length;
     return choosed.length;
   }
 
@@ -254,6 +276,7 @@ export default class SearchFilter {
   _filterChoosed(input) {
     const _this = this;
     const isRadioOrCheckbox = $(input).is('[type="radio"]') || $(input).is('[type="checkbox"]');
+    const isRange = $(input).closest('.js-nd-range');
     if (isRadioOrCheckbox) {
       const type = $(input).attr('data-nd-filter-type');
       const value = $(input).attr('data-nd-filter-value');
@@ -306,9 +329,22 @@ export default class SearchFilter {
       }
     }
 
+    if (isRange.length > 0) {
+      const type = $(input).attr('data-nd-filter-type');
+      const button = $(`[data-nd-filter-target="${type}"]`);
+      const range = $(isRange).find('[data-nd-range-container]').get(0);
+      const value = range.noUiSlider.get();
+      const startValue = $(isRange).data('start');
+      if (startValue[0] === Math.trunc(value[0]) && startValue[1] === Math.trunc(value[1])) {
+        _this._setDefaultButtonState(type);
+      } else {
+        _this._setButtonName(button, `${Math.trunc(value[0])} - ${Math.trunc(value[1])}`);
+      }
+    }
+
     const filterButton = $('[data-nd-filter-target="filter"]');
     const filterButtonDefaultName = $(filterButton).attr('data-default-name');
-    const filterChoosed = _this._howMuchChoosed;
+    const filterChoosed = _this._howMuchChoosed();
     if (filterChoosed > 0) {
       this._setButtonName(filterButton, `${filterButtonDefaultName} <span>|</span> ${filterChoosed}`);
     } else {
@@ -319,8 +355,23 @@ export default class SearchFilter {
   _handleFilterChoose(evt) {
     const self = evt.currentTarget;
     const _this = this;
-    console.log('change');
     _this._filterChoosed(self);
+  }
+
+  _clearFilter(button) {
+    const form = $(button).closest('form');
+    const checkers = $(form).find('input[type="radio"], input[type="checkbox"]');
+    $(checkers).each((i, el) => {
+      $(el).prop('checked', false);
+      $(el).trigger('change');
+    });
+    const rangeSource = $(form).find('.js-nd-range');
+    const range = $(rangeSource).find('[data-nd-range-container]').get(0);
+    if (range) {
+      setTimeout(() => {
+        window.globalFunctions.resetRange(range);
+      }, 0);
+    }
   }
 }
 /* eslint-enable class-methods-use-this */

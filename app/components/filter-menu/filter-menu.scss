@@ -32,23 +32,7 @@
 
     &_location {
       &:not(:last-child) {
-        margin-right: 15px;
-
-        @include screen('xlg', max, 2) {
-          margin-right: pxtovw(15, 1660);
-        }
-
-        @include screen('lg', max, 2) {
-          margin-right: pxtovw(15, 1366);
-        }
-
-        @include screen('md', max, 2) {
-          margin-right: pxtovw(15, 960);
-        }
-
-        @include screen('sm', max, 2) {
-          margin-right: pxtovw(12, 375);
-        }
+        margin-right: 0;
       }
     }
 
@@ -57,59 +41,23 @@
       box-sizing: border-box;
       overflow: hidden;
 
-      &::after {
-        @include pseudo;
-
-        top: 0;
-        right: 0;
-        width: 10px;
-        height: 100%;
-        background-image: linear-gradient(to left, $nd-color-bg, rgba(255, 255, 255, 0));
-        z-index: 2;
-
-        @include screen('xlg', max, 2) {
-          width: pxtovw(10, 1660);
-        }
-
-        @include screen('lg', max, 2) {
-          width: pxtovw(10, 1366);
-        }
-
-        @include screen('md', max, 2) {
-          width: pxtovw(10, 960);
-        }
-
-        @include screen('sm', max, 2) {
-          display: none;
-        }
-
-        .is-search-map-active & {
-          display: none;
-        }
-      }
-
       &:not(:last-child) {
-        padding-right: 10px;
-        margin-right: 34px;
+        margin-right: 20px;
 
         @include screen('xlg', max, 2) {
-          padding-right: pxtovw(10, 1660);
-          margin-right: pxtovw(34, 1660);
+          margin-right: pxtovw(20, 1660);
         }
 
         @include screen('lg', max, 2) {
-          padding-right: pxtovw(10, 1366);
-          margin-right: pxtovw(34, 1366);
+          margin-right: pxtovw(20, 1366);
         }
 
         @include screen('md', max, 2) {
-          padding-right: pxtovw(10, 960);
-          margin-right: pxtovw(34, 960);
+          margin-right: pxtovw(20, 960);
         }
 
         @include screen('sm', max, 2) {
-          padding-right: 0;
-          margin-right: 0;
+          margin-right: pxtovw(12, 375);
         }
       }
     }

@@ -18,8 +18,9 @@ mixin filter-menu(specific)
           +check-button({name: 'offerType', value: 'all', type: 'radio', filterCheck: {type: 'offerType', value: 'All listings', tagCreation: false, offerType: 'all'}})._offer._nobox.__offer
             +e.offer
               +e.type
-                +nd-box()._multy.__box
+                +nd-box()._multy.__box.nd-hide-from-sm
                 +e.name All listings
+              +e.count 175
           +check-button({name: 'offerType', value: 'hd', type: 'radio', filterCheck: {type: 'offerType', value: 'Hot desk', tagCreation: false, offerType: 'hd'}})._offer.__offer
             +e.offer
               +e.type
@@ -48,7 +49,7 @@ mixin filter-menu(specific)
       +filter-button({class: '_all js-nd-show-filter', name: 'Filter', filterName: 'filter', filterType: 'popup'})
       +filter-popup({submit: 'Show results - 89', reset: 'Clear', title: 'Filter'}).__popup(data-nd-filter-popup="filter" data-nd-filter-popup-type="popup")
         +nd-form('div').__form
-          +form-section._styled._mt41(data-nd-filter-form-block-place="priceRange")
+          +form-section._styled(data-nd-filter-form-block-place="priceRange")
             +form-section-title._fz20._fw400 Price range
             +form-section-content(data-nd-filter-form-block="priceRange" data-nd-filter-link-prisoner="priceRange")
               +nd-range({output: {minLabel: 'Min', maxLabel: 'Max', max: 'maxPrice', min: 'minPrice', formboxClass: '_bg-white _sm-h50', inputClass: '_sm-h50'}})(data-start="[0, 5000]" data-connect="[false, true, false]" data-step="10" data-margin="30" data-min="0" data-max="10000" data-currency="£" data-nd-filter-type="priceRange").__range-block_active
@@ -58,21 +59,24 @@ mixin filter-menu(specific)
                     i Compare similar
                   p In order to filter listings by price please choose listing type.
                 +nd-button()._sm-h32._pad10.__button.js-nd-filter-redirect(data-nd-filter-redirect="offerType" href="#") Choose listing type
-          +form-section._styled._mt41(data-nd-filter-form-block-place="teamSize")
+          +form-section._styled._mt45(data-nd-filter-form-block-place="teamSize")
             +form-section-title._fz20._fw400 Team size
-            +form-section-content(data-nd-filter-form-block="teamSize")
+            +form-section-content._sm-mt12(data-nd-filter-form-block="teamSize")
               +e.checklist
                 each item in getData('filterTeamSize.json')
-                  +check-button(item.options)._fz17._fw600.__check!=item.title
-          +form-section._styled._mt41(data-nd-filter-form-block-place="location")
+                  if item.title === '1+'
+                    +check-button(item.options)._fz17._fw600._icon._icon_user.__check!=item.title
+                  else
+                    +check-button(item.options)._fz17._fw600.__check!=item.title
+          +form-section._styled._mt30(data-nd-filter-form-block-place="location")
             +form-section-title._fz20._fw400 Location
-            +form-section-content(data-nd-filter-form-block="location")
+            +form-section-content._sm-mt12(data-nd-filter-form-block="location")
               +e.checklist_compress
                 each item in getData('filterCity.json')
-                  +check-button(item.options)._h34.__check!=item.title
+                  +check-button(item.options)._hov-blue._h34.__check!=item.title
               +e.checklist_compress
                 each item in getData('filterLocation.json')
-                  +check-button(item.options)._h34.__check!=item.title
+                  +check-button(item.options)._hov-blue._h34.__check!=item.title
     +e.item_team.nd-hide-sm
       +filter-button({class: 'js-nd-show-filter', name: 'Team size', filterName: 'teamSize', filterType: 'popup-block'})
       +filter-popup({submit: 'Show results - 27', reset: 'Clear team size filter', title: 'Team size', note: {text: "Start-up, scale-up, big business or just you – we have a perfect match for you."}})._team.__popup(data-nd-filter-popup="teamSize" data-nd-filter-popup-type="popup-block")

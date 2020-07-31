@@ -62,10 +62,21 @@
     }
   }
 
+  &.is-link-inactive {
+    border-color: $nd-color-field-border;
+    color: $nd-color-field-border;
+  }
+
   &.is-active {
     border-color: $nd-color-filter-border;
     background-color: $nd-color-basic;
     color: $nd-color-basic-light;
+  }
+
+  &.is-disabled {
+    pointer-events: none;
+    border-color: $nd-color-field-border;
+    color: $nd-color-field-border;
   }
 
   .is-search-map-active & {
@@ -92,6 +103,39 @@
 
   &__name {
     display: inline-block;
+
+    span {
+      display: inline-block;
+      font-size: 0;
+      line-height: 0;
+      height: 14px;
+      border-right: 1px solid currentColor;
+      box-sizing: border-box;
+      color: $nd-color-gray3;
+      background: $nd-color-gray3;
+      margin: 0 10px;
+      vertical-align: middle;
+
+      @include screen('xlg', max, 2) {
+        margin: 0 pxtovw(10, 1660);
+        height: pxtovw(14, 1660);
+      }
+
+      @include screen('lg', max, 2) {
+        margin: 0 pxtovw(10, 1366);
+        height: pxtovw(14, 1366);
+      }
+
+      @include screen('md', max, 2) {
+        margin: 0 pxtovw(10, 960);
+        height: pxtovw(14, 960);
+      }
+
+      @include screen('sm', max, 2) {
+        margin: 0 pxtovw(10, 375);
+        height: pxtovw(14, 375);
+      }
+    }
   }
 
   &_offer {

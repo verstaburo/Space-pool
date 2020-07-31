@@ -2,7 +2,7 @@ const $ = window.$;
 
 export default function positioning() {
   function itemPositioning(el, isNoYShift) {
-    const self = el[0] ? el[0] : el;
+    const self = $(el).get(0);
     self.style.setProperty('left', '');
     self.style.setProperty('top', '');
     if (self && getComputedStyle(self).position === 'absolute') {

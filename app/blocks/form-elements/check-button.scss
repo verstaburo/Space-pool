@@ -82,6 +82,10 @@
       border-color: $nd-color-basic;
     }
 
+    #{$b}_hov-blue:hover & {
+      border-color: $nd-color-main;
+    }
+
     #{$b}__input:checked ~ & {
       border-color: $nd-color-basic;
       background-color: $nd-color-basic;
@@ -105,6 +109,57 @@
 
       @include screen('sm', max, 2) {
         padding: pxtovw(7, 375) pxtovw(20, 375);
+      }
+    }
+
+    #{$b}_icon & {
+      padding-left: 45px;
+      padding-right: 15px;
+
+      @include screen('xlg', max, 2) {
+        padding-left: pxtovw(45, 1660);
+        padding-right: pxtovw(15, 1660);
+      }
+
+      @include screen('lg', max, 2) {
+        padding-left: pxtovw(45, 1366);
+        padding-right: pxtovw(15, 1366);
+      }
+
+      @include screen('md', max, 2) {
+        padding-left: pxtovw(45, 960);
+        padding-right: pxtovw(15, 960);
+      }
+
+      @include screen('sm', max, 2) {
+        padding-left: pxtovw(15, 375);
+        padding-right: pxtovw(15, 375);
+      }
+    }
+
+    #{$b}_icon_user & {
+      background-repeat: no-repeat;
+      background-position: 16px 50%;
+      background-size: 13px 14px;
+      background-image: url("data:image/svg+xml,%3Csvg width='13' height='14' viewBox='0 0 13 14' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M9.47085 4.20798C9.47085 6.07673 8.01248 7.56147 6.25007 7.56147C4.48766 7.56147 3.0293 6.07673 3.0293 4.20798C3.0293 2.33924 4.48766 0.854492 6.25007 0.854492C8.01248 0.854492 9.47085 2.33924 9.47085 4.20798Z' stroke='%23A3ACBA'/%3E%3Cpath d='M12.0001 12.9659C12.0001 11.0311 9.4256 9.46271 6.2498 9.46271C3.074 9.46271 0.499512 11.0311 0.499512 12.9659' stroke='%23A3ACBA' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E ");
+
+      @include screen('xlg', max, 2) {
+        background-position: pxtovw(16, 1660) 50%;
+        background-size: pxtovw(13, 1660) pxtovw(14, 1660);
+      }
+
+      @include screen('lg', max, 2) {
+        background-position: pxtovw(16, 1366) 50%;
+        background-size: pxtovw(13, 1366) pxtovw(14, 1366);
+      }
+
+      @include screen('md', max, 2) {
+        background-position: pxtovw(16, 960) 50%;
+        background-size: pxtovw(13, 960) pxtovw(14, 960);
+      }
+
+      @include screen('sm', max, 2) {
+        background-image: none;
       }
     }
 
@@ -318,6 +373,15 @@
         transform: translate3d(0, -50%, 0);
         background-color: transparent;
         border: 1px solid currentColor;
+        background-image: none;
+      }
+
+      &.nd-box_multy {
+        @include screen('sm', max, 2) {
+          width: pxtovw(15, 375);
+          height: pxtovw(15, 375);
+          margin-left: pxtovw(-3, 375);
+        }
       }
     }
   }
