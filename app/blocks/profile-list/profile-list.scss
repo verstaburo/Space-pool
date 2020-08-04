@@ -54,6 +54,11 @@
     display: block;
     width: 100%;
     border-bottom: 1px solid $nd-color-table-border;
+    transition: border-color $ease-main;
+
+    &:hover {
+      border-color: $nd-color-main;
+    }
   }
 
   &__link {
@@ -88,8 +93,8 @@
       font-size: pxtovw(15, 375);
     }
 
-    &:hover {
-      color: $nd-color-main;
+    &.is-active {
+      color: $nd-color-gray-text;
     }
   }
 

@@ -777,6 +777,26 @@
           padding: pxtovw(17, 375) pxtovw(3, 375) pxtovw(17, 375) pxtovw(5, 375);
         }
 
+        .is-flipped & {
+          margin-bottom: 6px;
+
+          @include screen('xlg', max, 2) {
+            margin-bottom: pxtovw(6, 1660);
+          }
+
+          @include screen('lg', max, 2) {
+            margin-bottom: pxtovw(6, 1366);
+          }
+
+          @include screen('md', max, 2) {
+            margin-bottom: pxtovw(6, 960);
+          }
+
+          @include screen('sm', max, 2) {
+            margin-bottom: pxtovw(6, 375);
+          }
+        }
+
         #{$b}_popup & {
           @include screen('sm', max, 2) {
             border-radius: 0;
@@ -784,6 +804,7 @@
             margin-top: 0;
             box-sizing: border-box;
             max-height: 100%;
+            margin-bottom: 0;
           }
         }
       }
@@ -873,6 +894,7 @@
     padding: 14px 11px 8px;
     transition: border $ease-main, box-shadow $ease-main;
     min-height: 50px;
+    pointer-events: none;
 
     @include screen('xlg', max, 2) {
       border-radius: pxtovw(3, 1660);
@@ -967,6 +989,10 @@
         border-top: none;
         border-bottom: 1px solid $nd-color-field-border;
       }
+    }
+
+    .is-open & {
+      pointer-events: auto;
     }
   }
 

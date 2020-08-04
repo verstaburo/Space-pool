@@ -125,7 +125,7 @@ export default function ndSelects() {
       if (window.Modernizr.mq(`(min-width: ${window.globalOptions.sizes.sm}px)`)) {
         setTimeout(() => {
           input.focus();
-        }, 50);
+        }, 0);
       }
       $('body').addClass('is-choices-dropdown-showed');
     });
