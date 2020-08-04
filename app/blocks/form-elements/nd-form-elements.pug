@@ -120,6 +120,8 @@ mixin check-button(data)
       else if data.filterCheck
         if data.filterCheck.offerType
           +e.INPUT.input(name=data.name, value=data.value, checked, type=data.type, data-nd-filter-type=data.filterCheck.type, data-nd-filter-value=data.filterCheck.value, data-nd-filter-tag-create=data.filterCheck.tagCreation, data-nd-filter-offer-type=data.filterCheck.offerType)
+        else if data.filterCheck.areasSource
+          +e.INPUT.input(name=data.name, value=data.value, checked, type=data.type, data-nd-filter-type=data.filterCheck.type, data-nd-filter-value=data.filterCheck.value, data-nd-filter-tag-create=data.filterCheck.tagCreation, data-nd-filter-areas-url=(data.filterCheck.areasSource + ',' + data.filterCheck.tag))
         else
           +e.INPUT.input(name=data.name, value=data.value, checked, type=data.type, data-nd-filter-type=data.filterCheck.type, data-nd-filter-value=data.filterCheck.value, data-nd-filter-tag-create=data.filterCheck.tagCreation)
       else
@@ -132,6 +134,8 @@ mixin check-button(data)
       else if data.filterCheck
         if data.filterCheck.offerType
           +e.INPUT.input(name=data.name, value=data.value, required, type=data.type, data-nd-filter-type=data.filterCheck.type, data-nd-filter-value=data.filterCheck.value, data-nd-filter-tag-create=data.filterCheck.tagCreation, data-nd-filter-offer-type=data.filterCheck.offerType)
+        else if data.filterCheck.areasSource
+          +e.INPUT.input(name=data.name, value=data.value, required, type=data.type, data-nd-filter-type=data.filterCheck.type, data-nd-filter-value=data.filterCheck.value, data-nd-filter-tag-create=data.filterCheck.tagCreation, data-nd-filter-areas-url=(data.filterCheck.areasSource + ',' + data.filterCheck.tag))
         else
           +e.INPUT.input(name=data.name, value=data.value, type=data.type, required, data-nd-filter-type=data.filterCheck.type, data-nd-filter-value=data.filterCheck.value, data-nd-filter-tag-create=data.filterCheck.tagCreation)
       else
@@ -144,6 +148,8 @@ mixin check-button(data)
       else if data.filterCheck
         if data.filterCheck.offerType
           +e.INPUT.input(name=data.name, value=data.value, type=data.type, data-nd-filter-type=data.filterCheck.type, data-nd-filter-value=data.filterCheck.value, data-nd-filter-tag-create=data.filterCheck.tagCreation, data-nd-filter-offer-type=data.filterCheck.offerType)
+        else if data.filterCheck.areasSource
+          +e.INPUT.input(name=data.name, value=data.value, type=data.type, data-nd-filter-type=data.filterCheck.type, data-nd-filter-value=data.filterCheck.value, data-nd-filter-tag-create=data.filterCheck.tagCreation, data-nd-filter-areas-url=(data.filterCheck.areasSource + ',' + data.filterCheck.tag))
         else
           +e.INPUT.input(name=data.name, value=data.value, type=data.type, data-nd-filter-type=data.filterCheck.type, data-nd-filter-value=data.filterCheck.value, data-nd-filter-tag-create=data.filterCheck.tagCreation)
       else

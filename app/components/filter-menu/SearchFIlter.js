@@ -14,6 +14,7 @@ export default class SearchFilter {
     this.blocksWithConnect = $(el).find('[data-nd-filter-connect]');
     this.jailers = $(el).find('[data-nd-filter-link-jailer]');
     this.maxLocations = $(el).attr('data-nd-filter-max-locations');
+    this.locations = {};
     // this._filterPopupShow = this._filterPopupShow.bind(this);
     // this._filterPopupHide = this._filterPopupHide.bind(this);
     // this._handleActivationPopup = this._handleActivationPopup.bind(this);
@@ -36,6 +37,7 @@ export default class SearchFilter {
     _this._popupsPositioning();
 
     _this._bindEvents();
+    _this.el = _this;
   }
 
   _bindEvents() {
@@ -73,6 +75,8 @@ export default class SearchFilter {
       const reset = $(popup).find('.js-nd-filter-reset');
       $(reset).prop('disabled', false);
     });
+
+    $(document).on('click', '.js-nd-filter-redirect', _this._handleRedirectFilter);
 
     $(window).on('resize', $.proxy(_this._popupsPositioning, _this));
   }
@@ -120,6 +124,7 @@ export default class SearchFilter {
         break;
       }
     }
+
     setTimeout(() => {
       $(button).addClass('is-active');
       $('body').addClass('is-filter-popup-opened');
@@ -214,12 +219,22 @@ export default class SearchFilter {
   _linkStatusChange(jailer) {
     const _this = this;
     const name = $(jailer).attr('data-nd-filter-link-jailer');
-    const prisoners = $(_this.el).find(`[data-nd-filter-link-prisoner="${name}"]`);
+    const prisoners = $(`[data-nd-filter-link-prisoner="${name}"]`);
     const jailerInputs = $(jailer).find('input');
+    const prisonerInputs = $(prisoners).find('input');
     if (_this._isInputsChecked(jailerInputs) > 0) {
       $(prisoners).removeClass('is-link-inactive').addClass('is-link-active');
+      $(prisonerInputs).removeAttr('disabled');
     } else {
+      const rangeSource = $(prisoners).find('.js-nd-range');
+      const range = $(rangeSource).find('[data-nd-range-container]').get(0);
+      if (range) {
+        setTimeout(() => {
+          window.globalFunctions.resetRange(range);
+        }, 0);
+      }
       $(prisoners).removeClass('is-link-active').addClass('is-link-inactive');
+      $(prisonerInputs).attr('disabled', 'disabled');
     }
   }
 
@@ -246,6 +261,7 @@ export default class SearchFilter {
     const buttonDefaultName = $(button).attr('data-default-name');
     const checkedInputs = $(`[data-nd-filter-type="${type}"]:checked`);
     if (checkedInputs.length === 0) {
+      console.log('checked inputs 0');
       $(button).removeClass('is-choose is-types-all is-types-hd is-types-fd is-types-mr is-types-po');
       $(container).text(buttonDefaultName);
       if (selfType === 'offerType') {
@@ -262,6 +278,7 @@ export default class SearchFilter {
         }
       }
     } else if (!checkedInputs.length > 0) {
+      console.log('checked inputs > 0 false');
       $(button).removeClass('is-choose');
       $(container).text(buttonDefaultName);
     }
@@ -284,9 +301,6 @@ export default class SearchFilter {
       let button = $(`[data-nd-filter-target="${type}"]`);
       const isChecked = $(input).prop('checked');
       if (isChecked) {
-        if (isTagsCreation) {
-          _this._addTag(input);
-        }
         switch (type) {
           case 'offerType': {
             const offerType = $(input).attr('data-nd-filter-offer-type');
@@ -309,13 +323,22 @@ export default class SearchFilter {
             } else {
               _this._setButtonName(button, `${value}: all locations`);
             }
+            _this._generateLocationAreasList(input);
             break;
           }
           case 'locationPlace': {
-            button = $('[data-nd-filter-target="location"]');
-            const locationInput = $('[data-nd-filter-type="location"]:checked');
-            const locationValue = $(locationInput).attr('data-nd-filter-value');
-            _this._setButtonName(button, locationValue);
+            const locationAreas = $('[data-nd-filter-type="locationPlace"]:checked');
+            if (locationAreas.length > _this.maxLocations) {
+              $(input).prop('checked', false);
+            } else {
+              button = $('[data-nd-filter-target="location"]');
+              const locationInput = $('[data-nd-filter-type="location"]:checked');
+              const locationValue = $(locationInput).attr('data-nd-filter-value');
+              _this._setButtonName(button, locationValue);
+              if (isTagsCreation) {
+                _this._addTag(input);
+              }
+            }
             break;
           }
           default:
@@ -362,6 +385,7 @@ export default class SearchFilter {
     const form = $(button).closest('form');
     const checkers = $(form).find('input[type="radio"], input[type="checkbox"]');
     $(checkers).each((i, el) => {
+      $(el).removeAttr('checked');
       $(el).prop('checked', false);
       $(el).trigger('change');
     });
@@ -372,6 +396,134 @@ export default class SearchFilter {
         window.globalFunctions.resetRange(range);
       }, 0);
     }
+  }
+
+  _removeAllTags() {
+    const _this = this;
+    const tagsContainer = _this.tagContainer;
+    const tags = $(tagsContainer).find('[data-nd-filter-tag]');
+    $(tags).each((i, el) => {
+      _this._removeTag(el);
+    });
+  }
+
+  _generateLocationAreaButton(data) {
+    const input = document.createElement('input');
+    const parent = document.createElement('label');
+    const content = document.createElement('div');
+    input.classList.add('check-button__input');
+    parent.classList.add('check-button');
+    parent.classList.add('nd-form__check');
+    content.classList.add('check-button__content');
+    const attributes = data.inputAttributes;
+    const clsList = data.clsList.split(',');
+    const title = data.title;
+    $(clsList).each((i, el) => {
+      parent.classList.add(el.replace(/\s+/g, ' ').trim());
+    });
+    if (attributes) {
+      input.setAttribute('name', attributes.name);
+      input.setAttribute('type', attributes.type);
+      input.setAttribute('value', attributes.value);
+      if (attributes.checked) {
+        input.setAttribute('checked', attributes.checked);
+      }
+      if (attributes.dataAttributes) {
+        Object.keys(attributes.dataAttributes).forEach((key) => {
+          input.setAttribute(`data-${key}`, attributes.dataAttributes[key]);
+        });
+      }
+    }
+
+    $(content).html(title);
+    $(parent).append(input);
+    $(parent).append(content);
+    return parent;
+  }
+
+  _loadingStateOnAreas(state) {
+    const areasContainer = $('[data-nd-filter-areas-container]');
+    if (state === 'start') {
+      const loader = document.createElement('div');
+      $(loader).addClass('loader');
+      $(areasContainer).append(loader);
+      $(areasContainer).addClass('is-loading');
+    }
+
+    if (state === 'end') {
+      $(areasContainer).removeClass('is-loading');
+    }
+  }
+
+  _loadLocationAreaData(data, callbackSuccess, callbackError) {
+    const _this = this;
+    const urlArr = data;
+    const locations = _this.locations;
+    const area = urlArr[1].toLowerCase();
+    const url = urlArr[0];
+    $.ajax({
+      url,
+      type: 'GET',
+      success(response) {
+        const result = {}.hasOwnProperty.call(response, area) ? response[area] : false;
+        if (result) {
+          locations[area] = result;
+          locations[area].status = 'success';
+          callbackSuccess();
+        } else {
+          locations[area].status = 'error';
+          callbackError();
+        }
+      },
+      error() {
+        locations[area].status = 'error';
+        callbackError();
+      },
+    });
+  }
+
+  _generateLocationAreasList(el) {
+    const self = el;
+    const _this = this;
+    const locations = _this.locations;
+    const urlData = $(self).attr('data-nd-filter-areas-url');
+    const urlArr = urlData ? urlData.split(',') : ['/', ''];
+    const area = urlArr[1].toLowerCase();
+    _this._loadingStateOnAreas('start');
+    const success = {}.hasOwnProperty.call(locations, area);
+    _this._removeAllTags();
+    if (!success || locations[area].status === 'error') {
+      _this._loadLocationAreaData(urlArr, () => {
+        _this._loadingStateOnAreas('end');
+        _this._generateLocationAreasList(el);
+      }, () => {
+        _this._loadingStateOnAreas('end');
+        const areasContainer = $('[data-nd-filter-areas-container]');
+        $(areasContainer).text('Failed to load data');
+      });
+    } else {
+      const data = locations[area];
+      _this._loadingStateOnAreas('end');
+      const areasContainer = $('[data-nd-filter-areas-container]');
+      $(areasContainer).empty();
+      $(data).each((i, dt) => {
+        const item = _this._generateLocationAreaButton(dt);
+        $(areasContainer).append(item);
+      });
+      const checkedItems = $('[data-nd-filter-type="locationPlace"]:checked');
+      if (checkedItems.length > 0) {
+        $(checkedItems).each((k, it) => {
+          _this._filterChoosed(it);
+        });
+      }
+    }
+  }
+
+  _handleRedirectFilter(evt) {
+    const self = evt.currentTarget;
+    const target = $(self).attr('data-nd-filter-redirect');
+    const targetButton = $(`[data-nd-filter-target="${target}"]`);
+    $(targetButton).trigger('click');
   }
 }
 /* eslint-enable class-methods-use-this */
