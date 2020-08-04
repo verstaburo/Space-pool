@@ -189,11 +189,13 @@ mixin registration-form(data)
             span(data-form-switchable-item="legalEntity") Create account
     if data.registration
       .registration-form__bottom
-        .registration-form__question You already Have an account?
+        a.registration-form__question(href="#")
+          span You already Have an account?
         +nd-button()(href="#")._pad10.registration-form__button Login
     if data.login
       .registration-form__bottom
-        .registration-form__question Don’t have an account yet?
+        a.registration-form__question(href="#")
+          span Don’t have an account yet?
         +nd-button()(href="#")._pad10.registration-form__button Sign Up
     block
 
@@ -389,11 +391,13 @@ mixin registration-form-summary(data)
             span(data-form-switchable-item="legalEntity") Create account
     if data.registration
       .registration-form__bottom
-        .registration-form__question You already Have an account?
+        a.registration-form__question(href="#")
+          span You already Have an account?
         +nd-button()(href="#")._pad10.registration-form__button Login
     if data.login
       .registration-form__bottom
-        .registration-form__question Don’t have an account yet?
+        a.registration-form__question(href="#")
+          span Don’t have an account yet?
         +nd-button()(href="#")._pad10.registration-form__button Sign Up
     block
 
@@ -406,6 +410,7 @@ mixin registration-form-accready()
       +e.buttons
         +nd-button('a').__button_wide(href="#") Add payment methods
     .registration-form__bottom.registration-form__bottom_mt58
-      .registration-form__question You can also add payment methods later
+      a.registration-form__question(href="#")
+        span You can also add payment methods later
       +nd-button()(href="#")._pad10.registration-form__button.registration-form__button_mw110 Skip
     block

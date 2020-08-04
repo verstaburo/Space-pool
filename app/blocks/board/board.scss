@@ -31,6 +31,12 @@
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
+
+    &_row {
+      flex-direction: row;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
   }
 
   &_pt22 {
@@ -111,12 +117,6 @@
     @include screen('sm', max, 2) {
       padding: pxtovw(26, 375) pxtovw(18, 375) pxtovw(25, 375);
     }
-  }
-
-  &_fx {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
   }
 
   &__header {
@@ -1111,6 +1111,10 @@
       bottom: pxtovw(8, 375);
       right: pxtovw(8, 375);
       min-width: 0;
+    }
+
+    &:active {
+      transform: translate3d(-50%, 0, 0) scale(.96);
     }
   }
 

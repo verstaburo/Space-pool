@@ -138,6 +138,14 @@
     .is-error & {
       color: $color-error;
     }
+
+    input:disabled ~ &, textarea:disabled ~ &, .is-disabled ~ & {
+      color: $nd-color-field-border !important;
+
+      .is-error > .nd-form-box & {
+        color: $nd-color-input-placeholder !important;
+      }
+    }
   }
 
   &__icon {
@@ -418,8 +426,8 @@
     }
 
     &.is-top #{$b}__label,.nd-choices.is-item-select ~ #{$b}__label,.nd-choices.is-open ~ #{$b}__label {
-      font-size: 11px;
-      line-height: (13 / 11);
+      font-size: 12px;
+      line-height: (13 / 12);
       font-weight: 400;
       color: $nd-color-gray-text;
       transform: translate3d(0, -39px, 0);
@@ -429,19 +437,19 @@
 
       @include screen('xlg', max, 2) {
         transform: translate3d(0, pxtovw(-39, 1660), 0);
-        font-size: pxtovw(11, 1660);
+        font-size: pxtovw(12, 1660);
         padding: pxtovw(4, 1660);
       }
 
       @include screen('lg', max, 2) {
         transform: translate3d(0, pxtovw(-39, 1366), 0);
-        font-size: pxtovw(11, 1366);
+        font-size: pxtovw(12, 1366);
         padding: pxtovw(4, 1366);
       }
 
       @include screen('md', max, 2) {
         transform: translate3d(0, pxtovw(-39, 960), 0);
-        font-size: pxtovw(11, 960);
+        font-size: pxtovw(12, 960);
         padding: pxtovw(4, 960);
       }
 
