@@ -882,6 +882,7 @@
   }
 
   &__input {
+    position: relative;
     display: block;
     font-size: 17px;
     line-height: (26 / 17);
@@ -892,9 +893,11 @@
     color: $nd-color-basic;
     font-weight: 400;
     padding: 14px 11px 8px;
-    transition: border $ease-main, box-shadow $ease-main;
+    transition: border $ease-main, box-shadow $ease-main, visibility .02s linear, pointer-events .02s linear;
     min-height: 50px;
+    visibility: hidden;
     pointer-events: none;
+    cursor: text;
 
     @include screen('xlg', max, 2) {
       border-radius: pxtovw(3, 1660);
@@ -991,7 +994,8 @@
       }
     }
 
-    .is-open & {
+    .is-active & {
+      visibility: visible;
       pointer-events: auto;
     }
   }

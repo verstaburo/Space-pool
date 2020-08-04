@@ -125,7 +125,7 @@ export default function ndSelects() {
       if (window.Modernizr.mq(`(min-width: ${window.globalOptions.sizes.sm}px)`)) {
         setTimeout(() => {
           input.focus();
-        }, 0);
+        }, 20);
       }
       $('body').addClass('is-choices-dropdown-showed');
     });
@@ -139,7 +139,7 @@ export default function ndSelects() {
       if (window.Modernizr.mq(`(min-width: ${window.globalOptions.sizes.sm}px)`)) {
         cho.clearInput();
         window.setLabelPosition(input);
-        chs.focus();
+        // chs.focus();
       }
     });
   }
