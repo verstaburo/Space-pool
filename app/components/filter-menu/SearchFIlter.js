@@ -261,7 +261,6 @@ export default class SearchFilter {
     const buttonDefaultName = $(button).attr('data-default-name');
     const checkedInputs = $(`[data-nd-filter-type="${type}"]:checked`);
     if (checkedInputs.length === 0) {
-      console.log('checked inputs 0');
       $(button).removeClass('is-choose is-types-all is-types-hd is-types-fd is-types-mr is-types-po');
       $(container).text(buttonDefaultName);
       if (selfType === 'offerType') {
@@ -273,12 +272,13 @@ export default class SearchFilter {
       if (type === 'locationPlace') {
         const locationInput = $('[data-nd-filter-type="location"]:checked');
         const value = $(locationInput).attr('data-nd-filter-value');
-        if (locationInput.length > 0) {
+        if (locationInput.length > 0 && $(locationInput).attr('data-nd-filter-areas-url') !== undefined) {
           _this._setButtonName(button, `${value}: all locations`);
+        } else {
+          _this._setButtonName(button, `${value}`);
         }
       }
     } else if (!checkedInputs.length > 0) {
-      console.log('checked inputs > 0 false');
       $(button).removeClass('is-choose');
       $(container).text(buttonDefaultName);
     }
@@ -319,6 +319,8 @@ export default class SearchFilter {
           case 'location': {
             const locationPlaceInputs = $('[data-nd-filter-type="locationPlace"]:checked');
             if (locationPlaceInputs.length > 0) {
+              _this._setButtonName(button, value);
+            } else if ($(input).attr('data-nd-filter-areas-url') === undefined) {
               _this._setButtonName(button, value);
             } else {
               _this._setButtonName(button, `${value}: all locations`);
@@ -487,34 +489,40 @@ export default class SearchFilter {
     const _this = this;
     const locations = _this.locations;
     const urlData = $(self).attr('data-nd-filter-areas-url');
-    const urlArr = urlData ? urlData.split(',') : ['/', ''];
-    const area = urlArr[1].toLowerCase();
-    _this._loadingStateOnAreas('start');
-    const success = {}.hasOwnProperty.call(locations, area);
-    _this._removeAllTags();
-    if (!success || locations[area].status === 'error') {
-      _this._loadLocationAreaData(urlArr, () => {
-        _this._loadingStateOnAreas('end');
-        _this._generateLocationAreasList(el);
-      }, () => {
-        _this._loadingStateOnAreas('end');
-        const areasContainer = $('[data-nd-filter-areas-container]');
-        $(areasContainer).text('Failed to load data');
-      });
-    } else {
-      const data = locations[area];
-      _this._loadingStateOnAreas('end');
+    const urlArr = urlData ? urlData.split(',') : null;
+    if (urlArr === null) {
+      _this._removeAllTags();
       const areasContainer = $('[data-nd-filter-areas-container]');
       $(areasContainer).empty();
-      $(data).each((i, dt) => {
-        const item = _this._generateLocationAreaButton(dt);
-        $(areasContainer).append(item);
-      });
-      const checkedItems = $('[data-nd-filter-type="locationPlace"]:checked');
-      if (checkedItems.length > 0) {
-        $(checkedItems).each((k, it) => {
-          _this._filterChoosed(it);
+    } else {
+      const area = urlArr[1].toLowerCase();
+      _this._loadingStateOnAreas('start');
+      const success = {}.hasOwnProperty.call(locations, area);
+      _this._removeAllTags();
+      if (!success || locations[area].status === 'error') {
+        _this._loadLocationAreaData(urlArr, () => {
+          _this._loadingStateOnAreas('end');
+          _this._generateLocationAreasList(el);
+        }, () => {
+          _this._loadingStateOnAreas('end');
+          const areasContainer = $('[data-nd-filter-areas-container]');
+          $(areasContainer).text('Failed to load data');
         });
+      } else {
+        const data = locations[area];
+        _this._loadingStateOnAreas('end');
+        const areasContainer = $('[data-nd-filter-areas-container]');
+        $(areasContainer).empty();
+        $(data).each((i, dt) => {
+          const item = _this._generateLocationAreaButton(dt);
+          $(areasContainer).append(item);
+        });
+        const checkedItems = $('[data-nd-filter-type="locationPlace"]:checked');
+        if (checkedItems.length > 0) {
+          $(checkedItems).each((k, it) => {
+            _this._filterChoosed(it);
+          });
+        }
       }
     }
   }
