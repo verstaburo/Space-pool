@@ -26,6 +26,14 @@ mixin gallery(data)
           +icon('nd-slider-arrow')
     if data.dots
       +e.pagination.js-gallery-pagination(class=(data.dotsClass || ''))
+    if data.tumbnails
+      +e.tumbnails.js-gallery-controller
+        +e.wrapper
+          each image in data.images
+            +e.slide_tumbnail
+              +e.PICTURE.image
+                +e.SOURCE(srcset=image)
+                +e.IMG(srcset=image)
     if data.gallerytag
       +e.A.fullscreen.js-nd-fancygallery(data-targets=data.gallerytag)
         +icon('fullscreen')

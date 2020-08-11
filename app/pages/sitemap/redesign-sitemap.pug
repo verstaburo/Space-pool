@@ -11,40 +11,99 @@ block header
   - var pageClass = ' nd-page_main'
 
 block content
-  .nd-container
-    +b.sitemap
-      +e.group
-        +e.head
-          +page-title Страницы
-        +e.list
-          +nd-link(href="nd-ui-kit.html") Spacepool - Новый ui-kit (nd-ui-kit.html)
-          +nd-link(href="index.html") Spacepool - Главная (index.html)
-          +nd-link(href="space-v3.html") Spacepool - Space (space-v3.html)
-          +nd-link(href="nd-signup.html") Spacepool - Sign Up (nd-signup.html)
-          +nd-link(href="nd-signup-confirm.html") Spacepool - Sign Up - Email Confirmed(nd-signup-confirm.html)
-          +nd-link(href="nd-signup-ready.html") Spacepool - Sign Up - Account created (nd-signup-ready.html)
-          +nd-link(href="login.html") Spacepool - Login (login.html)
-          +nd-link(href="search.html") Spacepool - Search (search.html)
-          +nd-link(href="search-types.html") Spacepool - Search by offer type (search-types.html)
-          +nd-link(href="deal-pass.html") Spacepool - Deal Passpor Rent - Dashboard (deal-pass.html)
-          +nd-link(href="deal-pass-rs.html") Spacepool - Deal Passpor Rent - Rental Summary (deal-pass-rs.html)
-          +nd-link(href="deal-pass-contracts.html") Spacepool - Deal Passpor Rent - Contracts (deal-pass-contracts.html)
-          +nd-link(href="deal-pass-statements.html") Spacepool - Deal Passpor Rent - Statements (deal-pass-statements.html)
-          +nd-link(href="deal-pass-chat.html") Spacepool - Deal Passpor Rent - Chat (deal-pass-chat.html)
-          +nd-link(href="deal-pass-viewing-chat.html") Spacepool - Deal Passpor Viewing - Chat (deal-pass-viewing-chat.html)
-          +nd-link(href="deal-pass-viewing.html") Spacepool - Deal Passpor Viewing - Dashboard (deal-pass-viewing.html)
-          +nd-link(href="rental-summary.html") Spacepool - Rental Summary (rental-summary.html)
-          +nd-link(href="rental-summary-signup.html") Spacepool - Rental Summary - Signup (rental-summary-signup.html)
-          +nd-link(href="rental-summary-signup-confirmed.html") Spacepool - Rental Summary - Signup - Email Confirmed (rental-summary-signup-confirmed.html)
-          +nd-link(href="rental-summary-login.html") Spacepool - Rental Summary - Login (rental-summary-login.html)
+  - var menuList = [{name: "Общее", href: "#nav-common"}, {name: "Search", href: "#nav-search"}, {name: "Rental Summary", href: "#nav-rental-summary"}, {name: "Deal Passport", href: "#nav-deal"}, {name: "Guest Account", href: "#nav-ga"}, {name: "Host Account", href: "#nav-ha"}];
+  //- , {name: "HA - Single Space", href: "#nav-ha-space"}, {name: "Edit Space", href: "#nav-edit-space"}];
+  - var nav = {menu: menuList, menuLinkCls: ' js-nd-anchor'}
+  +nd-page-header._grid._grid_acc
+    .nd-container.nd-hide
+      +nd-page-header-side
+      +nd-page-header-main
+        +e.mb-menu.nd-hide-from-md
+          +slider-navigation(menuList, 0, '', ' js-nd-anchor')
 
-          +nd-link(href="guest-account.html") Spacepool - Guest Account - Mobile Only (guest-account.html)
-          +nd-link(href="guest-account-basic.html") Spacepool - Guest Account - Account Settings | Basic info (guest-account-basic.html)
-          +nd-link(href="guest-account-messages.html") Spacepool - Guest Account - Messages (guest-account-messages.html)
-          +nd-link(href="guest-account-notes.html") Spacepool - Guest Account - Notififcations (guest-account-notes.html)
-          +nd-link(href="guest-account-shorts.html") Spacepool - Guest Account - Shortlist (guest-account-shorts.html)
-          +nd-link(href="guest-account-rents.html") Spacepool - Guest Account - My rents (guest-account-rents.html)
-          +nd-link(href="guest-account-rents-empty.html") Spacepool - Guest Account - My rents | Empty  (guest-account-rents-emptyhtml)
-          +nd-link(href="guest-account-viewings.html") Spacepool - Guest Account - My viewings (guest-account-viewings.html)
-          +nd-link(href="guest-account-payments.html") Spacepool - Guest Account - Payment methods (guest-account-payments.html)
-          +nd-link(href="guest-account-payments-add.html") Spacepool - Guest Account - Payment methods | Add (guest-account-payments-add.html)
+  +nd-content
+    .nd-container
+      +nd-content-aside
+        +sidebar.nd-sidebar.nd-hide-md
+          +nd-side-navigation(nav, 'Spaces')._profile
+
+      +nd-content-main
+        +b.sitemap
+          +e.group#nav-edit-space.nd-hide
+            +e.head
+              +page-title Страницы Host Account - Edit Space
+            +e.list
+              +nd-link(href="ha-edit-space.html") Spacepool - Edit Space - Location (ha-edit-space.html)
+          +e.group#nav-ha-space.nd-hide
+            +e.head
+              +page-title Страницы Host Account - Single Space
+            +e.list
+              +nd-link(href="ha-space.html") Spacepool - Host Space - Dashboard (ha-space.html)
+          +e.group#nav-ha
+            +e.head
+              +page-title Страницы Host Account
+            +e.list
+              //- +nd-link(href="host-account.html") Spacepool - Host Account - Spaces (host-account.html)
+              +nd-link(href="host-account-messages.html") Spacepool - Host Account - Messages (host-account-messages.html)
+              //- +nd-link(href="host-account-managers.html") Spacepool - Host Account - Managers (host-account-managers.html)
+              //- +nd-link(href="host-account-managers-inactive.html") Spacepool - Host Account - Managers | Inactive (host-account-managers-inactive.html)
+              //- +nd-link(href="host-account-managers-invite.html") Spacepool - Host Account - Managers | Invite (host-account-managers-invite.html)
+              //- +nd-link(href="host-account-managers-invite-success.html") Spacepool - Host Account - Managers | Invite Success(host-account-managers-invite-success.html)
+              //- +nd-link(href="host-account-settings.html") Spacepool - Host Account - Settings (host-account-settings.html)
+              //- +nd-link(href="host-account-settings-basic.html") Spacepool - Host Account - Settings | Basic information (host-account-settings-basic.html)
+              //- +nd-link(href="host-account-settings-company.html") Spacepool - Host Account - Settings | Company details (host-account-settings-company.html)
+              //- +nd-link(href="host-account-settings-password.html") Spacepool - Host Account - Settings | Password (host-account-settings-password.html)
+              //- +nd-link(href="host-account-settings-notifications.html") Spacepool - Host Account - Settings | Notification settings (host-account-settings-notifications.html)
+              //- +nd-link(href="host-account-finances.html") Spacepool - Host Account - Finances (host-account-finances.html)
+              //- +nd-link(href="host-account-finances-statements.html") Spacepool - Host Account - Finances | Statements (host-account-finances-statements.html)
+              //- +nd-link(href="host-account-kyc.html") Spacepool - Host Account - KYC (host-account-kyc.html)
+          +e.group#nav-ga
+            +e.head
+              +page-title Страницы Guest Account
+            +e.list
+              +nd-link(href="guest-account.html") Spacepool - Guest Account - Mobile Only (guest-account.html)
+              +nd-link(href="guest-account-basic.html") Spacepool - Guest Account - Account Settings | Basic info (guest-account-basic.html)
+              +nd-link(href="guest-account-messages.html") Spacepool - Guest Account - Messages (guest-account-messages.html)
+              +nd-link(href="guest-account-notes.html") Spacepool - Guest Account - Notififcations (guest-account-notes.html)
+              +nd-link(href="guest-account-shorts.html") Spacepool - Guest Account - Shortlist (guest-account-shorts.html)
+              +nd-link(href="guest-account-rents.html") Spacepool - Guest Account - My rents (guest-account-rents.html)
+              +nd-link(href="guest-account-rents-empty.html") Spacepool - Guest Account - My rents | Empty  (guest-account-rents-emptyhtml)
+              +nd-link(href="guest-account-viewings.html") Spacepool - Guest Account - My viewings (guest-account-viewings.html)
+              +nd-link(href="guest-account-payments.html") Spacepool - Guest Account - Payment methods (guest-account-payments.html)
+              +nd-link(href="guest-account-payments-add.html") Spacepool - Guest Account - Payment methods | Add (guest-account-payments-add.html)
+          +e.group#nav-deal
+            +e.head
+              +page-title Страницы Deal Passport
+            +e.list
+              +nd-link(href="deal-pass.html") Spacepool - Deal Passpor Rent - Dashboard (deal-pass.html)
+              +nd-link(href="deal-pass-rs.html") Spacepool - Deal Passpor Rent - Rental Summary (deal-pass-rs.html)
+              +nd-link(href="deal-pass-contracts.html") Spacepool - Deal Passpor Rent - Contracts (deal-pass-contracts.html)
+              +nd-link(href="deal-pass-statements.html") Spacepool - Deal Passpor Rent - Statements (deal-pass-statements.html)
+              +nd-link(href="deal-pass-chat.html") Spacepool - Deal Passpor Rent - Chat (deal-pass-chat.html)
+              +nd-link(href="deal-pass-viewing-chat.html") Spacepool - Deal Passpor Viewing - Chat (deal-pass-viewing-chat.html)
+              +nd-link(href="deal-pass-viewing.html") Spacepool - Deal Passpor Viewing - Dashboard (deal-pass-viewing.html)
+          +e.group#nav-rental-summary
+            +e.head
+              +page-title Страницы Rental Summary
+            +e.list
+              +nd-link(href="rental-summary.html") Spacepool - Rental Summary (rental-summary.html)
+              +nd-link(href="rental-summary-signup.html") Spacepool - Rental Summary - Signup (rental-summary-signup.html)
+              +nd-link(href="rental-summary-signup-confirmed.html") Spacepool - Rental Summary - Signup - Email Confirmed (rental-summary-signup-confirmed.html)
+              +nd-link(href="rental-summary-login.html") Spacepool - Rental Summary - Login (rental-summary-login.html)
+          +e.group#nav-search
+            +e.head
+              +page-title Страницы Search
+            +e.list
+              +nd-link(href="search.html") Spacepool - Search (search.html)
+              +nd-link(href="search-types.html") Spacepool - Search by offer type (search-types.html)
+          +e.group#nav-common
+            +e.head
+              +page-title Страницы общие
+            +e.list
+              +nd-link(href="nd-ui-kit.html") Spacepool - Новый ui-kit (nd-ui-kit.html)
+              +nd-link(href="index.html") Spacepool - Главная (index.html)
+              +nd-link(href="space-v3.html") Spacepool - Space (space-v3.html)
+              +nd-link(href="nd-signup.html") Spacepool - Sign Up (nd-signup.html)
+              +nd-link(href="nd-signup-confirm.html") Spacepool - Sign Up - Email Confirmed(nd-signup-confirm.html)
+              +nd-link(href="nd-signup-ready.html") Spacepool - Sign Up - Account created (nd-signup-ready.html)
+              +nd-link(href="login.html") Spacepool - Login (login.html)

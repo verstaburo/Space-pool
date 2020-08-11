@@ -1,0 +1,37 @@
+extends ../../layouts/redesign-default
+
+block head
+  - var pageTitle = 'Spacepool - Host Account - Managers'
+
+block bodyClasses
+  - var bodyCls = ' is-sm-noheader';
+
+block header
+  - var headerClass = ' is-login'
+  - var pageClass = ''
+  - var isMap = false
+  - var host = true
+
+block content
+  +nd-page-header._grid._grid_acc
+    .nd-container
+      +nd-page-header-side
+        +nd-link-icon('arrow5')._back.__back.nd-hide Back
+      +nd-page-header-main
+        - var menuList = getData('sideNavProfileHost.json').menu;
+        +e.mb-menu.nd-hide-from-md
+          +slider-navigation(menuList, 2, 'Managers')
+
+  +nd-content
+    .nd-container
+      +nd-content-aside
+        +sidebar.nd-sidebar.nd-hide-md
+          - var nav = getData('sideNavProfileHost.json')
+          +nd-side-navigation(nav, 'Managers')._profile
+
+      +nd-content-main
+        +records._acc
+
+block panels
+
+block popups

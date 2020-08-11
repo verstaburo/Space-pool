@@ -12,4 +12,14 @@ export default function anchor() {
       }, 1000, 'swing');
     }
   });
+
+  $(document).on('click', '.js-nd-anchor', function (e) {
+    e.preventDefault();
+    const target = $($(this).attr('href'));
+    if (target.length > 0) {
+      $('body, html').stop().animate({
+        scrollTop: (target.offset().top - 85),
+      }, 1000, 'swing');
+    }
+  });
 }

@@ -23,6 +23,7 @@ mixin nd-side-navigation(data, activeName, subActiveName)
         each item in data.menu
           - var addClass = (item.name == activeName) ? ' is-active' : ''
           - if (item.list) addClass += ' is-multilevel'
+          - if (data.menuLinkCls) addClass += data.menuLinkCls
           +e.LI.item
             +e.A.link(class=addClass href=item.href)!=item.name
             if item.list
@@ -34,7 +35,7 @@ mixin nd-side-navigation(data, activeName, subActiveName)
     each item in data.menu
       if (item.name == activeName)
         if item.note
-          +e.note!=item.note
+          +e.note(class=(item.noteClass || ''))!=item.note
     if data.iconLink
       +e.links
         +nd-link-icon(data.iconLink.icon)(class=data.iconLink.class href=data.iconLink.href)._icon_blue.__btn-link!=data.iconLink.name

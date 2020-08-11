@@ -7,8 +7,8 @@ export default function buttonHover() {
     const mouseX = evt.clientX;
     const width = self.offsetWidth;
     const innerX = mouseX - selfX;
-    const persentShift = (innerX / width) * 100;
-    self.style.setProperty('background-position', `${persentShift}% 50%`);
+    const persentShift = 100 - ((innerX / width) * 100);
+    self.style.setProperty('--bgpos-x', `${persentShift}%`);
   });
 
   $(document).on('touchmove', '.nd-button', (evt) => {
@@ -17,7 +17,7 @@ export default function buttonHover() {
     const mouseX = evt.touches[0].clientX;
     const width = self.offsetWidth;
     const innerX = mouseX - selfX;
-    const persentShift = (innerX / width) * 100;
-    self.style.setProperty('background-position', `${persentShift}% 50%`);
+    const persentShift = 100 - ((innerX / width) * 100);
+    self.style.setProperty('--bgpos-x', `${persentShift}%`);
   });
 }
