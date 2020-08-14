@@ -66,6 +66,28 @@
       }
     }
 
+    &_mr18 {
+      &:not(:last-child) {
+        margin-right: 18px;
+
+        @include screen('xlg', max, 2) {
+          margin-right: pxtovw(18, 1660);
+        }
+
+        @include screen('lg', max, 2) {
+          margin-right: pxtovw(18, 1366);
+        }
+
+        @include screen('md', max, 2) {
+          margin-right: pxtovw(18, 960);
+        }
+
+        @include screen('sm', max, 2) {
+          margin-right: pxtovw(18, 375);
+        }
+      }
+    }
+
     #{$b}_light & {
       width: 50px;
       height: 27px;
@@ -247,6 +269,27 @@
 
     @include screen('sm', max, 2) {
       font-size: pxtovw(16, 375);
+    }
+
+    &_fz20 {
+      font-size: 20px;
+      line-height: (24 / 20);
+
+      @include screen('xlg', max, 2) {
+        font-size: pxtovw(20, 1660);
+      }
+
+      @include screen('lg', max, 2) {
+        font-size: pxtovw(20, 1366);
+      }
+
+      @include screen('md', max, 2) {
+        font-size: pxtovw(20, 960);
+      }
+
+      @include screen('sm', max, 2) {
+        font-size: pxtovw(20, 375);
+      }
     }
 
     &::before {

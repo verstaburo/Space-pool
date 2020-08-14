@@ -13,7 +13,7 @@
   tr {
     padding: 0;
     margin: 0;
-    border-bottom: 1px solid $nd-color-table-border;
+    border-bottom: 1px solid $nd-color-border4;
   }
 
   td {
@@ -47,6 +47,10 @@
     &:last-child {
       text-align: right;
     }
+
+    &.va-mid {
+      vertical-align: middle;
+    }
   }
 
   &__state {
@@ -55,6 +59,10 @@
   }
 
   &_rent-state {
+    tr {
+      border-color: $nd-color-table-border;
+    }
+
     thead tr {
       border-width: 0;
     }
@@ -253,6 +261,10 @@
   }
 
   &_info {
+    tr {
+      border-color: rgba($nd-color-border4, .48);
+    }
+
     td, th {
       padding: 14px 6px 6px 0;
 
@@ -400,6 +412,10 @@
     }
 
     &_check {
+      tr {
+        border-color: $nd-color-border4;
+      }
+
       th, td {
         padding: 14px 40px 14px 0;
         font-size: 18px;
@@ -467,6 +483,7 @@
 
     tr {
       width: 100%;
+      border-color: rgba($nd-color-border4, .48);
     }
 
     th, td {
@@ -689,6 +706,84 @@
 
       &:first-child {
         font-weight: 700;
+      }
+    }
+
+    &_space {
+      th, td {
+        padding-top: 16px;
+        padding-bottom: 14px;
+        vertical-align: middle;
+        box-sizing: border-box;
+
+        @include screen('xlg', max, 2) {
+          padding-top: pxtovw(16, 1660);
+          padding-bottom: pxtovw(14, 1660);
+        }
+
+        @include screen('lg', max, 2) {
+          padding-top: pxtovw(16, 1366);
+          padding-bottom: pxtovw(14, 1366);
+        }
+
+        @include screen('md', max, 2) {
+          padding-top: pxtovw(16, 960);
+          padding-bottom: pxtovw(14, 960);
+        }
+
+        @include screen('sm', max, 2) {
+          padding-top: pxtovw(16, 375);
+          padding-bottom: pxtovw(15, 375);
+        }
+
+        &:first-child {
+          width: 37.8%;
+        }
+
+        b:not(:first-child) {
+          margin-left: 24px;
+
+          @include screen('xlg', max, 2) {
+            margin-left: pxtovw(24, 1660);
+          }
+
+          @include screen('lg', max, 2) {
+            margin-left: pxtovw(24, 1366);
+          }
+
+          @include screen('md', max, 2) {
+            margin-left: pxtovw(24, 960);
+          }
+
+          @include screen('sm', max, 2) {
+            margin-left: pxtovw(24, 375);
+          }
+        }
+      }
+
+      tr:first-child td, tr:first-child th {
+        padding-top: 4px;
+        padding-bottom: 4px;
+
+        @include screen('xlg', max, 2) {
+          padding-top: pxtovw(4, 1660);
+          padding-bottom: pxtovw(4, 1660);
+        }
+
+        @include screen('lg', max, 2) {
+          padding-top: pxtovw(4, 1366);
+          padding-bottom: pxtovw(4, 1366);
+        }
+
+        @include screen('md', max, 2) {
+          padding-top: pxtovw(4, 960);
+          padding-bottom: pxtovw(4, 960);
+        }
+
+        @include screen('sm', max, 2) {
+          padding-top: pxtovw(4, 375);
+          padding-bottom: pxtovw(4, 375);
+        }
       }
     }
   }

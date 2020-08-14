@@ -1,3 +1,465 @@
 .space-settings {
   $b: &;
+
+  display: block;
+  width: 100%;
+  background-color: $nd-color-basic-light;
+  box-shadow: 3px 3px 3px rgba(0, 0, 0, .02), 2px 2px 2px rgba(0, 0, 0, .04), 1px 1px 1px rgba(0, 0, 0, .03);
+  border-radius: 3px;
+
+  @include screen('xlg', max, 2) {
+    box-shadow: pxtovw(3, 1660) pxtovw(3, 1660) pxtovw(3, 1660) rgba(0, 0, 0, .02), pxtovw(2, 1660) pxtovw(2, 1660) pxtovw(2, 1660) rgba(0, 0, 0, .04), pxtovw(1, 1660) pxtovw(1, 1660) pxtovw(1, 1660) rgba(0, 0, 0, .03);
+    border-radius: pxtovw(3, 1660);
+  }
+
+  @include screen('lg', max, 2) {
+    box-shadow: pxtovw(3, 1366) pxtovw(3, 1366) pxtovw(3, 1366) rgba(0, 0, 0, .02), pxtovw(2, 1366) pxtovw(2, 1366) pxtovw(2, 1366) rgba(0, 0, 0, .04), pxtovw(1, 1366) pxtovw(1, 1366) pxtovw(1, 1366) rgba(0, 0, 0, .03);
+    border-radius: pxtovw(3, 1366);
+  }
+
+  @include screen('md', max, 2) {
+    box-shadow: pxtovw(3, 960) pxtovw(3, 960) pxtovw(3, 960) rgba(0, 0, 0, .02), pxtovw(2, 960) pxtovw(2, 960) pxtovw(2, 960) rgba(0, 0, 0, .04), pxtovw(1, 960) pxtovw(1, 960) pxtovw(1, 960) rgba(0, 0, 0, .03);
+    border-radius: pxtovw(3, 960);
+  }
+
+  @include screen('sm', max, 2) {
+    box-shadow: pxtovw(3, 375) pxtovw(3, 375) pxtovw(3, 375) rgba(0, 0, 0, .02), pxtovw(2, 375) pxtovw(2, 375) pxtovw(2, 375) rgba(0, 0, 0, .04), pxtovw(1, 375) pxtovw(1, 375) pxtovw(1, 375) rgba(0, 0, 0, .03);
+    border-radius: pxtovw(3, 375);
+  }
+
+  &__content {
+    display: flex;
+    justify-content: flex-start;
+    align-items: stretch;
+    align-content: flex-start;
+    flex-wrap: wrap;
+    box-sizing: border-box;
+    padding: 45px 45px 0;
+
+    @include screen('xlg', max, 2) {
+      padding: pxtovw(45, 1660) pxtovw(45, 1660) 0;
+    }
+
+    @include screen('lg', max, 2) {
+      padding: pxtovw(45, 1366) pxtovw(45, 1366) 0;
+    }
+
+    @include screen('md', max, 2) {
+      padding: pxtovw(45, 960) pxtovw(45, 960) 0;
+    }
+
+    @include screen('sm', max, 2) {
+      padding: pxtovw(45, 375) pxtovw(45, 375) 0;
+    }
+  }
+
+  &__media {
+    display: block;
+    width: 442px;
+    flex: none;
+
+    @include screen('xlg', max, 2) {
+      width: pxtovw(442, 1660);
+    }
+
+    @include screen('lg', max, 2) {
+      width: pxtovw(390, 1366);
+    }
+
+    @include screen('md', max, 2) {
+      width: pxtovw(330, 960);
+    }
+
+    @include screen('sm', max, 2) {
+      width: 100%;
+      // width: pxtovw(442, 375);
+    }
+  }
+
+  .gallery {
+    border-radius: 3px;
+    padding-top: 63.3%;
+    overflow: hidden;
+
+    @include screen('xlg', max, 2) {
+      border-radius: pxtovw(3, 1660);
+    }
+
+    @include screen('lg', max, 2) {
+      border-radius: pxtovw(3, 1366);
+    }
+
+    @include screen('md', max, 2) {
+      border-radius: pxtovw(3, 960);
+    }
+
+    @include screen('sm', max, 2) {
+      border-radius: pxtovw(3, 375);
+    }
+  }
+
+  &__boxes {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+  }
+
+  &__describe {
+    display: block;
+    flex: 1;
+
+    &:not(:first-child) {
+      margin-left: 42px;
+
+      @include screen('xlg', max, 2) {
+        margin-left: pxtovw(42, 1660);
+      }
+
+      @include screen('lg', max, 2) {
+        margin-left: pxtovw(42, 1366);
+      }
+
+      @include screen('md', max, 2) {
+        margin-left: pxtovw(20, 960);
+      }
+
+      @include screen('sm', max, 2) {
+        // margin-left: pxtovw(42, 1660);
+        margin-left: 0;
+      }
+    }
+  }
+
+  &__top {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+
+  &__remove {
+    font-size: 18px;
+    line-height: 1;
+    letter-spacing: -.02em;
+    color: $nd-color-gray-text;
+
+    @include screen('xlg', max, 2) {
+      font-size: pxtovw(18, 1660);
+    }
+
+    @include screen('lg', max, 2) {
+      font-size: pxtovw(18, 1366);
+    }
+
+    @include screen('md', max, 2) {
+      font-size: pxtovw(18, 960);
+    }
+
+    @include screen('sm', max, 2) {
+      font-size: pxtovw(18, 375);
+    }
+
+    .nd-link {
+      &__icon_cross {
+        width: 11px;
+        height: 11px;
+
+        @include screen('xlg', max, 2) {
+          width: pxtovw(11, 1660);
+          height: pxtovw(11, 1660);
+        }
+
+        @include screen('lg', max, 2) {
+          width: pxtovw(11, 1366);
+          height: pxtovw(11, 1366);
+        }
+
+        @include screen('md', max, 2) {
+          width: pxtovw(11, 960);
+          height: pxtovw(11, 960);
+        }
+
+        @include screen('sm', max, 2) {
+          width: pxtovw(11, 375);
+          height: pxtovw(11, 375);
+        }
+
+        &:not(:last-child) {
+          margin-right: 12px;
+
+          @include screen('xlg', max, 2) {
+            margin-right: pxtovw(12, 1660);
+          }
+
+          @include screen('lg', max, 2) {
+            margin-right: pxtovw(12, 1366);
+          }
+
+          @include screen('md', max, 2) {
+            margin-right: pxtovw(12, 960);
+          }
+
+          @include screen('sm', max, 2) {
+            margin-right: pxtovw(12, 375);
+          }
+        }
+      }
+    }
+  }
+
+  &__title {
+    font-family: $font-stolzl;
+    font-size: 30px;
+    line-height: 1;
+    font-weight: 400;
+
+    @include screen('xlg', max, 2) {
+      font-size: pxtovw(30, 1660);
+    }
+
+    @include screen('lg', max, 2) {
+      font-size: pxtovw(25, 1366);
+    }
+
+    @include screen('md', max, 2) {
+      font-size: pxtovw(25, 960);
+    }
+
+    @include screen('sm', max, 2) {
+      line-height: 1.1;
+      font-size: pxtovw(20, 375);
+    }
+
+    &:not(:first-child) {
+      margin-top: 9px;
+
+      @include screen('xlg', max, 2) {
+        margin-top: pxtovw(9, 1660);
+      }
+
+      @include screen('lg', max, 2) {
+        margin-top: pxtovw(9, 1366);
+      }
+
+      @include screen('md', max, 2) {
+        margin-top: pxtovw(9, 960);
+      }
+
+      @include screen('sm', max, 2) {
+        margin-top: pxtovw(9, 375);
+      }
+    }
+  }
+
+  &__address {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    box-sizing: border-box;
+    font-size: 12px;
+    line-height: (15 / 12);
+    color: $color-gray-lightest;
+
+    @include screen('xlg', max, 2) {
+      font-size: pxtovw(12, 1660);
+    }
+
+    @include screen('lg', max, 2) {
+      font-size: pxtovw(12, 1366);
+    }
+
+    @include screen('md', max, 2) {
+      font-size: pxtovw(12, 960);
+    }
+
+    @include screen('sm', max, 2) {
+      font-size: pxtovw(12, 375);
+    }
+
+    span, a {
+      position: relative;
+      display: block;
+      box-sizing: border-box;
+
+      &:not(:last-child) {
+        padding-right: 23px;
+
+        @include screen('xlg', max, 2) {
+          padding-right: pxtovw(23, 1660);
+        }
+
+        @include screen('lg', max, 2) {
+          padding-right: pxtovw(23, 1366);
+        }
+
+        @include screen('md', max, 2) {
+          padding-right: pxtovw(23, 960);
+        }
+
+        @include screen('sm', max, 2) {
+          padding-right: pxtovw(23, 375);
+        }
+
+        &::after {
+          position: absolute;
+          display: inline-block;
+          content: '-';
+          height: 100%;
+          width: 23px;
+          text-align: center;
+          vertical-align: middle;
+          top: 50%;
+          right: 0;
+          transform: translate3d(0, -50%, 0);
+
+          @include screen('xlg', max, 2) {
+            width: pxtovw(23, 1660);
+          }
+
+          @include screen('lg', max, 2) {
+            width: pxtovw(23, 1366);
+          }
+
+          @include screen('md', max, 2) {
+            width: pxtovw(23, 960);
+          }
+
+          @include screen('sm', max, 2) {
+            width: pxtovw(23, 375);
+          }
+        }
+      }
+    }
+
+    &:not(:first-child) {
+      margin-top: 13px;
+
+      @include screen('xlg', max, 2) {
+        margin-top: pxtovw(13, 1660);
+      }
+
+      @include screen('lg', max, 2) {
+        margin-top: pxtovw(13, 1366);
+      }
+
+      @include screen('md', max, 2) {
+        margin-top: pxtovw(13, 960);
+      }
+
+      @include screen('sm', max, 2) {
+        margin-top: pxtovw(13, 375);
+      }
+    }
+  }
+
+  &__table {
+    width: 100%;
+
+    &:not(:first-child) {
+      margin-top: 30px;
+
+      @include screen('xlg', max, 2) {
+        margin-top: pxtovw(30, 1660);
+      }
+
+      @include screen('lg', max, 2) {
+        margin-top: pxtovw(30, 1366);
+      }
+
+      @include screen('md', max, 2) {
+        margin-top: pxtovw(30, 960);
+      }
+
+      @include screen('sm', max, 2) {
+        margin-top: pxtovw(30, 375);
+      }
+    }
+
+    .space-type {
+      &__box {
+        &:not(:last-child) {
+          margin-right: 6px;
+
+          @include screen('xlg', max, 2) {
+            margin-right: pxtovw(6, 1660);
+          }
+
+          @include screen('lg', max, 2) {
+            margin-right: pxtovw(6, 1366);
+          }
+
+          @include screen('md', max, 2) {
+            margin-right: pxtovw(6, 960);
+          }
+
+          @include screen('sm', max, 2) {
+            margin-right: pxtovw(6, 375);
+          }
+        }
+      }
+    }
+  }
+
+  &__controls {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+
+    &:not(:first-child) {
+      margin-top: 64px;
+
+      @include screen('xlg', max, 2) {
+        margin-top: pxtovw(64, 1660);
+      }
+
+      @include screen('lg', max, 2) {
+        margin-top: pxtovw(64, 1366);
+      }
+
+      @include screen('md', max, 2) {
+        margin-top: pxtovw(64, 960);
+      }
+
+      @include screen('sm', max, 2) {
+        margin-top: pxtovw(64, 375);
+      }
+    }
+  }
+
+  &__control-item {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 70px;
+    box-sizing: border-box;
+    border-top: 1px solid $nd-color-border4;
+
+    @include screen('xlg', max, 2) {
+      height: pxtovw(70, 1660);
+    }
+
+    @include screen('lg', max, 2) {
+      height: pxtovw(70, 1366);
+    }
+
+    @include screen('md', max, 2) {
+      height: pxtovw(70, 960);
+    }
+
+    @include screen('sm', max, 2) {
+      height: pxtovw(70, 375);
+    }
+
+    &:not(:last-child) {
+      border-right: 1px solid $nd-color-border4;
+    }
+  }
+
+  &__button {
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 1.6;
+    letter-spacing: -.02em;
+  }
 }

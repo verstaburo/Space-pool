@@ -27,11 +27,11 @@ mixin nd-switch(data)
       else
         +nd-input(type="checkbox" name=data.name value=data.value class=data.inputClass).__input
     if data.type == 'twoSide'
-      +e.label_off!=data.labels.off
-      +e.toggle
-      +e.label_on!=data.labels.on
+      +e.label_off(class=(data.labels.cls || ''))!=data.labels.off
+      +e.toggle(class=(data.toggleCls || ''))
+      +e.label_on(class=(data.labels.cls || ''))!=data.labels.on
     if data.type == 'oneSide'
-      +e.toggle
-      +e.label(data-label-on=data.labels.on data-label-off=data.labels.off)
+      +e.toggle(class=(data.toggleCls || ''))
+      +e.label(data-label-on=data.labels.on data-label-off=data.labels.off class=(data.labels.cls || ''))
     if data.type == 'simple'
-      +e.toggle
+      +e.toggle(class=(data.toggleCls || ''))

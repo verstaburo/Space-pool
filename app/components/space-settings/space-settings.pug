@@ -1,3 +1,81 @@
-mixin space-settings()
-  +b.space-settings&attributes(attributes)
+mixin space-settings(data)
+  +b.SECTION.space-settings&attributes(attributes)
+    +e.content
+      +e.media
+        +gallery(data.gallery).__gallery.js-nd-gallery
+      +e.describe
+        +e.top
+          +e.boxes
+            if data.boxes
+              each item in data.boxes
+                +nd-box()._size9(class=item + ' __box')
+          +nd-link-icon('cross')._underline.__remove Delete space
+        +e.H3.title!=data.title
+        if data.address
+          +e.address
+            each item in data.address
+              span!=item
+        if data.info
+          +nd-table._resume._resume_space.__table
+            tbody
+              if data.info.manager
+                tr
+                  td Manager
+                  td
+                    +nd-short-profile-data(data.info.manager)._acc.__profile
+                  td
+                    +nd-link Edit
+              if data.info.hotdesk
+                tr
+                  td
+                    +space-type._fz14.__type
+                      +nd-box()._orange.__box
+                      +e.name HOT DESKS
+                  td!=data.info.hotdesk
+                  td
+                    +nd-link + Add
+              if data.info.fixeddesk
+                tr
+                  td
+                    +space-type._fz14.__type
+                      +nd-box()._red.__box
+                      +e.name FIXED DESK
+                  td!=data.info.fixeddesk
+                  td
+                    +nd-link + Add
+              if data.info.meetingroom
+                tr
+                  td
+                    +space-type._fz14.__type
+                      +nd-box()._blue.__box
+                      +e.name MEETING ROOM
+                  td!=data.info.meetingroom
+                  td
+                    +nd-link + Add
+              if data.info.privateoffice
+                tr
+                  td
+                    +space-type._fz14.__type
+                      +nd-box()._green.__box
+                      +e.name PRIVATE OFFICE
+                  td!=data.info.privateoffice
+                  td
+                    +nd-link + Add
+              if data.info.deal
+                tr
+                  td Deals
+                  td
+                    if data.info.deal.active
+                      span!=data.info.deal.active
+                    if data.info.deal.progress
+                      b!=data.info.deal.progress
+                  td
+                    +nd-link Manage
+    +e.controls
+      +e.DIV.control-item
+        +nd-switch({name: data.id, value: "available", type: 'oneSide', checked: true, labels: {on: 'Available', off: 'Not available', cls: '_fz20'}, toggleCls: '_mr18'})._light
+      +e.DIV.control-item
+        +nd-link-icon('nd-pan')._underline.__button Edit Space
+      +e.DIV.control-item
+        +nd-link-icon('nd-burger2')._underline.__button Manage Space
     block

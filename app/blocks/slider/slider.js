@@ -518,6 +518,37 @@ export default function slider() {
     const btnNext = $(el).find('.js-gallery-button-next')[0];
     const sliderContainer = $(el).find('.js-gallery-container');
     const pagination = $(el).find('.js-gallery-pagination')[0];
+    const galleryController = $(el).siblings('.js-gallery-controller')[0];
+    let controller = false;
+    let control = {};
+    if (galleryController) {
+      controller = new Swiper(galleryController, {
+        loop: false,
+        speed: 500,
+        slidesPerView: 5,
+        initialSlide: 0,
+        slidesPerGroup: 1,
+        roundLengths: false,
+        resize: true,
+        preloadImages: true,
+        updateOnImagesReady: true,
+        observeParents: true,
+        observer: true,
+        watchOverflow: true,
+        spaceBetween: 20,
+        // controller: control,
+        on: {
+          init() {
+            $(sliderContainer).addClass('is-visible');
+          },
+        },
+      });
+
+      control = {
+        swiper: controller,
+      };
+    }
+
     const newslider = new Swiper(sliderContainer, {
       loop: true,
       speed: 500,
@@ -531,6 +562,8 @@ export default function slider() {
       observeParents: true,
       observer: true,
       watchOverflow: true,
+      thumbs: control,
+      // controller: control,
       navigation: {
         nextEl: btnNext,
         prevEl: btnPrev,
@@ -555,6 +588,13 @@ export default function slider() {
       slidePrevClass: 'gallery__slide_prev',
       slideDuplicatePrevClass: 'gallery__slide_duplicate_prev',
     });
+
+    // if (controller) {
+    //   newslider.controller.control = controller;
+    //   controller.controller.control = newslider;
+    //   newslider.update();
+    //   controller.update();
+    // }
   }
 
   function offerSliderInit(el) {

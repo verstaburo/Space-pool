@@ -27,10 +27,16 @@ block content
       +nd-content-aside
         +sidebar.nd-sidebar.nd-hide-md
           - var nav = getData('sideNavProfileHost.json')
-          +nd-side-navigation(nav, 'Managers')._profile
+          +nd-side-navigation(nav, 'Managers')._profile._profile_ha
 
       +nd-content-main
-        +records._acc
+        +nd-section
+          +nd-section-header._fx._md-pg-head.nd-hide-sm
+            +nd-section-title._fz24 Managers
+            +e.menu
+              +slider-navigation([{name: "All Managers", href: "host-account-managers.html"}, {name: "Free Managers", href: "#"}, {name: "Active Managers", href: "#"}, {name: "Inactive Managers", href: "host-account-managers-inactive.html"}], 0, 'All Managers')
+              +nd-button('a')._pad10._h35.__add(href="host-account-managers-invite.html") Add manager
+          +records._acc
 
 block panels
 
