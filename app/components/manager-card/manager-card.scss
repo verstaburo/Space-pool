@@ -1,3 +1,284 @@
 .manager-card {
   $b: &;
+
+  @include display-grid;
+  @include grid-template-columns(244px 1fr);
+  @include grid-template-rows(grid-repeat(3, auto));
+
+  width: 100%;
+  box-sizing: border-box;
+  background-color: $nd-color-basic-light;
+  column-gap: 111px;
+  border-radius: 3px;
+  box-shadow: 3px 3px 3px rgba(0, 0, 0, .02), 2px 2px 2px rgba(0, 0, 0, .04), 1px 1px 1px rgba(0, 0, 0, .03);
+  padding: 42px 55px 70px 62px;
+
+  @include screen('xlg', max, 2) {
+    @include grid-template-columns(pxtovw(244, 1660) 1fr);
+    @include grid-template-rows(grid-repeat(3, auto));
+
+    column-gap: pxtovw(111, 1660);
+    box-shadow: pxtovw(3, 1660) pxtovw(3, 1660) pxtovw(3, 1660) rgba(0, 0, 0, .02), pxtovw(2, 1660) pxtovw(2, 1660) pxtovw(2, 1660) rgba(0, 0, 0, .04), pxtovw(1, 1660) pxtovw(1, 1660) pxtovw(1, 1660) rgba(0, 0, 0, .03);
+    border-radius: pxtovw(3, 1660);
+    padding: pxtovw(42, 1660) pxtovw(55, 1660) pxtovw(70, 1660) pxtovw(62, 1660);
+  }
+
+  @include screen('lg', max, 2) {
+    @include grid-template-columns(pxtovw(244, 1366) 1fr);
+    @include grid-template-rows(grid-repeat(3, auto));
+
+    column-gap: pxtovw(50, 1366);
+    box-shadow: pxtovw(3, 1366) pxtovw(3, 1366) pxtovw(3, 1366) rgba(0, 0, 0, .02), pxtovw(2, 1366) pxtovw(2, 1366) pxtovw(2, 1366) rgba(0, 0, 0, .04), pxtovw(1, 1366) pxtovw(1, 1366) pxtovw(1, 1366) rgba(0, 0, 0, .03);
+    border-radius: pxtovw(3, 1366);
+    padding: pxtovw(42, 1366) pxtovw(40, 1366) pxtovw(70, 1366);
+  }
+
+  @include screen('md', max, 2) {
+    @include grid-template-columns(pxtovw(244, 960) 1fr);
+    @include grid-template-rows(grid-repeat(3, auto));
+
+    column-gap: pxtovw(40, 960);
+    box-shadow: pxtovw(3, 960) pxtovw(3, 960) pxtovw(3, 960) rgba(0, 0, 0, .02), pxtovw(2, 960) pxtovw(2, 960) pxtovw(2, 960) rgba(0, 0, 0, .04), pxtovw(1, 960) pxtovw(1, 960) pxtovw(1, 960) rgba(0, 0, 0, .03);
+    border-radius: pxtovw(3, 960);
+    padding: pxtovw(42, 960) pxtovw(40, 960) pxtovw(70, 960);
+  }
+
+  @include screen('sm', max, 2) {
+    @include grid-template-columns(100%);
+    @include grid-template-rows(grid-repeat(5, auto));
+
+    column-gap: 0;
+    box-shadow: pxtovw(3, 375) pxtovw(3, 375) pxtovw(3, 375) rgba(0, 0, 0, .02), pxtovw(2, 375) pxtovw(2, 375) pxtovw(2, 375) rgba(0, 0, 0, .04), pxtovw(1, 375) pxtovw(1, 375) pxtovw(1, 375) rgba(0, 0, 0, .03);
+    border-radius: pxtovw(3, 375);
+    padding: pxtovw(40, 375) pxtovw(20, 375);
+  }
+
+  &__preview {
+    @include grid-column(1, 2);
+    @include grid-row(1, 3);
+
+    @include screen('sm', max, 2) {
+      @include grid-row(2, 3);
+
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+    }
+  }
+
+  &__header {
+    @include grid-column(2, 3);
+    @include grid-row(1, 2);
+
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding-top: 11px;
+
+    @include screen('xlg', max, 2) {
+      padding-top: pxtovw(11, 1660);
+    }
+
+    @include screen('lg', max, 2) {
+      padding-top: pxtovw(11, 1366);
+    }
+
+    @include screen('md', max, 2) {
+      padding-top: pxtovw(11, 960);
+    }
+
+    @include screen('sm', max, 2) {
+      @include grid-column(1, 2);
+
+      padding-top: 0;
+    }
+  }
+
+  &__controls {
+    @include grid-column(1, 2);
+    @include grid-row(3, 4);
+    @include grid-align-self(end);
+
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+
+    @include screen('sm', max, 2) {
+      justify-content: flex-start;
+      align-items: flex-start;
+    }
+
+    &:not(:first-child) {
+      margin-top: 26px;
+
+      @include screen('xlg', max, 2) {
+        margin-top: pxtovw(26, 1660);
+      }
+
+      @include screen('lg', max, 2) {
+        margin-top: pxtovw(26, 1366);
+      }
+
+      @include screen('md', max, 2) {
+        margin-top: pxtovw(26, 960);
+      }
+
+      @include screen('sm', max, 2) {
+        margin-top: pxtovw(26, 375);
+      }
+    }
+  }
+
+  &__info {
+    @include grid-column(2, 3);
+    @include grid-row(2, 4);
+    @include grid-align-self(end);
+
+    @include screen('sm', max, 2) {
+      @include grid-column(1, 2);
+      @include grid-row(4, 5);
+    }
+
+    &:not(:first-child) {
+      margin-top: 46px;
+
+      @include screen('xlg', max, 2) {
+        margin-top: pxtovw(46, 1660);
+      }
+
+      @include screen('lg', max, 2) {
+        margin-top: pxtovw(46, 1366);
+      }
+
+      @include screen('md', max, 2) {
+        margin-top: pxtovw(46, 960);
+      }
+
+      @include screen('sm', max, 2) {
+        margin-top: pxtovw(46, 375);
+      }
+    }
+  }
+
+  &__remove {
+    font-size: 18px;
+    line-height: 1;
+    letter-spacing: -.02em;
+    color: $nd-color-gray-text;
+
+    @include screen('xlg', max, 2) {
+      font-size: pxtovw(18, 1660);
+    }
+
+    @include screen('lg', max, 2) {
+      font-size: pxtovw(18, 1366);
+    }
+
+    @include screen('md', max, 2) {
+      font-size: pxtovw(18, 960);
+    }
+
+    @include screen('sm', max, 2) {
+      font-size: pxtovw(18, 375);
+    }
+
+    &:not(:first-child) {
+      margin-left: 20px;
+
+      @include screen('xlg', max, 2) {
+        margin-left: pxtovw(20, 1660);
+      }
+
+      @include screen('lg', max, 2) {
+        margin-left: pxtovw(20, 1366);
+      }
+
+      @include screen('md', max, 2) {
+        margin-left: pxtovw(20, 960);
+      }
+
+      @include screen('sm', max, 2) {
+        margin-left: pxtovw(20, 375);
+      }
+    }
+
+    .nd-link {
+      &__icon_cross {
+        width: 11px;
+        height: 11px;
+
+        @include screen('xlg', max, 2) {
+          width: pxtovw(11, 1660);
+          height: pxtovw(11, 1660);
+        }
+
+        @include screen('lg', max, 2) {
+          width: pxtovw(11, 1366);
+          height: pxtovw(11, 1366);
+        }
+
+        @include screen('md', max, 2) {
+          width: pxtovw(11, 960);
+          height: pxtovw(11, 960);
+        }
+
+        @include screen('sm', max, 2) {
+          width: pxtovw(11, 375);
+          height: pxtovw(11, 375);
+        }
+
+        &:not(:last-child) {
+          margin-right: 12px;
+
+          @include screen('xlg', max, 2) {
+            margin-right: pxtovw(12, 1660);
+          }
+
+          @include screen('lg', max, 2) {
+            margin-right: pxtovw(12, 1366);
+          }
+
+          @include screen('md', max, 2) {
+            margin-right: pxtovw(12, 960);
+          }
+
+          @include screen('sm', max, 2) {
+            margin-right: pxtovw(12, 375);
+          }
+        }
+      }
+    }
+  }
+
+  &__title {
+    font-family: $font-stolzl;
+    font-size: 30px;
+    line-height: 1;
+    font-weight: 400;
+
+    @include screen('xlg', max, 2) {
+      font-size: pxtovw(30, 1660);
+    }
+
+    @include screen('lg', max, 2) {
+      font-size: pxtovw(25, 1366);
+    }
+
+    @include screen('md', max, 2) {
+      font-size: pxtovw(25, 960);
+    }
+
+    @include screen('sm', max, 2) {
+      line-height: 1.1;
+      font-size: pxtovw(20, 375);
+    }
+  }
+
+  &__state {
+    flex: none;
+  }
+
+  &__table {
+    width: 100%;
+  }
 }

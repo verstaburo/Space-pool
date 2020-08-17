@@ -219,11 +219,10 @@
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    width: 65%;
+    // width: 65%;
 
     @include screen('md', max, 2) {
-      display: block;
-      width: pxtovw(540, 960);
+      // width: pxtovw(540, 960);
     }
 
     &:not(:first-child) {
@@ -248,10 +247,10 @@
 
     .slider-navigation {
       width: auto;
-      max-width: 100%;
+      // max-width: 100%;
 
       @include screen('md', max, 2) {
-        width: 100%;
+        margin: 0;
       }
     }
   }
@@ -610,6 +609,30 @@
     }
   }
 
+  &__records {
+    margin-top: 0;
+
+    &:not(:first-child) {
+      margin-top: 56px;
+
+      @include screen('xlg', max, 2) {
+        margin-top: pxtovw(56, 1660);
+      }
+
+      @include screen('lg', max, 2) {
+        margin-top: pxtovw(56, 1366);
+      }
+
+      @include screen('md', max, 2) {
+        margin-top: pxtovw(56, 960);
+      }
+
+      @include screen('sm', max, 2) {
+        margin-top: pxtovw(56, 375);
+      }
+    }
+  }
+
   &__offers {
     display: block;
     width: 100%;
@@ -662,6 +685,46 @@
 
   &__dashboard {
     width: 100%;
+  }
+
+  &__add {
+    min-width: 160px;
+
+    @include screen('xlg', max, 2) {
+      min-width: pxtovw(160, 1660);
+    }
+
+    @include screen('lg', max, 2) {
+      min-width: pxtovw(160, 1366);
+    }
+
+    @include screen('md', max, 2) {
+      min-width: pxtovw(160, 960);
+    }
+
+    @include screen('sm', max, 2) {
+      min-width: pxtovw(160, 375);
+    }
+
+    &:not(:first-child) {
+      margin-left: 40px;
+
+      @include screen('xlg', max, 2) {
+        margin-left: pxtovw(40, 1660);
+      }
+
+      @include screen('lg', max, 2) {
+        margin-left: pxtovw(40, 1366);
+      }
+
+      @include screen('md', max, 2) {
+        margin-left: pxtovw(40, 960);
+      }
+
+      @include screen('sm', max, 2) {
+        margin-left: pxtovw(30, 375);
+      }
+    }
   }
 
   &_dpo {

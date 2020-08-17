@@ -36,8 +36,9 @@ block content
             +e.menu
               +slider-navigation([{name: "All Managers", href: "host-account-managers.html"}, {name: "Free Managers", href: "#"}, {name: "Active Managers", href: "#"}, {name: "Inactive Managers", href: "host-account-managers-inactive.html"}], 0, 'Inactive Managers')
               +nd-button('a')._pad10._h35.__add(href="host-account-managers-invite.html") Add manager
-          +records._acc
-
+          +records.__records
+            each item in getData('nd-managers.json').inactive
+              +manager-card(item, true).__item_mt30
 block panels
 
 block popups

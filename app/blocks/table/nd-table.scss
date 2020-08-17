@@ -786,5 +786,59 @@
         }
       }
     }
+
+    &_manager {
+      th, td {
+        padding-top: 16px;
+        padding-bottom: 14px;
+        box-sizing: border-box;
+
+        @include screen('xlg', max, 2) {
+          padding-top: pxtovw(16, 1660);
+          padding-bottom: pxtovw(14, 1660);
+        }
+
+        @include screen('lg', max, 2) {
+          padding-top: pxtovw(16, 1366);
+          padding-bottom: pxtovw(14, 1366);
+        }
+
+        @include screen('md', max, 2) {
+          padding-top: pxtovw(16, 960);
+          padding-bottom: pxtovw(14, 960);
+        }
+
+        @include screen('sm', max, 2) {
+          padding-top: pxtovw(16, 375);
+          padding-bottom: pxtovw(15, 375);
+        }
+
+        &:first-child {
+          width: 37.6%;
+        }
+
+        p {
+          &:not(:first-child) {
+            margin-top: 10px;
+
+            @include screen('xlg', max, 2) {
+              margin-top: pxtovw(10, 1660);
+            }
+
+            @include screen('lg', max, 2) {
+              margin-top: pxtovw(10, 1366);
+            }
+
+            @include screen('md', max, 2) {
+              margin-top: pxtovw(10, 960);
+            }
+
+            @include screen('sm', max, 2) {
+              margin-top: pxtovw(10, 375);
+            }
+          }
+        }
+      }
+    }
   }
 }

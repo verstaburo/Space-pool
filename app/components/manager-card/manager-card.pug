@@ -1,3 +1,30 @@
-mixin manager-card()
-  +b.manager-card&attributes(attributes)
+mixin manager-card(data, isRemovable)
+  - var remVisible = isRemovable ? '' : ' nd-hide'
+  +b.SECTION.manager-card&attributes(attributes)
+    if data.image
+      +e.preview
+        +avatar(data.image, 'div')._sz244.__avatar
+    +e.header
+      if data.title
+        +e.H3.title!=data.title
+      if data.state
+        +nd-switch(data.state)._light.__state
+    +e.controls(class=remVisible)
+      +nd-link-icon('cross')._underline.__remove Delete manager from list
+    if data.info
+      +e.info
+        +nd-table._resume._resume_manager.__table
+          tbody
+            each item in data.info
+              tr
+                td!=item.name
+                td
+                  if item.text
+                    each txt in item.text
+                      p!=txt
+                  if item.link
+                    +nd-link()(href=item.link[1])!=item.link[0]
+                td
+                  if item.editable
+                    +nd-link()(href="#")!=item.editable
     block
