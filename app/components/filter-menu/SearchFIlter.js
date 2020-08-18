@@ -37,7 +37,7 @@ export default class SearchFilter {
     _this._popupsPositioning();
 
     _this._bindEvents();
-    _this.el = _this;
+    _this.el.searchFilter = _this;
   }
 
   _bindEvents() {
@@ -65,6 +65,7 @@ export default class SearchFilter {
     });
 
     $(document).on('click', '.js-nd-filter-reset', (evt) => {
+      evt.preventDefault();
       const self = evt.currentTarget;
       _this._clearFilter(self);
     });
@@ -384,13 +385,25 @@ export default class SearchFilter {
   }
 
   _clearFilter(button) {
-    const form = $(button).closest('form');
+    const form = $(button).closest('.filter-popup');
+    const allFields = $(form).find('input[type="text"], textarea');
+    $(allFields).each((i, el) => {
+      const field = el;
+      field.value = el.defaultValue;
+      $(el).trigger('change');
+    });
     const checkers = $(form).find('input[type="radio"], input[type="checkbox"]');
     $(checkers).each((i, el) => {
       $(el).removeAttr('checked');
       $(el).prop('checked', false);
       $(el).trigger('change');
     });
+    if ($(form).is('[data-nd-filter-popup="location"]')) {
+      const allLocations = $(checkers).filter((i, el) => $(el).is('[data-nd-filter-type="location"]')).get(0);
+      $(allLocations).attr('checked', 'checked');
+      $(allLocations).prop('checked', true);
+      $(allLocations).trigger('change');
+    }
     const rangeSource = $(form).find('.js-nd-range');
     const range = $(rangeSource).find('[data-nd-range-container]').get(0);
     if (range) {

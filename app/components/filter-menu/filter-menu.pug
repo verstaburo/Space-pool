@@ -1,6 +1,6 @@
 mixin filter-menu(specific)
   - var isChecked = specific ? true : '';
-  +b.filter-menu&attributes(attributes)(data-nd-filter data-nd-filter-max-locations="3")
+  +b.FORM.filter-menu&attributes(attributes)(data-nd-filter data-nd-filter-max-locations="3")
     +e.item_location.nd-hide-sm
       +filter-button({class: 'js-nd-show-filter', name: 'City', filterName: 'location', filterType: 'popup-block'})
       +filter-popup({submit: 'Show results - 27', reset: 'Clear locations', title: 'Location', note: {text: "Please mark the areas you would like to search", nb: "Maximum 3 at a time"}})._location.__popup(data-nd-filter-popup="location" data-nd-filter-popup-type="popup-block")

@@ -333,3 +333,23 @@ div {
   -ms-grid-column-align: $value;
   justify-self: $value;
 }
+
+/*
+Миксин для адаптивных свойств
+@include rule(width, (xl: 100px, lg: 200px));
+@include rule(width, (sm: 500px), min); (для mobile-first)
+*/
+
+@mixin rule($name, $pointsAndValues, $direction: max) {
+  @each $breakpoint, $value in $pointsAndValues {
+    @if ($breakpoint == xl) and ($direction == max) {
+      #{$name}: #{$value};
+    }
+
+    @else {
+      @include screen('#{$breakpoint}', $direction, 2) {
+        #{$name}: pxtovw($value, map-get($nd-breaksizes, $breakpoint));
+      }
+    }
+  }
+}

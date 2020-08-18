@@ -24,3 +24,15 @@ mixin note-exclamation(mark, text)
     if !text
       +e.text
         block
+
+mixin nd-note(data)
+  +b.nd-note&attributes(attributes)
+    if data.image
+      +e.icon(class=(data.image.cls || ''))
+        img(src=data.image.src)
+    if data.icon
+      +e.icon(class=(data.icon.cls || ''))
+        +icon(data.icon.name)
+    if data.text
+      +e.text(class=(data.text.cls || ''))
+        block
