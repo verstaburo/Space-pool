@@ -422,6 +422,12 @@
       }
     }
 
+    &_mt44 {
+      &:not(:first-child) {
+        @include rule(margin-top, (xl: 44px, xlg: 44, lg: 44, md: 44, sm: 44));
+      }
+    }
+
     &_md-fz16 {
       @include screen('md', max, 2) {
         font-size: pxtovw(16, 960);
@@ -437,6 +443,14 @@
         font-size: pxtovw(13, 375);
       }
     }
+
+    &_indent {
+      p {
+        &:not(:first-child) {
+          @include rule(margin-top, (xl: 26px, xlg: 26, lg: 26, md: 26, sm: 18));
+        }
+      }
+    }
   }
 
   &__wrapper {
@@ -446,6 +460,12 @@
     width: 100%;
     align-items: flex-start;
     flex-wrap: wrap;
+
+    &_mt {
+      &:not(:first-child) {
+        @include rule(margin-top, (xl: 28px, xlg: 28, lg: 28, md: 28, sm:28));
+      }
+    }
   }
 
   &__methods {
@@ -556,25 +576,15 @@
       }
     }
 
+    &_mt24 {
+      &:not(:first-child) {
+        @include rule(margin-top, (xl: 24px, xlg: 24, lg: 24, md: 24, sm: 24));
+      }
+    }
+
     &_mt34 {
       &:not(:first-child) {
-        margin-top: 34px;
-
-        @include screen('xlg', max, 2) {
-          margin-top: pxtovw(34, 1660);
-        }
-
-        @include screen('lg', max, 2) {
-          margin-top: pxtovw(34, 1366);
-        }
-
-        @include screen('md', max, 2) {
-          margin-top: pxtovw(34, 960);
-        }
-
-        @include screen('sm', max, 2) {
-          margin-top: pxtovw(36, 375);
-        }
+        @include rule(margin-top, (xl: 34px, xlg: 34, lg: 34, md: 34, sm: 36));
       }
     }
   }

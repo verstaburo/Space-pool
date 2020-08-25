@@ -165,7 +165,28 @@
       font-size: pxtovw(20, 375);
     }
 
-    &_fz24  {
+    &_fz22 {
+      font-size: 22px;
+      line-height: 1;
+
+      @include screen('xlg', max, 2) {
+        font-size: pxtovw(22, 1660);
+      }
+
+      @include screen('lg', max, 2) {
+        font-size: pxtovw(22, 1366);
+      }
+
+      @include screen('md', max, 2) {
+        font-size: pxtovw(22, 960);
+      }
+
+      @include screen('sm', max, 2) {
+        font-size: pxtovw(20, 375);
+      }
+    }
+
+    &_fz24 {
       font-size: 24px;
       line-height: 1;
 
@@ -517,27 +538,145 @@
   }
 
   &__board {
+    display: flex;
+    justify-content: space-between;
     background-color: $nd-color-basic-light;
-    padding: 50px 50px 60px;
+    padding: 50px 0 60px;
     box-sizing: border-box;
     width: 100%;
 
     @include rule(border-radius, (xl: 3px, xlg: 3, lg: 3, md: 3, sm: 3));
 
     @include screen('xlg', max, 2) {
-      padding: pxtovw(50, 1660) pxtovw(50, 1660) pxtovw(60, 1660);
+      padding: pxtovw(50, 1660) 0 pxtovw(60, 1660);
     }
 
     @include screen('lg', max, 2) {
-      padding: pxtovw(50, 1366) pxtovw(50, 1366) pxtovw(60, 1366);
+      padding: pxtovw(50, 1366) 0 pxtovw(60, 1366);
     }
 
     @include screen('md', max, 2) {
-      padding: pxtovw(50, 960) pxtovw(50, 960) pxtovw(60, 960);
+      padding: pxtovw(50, 960) 0 pxtovw(60, 960);
     }
 
     @include screen('sm', max, 2) {
-      padding: pxtovw(50, 375) pxtovw(50, 375) pxtovw(60, 375);
+      padding: pxtovw(50, 375) 0 pxtovw(60, 375);
+    }
+
+    &:not(:first-child) {
+      @include rule(margin-top, (xl: 52px, xlg: 52, lg: 52, md: 52, sm: 52));
+    }
+
+    &_pd-xl {
+      padding: 90px 0 158px;
+
+      @include screen('xlg', max, 2) {
+        padding: pxtovw(90, 1660) 0 pxtovw(158, 1660);
+      }
+
+      @include screen('lg', max, 2) {
+        padding: pxtovw(90, 1366) 0 pxtovw(158, 1366);
+      }
+
+      @include screen('md', max, 2) {
+        padding: pxtovw(90, 960) 0 pxtovw(158, 960);
+      }
+
+      @include screen('sm', max, 2) {
+        padding: pxtovw(90, 375) 0 pxtovw(158, 375);
+      }
+    }
+  }
+
+  &__column {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    box-sizing: border-box;
+    padding: 0 48px;
+
+    @include screen('xlg', max, 2) {
+      padding: 0 pxtovw(48, 1660);
+    }
+
+    @include screen('lg', max, 2) {
+      padding: 0 pxtovw(48, 1366);
+    }
+
+    @include screen('md', max, 2) {
+      padding: 0 pxtovw(48, 960);
+    }
+
+    @include screen('sm', max, 2) {
+      padding: 0 pxtovw(48, 375);
+    }
+
+    &_pd40 {
+      padding: 0 40px;
+
+      @include screen('xlg', max, 2) {
+        padding: 0 pxtovw(40, 1660);
+      }
+
+      @include screen('lg', max, 2) {
+        padding: 0 pxtovw(40, 1366);
+      }
+
+      @include screen('md', max, 2) {
+        padding: 0 pxtovw(40, 960);
+      }
+
+      @include screen('sm', max, 2) {
+        padding: 0 pxtovw(40, 375);
+      }
+    }
+
+    &_pb {
+      @include rule(padding-bottom, (xl: 86px, xlg: 86, lg: 86, md: 86, sm: 86));
+    }
+
+    &_divider {
+      border-right: 1px solid $nd-color-border4;
+    }
+
+    &_left {
+      flex: 1;
+    }
+
+    &_right {
+      @include rule(width, (xl: 602px, xlg: 602));
+
+      flex: none;
+
+      @include screen('lg', max, 2) {
+        width: 50%;
+      }
+
+      @include screen('sm', max, 2) {
+        width: 100%;
+      }
+
+      &_w580 {
+        @include rule(width, (xl: 580px, xlg: 580));
+
+        @include screen('lg', max, 2) {
+          width: 50%;
+        }
+
+        @include screen('sm', max, 2) {
+          width: 100%;
+        }
+      }
+    }
+  }
+
+  &__note {
+    display: block;
+    width: 100%;
+
+    &:not(:first-child) {
+      @include rule(margin-top, (xl: 60px, xlg: 60, lg: 60, md: 60, sm: 60));
     }
   }
 
@@ -574,6 +713,93 @@
       font-size: pxtovw(15, 375);
       line-height: 1.63;
     }
+
+    &_fz18 {
+      font-size: 18px;
+      font-weight: 400;
+      line-height: (26 / 18);
+
+      @include screen('xlg', max, 2) {
+        font-size: pxtovw(18, 1660);
+      }
+
+      @include screen('lg', max, 2) {
+        font-size: pxtovw(18, 1366);
+      }
+
+      @include screen('md', max, 2) {
+        font-size: pxtovw(18, 960);
+      }
+
+      @include screen('sm', max, 2) {
+        font-size: pxtovw(15, 375);
+        line-height: (18 / 15);
+      }
+    }
+
+    &_fw700, b {
+      font-weight: 700;
+    }
+
+    a {
+      display: inline-block;
+      color: $nd-color-main;
+      transition: background $ease-main;
+      text-decoration: none;
+      background-position: 0 calc(50% + .5em);
+      background-size: 2px 2px;
+      background-repeat: repeat-x;
+
+      @include screen('xlg', max, 2) {
+        background-size: pxtovw(2, 1660) pxtovw(2, 1660);
+      }
+
+      @include screen('lg', max, 2) {
+        background-size: pxtovw(2, 1366) pxtovw(2, 1366);
+      }
+
+      @include screen('md', max, 2) {
+        background-size: pxtovw(2, 960) pxtovw(2, 960);
+      }
+
+      @include screen('sm', max, 2) {
+        background-size: pxtovw(2, 375) pxtovw(2, 375);
+      }
+
+      &:hover {
+        background-image: linear-gradient($nd-color-main, $nd-color-main);
+      }
+    }
+
+    &_mt {
+      &:not(:first-child) {
+        @include rule(margin-top, (xl: 25px, xlg: 25, lg: 25, md: 25, sm: 25));
+      }
+    }
+  }
+
+  &__figure {
+    position: relative;
+    display: flex;
+    width: 100%;
+    min-height: 100%;
+    justify-content: flex-start;
+    align-items: center;
+    box-sizing: border-box;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+    padding-top: 52.6%;
+
+    @include rule(border-radius, (xl: 3px, xlg: 3, lg: 3, md: 3, sm: 3));
+  }
+
+  &__figure-image {
+    display: block;
+    font-size: 0;
+    line-height: 0;
+
+    @include fill-img;
   }
 
   &__map {

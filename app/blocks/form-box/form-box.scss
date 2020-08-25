@@ -222,6 +222,21 @@
     }
   }
 
+  &__copy {
+    position: absolute;
+    top: 50%;
+    transform-origin: 50% 50%;
+    transform: translate3d(0, -50%, 0);
+    z-index: 2;
+
+    @include rule(min-width, (xl: 104px, xlg: 104, lg: 104, md: 104, sm: 104));
+    @include rule(right, (xl: 10px, xlg: 10, lg: 10, md: 10, sm: 10));
+
+    &:active {
+      transform: translate3d(0, -50%, 0) scale(.96);
+    }
+  }
+
   &__password-mask {
     position: absolute;
     top: 0;

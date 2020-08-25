@@ -398,7 +398,7 @@ export default class SearchFilter {
       $(el).prop('checked', false);
       $(el).trigger('change');
     });
-    if ($(form).is('[data-nd-filter-popup="location"]')) {
+    if ($(form).is('[data-nd-filter-popup="location"]') || $(form).is('[data-nd-filter-popup="filter"]')) {
       const allLocations = $(checkers).filter((i, el) => $(el).is('[data-nd-filter-type="location"]')).get(0);
       $(allLocations).attr('checked', 'checked');
       $(allLocations).prop('checked', true);

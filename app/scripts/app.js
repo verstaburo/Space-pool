@@ -90,6 +90,7 @@ import switchFormContent from './functions/switchFormContent';
 import filterMenu from '../components/filter-menu/filter-menu';
 import initCharts from '../blocks/chart/chartInit';
 import buttonHover from '../blocks/button/button';
+import copyToClip from './functions/copy';
 
 const $ = window.$;
 
@@ -167,4 +168,5 @@ $(() => {
   filterMenu();
   initCharts();
   buttonHover();
+  copyToClip();
 });
