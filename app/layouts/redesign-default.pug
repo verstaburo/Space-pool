@@ -21,6 +21,8 @@ html(lang='en')
     - var map = isMap || false
     - var noUser = isNoUser || false
     - var menuData = getData('nd-guest-acc-list.json')
+    if noUser
+      - menuData = getData('nd-nouser-acc-list.json')
     if isHost
       - menuData = getData('nd-host-acc-list.json')
     if isHost == 'manager'

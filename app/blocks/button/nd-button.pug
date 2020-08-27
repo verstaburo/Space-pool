@@ -1,5 +1,6 @@
 mixin nd-button(newtag, loader)
   +b(newtag || 'a').nd-button&attributes(attributes)
+    +e.SPAN.bg
     +e.SPAN.text
       block
     if loader
@@ -8,6 +9,7 @@ mixin nd-button(newtag, loader)
 
 mixin nd-button-icon(newtag, data)
   +b(newtag || 'a').nd-button_icon&attributes(attributes)
+    +e.SPAN.bg
     if data.image
       +e.IMG.icon(src=data.image.src class=data.image.cls)
     if (data.iconLeft && !data.image)

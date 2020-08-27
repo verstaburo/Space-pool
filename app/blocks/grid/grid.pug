@@ -43,10 +43,10 @@ mixin nd-grid-col(col)
 
     each val, key in col
       if knownKeys.indexOf(key) !== -1
-        - classNames.push(`grid__col_${key}_${val}`)
+        - classNames.push(`nd-grid__col_${key}_${val}`)
 
   else
-    - classNames.push(`grid__col_xl_${col}`)
+    - classNames.push(`nd-grid__col_xl_${col}`)
 
   .nd-grid__col(class=classNames.join(' '))&attributes(attributes)
     block

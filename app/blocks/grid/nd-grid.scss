@@ -26,29 +26,14 @@
     margin: pxtovw(-23, 375) pxtovw(-12, 375) 0;
   }
 
+  &_gap16 {
+    @include rule(margin-left, (xl: -8px, xlg: -8, lg: -8, md: -8, sm: -8));
+    @include rule(margin-right, (xl: -8px, xlg: -8, lg: -8, md: -8, sm: -8));
+  }
+
   &_gap25 {
-    margin-left: -12px;
-    margin-right: -12px;
-
-    @include screen('xlg', max, 2) {
-      margin-left: pxtovw(-12, 1660);
-      margin-right: pxtovw(-12, 1660);
-    }
-
-    @include screen('lg', max, 2) {
-      margin-left: pxtovw(-12, 1366);
-      margin-right: pxtovw(-12, 1366);
-    }
-
-    @include screen('md', max, 2) {
-      margin-left: pxtovw(-12, 960);
-      margin-right: pxtovw(-12, 960);
-    }
-
-    @include screen('sm', max, 2) {
-      margin-left: pxtovw(-12, 375);
-      margin-right: pxtovw(-12, 375);
-    }
+    @include rule(margin-left, (xl: -12px, xlg: -12, lg: -12, md: -12, sm: -12));
+    @include rule(margin-right, (xl: -12px, xlg: -12, lg: -12, md: -12, sm: -12));
   }
 
   &_int28 {
@@ -127,7 +112,7 @@
 
     @each $key, $val in $new-breakpoints {
       @for $i from 1 through 15 {
-        @include screen($key) {
+        @include screen($key, max, 2) {
           &_#{$key}_#{$i} {
             width: $i * $grid-col-width;
           }
@@ -135,65 +120,14 @@
       }
     }
 
-    #{$b}_c14 & {
-      @for $i from 1 through 15 {
-        &_#{$default-breakpoit-name}_#{$i} {
-          width: $i * $grid14-col-width;
-        }
-      }
-
-      @each $key, $val in $new-breakpoints {
-        @for $i from 1 through 15 {
-          @include screen($key) {
-            &_#{$key}_#{$i} {
-              width: $i * $grid14-col-width;
-            }
-          }
-        }
-      }
-    }
-
-    #{$b}_c9 & {
-      @for $i from 1 through 15 {
-        &_#{$default-breakpoit-name}_#{$i} {
-          width: $i * $grid9-col-width;
-        }
-      }
-
-      @each $key, $val in $new-breakpoints {
-        @for $i from 1 through 15 {
-          @include screen($key) {
-            &_#{$key}_#{$i} {
-              width: $i * $grid9-col-width;
-            }
-          }
-        }
-      }
+    #{$b}_gap16 & {
+      @include rule(padding-left, (xl: 8px, xlg: 8, lg: 8, md: 8, sm: 8));
+      @include rule(padding-right, (xl: 8px, xlg: 8, lg: 8, md: 8, sm: 8));
     }
 
     #{$b}_gap25 & {
-      padding-left: 12px;
-      padding-right: 12px;
-
-      @include screen('xlg', max, 2) {
-        padding-left: pxtovw(12, 1660);
-        padding-right: pxtovw(12, 1660);
-      }
-
-      @include screen('lg', max, 2) {
-        padding-left: pxtovw(12, 1366);
-        padding-right: pxtovw(12, 1366);
-      }
-
-      @include screen('md', max, 2) {
-        padding-left: pxtovw(12, 960);
-        padding-right: pxtovw(12, 960);
-      }
-
-      @include screen('sm', max, 2) {
-        padding-left: pxtovw(12, 375);
-        padding-right: pxtovw(12, 375);
-      }
+      @include rule(padding-left, (xl: 12px, xlg: 12, lg: 12, md: 12, sm: 12));
+      @include rule(padding-right, (xl: 12px, xlg: 12, lg: 12, md: 12, sm: 12));
     }
 
     #{$b}_int28 & {
@@ -233,6 +167,60 @@
 
       @include screen('sm', max, 2) {
         padding-top: pxtovw(23, 375);
+      }
+    }
+  }
+
+  &_c14 {
+    @for $i from 1 through 15 {
+      #{$b}__col_#{$default-breakpoit-name}_#{$i} {
+        width: $i * $grid14-col-width;
+      }
+    }
+
+    @each $key, $val in $new-breakpoints {
+      @for $i from 1 through 15 {
+        @include screen($key, max, 2) {
+          #{$b}__col_#{$key}_#{$i} {
+            width: $i * $grid14-col-width;
+          }
+        }
+      }
+    }
+  }
+
+  &_c11 {
+    @for $i from 1 through 15 {
+      #{$b}__col_#{$default-breakpoit-name}_#{$i} {
+        width: $i * $grid11-col-width;
+      }
+    }
+
+    @each $key, $val in $new-breakpoints {
+      @for $i from 1 through 15 {
+        @include screen($key, max, 2) {
+          #{$b}__col_#{$key}_#{$i} {
+            width: $i * $grid11-col-width;
+          }
+        }
+      }
+    }
+  }
+
+  &_c9 {
+    @for $i from 1 through 15 {
+      #{$b}__col_#{$default-breakpoit-name}_#{$i} {
+        width: $i * $grid9-col-width;
+      }
+    }
+
+    @each $key, $val in $new-breakpoints {
+      @for $i from 1 through 15 {
+        @include screen($key, max, 2) {
+          #{$b}__col_#{$key}_#{$i} {
+            width: $i * $grid9-col-width;
+          }
+        }
       }
     }
   }

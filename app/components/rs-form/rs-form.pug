@@ -1,38 +1,75 @@
-mixin rs-form()
+mixin rs-form(isMeeting)
   +nd-form.rs-form&attributes(attributes)(data-validated-form)
     +form-section-header()._tal
       +e.H2.title Rental summary
       +e.text._md-fz16._sm-fz13 No monthly charges, uncomplicated, quick and secure
     +form-section
-      +nd-grid.nd-grid_gap25.nd-grid_int28
-        +nd-grid-col({xl: 9, sm: 12})
-          +form-section-wrapper
-            +nd-form-box('Offer', 'div')
-              +nd-select(name="offer" placeholder="Offer" required data-mobile-title="Offer").js-nd-select
-                option(value="" placeholder)
-                option(value="1") First Floor Desk Area
-                option(value="2") Second Floor Desk Area
-                option(value="3") Third Floor Desk Area
-        +nd-grid-col({xl: 3, sm: 12})
-          +form-section-wrapper
-            +nd-form-box('Amount')
-              +nd-input(type="text" name="amount" value="2" required)
-        +nd-grid-col({xl: 6, sm: 12})
-          +form-section-wrapper
-            +nd-form-box('Rent start date').js-nd-datepicker
-              +nd-input(type="text" name="rentStartDate" placeholder="Rent start date" data-dates-result required readonly)._date
-              +e.dates(data-dates-container)
-        +nd-grid-col({xl: 6, sm: 12})
-          +form-section-wrapper
-            +nd-form-box('Rent period', 'div')
-              +nd-select(name="rentPeriod" placeholder="Rent period" required data-mobile-title="Rent period").js-nd-select
-                option(value="" placeholder)
-                - for (var i = 1; i <= 12; i++) {
-                  if (i==1)
-                    option(value=i) #{i} month
-                  else
-                    option(value=i) #{i} months
-                -}
+      if isMeeting
+        +nd-grid.nd-grid_gap16.nd-grid_int28.nd-grid_c11
+          +nd-grid-col({xl: 11})
+            +form-section-wrapper
+              +nd-form-box('Offer', 'div')
+                +nd-select(name="offer" placeholder="Offer" required data-mobile-title="Offer").js-nd-select
+                  option(value="" placeholder)
+                  option(value="1") First Floor Desk Area
+                  option(value="2") Second Floor Desk Area
+                  option(value="3") Third Floor Desk Area
+          +nd-grid-col({xl: 4, sm: 11})
+            +form-section-wrapper
+              +nd-form-box('Rent start date').js-nd-datepicker
+                +nd-input(type="text" name="rentStartDate" placeholder="Rent start date" data-dates-result required readonly)._date
+                +e.dates(data-dates-container)
+          +nd-grid-col({xl: 4, sm: 11})
+            +form-section-wrapper
+              +nd-form-box('Rent start time', 'div')
+                +nd-select(name="rentStartTime" placeholder="Rent start time" required data-mobile-title="Rent start time").js-nd-select
+                  option(value="" placeholder)
+                  - for (var i = 0; i < 24; i++) {
+                    - var zeroi = (`0${i}`).slice(-2);
+                    option(value=zeroi + ':00')!=(zeroi + ':00')
+                    option(value=zeroi + ':30')!=(zeroi + ':30')
+                  -}
+          +nd-grid-col({xl: 3, sm: 11})
+            +form-section-wrapper
+              +nd-form-box('Period', 'div')
+                +nd-select(name="rentPeriod" placeholder="Period" required data-mobile-title="Period").js-nd-select
+                  option(value="" placeholder)
+                  - for (var i = 1; i <= 12; i++) {
+                    if (i==1)
+                      option(value=i) #{i} month
+                    else
+                      option(value=i) #{i} months
+                  -}
+      else
+        +nd-grid.nd-grid_gap25.nd-grid_int28
+          +nd-grid-col({xl: 9, sm: 12})
+            +form-section-wrapper
+              +nd-form-box('Offer', 'div')
+                +nd-select(name="offer" placeholder="Offer" required data-mobile-title="Offer").js-nd-select
+                  option(value="" placeholder)
+                  option(value="1") First Floor Desk Area
+                  option(value="2") Second Floor Desk Area
+                  option(value="3") Third Floor Desk Area
+          +nd-grid-col({xl: 3, sm: 12})
+            +form-section-wrapper
+              +nd-form-box('Amount')
+                +nd-input(type="text" name="amount" value="2" required)
+          +nd-grid-col({xl: 6, sm: 12})
+            +form-section-wrapper
+              +nd-form-box('Rent start date').js-nd-datepicker
+                +nd-input(type="text" name="rentStartDate" placeholder="Rent start date" data-dates-result required readonly)._date
+                +e.dates(data-dates-container)
+          +nd-grid-col({xl: 6, sm: 12})
+            +form-section-wrapper
+              +nd-form-box('Rent period', 'div')
+                +nd-select(name="rentPeriod" placeholder="Rent period" required data-mobile-title="Rent period").js-nd-select
+                  option(value="" placeholder)
+                  - for (var i = 1; i <= 12; i++) {
+                    if (i==1)
+                      option(value=i) #{i} month
+                    else
+                      option(value=i) #{i} months
+                  -}
       +nd-table._info._info_amount.__table
         tbody
           tr
