@@ -1,8 +1,9 @@
-mixin nd-main-menu(data, host, activeMenu)
+mixin nd-main-menu(data, host, noUser, activeMenu)
   - var active = activeMenu || 'Notifications'
   - var bottomMenu = [{name: 'About Spacepool', href: '#'}, {name: 'Help & Support', href: '#'}, {name: 'Get listed', href: '#'}, {name: 'Blog', href: '#'}]
   - if (host) bottomMenu = [{name: 'About Spacepool', href: '#'}, {name: 'Help & Support', href: '#'}, {name: 'Blog', href: '#'}]
   - var listClass = (host) ? '_bmt' : ''
+  - listClass += (noUser) ? '_mt70' : ''
   +b.nd-main-menu&attributes(attributes)
     .nd-container
       +e.content
