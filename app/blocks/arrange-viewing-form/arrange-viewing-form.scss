@@ -3,53 +3,62 @@
 
   display: flex;
   justify-content: flex-start;
-  align-items: center;
-  align-content: center;
+  align-items: flex-start;
+  align-content: flex-start;
   flex-wrap: wrap;
   width: 100%;
   height: 100%;
   box-sizing: border-box;
-  padding: 5px 0;
+  padding: 35px 0 63px;
 
   @include screen('xlg', max, 2) {
-    padding: 0 pxtovw(5, 1660);
+    padding: pxtovw(35, 1660) 0 pxtovw(63, 1660);
   }
 
   @include screen('lg', max, 2) {
-    padding: 0 pxtovw(5, 1366);
+    padding: pxtovw(35, 1366) 0 pxtovw(63, 1366);
   }
 
   @include screen('md', max, 2) {
-    padding: 0 pxtovw(5, 960);
+    align-items: center;
+    align-content: center;
+    padding: pxtovw(5, 960) 0;
   }
 
   @include screen('sm', max, 2) {
-    padding: 0 pxtovw(5, 375);
+    padding: pxtovw(5, 375) 0;
   }
 
   &__top {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
+    display: block;
     width: 100%;
   }
 
-  &__bottom {
+  &__dateblock {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    justify-content: flex-start;
+    align-items: baseline;
     width: 100%;
-    margin-top: 20px;
+
+    @include rule(margin-top, (xl: 40px, xlg: 40, lg: 40, md: 0));
+  }
+
+  &__bottom {
+    display: block;
+    width: 100%;
+    margin-top: 45px;
+    border-top: 1px solid $nd-color-border4;
 
     @include screen('xlg', max, 2) {
-      margin-top: pxtovw(20, 1660);
+      margin-top: pxtovw(45, 1660);
     }
 
     @include screen('lg', max, 2) {
-      margin-top: pxtovw(20, 1366);
+      margin-top: pxtovw(45, 1366);
     }
 
     @include screen('md', max, 2) {
+      border-top: none;
       margin-top: pxtovw(20, 960);
     }
 
@@ -58,32 +67,62 @@
     }
   }
 
-  &__date {
-    font-size: 18px;
+  &__timeblock {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+
+    @include rule(margin-top, (xl: 25px, xlg: 25, lg: 25, md: 0));
+  }
+
+  &__title {
+    display: block;
+    width: 100%;
     line-height: 1.2;
     font-weight: 400;
     font-family: $font-stolzl;
 
-    @include screen('xlg', max, 2) {
-      font-size: pxtovw(18, 1660);
-    }
-
-    @include screen('lg', max, 2) {
-      font-size: pxtovw(18, 1366);
-    }
+    @include rule(font-size, (xl: 20px, xlg: 20, lg: 20, md: 20, sm: 20));
 
     @include screen('md', max, 2) {
-      font-size: pxtovw(18, 960);
+      display: none;
     }
 
-    @include screen('sm', max, 2) {
-      font-size: pxtovw(18, 375);
+    @include rule(margin-top, (xl: 40px, xlg: 40, lg: 40, md: 0));
+
+    #{$b}__top & {
+      @include rule(margin-top, (xl: 37px, xlg: 37, lg: 37, md: 0));
     }
+  }
+
+  &__date {
+    line-height: 1.2;
+    font-weight: 400;
+    font-family: $font-stolzl;
+
+    @include rule(font-size, (xl: 30px, xlg: 30, lg: 30, md: 18, sm: 18));
   }
 
   &__time {
     display: block;
     flex: 1;
+  }
+
+  &__link {
+    line-height: 1.2;
+    font-weight: 700;
+    color: $nd-color-main;
+
+    @include rule(font-size, (xl: 18px, xlg: 18, lg: 18, md: 18, sm: 18));
+
+    &:not(:first-child) {
+      @include rule(margin-left, (xl: 28px, xlg: 28, lg: 28, md: 28, sm: 15));
+    }
+
+    &.nd-link {
+      color: $nd-color-main;
+    }
   }
 
   &__buttons {
@@ -92,14 +131,14 @@
     flex: none;
 
     &:not(:first-child) {
-      margin-left: 50px;
+      margin-left: 64px;
 
       @include screen('xlg', max, 2) {
-        margin-left: pxtovw(50, 1660);
+        margin-left: pxtovw(64, 1660);
       }
 
       @include screen('lg', max, 2) {
-        margin-left: pxtovw(50, 1366);
+        margin-left: pxtovw(64, 1366);
       }
 
       @include screen('md', max, 2) {
@@ -113,22 +152,156 @@
   }
 
   &__button {
-    min-width: 200px;
+    min-width: 260px;
 
     @include screen('xlg', max, 2) {
-      min-width: pxtovw(200, 1660);
+      min-width: pxtovw(260, 1660);
     }
 
     @include screen('lg', max, 2) {
-      min-width: pxtovw(200, 1366);
+      min-width: pxtovw(260, 1366);
     }
 
     @include screen('md', max, 2) {
-      min-width: pxtovw(200, 960);
+      min-width: pxtovw(220, 960);
     }
 
     @include screen('sm', max, 2) {
       min-width: pxtovw(166, 375);
+    }
+  }
+
+  &__back {
+    display: inline-flex;
+    justify-content: flex-start;
+    align-items: center;
+    text-decoration: none;
+    color: $nd-color-basic;
+    cursor: pointer;
+    font-size: 17px;
+    font-weight: 400;
+    line-height: (21 / 17);
+    letter-spacing: -.02em;
+    stroke: $nd-color-logo;
+    transition: opacity .5s ease-out;
+
+    @include screen('xlg', max, 2) {
+      font-size: pxtovw(17, 1660);
+    }
+
+    @include screen('lg', max, 2) {
+      font-size: pxtovw(17, 1366);
+    }
+
+    @include screen('md', max, 2) {
+      font-size: pxtovw(17, 960);
+    }
+
+    @include screen('sm', max, 2) {
+      font-size: 0;
+      margin-top: 0;
+      height: pxtovw(58, 375);
+      width: pxtovw(40, 375);
+      // font-size: pxtovw(17, 375);
+    }
+
+    @include rule(margin-left, (xl: -17px, xlg: -17, lg: -17, md: 0));
+  }
+
+  &__back-icon {
+    display: inline-flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 35px;
+    height: 35px;
+    box-sizing: border-box;
+    border: 1px solid $nd-color-border2;
+    border-radius: 50%;
+    stroke: inherit;
+    // transform: rotate(180deg);
+
+    @include screen('xlg', max, 2) {
+      width: pxtovw(35, 1660);
+      height: pxtovw(35, 1660);
+    }
+
+    @include screen('lg', max, 2) {
+      width: pxtovw(35, 1366);
+      height: pxtovw(35, 1366);
+    }
+
+    @include screen('md', max, 2) {
+      width: pxtovw(35, 960);
+      height: pxtovw(35, 960);
+    }
+
+    @include screen('sm', max, 2) {
+      width: pxtovw(35, 375);
+      height: pxtovw(35, 375);
+    }
+
+    svg {
+      display: block;
+      width: 8px;
+      height: 15px;
+      stroke: inherit;
+      margin-left: 11px;
+
+      @include screen('xlg', max, 2) {
+        width: pxtovw(8, 1660);
+        height: pxtovw(15, 1660);
+        margin-left: pxtovw(11, 1660);
+      }
+
+      @include screen('lg', max, 2) {
+        width: pxtovw(8, 1366);
+        height: pxtovw(15, 1366);
+        margin-left: pxtovw(11, 1366);
+      }
+
+      @include screen('md', max, 2) {
+        width: pxtovw(8, 960);
+        height: pxtovw(15, 960);
+        margin-left: pxtovw(11, 960);
+      }
+
+      @include screen('sm', max, 2) {
+        width: pxtovw(8, 375);
+        height: pxtovw(15, 375);
+        margin-left: pxtovw(11, 375);
+      }
+    }
+  }
+
+  &__back-text {
+    display: inline-block;
+    font-size: inherit;
+    font-weight: inherit;
+    letter-spacing: inherit;
+    line-height: inherit;
+
+    #{$b}__back:hover & {
+      text-decoration: underline;
+    }
+
+    &:not(:first-child) {
+      margin-left: 10px;
+
+      @include screen('xlg', max, 2) {
+        margin-left: pxtovw(10, 1660);
+      }
+
+      @include screen('lg', max, 2) {
+        margin-left: pxtovw(10, 1366);
+      }
+
+      @include screen('md', max, 2) {
+        margin-left: pxtovw(10, 960);
+      }
+
+      @include screen('sm', max, 2) {
+        margin-left: pxtovw(10, 375);
+      }
     }
   }
 }

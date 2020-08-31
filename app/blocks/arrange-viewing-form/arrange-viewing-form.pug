@@ -1,22 +1,34 @@
 mixin arrange-viewing-form()
   +b.FORM.arrange-viewing-form&attributes(attributes)
     +e.top
+      +e.A.back.nd-hide-md(href="#" data-fancybox-close)
+        +e.back-icon
+          +icon('nd-angle')
+        +e.back-text Back
+      +e.title You are about to arrange viewing for:
       +nd-input()(type="hidden" name="arrangeViewingDate" data-dates-result)
-      +e.date(data-dates-alternative-result)
+      +e.dateblock
+        +e.date(data-dates-alternative-result)
+        +nd-link-icon('calendar2')._blue.__link.nd-hide-md.js-hide-timeblock Change date
     +e.bottom
-      +e.time
-        +nd-form-box('Time', 'div')._bg-white
-          +nd-select()(name="arrangeViewingTime" data-choices-classes=" nd-choices_white nd-choices_h40" data-mobile-title="Pick a time" ).js-nd-select
-            - for (var i = 0; i < 24; i++) {
-              - var zeroi = (`0${i}`).slice(-2);
-              if (i === 12)
-                option(value=zeroi + ':00' selected)!=(zeroi + ':00')
-                option(value=zeroi + ':30')!=(zeroi + ':30')
-              else
-                option(value=zeroi + ':00')!=(zeroi + ':00')
-                option(value=zeroi + ':30')!=(zeroi + ':30')
-            - }
-      +e.buttons
-        +nd-button('button', true)._pad10._md-fz15.__button(type="submit") Arrange viewing
+      +e.title Please set time:
+      +e.timeblock
+        +e.time
+          +nd-form-box('<span class="nd-hide-from-md">Time</span><span class="nd-hide-md">Select prefered viewing time</span>', 'div')._bg-white._h40
+            +nd-select()(name="arrangeViewingTime" data-choices-classes=" nd-choices_h40" data-mobile-title="Pick a time" ).js-nd-select
+              - for (var i = 0; i < 24; i++) {
+                - var zeroi = (`0${i}`).slice(-2);
+                  option(value='' placeholder)
+                if (i === 12)
+                  option(value=zeroi + ':00')!=(zeroi + ':00')
+                  option(value=zeroi + ':30')!=(zeroi + ':30')
+                else
+                  option(value=zeroi + ':00')!=(zeroi + ':00')
+                  option(value=zeroi + ':30')!=(zeroi + ':30')
+              - }
+        +e.buttons
+          +nd-button('button', true)._pad10._md-fz15.__button(type="submit")
+            span.nd-hide-from-md Arrange viewing
+            span.nd-hide-md Request viewing
 
     block

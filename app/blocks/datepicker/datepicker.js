@@ -48,11 +48,17 @@ export default function dates() {
       alternativeField: $(self).attr('data-dates-alternative-field'),
       alternativeFormat: $(self).attr('data-dates-alternative-format'),
       viewType: $(self).attr('data-dates-view-type'),
+      popupType: 'arrangeViewing',
     };
 
     const calendar = new DatePicker(baseElement, param);
 
     calendar.init();
+
+    ndOptionsStPopup.afterClose = (pp) => {
+      const timeblock = $(pp.slides[0].src).find('[data-dates-timeblock]');
+      $(timeblock).removeClass('is-show');
+    };
 
     window.globalFunctions.openPopup($(baseElement), false, ndOptionsStPopup);
     calendar.sw.update();

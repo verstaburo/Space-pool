@@ -1,18 +1,51 @@
 .nd-popup-arrange-viewing {
   $b: &;
 
+  @include rule(max-width, (xl: 868px, xlg: 868, lg: 868));
+
+  @include screen('md', max, 2) {
+    max-width: none;
+  }
+
   .nd-popup {
-    &__content {
-      display: flex;
-      overflow: hidden;
-      padding: 111px 0;
+    &__wrapper {
+      width: 100%;
+      box-shadow: 0 2px 11px rgba(0, 0, 0, .09), 0 4px 19px rgba(0, 0, 0, .06);
+
+      @include rule(border-radius, (xl: 3px, xlg: 3, lg: 3, md: 0));
 
       @include screen('xlg', max, 2) {
-        padding: pxtovw(111, 1660) 0;
+        box-shadow: 0 pxtovw(2, 1660) pxtovw(1, 1660) rgba(0, 0, 0, .09), 0 pxtovw(4, 1660) pxtovw(1, 1660) rgba(0, 0, 0, .06);
       }
 
       @include screen('lg', max, 2) {
-        padding: pxtovw(111, 1366) 0;
+        box-shadow: 0 pxtovw(2, 1366) pxtovw(1, 1366) rgba(0, 0, 0, .09), 0 pxtovw(4, 1366) pxtovw(1, 1366) rgba(0, 0, 0, .06);
+      }
+
+      @include screen('md', min, 2) {
+        height: auto;
+        align-self: center;
+        box-shadow: none;
+      }
+    }
+
+    &__header {
+      @include screen('md', min, 2) {
+        display: none;
+      }
+    }
+
+    &__content {
+      display: flex;
+      overflow: hidden;
+      padding: 0 0 40px;
+
+      @include screen('xlg', max, 2) {
+        padding:  0 0 pxtovw(40, 1660);
+      }
+
+      @include screen('lg', max, 2) {
+        padding: 0 0 pxtovw(40, 1366);
       }
 
       @include screen('md', max, 2) {
@@ -25,45 +58,85 @@
 
       .nd-container {
         display: flex;
+        margin: 0;
+        padding: 0 40px;
+
+        @include screen('xlg', max, 2) {
+          padding: 0 pxtovw(40, 1660);
+        }
+
+        @include screen('lg', max, 2) {
+          padding: 0 pxtovw(40, 1366);
+        }
+
+        @include screen('md', max, 2) {
+          margin: 0 auto;
+          padding: 0 pxtovw(50, 960);
+        }
+
+        @include screen('sm', max, 2) {
+          padding: 0 pxtovw(20, 375);
+        }
       }
     }
 
     &__footer {
+      width: 100%;
+      height: 100%;
       display: flex;
-      height: 111px;
-      box-shadow: 0 -1px 2px rgba(0, 0, 0, .05);
-
-      @include screen('xlg', max, 2) {
-        height: pxtovw(111, 1660);
-      }
-
-      @include screen('lg', max, 2) {
-        height: pxtovw(111, 1366);
-      }
+      background-color: $nd-color-basic-light;
+      z-index: 2;
+      pointer-events: none;
+      opacity: 0;
 
       @include screen('md', max, 2) {
+        pointer-events: auto;
+        opacity: 1;
         height: pxtovw(111, 960);
+        box-shadow: 0 pxtovw(-1, 960) pxtovw(2, 960) rgba(0, 0, 0, .05);
       }
 
       @include screen('sm', max, 2) {
         height: pxtovw(111, 375);
+        box-shadow: 0 pxtovw(-1, 375) pxtovw(2, 375) rgba(0, 0, 0, .05);
+      }
+
+      .nd-container {
+        display: flex;
+        margin: 0;
+        padding: 0 50px;
+
+        @include screen('xlg', max, 2) {
+          padding: 0 pxtovw(50, 1660);
+        }
+
+        @include screen('lg', max, 2) {
+          padding: 0 pxtovw(50, 1366);
+        }
+
+        @include screen('md', max, 2) {
+          margin: 0 auto;
+          padding: 0 pxtovw(50, 960);
+        }
+
+        @include screen('sm', max, 2) {
+          padding: 0 pxtovw(20, 375);
+        }
+      }
+
+      &.is-show {
+        opacity: 1;
+        pointer-events: auto;
       }
     }
   }
 
   &__calendar {
     display: flex;
-    margin: 0 -10px;
-
-    @include screen('xlg', max, 2) {
-      margin: 0 pxtovw(-10, 1660);
-    }
-
-    @include screen('lg', max, 2) {
-      margin: 0 pxtovw(-10, 1366);
-    }
+    width: 100%;
 
     @include screen('md', max, 2) {
+      width: auto;
       margin: 0 pxtovw(-10, 960);
     }
 
@@ -73,10 +146,11 @@
   }
 
   .dates {
-    &__buttons {
-      @include screen('md', 2, max) {
-        display: none;
-      }
-    }
+    @include rule(padding-top, (xl: 40px, xlg: 40, lg: 40, md: 40, sm: 40));
+  }
+
+  .dates__buttons {
+    padding-left: 0;
+    padding-right: 0;
   }
 }

@@ -100,6 +100,25 @@
   }
 
   &__buttons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 38px 35px 0;
+    box-sizing: border-box;
+
+    @include screen('xlg', max, 2) {
+      padding: pxtovw(38, 1660) pxtovw(35, 1660) 0;
+    }
+
+    @include screen('lg', max, 2) {
+      padding: pxtovw(38, 1366) pxtovw(35, 1366) 0;
+    }
+
+    @include screen('md', max, 2) {
+      display: none;
+    }
+
     #{$b}_drop & {
       display: flex;
       justify-content: space-between;
