@@ -80,6 +80,12 @@
     align-items: center;
     align-content: flex-start;
     flex-wrap: wrap;
+
+    @include rule(min-height, (xl: 336px, xlg: 336, lg: 336, md: 0));
+
+    .dates_drop & {
+      @include rule(min-height, (md: 336, sm: 336));
+    }
   }
 
   &__cell {

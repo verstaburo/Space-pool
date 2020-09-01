@@ -14,14 +14,17 @@ mixin nd-main-menu(data, host, noUser, activeMenu)
               +e.LI.item
                 +e.A.link(href=item.href class=addClass)
                   +e.SPAN.name!=item.name
-                  +e.IMG.image(src=item.icon)
+                  +e.IMG.image(src=item.icon class=(item.iconCls || ''))
         +e.UL.list(class=listClass)
           each item in bottomMenu
             +e.LI.item_noborder
               +e.A.link_short(href=item.href)
                 +e.SPAN.name!=item.name
         +e.footer
-          if data || host
+          if noUser
+            +e.A.link_bold._ls.nd-hide(href='#')
+              +e.SPAN.name Exit account
+          else
             +e.A.link_bold._ls(href='#')
               +e.SPAN.name Exit account
           +nd-socials({icon: '_small', item: '_mg17'}).__socials

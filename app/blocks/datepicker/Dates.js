@@ -129,7 +129,6 @@ export default class DatePicker {
           observeSlideChildren: true,
           mouseweel: true,
           runCallbacksOnInit: false,
-          autoHeight: true,
           navigation: {
             nextEl: btnNext,
             prevEl: btnPrev,
@@ -160,7 +159,6 @@ export default class DatePicker {
           observeParents: true,
           observeSlideChildren: true,
           runCallbacksOnInit: true,
-          autoHeight: true,
           navigation: {
             nextEl: btnNext,
             prevEl: btnPrev,

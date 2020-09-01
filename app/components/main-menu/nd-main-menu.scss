@@ -397,6 +397,10 @@
       width: pxtovw(24, 375);
       height: pxtovw(19, 375);
     }
+
+    &_big {
+      @include rule(height, (xl: 21px, xlg: 21, lg: 21, md: 21, sm: 21));
+    }
   }
 
   &__footer {
@@ -428,28 +432,30 @@
     #{$b}__link {
       padding: 0;
       line-height: 1.2;
+
+      &:not(:last-child) {
+        margin-right: 28px;
+
+        @include screen('xlg', max, 2) {
+          margin-right: pxtovw(28, 1660);
+        }
+
+        @include screen('lg', max, 2) {
+          margin-right: pxtovw(28, 1366);
+        }
+
+        @include screen('md', max, 2) {
+          margin-right: pxtovw(28, 960);
+        }
+
+        @include screen('sm', max, 2) {
+          margin-right: pxtovw(28, 375);
+        }
+      }
     }
   }
 
   &__socials {
-    &:not(:first-child) {
-      margin-left: 28px;
-
-      @include screen('xlg', max, 2) {
-        margin-left: pxtovw(28, 1660);
-      }
-
-      @include screen('lg', max, 2) {
-        margin-left: pxtovw(28, 1366);
-      }
-
-      @include screen('md', max, 2) {
-        margin-left: pxtovw(28, 960);
-      }
-
-      @include screen('sm', max, 2) {
-        margin-left: pxtovw(28, 375);
-      }
-    }
+    margin-left: auto;
   }
 }
