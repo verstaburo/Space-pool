@@ -1,0 +1,79 @@
+.map-popup {
+  $b: &;
+
+  @include rule(padding, (xl: 2px, xlg: 2, lg: 2, md: 2, sm: 2));
+  @include rule(border-radius, (xl: 3px, xlg: 3, lg: 3,md: 3, sm: 3));
+  @include rule(max-width, (xl: 250px, xlg: 250, lg: 250, md: 250, sm: 250));
+
+  position: absolute;
+  width: 100%;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, .25), 3px 3px 3px rgba(0, 0, 0, .02), 2px 2px 2px rgba(0, 0, 0, .04), 1px 1px 33px rgba(0, 0, 0, .12);
+  visibility: hidden;
+  background-color: $nd-color-basic-light;
+  color: $nd-color-basic;
+  transform: translate3d(-50%, 0, 0);
+  font-family: $font-main;
+
+  @include screen('xlg', max, 2) {
+    box-shadow: 0 pxtovw(4, 1660) pxtovw(4, 1660) rgba(0, 0, 0, .25), pxtovw(3, 1660) pxtovw(3, 1660) pxtovw(3, 1660) rgba(0, 0, 0, .02), pxtovw(2, 1660) pxtovw(2, 1660) pxtovw(2, 1660) rgba(0, 0, 0, .04), pxtovw(1, 1660) pxtovw(1, 1660) pxtovw(33, 1660) rgba(0, 0, 0, .12);
+  }
+
+  @include screen('lg', max, 2) {
+    box-shadow: 0 pxtovw(4, 1366) pxtovw(4, 1366) rgba(0, 0, 0, .25), pxtovw(3, 1366) pxtovw(3, 1366) pxtovw(3, 1366) rgba(0, 0, 0, .02), pxtovw(2, 1366) pxtovw(2, 1366) pxtovw(2, 1366) rgba(0, 0, 0, .04), pxtovw(1, 1366) pxtovw(1, 1366) pxtovw(33, 1366) rgba(0, 0, 0, .12);
+  }
+
+  @include screen('md', max, 2) {
+    box-shadow: 0 pxtovw(4, 960) pxtovw(4, 960) rgba(0, 0, 0, .25), pxtovw(3, 960) pxtovw(3, 960) pxtovw(3, 960) rgba(0, 0, 0, .02), pxtovw(2, 960) pxtovw(2, 960) pxtovw(2, 960) rgba(0, 0, 0, .04), pxtovw(1, 960) pxtovw(1, 960) pxtovw(33, 960) rgba(0, 0, 0, .12);
+  }
+
+  @include screen('sm', max, 2) {
+    box-shadow: 0 pxtovw(4, 375) pxtovw(4, 375) rgba(0, 0, 0, .25), pxtovw(3, 375) pxtovw(3, 375) pxtovw(3, 375) rgba(0, 0, 0, .02), pxtovw(2, 375) pxtovw(2, 375) pxtovw(2, 375) rgba(0, 0, 0, .04), pxtovw(1, 375) pxtovw(1, 375) pxtovw(33, 375) rgba(0, 0, 0, .12);
+  }
+
+  &.is-show {
+    visibility: visible;
+  }
+
+  &__media {
+    width: 100%;
+  }
+
+  .gallery {
+    padding-top: 63.2%;
+  }
+
+  &__content {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+
+    @include rule(padding, (xl: 12px, xlg: 12, lg: 12, md: 12, sm: 12));
+
+    padding-top: 0;
+
+    &:not(:first-child) {
+      @include rule(margin-top, (xl: 10px, xlg: 10, lg: 10, md: 10, sm: 10));
+    }
+  }
+
+  &__title {
+    @include rule(font-size, (xl: 14px, xlg: 14, lg: 14, md: 14, sm: 14));
+
+    line-height: (17 / 14);
+    font-weight: 700;
+  }
+
+  &__boxes {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+
+    .nd-boxes {
+      flex: none;
+    }
+
+    &:not(:first-child) {
+      @include rule(margin-top, (xl: 5px, xlg: 5, lg: 5, md: 5, sm: 5));
+    }
+  }
+}

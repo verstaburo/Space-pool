@@ -4,11 +4,25 @@ $(document).ready(function () {
       lat: 51.93,
       lng: 30.325,
     },
+    popup: {
+      title: 'First Base - Cannon Street',
+      colorBoxes: ['orange', 'red', 'green'],
+      gallery: ['assets/images/nd/space2.jpg', 'assets/images/nd/space3.jpg',
+        'assets/images/nd/space4.jpg',
+      ],
+    },
     selfName: 'marker0',
   }, {
     coords: {
       lat: 51.934,
       lng: 30.315,
+    },
+    popup: {
+      title: 'First Base - Cannon Street',
+      colorBoxes: ['orange', 'red', 'blue'],
+      gallery: ['assets/images/nd/space2.jpg', 'assets/images/nd/space3.jpg',
+        'assets/images/nd/space4.jpg',
+      ],
     },
     selfName: 'marker1',
   }, {
@@ -16,11 +30,25 @@ $(document).ready(function () {
       lat: 59.9345,
       lng: 30.3156,
     },
+    popup: {
+      title: 'First Base - Cannon Street',
+      colorBoxes: ['blue', 'green'],
+      gallery: ['assets/images/nd/space2.jpg', 'assets/images/nd/space3.jpg',
+        'assets/images/nd/space4.jpg',
+      ],
+    },
     selfName: 'marker2',
   }, {
     coords: {
       lat: 59.924,
       lng: 30.335,
+    },
+    popup: {
+      title: 'First Base - Cannon Street',
+      colorBoxes: ['orange', 'red'],
+      gallery: ['assets/images/nd/space2.jpg', 'assets/images/nd/space3.jpg',
+        'assets/images/nd/space4.jpg',
+      ],
     },
     selfName: 'marker3',
   }, {
@@ -28,11 +56,25 @@ $(document).ready(function () {
       lat: 59.924,
       lng: 30.305,
     },
+    popup: {
+      title: 'First Base - Cannon Street',
+      colorBoxes: ['orange'],
+      gallery: ['assets/images/nd/space2.jpg', 'assets/images/nd/space3.jpg',
+        'assets/images/nd/space4.jpg',
+      ],
+    },
     selfName: 'marker4',
   }, {
     coords: {
       lat: 59.924,
       lng: 30.335,
+    },
+    popup: {
+      title: 'First Base - Cannon Street',
+      colorBoxes: ['orange', 'red', 'green'],
+      gallery: ['assets/images/nd/space2.jpg', 'assets/images/nd/space3.jpg',
+        'assets/images/nd/space4.jpg',
+      ],
     },
     selfName: 'marker5',
   }, {
@@ -40,11 +82,25 @@ $(document).ready(function () {
       lat: 59.914,
       lng: 30.335,
     },
+    popup: {
+      title: 'First Base - Cannon Street',
+      colorBoxes: ['orange', 'red', 'green'],
+      gallery: ['assets/images/nd/space2.jpg', 'assets/images/nd/space3.jpg',
+        'assets/images/nd/space4.jpg',
+      ],
+    },
     selfName: 'marker6',
   }, {
     coords: {
       lat: 59.934,
       lng: 30.325,
+    },
+    popup: {
+      title: 'First Base - Cannon Street',
+      colorBoxes: ['orange', 'red', 'green'],
+      gallery: ['assets/images/nd/space2.jpg', 'assets/images/nd/space3.jpg',
+        'assets/images/nd/space4.jpg',
+      ],
     },
     selfName: 'marker7',
   }, {
@@ -52,11 +108,25 @@ $(document).ready(function () {
       lat: 59.900,
       lng: 30.315,
     },
+    popup: {
+      title: 'First Base - Cannon Street',
+      colorBoxes: ['orange', 'red', 'green'],
+      gallery: ['assets/images/nd/space2.jpg', 'assets/images/nd/space3.jpg',
+        'assets/images/nd/space4.jpg',
+      ],
+    },
     selfName: 'marker8',
   }, {
     coords: {
       lat: 59.934,
       lng: 30.300,
+    },
+    popup: {
+      title: 'First Base - Cannon Street',
+      colorBoxes: ['orange', 'red', 'green'],
+      gallery: ['assets/images/nd/space2.jpg', 'assets/images/nd/space3.jpg',
+        'assets/images/nd/space4.jpg',
+      ],
     },
     selfName: 'marker9',
   }, {
@@ -64,11 +134,25 @@ $(document).ready(function () {
       lat: 59.913,
       lng: 30.330,
     },
+    popup: {
+      title: 'First Base - Cannon Street',
+      colorBoxes: ['orange', 'red', 'green'],
+      gallery: ['assets/images/nd/space2.jpg', 'assets/images/nd/space3.jpg',
+        'assets/images/nd/space4.jpg',
+      ],
+    },
     selfName: 'marker10',
   }, {
     coords: {
       lat: 59.927,
       lng: 30.338,
+    },
+    popup: {
+      title: 'First Base - Cannon Street',
+      colorBoxes: ['orange', 'red', 'green'],
+      gallery: ['assets/images/nd/space2.jpg', 'assets/images/nd/space3.jpg',
+        'assets/images/nd/space4.jpg',
+      ],
     },
     selfName: 'marker11',
   }, {
@@ -76,11 +160,25 @@ $(document).ready(function () {
       lat: 59.948,
       lng: 30.34,
     },
+    popup: {
+      title: 'First Base - Cannon Street',
+      colorBoxes: ['orange', 'red', 'green'],
+      gallery: ['assets/images/nd/space2.jpg', 'assets/images/nd/space3.jpg',
+        'assets/images/nd/space4.jpg',
+      ],
+    },
     selfName: 'marker12',
   }, {
     coords: {
       lat: 59.988,
       lng: 30.324,
+    },
+    popup: {
+      title: 'First Base - Cannon Street',
+      colorBoxes: ['orange', 'red', 'green'],
+      gallery: ['assets/images/nd/space2.jpg', 'assets/images/nd/space3.jpg',
+        'assets/images/nd/space4.jpg',
+      ],
     },
     selfName: 'marker13',
   }, {
@@ -88,11 +186,25 @@ $(document).ready(function () {
       lat: 59.9,
       lng: 30.34476,
     },
+    popup: {
+      title: 'First Base - Cannon Street',
+      colorBoxes: ['orange', 'red', 'green'],
+      gallery: ['assets/images/nd/space2.jpg', 'assets/images/nd/space3.jpg',
+        'assets/images/nd/space4.jpg',
+      ],
+    },
     selfName: 'marker14',
   }, {
     coords: {
       lat: 59.939,
       lng: 30.76,
+    },
+    popup: {
+      title: 'First Base - Cannon Street',
+      colorBoxes: ['orange', 'red', 'green'],
+      gallery: ['assets/images/nd/space2.jpg', 'assets/images/nd/space3.jpg',
+        'assets/images/nd/space4.jpg',
+      ],
     },
     selfName: 'marker15',
   }, {
@@ -100,17 +212,38 @@ $(document).ready(function () {
       lat: 59.941,
       lng: 30.9,
     },
+    popup: {
+      title: 'First Base - Cannon Street',
+      colorBoxes: ['orange', 'red', 'green'],
+      gallery: ['assets/images/nd/space2.jpg', 'assets/images/nd/space3.jpg',
+        'assets/images/nd/space4.jpg',
+      ],
+    },
     selfName: 'marker16',
   }, {
     coords: {
       lat: 59.966,
       lng: 30.8,
     },
+    popup: {
+      title: 'First Base - Cannon Street',
+      colorBoxes: ['orange', 'red', 'green'],
+      gallery: ['assets/images/nd/space2.jpg', 'assets/images/nd/space3.jpg',
+        'assets/images/nd/space4.jpg',
+      ],
+    },
     selfName: 'marker17',
   }, {
     coords: {
       lat: 59.977,
       lng: 30.73735,
+    },
+    popup: {
+      title: 'First Base - Cannon Street',
+      colorBoxes: ['orange', 'red', 'green'],
+      gallery: ['assets/images/nd/space2.jpg', 'assets/images/nd/space3.jpg',
+        'assets/images/nd/space4.jpg',
+      ],
     },
     selfName: 'marker18',
   }];
@@ -127,6 +260,80 @@ $(document).ready(function () {
     var spaceMap2 = document.getElementById('spaceMap2');
     var searchMap = document.getElementById('search-map');
 
+    class Popup extends google.maps.OverlayView {
+      constructor(position, content) {
+        super();
+        this.position = position;
+        this.containerDiv = content;
+        // Optionally stop clicks, etc., from bubbling up to the map.
+        Popup.preventMapHitsAndGesturesFrom(this.containerDiv);
+      }
+      open(map) {
+        this.setMap(map);
+        this.containerDiv.classList.add('is-show');
+      }
+      close() {
+        this.containerDiv.classList.remove('is-show');
+        this.setMap(null);
+      }
+      toggle() {
+        if (this.containerDiv.classList.contains('is-show')) {
+          this.close();
+        } else {
+          this.open();
+        }
+      }
+      /** Called when the popup is added to the map. */
+      onAdd() {
+        this.getPanes().floatPane.appendChild(this.containerDiv);
+      }
+      /** Called when the popup is removed from the map. */
+      onRemove() {
+        if (this.containerDiv.parentElement) {
+          this.containerDiv.parentElement.removeChild(this.containerDiv);
+        }
+      }
+      /** Called each frame when the popup needs to draw itself. */
+      draw() {
+        const divPosition = this.getProjection().fromLatLngToDivPixel(
+          this.position,
+        );
+        // Hide the popup when it is far out of view.
+        const display =
+          Math.abs(divPosition.x) < 4000 && Math.abs(divPosition.y) < 4000 ?
+          'block' :
+          'none';
+        if (display === 'block') {
+          this.containerDiv.style.left = divPosition.x + 'px';
+          this.containerDiv.style.top = (divPosition.y + 15) + 'px';
+        }
+
+        if (this.containerDiv.style.display !== display) {
+          this.containerDiv.style.display = display;
+        }
+      }
+    }
+
+    var smallBlueIconParam = {
+      url: "data:image/svg+xml,%3Csvg width='23' height='31' viewBox='0 0 23 31' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M23 11.5213C23 21.5047 11.5 31 11.5 31C11.5 31 0 21.2606 0 11.5213C0 5.15039 5.14089 0 11.5 0C17.8591 0 23 5.15039 23 11.5213Z' fill='%230085FF'/%3E%3Cpath d='M22.5 11.5213C22.5 16.3378 19.7155 21.0944 16.8584 24.6936C15.4376 26.4834 14.0156 27.9662 12.9487 29.0015C12.4155 29.5189 11.9718 29.9238 11.6622 30.1986C11.6047 30.2496 11.5518 30.2962 11.5038 30.3382C11.4549 30.2944 11.4008 30.2457 11.3419 30.1922C11.032 29.9111 10.588 29.4975 10.0545 28.9704C8.98702 27.9156 7.56436 26.4094 6.14288 24.6036C3.283 20.9706 0.5 16.2147 0.5 11.5213C0.5 5.42566 5.4179 0.5 11.5 0.5C17.5821 0.5 22.5 5.42566 22.5 11.5213Z' stroke='%231F1F1F' stroke-opacity='0.28'/%3E%3Ccircle cx='11.5' cy='10.5' r='4.5' fill='white'/%3E%3C/svg%3E ",
+      size: new google.maps.Size(23, 31),
+      // The origin for this image is (0, 0).
+      origin: new google.maps.Point(0, 0),
+      // The anchor for this image is the base of the flagpole at (0, 32).
+      anchor: new google.maps.Point(12, 31),
+      scaledSize: new google.maps.Size(23, 31),
+    };
+
+    var bigBlackIconParam = {
+      url: "data:image/svg+xml,%3Csvg width='23' height='31' viewBox='0 0 23 31' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M23 11.5213C23 21.5047 11.5 31 11.5 31C11.5 31 0 21.2606 0 11.5213C0 5.15039 5.14089 0 11.5 0C17.8591 0 23 5.15039 23 11.5213Z' fill='black'/%3E%3Cpath d='M22.5 11.5213C22.5 16.3378 19.7155 21.0944 16.8584 24.6936C15.4376 26.4834 14.0156 27.9662 12.9487 29.0015C12.4155 29.5189 11.9718 29.9238 11.6622 30.1986C11.6047 30.2496 11.5518 30.2962 11.5038 30.3382C11.4549 30.2944 11.4008 30.2457 11.3419 30.1922C11.032 29.9111 10.588 29.4975 10.0545 28.9704C8.98702 27.9156 7.56436 26.4094 6.14288 24.6036C3.283 20.9706 0.5 16.2147 0.5 11.5213C0.5 5.42566 5.4179 0.5 11.5 0.5C17.5821 0.5 22.5 5.42566 22.5 11.5213Z' stroke='black' stroke-opacity='0.28'/%3E%3Ccircle cx='11.5' cy='10.5' r='4.5' fill='white'/%3E%3C/svg%3E ",
+      size: new google.maps.Size(35, 47),
+      // The origin for this image is (0, 0).
+      origin: new google.maps.Point(0, 0),
+      // The anchor for this image is the base of the flagpole at (0, 32).
+      anchor: new google.maps.Point(17.5, 47),
+      scaledSize: new google.maps.Size(35, 47),
+    };
+
     // Карта на главной
     if (tagsMap) {
       var map = new google.maps.Map(
@@ -137,8 +344,9 @@ $(document).ready(function () {
           zoomControl: true,
         });
 
+      var popups = [];
       var markers = locations.map(function (location, i) {
-        return new google.maps.Marker({
+        var mm = new google.maps.Marker({
           position: location.coords,
           map: map,
           icon: {
@@ -150,7 +358,30 @@ $(document).ready(function () {
             anchor: new google.maps.Point(12, 31),
             scaledSize: new google.maps.Size(23, 31),
           },
+          userState: 'close',
         });
+        var mmInfoContent = window.globalFunctions.generateMapPopup(location.popup);
+        var mmInfo = new Popup(new google.maps.LatLng(location.coords.lat, location.coords.lng), mmInfoContent);
+        popups.push(mmInfo);
+        mm.addListener('click', function (evt) {
+          const mMark = evt.ub.target;
+          if (mm.userState === 'close') {
+            popups.forEach(function (el) {
+              el.close();
+            });
+            markers.forEach(function (el) {
+              el.setIcon(smallBlueIconParam);
+            });
+            mm.userState = 'open';
+            mm.setIcon(bigBlackIconParam);
+            mmInfo.open(map);
+          } else {
+            mm.userState = 'close';
+            mm.setIcon(smallBlueIconParam);
+            mmInfo.close();
+          }
+        });
+        return mm;
       });
     }
 

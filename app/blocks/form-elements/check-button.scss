@@ -78,6 +78,14 @@
       }
     }
 
+    #{$b}_lg-fz13 & {
+      @include screen('lg', max, 2) {
+        line-height: (16 / 13);
+      }
+
+      @include rule(font-size, (lg: 13, md: 13, sm: 13));
+    }
+
     #{$b}:hover & {
       border-color: $nd-color-basic;
     }
@@ -216,6 +224,11 @@
         padding-left: pxtovw(20, 375);
         padding-right: pxtovw(20, 375);
       }
+    }
+
+    #{$b}_pad10 & {
+      @include rule(padding-left, (xl: 10px, xlg: 10, lg: 10, md: 10, sm: 10));
+      @include rule(padding-right, (xl: 10px, xlg: 10, lg: 10, md: 10, sm: 10));
     }
   }
 

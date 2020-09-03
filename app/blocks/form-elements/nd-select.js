@@ -13,8 +13,8 @@ export default function ndSelects() {
   function ndSelectInput(select) {
     const self = select;
     const additionalClasses = $(self).attr('data-choices-classes') || '';
-    const popup = $(self).attr('data-choices-popup') !== undefined ? ' nd-choices_popup' : '';
-    const containerClasses = `nd-choices ${popup} ${additionalClasses}`;
+    // const popup = $(self).attr('data-choices-popup') !== undefined ? ' nd-choices_popup' : '';
+    const containerClasses = `nd-choices nd-choices_popup ${additionalClasses}`;
     const title = $(self).attr('data-mobile-title') || $(self).find('option[placeholder]').text() || $(self).attr('placeholder') || 'Select';
     const sorter = ($(self).attr('data-no-sort') === undefined) ? srtFunc : undefined;
     const choices = new Choices(self, {
@@ -54,11 +54,9 @@ export default function ndSelects() {
       callbackOnCreateTemplates(template) {
         const classNames = this.config.classNames;
         const result = {};
-        if (popup) {
-          result.dropdown = () => template(`
+        result.dropdown = () => template(`
             <div class="${classNames.list} ${classNames.listDropdown}" aria-expanded="false"><div class="nd-choices__header"><div class="nd-choices__close close js-select-close"></div><div class="nd-choices__header-title">${classNames.titleText}</div></div></div>
           `);
-        }
         return result;
       },
       callbackOnInit() {
@@ -79,10 +77,8 @@ export default function ndSelects() {
       },
     });
     const defaultValue = self.value;
-    if (popup) {
-      const cross = $(choices.dropdown.element).find('.js-select-close')[0];
-      cross.choices = choices;
-    }
+    const cross = $(choices.dropdown.element).find('.js-select-close')[0];
+    cross.choices = choices;
     self.choices = choices;
     self.defaultSelectedValue = defaultValue;
   }

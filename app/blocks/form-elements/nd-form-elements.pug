@@ -124,6 +124,8 @@ mixin check-button(data)
           +e.INPUT.input(name=data.name, value=data.value, checked, type=data.type, data-nd-filter-type=data.filterCheck.type, data-nd-filter-value=data.filterCheck.value, data-nd-filter-tag-create=data.filterCheck.tagCreation, data-nd-filter-areas-url=(data.filterCheck.areasSource + ',' + data.filterCheck.tag))
         else
           +e.INPUT.input(name=data.name, value=data.value, checked, type=data.type, data-nd-filter-type=data.filterCheck.type, data-nd-filter-value=data.filterCheck.value, data-nd-filter-tag-create=data.filterCheck.tagCreation)
+      else if data.locationFilter
+        +e.INPUT.input(name=data.name, value=data.value, checked, type=data.type, data-nd-location-tag)
       else
         +e.INPUT.input(name=data.name, value=data.value, checked, type=data.type)
     else if data.required
@@ -152,6 +154,8 @@ mixin check-button(data)
           +e.INPUT.input(name=data.name, value=data.value, type=data.type, data-nd-filter-type=data.filterCheck.type, data-nd-filter-value=data.filterCheck.value, data-nd-filter-tag-create=data.filterCheck.tagCreation, data-nd-filter-areas-url=(data.filterCheck.areasSource + ',' + data.filterCheck.tag))
         else
           +e.INPUT.input(name=data.name, value=data.value, type=data.type, data-nd-filter-type=data.filterCheck.type, data-nd-filter-value=data.filterCheck.value, data-nd-filter-tag-create=data.filterCheck.tagCreation)
+      else if data.locationFilter
+        +e.INPUT.input(name=data.name, value=data.value, type=data.type, data-nd-location-tag)
       else
         +e.INPUT.input(name=data.name, value=data.value, type=data.type)
     +e.SPAN.content

@@ -3,9 +3,9 @@ mixin tags-map()
     .nd-container
       +e.board
         +e.title Popular one
-        +e.tags
+        +e.FORM.tags(data-nd-location-tags data-nd-location-tags-max="3")
           each item in getData('nd-map-locations.json')
-            +nd-button()._border._fz15._pad10.__button(href="#")!=item
+            +check-button(item.options)._hov-blue._pad10._h34._lg-fz13.__button!=item.name
         +e.buttons
           +nd-link-icon('nd-burger')._underline.__link Show all locations
       +e.map#tagsMap

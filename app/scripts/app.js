@@ -91,6 +91,8 @@ import filterMenu from '../components/filter-menu/filter-menu';
 import initCharts from '../blocks/chart/chartInit';
 import buttonHover from '../blocks/button/button';
 import copyToClip from './functions/copy';
+import locationTagsMax from '../components/tags-map/tags-map';
+import mapPopup from '../blocks/map-popup/map-popup';
 
 const $ = window.$;
 
@@ -169,4 +171,6 @@ $(() => {
   initCharts();
   buttonHover();
   copyToClip();
+  locationTagsMax();
+  mapPopup();
 });
