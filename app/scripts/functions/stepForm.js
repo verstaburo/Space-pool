@@ -28,14 +28,14 @@ export default function stpFormSwitch() {
   $(document).on('click', '.js-stp-form-next', (evt) => {
     evt.preventDefault();
     const self = evt.currentTarget;
-    const form = $(self).closest('form').length !== 0 ? $(self).closest('form') : $(self).closest('[data-steps-container]');
+    const form = $(self).closest('[data-steps-container]').length !== 0 ? $(self).closest('[data-steps-container]') : $(self).closest('form');
     const nextStep = $(self).attr('data-next-step');
     goToNextStep(form, nextStep);
   });
 
   $(document).on('click', '.js-stp-form-reset', (evt) => {
     const self = evt.currentTarget;
-    const form = $(self).closest('form').length !== 0 ? $(self).closest('form') : $(self).closest('[data-steps-container]');
+    const form = $(self).closest('[data-steps-container]').length !== 0 ? $(self).closest('[data-steps-container]') : $(self).closest('form');
     const nextStep = $(form).attr('data-first-step');
     goToNextStep(form, nextStep, true);
     if ($(self).attr('data-pp-close') !== undefined) {
@@ -47,7 +47,7 @@ export default function stpFormSwitch() {
     evt.preventDefault();
     const self = evt.currentTarget;
     const fn = $(self).attr('data-callback');
-    const form = $(self).closest('form').length !== 0 ? $(self).closest('form') : $(self).closest('[data-steps-container]');
+    const form = $(self).closest('[data-steps-container]').length !== 0 ? $(self).closest('[data-steps-container]') : $(self).closest('form');
     const nextStep = $(self).attr('data-final-step');
     if ($(form).is('[data-validated-form]')) {
       $(form).parsley().whenValidate().done(() => {

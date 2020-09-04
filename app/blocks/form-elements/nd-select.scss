@@ -6,6 +6,7 @@
   font-size: 0;
   line-height: 0;
   color: $nd-color-basic;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 
   &:focus {
     outline: none;
@@ -60,6 +61,10 @@
       transform: rotate(-180deg);
       z-index: 4;
       pointer-events: auto;
+
+      @include screen('sm', max, 2) {
+        pointer-events: none;
+      }
     }
 
     &_popup.is-open::after {
@@ -77,6 +82,7 @@
     #{$b} {
       &__inner {
         background-color: transparent;
+        -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
       }
 
       &__button {
@@ -573,33 +579,12 @@
       display: flex;
       flex-direction: column;
       box-sizing: border-box;
-      // background-color: $nd-color-bg;
-      // border: 1px solid $nd-color-main;
       width: 100%;
       pointer-events: none;
       touch-action: none;
       visibility: hidden;
-      // border-radius: 3px;
-      // overflow: hidden;
       word-break: break-all;
       will-change: visibility;
-      // box-shadow: inset 0 0 0 1px $nd-color-main;
-
-      // @include screen('xlg', max, 2) {
-      //   border-radius: pxtovw(3, 1660);
-      // }
-
-      // @include screen('lg', max, 2) {
-      //   border-radius: pxtovw(3, 1366);
-      // }
-
-      // @include screen('md', max, 2) {
-      //   border-radius: pxtovw(3, 960);
-      // }
-
-      // @include screen('sm', max, 2) {
-      //   border-radius: pxtovw(3, 375);
-      // }
 
       &.is-active {
         visibility: visible;
@@ -623,29 +608,6 @@
         flex-direction: column-reverse;
         top: auto;
         bottom: 0;
-        // bottom: 100%;
-        // margin-top: 0;
-        // margin-bottom: -1px;
-        // border-radius: 3px 3px 0 0;
-        // border-top-color: $nd-color-main;
-        // border-bottom-color: $nd-color-field-border;
-        // box-shadow: inset 0 0 0 1px $nd-color-main;
-
-        // @include screen('xlg', max, 2) {
-        //   border-radius: pxtovw(3, 1660);
-        // }
-
-        // @include screen('lg', max, 2) {
-        //   border-radius: pxtovw(3, 1366);
-        // }
-
-        // @include screen('md', max, 2) {
-        //   border-radius: pxtovw(3, 960);
-        // }
-
-        // @include screen('sm', max, 2) {
-        //   border-radius: pxtovw(3, 375);
-        // }
 
         #{$b}_popup & {
           @include screen('sm', max, 2) {
@@ -683,9 +645,9 @@
 
         @include screen('sm', max, 2) {
           border-radius: pxtovw(3, 375);
-          font-size: pxtovw(15, 375);
-          line-height: (26 / 15);
-          padding: pxtovw(6, 375) pxtovw(10, 375);
+          font-size: pxtovw(20, 375);
+          line-height: (26 / 20);
+          padding: pxtovw(13, 375) pxtovw(10, 375) pxtovw(12, 375);
         }
 
         [dir='rtl'] & {
@@ -694,6 +656,11 @@
 
         &--selectable {
           transition: background $ease-main, color $ease-main;
+
+          &:active, &:hover {
+            background-color: $nd-color-main;
+            color: $nd-color-basic-light;
+          }
 
           &.is-highlighted {
             background-color: $nd-color-main;
@@ -717,14 +684,14 @@
           }
 
           @include screen('sm', max, 2) {
-            padding: pxtovw(6, 375) pxtovw(11, 375);
+            padding: pxtovw(13, 375) pxtovw(11, 375) pxtovw(12, 375);
           }
         }
 
         #{$b}_popup & {
           @include screen('sm', max, 2) {
-            padding-left: pxtovw(20, 375);
-            padding-right: pxtovw(20, 375);
+            padding-left: pxtovw(28, 375);
+            padding-right: pxtovw(28, 375);
           }
         }
       }
@@ -774,7 +741,7 @@
           border-radius: pxtovw(3, 375);
           margin-top: pxtovw(6, 375);
           max-height: pxtovw(200, 375);
-          padding: pxtovw(17, 375) pxtovw(3, 375) pxtovw(17, 375) pxtovw(5, 375);
+          padding: pxtovw(18, 375) pxtovw(5, 375) pxtovw(18, 375) pxtovw(5, 375);
         }
 
         .is-flipped & {
@@ -829,7 +796,7 @@
           width: 100%;
           height: 100%;
           border-color: transparent;
-          z-index: 100;
+          z-index: 5;
           background-color: $nd-color-basic-light;
           box-shadow: 0 0 0 0 transparent;
           border-radius: 0;
@@ -921,6 +888,7 @@
     }
 
     @include screen('sm', max, 2) {
+      display: none;
       border-radius: pxtovw(3, 375);
       font-size: pxtovw(15, 375);
       line-height: (26 / 15);
@@ -991,6 +959,7 @@
         padding-right: pxtovw(20, 375);
         border-top: none;
         border-bottom: 1px solid $nd-color-field-border;
+        flex-direction: column;
       }
     }
 
@@ -1049,26 +1018,27 @@
 
     @include screen('sm', max, 2) {
       display: flex;
-      justify-content: flex-end;
+      justify-content: center;
       align-items: center;
       position: absolute;
-      padding: 0 pxtovw(20, 375);
+      padding: 0 pxtovw(55, 375);
       top: 0;
       left: 0;
       width: 100%;
       height: pxtovw(60, 375);
-      border-bottom: 1px solid $nd-color-field-border;
+      border-bottom: 1px solid $nd-color-border5;
       z-index: 2;
     }
 
     &-title {
-      font-weight: 700;
+      font-family: $font-stolzl;
+      font-weight: 400;
       user-select: none;
 
       @include screen('sm', max, 2) {
-        font-size: pxtovw(20, 375);
+        font-size: pxtovw(17, 375);
         line-height: 1.2;
-        font-weight: 700;
+        font-weight: 400;
       }
     }
   }
@@ -1086,7 +1056,7 @@
 
     @include screen('sm', max, 2) {
       display: block;
-      width: pxtovw(56, 375);
+      width: pxtovw(62, 375);
       height: pxtovw(60, 375);
       background-size: pxtovw(22, 375) pxtovw(11, 375);
     }

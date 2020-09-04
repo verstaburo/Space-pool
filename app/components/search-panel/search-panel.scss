@@ -565,7 +565,7 @@
     }
 
     @include screen('sm', max, 2) {
-      position: static;
+      position: absolute;
       background-repeat: no-repeat;
       background-size: pxtovw(19, 375) pxtovw(10, 375);
       background-position: 0 50%;
@@ -574,8 +574,12 @@
       margin-top: 0;
       height: pxtovw(58, 375);
       width: pxtovw(40, 375);
-      // font-size: pxtovw(17, 375);
-      // margin-top: pxtovw(-4, 375);
+    }
+
+    [data-current-step]:not([data-current-step='default']) & {
+      @include screen('sm', max, 2) {
+        position: static;
+      }
     }
 
     &.hide {
