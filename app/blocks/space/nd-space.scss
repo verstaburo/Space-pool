@@ -1366,7 +1366,7 @@
     right: 15px;
     width: 16px;
     height: 16px;
-    color: $nd-color-border4;
+    color: $nd-color-heart-gray;
     cursor: pointer;
     transition: color $ease-main;
     fill: currentColor;
@@ -1408,9 +1408,29 @@
     }
 
     svg {
+      position: absolute;
+      top: 0;
+      left: 0;
       width: 100%;
       height: 100%;
       fill: inherit;
+    }
+
+    &-icon {
+      transition: opacity $ease-main;
+
+      &_empty {
+        z-index: 1;
+      }
+
+      &_full {
+        opacity: 0;
+        z-index: 2;
+
+        #{$b}__heart.is-active & {
+          opacity: 1;
+        }
+      }
     }
   }
 
@@ -1456,6 +1476,13 @@
       @include screen('sm', max, 2) {
         padding: pxtovw(17, 375) pxtovw(32, 375) 0 pxtovw(16, 375);
       }
+    }
+
+    #{$b}_search-offer & {
+      position: relative;
+
+      @include rule(padding-right, (xl: 36px, xlg: 36, lg: 36, md: 30, sm: 32));
+      @include rule(padding-top, (md: 19, sm: 17));
     }
 
     #{$b}_side-nav & {

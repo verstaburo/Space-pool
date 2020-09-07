@@ -14,8 +14,8 @@ html(lang='en')
     block header
     - var addClass = headerClass || ''
     - var pageCls = pageClass || ''
-    - var messages = getData('notices-message.json')
-    - var events = getData('notices-event.json')
+    - var messages = getData('nd-notices-message.json')
+    - var events = getData('nd-notices-event.json')
     - var gradients = isGradients || false
     - var isHost = host || false
     - var map = isMap || false
@@ -33,6 +33,12 @@ html(lang='en')
       +nd-header(isHost)(class=addClass)
       +nd-user-menu-panel(isHost, noUser)
       +nd-main-menu(menuData, isHost, noUser)
+      +nd-info-notices({title: 'Notifications', link: {name: 'Read all notifications'}})#events-list
+        each item in events
+          +info-notice(item).__notice
+      +nd-info-notices({title: 'Messages', link: {name: 'Read all messages'}})#messages-list
+        each item in messages
+          +info-notice(item).__notice
 
     +b.MAIN(class='nd-page' + pageCls)
       block content

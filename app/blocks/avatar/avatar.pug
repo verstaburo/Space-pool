@@ -1,3 +1,5 @@
 mixin avatar(img, tag)
   +b(tag || 'div').avatar&attributes(attributes)
-    +e.IMG.image(src=img)
+    if img
+      +e.IMG.image(src=img)
+    block

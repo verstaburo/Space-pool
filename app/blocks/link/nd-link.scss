@@ -72,6 +72,12 @@
       @include screen('sm', max, 2) {
         margin-right: pxtovw(9, 375);
       }
+
+      #{$b}_icon_reverse & {
+        margin-right: 0;
+
+        @include rule(margin-left, (xl: 12px, xlg: 12, lg: 12, md: 12, sm: 12));
+      }
     }
 
     &_nd-user {
@@ -157,6 +163,11 @@
         width: pxtovw(14, 375);
         height: pxtovw(14, 375);
       }
+    }
+
+    &_arrow2 {
+      @include rule(width, (xl: 6px, xlg: 6, lg: 6, md: 6, sm: 6));
+      @include rule(height, (xl: 10px, xlg: 10, lg: 10, md: 10, sm: 10));
     }
 
     &_cross {
@@ -397,6 +408,10 @@
 
   &_icon_blue {
     fill: $nd-color-main;
+  }
+
+  &_icon_reverse {
+    flex-direction: row-reverse;
   }
 
   &_back {

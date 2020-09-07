@@ -353,3 +353,52 @@ div {
     }
   }
 }
+
+@mixin native-scroll($track-color: $nd-color-scroll, $bar-color: transparent, $track-width: 3, $bar-width: 6, $radius: 4) {
+  scrollbar-color: $track-color $bar-color;
+  scrollbar-width: thin;
+  -ms-overflow-style: none;
+
+  &::-webkit-scrollbar-track {
+    background-color: $bar-color;
+
+    @include rule(width, (xl: $track-width * 1px, xlg: $track-width, lg: $track-width, md: $track-width, sm: $track-width));
+  }
+
+  &::-webkit-scrollbar-track-piece {
+    background-color: $bar-color;
+  }
+
+  &::-webkit-scrollbar {
+    background-color: $bar-color;
+
+    @include rule(width, (xl: $bar-width * 1px, xlg: $bar-width, lg: $bar-width, md: $bar-width, sm: $bar-width));
+  }
+
+  &::-webkit-scrollbar-thumb {
+    border-width: ($bar-width * 1px) ($track-width * 1px) ($bar-width * 1px) 0;
+    border-style: solid;
+    border-color: $bar-color;
+    background-color: $track-color;
+    background-clip: padding-box;
+
+    @include rule(width, (xl: $track-width * 1px, xlg: $track-width, lg: $track-width, md: $track-width, sm: $track-width));
+    @include rule(border-radius, (xl: $radius * 1px, xlg: $radius, lg: $track-width, md: $radius, sm: $radius));
+
+    @include screen('xlg', max, 2) {
+      border-width: pxtovw($bar-width, 1660) pxtovw($track-width, 1660) pxtovw($bar-width, 1660) 0;
+    }
+
+    @include screen('lg', max, 2) {
+      border-width: pxtovw($bar-width, 1366) pxtovw($track-width, 1366) pxtovw($bar-width, 1366) 0;
+    }
+
+    @include screen('md', max, 2) {
+      border-width: pxtovw($bar-width, 960) pxtovw($track-width, 960) pxtovw($bar-width, 960) 0;
+    }
+
+    @include screen('sm', max, 2) {
+      border-width: pxtovw($bar-width, 375) pxtovw($track-width, 375) pxtovw($bar-width, 375) 0;
+    }
+  }
+}

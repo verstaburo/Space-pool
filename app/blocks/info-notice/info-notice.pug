@@ -1,0 +1,22 @@
+mixin info-notice(data, tag)
+  - var addClass = (data.new) ? ' is-new' : ''
+  +b(tag || 'a').info-notice&attributes(attributes)(class=addClass)
+    if data.image
+      if data.image.type == 'avatar'
+        if data.image.src
+          +avatar(data.image.src, 'div').__avatar
+        if data.image.text
+          +avatar('', 'div')._blue.__avatar
+            +e.text BB
+      else
+        if data.image.src
+          +e.image
+            img(src=data.image.src)
+    +e.content
+      if data.title
+        +e.H3.title!= data.title
+      if data.text
+        +e.text!= data.text
+      if data.time
+        +e.TIME.time!=data.time
+    block

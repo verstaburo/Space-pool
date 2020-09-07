@@ -1,0 +1,157 @@
+.nd-info-notices {
+  $b: &;
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  transition: opacity $ease-main, transform $ease-main;
+  opacity: 0;
+  pointer-events: none;
+  transform: translate3d(-50%, 0, 0);
+  z-index: 21;
+  box-sizing: border-box;
+  background-color: $nd-color-basic-light;
+  color: $nd-color-basic;
+  box-shadow: 0 2px 11px rgba(0, 0, 0, .09), 0 4px 19px rgba(0, 0, 0, .06);
+
+  @include rule(border-radius, (xl: 3px, xlg: 3, lg: 3, md: 0));
+  @include rule(margin-top, (xl: 10px, xlg: 10, lg: 10, md: 0));
+  @include rule(width, (xl: 460px, xlg: 460, lg: 460));
+  @include rule(padding-bottom, (md: 60, sm: 60));
+
+  @include screen('xlg', max, 2) {
+    box-shadow: 0 pxtovw(2, 1660) pxtovw(11, 1660) rgba(0, 0, 0, .09), 0 pxtovw(4, 1660) pxtovw(19, 1660) rgba(0, 0, 0, .06);
+  }
+
+  @include screen('lg', max, 2) {
+    box-shadow: 0 pxtovw(2, 1366) pxtovw(11, 1366) rgba(0, 0, 0, .09), 0 pxtovw(4, 1366) pxtovw(19, 1366) rgba(0, 0, 0, .06);
+  }
+
+  @include screen('md', max, 2) {
+    box-shadow: none;
+    width: 100%;
+    height: 100%;
+    transform: translate3d(100%, 0, 0);
+  }
+
+  &.is-opened {
+    opacity: 1;
+    transform: translate3d(-50%, 0, 0);
+    pointer-events: auto;
+
+    @include screen('md') {
+      transform: translate3d(0, 0, 0);
+    }
+  }
+
+  &__head {
+    display: none;
+
+    @include screen('md', max, 2) {
+      position: absolute;
+      top: 0;
+      left: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      box-sizing: border-box;
+      padding: 0 pxtovw(56, 960);
+      height: pxtovw(60, 960);
+      border-bottom: 1px solid $nd-color-border5;
+      background-color: $color-white;
+      z-index: 2;
+    }
+
+    @include screen('sm') {
+      padding: 0 pxtovw(56, 375);
+      height: pxtovw(60, 375);
+    }
+  }
+
+  &__title {
+    font-weight: 400;
+    user-select: none;
+    line-height: 1.2;
+    font-family: $font-stolzl;
+
+    @include rule(font-size, (xl: 25px, xlg: 25, lg: 25, md: 20, sm: 17));
+  }
+
+  &__content {
+    position: relative;
+    display: block;
+    width: 100%;
+    overflow: auto;
+    z-index: 1;
+    box-sizing: border-box;
+    padding: 36px 35px 8px;
+    text-align: center;
+    line-height: 1.6;
+    letter-spacing: -.02em;
+
+    @include native-scroll($nd-color-scroll, transparent, 0, 4, 2);
+    @include rule(font-size, (xl: 16px, xlg: 16, lg: 16, md: 16, sm: 16));
+    @include rule(max-height, (xl: 584px, xlg: 584, lg: 584));
+
+    @include screen('xlg', max, 2) {
+      padding: pxtovw(36, 1660) pxtovw(35, 1660) pxtovw(8, 1660);
+    }
+
+    @include screen('lg', max, 2) {
+      padding: pxtovw(36, 1366) pxtovw(35, 1366) pxtovw(8, 1366);
+    }
+
+    @include screen('md', max, 2) {
+      padding: pxtovw(77, 960) pxtovw(20, 960) pxtovw(10, 960);
+      max-height: calc(100% - ((7000 / 960) * 1vw));
+    }
+
+    @include screen('sm', max, 2) {
+      padding: pxtovw(77, 375) pxtovw(20, 375) pxtovw(10, 375);
+      max-height: calc(100% - ((7000 / 375) * 1vw));
+    }
+  }
+
+  &__bottom {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    box-sizing: border-box;
+    background-color: $color-white;
+    z-index: 2;
+
+    @include rule(height, (xl: 70px, xlg: 70, lg: 70, md: 70, sm: 70));
+  }
+
+  &__link {
+    line-height: 1.63;
+    font-weight: 600;
+    letter-spacing: -.02em;
+
+    @include rule(font-size, (xl: 16px, xlg: 16, lg: 16, md: 16, sm: 16));
+  }
+
+  &__close {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    background-image: $icon-cross;
+
+
+    @include rule(background-size, (xl: 16px, xlg: 16, lg: 16, md: 16, sm: 16));
+    @include rule(width, (xl: 56px, xlg: 56, lg: 56, md: 56, sm: 56));
+    @include rule(height, (xl: 60px, xlg: 60, lg: 60, md: 60, sm: 60));
+  }
+
+  &__notice {
+    &:not(:first-child) {
+      @include rule(margin-top, (xl: 12px, xlg: 12, lg: 12, md: 12, sm: 22));
+    }
+  }
+}

@@ -1,0 +1,9 @@
+mixin nd-info-notices(data)
+  +b.nd-info-notices&attributes(attributes)
+    +e.head
+      +e.close.js-close-notices
+      +e.title!= data.title
+    +e.content
+      block
+    +e.bottom
+      +nd-link-icon('arrow2')._icon_reverse.__link(href="#")!= data.link.name
