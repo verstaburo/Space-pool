@@ -20,6 +20,10 @@
     @include screen('lg', max, 2) {
       max-width: none;
     }
+
+    @include screen('sm', max, 2) {
+      padding-top: pxtovw(90, 375);
+    }
   }
 
   &__logo {
@@ -151,11 +155,14 @@
       }
 
       @include screen('sm', max, 2) {
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 6;
         padding: pxtovw(20, 375);
         background-color: white;
         flex: none;
         width: 100vw;
-        margin: 0 pxtovw(-20, 375);
         display: flex;
         justify-content: flex-start;
         align-items: flex-start;

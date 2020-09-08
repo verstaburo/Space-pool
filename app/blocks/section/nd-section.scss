@@ -868,22 +868,12 @@
     margin-top: 0;
 
     &:not(:first-child) {
-      margin-top: 56px;
+      @include rule(margin-top, (xl: 56px, xlg: 56, lg: 56, md: 56, sm: 56));
+    }
 
-      @include screen('xlg', max, 2) {
-        margin-top: pxtovw(56, 1660);
-      }
-
-      @include screen('lg', max, 2) {
-        margin-top: pxtovw(56, 1366);
-      }
-
-      @include screen('md', max, 2) {
-        margin-top: pxtovw(56, 960);
-      }
-
-      @include screen('sm', max, 2) {
-        margin-top: pxtovw(56, 375);
+    &_mt40 {
+      &:not(:first-child) {
+        @include rule(margin-top, (xl: 40px, xlg: 40, lg: 40, md: 40, sm: 40));
       }
     }
   }
@@ -943,41 +933,19 @@
   }
 
   &__add {
-    min-width: 160px;
+    @include rule(min-width, (xl: 160px, xlg: 160, lg: 160, md: 160, sm: 160));
 
-    @include screen('xlg', max, 2) {
-      min-width: pxtovw(160, 1660);
-    }
-
-    @include screen('lg', max, 2) {
-      min-width: pxtovw(160, 1366);
-    }
-
-    @include screen('md', max, 2) {
-      min-width: pxtovw(160, 960);
-    }
-
-    @include screen('sm', max, 2) {
-      min-width: pxtovw(160, 375);
+    &_mw180 {
+      @include rule(min-width, (xl: 180px, xlg: 180, lg: 180, md: 180, sm: 180));
     }
 
     &:not(:first-child) {
-      margin-left: 40px;
+      @include rule(margin-left, (xl: 40px, xlg: 40, lg: 40, md: 40, sm: 30));
+    }
 
-      @include screen('xlg', max, 2) {
-        margin-left: pxtovw(40, 1660);
-      }
-
-      @include screen('lg', max, 2) {
-        margin-left: pxtovw(40, 1366);
-      }
-
-      @include screen('md', max, 2) {
-        margin-left: pxtovw(40, 960);
-      }
-
-      @include screen('sm', max, 2) {
-        margin-left: pxtovw(30, 375);
+    &_ml56 {
+      &:not(:first-child) {
+        @include rule(margin-left, (xl: 56px, xlg: 56, lg: 56, md: 56, sm: 30));
       }
     }
   }

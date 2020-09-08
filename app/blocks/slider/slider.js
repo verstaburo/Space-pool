@@ -378,6 +378,7 @@ export default function slider() {
         slidesPerView: 'auto',
         slidesPerGroup: 1,
         roundLengths: true,
+        // cssMode: true,
         navigation: {
           nextEl: btnNext,
           prevEl: btnPrev,
@@ -524,7 +525,7 @@ export default function slider() {
     if (galleryController) {
       controller = new Swiper(galleryController, {
         loop: false,
-        speed: 500,
+        speed: 150,
         slidesPerView: 5,
         initialSlide: 0,
         slidesPerGroup: 1,
@@ -536,7 +537,7 @@ export default function slider() {
         observer: true,
         watchOverflow: true,
         spaceBetween: 20,
-        // controller: control,
+        // cssMode: true,
         on: {
           init() {
             $(sliderContainer).addClass('is-visible');
@@ -551,7 +552,7 @@ export default function slider() {
 
     const newslider = new Swiper(sliderContainer, {
       loop: true,
-      speed: 500,
+      speed: 150,
       slidesPerView: 1,
       initialSlide: 0,
       slidesPerGroup: 1,
@@ -563,7 +564,8 @@ export default function slider() {
       observer: true,
       watchOverflow: true,
       thumbs: control,
-      // controller: control,
+      // cssMode: true,
+      resistanceRatio: 0,
       navigation: {
         nextEl: btnNext,
         prevEl: btnPrev,
@@ -588,13 +590,6 @@ export default function slider() {
       slidePrevClass: 'gallery__slide_prev',
       slideDuplicatePrevClass: 'gallery__slide_duplicate_prev',
     });
-
-    // if (controller) {
-    //   newslider.controller.control = controller;
-    //   controller.controller.control = newslider;
-    //   newslider.update();
-    //   controller.update();
-    // }
   }
 
   function offerSliderInit(el) {

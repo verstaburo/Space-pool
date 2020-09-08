@@ -30,10 +30,16 @@ block content
           +nd-side-navigation(nav, 'Spaces')._profile._profile_ha
 
       +nd-content-main
-        - var spaces = getData('nd-ha-spaces.json')
-        +records
-          each space in spaces
-            +space-settings(space).__item_mt40
+        +nd-section
+          +nd-section-header._fx._md-pg-head.nd-hide-sm
+            +nd-section-title._fz24 Spaces
+            +e.menu
+              +slider-navigation([{name: "All spaces", href: "#"}, {name: "Active spaces only", href: "#"}], 0, 'All spaces')
+              +nd-button('a')._pad10._h35.__add_mw180._ml56(href="#") Add space
+          - var spaces = getData('nd-ha-spaces.json')
+          +records.__records_mt40
+            each space in spaces
+              +space-settings(space).__item_mt40
 
 block panels
 

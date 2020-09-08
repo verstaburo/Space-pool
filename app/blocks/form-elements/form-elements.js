@@ -444,12 +444,11 @@ export function sliders() {
     const el = $(this);
 
     const margin = el.data('margin') || 0;
-    const step = el.data('step') || 1;
+    // const step = el.data('step') || 1;
     noUiSlider.create(el.find('[data-range-container]').get(0), {
       start: el.data('start'),
       connect: el.data('connect'),
       margin,
-      step,
       range: {
         min: el.data('min'),
         max: el.data('max'),
@@ -479,12 +478,11 @@ export function sliders() {
 
     const currency = el.data('currency') || '';
     const margin = el.data('margin') || 0;
-    const step = el.data('step') || 1;
+    // const step = el.data('step') || 1;
     noUiSlider.create(el.find('[data-nd-range-container]').get(0), {
       start: el.data('start'),
       connect: el.data('connect'),
       margin,
-      step,
       range: {
         min: el.data('min'),
         max: el.data('max'),
