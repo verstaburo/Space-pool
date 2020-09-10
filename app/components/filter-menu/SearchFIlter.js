@@ -404,6 +404,12 @@ export default class SearchFilter {
       $(allLocations).prop('checked', true);
       $(allLocations).trigger('change');
     }
+    if ($(form).is('[data-nd-filter-popup="offerType"]')) {
+      const allListings = $(checkers).get(0);
+      $(allListings).attr('checked', 'checked');
+      $(allListings).prop('checked', true);
+      $(allListings).trigger('change');
+    }
     const rangeSource = $(form).find('.js-nd-range');
     const range = $(rangeSource).find('[data-nd-range-container]').get(0);
     if (range) {

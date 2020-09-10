@@ -147,4 +147,21 @@ export function ndSearchMapManipulations() {
       $('.js-search-map-switch').trigger('change');
     }
   });
+
+  // скрываем кнопку карты при достижении пагинации
+  $(window).on('scroll', () => {
+    const mapButton = document.querySelector('.js-search-map-show');
+    if (mapButton && window.Modernizr.mq(`(max-width: ${window.globalOptions.ndsizes.md}px)`)) {
+      const pagination = document.querySelector('.nd-pagination');
+      if (pagination) {
+        const sB = $(window).height();
+        const paginationTop = pagination.getBoundingClientRect().top + 50;
+        if (paginationTop > sB) {
+          $(mapButton).show();
+        } else {
+          $(mapButton).hide();
+        }
+      }
+    }
+  });
 }

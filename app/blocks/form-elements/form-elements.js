@@ -444,11 +444,12 @@ export function sliders() {
     const el = $(this);
 
     const margin = el.data('margin') || 0;
-    // const step = el.data('step') || 1;
+    const step = el.data('step') || 1;
     noUiSlider.create(el.find('[data-range-container]').get(0), {
       start: el.data('start'),
       connect: el.data('connect'),
       margin,
+      step,
       range: {
         min: el.data('min'),
         max: el.data('max'),
@@ -473,19 +474,19 @@ export function sliders() {
   });
 
   // Параметры берутся из дата-атрибутов
-  $('.js-nd-range').each(function () {
-    const el = $(this);
-
+  function rangeInit(rangeEl) {
+    const el = $(rangeEl);
     const currency = el.data('currency') || '';
     const margin = el.data('margin') || 0;
-    // const step = el.data('step') || 1;
+    const step = el.data('step') || 1;
     noUiSlider.create(el.find('[data-nd-range-container]').get(0), {
       start: el.data('start'),
-      connect: el.data('connect'),
+      connect: (el.data('connect') || [false, true, false]),
+      step,
       margin,
       range: {
-        min: el.data('min'),
-        max: el.data('max'),
+        min: +el.data('min'),
+        max: +el.data('max'),
       },
     });
 
@@ -515,12 +516,17 @@ export function sliders() {
       const maxVal = +$(maxInput).val().replace(/\D+/g, '') || minVal;
       sldr.noUiSlider.set([minVal, maxVal]);
     });
+  }
+
+  $('.js-nd-range').each((i, el) => {
+    rangeInit(el);
   });
 
   function resetRange(range) {
     range.noUiSlider.reset();
   }
 
+  window.globalFunctions.rangeInit = rangeInit;
   window.globalFunctions.resetRange = resetRange;
 }
 

@@ -12,6 +12,11 @@
     width: 100%;
     box-sizing: border-box;
     padding: 0 7px;
+    box-shadow: none;
+    outline: none;
+    border: none;
+    border-radius: 0;
+    background: transparent;
 
     @include screen('xlg', max, 2) {
       padding: 0 pxtovw(7, 1660);
@@ -224,9 +229,10 @@
     border-radius: 50%;
     background-color: $nd-color-basic;
     box-sizing: border-box;
-    transition: box-shadow $ease-main;
-    will-change: left;
+    transition: border $ease-main;
     cursor: pointer;
+    box-shadow: none;
+    border-color: black;
 
     @include screen('xlg', max, 2) {
       height: pxtovw(14, 1660);
@@ -248,8 +254,12 @@
       width: pxtovw(14, 375);
     }
 
+    &::before, &::after {
+      display: none;
+    }
+
     &:hover {
-      box-shadow: inset 0 0 0 1px $nd-color-basic-light;
+      border-color: white;
     }
   }
 

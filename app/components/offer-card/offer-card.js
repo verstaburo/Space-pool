@@ -15,9 +15,11 @@ export default function offerCard() {
   };
 
   $(document).on('click', '.js-show-offer-details', (evt) => {
-    evt.preventDefault();
+    const _src = evt.target;
     const self = evt.currentTarget;
-    if (window.Modernizr.mq('(min-width: 768px)')) {
+    const isBlind = $(_src).is('[data-blind-zone]') || $(_src).closest('[data-blind-zone]').length > 0;
+    if (window.Modernizr.mq('(min-width: 768px)') && !isBlind) {
+      evt.preventDefault();
       if ($(self).is('.is-active')) {
         offerCardMethods.close(self);
       } else {
@@ -27,10 +29,12 @@ export default function offerCard() {
   });
 
   $(document).on('click', '.js-sm-show-offer-details', (evt) => {
-    evt.preventDefault();
     const link = evt.currentTarget;
     const self = $(link).closest('.js-show-offer-details');
-    if (window.Modernizr.mq('(max-width: 767px)')) {
+    const _src = evt.target;
+    const isBlind = $(_src).is('[data-blind-zone]') || $(_src).closest('[data-blind-zone]').length > 0;
+    if (window.Modernizr.mq('(max-width: 767px)') && !isBlind) {
+      evt.preventDefault();
       if ($(self).is('.is-active')) {
         offerCardMethods.close(self);
       } else {
@@ -39,15 +43,12 @@ export default function offerCard() {
     }
   });
 
-  $(document).on('click', '[data-blind-zone]', (evt) => {
-    evt.preventDefault();
-    evt.stopPropagation();
-  });
-
   $(document).on('click', '.js-show-short-offer-details', (evt) => {
-    evt.preventDefault();
     const self = evt.currentTarget;
-    if ($(self).is('.is-active')) {
+    const _src = evt.target;
+    const isBlind = $(_src).is('[data-blind-zone]') || $(_src).closest('[data-blind-zone]').length > 0;
+    if ($(self).is('.is-active') && !isBlind) {
+      evt.preventDefault();
       offerCardMethods.close(self);
     } else {
       offerCardMethods.open(self);

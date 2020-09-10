@@ -13,9 +13,9 @@ mixin filter-menu(specific)
         +filter-button({class: '_offer is-types-hd js-nd-show-filter', name: 'All offers', currentName: 'Hot desk', filterName: 'offerType', filterType: 'popup'})
       else
         +filter-button({class: '_offer is-types-all js-nd-show-filter', name: 'All offers', filterName: 'offerType', filterType: 'popup'})
-      +filter-popup({submit: 'Show all offers', reset: '<span class="nd-hide-from-sm">Clear</span><span class="nd-hide-sm">Clear listing type</span>', title: 'Offer type', offerType: true, note: {text: "Pick the type of workspaces you want."}})._offers.__popup(data-nd-filter-popup="offerType" data-nd-filter-popup-type="popup" data-nd-filter-link-jailer="priceRange")
+      +filter-popup({submit: 'Show all offers', reset: '<span class="nd-hide-from-sm">Clear</span><span class="nd-hide-sm">Clear listing type</span>', title: 'Listing type', offerType: true, note: {text: "Pick the type of workspaces you want."}})._offers.__popup(data-nd-filter-popup="offerType" data-nd-filter-popup-type="popup" data-nd-filter-link-jailer="priceRange")
         +e.offers
-          +check-button({name: 'offerType', value: 'all', type: 'radio', filterCheck: {type: 'offerType', value: 'All listings', tagCreation: false, offerType: 'all'}})._offer._nobox.__offer
+          +check-button({name: 'offerType', value: 'all', type: 'radio', checked: true, filterCheck: {type: 'offerType', value: 'All listings', tagCreation: false, offerType: 'all'}})._offer._nobox.__offer
             +e.offer
               +e.type
                 +nd-box()._multy.__box.nd-hide-from-sm
