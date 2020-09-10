@@ -281,6 +281,13 @@
       }
 
       #{$b} {
+        &__title {
+          @include screen('sm', max, 2) {
+            @include grid-column(1, 2);
+            @include grid-row(1, 2);
+          }
+        }
+
         &__column {
           &_side {
             @include screen('md', max, 2) {
@@ -315,6 +322,17 @@
         }
       }
     }
+  }
+
+  &__title {
+    display: block;
+    width: 100%;
+    text-align: center;
+    font-family: $font-stolzl;
+    font-weight: 400;
+    line-height: 1;
+
+    @include rule(font-size, (xl: 17px, xlg: 17, lg: 17, md: 17, sm: 17));
   }
 
   .is-sm-noheader & {

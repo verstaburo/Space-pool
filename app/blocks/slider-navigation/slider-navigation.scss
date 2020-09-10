@@ -4,16 +4,42 @@
   display: block;
   width: 100%;
   overflow: hidden;
+  box-sizing: border-box;
 
   @include screen('md', max, 2) {
-    width: calc(100% + ((5000 / 960) * 1vw));
-    margin: 0 pxtovw(-50, 960) 0 0;
+    width: 100vw;
+    margin: 0 pxtovw(-50, 960);
   }
 
   @include screen('sm', max, 2) {
-    width: 100%;
     overflow: visible;
-    margin: 0;
+    margin: 0 pxtovw(-20, 375);
+  }
+
+  .swiper-wrapper {
+    @include screen('md', max, 2) {
+      scroll-padding: 0 pxtovw(50, 960);
+      padding: 0 pxtovw(50, 960);
+      box-sizing: border-box;
+    }
+
+    @include screen('sm', max, 2) {
+      scroll-padding: 0 pxtovw(20, 375);
+      padding: 0 pxtovw(20, 375);
+    }
+
+    &::after {
+      display: none;
+
+      @include screen('md', max, 2) {
+        content: '';
+        flex: none;
+        display: block;
+      }
+
+      @include rule(width, (md: 50, sm: 20));
+      @include rule(height, (md: 10, sm: 10));
+    }
   }
 
   &__slide {

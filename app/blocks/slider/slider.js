@@ -525,7 +525,7 @@ export default function slider() {
     if (galleryController) {
       controller = new Swiper(galleryController, {
         loop: false,
-        speed: 150,
+        speed: 500,
         slidesPerView: 5,
         initialSlide: 0,
         slidesPerGroup: 1,
@@ -552,7 +552,7 @@ export default function slider() {
 
     const newslider = new Swiper(sliderContainer, {
       loop: true,
-      speed: 150,
+      speed: 500,
       slidesPerView: 1,
       initialSlide: 0,
       slidesPerGroup: 1,
@@ -668,6 +668,7 @@ export default function slider() {
       roundLengths: true,
       initialSlide: startIndex,
       slideToClickedSlide: true,
+      cssMode: true,
       on: {
         init() {
           $(el).addClass('is-visible');
