@@ -48,6 +48,7 @@ export default class DatePicker {
     this._template = {
       sliderBase: '<div class="dates swiper-container"><div class="dates__wrapper swiper-wrapper"></div><div class="dates__navigation"><div class="dates__buttons"><div class="dates__button dates__button_prev"><svg width="7" height="16" viewBox="0 0 7 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6.14453 1.41016L1.14453 8.05415" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round"/><path d="M1.14453 8.05469L6.14453 14.6987" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round"/></svg></div><div class="dates__button dates__button_next"><svg width="7" height="16" viewBox="0 0 7 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0.857422 1.41016L5.81859 8.00255" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round"/><path d="M5.81859 8.00391L0.857422 14.5963" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round"/></svg></div></div><div class="dates__scrollbar"></div></div></div>',
       slideElem: '<div class="dates-table swiper-slide"><div class="dates-table__head"><div class="dates-table__title"></div><div class="dates-table__days"></div></div><div class="dates-table__body"></div></div>',
+      header: `<div class="dates-header"><button type="button" class="dates-header__close js-dates-hide">Close</button><h3 class="dates-header__title">${(opts.viewTitle || 'Set date')}</h3></div>`,
     };
     this.weekends = [6, 0];
     this._generateNewSlide = this._generateNewSlide.bind(this);
@@ -81,6 +82,7 @@ export default class DatePicker {
       });
     }
     $(t.container).on('click', '.dates-table__cell', $.proxy(t._onClickCell, t));
+    $(t.container).on('click', '.js-dates-hide', $.proxy(t._hideDates, t));
     $(t.container).on('click', (evt) => {
       evt.preventDefault();
       evt.stopPropagation();
@@ -107,6 +109,7 @@ export default class DatePicker {
     t.slider = $(t.container).find('.dates')[0];
 
     if (t.autoactivate) {
+      $(container).prepend(t._template.header);
       $(t.slider).addClass('dates_drop');
     }
   }
@@ -151,14 +154,15 @@ export default class DatePicker {
       }
       case 'horizontal': {
         options = {
-          watchOverflow: true,
-          slidesPerView: 1,
-          spaceBetween: 80,
+          direction: 'vertical',
           initialSlide,
+          watchOverflow: true,
+          slidesPerView: 'auto',
           observer: true,
           observeParents: true,
           observeSlideChildren: true,
-          runCallbacksOnInit: true,
+          mouseweel: true,
+          runCallbacksOnInit: false,
           navigation: {
             nextEl: btnNext,
             prevEl: btnPrev,
@@ -168,10 +172,12 @@ export default class DatePicker {
           },
           breakpoints: {
             300: {
-              slidesPerView: 1,
+              slidesPerView: 'auto',
             },
             768: {
+              direction: 'horizontal',
               slidesPerView: 2,
+              spaceBetween: 80,
             },
           },
         };
@@ -419,7 +425,7 @@ export default class DatePicker {
   _hideDates(evt) {
     const t = this;
     const self = t.el;
-    if (evt) {
+    if (evt && !$(evt.currentTarget).is('.js-dates-hide')) {
       const target = evt.target;
       if ($(target).closest('.dates').length === 0 && $(target).closest('.js-nd-datepicker').length === 0 && $(target).not('.js-nd-datepicker')) {
         $(self).removeClass('is-active');

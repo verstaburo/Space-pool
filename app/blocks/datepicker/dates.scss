@@ -41,6 +41,7 @@
     background-color: $nd-color-basic-light;
     color: $nd-color-border-light;
     transition: color $ease-main, opacity $ease-main;
+    -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
 
     @include screen('xlg', max, 2) {
       width: pxtovw(30, 1660);
@@ -140,6 +141,7 @@
       }
 
       @include screen('sm', max, 2) {
+        display: none;
         padding: pxtovw(15, 375) pxtovw(10, 375) 0;
       }
     }
@@ -180,9 +182,9 @@
     }
 
     @include screen('sm', max, 2) {
-      padding: pxtovw(20, 375);
-      border-radius: pxtovw(3, 375);
-      box-shadow: 0 pxtovw(4, 375) pxtovw(19, 375) rgba(0, 0, 0, .06), 0 pxtovw(2, 375) pxtovw(11, 375) rgba(0, 0, 0, .09);
+      padding: pxtovw(10, 375);
+      border-radius: 0;
+      box-shadow: none;
     }
   }
 }

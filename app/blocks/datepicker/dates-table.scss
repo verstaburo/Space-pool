@@ -42,6 +42,11 @@
     .dates_drop & {
       text-align: center;
       padding-left: 0;
+
+      @include screen('sm', max, 2) {
+        text-align: left;
+        padding-left: pxtovw(10, 375);
+      }
     }
   }
 
@@ -84,7 +89,7 @@
     @include rule(min-height, (xl: 336px, xlg: 336, lg: 336, md: 0));
 
     .dates_drop & {
-      @include rule(min-height, (md: 336, sm: 336));
+      @include rule(min-height, (md: 336, sm: 0));
     }
   }
 
@@ -101,6 +106,7 @@
     margin-top: 16px;
     width: 40px;
     margin-right: calc((100% - (40px * 7)) / 6);
+    -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
 
     @include screen('xlg', max, 2) {
       font-size: pxtovw(15, 1660);
@@ -177,6 +183,8 @@
 
     &_day {
       cursor: pointer;
+      -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+      user-select: none;
 
       &:hover {
         span {

@@ -1,0 +1,46 @@
+.dates-header {
+  position: absolute;
+  display: none;
+
+  @include screen('sm', max, 2) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: pxtovw(60, 375);
+    width: 100%;
+    top: 0;
+    left: 0;
+    background-color: $nd-color-basic-light;
+    box-shadow: 0 1px 0 0 $nd-color-border5;
+    z-index: 3;
+  }
+
+  &__title {
+    display: none;
+    box-sizing: border-box;
+    width: 100%;
+    text-align: center;
+    font-family: $font-stolzl;
+    font-weight: 400;
+    line-height: 1.2;
+
+    @include screen('sm', max, 2) {
+      display: block;
+      font-size: pxtovw(17, 375);
+      padding: 0 pxtovw(62, 375);
+    }
+  }
+
+  &__close {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: pxtovw(62, 375);
+    height: pxtovw(60, 375);
+    background-color: $nd-color-basic-light;
+    background-image: $icon-arrow-back;
+    background-repeat: no-repeat;
+    background-size: pxtovw(22, 375) pxtovw(11, 375);
+    background-position: 50% 50%;
+  }
+}

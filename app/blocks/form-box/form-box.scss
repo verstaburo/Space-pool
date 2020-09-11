@@ -583,8 +583,18 @@
     }
 
     @include screen('sm', max, 2) {
-      width: pxtovw(335, 375);
-      margin-top: pxtovw(20, 375);
+      position: fixed;
+      display: flex;
+      width: 100%;
+      margin-top: 0;
+      left: 0;
+      top: 0;
+      height: 100%;
+      z-index: 25;
+      padding-top: pxtovw(100, 375);
+      background-color: $nd-color-basic-light;
+      // width: pxtovw(335, 375);
+      // margin-top: pxtovw(20, 375);
     }
 
     &_white {
@@ -596,6 +606,13 @@
       bottom: 100%;
       margin-top: 0;
       margin-bottom: 20px;
+
+      @include rule(margin-bottom, (xl: 20px, xlg: 20, lg: 20, md: 20, sm: 0));
+
+      @include screen('sm', max, 2) {
+        top: 0;
+        bottom: auto;
+      }
     }
 
     #{$b}.is-active & {

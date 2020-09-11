@@ -78,6 +78,8 @@ export default function dates() {
       alternativeField: $(self).attr('data-dates-alternative-field'),
       alternativeFormat: $(self).attr('data-dates-alternative-format'),
       viewType: $(self).attr('data-dates-view-type') || 'horizontal',
+      popupType: 'default',
+      viewTitle: $(self).attr('data-dates-view-title'),
     };
 
     const calendar = new DatePicker(self, param);
