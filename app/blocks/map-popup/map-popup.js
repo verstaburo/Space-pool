@@ -17,8 +17,9 @@ export default function mapPopup() {
         const sliderWrapper = document.createElement('div');
         sliderWrapper.classList.add('gallery__wrapper');
         data.gallery.forEach((el) => {
-          const slide = document.createElement('div');
+          const slide = document.createElement('a');
           slide.classList.add('gallery__slide');
+          slide.setAttribute('href', data.href);
           const image = document.createElement('div');
           image.classList.add('gallery__image');
           const imageImg = document.createElement('img');
@@ -62,8 +63,9 @@ export default function mapPopup() {
     }
 
     if (data.title) {
-      const title = document.createElement('h3');
+      const title = document.createElement('a');
       title.classList.add('map-popup__title');
+      title.setAttribute('href', data.href);
       title.innerText = data.title;
       baseContent.append(title);
     }

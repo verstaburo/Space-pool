@@ -39,7 +39,7 @@ export default class DatePicker {
     this.alternativeField = opts.alternativeField !== undefined ? $(opts.alternativeField) : $(el).find('[data-dates-alternative-result]');
     this.disabledDates = opts.disabledDates || '';
     this.startDate = opts.startDate !== undefined ? moment(opts.startDate) : moment();
-    this.minDate = opts.minDate !== undefined ? moment(opts.midDate) : moment([1900, 0, 1]);
+    this.minDate = opts.minDate !== undefined ? moment(opts.minDate) : moment([1900, 0, 1]);
     this.maxDate = opts.maxDate !== undefined ? moment(opts.maxDate) : moment([3000, 0, 1]);
     this.resultFormat = opts.resultFormat || 'YYYY-MM-DD';
     this.firstDay = 1;

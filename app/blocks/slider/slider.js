@@ -1,5 +1,6 @@
 /* eslint-disable no-unused-vars */
 // http://idangero.us/swiper/#.WcIu5oy0OHs
+import detectIt from 'detect-it';
 import * as Swiper from 'swiper/js/swiper';
 
 const $ = window.$;
@@ -372,13 +373,21 @@ export default function slider() {
       const btnPrev = $(el).find('.js-slider-button-prev')[0];
       const btnNext = $(el).find('.js-slider-button-next')[0];
       const sliderContainer = $(el).find('.js-slider-container')[0];
+      let isCSSMode = false;
+      if (detectIt.hasTouch) {
+        isCSSMode = true;
+        $(el).addClass('is-css-mode-slider');
+      } else {
+        isCSSMode = false;
+        $(el).removeClass('is-css-mode-slider');
+      }
       const newslider = new Swiper(sliderContainer, {
         speed: 500,
         spaceBetween: 0,
         slidesPerView: 'auto',
         slidesPerGroup: 1,
         roundLengths: true,
-        // cssMode: true,
+        cssMode: isCSSMode,
         navigation: {
           nextEl: btnNext,
           prevEl: btnPrev,
@@ -430,12 +439,21 @@ export default function slider() {
       const btnPrev = $(el).find('.js-slider-button-prev')[0];
       const btnNext = $(el).find('.js-slider-button-next')[0];
       const sliderContainer = $(el).find('.js-slider-container')[0];
+      let isCSSMode = false;
+      if (detectIt.hasTouch) {
+        isCSSMode = true;
+        $(el).addClass('is-css-mode-slider');
+      } else {
+        isCSSMode = false;
+        $(el).removeClass('is-css-mode-slider');
+      }
       const newslider = new Swiper(sliderContainer, {
         speed: 500,
         spaceBetween: 0,
         slidesPerView: 'auto',
         slidesPerGroup: 1,
         roundLengths: true,
+        cssMode: isCSSMode,
         breakpoints: {
           320: {
             slidesPerView: 'auto',
@@ -522,6 +540,14 @@ export default function slider() {
     const galleryController = $(el).siblings('.js-gallery-controller')[0];
     let controller = false;
     let control = {};
+    let isCSSMode = false;
+    if (detectIt.hasTouch) {
+      isCSSMode = true;
+      $(el).addClass('is-css-mode-slider');
+    } else {
+      isCSSMode = false;
+      $(el).removeClass('is-css-mode-slider');
+    }
     if (galleryController) {
       controller = new Swiper(galleryController, {
         loop: false,
@@ -537,7 +563,7 @@ export default function slider() {
         observer: true,
         watchOverflow: true,
         spaceBetween: 20,
-        // cssMode: true,
+        cssMode: isCSSMode,
         on: {
           init() {
             $(sliderContainer).addClass('is-visible');
@@ -564,7 +590,7 @@ export default function slider() {
       observer: true,
       watchOverflow: true,
       thumbs: control,
-      // cssMode: true,
+      cssMode: isCSSMode,
       resistanceRatio: 0,
       navigation: {
         nextEl: btnNext,
@@ -597,6 +623,14 @@ export default function slider() {
     const btnNext = $(el).find('.js-offer-slider-button-next')[0];
     const sliderContainer = $(el).find('.js-offer-slider-container')[0];
     const pagination = $(el).find('.js-offer-slider-pagination')[0];
+    let isCSSMode = false;
+    if (detectIt.hasTouch) {
+      isCSSMode = true;
+      $(el).addClass('is-css-mode-slider');
+    } else {
+      isCSSMode = false;
+      $(el).removeClass('is-css-mode-slider');
+    }
     const newslider = new Swiper(sliderContainer, {
       speed: 500,
       slidesPerView: 1,
@@ -609,6 +643,7 @@ export default function slider() {
       observeParents: true,
       observer: true,
       watchOverflow: true,
+      cssMode: isCSSMode,
       navigation: {
         nextEl: btnNext,
         prevEl: btnPrev,
@@ -716,6 +751,14 @@ export default function slider() {
       const btnPrev = $(el).find('.js-slider-button-prev')[0];
       const btnNext = $(el).find('.js-slider-button-next')[0];
       const sliderContainer = $(el).find('.js-slider-container');
+      let isCSSMode = false;
+      if (detectIt.hasTouch) {
+        isCSSMode = true;
+        $(el).addClass('is-css-mode-slider');
+      } else {
+        isCSSMode = false;
+        $(el).removeClass('is-css-mode-slider');
+      }
       const newslider = new Swiper(sliderContainer, {
         speed: 500,
         spaceBetween: 0,
@@ -725,6 +768,7 @@ export default function slider() {
         roundLengths: true,
         noSwiping: true,
         noSwipingClass: 'gallery',
+        cssMode: isCSSMode,
         navigation: {
           nextEl: btnNext,
           prevEl: btnPrev,

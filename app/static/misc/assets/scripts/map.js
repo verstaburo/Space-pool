@@ -5,6 +5,7 @@ $(document).ready(function () {
       lng: 30.325,
     },
     popup: {
+      href: '#',
       title: 'First Base - Cannon Street',
       colorBoxes: ['orange', 'red', 'green'],
       gallery: ['assets/images/nd/space2.jpg', 'assets/images/nd/space3.jpg',
@@ -18,6 +19,7 @@ $(document).ready(function () {
       lng: 30.315,
     },
     popup: {
+      href: '#',
       title: 'First Base - Cannon Street',
       colorBoxes: ['orange', 'red', 'blue'],
       gallery: ['assets/images/nd/space2.jpg', 'assets/images/nd/space3.jpg',
@@ -31,6 +33,7 @@ $(document).ready(function () {
       lng: 30.3156,
     },
     popup: {
+      href: '#',
       title: 'First Base - Cannon Street',
       colorBoxes: ['blue', 'green'],
       gallery: ['assets/images/nd/space2.jpg', 'assets/images/nd/space3.jpg',
@@ -44,6 +47,7 @@ $(document).ready(function () {
       lng: 30.335,
     },
     popup: {
+      href: '#',
       title: 'First Base - Cannon Street',
       colorBoxes: ['orange', 'red'],
       gallery: ['assets/images/nd/space2.jpg', 'assets/images/nd/space3.jpg',
@@ -57,6 +61,7 @@ $(document).ready(function () {
       lng: 30.305,
     },
     popup: {
+      href: '#',
       title: 'First Base - Cannon Street',
       colorBoxes: ['orange'],
       gallery: ['assets/images/nd/space2.jpg', 'assets/images/nd/space3.jpg',
@@ -70,6 +75,7 @@ $(document).ready(function () {
       lng: 30.335,
     },
     popup: {
+      href: '#',
       title: 'First Base - Cannon Street',
       colorBoxes: ['orange', 'red', 'green'],
       gallery: ['assets/images/nd/space2.jpg', 'assets/images/nd/space3.jpg',
@@ -83,6 +89,7 @@ $(document).ready(function () {
       lng: 30.335,
     },
     popup: {
+      href: '#',
       title: 'First Base - Cannon Street',
       colorBoxes: ['orange', 'red', 'green'],
       gallery: ['assets/images/nd/space2.jpg', 'assets/images/nd/space3.jpg',
@@ -96,6 +103,7 @@ $(document).ready(function () {
       lng: 30.325,
     },
     popup: {
+      href: '#',
       title: 'First Base - Cannon Street',
       colorBoxes: ['orange', 'red', 'green'],
       gallery: ['assets/images/nd/space2.jpg', 'assets/images/nd/space3.jpg',
@@ -109,6 +117,7 @@ $(document).ready(function () {
       lng: 30.315,
     },
     popup: {
+      href: '#',
       title: 'First Base - Cannon Street',
       colorBoxes: ['orange', 'red', 'green'],
       gallery: ['assets/images/nd/space2.jpg', 'assets/images/nd/space3.jpg',
@@ -122,6 +131,7 @@ $(document).ready(function () {
       lng: 30.300,
     },
     popup: {
+      href: '#',
       title: 'First Base - Cannon Street',
       colorBoxes: ['orange', 'red', 'green'],
       gallery: ['assets/images/nd/space2.jpg', 'assets/images/nd/space3.jpg',
@@ -135,6 +145,7 @@ $(document).ready(function () {
       lng: 30.330,
     },
     popup: {
+      href: '#',
       title: 'First Base - Cannon Street',
       colorBoxes: ['orange', 'red', 'green'],
       gallery: ['assets/images/nd/space2.jpg', 'assets/images/nd/space3.jpg',
@@ -148,6 +159,7 @@ $(document).ready(function () {
       lng: 30.338,
     },
     popup: {
+      href: '#',
       title: 'First Base - Cannon Street',
       colorBoxes: ['orange', 'red', 'green'],
       gallery: ['assets/images/nd/space2.jpg', 'assets/images/nd/space3.jpg',
@@ -161,6 +173,7 @@ $(document).ready(function () {
       lng: 30.34,
     },
     popup: {
+      href: '#',
       title: 'First Base - Cannon Street',
       colorBoxes: ['orange', 'red', 'green'],
       gallery: ['assets/images/nd/space2.jpg', 'assets/images/nd/space3.jpg',
@@ -174,6 +187,7 @@ $(document).ready(function () {
       lng: 30.324,
     },
     popup: {
+      href: '#',
       title: 'First Base - Cannon Street',
       colorBoxes: ['orange', 'red', 'green'],
       gallery: ['assets/images/nd/space2.jpg', 'assets/images/nd/space3.jpg',
@@ -187,6 +201,7 @@ $(document).ready(function () {
       lng: 30.34476,
     },
     popup: {
+      href: '#',
       title: 'First Base - Cannon Street',
       colorBoxes: ['orange', 'red', 'green'],
       gallery: ['assets/images/nd/space2.jpg', 'assets/images/nd/space3.jpg',
@@ -200,6 +215,7 @@ $(document).ready(function () {
       lng: 30.76,
     },
     popup: {
+      href: '#',
       title: 'First Base - Cannon Street',
       colorBoxes: ['orange', 'red', 'green'],
       gallery: ['assets/images/nd/space2.jpg', 'assets/images/nd/space3.jpg',
@@ -213,6 +229,7 @@ $(document).ready(function () {
       lng: 30.9,
     },
     popup: {
+      href: '#',
       title: 'First Base - Cannon Street',
       colorBoxes: ['orange', 'red', 'green'],
       gallery: ['assets/images/nd/space2.jpg', 'assets/images/nd/space3.jpg',
@@ -226,6 +243,7 @@ $(document).ready(function () {
       lng: 30.8,
     },
     popup: {
+      href: '#',
       title: 'First Base - Cannon Street',
       colorBoxes: ['orange', 'red', 'green'],
       gallery: ['assets/images/nd/space2.jpg', 'assets/images/nd/space3.jpg',
@@ -239,6 +257,7 @@ $(document).ready(function () {
       lng: 30.73735,
     },
     popup: {
+      href: '#',
       title: 'First Base - Cannon Street',
       colorBoxes: ['orange', 'red', 'green'],
       gallery: ['assets/images/nd/space2.jpg', 'assets/images/nd/space3.jpg',

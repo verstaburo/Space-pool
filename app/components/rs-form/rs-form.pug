@@ -16,8 +16,8 @@ mixin rs-form(isMeeting)
                   option(value="3") Third Floor Desk Area
           +nd-grid-col({xl: 4, sm: 11})
             +form-section-wrapper
-              +nd-form-box('Rent start date').js-nd-datepicker
-                +nd-input(type="text" name="rentStartDate" placeholder="Rent start date" data-dates-result required readonly)._date
+              +nd-form-box('Rent start date').js-nd-datepicker(data-dates-result-format="D MMMM YYYY")
+                +nd-input(type="text" name="rentStartDate" placeholder="Rent start date" data-dates-result required readonly )._date
                 +e.dates(data-dates-container)
           +nd-grid-col({xl: 4, sm: 11})
             +form-section-wrapper
@@ -56,7 +56,7 @@ mixin rs-form(isMeeting)
                 +nd-input(type="text" name="amount" value="2" required)
           +nd-grid-col({xl: 6, sm: 12})
             +form-section-wrapper
-              +nd-form-box('Rent start date').js-nd-datepicker
+              +nd-form-box('Rent start date').js-nd-datepicker(data-dates-result-format="D MMMM YYYY")
                 +nd-input(type="text" name="rentStartDate" placeholder="Rent start date" data-dates-result required readonly)._date
                 +e.dates(data-dates-container)
           +nd-grid-col({xl: 6, sm: 12})

@@ -278,6 +278,39 @@
   &__slider {
     overflow: hidden;
 
+    &.is-css-mode-slider .nd-slider__container {
+      @include screen('md', max, 2) {
+        width: 100vw;
+        margin: 0 pxtovw(-50, 960);
+      }
+
+      @include screen('sm', max, 2) {
+        margin: 0 pxtovw(-20, 375);
+      }
+
+      .swiper-wrapper {
+        @include screen('md', max, 2) {
+          box-sizing: border-box;
+          scroll-padding: 0 pxtovw(50, 960);
+          padding: 0 pxtovw(50, 960);
+        }
+
+        @include screen('sm', max, 2) {
+          scroll-padding: 0 pxtovw(20, 375);
+          padding: 0 pxtovw(20, 375);
+        }
+
+        &::after {
+          content: '';
+          display: block;
+
+          @include rule(min-width, (md: 50, sm: 20));
+          @include rule(width, (md: 50, sm: 20));
+          @include rule(height, (md: 20, sm: 20));
+        }
+      }
+    }
+
     &:not(:first-child) {
       margin-top: 52px;
 
@@ -345,8 +378,52 @@
     &_spaces {
       @include screen('sm', max, 2) {
         margin: 0 pxtovw(-20, 375);
-        width: calc(100% + ((4000 / 375) * 1vw));
+        width: 100vw;
         padding: 0 pxtovw(20, 375);
+      }
+
+      &.is-css-mode-slider {
+        @include screen('md', max, 2) {
+          margin-left: 0;
+          margin-right: 0;
+          width: 100%;
+        }
+
+        @include screen('sm', max, 2) {
+          margin: 0 pxtovw(-20, 375);
+          width: 100vw;
+          padding-left: 0;
+          padding-right: 0;
+          // padding: 0 pxtovw(20, 375);
+        }
+
+        .nd-slider__container {
+          @include screen('md', max, 2) {
+            margin-left: 0;
+            margin-right: 0;
+            width: 100%;
+          }
+
+          .swiper-wrapper {
+            @include screen('md', max, 2) {
+              box-sizing: border-box;
+              scroll-padding: 0;
+              padding-left: 0;
+              padding-right: 0;
+            }
+
+            @include screen('sm', max, 2) {
+              scroll-padding: 0 pxtovw(20, 375);
+              padding: 0 pxtovw(20, 375);
+            }
+
+            &::after {
+              @include screen('sm', min, 2) {
+                display: none;
+              }
+            }
+          }
+        }
       }
 
       &:not(:first-child) {

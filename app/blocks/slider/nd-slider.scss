@@ -119,43 +119,63 @@
     &_card {
       @include screen('sm', max, 2) {
         width: pxtovw(250, 375);
-        margin-right: pxtovw(20, 375);
+        margin-right: 0;
+        // margin-right: pxtovw(20, 375);
+      }
+
+      &:not(:first-child) {
+        @include rule(margin-left, (sm: 20));
       }
     }
 
     &_space {
       @include screen('md', max, 2) {
         width: pxtovw(250, 960);
-        margin-right: pxtovw(20, 960);
+        margin-right: 0;
+        // margin-right: pxtovw(20, 960);
       }
 
       @include screen('sm', max, 2) {
         width: pxtovw(250, 375);
-        margin-right: pxtovw(20, 375);
+        // margin-right: pxtovw(20, 375);
+      }
+
+      &:not(:first-child) {
+        @include rule(margin-left, (md: 20, sm: 20));
       }
     }
 
     &_news {
       @include screen('md', max, 2) {
         width: pxtovw(354, 960);
-        margin-right: pxtovw(50, 960);
+        margin-right: 0;
+        // margin-right: pxtovw(50, 960);
       }
 
       @include screen('sm', max, 2) {
         width: pxtovw(258, 375);
-        margin-right: pxtovw(37, 375);
+        // margin-right: pxtovw(37, 375);
+      }
+
+      &:not(:first-child) {
+        @include rule(margin-left, (md: 50, sm: 37));
       }
     }
 
     &_map-card {
       @include screen('md', max, 2) {
         width: pxtovw(280, 960);
-        margin-right: pxtovw(20, 960);
+        margin-right: 0;
+        // margin-right: pxtovw(20, 960);
       }
 
       @include screen('sm', max, 2) {
         width: pxtovw(280, 375);
-        margin-right: pxtovw(17, 375);
+        // margin-right: pxtovw(17, 375);
+      }
+
+      &:not(:first-child) {
+        @include rule(margin-left, (md: 20, sm: 17));
       }
     }
   }
