@@ -1,0 +1,15 @@
+mixin progress-scale(data, activeIndex)
+  +b.progress-scale&attributes(attributes)
+    .nd-container
+      +e.wrapper
+        each item, index in data
+          if (index < activeIndex)
+            +e.state
+              +e.title!=item.name
+          else if (index == activeIndex)
+            +e.state.is-active
+              +e.title!=item.name
+          else
+            +e.state.is-disabled
+              +e.title!=item.name
+    block

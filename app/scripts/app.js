@@ -93,6 +93,7 @@ import buttonHover from '../blocks/button/button';
 import copyToClip from './functions/copy';
 import locationTagsMax from '../components/tags-map/tags-map';
 import mapPopup from '../blocks/map-popup/map-popup';
+import formSubmitSwitch from './functions/formSubmitSwitch';
 
 const $ = window.$;
 
@@ -173,4 +174,5 @@ $(() => {
   copyToClip();
   locationTagsMax();
   mapPopup();
+  formSubmitSwitch();
 });

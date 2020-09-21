@@ -1,0 +1,48 @@
+mixin nd-location(data)
+  +b.nd-location&attributes(attributes)
+    +e.map
+      +e.wrapper#add-map
+      +e.marker
+        img(src="assets/images/nd/add-location.svg")
+    +nd-form().__form(data-validated-form data-submit-disabled)
+      +form-section
+        +form-section-header()
+          +e.H3.title_fz24._fw400 Space location
+        +form-section-content
+          +input(type="hidden" name="coordinates" data-map-coordinates="add-map")
+          +nd-grid.nd-grid_int32
+            +nd-grid-col({xl: 12 })
+              +form-section-wrapper
+                +nd-form-box('Country')._bg-white
+                  +nd-select.js-nd-select(name="country" placeholder="Country" data-mobile-title="Country" required)
+                    option(value="" placeholder)
+                    option(value="uk") United-Kingdom
+                    option(value="lv") Latvia
+                    option(value="ru") Russia
+                    option(value="de") Germany
+                    option(value="fr") France
+            +nd-grid-col({xl: 12 })
+              +form-section-wrapper
+                +nd-form-box('City')._bg-white
+                  +nd-select.js-nd-select(name="city" placeholder="City" data-mobile-title="City" required)
+                    option(value="" placeholder) City
+                    option(value="London" selected) London
+                    option(value="Cambridge") Cambridge
+                    option(value="Oxford") Oxford
+                    option(value="Portsmouth") Portsmouth
+                    option(value="Chichester") Chichester
+            +nd-grid-col({xl: 12 })
+              +form-section-wrapper
+                +nd-form-box('Adress')._bg-white
+                  +nd-textarea(type="text" name="adress" placeholder="Address" rows="1" required)._h86
+        if data.button
+          +e.buttons
+            +nd-button('button', true).__button_wide(type="submit" disabled) Save changes
+        if data.panel
+          +nd-form-panel()._wide.is-fixed
+            .nd-content
+              .nd-container
+                +e.controls
+                  +nd-link-icon('arrow6')._underline._back._back_long.__back Back <span class="nd-hide-sm"> to previous step</span>
+                  +nd-button-icon('button', {iconBlock: true, icon: 'next', loader: true})._next._sm-h32._sm-fz16.__button_mw303(type="submit" disabled) Save and continue
+          block

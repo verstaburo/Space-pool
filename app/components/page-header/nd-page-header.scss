@@ -322,6 +322,67 @@
         }
       }
     }
+
+    &_add {
+      @include rule(height, (xl: 68px, xlg: 68, lg: 68, md: 64, sm: 85));
+
+      @include screen('md', max, 2) {
+        overflow: hidden;
+      }
+
+      @include screen('sm', max, 2) {
+        background-color: #fff;
+      }
+
+      .nd-container {
+        @include screen('sm', max, 2) {
+          @include grid-template-columns(100%);
+          @include grid-template-rows(pxtovw(52, 375) auto);
+        }
+      }
+
+      #{$b} {
+        &__title {
+          @include screen('sm', max, 2) {
+            @include grid-column(1, 2);
+            @include grid-row(1, 2);
+          }
+        }
+
+        &__column {
+          &_side {
+            @include screen('md', max, 2) {
+              @include grid-column(1, 4);
+              @include grid-row(1, 2);
+            }
+
+            @include screen('sm', max, 2) {
+              @include grid-column(1, 2);
+              @include grid-row(1, 2);
+            }
+          }
+
+          &_main {
+            @include screen('md', max, 2) {
+              @include grid-column(1, 4);
+              @include grid-row(1, 2);
+            }
+
+            @include screen('sm', max, 2) {
+              @include grid-column(1, 2);
+              @include grid-row(2, 3);
+              @include grid-align-self(end);
+            }
+          }
+        }
+      }
+
+      .slider-navigation {
+        @include screen('md', max, 2) {
+          overflow: visible;
+        }
+      }
+    }
   }
 
   &__title {

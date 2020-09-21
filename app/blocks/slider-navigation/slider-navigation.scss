@@ -65,6 +65,10 @@
         margin-right: pxtovw(35, 375);
       }
     }
+
+    #{$b}_mg & {
+      @include rule(margin-right, (xl: 40px, xlg: 40, lg: 40, md: 50, sm: 25));
+    }
   }
 
   &__link {
@@ -128,6 +132,20 @@
       display: inline-flex;
       justify-content: flex-start;
       align-items: center;
+    }
+
+    &.is-disabled {
+      pointer-events: none;
+    }
+
+    &_progress {
+      &.is-active {
+        color: $nd-color-basic;
+      }
+
+      &.is-disabled {
+        color: rgba(0, 0, 0, .3);
+      }
     }
   }
 

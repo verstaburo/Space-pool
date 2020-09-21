@@ -32,10 +32,14 @@ mixin nd-side-navigation(data, activeName, subActiveName)
                   - var subClass = (link.name == subActiveName) ? ' is-active' : ''
                   +e.LI.subitem
                     +e.A.sublink(href=link.href class=subClass)!=link.name
-    each item in data.menu
-      if (item.name == activeName)
-        if item.note
-          +e.note(class=(item.noteClass || ''))!=item.note
+      each item in data.menu
+        if (item.name == activeName)
+          if item.note
+            +e.note(class=(item.noteClass || ''))!=item.note
     if data.iconLink
       +e.links
         +nd-link-icon(data.iconLink.icon)(class=data.iconLink.class href=data.iconLink.href)._icon_blue.__btn-link!=data.iconLink.name
+    if data.addManager
+      +step-info(data.addManager).__step
+    if data.note
+      +e.note(class=(data.note.class || ''))!=data.note.text

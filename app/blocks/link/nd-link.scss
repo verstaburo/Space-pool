@@ -220,6 +220,11 @@
       }
     }
 
+    &_arrow6 {
+      @include rule(width, (xl: 23px, xlg: 23, lg: 23, md: 23, sm: 22));
+      @include rule(height, (xl: 11px, xlg: 11, lg: 11, md: 11, sm: 11));
+    }
+
     &_nd-cancel {
       width: 17px;
       height: 19px;
@@ -457,6 +462,19 @@
 
           @include screen('sm', max, 2) {
             margin-right: pxtovw(32, 375);
+          }
+        }
+      }
+    }
+
+    &_long {
+      #{$b} {
+        &__icon {
+          @include rule(width, (xl: 23px, xlg: 23, lg: 23, md: 23, sm: 22));
+          @include rule(height, (xl: 11px, xlg: 11, lg: 11, md: 11, sm: 11));
+
+          &:not(:last-child) {
+            @include rule(margin-right, (xl: 18px, xlg: 18, lg: 18, md: 18, sm: 14));
           }
         }
       }

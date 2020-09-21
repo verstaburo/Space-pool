@@ -1,0 +1,39 @@
+extends ../../layouts/redesign-default
+
+block head
+  - var pageTitle = 'Spacepool - Add Space - House rules'
+
+block bodyClasses
+  - var bodyCls = '';
+  - var isNoFooter = true
+  - var isNoHeader = true
+
+block header
+  - var headerClass = ''
+  - var pageClass = ' nd-page_nopad'
+  - var isMap = true
+
+block content
+  - var menuList = getData('navAddSpaceProgress.json').menu;
+  +nd-page-header._grid._grid_add
+    .nd-container.nd-container_wide
+      +e.title.nd-hide-from-sm Add space
+      +nd-page-header-side
+        +nd-link-icon('arrow5')._back.__back Back to Space list
+      +nd-page-header-main
+        +e.mb-menu.nd-hide-from-sm
+          +slider-navigation-for-add(menuList, 3, 'House rules', '_progress')._mg
+
+  +progress-scale(menuList, 3).nd-hide-sm
+
+  +nd-content
+    .nd-container
+      +nd-content-aside
+        +sidebar-nosticky.nd-sidebar.nd-hide-md
+          +nd-side-navigation({addManager: {image: {src:  "assets/images/nd/add-rules.svg", class: "_rules"}, subtitle: "Step 4", title: "House rules" }, note: {text: "Rules give Guests a better idea of what it’s like to work in your space, and helps them settle in among their neighbours."}})._add
+
+      +nd-content-main
+
+block panels
+
+block popups

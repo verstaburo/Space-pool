@@ -2,19 +2,20 @@ mixin slider-navigation(data, startSlide, activeName, linkClasses)
   +b.js-nav-slider.slider-navigation__&attributes(attributes)(data-first-slide-index=startSlide)
     .swiper-wrapper
       each item in data
-        - var addClass = (item.name == activeName) ? ' is-active' : '';
+        - var addClass = '';
         -if (linkClasses) addClass += linkClasses;
+        - addClass += (item.name == activeName) ? ' is-active' : '';
         if !item.list
           +e.slide.swiper-slide
             if item.marker
-              +e.A.link.is-new(href=item.href class=addClass)!=item.name
+              +e.A.link(href=item.href class=addClass + ' is-new')!=item.name
                 +e.marker!=item.marker
             else
               +e.A.link(href=item.href class=addClass)!=item.name
         else
           +e.slide.swiper-slide
             if item.marker
-              +e.A.link.is-new(href=item.href class=addClass)!=item.name
+              +e.A.link(href=item.href class=addClass + ' is-new')!=item.name
                 +e.marker!=item.marker
             else
               +e.A.link(href=item.href class=addClass)!=item.name
@@ -22,8 +23,25 @@ mixin slider-navigation(data, startSlide, activeName, linkClasses)
             - addClass = (subitem.name == activeName) ? ' is-active' : '';
             +e.slide.swiper-slide
               if subitem.marker
-                +e.A.link.is-new(href=subitem.href class=addClass)!=subitem.name
+                +e.A.link(href=subitem.href class=addClass + ' is-new')!=subitem.name
                   +e.marker!=subitem.marker
               else
                 +e.A.link(href=subitem.href class=addClass)!=subitem.name
     block
+
+mixin slider-navigation-for-add(data, startSlide, activeName, linkClasses)
+  +b.js-nav-slider.slider-navigation__&attributes(attributes)(data-first-slide-index=startSlide)
+    .swiper-wrapper
+      each item, index in data
+        - var addClass = '';
+        -if (linkClasses) addClass += linkClasses;
+        - addClass += (item.name == activeName) ? ' is-active' : '';
+        +e.slide.swiper-slide
+          if (index > startSlide)
+            +e.A.link(href=item.href class=addClass + ' is-disabled')!=item.name
+          else if (index < startSlide)
+            +e.A.link(href=item.href class=addClass)!=item.name
+          else if (index == startSlide && item.name == activeName)
+            +e.A.link(href=item.href class=addClass)!=item.name
+          else
+            +e.A.link(href=item.href class=addClass + ' is-disabled')!=item.name

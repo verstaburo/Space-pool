@@ -239,6 +239,17 @@
       }
     }
 
+    &_next {
+      display: inline-block;
+      height: 100%;
+      background-repeat: no-repeat;
+      background-position: 50% 50%;
+      background-size: contain;
+      background-image: url("data:image/svg+xml,%3Csvg width='18' height='8' viewBox='0 0 18 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M17.3536 4.35355C17.5488 4.15829 17.5488 3.84171 17.3536 3.64645L14.1716 0.464467C13.9763 0.269205 13.6597 0.269205 13.4645 0.464467C13.2692 0.659729 13.2692 0.976312 13.4645 1.17157L16.2929 4L13.4645 6.82843C13.2692 7.02369 13.2692 7.34027 13.4645 7.53554C13.6597 7.7308 13.9763 7.7308 14.1716 7.53554L17.3536 4.35355ZM-4.37114e-08 4.5L17 4.5L17 3.5L4.37114e-08 3.5L-4.37114e-08 4.5Z' fill='white'/%3E%3C/svg%3E ");
+
+      @include rule(width, (xl: 18px, xlg: 18, lg: 18, md: 18, sm: 18));
+    }
+
     &_nd-bubble {
       width: 15px;
       height: 15px;
@@ -404,6 +415,13 @@
     @include screen('sm', max, 2) {
       font-size: pxtovw(15, 375);
       line-height: (18 / 15);
+    }
+  }
+
+  &_sm-fz16 {
+    @include screen('sm', max, 2) {
+      font-size: pxtovw(16, 375);
+      line-height: (18 / 16);
     }
   }
 
@@ -726,6 +744,24 @@
       &__bg {
         &::before {
           background-image: linear-gradient(89.93deg, rgba(0, 0, 0, 0) .05%, #494949 51.04%, rgba(0, 0, 0, 0) 99.94%);
+        }
+      }
+    }
+  }
+
+  &_next {
+    @include rule(padding-left, (xl: 40px, xlg: 40, lg: 40, md: 40, sm: 10));
+    @include rule(padding-right, (xl: 40px, xlg: 40, lg: 40, md: 40, sm: 10));
+
+    #{$b} {
+      &__icon {
+        position: absolute;
+        top: 0;
+
+        @include rule(right, (xl: 15px, xlg: 15, lg: 15, md: 15, sm: 0));
+
+        @include screen('sm', max, 2) {
+          display: none;
         }
       }
     }

@@ -124,6 +124,14 @@
     }
   }
 
+  &__back {
+    font-family: $font-stolzl;
+    letter-spacing: -.015em;
+    line-height: 1.2;
+
+    @include rule(font-size, (xl: 16px, xlg: 16, lg: 16, md: 16, sm: 16));
+  }
+
   &__button {
     min-width: 273px;
 
@@ -141,6 +149,28 @@
 
     @include screen('sm', max, 2) {
       min-width: pxtovw(163, 375);
+    }
+
+    &_mw303 {
+      @include rule(min-width, (xl: 303px, xlg: 303, lg: 303, md: 303, sm: 180));
+    }
+  }
+
+  &_wide {
+    background-color: #fff;
+
+    @include rule(min-height, (xl: 70px, xlg: 70, lg: 70, md: 70, sm: 60));
+
+    .nd-content .nd-container {
+      display: flex;
+    }
+
+    #{$b} {
+      &__controls {
+        padding-left: 0;
+        padding-right: 0;
+        width: 100%;
+      }
     }
   }
 }

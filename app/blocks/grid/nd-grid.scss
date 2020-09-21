@@ -56,24 +56,12 @@
     }
   }
 
+  &_int32 {
+    @include rule(margin-top, (xl: -32px, xlg: -32, lg: -32, md: -32, sm: -23));
+  }
+
   &_int37 {
-    margin-top: -37px;
-
-    @include screen('xlg', max, 2) {
-      margin-top: pxtovw(-37, 1660);
-    }
-
-    @include screen('lg', max, 2) {
-      margin-top: pxtovw(-37, 1366);
-    }
-
-    @include screen('md', max, 2) {
-      margin-top: pxtovw(-37, 960);
-    }
-
-    @include screen('sm', max, 2) {
-      margin-top: pxtovw(-23, 375);
-    }
+    @include rule(margin-top, (xl: -37px, xlg: -37, lg: -37, md: -37, sm: -23));
   }
 
   &__col {
@@ -150,24 +138,12 @@
       }
     }
 
+    #{$b}_int32 & {
+      @include rule(padding-top, (xl: 32px, xlg: 32, lg: 32, md: 32, sm: 23));
+    }
+
     #{$b}_int37 & {
-      padding-top: 37px;
-
-      @include screen('xlg', max, 2) {
-        padding-top: pxtovw(37, 1660);
-      }
-
-      @include screen('lg', max, 2) {
-        padding-top: pxtovw(37, 1366);
-      }
-
-      @include screen('md', max, 2) {
-        padding-top: pxtovw(37, 960);
-      }
-
-      @include screen('sm', max, 2) {
-        padding-top: pxtovw(23, 375);
-      }
+      @include rule(padding-top, (xl: 37px, xlg: 37, lg: 37, md: 37, sm: 23));
     }
   }
 

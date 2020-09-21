@@ -1,0 +1,136 @@
+.progress-scale {
+  $b: &;
+
+  display: block;
+  width: 100%;
+
+  @include rule(margin-top, (xl: 15px, xlg: 15, lg: 24, md: 35, sm: 35));
+
+  &:not(:last-child) {
+    @include rule(margin-bottom, (xl: 42px, xlg: 42, lg: 22, md: 52, sm: 52));
+  }
+
+  &__wrapper {
+    position: relative;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    box-sizing: border-box;
+    overflow: hidden;
+
+    @include rule(padding-bottom, (xl: 7px, xlg: 7, lg: 7, md: 7, sm: 7));
+
+    &::after {
+      @include pseudo;
+      @include rule(height, (xl: 7px, xlg: 7, lg: 7, md: 7, sm: 7));
+      @include rule(bottom, (xl: 7px, xlg: 7, lg: 7, md: 7, sm: 7));
+
+      left: 0;
+      width: 100%;
+      background-color: $nd-color-gray2;
+      z-index: 1;
+    }
+  }
+
+  &__state {
+    position: relative;
+    display: inline-block;
+    box-sizing: border-box;
+    z-index: 3;
+
+    @include rule(padding-bottom, (xl: 27px, xlg: 27, lg: 27, md: 30, sm: 30));
+
+    &::after {
+      @include pseudo;
+      @include rule(width, (xl: 14px, xlg: 14, lg: 14, md: 14, sm: 14));
+      @include rule(height, (xl: 14px, xlg: 14, lg: 14, md: 14, sm: 14));
+      @include rule(border-width, (xl: 1px, xlg: 1, lg: 1, md: 1, sm: 1));
+
+      transform-origin: 50% 50%;
+      border-radius: 50%;
+      box-sizing: border-box;
+      border-style: solid;
+      border-color: #fff;
+      bottom: 0;
+      right: 50%;
+      transform: translate3d(50%, 25%, 0);
+      background-color: $nd-color-main;
+      z-index: 2;
+      box-shadow: 0 1px 2px rgba(15, 36, 56, .39), inset 0 1px 4px rgba(82, 245, 255, .38);
+
+      @include screen('xlg', max, 2) {
+        box-shadow: 0 pxtovw(1, 1660) pxtovw(2, 1660) rgba(15, 36, 56, .39), inset 0 pxtovw(1, 1660) pxtovw(4, 1660) rgba(82, 245, 255, .38);
+      }
+
+      @include screen('lg', max, 2) {
+        box-shadow: 0 pxtovw(1, 1366) pxtovw(2, 1366) rgba(15, 36, 56, .39), inset 0 pxtovw(1, 1366) pxtovw(4, 1366) rgba(82, 245, 255, .38);
+      }
+
+      @include screen('md', max, 2) {
+        box-shadow: 0 pxtovw(1, 960) pxtovw(2, 960) rgba(15, 36, 56, .39), inset 0 pxtovw(1, 960) pxtovw(4, 960) rgba(82, 245, 255, .38);
+      }
+
+      @include screen('sm', max, 2) {
+        box-shadow: 0 pxtovw(1, 375) pxtovw(2, 375) rgba(15, 36, 56, .39), inset 0 pxtovw(1, 375) pxtovw(4, 375) rgba(82, 245, 255, .38);
+      }
+    }
+
+    &:last-child {
+      &::after {
+        right: 0;
+        transform: translate3d(0, 25%, 0);
+      }
+    }
+
+    &.is-active {
+      z-index: 2;
+
+      &::before {
+        @include pseudo;
+        @include rule(height, (xl: 7px, xlg: 7, lg: 7, md: 7, sm: 7));
+
+        bottom: 0;
+        right: 50%;
+        width: 100vw;
+        background-color: $nd-color-main;
+        z-index: 1;
+      }
+
+      &::after {
+        @include rule(width, (xl: 20px, xlg: 20, lg: 20, md: 20, sm: 20));
+        @include rule(height, (xl: 20px, xlg: 20, lg: 20, md: 20, sm: 20));
+      }
+
+      &:last-child {
+        &::before {
+          right: 0;
+        }
+      }
+    }
+
+    &.is-disabled {
+      color: rgba(0, 0, 0, .3);
+      z-index: 2;
+
+      &::before {
+        display: none;
+      }
+
+      &::after {
+        background-color: $nd-color-gray-text;
+      }
+    }
+
+    &:not(:first-child) {
+      @include rule(margin-left, (xl: 162px, xlg: 162, lg: 106, md: 52, sm: 25));
+    }
+  }
+
+  &__title {
+    font-weight: 700;
+    line-height: 1;
+    white-space: nowrap;
+
+    @include rule(font-size, (xl: 16px, xlg: 16, lg: 16, md: 14, sm: 13));
+  }
+}

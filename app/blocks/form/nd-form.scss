@@ -292,23 +292,11 @@
     }
 
     &_fz20 {
-      font-size: 20px;
+      @include rule(font-size, (xl: 20px, xlg: 20, lg: 20, md: 20, sm: 17));
+    }
 
-      @include screen('xlg', max, 2) {
-        font-size: pxtovw(20, 1660);
-      }
-
-      @include screen('lg', max, 2) {
-        font-size: pxtovw(20, 1366);
-      }
-
-      @include screen('md', max, 2) {
-        font-size: pxtovw(20, 960);
-      }
-
-      @include screen('sm', max, 2) {
-        font-size: pxtovw(17, 375);
-      }
+    &_fz24 {
+      @include rule(font-size, (xl: 24px, xlg: 24, lg: 24, md: 20, sm: 20));
     }
 
     &_sm-fz15 {
@@ -592,6 +580,10 @@
   &__button {
     &_wide {
       width: 100%;
+    }
+
+    &_mw303 {
+      @include rule(min-width, (xl: 303px, xlg: 303, lg: 303, md: 303, sm: 180));
     }
   }
 

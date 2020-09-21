@@ -1,0 +1,10 @@
+mixin step-info(data)
+  +b.step-info&attributes(attributes)
+    if data.image
+      +e.image(class=(data.image.class || ''))
+        img(src=data.image.src)
+    if data.subtitle
+      +e.subtitle!=data.subtitle
+    if data.title
+      +e.title!=data.title
+    block
