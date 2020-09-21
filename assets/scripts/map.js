@@ -278,6 +278,7 @@ $(document).ready(function () {
     var spaceMap1 = document.getElementById('spaceMap1');
     var spaceMap2 = document.getElementById('spaceMap2');
     var searchMap = document.getElementById('search-map');
+    var addSpaceMap = document.getElementById('add-map');
 
     class Popup extends google.maps.OverlayView {
       constructor(position, content) {
@@ -535,6 +536,28 @@ $(document).ready(function () {
           anchor: new google.maps.Point(12, 31),
           scaledSize: new google.maps.Size(23, 31),
         });
+      });
+    }
+
+    // Карта в add/edit space manager - location
+
+    if (addSpaceMap) {
+      var mapASM = new google.maps.Map(
+        addSpaceMap, {
+          zoom: 13,
+          center: uluru,
+          disableDefaultUI: true,
+        });
+
+      mapASM.addListener('center_changed', function () {
+        var _this = this;
+        var newCoord = _this.getCenter();
+        var latitude = newCoord.lat();
+        var longitude = newCoord.lng();
+        var inputForCoord = document.querySelector('input[data-map-coordinates]');
+        if (inputForCoord) {
+          inputForCoord.value = `${latitude},${longitude}`;
+        }
       });
     }
   }
