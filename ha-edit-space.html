@@ -189,7 +189,109 @@
             </a></div>
         <div class="nd-info-notices__bottom"><a class="nd-link nd-link_icon nd-link_icon_reverse nd-info-notices__link" href="#"><svg class="nd-link__icon nd-link__icon_arrow2"><use xlink:href="assets/images/icon.svg#icon_arrow2"></use></svg><span class="nd-link__text">Read all messages</span></a></div>
     </div>
-    <main class="nd-page" role="main"></main>
+    <main class="nd-page" role="main">
+        <div class="nd-page-header nd-page-header_grid">
+            <div class="nd-container">
+                <div class="nd-page-header__column nd-page-header__column_side"><a class="nd-link nd-link_icon nd-link_underline nd-link_back nd-page-header__back"><svg class="nd-link__icon nd-link__icon_arrow5"><use xlink:href="assets/images/icon.svg#icon_arrow5"></use></svg><span class="nd-link__text">Back</span></a></div>
+                <div class="nd-page-header__column nd-page-header__column_main">
+                    <div class="nd-page-header__mb-menu nd-hide-from-md">
+                        <div class="js-nav-slider slider-navigation" data-first-slide-index="0">
+                            <div class="swiper-wrapper">
+                                <div class="slider-navigation__slide swiper-slide"><a class="slider-navigation__link is-active" href="ha-edit-space.html">Space location</a></div>
+                                <div class="slider-navigation__slide swiper-slide"><a class="slider-navigation__link" href="ha-edit-space-description.html">Title and description</a></div>
+                                <div class="slider-navigation__slide swiper-slide"><a class="slider-navigation__link" href="ha-edit-space-facilities.html">Facilities</a></div>
+                                <div class="slider-navigation__slide swiper-slide"><a class="slider-navigation__link" href="ha-edit-space-photos.html">Photos</a></div>
+                                <div class="slider-navigation__slide swiper-slide"><a class="slider-navigation__link" href="ha-edit-space-rules.html">House rules</a></div>
+                                <div class="slider-navigation__slide swiper-slide"><a class="slider-navigation__link" href="ha-edit-space-conditions.html">Terms and conditions</a></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <section class="nd-content">
+            <div class="nd-container">
+                <div class="nd-content__column nd-content__column_aside" data-sticky-parent="data-sticky-parent">
+                    <aside class="sidebar nd-sidebar nd-hide-md">
+                        <div class="nd-side-navigation">
+                            <div class="nd-space nd-space_side-nav nd-side-navigation__space">
+                                <div class="nd-space__head">
+                                    <h3 class="nd-space__title nd-space__title_fz22">FBC/ Clerkenwell</h3>
+                                    <div class="nd-space__colors">
+                                        <div class="nd-box nd-box_orange nd-space__box"></div>
+                                        <div class="nd-box nd-box_red nd-space__box"></div>
+                                        <div class="nd-box nd-box_green nd-space__box"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <ul class="nd-side-navigation__list nd-side-navigation__list_small">
+                                <li class="nd-side-navigation__item"><a class="nd-side-navigation__link is-active" href="ha-edit-space.html">Space location</a></li>
+                                <li class="nd-side-navigation__item"><a class="nd-side-navigation__link" href="ha-edit-space-description.html">Title and description</a></li>
+                                <li class="nd-side-navigation__item"><a class="nd-side-navigation__link" href="ha-edit-space-facilities.html">Facilities</a></li>
+                                <li class="nd-side-navigation__item"><a class="nd-side-navigation__link" href="ha-edit-space-photos.html">Photos</a></li>
+                                <li class="nd-side-navigation__item"><a class="nd-side-navigation__link" href="ha-edit-space-rules.html">House rules</a></li>
+                                <li class="nd-side-navigation__item"><a class="nd-side-navigation__link" href="ha-edit-space-conditions.html">Terms and conditions</a></li>
+                            </ul>
+                            <div class="nd-side-navigation__links"><a class="nd-link nd-link_icon nd-link_icon_reverse nd-link_icon_blue nd-side-navigation__btn-link" href="#"><img class="nd-link__icon nd-link__icon_nd-preview" src="assets/images/nd/nd-preview.svg" alt="" role="presentation" /><span class="nd-link__text">Preview space</span></a></div>
+                        </div>
+                    </aside>
+                </div>
+                <div class="nd-content__column nd-content__column_main">
+                    <div class="nd-location">
+                        <div class="nd-location__map">
+                            <div class="nd-location__wrapper" id="add-map"></div>
+                            <div class="nd-location__marker"><img src="assets/images/nd/add-location.svg" /></div>
+                        </div>
+                        <form class="nd-form nd-location__form" data-validated-form="data-validated-form" data-submit-disabled="data-submit-disabled">
+                            <fieldset class="nd-form__section">
+                                <div class="nd-form__header">
+                                    <h3 class="nd-form__title nd-form__title_fz24 nd-form__title_md-fz20 nd-form__title_fw400">Space location</h3>
+                                </div>
+                                <div class="nd-form__content"><input class="input" type="hidden" name="coordinates" data-map-coordinates="add-map" />
+                                    <div class="nd-grid nd-grid_int32">
+                                        <div class="nd-grid__col nd-grid__col_xl_12">
+                                            <div class="nd-form__wrapper"><label class="form-box nd-form-box nd-form-box_bg-white"><select class="nd-select js-nd-select" name="country" placeholder="Country" data-mobile-title="Country" required="required">
+                                                        <option value="" placeholder="placeholder"></option>
+                                                        <option value="uk">United-Kingdom</option>
+                                                        <option value="lv">Latvia</option>
+                                                        <option value="ru">Russia</option>
+                                                        <option value="de">Germany</option>
+                                                        <option value="fr">France</option>
+                                                    </select><span class="form-box__label">Country</span></label>
+                                                <div class="error-message"></div>
+                                            </div>
+                                        </div>
+                                        <div class="nd-grid__col nd-grid__col_xl_12">
+                                            <div class="nd-form__wrapper"><label class="form-box nd-form-box nd-form-box_bg-white"><select class="nd-select js-nd-select" name="city" placeholder="City" data-mobile-title="City" required="required">
+                                                        <option value="" placeholder="placeholder">City</option>
+                                                        <option value="London" selected="selected">London</option>
+                                                        <option value="Cambridge">Cambridge</option>
+                                                        <option value="Oxford">Oxford</option>
+                                                        <option value="Portsmouth">Portsmouth</option>
+                                                        <option value="Chichester">Chichester</option>
+                                                    </select><span class="form-box__label">City</span></label>
+                                                <div class="error-message"></div>
+                                            </div>
+                                        </div>
+                                        <div class="nd-grid__col nd-grid__col_xl_12">
+                                            <div class="nd-form__wrapper"><label class="form-box nd-form-box nd-form-box_bg-white"><textarea class="nd-textarea nd-textarea_h86" type="text" name="adress" placeholder="Address" rows="1" required="required"></textarea><span class="form-box__label">Adress</span></label>
+                                                <div class="error-message"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="nd-form__buttons"><button class="nd-button nd-form__button nd-form__button_wide" type="submit" disabled="disabled"><span class="nd-button__bg"></span><span class="nd-button__text">Save changes</span>
+                                        <div class="nd-button__preloader">
+                                            <div class="loader loader_small"></div>
+                                        </div>
+                                    </button></div>
+                            </fieldset>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
     <div class="popups">
         <div class="popup popup-signin" id="popup-signin">
             <div class="popup__content">
