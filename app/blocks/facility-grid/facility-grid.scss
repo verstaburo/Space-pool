@@ -1,0 +1,30 @@
+.facility-grid {
+  $b: &;
+
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  align-content: flex-start;
+
+  @include rule(margin-left, (xl: -18px, xlg: -18, lg: -16, md: -15, sm: -7));
+  @include rule(margin-right, (xl: -18px, xlg: -18, lg: -16, md: -15, sm: -7));
+  @include rule(margin-top, (xl: -24px, xlg: -24, lg: -24, md: -21, sm: -16));
+
+  &__item {
+    display: flex;
+    box-sizing: border-box;
+    width: 16.66%;
+
+    @include rule(padding-left, (xl: 18px, xlg: 18, lg: 16, md: 15, sm: 7));
+    @include rule(padding-right, (xl: 18px, xlg: 18, lg: 16, md: 15, sm: 7));
+    @include rule(padding-top, (xl: 24px, xlg: 24, lg: 24, md: 21, sm: 16));
+
+    @include screen('lg', max, 2) {
+      width: 20%;
+    }
+
+    @include screen('sm', max, 2) {
+      width: 50%;
+    }
+  }
+}

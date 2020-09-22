@@ -158,8 +158,25 @@
 
   &_wide {
     background-color: #fff;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, .25);
 
     @include rule(min-height, (xl: 70px, xlg: 70, lg: 70, md: 70, sm: 60));
+
+    @include screen('xlg', max, 2) {
+      box-shadow: 0 pxtovw(3, 1660) pxtovw(8, 1660) rgba(0, 0, 0, .25);
+    }
+
+    @include screen('lg', max, 2) {
+      box-shadow: 0 pxtovw(3, 1366) pxtovw(8, 1366) rgba(0, 0, 0, .25);
+    }
+
+    @include screen('md', max, 2) {
+      box-shadow: 0 pxtovw(3, 960) pxtovw(8, 960) rgba(0, 0, 0, .25);
+    }
+
+    @include screen('sm', max, 2) {
+      box-shadow: 0 pxtovw(-1, 375) pxtovw(3, 375) rgba(0, 0, 0, .03);
+    }
 
     .nd-content .nd-container {
       display: flex;

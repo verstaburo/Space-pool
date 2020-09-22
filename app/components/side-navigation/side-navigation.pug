@@ -10,14 +10,20 @@ mixin nd-side-navigation(data, activeName, subActiveName)
     if data.space
       +nd-space('div')._side-nav.__space(class=data.space.class)
         +e.head
-          +nd-space-title()!=data.space.title
-          +space-type._fz11._gray.__type
-            +nd-box()._size8(class=data.space.type.box + ' __box')
-            +e.name!=data.space.type.name
-        +nd-space-media-e
-          +e.PICTURE.image
-            option(srcset=data.space.image)
-            img(srcset=data.space.image)
+          +nd-space-title()(class=(data.space.titleClass || ""))!=data.space.title
+          if data.space.type
+            +space-type._fz11._gray.__type
+              +nd-box()._size8(class=data.space.type.box + ' __box')
+              +e.name!=data.space.type.name
+          if data.space.boxes
+            +e.colors
+              each item in data.space.boxes
+                +nd-box()(class=item + ' __box')
+        if data.space.image
+          +nd-space-media-e
+            +e.PICTURE.image
+              option(srcset=data.space.image)
+              img(srcset=data.space.image)
     if data.menu
       +e.UL.list(class=(data.menuCls || ''))
         each item in data.menu
@@ -39,6 +45,9 @@ mixin nd-side-navigation(data, activeName, subActiveName)
     if data.iconLink
       +e.links
         +nd-link-icon(data.iconLink.icon)(class=data.iconLink.class href=data.iconLink.href)._icon_blue.__btn-link!=data.iconLink.name
+    if data.imageLink
+      +e.links
+        +nd-link-image(data.imageLink.icon)(class=data.imageLink.class href=data.imageLink.href)._icon_blue.__btn-link!=data.imageLink.name
     if data.addManager
       +step-info(data.addManager).__step
     if data.note

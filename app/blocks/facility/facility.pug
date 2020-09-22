@@ -18,3 +18,17 @@ mixin facility-checkbox(icon, iconCls, name, value, checked)
       +icon('check').check
       +e.image
         +icon(icon)(class="__icon " + iconCls)
+
+
+mixin nd-facility-checkbox(data)
+  +b.LABEL.nd-facility-checkbox&attributes(attributes)
+    if (data.checked)
+      +e.INPUT(type=data.type name=data.name value=data.value checked="checked").input
+    else
+      +e.INPUT(type=data.type name=data.name value=data.value).input
+    +b.nd-facility&attributes(attributes)
+      if data.title
+        +e.name!=data.title
+      if data.icon
+        +e.image(class=(data.iconCls || ''))
+          +icon(data.icon)

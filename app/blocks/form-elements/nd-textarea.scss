@@ -1,13 +1,13 @@
 .nd-textarea {
   font-size: 17px;
-  line-height: (26 / 17);
+  line-height: (21 / 17);
   border: 1px solid $nd-color-field-border;
   width: 100%;
   box-sizing: border-box;
   border-radius: 3px;
   color: $nd-color-basic;
   font-weight: 400;
-  padding: 14px 11px 8px;
+  padding: 17px 11px 10px;
   transition: border $ease-main, box-shadow $ease-main;
   box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0);
   min-height: 50px;
@@ -17,21 +17,21 @@
   @include screen('xlg', max, 2) {
     border-radius: pxtovw(3, 1660);
     font-size: pxtovw(17, 1660);
-    padding: pxtovw(14, 1660) pxtovw(11, 1660) pxtovw(8, 1660);
+    padding: pxtovw(17, 1660) pxtovw(11, 1660) pxtovw(10, 1660);
     min-height: pxtovw(50, 1660);
   }
 
   @include screen('lg', max, 2) {
     border-radius: pxtovw(3, 1366);
     font-size: pxtovw(17, 1366);
-    padding: pxtovw(14, 1366) pxtovw(11, 1366) pxtovw(8, 1366);
+    padding: pxtovw(17, 1366) pxtovw(11, 1366) pxtovw(10, 1366);
     min-height: pxtovw(50, 1366);
   }
 
   @include screen('md', max, 2) {
     border-radius: pxtovw(3, 960);
     font-size: pxtovw(17, 960);
-    padding: pxtovw(14, 960) pxtovw(11, 960) pxtovw(8, 960);
+    padding: pxtovw(17, 960) pxtovw(11, 960) pxtovw(10, 960);
     min-height: pxtovw(50, 960);
   }
 
@@ -41,6 +41,15 @@
     line-height: (26 / 15);
     padding: pxtovw(9, 375) pxtovw(11, 375) pxtovw(3, 375);
     min-height: pxtovw(40, 375);
+  }
+
+  &_sm-fz17 {
+    @include rule(font-size, (sm: 17));
+
+    @include screen('sm', max, 2) {
+      padding: pxtovw(13, 375) pxtovw(11, 375) pxtovw(3, 375);
+      line-height: 1.25;
+    }
   }
 
   &_h40 {
@@ -72,13 +81,17 @@
     @include screen('sm', max, 2) {
       font-size: pxtovw(17, 375);
       line-height: (26 / 17);
-      padding: pxtovw(14, 375) pxtovw(11, 375) pxtovw(8, 375);
+      padding: pxtovw(17, 375) pxtovw(11, 375) pxtovw(10, 375);
       min-height: pxtovw(50, 375);
     }
   }
 
   &_h86 {
     @include rule(min-height, (xl: 86px, xlg: 86, lg: 86, md: 86, sm: 107));
+  }
+
+  &_h194 {
+    @include rule(min-height, (xl: 194px, xlg: 194, lg: 224, md: 224, sm: 286));
   }
 
   &_open {

@@ -122,7 +122,13 @@
     }
 
     &:not(:first-child) {
-      @include rule(margin-left, (xl: 162px, xlg: 162, lg: 106, md: 52, sm: 25));
+      margin-left: 162px;
+
+      @media only screen and (max-width: 1900px) {
+        margin-left: 150px;
+      }
+
+      @include rule(margin-left, (xlg: 150, lg: 106, md: 52, sm: 25));
     }
   }
 

@@ -14,6 +14,24 @@ block header
   - var host = true
 
 block content
+  +nd-page-header._grid
+    .nd-container
+      +nd-page-header-side
+        +nd-link-icon('arrow5')._underline._back.__back Back
+      +nd-page-header-main
+        - var menuList = getData('sideNavEditSpace.json').menu;
+        +e.mb-menu.nd-hide-from-md
+          +slider-navigation(menuList, 0, 'Space location')
+
+  +nd-content
+    .nd-container
+      +nd-content-aside
+        +sidebar-nosticky.nd-sidebar.nd-hide-md
+          - var nav = getData('sideNavEditSpace.json')
+          +nd-side-navigation(nav, 'Space location')
+
+      +nd-content-main
+        +nd-location({button: true})
 
 block panels
 

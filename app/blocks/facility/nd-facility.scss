@@ -1,0 +1,107 @@
+.nd-facility {
+  $b: &;
+
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-end;
+  width: 100%;
+  box-sizing: border-box;
+  transition: border $ease-main, color $ease-main, background $ease-main, box-shadow $ease-main;
+  border-style: solid;
+  border-color: $nd-color-gray-text;
+  padding: 11px 18px 22px;
+
+  @include rule(border-radius, (xl: 3px, xlg: 3, lg: 3, md: 3, sm: 3));
+  @include rule(border-width, (xl: 1px, xlg: 1, lg: 1, md: 1, sm: 1));
+  @include rule(height, (xl: 160px, xlg: 160, lg: 150, md: 136, sm: 145));
+
+  @include screen('xlg', max, 2) {
+    padding: pxtovw(11, 1660) pxtovw(18, 1660) pxtovw(22, 1660);
+  }
+
+  @include screen('lg', max, 2) {
+    padding: pxtovw(11, 1366) pxtovw(18, 1366) pxtovw(22, 1366);
+  }
+
+  @include screen('md', max, 2) {
+    padding: pxtovw(11, 960) pxtovw(16, 960) pxtovw(24, 960);
+  }
+
+  @include screen('sm', max, 2) {
+    padding: pxtovw(11, 375) pxtovw(18, 375) pxtovw(22, 375);
+  }
+
+  &::before {
+    @include pseudo;
+    @include rule(width, (xl: 24px, xlg: 24, lg: 24, md: 24, sm: 24));
+    @include rule(height, (xl: 18px, xlg: 18, lg: 18, md: 18, sm: 18));
+    @include rule(bottom, (xl: 24px, xlg: 24, lg: 24, md: 26, sm: 24));
+    @include rule(left, (xl: 18px, xlg: 18, lg: 18, md: 16, sm: 18));
+
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    background-size: contain;
+    background-image: url("data:image/svg+xml,%3Csvg width='24' height='18' viewBox='0 0 24 18' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M2 9L8.5 15.5L22 2' stroke='white' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E%0A");
+    opacity: 0;
+    transition: opacity $ease-main;
+  }
+
+  &__name {
+    display: block;
+    width: 100%;
+    text-align: left;
+    font-weight: 700;
+    line-height: (19 / 16);
+
+    @include rule(font-size, (xl: 16px, xlg: 16, lg: 16, md: 16, sm: 16));
+  }
+
+  &__image {
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    line-height: 0;
+    font-size: 0;
+
+    @include rule(width, (xl: 25px, xlg: 25, lg: 25, md: 25, sm: 25));
+    @include rule(height, (xl: 25px, xlg: 25, lg: 25, md: 25, sm: 25));
+
+    &_big {
+      @include rule(width, (xl: 32px, xlg: 32, lg: 32, md: 32, sm: 32));
+      @include rule(height, (xl: 32px, xlg: 32, lg: 32, md: 32, sm: 32));
+    }
+
+    svg {
+      font-size: 0;
+      line-height: 0;
+      fill: currentColor;
+      max-width: 100%;
+      height: 100%;
+    }
+  }
+}
+
+.nd-facility-checkbox {
+  cursor: pointer;
+
+  &__input {
+    display: none;
+
+    &:checked ~ .nd-facility {
+      border-color: $nd-color-basic;
+      background-color: $nd-color-main;
+      color: $nd-color-basic-light;
+
+      &::before {
+        opacity: 1;
+      }
+    }
+  }
+
+  &:hover .nd-facility {
+    border-color: $nd-color-main;
+    box-shadow: inset 0 0 0 1px $nd-color-main;
+  }
+}
