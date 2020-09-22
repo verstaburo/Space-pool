@@ -1,0 +1,28 @@
+.button-add {
+  $b: &;
+
+  position: relative;
+  display: block;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  background-size: contain;
+  background-image: url("data:image/svg+xml,%3Csvg width='21' height='21' viewBox='0 0 21 21' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M20.0367 9.63303H11.5596V0.963303C11.5596 0.385321 10.9817 0 10.5963 0C10.0183 0 9.63303 0.385321 9.63303 0.963303V9.63303H0.963303C0.385321 9.63303 0 10.0183 0 10.5963C0 10.9817 0.385321 11.5596 0.963303 11.5596H9.63303V20.2294C9.63303 20.8073 10.0183 21.1927 10.5963 21.1927C11.1743 21.1927 11.5596 20.8073 11.5596 20.2294V11.5596H20.2294C20.8073 11.5596 21.1927 11.1743 21.1927 10.5963C21 10.0183 20.6147 9.63303 20.0367 9.63303Z' fill='black'/%3E%3C/svg%3E ");
+  transition: transform $ease-main, background $ease-main;
+
+  @include rule(width, (xl: 21px, xlg: 21, lg: 21, md: 21, sm: 21));
+  @include rule(height, (xl: 21px, xlg: 21, lg: 21, md: 21, sm: 21));
+
+  &::after {
+    @include pseudo;
+    @include rule(width, (xl: 40px, xlg: 40, lg: 40, md: 40, sm: 40));
+    @include rule(height, (xl: 40px, xlg: 40, lg: 40, md: 40, sm: 40));
+
+    top: 50%;
+    left: 50%;
+    transform: translate3d(-50%, -50%, 0);
+  }
+
+  &:hover {
+    background-image: url("data:image/svg+xml,%3Csvg width='21' height='21' viewBox='0 0 21 21' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M20.0367 9.63303H11.5596V0.963303C11.5596 0.385321 10.9817 0 10.5963 0C10.0183 0 9.63303 0.385321 9.63303 0.963303V9.63303H0.963303C0.385321 9.63303 0 10.0183 0 10.5963C0 10.9817 0.385321 11.5596 0.963303 11.5596H9.63303V20.2294C9.63303 20.8073 10.0183 21.1927 10.5963 21.1927C11.1743 21.1927 11.5596 20.8073 11.5596 20.2294V11.5596H20.2294C20.8073 11.5596 21.1927 11.1743 21.1927 10.5963C21 10.0183 20.6147 9.63303 20.0367 9.63303Z' fill='%230085FF'/%3E%3C/svg%3E ");
+  }
+}

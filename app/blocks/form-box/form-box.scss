@@ -395,6 +395,37 @@
 
   &.nd-form-box {
     #{$b} {
+      &__delete {
+        position: absolute;
+        right: 0;
+        top: 0;
+        height: 100%;
+        opacity: .3;
+        transition: opacity $ease-main;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        cursor: pointer;
+
+        @include rule(width, (xl: 28px, xlg: 28, lg: 28, md: 28, sm: 25));
+
+        svg {
+          @include rule(width, (xl: 16px, xlg: 16, lg: 16, md: 16, sm: 16));
+          @include rule(width, (xl: 16px, xlg: 16, lg: 16, md: 16, sm: 16));
+
+          flex: none;
+          fill: $nd-color-basic;
+        }
+
+        &:hover {
+          opacity: 1;
+
+          svg {
+            fill: $nd-color-basic;
+          }
+        }
+      }
+
       &__label {
         font-size: 17px;
         line-height: (26 / 17);

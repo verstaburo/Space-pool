@@ -30,3 +30,12 @@ mixin nd-form-box(label, tag, cls)
     block
     if label
       +e.label!= label
+
+mixin nd-form-box-removable(label, tag, cls)
+  - var addClass = cls || '';
+  +b(tag || 'label').form-box__&attributes(attributes).nd-form-box(class=addClass)
+    block
+    if label
+      +e.label!= label
+    +e.BUTTON.delete.js-delete-object-except-last(type="button")
+      +icon('cross')

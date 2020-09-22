@@ -165,6 +165,12 @@
       }
     }
 
+    &_mt80 {
+      &:not(:first-child) {
+        @include rule(margin-top, (xl: 80px, xlg: 80, lg: 80, md: 80, sm: 58));
+      }
+    }
+
     &_mt82 {
       &:not(:first-child) {
         @include rule(margin-top, (xl: 82px, xlg: 82, lg: 113, md: 100, sm: 58));
@@ -228,6 +234,40 @@
     &_sm-mt12 {
       &:not(:first-child) {
         margin-top: pxtovw(12, 375);
+      }
+    }
+
+    &_allday {
+      &:not(:first-child) {
+        @include rule(margin-top, (xl: 45px, xlg: 45, lg: 45, md: 45, sm: 48));
+      }
+    }
+
+    &_rules {
+      position: relative;
+      box-sizing: border-box;
+
+      @include rule(padding-bottom, (xl: 41px, xlg: 41, lg: 41, md: 41, sm: 41));
+      @include rule(max-width, (xl: 647px, xlg: 647, lg: 647, md: 647));
+
+      @include screen('sm', max, 2) {
+        max-width: none;
+      }
+
+      &:not(:first-child) {
+        @include rule(margin-top, (xl: 32px, xlg: 32, lg: 32, md: 32, sm: 30));
+      }
+
+      #{$b}__wrapper {
+        &:not(:first-child) {
+          @include rule(margin-top, (xl: 30px, xlg: 30, lg: 30, md: 30, sm: 25));
+        }
+      }
+
+      .button-add {
+        position: absolute;
+        bottom: 0;
+        right: 0;
       }
     }
   }
@@ -295,6 +335,10 @@
       @include screen('sm', max, 2) {
         font-size: pxtovw(20, 375);
       }
+    }
+
+    &_fz18 {
+      @include rule(font-size, (xl: 18px, xlg: 18, lg: 18, md: 18, sm: 16));
     }
 
     &_fz20 {
@@ -830,6 +874,65 @@
     }
   }
 
+  &__interval {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    width: 100%;
+
+    @include rule(max-width, (xl: 555px, xlg: 555, lg: 555, md: 555));
+
+    @include screen('sm', max, 2) {
+      max-width: none;
+    }
+
+    &:not(:first-child) {
+      @include rule(margin-top, (xl: 41px, xlg: 41, lg: 41, md: 41, sm: 28));
+    }
+
+    &.is-not-allowed {
+      opacity: .3;
+      pointer-events: none;
+    }
+
+    #{$b}__wrapper {
+      flex: 1;
+      width: auto;
+
+      @include screen('sm', max, 2) {
+        flex: none;
+        width: 100%;
+      }
+
+      &:not(:first-child) {
+        @include rule(margin-top, (sm: 25));
+      }
+    }
+  }
+
+  &__interval-divider {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    @include rule(height, (xl: 50px, xlg: 50, lg: 50, md: 50, sm: 40));
+    @include rule(width, (xl: 35px,xlg: 35, lg: 35, md: 35, sm: 0));
+
+    @include screen('sm', max, 2) {
+      display: none;
+    }
+
+    &::before {
+      display: block;
+      content: '';
+      background-color: $nd-color-basic;
+
+      @include rule(height, (xl: 2px, xlg: 2, lg: 2, md: 2, sm: 2));
+      @include rule(width, (xl: 11px, xlg: 11, lg: 11, md: 11, sm: 11));
+    }
+  }
+
   &__table {
     &:not(:first-child) {
       margin-top: 26px;
@@ -1060,6 +1163,10 @@
       padding: pxtovw(28, 375) pxtovw(18, 375) pxtovw(36, 375);
     }
 
+    &_pb80 {
+      @include rule(padding-bottom, (xl: 80px, xlg: 80, lg: 87, md: 87, sm: 42));
+    }
+
     &_pb118 {
       @include rule(padding-bottom, (xl: 118px, xlg: 118, lg: 77, md: 64, sm: 47));
     }
@@ -1068,6 +1175,24 @@
       &__content {
         &:not(:first-child) {
           @include rule(margin-top, (xl: 17px, xlg: 17, lg: 17, md: 17, sm: 40));
+        }
+
+        &_mt32 {
+          &:not(:first-child) {
+            @include rule(margin-top, (xl: 32px, xlg: 32, lg: 32, md: 32, sm: 30));
+          }
+        }
+
+        &_allday {
+          &:not(:first-child) {
+            @include rule(margin-top, (xl: 48px, xlg: 48, lg: 48, md: 46, sm: 54));
+          }
+        }
+
+        &_rules {
+          &:not(:first-child) {
+            @include rule(margin-top, (xl: 35px, xlg: 35, lg: 35, md: 35, sm: 28));
+          }
         }
       }
     }
