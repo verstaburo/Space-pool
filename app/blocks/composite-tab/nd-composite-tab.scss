@@ -1,0 +1,112 @@
+.nd-composite-tab {
+  $b: &;
+
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  box-sizing: border-box;
+  position: relative;
+  pointer-events: none;
+
+  &__checkbox {
+    display: block;
+    pointer-events: auto;
+    font-size: 0;
+    line-height: 0;
+  }
+
+  &__box {
+    position: relative;
+    display: inline-block;
+    border: 1px solid $nd-color-field-border;
+    transition: background $ease-main, opacity $ease-main, border $ease-main;
+    box-sizing: border-box;
+    cursor: pointer;
+    font-size: 0;
+    line-height: 0;
+
+    @include rule(width, (xl: 20px, xlg: 20, lg: 20, md: 20, sm: 20));
+    @include rule(height, (xl: 20px, xlg: 20, lg: 20, md: 20, sm: 20));
+
+    &::before {
+      @include pseudo;
+
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      transition: opacity $ease-main;
+      background-color: transparent;
+      background-repeat: no-repeat;
+      background-position: 60% 50%;
+      background-size: 80% 65%;
+      background-image: $icon-check-white;
+    }
+
+    #{$b}__input:checked ~ & {
+      background-color: $nd-color-main;
+      border-color: $nd-color-basic;
+
+      &::before {
+        opacity: 1;
+      }
+    }
+
+    #{$b}__input:disabled ~ &, .is-disabled & {
+      border-color: $nd-color-border3;
+      cursor: default;
+      pointer-events: none;
+    }
+
+    #{$b}__input:checked:disabled ~ &, .is-disabled #{$b}__input:checked & {
+      background-color: rgba($nd-color-main, .3);
+      border-color: $nd-color-border3;
+    }
+
+    #{$b}:hover & {
+      border-color: $nd-color-basic;
+    }
+  }
+
+  &__button {
+    display: inline-block;
+    box-sizing: border-box;
+    cursor: pointer;
+    transition: border $ease-main, color $ease-main;
+    pointer-events: auto;
+    border-bottom-style: solid;
+    border-bottom-color: transparent;
+    font-family: $font-stolzl;
+    font-weight: 400;
+    letter-spacing: -.015em;
+    line-height: 1.2;
+
+    @include rule(font-size, (xl: 16px, xlg: 16, lg: 15, md: 13, sm: 13));
+    @include rule(padding-top, (xl: 10px, xlg: 10, lg: 10, md: 10, sm: 10));
+    @include rule(padding-bottom, (xl: 7px, xlg: 7, lg: 7, md: 7, sm: 7));
+    @include rule(border-bottom-width, (xl: 3px, xlg: 3, lg: 3, md: 3, sm: 3));
+
+    &.is-active {
+      pointer-events: auto;
+      border-bottom-color: $nd-color-main;
+      color: $nd-color-gray-text;
+    }
+
+    &:hover {
+      color: $nd-color-main;
+    }
+
+    &.is-disabled {
+      cursor: not-allowed;
+      pointer-events: none;
+      color: rgba(0, 0, 0, .3);
+    }
+
+    &.is-saved {
+
+    }
+
+    &:not(:first-child) {
+      @include rule(margin-left, (xl: 13px, xlg: 13, lg: 7, md: 7, sm: 8));
+    }
+  }
+}

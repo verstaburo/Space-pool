@@ -210,6 +210,11 @@
       }
     }
 
+    &_colors {
+      @include rule(width, (xl: 20px, xlg: 20, lg: 20, md: 20, sm: 20));
+      @include rule(height, (xl: 20px, xlg: 20, lg: 20, md: 20, sm: 20));
+    }
+
     &_user {
       width: 13px;
       height: 13px;
@@ -302,6 +307,16 @@
       @include screen('sm', max, 2) {
         width: pxtovw(14, 375);
         height: pxtovw(14, 375);
+      }
+    }
+
+    &_abs {
+      position: absolute;
+      top: 50%;
+      transform: translate3d(0, -50%, 0);
+
+      &_start {
+        @include rule(left, (xl: 12px, xlg: 12, lg: 12, md: 12, sm: 12));
       }
     }
   }
@@ -425,6 +440,12 @@
     }
   }
 
+  &_sm-wide {
+    @include screen('sm', max, 2) {
+      width: 100%;
+    }
+  }
+
   &_pad10 {
     padding: 0 10px;
 
@@ -442,6 +463,26 @@
 
     @include screen('sm', max, 2) {
       padding: 0 pxtovw(10, 375);
+    }
+  }
+
+  &_pad48 {
+    padding: 0 48px;
+
+    @include screen('xlg', max, 2) {
+      padding: 0 pxtovw(48, 1660);
+    }
+
+    @include screen('lg', max, 2) {
+      padding: 0 pxtovw(48, 1366);
+    }
+
+    @include screen('md', max, 2) {
+      padding: 0 pxtovw(48, 960);
+    }
+
+    @include screen('sm', max, 2) {
+      padding: 0 pxtovw(48, 375);
     }
   }
 

@@ -98,9 +98,18 @@
       height: pxtovw(20, 375);
     }
 
+    #{$b}_gray-box & {
+      border-color: $nd-color-field-border;
+      background-color: $nd-color-bg;
+    }
+
     #{$b}__input:checked ~ & {
       background-color: $nd-color-main;
       background-image: $icon-check-white;
+    }
+
+    #{$b}:hover & {
+      border-color: $nd-color-basic;
     }
 
     #{$b}__input:disabled ~ &, .is-disabled & {
@@ -112,9 +121,6 @@
     #{$b}__input:checked:disabled ~ &, .is-disabled #{$b}__input:checked & {
       background-color: rgba($nd-color-main, .3);
       border-color: $nd-color-border3;
-    }
-
-    #{$b}:hover & {
     }
   }
 

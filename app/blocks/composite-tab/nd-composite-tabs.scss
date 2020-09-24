@@ -1,0 +1,19 @@
+.nd-composite-tabs {
+  $b: &;
+
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+
+  @include screen('sm', max, 2) {
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+  }
+
+  &__item {
+    &:not(:first-child) {
+      @include rule(margin-left,(xl: 42px, xlg: 42, lg: 35, md: 36, sm: 0));
+    }
+  }
+}

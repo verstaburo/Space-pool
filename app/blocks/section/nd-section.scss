@@ -138,6 +138,15 @@
         min-height: pxtovw(85, 960);
       }
     }
+
+    &_wrap {
+      flex-wrap: wrap;
+      align-content: flex-start;
+    }
+
+    #{$b}_app & {
+      @include rule(margin-top, (xl: -6px, xlg: -6, lg: -6, md: -6, sm: 0));
+    }
   }
 
   &__title {
@@ -204,6 +213,12 @@
 
       @include screen('sm', max, 2) {
         font-size: pxtovw(20, 375);
+      }
+
+      #{$b}_app & {
+        @include rule(font-size, (xl: 24px, xlg: 24, lg: 20, md: 22, sm: 20));
+
+        letter-spacing: normal;
       }
     }
 
@@ -272,6 +287,21 @@
 
       @include rule(margin-right, (md: -50, sm: -20));
       @include rule(margin-left, (md: 0, sm: -20));
+    }
+  }
+
+  &__tabs {
+    &:not(:first-child) {
+      @include rule(margin-left, (xl: 40px, xlg: 40, lg: 30, md: 30, sm: 0));
+      @include rule(margin-top, (sm: 28));
+    }
+  }
+
+  &__modals {
+    width: 100%;
+
+    &:not(:first-child) {
+      @include rule(margin-top, (xl: 60px, xlg: 60, lg: 35, md: 28, sm: 28));
     }
   }
 
@@ -1280,5 +1310,9 @@
         }
       }
     }
+  }
+
+  &_app {
+    @include rule(margin-top, (sm: 28));
   }
 }

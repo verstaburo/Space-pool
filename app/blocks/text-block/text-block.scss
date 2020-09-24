@@ -9,6 +9,10 @@
     color: $nd-color-gray-text;
   }
 
+  &_tac {
+    text-align: center;
+  }
+
   &__media {
     display: block;
     width: 100%;
@@ -128,6 +132,12 @@
       font-size: pxtovw(20, 375);
     }
 
+    &_fz20 {
+      @include rule(font-size, (xl: 20px, xlg: 20, lg: 20, md: 20, sm: 20));
+
+      line-height: 1;
+    }
+
     &_fz30 {
       font-family: $font-stolzl;
       font-size: 30px;
@@ -213,6 +223,13 @@
       line-height: 1.63;
     }
 
+    &_fz15 {
+      @include rule(font-size, (xl: 15px, xlg: 15, lg: 15, md: 15, sm: 15));
+
+      line-height: (18 / 15);
+      letter-spacing: normal;
+    }
+
     &_fz18 {
       font-size: 18px;
       line-height: (26 / 18);
@@ -253,6 +270,12 @@
 
       @include screen('sm', max, 2) {
         margin-top: pxtovw(35, 375);
+      }
+    }
+
+    &_mt20 {
+      &:not(:first-child) {
+        @include rule(margin-top, (xl: 20px, xlg: 20, lg: 20, md: 20, sm: 6));
       }
     }
 
