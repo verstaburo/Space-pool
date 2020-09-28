@@ -60,7 +60,7 @@ import stickyMessage from '../blocks/sticky-message/sticky-message';
 import blockHeightRounding from './functions/blockHeightRounding';
 import '../blocks/avatar-uploader/avatar-uploader';
 import calendar from '../blocks/calendar/calendar';
-import uploader from '../blocks/uploader/uploader';
+import uploader from '../blocks/uploader/nd-uploader';
 import toggleFilter from '../components/search-filter/search-filter';
 import truncateBlocks from './functions/lineClamp';
 import {
@@ -95,6 +95,7 @@ import locationTagsMax from '../components/tags-map/tags-map';
 import mapPopup from '../blocks/map-popup/map-popup';
 import formSubmitSwitch from './functions/formSubmitSwitch';
 import allDayFixation from './functions/allDayFixation';
+import ndCropedImage from '../components/popup-image-cropper/popup-image-cropper';
 
 const $ = window.$;
 
@@ -177,4 +178,5 @@ $(() => {
   mapPopup();
   formSubmitSwitch();
   allDayFixation();
+  ndCropedImage();
 });

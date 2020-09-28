@@ -1,0 +1,38 @@
+mixin nd-photo-preview(data, index)
+  +b.nd-photo-preview&attributes(attributes)(data-preview-item data-callback="deleteOnBackend" data-name-crop-input="photoCrop")
+    +e.INPUT(type="hidden" name=(data.originalName + '[' + index + ']') data-preview-original)
+    +e.INPUT(type="hidden" name=(data.cropName + '[' + index + ']'))
+    +e.BUTTON.delete.js-delete-file(type="button")
+    block
+
+mixin nd-photo-preview-preview(data, index)
+  +e.preview&attributes(attributes)
+    +e.top
+      +e.number(data-preview-number)!=(index + 1)
+      +e.label Main photo
+    +e.content
+      +e.media(data-preview-image)
+        block
+    +e.bottom
+      +e.A.cropper.js-crop-image(href="#popup-image-crop")
+      +e.description
+        +nd-select.js-nd-select(name=(data.select + '[' + index + ']') data-mobile-title="What’s on photo?" data-choices-classes="nd-choices_upload nd-choices_sm-h50")
+          option(value="" placeholder) What’s on photo?
+          option(value="Cafe") Cafe
+          option(value="Meeting room") Meeting room
+          option(value="Parking") Parking
+          option(value="Roof terrace") Roof terrace
+          option(value="reception") Reception
+
+
+mixin nd-photo-preview-error()
+  +e.error&attributes(attributes)
+    +e.error-description
+      +e.error-text
+        p(data-preview-error-text) This photo is too small
+        p Please provide photos with at list following parameters:
+      +e.condition
+        p 1024 px on the shortest side
+        p High quality JPG, PNG
+    +nd-button('label').__button.js-upload-file(data-format="jpg,png" data-total-count="25" data-short-side="1024"  data-url-template='assets/data/nd-templates.json') Upload another
+      input(type="file" multiple="multiple").hide

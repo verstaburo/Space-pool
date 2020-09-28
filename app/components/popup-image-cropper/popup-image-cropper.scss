@@ -1,0 +1,58 @@
+.popup-image-cropper {
+  $b: &;
+
+  @include rule(max-width, (xl: 800px, xlg: 800, lg: 800, md: 800, sm: 375));
+
+  .nd-popup {
+    &__header {
+      @include rule(height, (xl: 60px, xlg: 60, lg: 60, md: 60, sm: 60));
+    }
+
+    &__container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    &__wrapper {
+      height: auto;
+    }
+
+    &__footer {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      box-sizing: border-box;
+
+      @include rule(height, (xl: 60px, xlg: 60, lg: 60, md: 60, sm: 60));
+    }
+  }
+
+  &__media {
+    display: block;
+    width: 100%;
+
+    div {
+      width: 100%;
+    }
+
+    img {
+      display: block;
+      line-height: 0;
+      font-size: 0;
+      max-width: 100%;
+    }
+  }
+
+  .cropper-line, .cropper-point {
+    background-color: $nd-color-main;
+  }
+
+  .cropper-view-box {
+    outline-color: rgba($nd-color-main, .75);
+  }
+
+  .cropper-modal {
+    opacity: .4;
+  }
+}

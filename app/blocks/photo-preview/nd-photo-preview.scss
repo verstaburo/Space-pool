@@ -1,0 +1,230 @@
+.nd-photo-preview {
+  $b: &;
+
+  position: relative;
+  width: 100%;
+  display: block;
+  background-color: $nd-color-bg;
+  box-sizing: border-box;
+  border: 1px solid $nd-color-border-gray;
+
+  @include rule(border-radius, (xl: 3px, xlg: 3, lg: 3, md: 3, sm: 3));
+
+  &.is-error {
+    border-color: #e88902;
+  }
+
+  &__preview {
+    position: relative;
+    display: block;
+    width: 100%;
+  }
+
+  &__top {
+    position: absolute;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 2;
+  }
+
+  &__number {
+    display: block;
+    text-align: center;
+    background-color: rgba(0, 0, 0, .4);
+    color: $nd-color-basic-light;
+    font-weight: 500;
+
+    @include rule(border-radius, (xl: 3px, xlg: 3, lg: 3, md: 3, sm: 3));
+    @include rule(width, (xl: 24px, xlg: 24, lg: 24, md: 24, sm: 24));
+    @include rule(font-size, (xl: 14px, xlg: 14, lg: 14, md: 14, sm: 14));
+    @include rule(line-height, (xl: 24px, xlg: 24, lg: 24, md: 24, sm: 24));
+  }
+
+  &__label {
+    display: inline-block;
+    text-align: center;
+    color: $nd-color-basic-light;
+    background-color: $nd-color-main;
+    font-weight: 600;
+    white-space: nowrap;
+    opacity: 0;
+    transition: opacity $ease-main;
+
+    @include rule(border-radius, (xl: 1px, xlg: 1, lg: 1, md: 1, sm: 1));
+    @include rule(font-size, (xl: 13px, xlg: 13, lg: 13, md: 13, sm: 13));
+    @include rule(line-height, (xl: 18px, xlg: 18, lg: 18, md: 18, sm: 18));
+    @include rule(padding-left, (xl: 4px, xlg: 4, lg: 4, md: 4, sm: 4));
+    @include rule(padding-right, (xl: 4px, xlg: 4, lg: 4, md: 4, sm: 4));
+
+    &:not(:first-child) {
+      @include rule(margin-left, (xl: 3px, xlg: 3, lg: 3, md: 3, sm: 3));
+    }
+
+    #{$b}.is-main & {
+      opacity: 1;
+    }
+  }
+
+  &__content {
+    display: block;
+    box-sizing: border-box;
+    cursor: grab;
+
+    @include rule(padding-top, (xl: 63px, xlg: 63, lg: 52, md: 47, sm: 58));
+    @include rule(padding-bottom, (xl: 60px, xlg: 60, lg: 40, md: 32, sm: 50));
+    @include rule(padding-left, (xl: 5px, xlg: 5, lg: 4, md: 4, sm: 4));
+    @include rule(padding-right, (xl: 5px, xlg: 5, lg: 4, md: 4, sm: 4));
+  }
+
+  &__media {
+    position: relative;
+    width: 100%;
+    padding-top: 66.9%;
+    overflow: hidden;
+
+    @include rule(border-radius, (xl: 3px, xlg: 3, lg: 3, md: 3, sm: 3));
+
+    img {
+      @include fill-img;
+
+      font-size: 0;
+      line-height: 0;
+      display: block;
+    }
+  }
+
+  &__bottom {
+    position: relative;
+    display: flex;
+    justify-content: flex-start;
+    width: 100%;
+    background-color: #fff;
+    border-top: 1px solid $nd-color-border-gray;
+  }
+
+  &__cropper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    cursor: pointer;
+    border-right: 1px solid $nd-color-border-gray;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    background-image: url("data:image/svg+xml,%3Csvg width='21' height='23' viewBox='0 0 21 23' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M5.1084 4.39146V1.71094' stroke='black' stroke-width='1.5' stroke-miterlimit='10' stroke-linecap='round'/%3E%3Cpath d='M20.0019 17.1249H6.67816C5.7529 17.1249 5.0127 16.3591 5.0127 15.4018V8.70044' stroke='black' stroke-width='1.5' stroke-miterlimit='10' stroke-linecap='round'/%3E%3Cpath d='M15.7471 19.4226V22.1031' stroke='%230085FF' stroke-width='1.5' stroke-miterlimit='10' stroke-linecap='round'/%3E%3Cpath d='M0.851562 6.59229H14.1753C15.1006 6.59229 15.8408 7.35815 15.8408 8.31548V14.9211' stroke='%230085FF' stroke-width='1.5' stroke-miterlimit='10' stroke-linecap='round'/%3E%3C/svg%3E ");
+
+    @include rule(width, (xl: 50px, xlg: 50, lg: 50, md: 50, sm: 50));
+    @include rule(background-size, (xl: 20px, xlg: 20, lg: 20, md: 20, sm: 20));
+  }
+
+  &__error {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 3;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity $ease-main;
+    background: rgba(253, 150, 3, .9);
+    box-sizing: border-box;
+    color: $nd-color-basic-light;
+    text-align: center;
+
+    @include rule(padding-top, (xl: 36px, xlg: 36, lg: 36, md: 36, sm: 36));
+    @include rule(padding-bottom, (xl: 44px, xlg: 44, lg: 44, md: 44, sm: 44));
+    @include rule(padding-left, (xl: 37px, xlg: 37, lg: 30, md: 30, sm: 30));
+    @include rule(padding-right, (xl: 37px, xlg: 37, lg: 30, md: 30, sm: 30));
+
+    #{$b}.is-error & {
+      opacity: 1;
+      pointer-events: auto;
+    }
+  }
+
+  &__error-description {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    flex: 1;
+    line-height: (21 / 17);
+    text-align: center;
+
+    @include rule(font-size, (xl: 17px, xlg: 17, lg: 14, md: 14, sm: 14));
+
+    @include screen('lg', max, 2) {
+      line-height: (17 / 14);
+    }
+  }
+
+  &__error-text {
+    display: block;
+    width: 100%;
+    font-weight: 600;
+  }
+
+  &__condition {
+    display: block;
+    width: 100%;
+    font-weight: 700;
+
+    &:not(:first-child) {
+      @include rule(margin-top, (xl: 46px, xlg: 46, lg: 46, md: 46, sm: 30));
+    }
+  }
+
+  &__description {
+    display: block;
+    width: 100%;
+    flex: 1;
+
+    .nd-choices {
+      width: 100%;
+    }
+
+    .nd-choices.is-open {
+      z-index: 5;
+    }
+  }
+
+  &__button {
+    width: 100%;
+    flex: none;
+    cursor: pointer;
+    pointer-events: auto;
+  }
+
+  &__delete {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 4;
+    transition: background $ease-main, box-shadow $ease-main;
+    box-shadow: 0 0 0 1px $nd-color-border-gray;
+    background-color: $nd-color-bg;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    background-image: url("data:image/svg+xml,%3Csvg width='12' height='12' viewBox='0 0 12 12' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1L11.5 11.5' stroke='black'/%3E%3Cpath d='M11.5 1L1 11.5' stroke='black'/%3E%3C/svg%3E");
+
+    @include rule(border-radius, (xl: 3px, xlg: 3, lg: 3, md: 3, sm: 3));
+    @include rule(background-size, (xl: 12px, xlg: 12, lg: 12, md: 12, sm: 12));
+    @include rule(width, (xl: 22px, xlg: 22, lg: 22, md: 22, sm: 22));
+    @include rule(height, (xl: 22px, xlg: 22, lg: 22, md: 22, sm: 22));
+
+    #{$b}.is-error & {
+      box-shadow: 0 0 0 1px $nd-color-basic;
+      background-color: $nd-color-main;
+      background-image: url("data:image/svg+xml,%3Csvg width='12' height='12' viewBox='0 0 12 12' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1L11.5 11.5' stroke='white'/%3E%3Cpath d='M11.5 1L1 11.5' stroke='white'/%3E%3C/svg%3E ");
+    }
+  }
+}

@@ -1,0 +1,11 @@
+mixin nd-uploader(data)
+  +b.LABEL.nd-uploader&attributes(attributes)(data-format="jpg,png" data-total-count="25" data-short-side="1024"  data-url-template='assets/data/nd-templates.json')
+    +e.INPUT(type="file" multiple="multiple").input
+    +e.content
+      +e.icon
+        +e.IMG(src="assets/images/nd/nd-upload.svg")
+      +e.title Upload images
+      +e.hint Drag and drop or push the button
+      +nd-button('div')(class=((data.buttonCls || '') + ' __button')) Browse...
+      +e.conditions
+        block

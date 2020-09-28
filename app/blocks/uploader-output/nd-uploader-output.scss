@@ -1,0 +1,54 @@
+.nd-uploader-output {
+  $b: &;
+
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+
+  &__empty-area {
+    display: none;
+    width: 100%;
+
+    #{$b}.is-empty & {
+      display: block;
+    }
+  }
+
+  &__area {
+    order: 2;
+  }
+
+  &__files {
+    display: flex;
+    justify-content: flex-start;
+    box-sizing: border-box;
+    flex-wrap: wrap;
+    align-content: flex-start;
+
+    @include rule(margin-left, (xl: -35px, xlg: -35, lg: -15, md: -13, sm: -13));
+    @include rule(margin-right, (xl: -35px, xlg: -35, lg: -15, md: -13, sm: -13));
+    @include rule(margin-top, (xl: -50px, xlg: -50, lg: -30, md: -27, sm: -36));
+
+    #{$b}.is-empty & {
+      display: none;
+    }
+  }
+
+  &__item {
+    display: flex;
+    width: 33.33%;
+    box-sizing: border-box;
+
+    @include rule(padding-left, (xl: 35px, xlg: 35, lg: 15, md: 13, sm: 13));
+    @include rule(padding-right, (xl: 35px, xlg: 35, lg: 15, md: 13, sm: 13));
+    @include rule(padding-top, (xl: 50px, xlg: 50, lg: 30, md: 27, sm: 36));
+
+    @include screen('sm', max, 2) {
+      width: 100%;
+    }
+  }
+
+  &.is-limit [data-insert-preview-after] {
+    display: none;
+  }
+}

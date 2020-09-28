@@ -307,6 +307,25 @@ block content
           +nd-grid-col({xl: 4})
             +nd-side-navigation(sideProfile, 'Account settings')._profile
 
+    //- Photo Preview
+    +ui-section
+      +ui-section-head
+        h2 Photo Preview
+        p Блок: components/side-navigation
+      +ui-section-content()
+        +nd-grid
+          +nd-grid-col({xl: 4})
+            +nd-photo-preview({originalName: 'source', cropName: 'crop'}, 0).is-main
+              +nd-photo-preview-preview({select: "description"}, 0)
+                img(src='assets/images/nd/space-hq-1.jpg')
+              +nd-photo-preview-error
+          +nd-grid-col({xl: 4})
+            +nd-photo-preview({originalName: 'source', cropName: 'crop'}, 1).is-error
+              +nd-photo-preview-preview({select: "description"}, 1)
+                img(src='assets/images/nd/space-hq-2.jpg')
+              +nd-photo-preview-error
+          +nd-grid-col({xl: 4})
+
 block panels
 
 

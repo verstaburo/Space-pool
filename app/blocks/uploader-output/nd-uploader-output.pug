@@ -1,0 +1,12 @@
+mixin nd-uploader-output()
+  +b.nd-uploader-output&attributes(attributes)
+    +e.empty-area
+      +nd-uploader({buttonCls: ''}).js-upload-file
+        p Please upload quality images
+        p 1024 px on the shortest side
+        p High quality JPG, PNG
+    +e.files(data-draggable-list)
+      +e.item(data-insert-preview)
+        +nd-uploader({buttonCls: '_lg-h32 _lg-fz15'})._small._gray.js-upload-file
+          p Please upload quality images
+        block

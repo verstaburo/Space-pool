@@ -408,6 +408,14 @@
     }
   }
 
+  &_lg-fz15 {
+    @include rule(font-size, (lg: 15, md: 15, sm: 15));
+
+    @include screen('lg', max, 2) {
+      line-height: (18 / 15);
+    }
+  }
+
   &_md-fz15 {
     @include screen('md', max, 2) {
       font-size: pxtovw(15, 960);
@@ -613,6 +621,10 @@
     @include screen('sm', max, 2) {
       height: pxtovw(26, 375);
     }
+  }
+
+  &_lg-h32 {
+    @include rule(height, (lg: 32, md: 32, sm: 32));
   }
 
   &_sm-h32 {

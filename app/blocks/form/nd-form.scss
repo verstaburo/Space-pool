@@ -280,6 +280,12 @@
     &_tac {
       text-align: center;
     }
+
+    &_fx {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
   }
 
   &__title {
@@ -1135,6 +1141,32 @@
       &:not(:first-child) {
         @include rule(margin-top, (xl: 10px, xlg: 10, lg: 14, md: 10, sm: 10));
       }
+    }
+  }
+
+  &__counter {
+    display: inline-block;
+    text-align: right;
+    line-height: (21 / 17);
+    font-weight: 500;
+
+    @include rule(font-size, (xl: 17px, xlg: 17, lg: 17, md: 17, sm: 17));
+
+    i {
+      font-style: normal;
+      color: $nd-color-main;
+    }
+
+    &:not(:first-child) {
+      @include rule(margin-left, (xl: 10px, xlg: 10, lg: 14, md: 10, sm: 10));
+    }
+  }
+
+  &__upload-area {
+    width: 100%;
+
+    &:not(:first-child) {
+      @include rule(margin-top, (xl: 42px, xlg: 42, lg: 38, md: 38, sm: 44));
     }
   }
 

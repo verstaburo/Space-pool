@@ -1,0 +1,176 @@
+.nd-uploader {
+  $b: &;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  transition: background $ease-main, border $ease-main;
+  cursor: pointer;
+  box-sizing: border-box;
+
+  @include rule(padding-top, (xl: 70px, xlg: 70, lg: 36, md: 36, sm: 36));
+  @include rule(padding-bottom, (xl: 82px, xlg: 82, lg: 33, md: 33, sm: 46));
+
+  input {
+    display: none;
+  }
+
+  &.is-dragover {
+    background-color: $nd-color-bg;
+  }
+
+  &__content {
+    display: block;
+    width: 100%;
+    text-align: center;
+    line-height: (21 / 17);
+    font-weight: 500;
+
+    @include rule(font-size, (xl: 17px, xlg: 17, lg: 17, md: 17, sm: 15));
+    @include rule(max-width, (xl: 252px, xlg: 252, lg: 252, md: 252, sm: 252));
+
+    @include screen('sm', max, 2) {
+      line-height: 1.6;
+    }
+  }
+
+  &__icon {
+    display: inline-block;
+    font-size: 0;
+    line-height: 0;
+
+    @include rule(width, (xl: 25px, xlg: 25, lg: 25, md: 25, sm: 25));
+    @include rule(height, (xl: 25px, xlg: 25, lg: 25, md: 25, sm: 25));
+
+    img {
+      width: 100%;
+      height: 100%;
+      line-height: 0;
+      font-size: 0;
+    }
+  }
+
+  &__title {
+    display: block;
+    width: 100%;
+    font-weight: 700;
+    line-height: 1.2;
+
+    @include rule(font-size, (xl: 20px, xlg: 20, lg: 20, md: 20, sm: 20));
+
+    &:not(:first-child) {
+      @include rule(margin-top, (xl: 26px, xlg: 26, lg: 26, md: 26, sm: 26));
+    }
+  }
+
+  &__hint {
+    display: block;
+    width: 100%;
+
+    @include screen('sm', max, 2) {
+      display: none;
+
+      #{$b}_small & {
+        display: block;
+      }
+    }
+
+    &:not(:first-child) {
+      @include rule(margin-top, (xl: 23px, xlg: 23, lg: 23, md: 23, sm: 23));
+    }
+  }
+
+  &__button {
+    width: 100%;
+
+    &:not(:first-child) {
+      @include rule(margin-top, (xl: 25px, xlg: 25, lg: 25, md: 25, sm: 25));
+    }
+  }
+
+  &__conditions {
+    display: block;
+    width: 100%;
+    color: $nd-color-gray-text;
+
+    &:not(:first-child) {
+      @include rule(margin-top, (xl: 66px, xlg: 66, lg: 66, md: 66, sm: 66));
+    }
+  }
+
+  &_small {
+    border: 1px solid $nd-color-border-gray;
+    justify-content: start;
+    align-items: stretch;
+
+    @include rule(border-radius, (xl: 3px, xlg: 3, lg: 3, md: 3, sm: 3));
+    @include rule(padding-top, (xl: 44px, xlg: 44, lg: 64, md: 38, sm: 48));
+    @include rule(padding-bottom, (xl: 30px, xlg: 30, lg: 33, md: 24, sm: 34));
+    @include rule(padding-left, (xl: 36px, xlg: 36, lg: 28, md: 28, sm: 38));
+    @include rule(padding-right, (xl: 36px, xlg: 36, lg: 28, md: 28, sm: 38));
+
+    &.is-dragover {
+      border-color: $nd-color-basic;
+    }
+
+    #{$b} {
+      &__icon {
+        @include rule(width, (sm: 30));
+        @include rule(height, (sm: 30));
+      }
+
+      &__content {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        max-width: none;
+
+        @include rule(font-size, (xl: 17px, xlg: 17, lg: 14, md: 14, sm: 14));
+
+        @include screen('lg', max, 2) {
+          line-height: (17 / 14);
+        }
+      }
+
+      &__conditions {
+        &:not(:first-child) {
+          margin-top: auto;
+
+          @include screen('sm', max, 2) {
+            margin-top: pxtovw(35, 375);
+          }
+        }
+      }
+
+      &__title {
+        &:not(:first-child) {
+          @include rule(margin-top, (xl: 26px, xlg: 26, lg: 22, md: 20, sm: 20));
+        }
+      }
+
+      &__hint {
+        &:not(:first-child) {
+          @include rule(margin-top, (xl: 23px, xlg: 23, lg: 8, md: 10, sm: 24));
+        }
+      }
+
+      &__button {
+        max-width: 100%;
+        width: auto;
+
+        @include rule(min-width, (lg: 136, md: 136, sm: 166));
+        @include rule(height, (sm: 40));
+
+        &:not(:first-child) {
+          @include rule(margin-top, (lg: 45, md: 32, sm: 45));
+        }
+      }
+    }
+  }
+
+  &_gray {
+    background-color: $nd-color-bg;
+  }
+}

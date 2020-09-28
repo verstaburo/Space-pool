@@ -291,6 +291,41 @@
       pointer-events: none;
     }
 
+    #{$b}_upload & {
+      border-color: transparent;
+    }
+
+    #{$b}_upload:hover & {
+      border-color: transparent;
+    }
+
+    #{$b}_upload.is-item-select & {
+      border-color: transparent;
+      box-shadow: none;
+    }
+
+    .is-error #{$b}_upload & {
+      border-color: transparent;
+      box-shadow: none;
+    }
+
+    #{$b}_upload.is-focused &, #{$b}_upload.is-focused:hover & {
+      border-color: transparent;
+      box-shadow: none;
+    }
+
+    #{$b}_upload.is-open &, #{$b}_upload.is-open:hover & {
+      border-color: transparent;
+      box-shadow: none;
+    }
+
+    #{$b}_sm-h50 & {
+      @include screen('sm', max, 2) {
+        padding: pxtovw(14, 375) pxtovw(11, 375) pxtovw(8, 375);
+        min-height: pxtovw(50, 375);
+      }
+    }
+
     #{$b}_h40 & {
       padding: 9px 11px 3px;
       min-height: 40px;
@@ -1072,6 +1107,10 @@
       border-color: $nd-color-field-border;
       cursor: not-allowed;
       user-select: none;
+
+      #{$b}_upload & {
+        border-color: transparent;
+      }
     }
 
     &__item {
@@ -1091,6 +1130,22 @@
       &::after {
         opacity: .4;
         fill: currentColor !important;
+      }
+    }
+  }
+
+  &_upload {
+    #{$b} {
+      &__list {
+        &--single {
+          #{$b}__placeholder, #{$b}__item {
+            font-weight: 500;
+            color: $nd-color-basic;
+            line-height: (26 / 14);
+
+            @include rule(font-size, (xl: 14px, xlg: 14, lg: 14, md: 14, sm: 14));
+          }
+        }
       }
     }
   }
