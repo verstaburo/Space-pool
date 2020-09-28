@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimal-ui">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Spacepool - Space Edit - Location</title>
+    <title>Spacepool - Space Edit - Photos</title>
     <meta name="description" content="">
     <meta name="keywords" content="">
     <link href="favicon.ico" rel="shortcut icon">
@@ -195,12 +195,12 @@
                 <div class="nd-page-header__column nd-page-header__column_side"><a class="nd-link nd-link_icon nd-link_underline nd-link_back nd-link_back_md21 nd-page-header__back nd-page-header__back_md-noname"><svg class="nd-link__icon nd-link__icon_arrow5"><use xlink:href="assets/images/icon.svg#icon_arrow5"></use></svg><span class="nd-link__text">Back</span></a></div>
                 <div class="nd-page-header__column nd-page-header__column_main">
                     <div class="nd-page-header__mb-menu nd-hide-from-md">
-                        <div class="js-nav-slider slider-navigation" data-first-slide-index="0">
+                        <div class="js-nav-slider slider-navigation" data-first-slide-index="4">
                             <div class="swiper-wrapper">
-                                <div class="slider-navigation__slide swiper-slide"><a class="slider-navigation__link is-active" href="ha-edit-space.html">Space location</a></div>
+                                <div class="slider-navigation__slide swiper-slide"><a class="slider-navigation__link" href="ha-edit-space.html">Space location</a></div>
                                 <div class="slider-navigation__slide swiper-slide"><a class="slider-navigation__link" href="ha-edit-space-description.html">Title and description</a></div>
                                 <div class="slider-navigation__slide swiper-slide"><a class="slider-navigation__link" href="ha-edit-space-facilities.html">Facilities</a></div>
-                                <div class="slider-navigation__slide swiper-slide"><a class="slider-navigation__link" href="ha-edit-space-photos.html">Photos</a></div>
+                                <div class="slider-navigation__slide swiper-slide"><a class="slider-navigation__link is-active" href="ha-edit-space-photos.html">Photos</a></div>
                                 <div class="slider-navigation__slide swiper-slide"><a class="slider-navigation__link" href="ha-edit-space-rules.html">House rules</a></div>
                                 <div class="slider-navigation__slide swiper-slide"><a class="slider-navigation__link" href="ha-edit-space-conditions.html">Terms and conditions</a></div>
                             </div>
@@ -225,10 +225,10 @@
                                 </div>
                             </div>
                             <ul class="nd-side-navigation__list nd-side-navigation__list_small nd-side-navigation__list_mt55">
-                                <li class="nd-side-navigation__item"><a class="nd-side-navigation__link is-active" href="ha-edit-space.html">Space location</a></li>
+                                <li class="nd-side-navigation__item"><a class="nd-side-navigation__link" href="ha-edit-space.html">Space location</a></li>
                                 <li class="nd-side-navigation__item"><a class="nd-side-navigation__link" href="ha-edit-space-description.html">Title and description</a></li>
                                 <li class="nd-side-navigation__item"><a class="nd-side-navigation__link" href="ha-edit-space-facilities.html">Facilities</a></li>
-                                <li class="nd-side-navigation__item"><a class="nd-side-navigation__link" href="ha-edit-space-photos.html">Photos</a></li>
+                                <li class="nd-side-navigation__item"><a class="nd-side-navigation__link is-active" href="ha-edit-space-photos.html">Photos</a></li>
                                 <li class="nd-side-navigation__item"><a class="nd-side-navigation__link" href="ha-edit-space-rules.html">House rules</a></li>
                                 <li class="nd-side-navigation__item"><a class="nd-side-navigation__link" href="ha-edit-space-conditions.html">Terms and conditions</a></li>
                             </ul>
@@ -237,57 +237,217 @@
                     </aside>
                 </div>
                 <div class="nd-content__column nd-content__column_main">
-                    <div class="nd-location">
-                        <div class="nd-location__map">
-                            <div class="nd-location__wrapper" id="add-map"></div>
-                            <div class="nd-location__marker"><img src="assets/images/nd/add-location.svg" /></div>
-                        </div>
-                        <form class="nd-form nd-location__form" data-validated-form="data-validated-form" data-submit-disabled="data-submit-disabled">
-                            <fieldset class="nd-form__section">
-                                <div class="nd-form__header">
-                                    <h3 class="nd-form__title nd-form__title_fz24 nd-form__title_md-fz20 nd-form__title_fw400">Space location</h3>
-                                </div>
-                                <div class="nd-form__content"><input class="input" type="hidden" name="coordinates" data-map-coordinates="add-map" />
-                                    <div class="nd-grid nd-grid_int32">
-                                        <div class="nd-grid__col nd-grid__col_xl_12">
-                                            <div class="nd-form__wrapper"><label class="form-box nd-form-box nd-form-box_bg-white"><select class="nd-select js-nd-select" name="country" placeholder="Country" data-mobile-title="Country" required="required">
-                                                        <option value="" placeholder="placeholder"></option>
-                                                        <option value="uk">United-Kingdom</option>
-                                                        <option value="lv">Latvia</option>
-                                                        <option value="ru">Russia</option>
-                                                        <option value="de">Germany</option>
-                                                        <option value="fr">France</option>
-                                                    </select><span class="form-box__label">Country</span></label>
-                                                <div class="error-message"></div>
+                    <form class="nd-form nd-form_app nd-form_app_pb80 js-form-with-hidden-panel" data-validated-form="data-validated-form" data-submit-disabled="data-submit-disabled">
+                        <fieldset class="nd-form__section">
+                            <div class="nd-form__header nd-form__header_fx">
+                                <h3 class="nd-form__title nd-form__title_fz24 nd-form__title_fw400">Photos</h3>
+                                <div class="nd-form__counter" data-file-counter="data-file-counter"><i>5</i> / 25</div>
+                            </div>
+                            <div class="nd-uploader-output nd-form__upload-area" data-upload-area="data-upload-area">
+                                <div class="nd-uploader-output__empty-area"><label class="nd-uploader js-upload-file" data-format="jpg,png" data-total-count="25" data-short-side="1024" data-url-template="assets/data/nd-templates.json"><input class="nd-uploader__input" type="file" multiple="multiple" /><span class="nd-uploader__content"><span class="nd-uploader__icon"><img src="assets/images/nd/nd-upload.svg" alt="" role="presentation" /></span><span class="nd-uploader__title">Upload images</span><span class="nd-uploader__hint">Drag and drop or push the button</span>
+                                            <div class="nd-button nd-uploader__button"><span class="nd-button__bg"></span><span class="nd-button__text">Browse...</span></div><span class="nd-uploader__conditions">
+                                                <p>Please upload quality images</p>
+                                                <p>1024 px on the shortest side</p>
+                                                <p>High quality JPG, PNG</p>
+                                            </span>
+                                        </span></label></div>
+                                <div class="nd-uploader-output__files" data-draggable-list="data-draggable-list">
+                                    <div class="nd-uploader-output__item" data-draggable-item="data-draggable-item">
+                                        <div class="nd-photo-preview is-main" data-preview-item="data-preview-item" data-callback="deleteOnBackend" data-name-crop-input="crop" data-name-original-input="source" data-preview-content="data-preview-content"><input type="hidden" name="source[0]" data-preview-original="data-preview-original" value="assets/images/nd/space-hq-1.jpg" /><button class="nd-photo-preview__delete js-delete-file" type="button"></button>
+                                            <div class="nd-photo-preview__preview">
+                                                <div class="nd-photo-preview__top">
+                                                    <div class="nd-photo-preview__number" data-preview-number="data-preview-number">1</div>
+                                                    <div class="nd-photo-preview__label">Main photo</div>
+                                                </div>
+                                                <div class="nd-photo-preview__content">
+                                                    <div class="nd-photo-preview__media" data-preview-image="data-preview-image"><img src="assets/images/nd/space-hq-1.jpg"></div>
+                                                </div>
+                                                <div class="nd-photo-preview__bottom"><a class="nd-photo-preview__cropper js-crop-image" href="#popup-image-crop"></a>
+                                                    <div class="nd-photo-preview__description"><select class="nd-select js-nd-select" name="description[0]" data-mobile-title="What’s on photo?" data-choices-classes="nd-choices_upload nd-choices_sm-h50">
+                                                            <option value="" placeholder="placeholder">What’s on photo?</option>
+                                                            <option value="Cafe">Cafe</option>
+                                                            <option value="Meeting room">Meeting room</option>
+                                                            <option value="Parking">Parking</option>
+                                                            <option value="Roof terrace">Roof terrace</option>
+                                                            <option value="reception">Reception</option>
+                                                        </select></div>
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div class="nd-grid__col nd-grid__col_xl_12">
-                                            <div class="nd-form__wrapper"><label class="form-box nd-form-box nd-form-box_bg-white"><select class="nd-select js-nd-select" name="city" placeholder="City" data-mobile-title="City" required="required">
-                                                        <option value="" placeholder="placeholder">City</option>
-                                                        <option value="London" selected="selected">London</option>
-                                                        <option value="Cambridge">Cambridge</option>
-                                                        <option value="Oxford">Oxford</option>
-                                                        <option value="Portsmouth">Portsmouth</option>
-                                                        <option value="Chichester">Chichester</option>
-                                                    </select><span class="form-box__label">City</span></label>
-                                                <div class="error-message"></div>
-                                            </div>
-                                        </div>
-                                        <div class="nd-grid__col nd-grid__col_xl_12">
-                                            <div class="nd-form__wrapper"><label class="form-box nd-form-box nd-form-box_bg-white"><textarea class="nd-textarea nd-textarea_h86" type="text" name="adress" placeholder="Address" rows="1" required="required"></textarea><span class="form-box__label">Adress</span></label>
-                                                <div class="error-message"></div>
+                                            <div class="nd-photo-preview__error">
+                                                <div class="nd-photo-preview__error-description">
+                                                    <div class="nd-photo-preview__error-text">
+                                                        <p data-preview-error-text="data-preview-error-text">This photo is too small</p>
+                                                        <p>Please provide photos with at list following parameters:</p>
+                                                    </div>
+                                                    <div class="nd-photo-preview__condition">
+                                                        <p>1024 px on the shortest side</p>
+                                                        <p>High quality JPG, PNG</p>
+                                                    </div>
+                                                </div><label class="nd-button nd-photo-preview__button js-upload-file" data-format="jpg,png" data-total-count="25" data-short-side="1024" data-url-template="assets/data/nd-templates.json"><span class="nd-button__bg"></span><span class="nd-button__text">Upload another<input class="hide" type="file" multiple="multiple" /></span></label>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="nd-form__buttons"><button class="nd-button nd-form__button nd-form__button_wide" type="submit" disabled="disabled"><span class="nd-button__bg"></span><span class="nd-button__text">Save changes</span>
-                                        <div class="nd-button__preloader">
-                                            <div class="loader loader_small"></div>
+                                    <div class="nd-uploader-output__item" data-draggable-item="data-draggable-item">
+                                        <div class="nd-photo-preview" data-preview-item="data-preview-item" data-callback="deleteOnBackend" data-name-crop-input="crop" data-name-original-input="source" data-preview-content="data-preview-content"><input type="hidden" name="source[1]" data-preview-original="data-preview-original" value="assets/images/nd/space-hq-2.jpg" /><button class="nd-photo-preview__delete js-delete-file" type="button"></button>
+                                            <div class="nd-photo-preview__preview">
+                                                <div class="nd-photo-preview__top">
+                                                    <div class="nd-photo-preview__number" data-preview-number="data-preview-number">2</div>
+                                                    <div class="nd-photo-preview__label">Main photo</div>
+                                                </div>
+                                                <div class="nd-photo-preview__content">
+                                                    <div class="nd-photo-preview__media" data-preview-image="data-preview-image"><img src="assets/images/nd/space-hq-2.jpg"></div>
+                                                </div>
+                                                <div class="nd-photo-preview__bottom"><a class="nd-photo-preview__cropper js-crop-image" href="#popup-image-crop"></a>
+                                                    <div class="nd-photo-preview__description"><select class="nd-select js-nd-select" name="description[1]" data-mobile-title="What’s on photo?" data-choices-classes="nd-choices_upload nd-choices_sm-h50">
+                                                            <option value="" placeholder="placeholder">What’s on photo?</option>
+                                                            <option value="Cafe">Cafe</option>
+                                                            <option value="Meeting room">Meeting room</option>
+                                                            <option value="Parking">Parking</option>
+                                                            <option value="Roof terrace">Roof terrace</option>
+                                                            <option value="reception">Reception</option>
+                                                        </select></div>
+                                                </div>
+                                            </div>
+                                            <div class="nd-photo-preview__error">
+                                                <div class="nd-photo-preview__error-description">
+                                                    <div class="nd-photo-preview__error-text">
+                                                        <p data-preview-error-text="data-preview-error-text">This photo is too small</p>
+                                                        <p>Please provide photos with at list following parameters:</p>
+                                                    </div>
+                                                    <div class="nd-photo-preview__condition">
+                                                        <p>1024 px on the shortest side</p>
+                                                        <p>High quality JPG, PNG</p>
+                                                    </div>
+                                                </div><label class="nd-button nd-photo-preview__button js-upload-file" data-format="jpg,png" data-total-count="25" data-short-side="1024" data-url-template="assets/data/nd-templates.json"><span class="nd-button__bg"></span><span class="nd-button__text">Upload another<input class="hide" type="file" multiple="multiple" /></span></label>
+                                            </div>
                                         </div>
-                                    </button></div>
-                            </fieldset>
-                        </form>
-                    </div>
+                                    </div>
+                                    <div class="nd-uploader-output__item" data-draggable-item="data-draggable-item">
+                                        <div class="nd-photo-preview" data-preview-item="data-preview-item" data-callback="deleteOnBackend" data-name-crop-input="crop" data-name-original-input="source" data-preview-content="data-preview-content"><input type="hidden" name="source[2]" data-preview-original="data-preview-original" value="assets/images/nd/space-hq-3.jpg" /><button class="nd-photo-preview__delete js-delete-file" type="button"></button>
+                                            <div class="nd-photo-preview__preview">
+                                                <div class="nd-photo-preview__top">
+                                                    <div class="nd-photo-preview__number" data-preview-number="data-preview-number">3</div>
+                                                    <div class="nd-photo-preview__label">Main photo</div>
+                                                </div>
+                                                <div class="nd-photo-preview__content">
+                                                    <div class="nd-photo-preview__media" data-preview-image="data-preview-image"><img src="assets/images/nd/space-hq-3.jpg"></div>
+                                                </div>
+                                                <div class="nd-photo-preview__bottom"><a class="nd-photo-preview__cropper js-crop-image" href="#popup-image-crop"></a>
+                                                    <div class="nd-photo-preview__description"><select class="nd-select js-nd-select" name="description[2]" data-mobile-title="What’s on photo?" data-choices-classes="nd-choices_upload nd-choices_sm-h50">
+                                                            <option value="" placeholder="placeholder">What’s on photo?</option>
+                                                            <option value="Cafe">Cafe</option>
+                                                            <option value="Meeting room">Meeting room</option>
+                                                            <option value="Parking">Parking</option>
+                                                            <option value="Roof terrace">Roof terrace</option>
+                                                            <option value="reception">Reception</option>
+                                                        </select></div>
+                                                </div>
+                                            </div>
+                                            <div class="nd-photo-preview__error">
+                                                <div class="nd-photo-preview__error-description">
+                                                    <div class="nd-photo-preview__error-text">
+                                                        <p data-preview-error-text="data-preview-error-text">This photo is too small</p>
+                                                        <p>Please provide photos with at list following parameters:</p>
+                                                    </div>
+                                                    <div class="nd-photo-preview__condition">
+                                                        <p>1024 px on the shortest side</p>
+                                                        <p>High quality JPG, PNG</p>
+                                                    </div>
+                                                </div><label class="nd-button nd-photo-preview__button js-upload-file" data-format="jpg,png" data-total-count="25" data-short-side="1024" data-url-template="assets/data/nd-templates.json"><span class="nd-button__bg"></span><span class="nd-button__text">Upload another<input class="hide" type="file" multiple="multiple" /></span></label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="nd-uploader-output__item" data-draggable-item="data-draggable-item">
+                                        <div class="nd-photo-preview" data-preview-item="data-preview-item" data-callback="deleteOnBackend" data-name-crop-input="crop" data-name-original-input="source" data-preview-content="data-preview-content"><input type="hidden" name="source[3]" data-preview-original="data-preview-original" value="assets/images/nd/space-hq-1.jpg" /><button class="nd-photo-preview__delete js-delete-file" type="button"></button>
+                                            <div class="nd-photo-preview__preview">
+                                                <div class="nd-photo-preview__top">
+                                                    <div class="nd-photo-preview__number" data-preview-number="data-preview-number">4</div>
+                                                    <div class="nd-photo-preview__label">Main photo</div>
+                                                </div>
+                                                <div class="nd-photo-preview__content">
+                                                    <div class="nd-photo-preview__media" data-preview-image="data-preview-image"><img src="assets/images/nd/space-hq-1.jpg"></div>
+                                                </div>
+                                                <div class="nd-photo-preview__bottom"><a class="nd-photo-preview__cropper js-crop-image" href="#popup-image-crop"></a>
+                                                    <div class="nd-photo-preview__description"><select class="nd-select js-nd-select" name="description[3]" data-mobile-title="What’s on photo?" data-choices-classes="nd-choices_upload nd-choices_sm-h50">
+                                                            <option value="" placeholder="placeholder">What’s on photo?</option>
+                                                            <option value="Cafe">Cafe</option>
+                                                            <option value="Meeting room">Meeting room</option>
+                                                            <option value="Parking">Parking</option>
+                                                            <option value="Roof terrace">Roof terrace</option>
+                                                            <option value="reception">Reception</option>
+                                                        </select></div>
+                                                </div>
+                                            </div>
+                                            <div class="nd-photo-preview__error">
+                                                <div class="nd-photo-preview__error-description">
+                                                    <div class="nd-photo-preview__error-text">
+                                                        <p data-preview-error-text="data-preview-error-text">This photo is too small</p>
+                                                        <p>Please provide photos with at list following parameters:</p>
+                                                    </div>
+                                                    <div class="nd-photo-preview__condition">
+                                                        <p>1024 px on the shortest side</p>
+                                                        <p>High quality JPG, PNG</p>
+                                                    </div>
+                                                </div><label class="nd-button nd-photo-preview__button js-upload-file" data-format="jpg,png" data-total-count="25" data-short-side="1024" data-url-template="assets/data/nd-templates.json"><span class="nd-button__bg"></span><span class="nd-button__text">Upload another<input class="hide" type="file" multiple="multiple" /></span></label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="nd-uploader-output__item" data-draggable-item="data-draggable-item">
+                                        <div class="nd-photo-preview" data-preview-item="data-preview-item" data-callback="deleteOnBackend" data-name-crop-input="crop" data-name-original-input="source" data-preview-content="data-preview-content"><input type="hidden" name="source[4]" data-preview-original="data-preview-original" value="assets/images/nd/space-hq-2.jpg" /><button class="nd-photo-preview__delete js-delete-file" type="button"></button>
+                                            <div class="nd-photo-preview__preview">
+                                                <div class="nd-photo-preview__top">
+                                                    <div class="nd-photo-preview__number" data-preview-number="data-preview-number">5</div>
+                                                    <div class="nd-photo-preview__label">Main photo</div>
+                                                </div>
+                                                <div class="nd-photo-preview__content">
+                                                    <div class="nd-photo-preview__media" data-preview-image="data-preview-image"><img src="assets/images/nd/space-hq-2.jpg"></div>
+                                                </div>
+                                                <div class="nd-photo-preview__bottom"><a class="nd-photo-preview__cropper js-crop-image" href="#popup-image-crop"></a>
+                                                    <div class="nd-photo-preview__description"><select class="nd-select js-nd-select" name="description[4]" data-mobile-title="What’s on photo?" data-choices-classes="nd-choices_upload nd-choices_sm-h50">
+                                                            <option value="" placeholder="placeholder">What’s on photo?</option>
+                                                            <option value="Cafe">Cafe</option>
+                                                            <option value="Meeting room">Meeting room</option>
+                                                            <option value="Parking">Parking</option>
+                                                            <option value="Roof terrace">Roof terrace</option>
+                                                            <option value="reception">Reception</option>
+                                                        </select></div>
+                                                </div>
+                                            </div>
+                                            <div class="nd-photo-preview__error">
+                                                <div class="nd-photo-preview__error-description">
+                                                    <div class="nd-photo-preview__error-text">
+                                                        <p data-preview-error-text="data-preview-error-text">This photo is too small</p>
+                                                        <p>Please provide photos with at list following parameters:</p>
+                                                    </div>
+                                                    <div class="nd-photo-preview__condition">
+                                                        <p>1024 px on the shortest side</p>
+                                                        <p>High quality JPG, PNG</p>
+                                                    </div>
+                                                </div><label class="nd-button nd-photo-preview__button js-upload-file" data-format="jpg,png" data-total-count="25" data-short-side="1024" data-url-template="assets/data/nd-templates.json"><span class="nd-button__bg"></span><span class="nd-button__text">Upload another<input class="hide" type="file" multiple="multiple" /></span></label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="nd-uploader-output__item" data-insert-preview="data-insert-preview"><label class="nd-uploader nd-uploader_small nd-uploader_gray js-upload-file" data-format="jpg,png" data-total-count="25" data-short-side="1024" data-url-template="assets/data/nd-templates.json"><input class="nd-uploader__input" type="file" multiple="multiple" /><span class="nd-uploader__content"><span class="nd-uploader__icon"><img src="assets/images/nd/nd-upload.svg" alt="" role="presentation" /></span><span class="nd-uploader__title">Upload images</span><span class="nd-uploader__hint">Drag and drop or push the button</span>
+                                                <div class="nd-button nd-button_lg-h32 nd-button_lg-fz15 nd-uploader__button"><span class="nd-button__bg"></span><span class="nd-button__text">Browse...</span></div><span class="nd-uploader__conditions">
+                                                    <p>Please upload quality images</p>
+                                                </span>
+                                            </span></label></div>
+                                </div>
+                            </div>
+                        </fieldset>
+                        <div class="nd-form-panel nd-form-panel_wide nd-form-panel_hidden is-fixed" data-hidden-panel="data-hidden-panel">
+                            <div class="nd-container">
+                                <div class="nd-content__column_aside nd-hide-md"></div>
+                                <div class="nd-content__column_main">
+                                    <div class="nd-form-panel__controls"><button class="nd-link nd-link_icon nd-link_underline nd-form-panel__reset js-form-reset" type="reset"><svg class="nd-link__icon nd-link__icon_cross"><use xlink:href="assets/images/icon.svg#icon_cross"></use></svg><span class="nd-link__text">Discard <span class="nd-hide-sm">changes</span></span></button><button class="nd-button nd-form-panel__button" type="submit"><span class="nd-button__bg"></span><span class="nd-button__text">Save <span class="nd-hide-sm">changes</span></span>
+                                            <div class="nd-button__preloader">
+                                                <div class="loader loader_small"></div>
+                                            </div>
+                                        </button></div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
                 </div>
             </div>
         </section>
@@ -330,6 +490,22 @@
                         <div class="popup-signin__text">Don’t have an account?</div>
                         <div class="popup-signin__links"><a class="link link_white link_underline popup-signin__link" href="#"><span class="link__text">Sign up Here</span></a></div>
                     </div>
+                </div>
+            </div>
+        </div>
+        <div class="nd-popup popup-image-cropper" id="popup-image-crop">
+            <div class="nd-popup__container">
+                <div class="nd-popup__wrapper">
+                    <div class="nd-popup__header">
+                        <h3 class="nd-popup__title _fz18">Crop Image</h3>
+                        <div class="nd-popup__close" data-fancybox-close="data-fancybox-close"></div>
+                    </div>
+                    <div class="nd-popup__content">
+                        <div class="popup-image-cropper__media">
+                            <div><img src="data:image/svg+xml,%3Csvg width='1' height='1' viewBox='0 0 1 1' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3C/svg%3E" data-cropped-area="data-cropped-area" alt="" role="presentation" /></div>
+                        </div>
+                    </div>
+                    <div class="nd-popup__footer"><button class="nd-button popup-image-cropper__button js-preview-save-crop" type="button"><span class="nd-button__bg"></span><span class="nd-button__text">Save</span></button></div>
                 </div>
             </div>
         </div>
