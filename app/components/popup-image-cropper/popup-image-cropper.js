@@ -7,7 +7,7 @@ import {
 const $ = window.$;
 
 export default function ndCropedImage() {
-  function initCrop(image) {
+  function initCrop(image, cropBoxData) {
     const cropedZone = $('[data-cropped-area]');
     $(cropedZone).attr('src', image);
     const cropper = new Cropper(cropedZone[0], {
@@ -21,6 +21,10 @@ export default function ndCropedImage() {
       background: false,
       toggleDragModeOnDblclick: true,
     });
+    // устанавливаем позицию кропа
+    if (cropBoxData) {
+      cropper.setCropBoxData(cropBoxData);
+    }
     cropedZone[0].cropper = cropper;
   }
 
@@ -33,9 +37,27 @@ export default function ndCropedImage() {
       imageSmoothingQuality: 'high',
     });
     const imgfinal = img.toDataURL('image/jpeg');
+    const cropBox = JSON.stringify(cropper.getCropBoxData());
     const inputName = $(source).attr('data-name-crop-input');
     let input = $(source).find(`input[name*="${inputName}"`);
+    let cropInput = $(source).find('input[name*="viewData"]');
     const image = $(source).find('[data-preview-image] img').get(0);
+
+    console.log(cropBox);
+    // записываем данные обрезки
+    if ($(cropInput).length > 0) {
+      $.when($(cropInput).val(cropBox)).then(inp => $(inp).trigger('change'));
+    } else {
+      cropInput = document.createElement('input');
+      cropInput.setAttribute('type', 'hidden');
+      cropInput.setAttribute('name', 'viewData[0]');
+      $(cropInput).prependTo(source);
+      const newInput = $(source).find('[name*="viewData"]');
+      console.log(newInput);
+      $.when($(newInput).val(cropBox)).then(inp => $(inp).trigger('change'));
+    }
+
+    // записываем данные обрезанного изображения
     if ($(input).length > 0) {
       $.when($(input).val(imgfinal)).then(inp => $(inp).trigger('change'));
     } else {
@@ -45,6 +67,7 @@ export default function ndCropedImage() {
       $(input).prependTo(source);
       const newInput = $(source).find(`input[name*="${inputName}"`);
       $(image).attr('src', imgfinal);
+      console.log(newInput);
       $.when($(newInput).val(imgfinal)).then(inp => $(inp).trigger('change'));
     }
     window.globalFunctions.updateIndexesAtPreviews();
@@ -62,39 +85,49 @@ export default function ndCropedImage() {
     const popupName = $(_this).attr('href').split('#').pop();
     const popup = $(`#${popupName}`).get(0);
     const preview = $(_this).closest('[data-preview-item]');
-    const image = $(preview).find('[data-preview-image] img').attr('src');
-    popup.initialSource = preview;
-    window.globalFunctions.openPopup(popup, '', {
-      baseClass: 'fancybox--nd',
-      infobar: false,
-      autoFocus: false,
-      animationDuration: 500,
-      animationEffect: 'fade',
-      transitionEffect: 'fade',
-      clickSlide: false,
-      onDeactivate(i) {
-        i.close();
-      },
-      onActivate() {
-        freeze();
-      },
-      beforeShow() {
-        initCrop(image);
-      },
-      afterLoad() {
-        freeze();
-      },
-      beforeClose() {
-        unfreeze();
-      },
-      afterClose: removeCropper,
-      smallBtn: false,
-      toolbar: false,
-      touch: false,
-      idleTime: false,
-      gutter: 0,
-      preventCaptionOverlap: false,
-    });
+    const inputName = $(preview).attr('data-name-original-input');
+    const imageInput = $(preview).find(`input[name*="${inputName}"`);
+    if (imageInput.length > 0) {
+      const image = $(imageInput).val();
+      const cropInput = $(preview).find('[name*="viewData"]');
+      let cropData = false;
+      if (cropInput.length > 0) {
+        console.log($(cropInput).val());
+        cropData = JSON.parse($(cropInput).val());
+      }
+      popup.initialSource = preview;
+      window.globalFunctions.openPopup(popup, '', {
+        baseClass: 'fancybox--nd',
+        infobar: false,
+        autoFocus: false,
+        animationDuration: 500,
+        animationEffect: 'fade',
+        transitionEffect: 'fade',
+        clickSlide: false,
+        onDeactivate(i) {
+          i.close();
+        },
+        onActivate() {
+          freeze();
+        },
+        beforeShow() {
+          initCrop(image, cropData);
+        },
+        afterLoad() {
+          freeze();
+        },
+        beforeClose() {
+          unfreeze();
+        },
+        afterClose: removeCropper,
+        smallBtn: false,
+        toolbar: false,
+        touch: false,
+        idleTime: false,
+        gutter: 0,
+        preventCaptionOverlap: false,
+      });
+    }
   });
 
   $(document).on('click', '.js-preview-save-crop', (evt) => {

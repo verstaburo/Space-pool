@@ -40,6 +40,13 @@
     letter-spacing: -.015em;
   }
 
+  &_fz16-mix {
+    @include rule(font-size, (xl: 16px, xlg: 16, lg: 15, md: 13, sm: 13));
+
+    line-height: (19 / 16);
+    letter-spacing: -.015em;
+  }
+
   &_md-fz16 {
     @include screen('md', max, 2) {
       font-size: pxtovw(16, 960);
@@ -64,6 +71,10 @@
     visibility: hidden;
     opacity: 0;
     pointer-events: none;
+  }
+
+  &_gray {
+    color: rgba(0, 0, 0, .3);
   }
 
   &__box {
@@ -130,6 +141,7 @@
     line-height: inherit;
     letter-spacing: inherit;
     cursor: pointer;
+    transition: color $ease-main;
 
     &:not(:first-child) {
       margin-left: 15px;
@@ -149,6 +161,16 @@
       @include screen('sm', max, 2) {
         margin-left: pxtovw(11, 375);
       }
+    }
+
+    #{$b}_ml13 & {
+      &:not(:first-child) {
+        @include rule(margin-left, (xl: 13px, xlg: 13, lg: 7, md: 7, sm: 8));
+      }
+    }
+
+    #{$b}_gray #{$b}__input:checked ~ & {
+      color: $nd-color-basic;
     }
 
     #{$b}__input:disabled ~ &, .is-disabled & {

@@ -157,14 +157,20 @@
       }
 
       &__button {
-        max-width: 100%;
-        width: auto;
+        @include screen('lg', max, 2) {
+          max-width: 100%;
+          width: auto;
+        }
 
         @include rule(min-width, (lg: 136, md: 136, sm: 166));
         @include rule(height, (sm: 40));
 
         &:not(:first-child) {
           @include rule(margin-top, (lg: 45, md: 32, sm: 45));
+        }
+
+        &:not(:last-child) {
+          @include rule(margin-bottom, (xl: 25px, xlg: 25, lg: 25, md: 25, sm: 0));
         }
       }
     }

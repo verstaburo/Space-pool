@@ -1,7 +1,9 @@
 mixin nd-photo-preview(data, index)
   +b.nd-photo-preview&attributes(attributes)(data-preview-item data-callback="deleteOnBackend" data-name-crop-input="photoCrop")
-    +e.INPUT(type="hidden" name=(data.originalName + '[' + index + ']') data-preview-original)
-    +e.INPUT(type="hidden" name=(data.cropName + '[' + index + ']'))
+    if data.originalName
+      +e.INPUT(type="hidden" name=(data.originalName + '[' + index + ']') data-preview-original value=data.originalImage)
+    if data.cropName
+      +e.INPUT(type="hidden" name=(data.cropName + '[' + index + ']') value=data.cropImage)
     +e.BUTTON.delete.js-delete-file(type="button")
     block
 

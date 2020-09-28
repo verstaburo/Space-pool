@@ -46,8 +46,8 @@ mixin nd-side-navigation(data, activeName, subActiveName)
       +e.links
         +nd-link-icon(data.iconLink.icon)(class=data.iconLink.class href=data.iconLink.href)._icon_blue.__btn-link!=data.iconLink.name
     if data.imageLink
-      +e.links
-        +nd-link-image(data.imageLink.icon)(class=data.imageLink.class href=data.imageLink.href)._icon_blue.__btn-link!=data.imageLink.name
+      +e.links(class=(data.imageLink.linksCls || ''))
+        +nd-link-image(data.imageLink.icon)(class=('_icon_blue' + (data.imageLink.class || '')) href=data.imageLink.href).__btn-link!=data.imageLink.name
     if data.addManager
       +step-info(data.addManager).__step
     if data.note
