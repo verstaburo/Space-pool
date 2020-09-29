@@ -12,8 +12,11 @@ export default function ndCropedImage() {
     $(cropedZone).attr('src', image);
     const cropper = new Cropper(cropedZone[0], {
       restore: true,
+      data: cropBoxData,
       guides: false,
       center: false,
+      viewMode: 1,
+      autoCrop: true,
       responsive: true,
       highlight: false,
       cropBoxMovable: true,
@@ -21,10 +24,6 @@ export default function ndCropedImage() {
       background: false,
       toggleDragModeOnDblclick: true,
     });
-    // устанавливаем позицию кропа
-    if (cropBoxData) {
-      cropper.setCropBoxData(cropBoxData);
-    }
     cropedZone[0].cropper = cropper;
   }
 
@@ -37,13 +36,12 @@ export default function ndCropedImage() {
       imageSmoothingQuality: 'high',
     });
     const imgfinal = img.toDataURL('image/jpeg');
-    const cropBox = JSON.stringify(cropper.getCropBoxData());
+    const cropBox = JSON.stringify(cropper.getData(true));
     const inputName = $(source).attr('data-name-crop-input');
     let input = $(source).find(`input[name*="${inputName}"`);
     let cropInput = $(source).find('input[name*="viewData"]');
     const image = $(source).find('[data-preview-image] img').get(0);
 
-    console.log(cropBox);
     // записываем данные обрезки
     if ($(cropInput).length > 0) {
       $.when($(cropInput).val(cropBox)).then(inp => $(inp).trigger('change'));
@@ -53,13 +51,13 @@ export default function ndCropedImage() {
       cropInput.setAttribute('name', 'viewData[0]');
       $(cropInput).prependTo(source);
       const newInput = $(source).find('[name*="viewData"]');
-      console.log(newInput);
       $.when($(newInput).val(cropBox)).then(inp => $(inp).trigger('change'));
     }
 
     // записываем данные обрезанного изображения
     if ($(input).length > 0) {
       $.when($(input).val(imgfinal)).then(inp => $(inp).trigger('change'));
+      $(image).attr('src', imgfinal);
     } else {
       input = document.createElement('input');
       input.setAttribute('type', 'hidden');
@@ -67,7 +65,6 @@ export default function ndCropedImage() {
       $(input).prependTo(source);
       const newInput = $(source).find(`input[name*="${inputName}"`);
       $(image).attr('src', imgfinal);
-      console.log(newInput);
       $.when($(newInput).val(imgfinal)).then(inp => $(inp).trigger('change'));
     }
     window.globalFunctions.updateIndexesAtPreviews();
@@ -92,7 +89,6 @@ export default function ndCropedImage() {
       const cropInput = $(preview).find('[name*="viewData"]');
       let cropData = false;
       if (cropInput.length > 0) {
-        console.log($(cropInput).val());
         cropData = JSON.parse($(cropInput).val());
       }
       popup.initialSource = preview;
