@@ -446,9 +446,9 @@ export default class SearchFilter {
       input.setAttribute('name', attributes.name);
       input.setAttribute('type', attributes.type);
       input.setAttribute('value', attributes.value);
-      if (attributes.checked) {
-        input.setAttribute('checked', attributes.checked);
-      }
+      // if (attributes.checked) {
+      //   input.setAttribute('checked', attributes.checked);
+      // }
       if (attributes.dataAttributes) {
         Object.keys(attributes.dataAttributes).forEach((key) => {
           input.setAttribute(`data-${key}`, attributes.dataAttributes[key]);
@@ -544,6 +544,21 @@ export default class SearchFilter {
         }
       }
     }
+  }
+
+  _locationListPreset(list) {
+    const _this = this;
+    const allAreasButton = $('[data-nd-filter-type="locationPlace"]');
+    let alreadyChecked = 0;
+    $(allAreasButton).each((i, el) => {
+      const isChecked = $(list).filter((ix, li) => $(el).val().toLowerCase() === li.toLowerCase());
+      if (isChecked.length && alreadyChecked <= _this.maxLocations) {
+        $(el).prop('checked', true);
+        $(el).attr('checked', 'checked');
+        _this._filterChoosed(el);
+        alreadyChecked += 1;
+      }
+    });
   }
 
   _handleRedirectFilter(evt) {

@@ -11,6 +11,7 @@ export default function ndCropedImage() {
     const cropedZone = $('[data-cropped-area]');
     $(cropedZone).attr('src', image);
     const cropper = new Cropper(cropedZone[0], {
+      aspectRatio: 1000 / 633,
       restore: true,
       data: cropBoxData,
       guides: false,
@@ -20,9 +21,17 @@ export default function ndCropedImage() {
       responsive: true,
       highlight: false,
       cropBoxMovable: true,
-      cropBoxResizable: true,
+      cropBoxResizable: false,
       background: false,
       toggleDragModeOnDblclick: true,
+      dragMode: 'move',
+      zoom(evt) {
+        const cr = this.cropper;
+        const crBox = cr.getCroppedCanvas();
+        if (crBox.width <= 1064 && evt.detail.ratio > evt.detail.oldRatio) {
+          evt.preventDefault();
+        }
+      },
     });
     cropedZone[0].cropper = cropper;
   }
@@ -31,8 +40,10 @@ export default function ndCropedImage() {
     const cropedZone = $('[data-cropped-area]').get(0);
     const cropper = cropedZone.cropper;
     const img = cropper.getCroppedCanvas({
-      minWidth: 1024,
-      imageSmoothingEnabled: false,
+      minWidth: 1064,
+      maxWidth: 4096,
+      maxHeight: 4096,
+      imageSmoothingEnabled: true,
       imageSmoothingQuality: 'high',
     });
     const imgfinal = img.toDataURL('image/jpeg');

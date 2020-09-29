@@ -109,7 +109,7 @@ export default function uploader() {
           $(preview).find('[data-preview-item]').addClass('is-error');
         }
         if (conditions.maxCount > 0) {
-          $(counter).text(`${totalPreviews + 1}/${conditions.maxCount}`);
+          $(counter).html(`<i>${totalPreviews + 1}</i>/${conditions.maxCount}`);
         }
         $('[data-insert-preview-after]').after(preview);
         $(preview).find('.js-select-input');
@@ -192,7 +192,7 @@ export default function uploader() {
       $(self).removeClass('is-empty');
     }
     if (maxCount > 0) {
-      $(counter).text(`${totalPreviews} / ${maxCount}`);
+      $(counter).html(`<i>${totalPreviews}</i> / ${maxCount}`);
     } else {
       $(counter).text('');
     }
