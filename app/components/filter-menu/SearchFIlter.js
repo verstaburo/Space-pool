@@ -360,7 +360,7 @@ export default class SearchFilter {
       const button = $(`[data-nd-filter-target="${type}"]`);
       const range = $(isRange).find('[data-nd-range-container]').get(0);
       const value = range.noUiSlider.get();
-      const startValue = $(isRange).data('start');
+      const startValue = [$(isRange).data('min'), $(isRange).data('max')];
       if (startValue[0] === Math.trunc(value[0]) && startValue[1] === Math.trunc(value[1])) {
         _this._setDefaultButtonState(type);
       } else {

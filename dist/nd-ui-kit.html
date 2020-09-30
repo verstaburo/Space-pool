@@ -1093,6 +1093,38 @@
                     </div>
                 </div>
             </section>
+            <section class="ui-kit__section">
+                <div class="ui-kit__section-head">
+                    <div class="container">
+                        <h2>Password strength indicator</h2>
+                        <p>Блок: block/password-indicator</p>
+                    </div>
+                </div>
+                <div class="ui-kit__section-content">
+                    <div class="container">
+                        <p class="ui-kit__description">Нейтральное состояние</p>
+                        <section class="password-indicator">
+                            <h4 class="password-indicator__title" data-pass-weak="Uhm... Really?" data-pass-medium="Medium strength" data-pass-strong="Strong password"><span>Password stregth</span></h4>
+                            <div class="password-indicator__line"><span></span><span></span><span></span></div>
+                        </section>
+                        <p class="ui-kit__description">.is-weak</p>
+                        <section class="password-indicator is-weak">
+                            <h4 class="password-indicator__title" data-pass-weak="Uhm... Really?" data-pass-medium="Medium strength" data-pass-strong="Strong password"><span>Password stregth</span></h4>
+                            <div class="password-indicator__line"><span></span><span></span><span></span></div>
+                        </section>
+                        <p class="ui-kit__description">.is-medium</p>
+                        <section class="password-indicator is-medium">
+                            <h4 class="password-indicator__title" data-pass-weak="Uhm... Really?" data-pass-medium="Medium strength" data-pass-strong="Strong password"><span>Password stregth</span></h4>
+                            <div class="password-indicator__line"><span></span><span></span><span></span></div>
+                        </section>
+                        <p class="ui-kit__description">.is-strong</p>
+                        <section class="password-indicator is-strong">
+                            <h4 class="password-indicator__title" data-pass-weak="Uhm... Really?" data-pass-medium="Medium strength" data-pass-strong="Strong password"><span>Password stregth</span></h4>
+                            <div class="password-indicator__line"><span></span><span></span><span></span></div>
+                        </section>
+                    </div>
+                </div>
+            </section>
         </div>
     </main>
     <div class="popups">
@@ -1136,21 +1168,21 @@
                 </div>
             </div>
         </div>
+        <script>
+            $('.ui-kit__section').each(function(i) {
+                var id = 'section' + i;
+                var name = $(this).find('.ui-kit__section-head h2').text();
+                var li = $('<li></li>');
+                var a = $('<a></a>');
+
+                a.attr('href', '#' + id).text(name).addClass('js-anchor');
+                li.append(a);
+
+                $('.ui-kit__navigation__list').append(li);
+                $(this).attr('id', id);
+            });
+        </script>
     </div>
-    <script>
-        $('.ui-kit__section').each(function(i) {
-            var id = 'section' + i;
-            var name = $(this).find('.ui-kit__section-head h2').text();
-            var li = $('<li></li>');
-            var a = $('<a></a>');
-
-            a.attr('href', '#' + id).text(name).addClass('js-anchor');
-            li.append(a);
-
-            $('.ui-kit__navigation__list').append(li);
-            $(this).attr('id', id);
-        });
-    </script>
     <footer class="nd-footer">
         <div class="nd-container">
             <div class="nd-footer__top">

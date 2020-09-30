@@ -15,12 +15,15 @@ block header
 block content
   +nd-page-header._grid._grid_acc
     .nd-container
+      +e.title.nd-hide-from-sm Settings
       +nd-page-header-side
-        +nd-link-icon('arrow5')._back.__back.nd-hide Back
+        +nd-link-icon('arrow5')._back._back_md21.__back_md-noname.nd-hide-from-md Back
       +nd-page-header-main
         - var menuList = getData('sideNavProfileHost.json').menu;
-        +e.mb-menu.nd-hide-from-md
+        +e.mb-menu.nd-hide-from-md.nd-hide-sm
           +slider-navigation(menuList, 3, 'Settings')
+        +e.mb-menu.nd-hide-from-sm
+          +slider-navigation([{name: "Basic information", href: "host-account-settings-basic.html"}, {name: "Password", href: "host-account-settings-password.html"}, {name: "Company details", href: "host-account-settings-company.html"}, {name: "Notification settings", href: "host-account-settings-notifications.html"}], 3, 'Notification settings')
 
   +nd-content
     .nd-container
