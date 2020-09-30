@@ -306,6 +306,37 @@ $(document).ready(function () {
       /** Called when the popup is added to the map. */
       onAdd() {
         this.getPanes().floatPane.appendChild(this.containerDiv);
+
+        // автопозиционирование
+        const mapDiv = this.getMap().getDiv();
+        const divPosition = this.getProjection().fromLatLngToDivPixel(
+          this.position,
+        );
+        var mapSizes = mapDiv.getBoundingClientRect();
+        var containerSizes = this.containerDiv.getBoundingClientRect();
+        var distanceForRight = (mapSizes.width / 2) - divPosition.x - 30;
+        var distanceForLeft = (mapSizes.width / 2) + (divPosition.x - 30);
+        var distanceForBottom = (mapSizes.height / 2) - (divPosition.y + 45);
+        var freeDistanceRightX = distanceForRight - (containerSizes.width / 2);
+        var freeDistanceLeftX = distanceForLeft - (containerSizes.width / 2);
+        var freeDistanceY = distanceForBottom - containerSizes.height;
+        var newCenter = [0, 0];
+
+        if (freeDistanceRightX < 0 && freeDistanceY < 0) {
+          newCenter = [(0 - freeDistanceRightX), (0 - freeDistanceY)];
+        } else if (freeDistanceRightX > 0 && freeDistanceY < 0) {
+          newCenter = [0, (0 - freeDistanceY)];
+
+          if (freeDistanceLeftX < 0) {
+            newCenter = [(0 + freeDistanceLeftX), (0 - freeDistanceY)];
+          }
+        } else if (freeDistanceRightX < 0 && freeDistanceY > 0) {
+          newCenter = [(0 - freeDistanceRightX), 0];
+        } else if (freeDistanceLeftX < 0) {
+          newCenter = [(0 + freeDistanceLeftX), 0];
+        }
+
+        this.getMap().panBy(newCenter[0], newCenter[1]);
       }
       /** Called when the popup is removed from the map. */
       onRemove() {
@@ -324,8 +355,8 @@ $(document).ready(function () {
           'block' :
           'none';
         if (display === 'block') {
+          this.containerDiv.style.top = divPosition.y + 15 + 'px';
           this.containerDiv.style.left = divPosition.x + 'px';
-          this.containerDiv.style.top = (divPosition.y + 15) + 'px';
         }
 
         if (this.containerDiv.style.display !== display) {

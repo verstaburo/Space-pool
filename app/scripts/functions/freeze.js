@@ -32,6 +32,7 @@ export function freeze() {
       'touch-action': 'none',
     });
 
+    $('body').addClass('is-freeze-window');
     $(document.body).trigger('sticky_kit:recalc');
   }
 
@@ -68,6 +69,7 @@ export function unfreeze() {
       'overflow-y': '',
     });
 
+    $('body').removeClass('is-freeze-window');
     $(document.body).trigger('sticky_kit:recalc');
   }
 }
