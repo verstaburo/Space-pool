@@ -26,7 +26,8 @@ export default function uploader() {
   }
 
   function updateAllPreviewIndex() {
-    const previews = $('[data-preview-item]');
+    const previews = $('[data-preview-item]:not(.is-error)');
+    const errorPreviews = $('.is-error[data-preview-item]');
     $(previews).each((index, el) => {
       const names = $(el).find('[name]');
       const number = $(el).find('[data-preview-number]');
@@ -41,7 +42,7 @@ export default function uploader() {
         }
       });
       $(sortItems).each((ix, sorter) => {
-        $(sorter).val(index);
+        $(sorter).val(index + 1);
       });
       $(number).text(index + 1);
       if (index === 0) {
@@ -49,6 +50,25 @@ export default function uploader() {
       } else {
         $(el).removeClass('is-main');
       }
+    });
+    $(errorPreviews).each((i, el) => {
+      $(el).removeClass('is-main');
+      const names = $(el).find('[name]');
+      const number = $(el).find('[data-preview-number]');
+      const sortItems = $(el).find('[name*="spaceimage_set"]');
+      $(number).text('');
+      $(names).each((ix, inpts) => {
+        const inputName = $(inpts).attr('name');
+        if (inputName) {
+          const inpName = inputName.split('[');
+          if (inpName.length > 1) {
+            $(inpts).attr('name', `${inpName[0]}[]`);
+          }
+        }
+      });
+      $(sortItems).each((ix, sorter) => {
+        $(sorter).val('');
+      });
     });
   }
 

@@ -92,6 +92,12 @@ export default function formManipulations() {
     resetForm(self);
   });
 
+  $(document).on('reset', '.js-form-with-hidden-panel', (evt) => {
+    const form = evt.currentTarget;
+    const panel = $(form).find('[data-hidden-panel]');
+    $(panel).removeClass('is-active is-saved');
+  });
+
   $(document).on('click', '.js-hide-form-panel', (evt) => {
     const form = $(evt.target).closest('form');
     const panel = $(form).find('[data-hidden-panel]');
