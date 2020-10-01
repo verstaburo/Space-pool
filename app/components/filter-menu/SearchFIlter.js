@@ -26,10 +26,17 @@ export default class SearchFilter {
     const _this = this;
 
     const checkedItems = $('[data-nd-filter-type]:checked');
+    const rangeInputs = $('[data-nd-range-input-min]');
 
     if (checkedItems.length > 0) {
       $(checkedItems).each((i, el) => {
-        _this._filterChoosed(el);
+        _this._filterChoosed(el, 'init');
+      });
+    }
+
+    if (rangeInputs.length > 0) {
+      $(rangeInputs).each((i, el) => {
+        _this._filterChoosed(el, 'init');
       });
     }
 
@@ -356,16 +363,11 @@ export default class SearchFilter {
     }
 
     if (isRange.length > 0) {
-      const type = $(input).attr('data-nd-filter-type');
+      const type = $(isRange).attr('data-nd-filter-type');
       const button = $(`[data-nd-filter-target="${type}"]`);
       const range = $(isRange).find('[data-nd-range-container]').get(0);
       const value = range.noUiSlider.get();
-      const startValue = [$(isRange).data('min'), $(isRange).data('max')];
-      if (startValue[0] === Math.trunc(value[0]) && startValue[1] === Math.trunc(value[1])) {
-        _this._setDefaultButtonState(type);
-      } else {
-        _this._setButtonName(button, `${Math.trunc(value[0])} - ${Math.trunc(value[1])}`);
-      }
+      _this._setButtonName(button, `${Math.trunc(value[0])} - ${Math.trunc(value[1])}`);
     }
 
     const filterButton = $('[data-nd-filter-target="filter"]');

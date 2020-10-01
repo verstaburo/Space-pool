@@ -480,7 +480,7 @@ export function sliders() {
     const margin = el.data('margin') || 0;
     const step = el.data('step') || 1;
     noUiSlider.create(el.find('[data-nd-range-container]').get(0), {
-      start: el.data('start'),
+      start: (el.data('start') || [+el.data('min'), +el.data('max')]),
       connect: (el.data('connect') || [false, true, false]),
       step,
       margin,

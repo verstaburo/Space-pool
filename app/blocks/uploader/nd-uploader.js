@@ -30,6 +30,7 @@ export default function uploader() {
     $(previews).each((index, el) => {
       const names = $(el).find('[name]');
       const number = $(el).find('[data-preview-number]');
+      const sortItems = $(el).find('[name*="spaceimage_set"]');
       $(names).each((ix, inpts) => {
         const inputName = $(inpts).attr('name');
         if (inputName) {
@@ -38,6 +39,9 @@ export default function uploader() {
             $(inpts).attr('name', `${inpName[0]}[${index}]`);
           }
         }
+      });
+      $(sortItems).each((ix, sorter) => {
+        $(sorter).val(index);
       });
       $(number).text(index + 1);
       if (index === 0) {
@@ -164,12 +168,16 @@ export default function uploader() {
           $(previewEl).addClass('is-error');
         }
         if (conditions.maxCount > 0) {
-          $(counter).text(`${totalPreviews + 1}/${conditions.maxCount}`);
+          $(counter).html(`<i>${totalPreviews + 1}</i>/${conditions.maxCount}`);
         }
         $('[data-insert-preview]').before(preview);
         const selectEl = $(preview).find('.js-nd-select').get(0);
         window.ndSelectInput(selectEl);
         $('[data-upload-area]').trigger('changeItems');
+        if (conditions.clear && conditions.clear.remove) {
+          $(conditions.clear.target).remove();
+          updateAllPreviewIndex();
+        }
         if (field) {
           const inpWrap = $(field).closest('.js-upload-file');
           const frm = document.createElement('FORM');
@@ -197,10 +205,15 @@ export default function uploader() {
     })
     .on('drop', (evt) => {
       const self = evt.currentTarget;
+      const isPreview = $(self).closest('[data-draggable-item]');
       const url = $(self).attr('data-url-template');
       loadTemplate(url);
       const conditions = {};
       conditions.shortSide = parseInt($(self).attr('data-short-side'), 10) || 0;
+      conditions.clear = {
+        remove: (isPreview.length > 0),
+        target: isPreview,
+      };
       // conditions.minSize = parseInt($(self).attr('data-min-size'), 10) || 0;
       // conditions.maxSize = parseInt($(self).attr('data-max-size'), 10) || '1000000000000';
       conditions.formats = $(self).attr('data-format');
@@ -211,11 +224,16 @@ export default function uploader() {
 
   $(document).on('change', '.js-upload-file input', (evt) => {
     const self = $(evt.target).closest('.js-upload-file');
+    const isPreview = $(self).closest('[data-draggable-item]');
     const url = $(self).attr('data-url-template');
     loadTemplate(url);
     const files = evt.target.files;
     const conditions = {};
     conditions.shortSide = parseInt($(self).attr('data-short-side'), 10) || 0;
+    conditions.clear = {
+      remove: (isPreview.length > 0),
+      target: isPreview,
+    };
     // conditions.minSize = parseInt($(self).attr('data-min-size'), 10) || 0;
     // conditions.maxSize = parseInt($(self).attr('data-max-size'), 10) || '1000000000000';
     conditions.formats = $(self).attr('data-format');
@@ -247,7 +265,7 @@ export default function uploader() {
       $(self).removeClass('is-empty');
     }
     if (maxCount > 0) {
-      $(counter).text(`${totalPreviews} / ${maxCount}`);
+      $(counter).html(`<i>${totalPreviews}</i> / ${maxCount}`);
     } else {
       $(counter).text('');
     }

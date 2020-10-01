@@ -6,6 +6,8 @@ mixin nd-photo-preview(data, index)
       +e.INPUT(type="hidden" name=(data.cropName + '[' + index + ']') value=data.cropImage)
     +e.BUTTON.delete.js-delete-file(type="button")
     block
+    +e.loader
+      +loader
 
 mixin nd-photo-preview-preview(data, index)
   +e.preview&attributes(attributes)
