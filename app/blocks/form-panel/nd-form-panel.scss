@@ -9,6 +9,10 @@
   z-index: 23;
   min-height: 90px;
 
+  @include screen('sm', max, 2) {
+    transition: transform $ease-main, opacity $ease-main;
+  }
+
   @include screen('xlg', max, 2) {
     min-height: pxtovw(90, 1660);
   }
@@ -28,6 +32,13 @@
 
   .nd-content {
     display: flex;
+  }
+
+  .is-keyboard-visible & {
+    @include screen('sm', max, 2) {
+      opacity: 0;
+      transform: translate3d(0, 100%, 0);
+    }
   }
 
   &_hidden {

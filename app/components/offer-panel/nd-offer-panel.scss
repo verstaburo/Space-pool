@@ -20,10 +20,18 @@
   @include screen('sm', max, 2) {
     height: pxtovw(60, 375);
     bottom: 0;
+    transition: opacity $ease-main, transform $ease-main;
   }
 
   .nd-container {
     display: flex;
+  }
+
+  .is-keyboard-visible & {
+    @include screen('sm', max, 2) {
+      opacity: 0;
+      transform: translate3d(0, 100%, 0);
+    }
   }
 
   &__boxes {

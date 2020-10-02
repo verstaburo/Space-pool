@@ -34,12 +34,20 @@
   @include screen('sm', max, 2) {
     height: pxtovw(60, 375);
     box-shadow: 0 pxtovw(-1, 375) pxtovw(3, 375) rgba(0, 0, 0, .03);
+    transition: opacity $ease-main, transform $ease-main;
   }
 
   .nd-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
+  }
+
+  .is-keyboard-visible & {
+    @include screen('sm', max, 2) {
+      opacity: 0;
+      transform: translate3d(0, 100%, 0);
+    }
   }
 
   &__stage {

@@ -34,11 +34,25 @@ html(lang='en')
       +nd-user-menu-panel(isHost, noUser)
       +nd-main-menu(menuData, isHost, noUser)
       +nd-info-notices({title: 'Notifications', link: {name: 'Read all notifications'}})#events-list
-        each item in events
-          +info-notice(item).__notice
+        if isHost == 'manager'
+          +text-block._gray._empty.__info
+            +e.image_calendar
+              img(src="assets/images/nd/nd-calendar.svg")
+            +e.title_fz20 Nothing here yet
+            +e.content_fz15 In this window you will see notifications about every activity inside your account. Stay tuned through this tooltip and notification page
+        else
+          each item in events
+            +info-notice(item).__notice
       +nd-info-notices({title: 'Messages', link: {name: 'Read all messages'}})#messages-list
-        each item in messages
-          +info-notice(item).__notice
+        if isHost == 'manager'
+          +text-block._gray._empty.__info
+            +e.image_bubble
+              img(src="assets/images/nd/nd-chat.svg")
+            +e.title_fz20 Nothing here yet
+            +e.content_fz15 In this window you can see all the messages you receive within rental deals.
+        else
+          each item in messages
+            +info-notice(item).__notice
 
     +b.MAIN(class='nd-page' + pageCls)
       block content
