@@ -96,6 +96,7 @@ import mapPopup from '../blocks/map-popup/map-popup';
 import formSubmitSwitch from './functions/formSubmitSwitch';
 import allDayFixation from './functions/allDayFixation';
 import ndCropedImage from '../components/popup-image-cropper/popup-image-cropper';
+import screenKeyboardVisibility from './functions/screenKeyboardVisibility';
 
 const $ = window.$;
 
@@ -179,4 +180,5 @@ $(() => {
   formSubmitSwitch();
   allDayFixation();
   ndCropedImage();
+  screenKeyboardVisibility();
 });
