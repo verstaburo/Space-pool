@@ -1,3 +1,129 @@
 .profile-info {
   $b: &;
+
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  box-sizing: border-box;
+
+  &_horizontal {
+    flex-direction: row;
+  }
+
+  &_center {
+    text-align: center;
+  }
+
+  &__avatar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: none;
+    width: 100%;
+
+    #{$b}_horizontal & {
+      width: auto;
+    }
+  }
+
+  &__describe {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    box-sizing: border-box;
+
+    #{$b}_horizontal & {
+      flex: 1;
+      width: auto;
+    }
+
+    #{$b}_center & {
+      justify-content: flex-start;
+      align-items: center;
+    }
+
+    &:not(:first-child) {
+      @include rule(margin-top, (xl: 35px,xlg: 35, lg: 35, md: 35, sm: 35));
+
+      #{$b}_horizontal & {
+        margin-top: 0;
+      }
+    }
+  }
+
+  &__position {
+    display: block;
+    font-family: $font-stolzl;
+    font-weight: 400;
+    letter-spacing: -.015em;
+    line-height: (19 / 16);
+
+    @include rule(font-size, (xl: 16px, xlg: 16, lg: 16, md: 16, sm: 16));
+
+    &:not(:first-child) {
+      @include rule(margin-top, (xl: 35px,xlg: 35, lg: 35, md: 35, sm: 35));
+    }
+  }
+
+  &__title {
+    display: block;
+    box-sizing: border-box;
+    font-family: $font-stolzl;
+    letter-spacing: -.015em;
+    line-height: 1.2;
+    font-weight: 400;
+
+    @include rule(font-size, (xl: 16px, xlg: 16, lg: 16, md: 16, sm: 16));
+
+    &:not(:first-child) {
+      @include rule(margin-top, (xl: 17px,xlg: 17, lg: 17, md: 17, sm: 17));
+    }
+
+    &_fz22 {
+      @include rule(font-size, (xl: 22px, xlg: 22, lg: 22, md: 22, sm: 22));
+    }
+
+    &_deco {
+      position: relative;
+
+      @include rule(padding-top, (xl: 21px, xlg: 21, lg: 21, md: 21, sm: 21));
+
+      &::before {
+        @include pseudo;
+        @include rule(width, (xl: 42px, xlg: 42, lg: 42, md: 42, sm: 42));
+        @include rule(height, (xl: 2px, xlg: 2, lg: 2, md: 2, sm: 2));
+
+        top: 0;
+        left: 50%;
+        background-color: $nd-color-basic;
+        transform: translate3d(-50%, 0, 0);
+      }
+    }
+  }
+
+  &__mail {
+    line-height: 1.2;
+
+    @include rule(font-size, (xl: 14px, xlg: 14, lg: 14, md: 14, sm: 14));
+
+    &_fz16 {
+      @include rule(font-size, (xl: 16px, xlg: 16, lg: 16, md: 16, sm: 16));
+    }
+
+    &:not(:first-child) {
+      @include rule(margin-top, (xl: 10px,xlg: 10, lg: 10, md: 10, sm: 10));
+    }
+  }
+
+  &__edit {
+    font-weight: 600;
+    line-height: -.02em;
+    line-height: 1.6;
+
+    @include rule(font-size, (xl: 14px, xlg: 14, lg: 14, md: 14, sm: 14));
+
+    &:not(:first-child) {
+      @include rule(margin-top, (xl: 38px,xlg: 38, lg: 38, md: 38, sm: 38));
+    }
+  }
 }

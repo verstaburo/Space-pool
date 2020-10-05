@@ -1,0 +1,25 @@
+.company-form {
+  $b: &;
+
+  display: block;
+  width: 100%;
+  margin: 0 auto;
+
+  @include rule(max-width, (xl: 507px, xlg: 507, lg: 507, md: 507));
+
+  @include screen('sm', max, 2) {
+    max-width: none;
+  }
+
+  &:not(:first-child) {
+    @include rule(margin-top, (xl: 102px, xlg: 102, lg: 102, md: 47, sm: 40));
+  }
+
+  .nd-form {
+    &__section {
+      &:not(:first-child) {
+        @include rule(margin-top, (xl: 70px, xlg: 70, lg: 70, md: 70, sm: 40));
+      }
+    }
+  }
+}

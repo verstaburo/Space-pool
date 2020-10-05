@@ -472,6 +472,32 @@
         border-bottom: none;
       }
     }
+
+    &_ha {
+      th, td {
+        padding: 13px 6px 6px 0;
+
+        @include screen('xlg', max, 2) {
+          padding: pxtovw(13, 1660) pxtovw(6, 1660) pxtovw(6, 1660) 0;
+        }
+
+        @include screen('lg', max, 2) {
+          padding: pxtovw(13, 1366) pxtovw(6, 1366) pxtovw(6, 1366) 0;
+        }
+
+        @include screen('md', max, 2) {
+          padding: pxtovw(13, 960) pxtovw(7, 960) pxtovw(7, 960) 0;
+        }
+
+        @include screen('sm', max, 2) {
+          padding: pxtovw(13, 375) pxtovw(7, 375) pxtovw(7, 375) 0;
+        }
+
+        &:last-child {
+          white-space: normal;
+        }
+      }
+    }
   }
 
   &_features {

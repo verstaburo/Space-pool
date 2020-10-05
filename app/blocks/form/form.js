@@ -64,6 +64,7 @@ export default function formManipulations() {
       if (isChoices) {
         el.choices.setChoiceByValue(selectValue);
         $(el).trigger('change');
+        $(form).trigger('reset');
       }
     });
     // сбрасываем превюху у изображения

@@ -1,3 +1,19 @@
-mixin profile-info()
-  +b.profile-info&attributes(attributes)
+mixin profile-info(data)
+  +b.ARTICLE.profile-info&attributes(attributes)
+    if data.avatar
+      +e.avatar(class=(data.avatar.dopClass || ''))
+        +avatar(data.avatar.src)(class=(data.avatar.class || ''))
+    +e.describe
+      if data.position
+        +e.position(class=(data.position.class || ''))!=data.position.text
+      if data.name
+        +e.H3.title(class=(data.name.class || ''))
+          if data.name.link
+            +nd-link()(href="#")!=data.name.text
+          else
+            !=data.name.text
+      if data.email
+        +nd-link(href="mailto:" + (data.email.href || data.email.text || '') class=(data.email.class || ' __mail'))!=data.email.text
+      if data.edit
+        +nd-link-image('nd-edit')(class=(data.edit.class || '__edit') href='#')!=data.edit.text
     block

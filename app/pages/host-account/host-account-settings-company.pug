@@ -13,7 +13,7 @@ block header
   - var host = true
 
 block content
-  +nd-page-header._grid._grid_acc
+  +nd-page-header._grid
     .nd-container
       +e.title.nd-hide-from-sm Settings
       +nd-page-header-side
@@ -34,10 +34,19 @@ block content
 
       +nd-content-main
         +nd-section
-          +nd-section-header._fx._md-pg-head.nd-hide-sm
+          +nd-section-header._fx._md-pg-head.nd-hide-md
             +nd-section-title._fz24 Account settings
             +e.menu
               +slider-navigation([{name: "Basic information", href: "host-account-settings-basic.html"}, {name: "Password", href: "host-account-settings-password.html"}, {name: "Company details", href: "host-account-settings-company.html"}, {name: "Notification settings", href: "host-account-settings-notifications.html"}], 2, 'Company details')
+
+          +company-form.js-form-with-hidden-panel
+            +nd-form-panel()._wide._hidden.is-fixed(data-hidden-panel)
+              .nd-container
+                .nd-content__column_aside.nd-hide-md
+                .nd-content__column_main
+                  +e.controls
+                    +nd-link-icon('cross', 'button')(type="reset")._underline.__reset.js-form-reset Discard <span class="nd-hide-sm">changes</span>
+                    +nd-button('button', true).__button(type="submit") Save <span class="nd-hide-sm">changes</span>
 
 block panels
 

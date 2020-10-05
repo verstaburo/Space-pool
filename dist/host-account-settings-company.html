@@ -190,7 +190,7 @@
         <div class="nd-info-notices__bottom"><a class="nd-link nd-link_icon nd-link_icon_reverse nd-info-notices__link" href="#"><svg class="nd-link__icon nd-link__icon_arrow2"><use xlink:href="assets/images/icon.svg#icon_arrow2"></use></svg><span class="nd-link__text">Read all messages</span></a></div>
     </div>
     <main class="nd-page" role="main">
-        <div class="nd-page-header nd-page-header_grid nd-page-header_grid_acc">
+        <div class="nd-page-header nd-page-header_grid">
             <div class="nd-container">
                 <div class="nd-page-header__title nd-hide-from-sm">Settings</div>
                 <div class="nd-page-header__column nd-page-header__column_side"><a class="nd-link nd-link_icon nd-link_back nd-link_back_md21 nd-page-header__back nd-page-header__back_md-noname nd-hide-from-md"><svg class="nd-link__icon nd-link__icon_arrow5"><use xlink:href="assets/images/icon.svg#icon_arrow5"></use></svg><span class="nd-link__text">Back</span></a></div>
@@ -239,7 +239,7 @@
                 </div>
                 <div class="nd-content__column nd-content__column_main">
                     <section class="nd-section">
-                        <div class="nd-section__header nd-section__header_fx nd-section__header_md-pg-head nd-hide-sm">
+                        <div class="nd-section__header nd-section__header_fx nd-section__header_md-pg-head nd-hide-md">
                             <h3 class="nd-section__title nd-section__title_fz24">Account settings</h3>
                             <div class="nd-section__menu">
                                 <div class="js-nav-slider slider-navigation" data-first-slide-index="2">
@@ -252,6 +252,139 @@
                                 </div>
                             </div>
                         </div>
+                        <form class="nd-form company-form js-form-with-hidden-panel" data-validated-form="data-validated-form">
+                            <fieldset class="nd-form__section">
+                                <div class="nd-form__header nd-form__header_tac">
+                                    <h3 class="nd-form__title">Company details</h3>
+                                </div>
+                                <div class="nd-form__content nd-form__content_mt60">
+                                    <div class="nd-grid nd-grid_int37">
+                                        <div class="nd-grid__col nd-grid__col_xl_12">
+                                            <div class="nd-form__wrapper"><label class="form-box nd-form-box"><input class="nd-input" type="text" name="companyName" placeholder="Company name" value="BS Agency" required="required" /><span class="form-box__label">Company name</span></label>
+                                                <div class="error-message"></div>
+                                            </div>
+                                        </div>
+                                        <div class="nd-grid__col nd-grid__col_xl_12">
+                                            <div class="nd-form__wrapper"><label class="form-box nd-form-box"><input class="nd-input" type="text" name="companyRegNum" placeholder="Company Registration No." required="required" /><span class="form-box__label">Company Registration No.</span></label>
+                                                <div class="error-message"></div>
+                                            </div>
+                                        </div>
+                                        <div class="nd-grid__col nd-grid__col_xl_12">
+                                            <div class="nd-form__wrapper"><label class="form-box nd-form-box"><input class="nd-input" type="text" name="vatNumber" placeholder="VAT number (if applicable)" /><span class="form-box__label">VAT number (if applicable)</span></label>
+                                                <div class="error-message"></div>
+                                            </div>
+                                        </div>
+                                        <div class="nd-grid__col nd-grid__col_xl_12">
+                                            <div class="nd-form__wrapper"><label class="form-box nd-form-box"><input class="nd-input" type="text" name="addressLine1" placeholder="Address line 1" /><span class="form-box__label">Address line 1</span></label>
+                                                <div class="error-message"></div>
+                                            </div>
+                                        </div>
+                                        <div class="nd-grid__col nd-grid__col_xl_12">
+                                            <div class="nd-form__wrapper"><label class="form-box nd-form-box"><input class="nd-input" type="text" name="addressLine2" placeholder="Address line 2" /><span class="form-box__label">Address line 2</span></label>
+                                                <div class="error-message"></div>
+                                            </div>
+                                        </div>
+                                        <div class="nd-grid__col nd-grid__col_xl_6 nd-grid__col_sm_12">
+                                            <div class="nd-form__wrapper">
+                                                <div class="form-box nd-form-box"><select class="nd-select js-nd-select" name="city" placeholder="City" data-mobile-title="City">
+                                                        <option value="" placeholder="placeholder"></option>
+                                                        <option value="1">London</option>
+                                                        <option value="2">Moscow</option>
+                                                        <option value="3">Berlin</option>
+                                                        <option value="4">Riga</option>
+                                                    </select>
+                                                    <div class="form-box__label">City</div>
+                                                </div>
+                                                <div class="error-message"></div>
+                                            </div>
+                                        </div>
+                                        <div class="nd-grid__col nd-grid__col_xl_6 nd-grid__col_sm_12">
+                                            <div class="nd-form__wrapper">
+                                                <div class="form-box nd-form-box"><select class="nd-select js-nd-select" name="country" placeholder="Country" required="required" data-mobile-title="Country">
+                                                        <option value="" placeholder="placeholder"></option>
+                                                        <option value="1">Russia</option>
+                                                        <option value="2">Latvia</option>
+                                                        <option value="3">Germany</option>
+                                                        <option value="4">England</option>
+                                                    </select>
+                                                    <div class="form-box__label">Country</div>
+                                                </div>
+                                                <div class="error-message"></div>
+                                            </div>
+                                        </div>
+                                        <div class="nd-grid__col nd-grid__col_xl_12">
+                                            <div class="nd-form__wrapper"><label class="form-box nd-form-box"><input class="nd-input" type="text" name="postcodeZip" placeholder="Postcode / ZIP" /><span class="form-box__label">Postcode / ZIP</span></label>
+                                                <div class="error-message"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </fieldset>
+                            <fieldset class="nd-form__section">
+                                <div class="nd-form__header nd-form__header_tac">
+                                    <h3 class="nd-form__title nd-form__title_fz22">Legal representative information</h3>
+                                </div>
+                                <div class="nd-form__content nd-form__content_mt30">
+                                    <div class="nd-grid nd-grid_int37">
+                                        <div class="nd-grid__col nd-grid__col_xl_6 nd-grid__col_sm_12">
+                                            <div class="nd-form__wrapper"><label class="form-box nd-form-box"><input class="nd-input" type="text" name="firstName" placeholder="First name" required="required" /><span class="form-box__label">First name</span></label>
+                                                <div class="error-message"></div>
+                                            </div>
+                                        </div>
+                                        <div class="nd-grid__col nd-grid__col_xl_6 nd-grid__col_sm_12">
+                                            <div class="nd-form__wrapper"><label class="form-box nd-form-box"><input class="nd-input" type="text" name="lastName" placeholder="Last name" required="required" /><span class="form-box__label">Last name</span></label>
+                                                <div class="error-message"></div>
+                                            </div>
+                                        </div>
+                                        <div class="nd-grid__col nd-grid__col_xl_6 nd-grid__col_sm_12">
+                                            <div class="nd-form__wrapper">
+                                                <div class="form-box nd-form-box"><select class="nd-select js-nd-select" name="nationality" placeholder="Nationality" required="required" data-mobile-title="Nationality">
+                                                        <option value="" placeholder="placeholder"></option>
+                                                        <option value="1">Russian</option>
+                                                        <option value="2">Latvian</option>
+                                                        <option value="3">German</option>
+                                                        <option value="4">English</option>
+                                                    </select>
+                                                    <div class="form-box__label">Nationality</div>
+                                                </div>
+                                                <div class="error-message"></div>
+                                            </div>
+                                        </div>
+                                        <div class="nd-grid__col nd-grid__col_xl_6 nd-grid__col_sm_12">
+                                            <div class="nd-form__wrapper">
+                                                <div class="form-box nd-form-box"><select class="nd-select js-nd-select" name="countryOfResidence" placeholder="Country of residence" required="required" data-mobile-title="Country of residence">
+                                                        <option value="" placeholder="placeholder"></option>
+                                                        <option value="1">Russia</option>
+                                                        <option value="2">Latvia</option>
+                                                        <option value="3">Germany</option>
+                                                        <option value="4">England</option>
+                                                    </select>
+                                                    <div class="form-box__label">Country of residence</div>
+                                                </div>
+                                                <div class="error-message"></div>
+                                            </div>
+                                        </div>
+                                        <div class="nd-grid__col nd-grid__col_xl_12">
+                                            <div class="nd-form__wrapper"><label class="form-box nd-form-box js-nd-datepicker"><input class="nd-input nd-input_date" type="text" name="firstName" placeholder="Date of birth" data-dates-result="data-dates-result" required="required" readonly="readonly" /><span class="form-box__dates" data-dates-container="data-dates-container"></span><span class="form-box__label">Date of birth</span></label>
+                                                <div class="error-message"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </fieldset>
+                            <div class="nd-form-panel nd-form-panel_wide nd-form-panel_hidden is-fixed" data-hidden-panel="data-hidden-panel">
+                                <div class="nd-container">
+                                    <div class="nd-content__column_aside nd-hide-md"></div>
+                                    <div class="nd-content__column_main">
+                                        <div class="nd-form-panel__controls"><button class="nd-link nd-link_icon nd-link_underline nd-form-panel__reset js-form-reset" type="reset"><svg class="nd-link__icon nd-link__icon_cross"><use xlink:href="assets/images/icon.svg#icon_cross"></use></svg><span class="nd-link__text">Discard <span class="nd-hide-sm">changes</span></span></button><button class="nd-button nd-form-panel__button" type="submit"><span class="nd-button__bg"></span><span class="nd-button__text">Save <span class="nd-hide-sm">changes</span></span>
+                                                <div class="nd-button__preloader">
+                                                    <div class="loader loader_small"></div>
+                                                </div>
+                                            </button></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
                     </section>
                 </div>
             </div>
