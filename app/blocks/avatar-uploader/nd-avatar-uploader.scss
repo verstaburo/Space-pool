@@ -60,6 +60,12 @@
         margin-left: 0;
         margin-top: pxtovw(43, 375);
       }
+
+      #{$b}_vertical & {
+        margin-left: 0;
+
+        @include rule(margin-top, (xl: 36px, xlg: 36, lg: 36, md: 36, sm: 30));
+      }
     }
   }
 
@@ -68,26 +74,11 @@
   }
 
   &__name {
-    font-size: 16px;
     line-height: (19 / 16);
     font-family: $font-stolzl;
     letter-spacing: -.015em;
 
-    @include screen('xlg', max, 2) {
-      font-size: pxtovw(16, 1660);
-    }
-
-    @include screen('lg', max, 2) {
-      font-size: pxtovw(16, 1366);
-    }
-
-    @include screen('md', max, 2) {
-      font-size: pxtovw(16, 960);
-    }
-
-    @include screen('sm', max, 2) {
-      font-size: pxtovw(16, 375);
-    }
+    @include rule(font-size, (xl: 16px, xlg: 16, lg: 16, md: 16, sm: 16));
   }
 
   &__remove {
@@ -97,5 +88,9 @@
     line-height: (14 / 12);
 
     @include rule(font-size, (xl: 12px, xlg: 12, lg: 12, md: 12, sm: 12));
+
+    &:not(:first-child) {
+      @include rule(margin-top, (xl: 80px, xlg: 80, lg: 80, md: 80, sm: 45));
+    }
   }
 }

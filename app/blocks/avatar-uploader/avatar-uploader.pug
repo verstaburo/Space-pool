@@ -7,10 +7,12 @@ mixin avatar-uploader()
       +link-icon('img', 'span')._icon_gray-dark._icon_mid._form-underline._no-shadow._bold.__name
         block
 
-mixin nd-avatar-uploader(tag, name)
+mixin nd-avatar-uploader(tag, name, avatar)
+  - var image = avatar ? avatar.src : 'assets/images/nd/user-avatar-5.jpg'
+  - var avaClass = avatar ? avatar.class : '_big'
   +b(tag || 'form').nd-avatar-uploader&attributes(attributes)(data-upload-container)
     +e.preview(data-image-preview)
-      +avatar('assets/images/nd/user-avatar-5.jpg')._big
+      +avatar(image)(class=avaClass)
     +e.LABEL.content
       +e.INPUT(type="file" name=name data-avatar-uploader=name).input.js-upload-image
       +nd-link-icon('nd-up', 'span')._underline._upload.__name Upload Picture

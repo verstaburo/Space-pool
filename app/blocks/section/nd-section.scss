@@ -1115,10 +1115,18 @@
   }
 
   &_space {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: flex-start;
+    display: block;
+
+    @include screen('md', max, 2) {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: flex-start;
+    }
+
+    &_top {
+      display: flex;
+    }
 
     #{$b} {
       &__header {
@@ -1156,6 +1164,8 @@
         overflow: hidden;
         width: 100%;
         padding-top: 56.02%;
+        box-sizing: border-box;
+        // min-height: 100%;
 
         @include screen('xlg', max, 2) {
           border-radius: pxtovw(3, 1660);
@@ -1171,6 +1181,7 @@
           border-radius: pxtovw(3, 960);
           padding-top: 54.5%;
           margin-top: pxtovw(50, 960);
+          // min-height: 0;
         }
 
         @include screen('sm', max, 2) {

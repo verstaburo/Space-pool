@@ -120,7 +120,7 @@ export default class Autocomplete {
         const elem = arr[i];
         const name = elem.name.toUpperCase();
         const id = elem.icon_id;
-        console.log(id);
+        const hidValue = elem.value;
         // if (elem.name.substr(0, vlength).toUpperCase() === val) {
         if (name.toUpperCase().includes(val)) {
           const item = document.createElement('LI');
@@ -128,13 +128,14 @@ export default class Autocomplete {
           const end = start + vlength;
           item.classList.add(`icon-${elem.icon}`);
           item.setAttribute('data-id', id);
+          item.setAttribute('data-value', hidValue);
           item.innerHTML = `${elem.name.substr(0, start)}<b>${elem.name.substr(start, vlength)}</b>${elem.name.substr(end)}`;
           item.addEventListener('click', (evt) => {
             const self = evt.currentTarget;
             // const form = $(self).closest('form');
             // const hiddenInput = $(form).find('[data-hidden-productId]');
             $(input).val($(self).text());
-            $(`#${$(self).attr('data-id')}`).val($(self).text());
+            $(`#${$(self).attr('data-id')}`).val($(self).attr('data-value'));
             // $(hiddenInput).val(self.getAttribute('data-id'));
             t.closeAllLists();
           });
