@@ -8,7 +8,12 @@
   $b: &;
 
   &_nd {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
     padding: 35px 33px 25px;
+    box-sizing: border-box;
 
     @include screen('xlg', max, 2) {
       padding: pxtovw(35, 1660) pxtovw(33, 1660) pxtovw(25, 1660);
@@ -73,17 +78,17 @@
 
       @include screen('lg', max, 2) {
         font-size: pxtovw(22, 1366);
-        margin-bottom: pxtovw(19, 1366);
+        margin-bottom: pxtovw(23, 1366);
       }
 
       @include screen('md', max, 2) {
         font-size: pxtovw(22, 960);
-        margin-bottom: pxtovw(19, 960);
+        margin-bottom: pxtovw(23, 960);
       }
 
       @include screen('sm', max, 2) {
         font-size: pxtovw(22, 375);
-        margin-bottom: pxtovw(19, 375);
+        margin-bottom: pxtovw(23, 375);
       }
     }
   }
@@ -149,6 +154,8 @@
     }
 
     #{$b}_nd & {
+      width: 100%;
+
       &:not(:last-child) {
         margin-bottom: 33px;
 
@@ -223,24 +230,12 @@
     }
 
     #{$b}_nd & {
+      &:not(:first-child) {
+        margin-top: auto;
+      }
+
       &:not(:last-child) {
-        margin-bottom: 19px;
-
-        @include screen('xlg', max, 2) {
-          margin-bottom: pxtovw(19, 1660);
-        }
-
-        @include screen('lg', max, 2) {
-          margin-bottom: pxtovw(19, 1366);
-        }
-
-        @include screen('md', max, 2) {
-          margin-bottom: pxtovw(19, 960);
-        }
-
-        @include screen('sm', max, 2) {
-          margin-bottom: pxtovw(19, 375);
-        }
+        @include rule(margin-bottom, (xl: 22px, xlg: 22, lg: 19, md: 19, sm: 19));
       }
     }
   }
@@ -494,15 +489,15 @@
     }
 
     @include screen('lg', max, 2) {
-      margin-bottom: pxtovw(18, 1366);
+      margin-bottom: pxtovw(10, 1366);
     }
 
     @include screen('md', max, 2) {
-      margin-bottom: pxtovw(18, 960);
+      margin-bottom: pxtovw(10, 960);
     }
 
     @include screen('sm', max, 2) {
-      margin-bottom: pxtovw(13, 375);
+      margin-bottom: pxtovw(10, 375);
     }
   }
 

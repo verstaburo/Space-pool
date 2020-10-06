@@ -13,6 +13,16 @@
     flex-wrap: wrap;
   }
 
+  &_vertical {
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+
+  &_center {
+    text-align: center;
+    align-items: center;
+  }
+
   &__preview {
     display: block;
     flex: none;
@@ -78,5 +88,14 @@
     @include screen('sm', max, 2) {
       font-size: pxtovw(16, 375);
     }
+  }
+
+  &__remove {
+    font-family: $font-stolzl;
+    font-weight: 400;
+    letter-spacing: -.015em;
+    line-height: (14 / 12);
+
+    @include rule(font-size, (xl: 12px, xlg: 12, lg: 12, md: 12, sm: 12));
   }
 }
