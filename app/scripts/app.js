@@ -97,6 +97,7 @@ import formSubmitSwitch from './functions/formSubmitSwitch';
 import allDayFixation from './functions/allDayFixation';
 import ndCropedImage from '../components/popup-image-cropper/popup-image-cropper';
 import screenKeyboardVisibility from './functions/screenKeyboardVisibility';
+import heightEqualizer from './functions/heightEqualizer';
 
 const $ = window.$;
 
@@ -181,4 +182,5 @@ $(() => {
   allDayFixation();
   ndCropedImage();
   screenKeyboardVisibility();
+  heightEqualizer();
 });

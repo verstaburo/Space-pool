@@ -21,22 +21,20 @@ block content
         +nd-breadcrumbs([["London", "#"], ["Mayfare", "#"], ["EC2A 4SD"]]).__breadcrumbs.nd-hide-sm
         +address('assets/images/nd/nd-subway.svg').__address.nd-hide-from-md Liverpool Street
 
+
   +nd-content._space
     .nd-container.nd-container_space
-      +e.column_top
-        +nd-section._space._space_top
-          +gallery({images: ["assets/images/nd/nd-space-lead.jpg", "assets/images/space-lead1.jpg", "assets/images/space-lead2.jpg", "assets/images/space-lead3.jpg", "assets/images/space-lead4.jpg"], gallerytag: "spacegallery", buttons: true, dots: true, dotsClass: ' nd-hide-from-sm'}).__gallery.js-nd-gallery
-          +nd-section-header.nd-hide-from-md
-            +e.boxes
+
+      +nd-content-main
+        +nd-section._space._mt114
+          +gallery({images: ["assets/images/nd/nd-space-lead.jpg", "assets/images/space-lead1.jpg", "assets/images/space-lead2.jpg", "assets/images/space-lead3.jpg", "assets/images/space-lead4.jpg"], gallerytag: "spacegallery", buttons: true, dots: true, dotsClass: ' nd-hide-from-sm'}).__gallery.js-nd-gallery(data-equalizer-target="space")
+          +nd-section-header
+            +e.boxes.nd-hide-from-md
               +nd-box._orange._size10
               +nd-box._red._size10
               +nd-box._blue._size10
               +nd-box._green._size10
-            +nd-section-title('h2')._fz30._sm-fz26 House of Creative - 229 Shoreditch High Street
-      +nd-content-main
-        +nd-section._space._mt114
-          +nd-section-header.nd-hide-md
-            +nd-section-title('h2')._fz30._sm-fz26 About House of Creative - 229 Shoreditch High Street
+            +nd-section-title('h1')._fz30._sm-fz26 About House of Creative - 229 Shoreditch High Street
           +nd-section-content
             +e.text Perfectly located on Shoreditch High Street, alongside three of our other buildings, 229 offers 12 private offices, meeting rooms, large board room and a perfect breakout/kitchen space and rooftop. House of Creative has been around for 8 years so we know what our client's needs are. We keep our pricing low and offer and all in service to make life easy for you.
 
@@ -72,10 +70,9 @@ block content
             each item in getData('nd-offers.json').private
               +offer-card-for-space(item, 'nd-section__offer')
 
-      +sidebar-nosticky.nd-sidebar.nd-hide-md.__column_side-form
-        +scroll-form-v3
-
-      +nd-content-aside.nd-hide-md
+      +nd-content-aside
+        +sidebar.nd-sidebar.nd-hide-md
+          +scroll-form-v3(data-equalizer-target="space")
 
       +e.column_footer
         +nd-section

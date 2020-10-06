@@ -11,14 +11,14 @@
 Миксин для подключения шрифтов.
 Описание в файле _fonts.scss
 */
-@mixin font-face($name, $style, $weight, $fontname) {
+@mixin font-face($name, $style, $weight, $fontname, $fontdisplay: swap) {
   $path: '../fonts/';
 
   @font-face {
     font-family: $name;
     font-style: $style;
     font-weight: $weight;
-    font-display: swap;
+    font-display: $fontdisplay;
     src: url($path + $fontname + '.eot');
     src: url('' + $path + $fontname + '.eot?#iefix') format('embedded-opentype'), url('' + $path + $fontname + '.woff2') format('woff2'), url('' + $path + $fontname + '.woff') format('woff'), url('' + $path + $fontname + '.ttf') format('truetype'), url('' + $path + $fontname + '.svg#' + $fontname) format('svg');
   }
