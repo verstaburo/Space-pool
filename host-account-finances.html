@@ -17,7 +17,7 @@
 </head>
 
 <body class="no-js-scale nd  is-sm-noheader">
-    <header class="nd-header header is-login">
+    <header class="compensate-for-scrollbar nd-header header is-login">
         <div class="header__wrapper">
             <div class="nd-container">
                 <div class="header__logo"><a class="nd-logo" href="/"><svg class="nd-logo__icon"><use xlink:href="assets/images/icon.svg#icon_nd-logo"></use></svg></a></div>
@@ -193,9 +193,10 @@
         <div class="nd-info-notices__bottom"><a class="nd-link nd-link_icon nd-link_icon_reverse nd-info-notices__link" href="#"><svg class="nd-link__icon nd-link__icon_arrow2"><use xlink:href="assets/images/icon.svg#icon_arrow2"></use></svg><span class="nd-link__text">Read all messages</span></a></div>
     </div>
     <main class="nd-page" role="main">
-        <div class="nd-page-header nd-page-header_grid nd-page-header_grid_acc">
+        <div class="nd-page-header nd-page-header_grid">
             <div class="nd-container">
-                <div class="nd-page-header__column nd-page-header__column_side"><a class="nd-link nd-link_icon nd-link_back nd-page-header__back nd-hide"><svg class="nd-link__icon nd-link__icon_arrow5"><use xlink:href="assets/images/icon.svg#icon_arrow5"></use></svg><span class="nd-link__text">Back</span></a></div>
+                <div class="nd-page-header__title nd-hide-from-sm">Finances</div>
+                <div class="nd-page-header__column nd-page-header__column_side"><a class="nd-link nd-link_icon nd-link_back nd-link_back_md21 nd-page-header__back nd-page-header__back_md-noname nd-hide-from-md"><svg class="nd-link__icon nd-link__icon_arrow5"><use xlink:href="assets/images/icon.svg#icon_arrow5"></use></svg><span class="nd-link__text">Back</span></a></div>
                 <div class="nd-page-header__column nd-page-header__column_main">
                     <div class="nd-page-header__mb-menu nd-hide-from-md">
                         <div class="js-nav-slider slider-navigation" data-first-slide-index="4">
@@ -206,6 +207,15 @@
                                 <div class="slider-navigation__slide swiper-slide"><a class="slider-navigation__link" href="host-account-settings.html">Settings</a></div>
                                 <div class="slider-navigation__slide swiper-slide"><a class="slider-navigation__link is-active" href="host-account-finances.html">Finances</a></div>
                                 <div class="slider-navigation__slide swiper-slide"><a class="slider-navigation__link" href="host-account-kyc.html">KYC</a></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="nd-page-header__mb-menu nd-hide">
+                        <div class="js-nav-slider slider-navigation" data-first-slide-index="0">
+                            <div class="swiper-wrapper">
+                                <div class="slider-navigation__slide swiper-slide"><a class="slider-navigation__link" href="host-account-finances-statements.html">Statements</a></div>
+                                <div class="slider-navigation__slide swiper-slide"><a class="slider-navigation__link" href="host-account-finances.html">Bank account details</a></div>
+                                <div class="slider-navigation__slide swiper-slide"><a class="slider-navigation__link" href="host-account-finances.html">Account stats</a></div>
                             </div>
                         </div>
                     </div>
@@ -231,7 +241,7 @@
                 </div>
                 <div class="nd-content__column nd-content__column_main">
                     <section class="nd-section">
-                        <div class="nd-section__header nd-section__header_fx nd-section__header_md-pg-head nd-hide-sm">
+                        <div class="nd-section__header nd-section__header_fx nd-section__header_md-pg-head nd-hide-md">
                             <h3 class="nd-section__title nd-section__title_fz24">Finances</h3>
                             <div class="nd-section__menu">
                                 <div class="js-nav-slider slider-navigation" data-first-slide-index="0">
@@ -243,15 +253,122 @@
                                 </div>
                             </div>
                         </div>
-                        <section class="dashboard dashboard_host-account">
+                        <section class="dashboard dashboard_host-account nd-section__dashboard nd-section__dashboard_mt">
                             <section class="board dashboard__board dashboard__board_ha dashboard__board_ha_state">
                                 <h3 class="board__title board__title_fz22">Statements</h3>
+                                <table class="nd-table nd-table_rent-state board__table board__table_mt27" cellspacing="0">
+                                    <thead>
+                                        <tr>
+                                            <th>Issued</th>
+                                            <th>Rent</th>
+                                            <th>Price</th>
+                                            <th class="nd-hide-sm">Status</th>
+                                            <th>Invoice</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td><b>24 April 2020</b></td>
+                                            <td><b>Offica space 31</b></td>
+                                            <td><b>£ 860.00</b></td>
+                                            <td class="nd-hide-sm"><b>Pending</b></td>
+                                            <td><a class="nd-link nd-link_pdf" href="#"><span class="nd-link__type">pdf</span></a></td>
+                                        </tr>
+                                        <tr>
+                                            <td><b>24 April 2020</b></td>
+                                            <td>Fixed desk south side</td>
+                                            <td>£ 356.00</td>
+                                            <td class="nd-hide-sm">Paid-in</td>
+                                            <td><a class="nd-link nd-link_pdf" href="#"><span class="nd-link__type">pdf</span></a></td>
+                                        </tr>
+                                        <tr>
+                                            <td><b>24 April 2020</b></td>
+                                            <td>Hot desk</td>
+                                            <td>£ 356.00</td>
+                                            <td class="nd-hide-sm">Paid-out</td>
+                                            <td><a class="nd-link nd-link_pdf" href="#"><span class="nd-link__type">pdf</span></a></td>
+                                        </tr>
+                                        <tr>
+                                            <td><b>24 April 2020</b></td>
+                                            <td>Office 1129</td>
+                                            <td>£ 356.00</td>
+                                            <td class="nd-hide-sm">Paid</td>
+                                            <td><a class="nd-link nd-link_pdf" href="#"><span class="nd-link__type">pdf</span></a></td>
+                                        </tr>
+                                        <tr>
+                                            <td><b>24 April 2020</b></td>
+                                            <td>Fixed desk south side</td>
+                                            <td>£ 356.00</td>
+                                            <td class="nd-hide-sm">Paid</td>
+                                            <td><a class="nd-link nd-link_pdf" href="#"><span class="nd-link__type">pdf</span></a></td>
+                                        </tr>
+                                        <tr>
+                                            <td><b>24 April 2020</b></td>
+                                            <td>Hot desk</td>
+                                            <td>£ 356.00</td>
+                                            <td class="nd-hide-sm">Paid</td>
+                                            <td><a class="nd-link nd-link_pdf" href="#"><span class="nd-link__type">pdf</span></a></td>
+                                        </tr>
+                                        <tr>
+                                            <td><b>24 April 2020</b></td>
+                                            <td>Office 1129</td>
+                                            <td>£ 356.00</td>
+                                            <td class="nd-hide-sm">Paid</td>
+                                            <td><a class="nd-link nd-link_pdf" href="#"><span class="nd-link__type">pdf</span></a></td>
+                                        </tr>
+                                        <tr>
+                                            <td><b>24 April 2020</b></td>
+                                            <td>Fixed desk south side</td>
+                                            <td>£ 356.00</td>
+                                            <td class="nd-hide-sm">Paid</td>
+                                            <td><a class="nd-link nd-link_pdf" href="#"><span class="nd-link__type">pdf</span></a></td>
+                                        </tr>
+                                        <tr>
+                                            <td><b>24 April 2020</b></td>
+                                            <td>Hot desk</td>
+                                            <td>£ 356.00</td>
+                                            <td class="nd-hide-sm">Paid</td>
+                                            <td><a class="nd-link nd-link_pdf" href="#"><span class="nd-link__type">pdf</span></a></td>
+                                        </tr>
+                                        <tr>
+                                            <td><b>24 April 2020</b></td>
+                                            <td>Office 1129</td>
+                                            <td>£ 356.00</td>
+                                            <td class="nd-hide-sm">Paid</td>
+                                            <td><a class="nd-link nd-link_pdf" href="#"><span class="nd-link__type">pdf</span></a></td>
+                                        </tr>
+                                        <tr>
+                                            <td><b>24 April 2020</b></td>
+                                            <td>Fixed desk south side</td>
+                                            <td>£ 356.00</td>
+                                            <td class="nd-hide-sm">Paid</td>
+                                            <td><a class="nd-link nd-link_pdf" href="#"><span class="nd-link__type">pdf</span></a></td>
+                                        </tr>
+                                        <tr>
+                                            <td><b>24 April 2020</b></td>
+                                            <td>Hot desk</td>
+                                            <td>£ 356.00</td>
+                                            <td class="nd-hide-sm">Paid</td>
+                                            <td><a class="nd-link nd-link_pdf" href="#"><span class="nd-link__type">pdf</span></a></td>
+                                        </tr>
+                                        <tr>
+                                            <td><b>24 April 2020</b></td>
+                                            <td>Office 1129</td>
+                                            <td>£ 356.00</td>
+                                            <td class="nd-hide-sm">Paid</td>
+                                            <td><a class="nd-link nd-link_pdf" href="#"><span class="nd-link__type">pdf</span></a></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <div class="board__links board__links_mt60"><a class="nd-link nd-link_icon board__link board__link_fw600 board__link_fz14" href="host-account-finances-statements.html"><img class="nd-link__icon nd-link__icon_nd-edit" src="assets/images/nd/nd-edit.svg" alt="" role="presentation" /><span class="nd-link__text">View all statements</span></a></div>
                             </section>
                             <section class="board dashboard__board dashboard__board_ha dashboard__board_ha_stats">
-                                <h3 class="board__title board__title_fz22 board__title_tac">Stats</h3>
+                                <h3 class="board__title board__title_fz22">Stats</h3>
+                                <div class="board__links board__links_mt60"><a class="nd-link nd-link_icon board__link board__link_fw600 board__link_fz14" href="#"><img class="nd-link__icon nd-link__icon_nd-edit" src="assets/images/nd/nd-edit.svg" alt="" role="presentation" /><span class="nd-link__text">View detailed stats</span></a></div>
                             </section>
                             <section class="board dashboard__board dashboard__board_ha dashboard__board_ha_bank">
                                 <h3 class="board__title board__title_fz22">Bank account details</h3>
+                                <div class="board__links board__links_mt60"><a class="nd-link nd-link_icon board__link board__link_fw600 board__link_fz14" href="#"><img class="nd-link__icon nd-link__icon_nd-edit" src="assets/images/nd/nd-edit.svg" alt="" role="presentation" /><span class="nd-link__text">Edit bank account details</span></a></div>
                             </section>
                         </section>
                     </section>
