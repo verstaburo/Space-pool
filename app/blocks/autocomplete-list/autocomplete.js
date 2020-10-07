@@ -81,16 +81,6 @@ export default class Autocomplete {
       url,
       type: 'GET',
       success(response) {
-        // const ul = $(response);
-        // const allLi = $(ul).find('li');
-        // const sourceList = [];
-        // $(allLi).each((i, el) => {
-        //   sourceList.push({
-        //     icon: $(el).attr('data-id'),
-        //     name: $(el).text(),
-        //     hint: $(el).attr('data-hint'),
-        //   });
-        // });
         t.sourceList = response;
         t.loadStatus = 'success';
       },
@@ -121,7 +111,6 @@ export default class Autocomplete {
         const name = elem.name.toUpperCase();
         const id = elem.icon_id;
         const hidValue = elem.value;
-        // if (elem.name.substr(0, vlength).toUpperCase() === val) {
         if (name.toUpperCase().includes(val)) {
           const item = document.createElement('LI');
           const start = name.indexOf(val);
@@ -132,11 +121,12 @@ export default class Autocomplete {
           item.innerHTML = `${elem.name.substr(0, start)}<b>${elem.name.substr(start, vlength)}</b>${elem.name.substr(end)}`;
           item.addEventListener('click', (evt) => {
             const self = evt.currentTarget;
-            // const form = $(self).closest('form');
-            // const hiddenInput = $(form).find('[data-hidden-productId]');
+            const form = $(self).closest('form');
             $(input).val($(self).text());
             $(`#${$(self).attr('data-id')}`).val($(self).attr('data-value'));
-            // $(hiddenInput).val(self.getAttribute('data-id'));
+            if (window.Modernizr.mq(`(max-width: ${window.globalOptions.sizes.sm - 1}px)`)) {
+              $(form).trigger('submit');
+            }
             t.closeAllLists();
           });
           list.appendChild(item);
@@ -172,6 +162,7 @@ export default class Autocomplete {
       $(items[currentFocus]).addClass('is-active');
     }
   }
+
   // убираем подсветку с элемента потерявшекго фокус
   removeActive(items) {
     $(items).each((i, el) => {
@@ -180,6 +171,7 @@ export default class Autocomplete {
       }
     });
   }
+
   // закрываем другие выпадашки кроме заданной
   closeAllLists(notUs) {
     const t = this;

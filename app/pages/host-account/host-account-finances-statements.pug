@@ -13,13 +13,17 @@ block header
   - var host = true
 
 block content
-  +nd-page-header._grid._grid_acc
+  +nd-page-header._grid
     .nd-container
+      +e.title.nd-hide-from-sm Finances
       +nd-page-header-side
+        +nd-link-icon('arrow5')._back._back_md21.__back_md-noname.nd-hide-from-md Back
       +nd-page-header-main
         - var menuList = getData('sideNavProfileHost.json').menu;
-        +e.mb-menu.nd-hide-from-md
+        +e.mb-menu.nd-hide
           +slider-navigation(menuList, 4, 'Finances')
+        +e.mb-menu.nd-hide-from-md
+          +slider-navigation([{name: "Statements", href: "host-account-finances-statements.html"}, {name: "Bank account details", href: "host-account-finances.html"}, {name: "Account stats", href: "host-account-finances.html"}], 0, 'Statements')
 
   +nd-content
     .nd-container
@@ -29,7 +33,68 @@ block content
           +nd-side-navigation(nav, 'Finances')._profile._profile_ha
 
       +nd-content-main
-        +records._acc
+        +nd-section
+          +nd-section-header._fx._md-pg-head.nd-hide-md
+            +nd-section-title._fz24 Finances
+            +e.menu
+              +slider-navigation([{name: "Statements", href: "host-account-finances-statements.html"}, {name: "Bank account details", href: "host-account-finances.html"}, {name: "Account stats", href: "host-account-finances.html"}], 0, 'Statements')
+
+          +dashboard.__dashboard_mt
+            +board._pad35.__board
+              +board-header._align-base
+                +board-title('h2')._fz22 Statements
+              +nd-table._rent-state.__table_mt27
+                thead
+                  tr
+                    th Issued
+                    th Rent
+                    th.nd-hide-sm Space
+                    th Price
+                    th.nd-hide-sm Status
+                    th Invoice
+                tbody
+                  tr
+                    td
+                      b 24 April 2020
+                    td
+                      b Offica space 31
+                    td.nd-hide-sm
+                      b FBC Clerkenwell
+                    td
+                      b £ 860.00
+                    td.nd-hide-sm
+                      b Pending
+                    td
+                      +nd-link-pdf({})(href="#")
+                  - for (var i = 0; i < 4; i ++) {
+                    tr
+                      td
+                        b 24 April 2020
+                      td Fixed desk south side
+                      td.nd-hide-sm FBC Clerkenwell
+                      td £ 356.00
+                      td.nd-hide-sm Paid
+                      td
+                        +nd-link-pdf({})(href="#")
+                    tr
+                      td
+                        b 24 April 2020
+                      td Hot desk
+                      td.nd-hide-sm FBC Clerkenwell
+                      td £ 356.00
+                      td.nd-hide-sm Paid
+                      td
+                        +nd-link-pdf({})(href="#")
+                    tr
+                      td
+                        b 24 April 2020
+                      td Office 1129
+                      td.nd-hide-sm First Base - Victoria
+                      td £ 356.00
+                      td.nd-hide-sm Paid
+                      td
+                        +nd-link-pdf({})(href="#")
+                  - }
 
 block panels
 

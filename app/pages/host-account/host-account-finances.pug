@@ -13,14 +13,17 @@ block header
   - var host = true
 
 block content
-  +nd-page-header._grid._grid_acc
+  +nd-page-header._grid
     .nd-container
+      +e.title.nd-hide-from-sm Finances
       +nd-page-header-side
-        +nd-link-icon('arrow5')._back.__back.nd-hide Back
+        +nd-link-icon('arrow5')._back._back_md21.__back_md-noname.nd-hide-from-md Back
       +nd-page-header-main
         - var menuList = getData('sideNavProfileHost.json').menu;
         +e.mb-menu.nd-hide-from-md
           +slider-navigation(menuList, 4, 'Finances')
+        +e.mb-menu.nd-hide
+          +slider-navigation([{name: "Statements", href: "host-account-finances-statements.html"}, {name: "Bank account details", href: "host-account-finances.html"}, {name: "Account stats", href: "host-account-finances.html"}], 0)
 
   +nd-content
     .nd-container
@@ -31,17 +34,95 @@ block content
 
       +nd-content-main
         +nd-section
-          +nd-section-header._fx._md-pg-head.nd-hide-sm
+          +nd-section-header._fx._md-pg-head.nd-hide-md
             +nd-section-title._fz24 Finances
             +e.menu
               +slider-navigation([{name: "Statements", href: "host-account-finances-statements.html"}, {name: "Bank account details", href: "host-account-finances.html"}, {name: "Account stats", href: "host-account-finances.html"}], 0)
-          +dashboard._host-account
+
+          +dashboard._host-account.__dashboard_mt
             +board.__board_ha._ha_state
               +board-title._fz22 Statements
+              +nd-table._rent-state.__table_mt27
+                thead
+                  tr
+                    th Issued
+                    th Rent
+                    th Price
+                    th.nd-hide-sm Status
+                    th Invoice
+                tbody
+                  tr
+                    td
+                      b 24 April 2020
+                    td
+                      b Offica space 31
+                    td
+                      b £ 860.00
+                    td.nd-hide-sm
+                      b Pending
+                    td
+                      +nd-link-pdf({})(href="#")
+                  tr
+                    td
+                      b 24 April 2020
+                    td Fixed desk south side
+                    td £ 356.00
+                    td.nd-hide-sm Paid-in
+                    td
+                      +nd-link-pdf({})(href="#")
+                  tr
+                    td
+                      b 24 April 2020
+                    td Hot desk
+                    td £ 356.00
+                    td.nd-hide-sm Paid-out
+                    td
+                      +nd-link-pdf({})(href="#")
+                  tr
+                    td
+                      b 24 April 2020
+                    td Office 1129
+                    td £ 356.00
+                    td.nd-hide-sm Paid
+                    td
+                      +nd-link-pdf({})(href="#")
+
+                  - for (var i = 0; i < 3; i ++) {
+                    tr
+                      td
+                        b 24 April 2020
+                      td Fixed desk south side
+                      td £ 356.00
+                      td.nd-hide-sm Paid
+                      td
+                        +nd-link-pdf({})(href="#")
+                    tr
+                      td
+                        b 24 April 2020
+                      td Hot desk
+                      td £ 356.00
+                      td.nd-hide-sm Paid
+                      td
+                        +nd-link-pdf({})(href="#")
+                    tr
+                      td
+                        b 24 April 2020
+                      td Office 1129
+                      td £ 356.00
+                      td.nd-hide-sm Paid
+                      td
+                        +nd-link-pdf({})(href="#")
+                  - }
+              +e.links_mt60
+                +nd-link-image('nd-edit')(class='' href='host-account-finances-statements.html').__link_fw600._fz14 View all statements
             +board.__board_ha._ha_stats
-              +board-title._fz22._tac Stats
+              +board-title._fz22 Stats
+              +e.links_mt60
+                +nd-link-image('nd-edit')(class='' href='#').__link_fw600._fz14 View detailed stats
             +board.__board_ha._ha_bank
               +board-title._fz22 Bank account details
+              +e.links_mt60
+                +nd-link-image('nd-edit')(class='' href='#').__link_fw600._fz14 Edit bank account details
 
 block panels
 

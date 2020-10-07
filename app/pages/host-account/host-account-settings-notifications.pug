@@ -39,9 +39,26 @@ block content
             +e.menu
               +slider-navigation([{name: "Basic information", href: "host-account-settings-basic.html"}, {name: "Password", href: "host-account-settings-password.html"}, {name: "Company details", href: "host-account-settings-company.html"}, {name: "Notification settings", href: "host-account-settings-notifications.html"}], 3, 'Notification settings')
 
-          +e.dashboard_mt
-            +board._pb36
+          +dashboard.__dashboard_mt55
+            +board._pb36.__board
               +board-title._fz22 Notification settings
+              +nd-table._info._info_subs._fw500.__table_mt27
+                thead
+                  tr
+                    th Reason
+                    th Platform notification
+                    th Notify via Email
+                tbody
+                  each row in getData('table-notifications.json')
+                    tr
+                      each cell in row
+                        if cell.content
+                          if cell.content.text
+                            td(class=(cell.content.textClass || ''))!= cell.content.text
+                          if cell.content.switch
+                            td
+                              +nd-switch(cell.content.switch.data)._light(class=(cell.content.switch.class || ''))
+
 
 block panels
 
