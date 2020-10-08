@@ -280,21 +280,64 @@ $(document).ready(function () {
     var searchMap = document.getElementById('search-map');
     var addSpaceMap = document.getElementById('add-map');
 
+    var smallBlueIconParam = {
+      url: "data:image/svg+xml,%3Csvg width='23' height='31' viewBox='0 0 23 31' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M23 11.5213C23 21.5047 11.5 31 11.5 31C11.5 31 0 21.2606 0 11.5213C0 5.15039 5.14089 0 11.5 0C17.8591 0 23 5.15039 23 11.5213Z' fill='%230085FF'/%3E%3Cpath d='M22.5 11.5213C22.5 16.3378 19.7155 21.0944 16.8584 24.6936C15.4376 26.4834 14.0156 27.9662 12.9487 29.0015C12.4155 29.5189 11.9718 29.9238 11.6622 30.1986C11.6047 30.2496 11.5518 30.2962 11.5038 30.3382C11.4549 30.2944 11.4008 30.2457 11.3419 30.1922C11.032 29.9111 10.588 29.4975 10.0545 28.9704C8.98702 27.9156 7.56436 26.4094 6.14288 24.6036C3.283 20.9706 0.5 16.2147 0.5 11.5213C0.5 5.42566 5.4179 0.5 11.5 0.5C17.5821 0.5 22.5 5.42566 22.5 11.5213Z' stroke='%231F1F1F' stroke-opacity='0.28'/%3E%3Ccircle cx='11.5' cy='10.5' r='4.5' fill='white'/%3E%3C/svg%3E ",
+      size: new google.maps.Size(23, 31),
+      // The origin for this image is (0, 0).
+      origin: new google.maps.Point(0, 0),
+      // The anchor for this image is the base of the flagpole at (0, 32).
+      anchor: new google.maps.Point(12, 31),
+      scaledSize: new google.maps.Size(23, 31),
+    };
+
+    var bigBlackIconParam = {
+      url: "data:image/svg+xml,%3Csvg width='23' height='31' viewBox='0 0 23 31' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M23 11.5213C23 21.5047 11.5 31 11.5 31C11.5 31 0 21.2606 0 11.5213C0 5.15039 5.14089 0 11.5 0C17.8591 0 23 5.15039 23 11.5213Z' fill='black'/%3E%3Cpath d='M22.5 11.5213C22.5 16.3378 19.7155 21.0944 16.8584 24.6936C15.4376 26.4834 14.0156 27.9662 12.9487 29.0015C12.4155 29.5189 11.9718 29.9238 11.6622 30.1986C11.6047 30.2496 11.5518 30.2962 11.5038 30.3382C11.4549 30.2944 11.4008 30.2457 11.3419 30.1922C11.032 29.9111 10.588 29.4975 10.0545 28.9704C8.98702 27.9156 7.56436 26.4094 6.14288 24.6036C3.283 20.9706 0.5 16.2147 0.5 11.5213C0.5 5.42566 5.4179 0.5 11.5 0.5C17.5821 0.5 22.5 5.42566 22.5 11.5213Z' stroke='black' stroke-opacity='0.28'/%3E%3Ccircle cx='11.5' cy='10.5' r='4.5' fill='white'/%3E%3C/svg%3E ",
+      size: new google.maps.Size(35, 47),
+      // The origin for this image is (0, 0).
+      origin: new google.maps.Point(0, 0),
+      // The anchor for this image is the base of the flagpole at (0, 32).
+      anchor: new google.maps.Point(17.5, 47),
+      scaledSize: new google.maps.Size(35, 47),
+    };
+
+    var biggestBlackIconParam = {
+      url: "data:image/svg+xml,%3Csvg width='23' height='31' viewBox='0 0 23 31' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M23 11.5213C23 21.5047 11.5 31 11.5 31C11.5 31 0 21.2606 0 11.5213C0 5.15039 5.14089 0 11.5 0C17.8591 0 23 5.15039 23 11.5213Z' fill='black'/%3E%3Cpath d='M22.5 11.5213C22.5 16.3378 19.7155 21.0944 16.8584 24.6936C15.4376 26.4834 14.0156 27.9662 12.9487 29.0015C12.4155 29.5189 11.9718 29.9238 11.6622 30.1986C11.6047 30.2496 11.5518 30.2962 11.5038 30.3382C11.4549 30.2944 11.4008 30.2457 11.3419 30.1922C11.032 29.9111 10.588 29.4975 10.0545 28.9704C8.98702 27.9156 7.56436 26.4094 6.14288 24.6036C3.283 20.9706 0.5 16.2147 0.5 11.5213C0.5 5.42566 5.4179 0.5 11.5 0.5C17.5821 0.5 22.5 5.42566 22.5 11.5213Z' stroke='black' stroke-opacity='0.28'/%3E%3Ccircle cx='11.5' cy='10.5' r='4.5' fill='white'/%3E%3C/svg%3E ",
+      size: new google.maps.Size(47, 64),
+      // The origin for this image is (0, 0).
+      origin: new google.maps.Point(0, 0),
+      // The anchor for this image is the base of the flagpole at (0, 32).
+      anchor: new google.maps.Point(23.5, 64),
+      scaledSize: new google.maps.Size(47, 64),
+    };
+
     class Popup extends google.maps.OverlayView {
-      constructor(position, content, iconSize) {
+      constructor(position, content, marker) {
         super();
         this.position = position;
         this.containerDiv = content;
-        this.iconSize = (iconSize || '47');
+        this.marker = marker;
         // Optionally stop clicks, etc., from bubbling up to the map.
         Popup.preventMapHitsAndGesturesFrom(this.containerDiv);
+
+        var _t = this;
       }
       open(map) {
         this.setMap(map);
         this.containerDiv.classList.add('is-show');
+        var _t = this;
+        var _marker = this.marker;
+
+        _marker.userState = 'open';
+        _marker.setIcon(bigBlackIconParam);
+        map.addListener('click', () => {
+          _t.close();
+        });
       }
       close() {
         this.containerDiv.classList.remove('is-show');
+        var _marker = this.marker;
+        _marker.userState = 'close';
+        _marker.setIcon(smallBlueIconParam);
         this.setMap(null);
       }
       toggle() {
@@ -317,7 +360,7 @@ $(document).ready(function () {
         var containerSizes = this.containerDiv.getBoundingClientRect();
         var distanceForRight = (mapSizes.width / 2) - divPosition.x - 30;
         var distanceForLeft = (mapSizes.width / 2) + (divPosition.x - 30);
-        var distanceForTop = ((mapSizes.height / 2) + divPosition.y) - 45 - this.iconSize;
+        var distanceForTop = ((mapSizes.height / 2) + divPosition.y) - 50 - 15 - 47;
         var freeDistanceRightX = distanceForRight - (containerSizes.width / 2);
         var freeDistanceLeftX = distanceForLeft - (containerSizes.width / 2);
         var freeDistanceY = distanceForTop - containerSizes.height;
@@ -356,7 +399,7 @@ $(document).ready(function () {
           'block' :
           'none';
         if (display === 'block') {
-          this.containerDiv.style.top = (divPosition.y - this.iconSize - 15) + 'px';
+          this.containerDiv.style.top = (divPosition.y - 47 - 15) + 'px';
           this.containerDiv.style.left = divPosition.x + 'px';
         }
 
@@ -365,36 +408,6 @@ $(document).ready(function () {
         }
       }
     }
-
-    var smallBlueIconParam = {
-      url: "data:image/svg+xml,%3Csvg width='23' height='31' viewBox='0 0 23 31' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M23 11.5213C23 21.5047 11.5 31 11.5 31C11.5 31 0 21.2606 0 11.5213C0 5.15039 5.14089 0 11.5 0C17.8591 0 23 5.15039 23 11.5213Z' fill='%230085FF'/%3E%3Cpath d='M22.5 11.5213C22.5 16.3378 19.7155 21.0944 16.8584 24.6936C15.4376 26.4834 14.0156 27.9662 12.9487 29.0015C12.4155 29.5189 11.9718 29.9238 11.6622 30.1986C11.6047 30.2496 11.5518 30.2962 11.5038 30.3382C11.4549 30.2944 11.4008 30.2457 11.3419 30.1922C11.032 29.9111 10.588 29.4975 10.0545 28.9704C8.98702 27.9156 7.56436 26.4094 6.14288 24.6036C3.283 20.9706 0.5 16.2147 0.5 11.5213C0.5 5.42566 5.4179 0.5 11.5 0.5C17.5821 0.5 22.5 5.42566 22.5 11.5213Z' stroke='%231F1F1F' stroke-opacity='0.28'/%3E%3Ccircle cx='11.5' cy='10.5' r='4.5' fill='white'/%3E%3C/svg%3E ",
-      size: new google.maps.Size(23, 31),
-      // The origin for this image is (0, 0).
-      origin: new google.maps.Point(0, 0),
-      // The anchor for this image is the base of the flagpole at (0, 32).
-      anchor: new google.maps.Point(12, 31),
-      scaledSize: new google.maps.Size(23, 31),
-    };
-
-    var bigBlackIconParam = {
-      url: "data:image/svg+xml,%3Csvg width='23' height='31' viewBox='0 0 23 31' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M23 11.5213C23 21.5047 11.5 31 11.5 31C11.5 31 0 21.2606 0 11.5213C0 5.15039 5.14089 0 11.5 0C17.8591 0 23 5.15039 23 11.5213Z' fill='black'/%3E%3Cpath d='M22.5 11.5213C22.5 16.3378 19.7155 21.0944 16.8584 24.6936C15.4376 26.4834 14.0156 27.9662 12.9487 29.0015C12.4155 29.5189 11.9718 29.9238 11.6622 30.1986C11.6047 30.2496 11.5518 30.2962 11.5038 30.3382C11.4549 30.2944 11.4008 30.2457 11.3419 30.1922C11.032 29.9111 10.588 29.4975 10.0545 28.9704C8.98702 27.9156 7.56436 26.4094 6.14288 24.6036C3.283 20.9706 0.5 16.2147 0.5 11.5213C0.5 5.42566 5.4179 0.5 11.5 0.5C17.5821 0.5 22.5 5.42566 22.5 11.5213Z' stroke='black' stroke-opacity='0.28'/%3E%3Ccircle cx='11.5' cy='10.5' r='4.5' fill='white'/%3E%3C/svg%3E ",
-      size: new google.maps.Size(35, 47),
-      // The origin for this image is (0, 0).
-      origin: new google.maps.Point(0, 0),
-      // The anchor for this image is the base of the flagpole at (0, 32).
-      anchor: new google.maps.Point(17.5, 47),
-      scaledSize: new google.maps.Size(35, 47),
-    };
-
-    var biggestBlackIconParam = {
-      url: "data:image/svg+xml,%3Csvg width='23' height='31' viewBox='0 0 23 31' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M23 11.5213C23 21.5047 11.5 31 11.5 31C11.5 31 0 21.2606 0 11.5213C0 5.15039 5.14089 0 11.5 0C17.8591 0 23 5.15039 23 11.5213Z' fill='black'/%3E%3Cpath d='M22.5 11.5213C22.5 16.3378 19.7155 21.0944 16.8584 24.6936C15.4376 26.4834 14.0156 27.9662 12.9487 29.0015C12.4155 29.5189 11.9718 29.9238 11.6622 30.1986C11.6047 30.2496 11.5518 30.2962 11.5038 30.3382C11.4549 30.2944 11.4008 30.2457 11.3419 30.1922C11.032 29.9111 10.588 29.4975 10.0545 28.9704C8.98702 27.9156 7.56436 26.4094 6.14288 24.6036C3.283 20.9706 0.5 16.2147 0.5 11.5213C0.5 5.42566 5.4179 0.5 11.5 0.5C17.5821 0.5 22.5 5.42566 22.5 11.5213Z' stroke='black' stroke-opacity='0.28'/%3E%3Ccircle cx='11.5' cy='10.5' r='4.5' fill='white'/%3E%3C/svg%3E ",
-      size: new google.maps.Size(47, 64),
-      // The origin for this image is (0, 0).
-      origin: new google.maps.Point(0, 0),
-      // The anchor for this image is the base of the flagpole at (0, 32).
-      anchor: new google.maps.Point(23.5, 64),
-      scaledSize: new google.maps.Size(47, 64),
-    };
 
     // Карта на главной
     if (tagsMap) {
@@ -423,10 +436,10 @@ $(document).ready(function () {
           userState: 'close',
         });
         var mmInfoContent = window.globalFunctions.generateMapPopup(location.popup);
-        var mmInfo = new Popup(new google.maps.LatLng(location.coords.lat, location.coords.lng), mmInfoContent);
+        var mmInfo = new Popup(new google.maps.LatLng(location.coords.lat, location.coords.lng), mmInfoContent, mm);
         popups.push(mmInfo);
         mm.addListener('click', function (evt) {
-          const mMark = evt.ub.target;
+          const mMark = evt.target;
           if (mm.userState === 'close') {
             popups.forEach(function (el) {
               el.close();
@@ -434,12 +447,12 @@ $(document).ready(function () {
             markers.forEach(function (el) {
               el.setIcon(smallBlueIconParam);
             });
-            mm.userState = 'open';
-            mm.setIcon(bigBlackIconParam);
+            // mm.userState = 'open';
+            // mm.setIcon(bigBlackIconParam);
             mmInfo.open(map);
           } else {
-            mm.userState = 'close';
-            mm.setIcon(smallBlueIconParam);
+            // mm.userState = 'close';
+            // mm.setIcon(smallBlueIconParam);
             mmInfo.close();
           }
         });
@@ -532,10 +545,10 @@ $(document).ready(function () {
           userState: 'close',
         });
         var mmInfoContent = window.globalFunctions.generateMapPopup(location.popup);
-        var mmInfo = new Popup(new google.maps.LatLng(location.coords.lat, location.coords.lng), mmInfoContent, '64');
+        var mmInfo = new Popup(new google.maps.LatLng(location.coords.lat, location.coords.lng), mmInfoContent, mm);
         searchMarkerPopups.push(mmInfo);
         mm.addListener('click', function (evt) {
-          const mMark = evt.ub.target;
+          const mMark = evt.target;
           if (mm.userState === 'close') {
             searchMarkerPopups.forEach(function (el) {
               el.close();
@@ -543,12 +556,12 @@ $(document).ready(function () {
             markers3.forEach(function (el) {
               el.setIcon(smallBlueIconParam);
             });
-            mm.userState = 'open';
-            mm.setIcon(biggestBlackIconParam);
+            // mm.userState = 'open';
+            // mm.setIcon(biggestBlackIconParam);
             mmInfo.open(map3);
           } else {
-            mm.userState = 'close';
-            mm.setIcon(smallBlueIconParam);
+            // mm.userState = 'close';
+            // mm.setIcon(smallBlueIconParam);
             mmInfo.close();
           }
         });
@@ -561,9 +574,7 @@ $(document).ready(function () {
         var mark = $(markers3).filter(function (i, el) {
           return el.selfName === markerName;
         });
-        if (mark[0].userState === 'close') {
-          mark[0].setIcon(biggestBlackIconParam);
-        }
+        mark[0].setIcon(biggestBlackIconParam);
       });
 
       $(document).on('mouseleave', '.js-map-marker-link', function (evt) {
@@ -574,6 +585,8 @@ $(document).ready(function () {
         });
         if (mark[0].userState === 'close') {
           mark[0].setIcon(smallBlueIconParam);
+        } else if (mark[0].userState === 'open') {
+          mark[0].setIcon(bigBlackIconParam);
         }
       });
     }
