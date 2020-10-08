@@ -49,18 +49,14 @@ Parsley.addValidator(
     }, 256)
   .addMessage('en', 'passwordequalto', 'Passwords should be the same.');
 
-$('[data-validated-form]').parsley({
-  trigger: 'submit',
-  errorClass: 'is-error',
-  successClass: 'is-valid',
-  excluded: 'input[type=button], input[type = submit], input[type = reset], input[type = hidden], [disabled], [data-not-verified]',
-  classHandler(el) {
-    return $(el.element).closest('.form__wrapper, .nd-form__wrapper');
-  },
-  errorsContainer(el) {
-    return $(el.element).closest('.form__wrapper, .nd-form__wrapper').find('.error-message');
-  },
-});
+Parsley.options.trigger = 'submit';
+Parsley.options.errorClass = 'is-error';
+Parsley.options.successClass = 'is-valid';
+Parsley.options.excluded = 'input[type=button], input[type = submit], input[type = reset], input[type = hidden], [disabled], [data-not-verified]';
+Parsley.options.classHandler = el => $(el.element).closest('.form__wrapper, .nd-form__wrapper');
+Parsley.options.errorsContainer = el => $(el.element).closest('.form__wrapper, .nd-form__wrapper').find('.error-message');
+
+$('[data-validated-form]').parsley();
 
 $(document).on('click', '.js-show-success-popup', (evt) => {
   evt.preventDefault();

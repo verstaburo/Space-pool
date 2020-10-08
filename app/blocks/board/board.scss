@@ -119,6 +119,26 @@
     }
   }
 
+  &_pad48 {
+    padding: 48px 48px 91px;
+
+    @include screen('xlg', max, 2) {
+      padding: pxtovw(48, 1660) pxtovw(48, 1660) pxtovw(91, 1660);
+    }
+
+    @include screen('lg', max, 2) {
+      padding: pxtovw(48, 1366) pxtovw(48, 1366) pxtovw(91, 1366);
+    }
+
+    @include screen('md', max, 2) {
+      padding: pxtovw(26, 960) pxtovw(26, 960) pxtovw(58, 960);
+    }
+
+    @include screen('sm', max, 2) {
+      padding: pxtovw(26, 375) pxtovw(18, 375) pxtovw(25, 375);
+    }
+  }
+
   &_pb36 {
     @include rule(padding-bottom, (xl: 36px, xlg: 36, lg: 36, md: 36, sm: 36));
   }
@@ -415,6 +435,12 @@
         @include screen('sm', max, 2) {
           margin-top: pxtovw(26, 375);
         }
+      }
+    }
+
+    &_mt68 {
+      &:not(:first-child) {
+        @include rule(margin-top, (xl: 68px, xlg: 68, lg: 68, md: 68, sm: 33));
       }
     }
 
