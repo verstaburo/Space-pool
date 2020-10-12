@@ -1,3 +1,34 @@
 .price-tag {
   $b: &;
+
+  display: block;
+  text-align: center;
+  box-sizing: border-box;
+  border-bottom-color: $nd-color-table-border;
+  border-bottom-style: solid;
+
+  @include rule(border-bottom-width, (xl: 1px, xlg: 1, lg: 1, md: 1, sm: 1));
+
+  &__price {
+    display: block;
+    width: 100%;
+    font-family: $font-stolzl;
+    font-weight: 300;
+    line-height: 1;
+
+    @include rule(font-size, (xl: 50px, xlg: 50, lg: 45, md: 35, sm: 25));
+
+    i {
+      font-style: normal;
+      color: $nd-color-main;
+    }
+  }
+
+  &__label {
+    display: block;
+    width: 100%;
+    line-height: (26 / 16);
+
+    @include rule(font-size, (xl: 16px, xlg: 16, lg: 16, md: 16, sm: 16));
+  }
 }
