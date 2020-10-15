@@ -8,8 +8,58 @@ $(document).ready(function () {
       href: '#',
       title: 'First Base - Cannon Street',
       colorBoxes: ['orange', 'red', 'green'],
-      gallery: ['assets/images/nd/space2.jpg', 'assets/images/nd/space3.jpg',
-        'assets/images/nd/space4.jpg',
+      gallery: [
+        [{
+          srcset: 'assets/images/nd/space1.jpg',
+          media: '(min-width: 1400px)',
+          type: 'image/jpeg',
+        }, {
+          srcset: 'assets/images/nd/space1.webp',
+          media: '(min-width: 1400px)',
+          type: 'image/webp',
+        }, {
+          srcset: 'assets/images/nd/space1.jpg',
+          media: '(max-width: 1399px)',
+          type: 'image/jpeg',
+        }, {
+          srcset: 'assets/images/nd/space1.webp',
+          media: '(max-width: 1399px)',
+          type: 'image/webp',
+        }],
+        [{
+          srcset: 'assets/images/nd/space10.jpg',
+          media: '(min-width: 1400px)',
+          type: 'image/jpeg',
+        }, {
+          srcset: 'assets/images/nd/space10.webp',
+          media: '(min-width: 1400px)',
+          type: 'image/webp',
+        }, {
+          srcset: 'assets/images/nd/space10.jpg',
+          media: '(max-width: 1399px)',
+          type: 'image/jpeg',
+        }, {
+          srcset: 'assets/images/nd/space10.webp',
+          media: '(max-width: 1399px)',
+          type: 'image/webp',
+        }],
+        [{
+          srcset: 'assets/images/nd/space11.jpg',
+          media: '(min-width: 1400px)',
+          type: 'image/jpeg',
+        }, {
+          srcset: 'assets/images/nd/space11.webp',
+          media: '(min-width: 1400px)',
+          type: 'image/webp',
+        }, {
+          srcset: 'assets/images/nd/space11.jpg',
+          media: '(max-width: 1399px)',
+          type: 'image/jpeg',
+        }, {
+          srcset: 'assets/images/nd/space11.webp',
+          media: '(max-width: 1399px)',
+          type: 'image/webp',
+        }],
       ],
     },
     selfName: 'marker0',
@@ -22,8 +72,58 @@ $(document).ready(function () {
       href: '#',
       title: 'First Base - Cannon Street',
       colorBoxes: ['orange', 'red', 'blue'],
-      gallery: ['assets/images/nd/space2.jpg', 'assets/images/nd/space3.jpg',
-        'assets/images/nd/space4.jpg',
+      gallery: [
+        [{
+          srcset: 'assets/images/nd/space1.jpg',
+          media: '(min-width: 1400px)',
+          type: 'image/jpeg',
+        }, {
+          srcset: 'assets/images/nd/space1.webp',
+          media: '(min-width: 1400px)',
+          type: 'image/webp',
+        }, {
+          srcset: 'assets/images/nd/space1.jpg',
+          media: '(max-width: 1399px)',
+          type: 'image/jpeg',
+        }, {
+          srcset: 'assets/images/nd/space1.webp',
+          media: '(max-width: 1399px)',
+          type: 'image/webp',
+        }],
+        [{
+          srcset: 'assets/images/nd/space10.jpg',
+          media: '(min-width: 1400px)',
+          type: 'image/jpeg',
+        }, {
+          srcset: 'assets/images/nd/space10.webp',
+          media: '(min-width: 1400px)',
+          type: 'image/webp',
+        }, {
+          srcset: 'assets/images/nd/space10.jpg',
+          media: '(max-width: 1399px)',
+          type: 'image/jpeg',
+        }, {
+          srcset: 'assets/images/nd/space10.webp',
+          media: '(max-width: 1399px)',
+          type: 'image/webp',
+        }],
+        [{
+          srcset: 'assets/images/nd/space11.jpg',
+          media: '(min-width: 1400px)',
+          type: 'image/jpeg',
+        }, {
+          srcset: 'assets/images/nd/space11.webp',
+          media: '(min-width: 1400px)',
+          type: 'image/webp',
+        }, {
+          srcset: 'assets/images/nd/space11.jpg',
+          media: '(max-width: 1399px)',
+          type: 'image/jpeg',
+        }, {
+          srcset: 'assets/images/nd/space11.webp',
+          media: '(max-width: 1399px)',
+          type: 'image/webp',
+        }],
       ],
     },
     selfName: 'marker1',
@@ -36,8 +136,58 @@ $(document).ready(function () {
       href: '#',
       title: 'First Base - Cannon Street',
       colorBoxes: ['blue', 'green'],
-      gallery: ['assets/images/nd/space2.jpg', 'assets/images/nd/space3.jpg',
-        'assets/images/nd/space4.jpg',
+      gallery: [
+        [{
+          srcset: 'assets/images/nd/space1.jpg',
+          media: '(min-width: 1400px)',
+          type: 'image/jpeg',
+        }, {
+          srcset: 'assets/images/nd/space1.webp',
+          media: '(min-width: 1400px)',
+          type: 'image/webp',
+        }, {
+          srcset: 'assets/images/nd/space1.jpg',
+          media: '(max-width: 1399px)',
+          type: 'image/jpeg',
+        }, {
+          srcset: 'assets/images/nd/space1.webp',
+          media: '(max-width: 1399px)',
+          type: 'image/webp',
+        }],
+        [{
+          srcset: 'assets/images/nd/space10.jpg',
+          media: '(min-width: 1400px)',
+          type: 'image/jpeg',
+        }, {
+          srcset: 'assets/images/nd/space10.webp',
+          media: '(min-width: 1400px)',
+          type: 'image/webp',
+        }, {
+          srcset: 'assets/images/nd/space10.jpg',
+          media: '(max-width: 1399px)',
+          type: 'image/jpeg',
+        }, {
+          srcset: 'assets/images/nd/space10.webp',
+          media: '(max-width: 1399px)',
+          type: 'image/webp',
+        }],
+        [{
+          srcset: 'assets/images/nd/space11.jpg',
+          media: '(min-width: 1400px)',
+          type: 'image/jpeg',
+        }, {
+          srcset: 'assets/images/nd/space11.webp',
+          media: '(min-width: 1400px)',
+          type: 'image/webp',
+        }, {
+          srcset: 'assets/images/nd/space11.jpg',
+          media: '(max-width: 1399px)',
+          type: 'image/jpeg',
+        }, {
+          srcset: 'assets/images/nd/space11.webp',
+          media: '(max-width: 1399px)',
+          type: 'image/webp',
+        }],
       ],
     },
     selfName: 'marker2',
@@ -50,8 +200,58 @@ $(document).ready(function () {
       href: '#',
       title: 'First Base - Cannon Street',
       colorBoxes: ['orange', 'red'],
-      gallery: ['assets/images/nd/space2.jpg', 'assets/images/nd/space3.jpg',
-        'assets/images/nd/space4.jpg',
+      gallery: [
+        [{
+          srcset: 'assets/images/nd/space1.jpg',
+          media: '(min-width: 1400px)',
+          type: 'image/jpeg',
+        }, {
+          srcset: 'assets/images/nd/space1.webp',
+          media: '(min-width: 1400px)',
+          type: 'image/webp',
+        }, {
+          srcset: 'assets/images/nd/space1.jpg',
+          media: '(max-width: 1399px)',
+          type: 'image/jpeg',
+        }, {
+          srcset: 'assets/images/nd/space1.webp',
+          media: '(max-width: 1399px)',
+          type: 'image/webp',
+        }],
+        [{
+          srcset: 'assets/images/nd/space10.jpg',
+          media: '(min-width: 1400px)',
+          type: 'image/jpeg',
+        }, {
+          srcset: 'assets/images/nd/space10.webp',
+          media: '(min-width: 1400px)',
+          type: 'image/webp',
+        }, {
+          srcset: 'assets/images/nd/space10.jpg',
+          media: '(max-width: 1399px)',
+          type: 'image/jpeg',
+        }, {
+          srcset: 'assets/images/nd/space10.webp',
+          media: '(max-width: 1399px)',
+          type: 'image/webp',
+        }],
+        [{
+          srcset: 'assets/images/nd/space11.jpg',
+          media: '(min-width: 1400px)',
+          type: 'image/jpeg',
+        }, {
+          srcset: 'assets/images/nd/space11.webp',
+          media: '(min-width: 1400px)',
+          type: 'image/webp',
+        }, {
+          srcset: 'assets/images/nd/space11.jpg',
+          media: '(max-width: 1399px)',
+          type: 'image/jpeg',
+        }, {
+          srcset: 'assets/images/nd/space11.webp',
+          media: '(max-width: 1399px)',
+          type: 'image/webp',
+        }],
       ],
     },
     selfName: 'marker3',
@@ -64,8 +264,58 @@ $(document).ready(function () {
       href: '#',
       title: 'First Base - Cannon Street',
       colorBoxes: ['orange'],
-      gallery: ['assets/images/nd/space2.jpg', 'assets/images/nd/space3.jpg',
-        'assets/images/nd/space4.jpg',
+      gallery: [
+        [{
+          srcset: 'assets/images/nd/space1.jpg',
+          media: '(min-width: 1400px)',
+          type: 'image/jpeg',
+        }, {
+          srcset: 'assets/images/nd/space1.webp',
+          media: '(min-width: 1400px)',
+          type: 'image/webp',
+        }, {
+          srcset: 'assets/images/nd/space1.jpg',
+          media: '(max-width: 1399px)',
+          type: 'image/jpeg',
+        }, {
+          srcset: 'assets/images/nd/space1.webp',
+          media: '(max-width: 1399px)',
+          type: 'image/webp',
+        }],
+        [{
+          srcset: 'assets/images/nd/space10.jpg',
+          media: '(min-width: 1400px)',
+          type: 'image/jpeg',
+        }, {
+          srcset: 'assets/images/nd/space10.webp',
+          media: '(min-width: 1400px)',
+          type: 'image/webp',
+        }, {
+          srcset: 'assets/images/nd/space10.jpg',
+          media: '(max-width: 1399px)',
+          type: 'image/jpeg',
+        }, {
+          srcset: 'assets/images/nd/space10.webp',
+          media: '(max-width: 1399px)',
+          type: 'image/webp',
+        }],
+        [{
+          srcset: 'assets/images/nd/space11.jpg',
+          media: '(min-width: 1400px)',
+          type: 'image/jpeg',
+        }, {
+          srcset: 'assets/images/nd/space11.webp',
+          media: '(min-width: 1400px)',
+          type: 'image/webp',
+        }, {
+          srcset: 'assets/images/nd/space11.jpg',
+          media: '(max-width: 1399px)',
+          type: 'image/jpeg',
+        }, {
+          srcset: 'assets/images/nd/space11.webp',
+          media: '(max-width: 1399px)',
+          type: 'image/webp',
+        }],
       ],
     },
     selfName: 'marker4',
@@ -78,8 +328,58 @@ $(document).ready(function () {
       href: '#',
       title: 'First Base - Cannon Street',
       colorBoxes: ['orange', 'red', 'green'],
-      gallery: ['assets/images/nd/space2.jpg', 'assets/images/nd/space3.jpg',
-        'assets/images/nd/space4.jpg',
+      gallery: [
+        [{
+          srcset: 'assets/images/nd/space1.jpg',
+          media: '(min-width: 1400px)',
+          type: 'image/jpeg',
+        }, {
+          srcset: 'assets/images/nd/space1.webp',
+          media: '(min-width: 1400px)',
+          type: 'image/webp',
+        }, {
+          srcset: 'assets/images/nd/space1.jpg',
+          media: '(max-width: 1399px)',
+          type: 'image/jpeg',
+        }, {
+          srcset: 'assets/images/nd/space1.webp',
+          media: '(max-width: 1399px)',
+          type: 'image/webp',
+        }],
+        [{
+          srcset: 'assets/images/nd/space10.jpg',
+          media: '(min-width: 1400px)',
+          type: 'image/jpeg',
+        }, {
+          srcset: 'assets/images/nd/space10.webp',
+          media: '(min-width: 1400px)',
+          type: 'image/webp',
+        }, {
+          srcset: 'assets/images/nd/space10.jpg',
+          media: '(max-width: 1399px)',
+          type: 'image/jpeg',
+        }, {
+          srcset: 'assets/images/nd/space10.webp',
+          media: '(max-width: 1399px)',
+          type: 'image/webp',
+        }],
+        [{
+          srcset: 'assets/images/nd/space11.jpg',
+          media: '(min-width: 1400px)',
+          type: 'image/jpeg',
+        }, {
+          srcset: 'assets/images/nd/space11.webp',
+          media: '(min-width: 1400px)',
+          type: 'image/webp',
+        }, {
+          srcset: 'assets/images/nd/space11.jpg',
+          media: '(max-width: 1399px)',
+          type: 'image/jpeg',
+        }, {
+          srcset: 'assets/images/nd/space11.webp',
+          media: '(max-width: 1399px)',
+          type: 'image/webp',
+        }],
       ],
     },
     selfName: 'marker5',
@@ -92,8 +392,58 @@ $(document).ready(function () {
       href: '#',
       title: 'First Base - Cannon Street',
       colorBoxes: ['orange', 'red', 'green'],
-      gallery: ['assets/images/nd/space2.jpg', 'assets/images/nd/space3.jpg',
-        'assets/images/nd/space4.jpg',
+      gallery: [
+        [{
+          srcset: 'assets/images/nd/space1.jpg',
+          media: '(min-width: 1400px)',
+          type: 'image/jpeg',
+        }, {
+          srcset: 'assets/images/nd/space1.webp',
+          media: '(min-width: 1400px)',
+          type: 'image/webp',
+        }, {
+          srcset: 'assets/images/nd/space1.jpg',
+          media: '(max-width: 1399px)',
+          type: 'image/jpeg',
+        }, {
+          srcset: 'assets/images/nd/space1.webp',
+          media: '(max-width: 1399px)',
+          type: 'image/webp',
+        }],
+        [{
+          srcset: 'assets/images/nd/space10.jpg',
+          media: '(min-width: 1400px)',
+          type: 'image/jpeg',
+        }, {
+          srcset: 'assets/images/nd/space10.webp',
+          media: '(min-width: 1400px)',
+          type: 'image/webp',
+        }, {
+          srcset: 'assets/images/nd/space10.jpg',
+          media: '(max-width: 1399px)',
+          type: 'image/jpeg',
+        }, {
+          srcset: 'assets/images/nd/space10.webp',
+          media: '(max-width: 1399px)',
+          type: 'image/webp',
+        }],
+        [{
+          srcset: 'assets/images/nd/space11.jpg',
+          media: '(min-width: 1400px)',
+          type: 'image/jpeg',
+        }, {
+          srcset: 'assets/images/nd/space11.webp',
+          media: '(min-width: 1400px)',
+          type: 'image/webp',
+        }, {
+          srcset: 'assets/images/nd/space11.jpg',
+          media: '(max-width: 1399px)',
+          type: 'image/jpeg',
+        }, {
+          srcset: 'assets/images/nd/space11.webp',
+          media: '(max-width: 1399px)',
+          type: 'image/webp',
+        }],
       ],
     },
     selfName: 'marker6',
@@ -106,8 +456,58 @@ $(document).ready(function () {
       href: '#',
       title: 'First Base - Cannon Street',
       colorBoxes: ['orange', 'red', 'green'],
-      gallery: ['assets/images/nd/space2.jpg', 'assets/images/nd/space3.jpg',
-        'assets/images/nd/space4.jpg',
+      gallery: [
+        [{
+          srcset: 'assets/images/nd/space1.jpg',
+          media: '(min-width: 1400px)',
+          type: 'image/jpeg',
+        }, {
+          srcset: 'assets/images/nd/space1.webp',
+          media: '(min-width: 1400px)',
+          type: 'image/webp',
+        }, {
+          srcset: 'assets/images/nd/space1.jpg',
+          media: '(max-width: 1399px)',
+          type: 'image/jpeg',
+        }, {
+          srcset: 'assets/images/nd/space1.webp',
+          media: '(max-width: 1399px)',
+          type: 'image/webp',
+        }],
+        [{
+          srcset: 'assets/images/nd/space10.jpg',
+          media: '(min-width: 1400px)',
+          type: 'image/jpeg',
+        }, {
+          srcset: 'assets/images/nd/space10.webp',
+          media: '(min-width: 1400px)',
+          type: 'image/webp',
+        }, {
+          srcset: 'assets/images/nd/space10.jpg',
+          media: '(max-width: 1399px)',
+          type: 'image/jpeg',
+        }, {
+          srcset: 'assets/images/nd/space10.webp',
+          media: '(max-width: 1399px)',
+          type: 'image/webp',
+        }],
+        [{
+          srcset: 'assets/images/nd/space11.jpg',
+          media: '(min-width: 1400px)',
+          type: 'image/jpeg',
+        }, {
+          srcset: 'assets/images/nd/space11.webp',
+          media: '(min-width: 1400px)',
+          type: 'image/webp',
+        }, {
+          srcset: 'assets/images/nd/space11.jpg',
+          media: '(max-width: 1399px)',
+          type: 'image/jpeg',
+        }, {
+          srcset: 'assets/images/nd/space11.webp',
+          media: '(max-width: 1399px)',
+          type: 'image/webp',
+        }],
       ],
     },
     selfName: 'marker7',
@@ -120,8 +520,58 @@ $(document).ready(function () {
       href: '#',
       title: 'First Base - Cannon Street',
       colorBoxes: ['orange', 'red', 'green'],
-      gallery: ['assets/images/nd/space2.jpg', 'assets/images/nd/space3.jpg',
-        'assets/images/nd/space4.jpg',
+      gallery: [
+        [{
+          srcset: 'assets/images/nd/space1.jpg',
+          media: '(min-width: 1400px)',
+          type: 'image/jpeg',
+        }, {
+          srcset: 'assets/images/nd/space1.webp',
+          media: '(min-width: 1400px)',
+          type: 'image/webp',
+        }, {
+          srcset: 'assets/images/nd/space1.jpg',
+          media: '(max-width: 1399px)',
+          type: 'image/jpeg',
+        }, {
+          srcset: 'assets/images/nd/space1.webp',
+          media: '(max-width: 1399px)',
+          type: 'image/webp',
+        }],
+        [{
+          srcset: 'assets/images/nd/space10.jpg',
+          media: '(min-width: 1400px)',
+          type: 'image/jpeg',
+        }, {
+          srcset: 'assets/images/nd/space10.webp',
+          media: '(min-width: 1400px)',
+          type: 'image/webp',
+        }, {
+          srcset: 'assets/images/nd/space10.jpg',
+          media: '(max-width: 1399px)',
+          type: 'image/jpeg',
+        }, {
+          srcset: 'assets/images/nd/space10.webp',
+          media: '(max-width: 1399px)',
+          type: 'image/webp',
+        }],
+        [{
+          srcset: 'assets/images/nd/space11.jpg',
+          media: '(min-width: 1400px)',
+          type: 'image/jpeg',
+        }, {
+          srcset: 'assets/images/nd/space11.webp',
+          media: '(min-width: 1400px)',
+          type: 'image/webp',
+        }, {
+          srcset: 'assets/images/nd/space11.jpg',
+          media: '(max-width: 1399px)',
+          type: 'image/jpeg',
+        }, {
+          srcset: 'assets/images/nd/space11.webp',
+          media: '(max-width: 1399px)',
+          type: 'image/webp',
+        }],
       ],
     },
     selfName: 'marker8',
@@ -134,8 +584,58 @@ $(document).ready(function () {
       href: '#',
       title: 'First Base - Cannon Street',
       colorBoxes: ['orange', 'red', 'green'],
-      gallery: ['assets/images/nd/space2.jpg', 'assets/images/nd/space3.jpg',
-        'assets/images/nd/space4.jpg',
+      gallery: [
+        [{
+          srcset: 'assets/images/nd/space1.jpg',
+          media: '(min-width: 1400px)',
+          type: 'image/jpeg',
+        }, {
+          srcset: 'assets/images/nd/space1.webp',
+          media: '(min-width: 1400px)',
+          type: 'image/webp',
+        }, {
+          srcset: 'assets/images/nd/space1.jpg',
+          media: '(max-width: 1399px)',
+          type: 'image/jpeg',
+        }, {
+          srcset: 'assets/images/nd/space1.webp',
+          media: '(max-width: 1399px)',
+          type: 'image/webp',
+        }],
+        [{
+          srcset: 'assets/images/nd/space10.jpg',
+          media: '(min-width: 1400px)',
+          type: 'image/jpeg',
+        }, {
+          srcset: 'assets/images/nd/space10.webp',
+          media: '(min-width: 1400px)',
+          type: 'image/webp',
+        }, {
+          srcset: 'assets/images/nd/space10.jpg',
+          media: '(max-width: 1399px)',
+          type: 'image/jpeg',
+        }, {
+          srcset: 'assets/images/nd/space10.webp',
+          media: '(max-width: 1399px)',
+          type: 'image/webp',
+        }],
+        [{
+          srcset: 'assets/images/nd/space11.jpg',
+          media: '(min-width: 1400px)',
+          type: 'image/jpeg',
+        }, {
+          srcset: 'assets/images/nd/space11.webp',
+          media: '(min-width: 1400px)',
+          type: 'image/webp',
+        }, {
+          srcset: 'assets/images/nd/space11.jpg',
+          media: '(max-width: 1399px)',
+          type: 'image/jpeg',
+        }, {
+          srcset: 'assets/images/nd/space11.webp',
+          media: '(max-width: 1399px)',
+          type: 'image/webp',
+        }],
       ],
     },
     selfName: 'marker9',
@@ -148,8 +648,58 @@ $(document).ready(function () {
       href: '#',
       title: 'First Base - Cannon Street',
       colorBoxes: ['orange', 'red', 'green'],
-      gallery: ['assets/images/nd/space2.jpg', 'assets/images/nd/space3.jpg',
-        'assets/images/nd/space4.jpg',
+      gallery: [
+        [{
+          srcset: 'assets/images/nd/space1.jpg',
+          media: '(min-width: 1400px)',
+          type: 'image/jpeg',
+        }, {
+          srcset: 'assets/images/nd/space1.webp',
+          media: '(min-width: 1400px)',
+          type: 'image/webp',
+        }, {
+          srcset: 'assets/images/nd/space1.jpg',
+          media: '(max-width: 1399px)',
+          type: 'image/jpeg',
+        }, {
+          srcset: 'assets/images/nd/space1.webp',
+          media: '(max-width: 1399px)',
+          type: 'image/webp',
+        }],
+        [{
+          srcset: 'assets/images/nd/space10.jpg',
+          media: '(min-width: 1400px)',
+          type: 'image/jpeg',
+        }, {
+          srcset: 'assets/images/nd/space10.webp',
+          media: '(min-width: 1400px)',
+          type: 'image/webp',
+        }, {
+          srcset: 'assets/images/nd/space10.jpg',
+          media: '(max-width: 1399px)',
+          type: 'image/jpeg',
+        }, {
+          srcset: 'assets/images/nd/space10.webp',
+          media: '(max-width: 1399px)',
+          type: 'image/webp',
+        }],
+        [{
+          srcset: 'assets/images/nd/space11.jpg',
+          media: '(min-width: 1400px)',
+          type: 'image/jpeg',
+        }, {
+          srcset: 'assets/images/nd/space11.webp',
+          media: '(min-width: 1400px)',
+          type: 'image/webp',
+        }, {
+          srcset: 'assets/images/nd/space11.jpg',
+          media: '(max-width: 1399px)',
+          type: 'image/jpeg',
+        }, {
+          srcset: 'assets/images/nd/space11.webp',
+          media: '(max-width: 1399px)',
+          type: 'image/webp',
+        }],
       ],
     },
     selfName: 'marker10',
@@ -162,8 +712,58 @@ $(document).ready(function () {
       href: '#',
       title: 'First Base - Cannon Street',
       colorBoxes: ['orange', 'red', 'green'],
-      gallery: ['assets/images/nd/space2.jpg', 'assets/images/nd/space3.jpg',
-        'assets/images/nd/space4.jpg',
+      gallery: [
+        [{
+          srcset: 'assets/images/nd/space1.jpg',
+          media: '(min-width: 1400px)',
+          type: 'image/jpeg',
+        }, {
+          srcset: 'assets/images/nd/space1.webp',
+          media: '(min-width: 1400px)',
+          type: 'image/webp',
+        }, {
+          srcset: 'assets/images/nd/space1.jpg',
+          media: '(max-width: 1399px)',
+          type: 'image/jpeg',
+        }, {
+          srcset: 'assets/images/nd/space1.webp',
+          media: '(max-width: 1399px)',
+          type: 'image/webp',
+        }],
+        [{
+          srcset: 'assets/images/nd/space10.jpg',
+          media: '(min-width: 1400px)',
+          type: 'image/jpeg',
+        }, {
+          srcset: 'assets/images/nd/space10.webp',
+          media: '(min-width: 1400px)',
+          type: 'image/webp',
+        }, {
+          srcset: 'assets/images/nd/space10.jpg',
+          media: '(max-width: 1399px)',
+          type: 'image/jpeg',
+        }, {
+          srcset: 'assets/images/nd/space10.webp',
+          media: '(max-width: 1399px)',
+          type: 'image/webp',
+        }],
+        [{
+          srcset: 'assets/images/nd/space11.jpg',
+          media: '(min-width: 1400px)',
+          type: 'image/jpeg',
+        }, {
+          srcset: 'assets/images/nd/space11.webp',
+          media: '(min-width: 1400px)',
+          type: 'image/webp',
+        }, {
+          srcset: 'assets/images/nd/space11.jpg',
+          media: '(max-width: 1399px)',
+          type: 'image/jpeg',
+        }, {
+          srcset: 'assets/images/nd/space11.webp',
+          media: '(max-width: 1399px)',
+          type: 'image/webp',
+        }],
       ],
     },
     selfName: 'marker11',
@@ -176,8 +776,58 @@ $(document).ready(function () {
       href: '#',
       title: 'First Base - Cannon Street',
       colorBoxes: ['orange', 'red', 'green'],
-      gallery: ['assets/images/nd/space2.jpg', 'assets/images/nd/space3.jpg',
-        'assets/images/nd/space4.jpg',
+      gallery: [
+        [{
+          srcset: 'assets/images/nd/space1.jpg',
+          media: '(min-width: 1400px)',
+          type: 'image/jpeg',
+        }, {
+          srcset: 'assets/images/nd/space1.webp',
+          media: '(min-width: 1400px)',
+          type: 'image/webp',
+        }, {
+          srcset: 'assets/images/nd/space1.jpg',
+          media: '(max-width: 1399px)',
+          type: 'image/jpeg',
+        }, {
+          srcset: 'assets/images/nd/space1.webp',
+          media: '(max-width: 1399px)',
+          type: 'image/webp',
+        }],
+        [{
+          srcset: 'assets/images/nd/space10.jpg',
+          media: '(min-width: 1400px)',
+          type: 'image/jpeg',
+        }, {
+          srcset: 'assets/images/nd/space10.webp',
+          media: '(min-width: 1400px)',
+          type: 'image/webp',
+        }, {
+          srcset: 'assets/images/nd/space10.jpg',
+          media: '(max-width: 1399px)',
+          type: 'image/jpeg',
+        }, {
+          srcset: 'assets/images/nd/space10.webp',
+          media: '(max-width: 1399px)',
+          type: 'image/webp',
+        }],
+        [{
+          srcset: 'assets/images/nd/space11.jpg',
+          media: '(min-width: 1400px)',
+          type: 'image/jpeg',
+        }, {
+          srcset: 'assets/images/nd/space11.webp',
+          media: '(min-width: 1400px)',
+          type: 'image/webp',
+        }, {
+          srcset: 'assets/images/nd/space11.jpg',
+          media: '(max-width: 1399px)',
+          type: 'image/jpeg',
+        }, {
+          srcset: 'assets/images/nd/space11.webp',
+          media: '(max-width: 1399px)',
+          type: 'image/webp',
+        }],
       ],
     },
     selfName: 'marker12',
@@ -190,8 +840,58 @@ $(document).ready(function () {
       href: '#',
       title: 'First Base - Cannon Street',
       colorBoxes: ['orange', 'red', 'green'],
-      gallery: ['assets/images/nd/space2.jpg', 'assets/images/nd/space3.jpg',
-        'assets/images/nd/space4.jpg',
+      gallery: [
+        [{
+          srcset: 'assets/images/nd/space1.jpg',
+          media: '(min-width: 1400px)',
+          type: 'image/jpeg',
+        }, {
+          srcset: 'assets/images/nd/space1.webp',
+          media: '(min-width: 1400px)',
+          type: 'image/webp',
+        }, {
+          srcset: 'assets/images/nd/space1.jpg',
+          media: '(max-width: 1399px)',
+          type: 'image/jpeg',
+        }, {
+          srcset: 'assets/images/nd/space1.webp',
+          media: '(max-width: 1399px)',
+          type: 'image/webp',
+        }],
+        [{
+          srcset: 'assets/images/nd/space10.jpg',
+          media: '(min-width: 1400px)',
+          type: 'image/jpeg',
+        }, {
+          srcset: 'assets/images/nd/space10.webp',
+          media: '(min-width: 1400px)',
+          type: 'image/webp',
+        }, {
+          srcset: 'assets/images/nd/space10.jpg',
+          media: '(max-width: 1399px)',
+          type: 'image/jpeg',
+        }, {
+          srcset: 'assets/images/nd/space10.webp',
+          media: '(max-width: 1399px)',
+          type: 'image/webp',
+        }],
+        [{
+          srcset: 'assets/images/nd/space11.jpg',
+          media: '(min-width: 1400px)',
+          type: 'image/jpeg',
+        }, {
+          srcset: 'assets/images/nd/space11.webp',
+          media: '(min-width: 1400px)',
+          type: 'image/webp',
+        }, {
+          srcset: 'assets/images/nd/space11.jpg',
+          media: '(max-width: 1399px)',
+          type: 'image/jpeg',
+        }, {
+          srcset: 'assets/images/nd/space11.webp',
+          media: '(max-width: 1399px)',
+          type: 'image/webp',
+        }],
       ],
     },
     selfName: 'marker13',
@@ -204,8 +904,58 @@ $(document).ready(function () {
       href: '#',
       title: 'First Base - Cannon Street',
       colorBoxes: ['orange', 'red', 'green'],
-      gallery: ['assets/images/nd/space2.jpg', 'assets/images/nd/space3.jpg',
-        'assets/images/nd/space4.jpg',
+      gallery: [
+        [{
+          srcset: 'assets/images/nd/space1.jpg',
+          media: '(min-width: 1400px)',
+          type: 'image/jpeg',
+        }, {
+          srcset: 'assets/images/nd/space1.webp',
+          media: '(min-width: 1400px)',
+          type: 'image/webp',
+        }, {
+          srcset: 'assets/images/nd/space1.jpg',
+          media: '(max-width: 1399px)',
+          type: 'image/jpeg',
+        }, {
+          srcset: 'assets/images/nd/space1.webp',
+          media: '(max-width: 1399px)',
+          type: 'image/webp',
+        }],
+        [{
+          srcset: 'assets/images/nd/space10.jpg',
+          media: '(min-width: 1400px)',
+          type: 'image/jpeg',
+        }, {
+          srcset: 'assets/images/nd/space10.webp',
+          media: '(min-width: 1400px)',
+          type: 'image/webp',
+        }, {
+          srcset: 'assets/images/nd/space10.jpg',
+          media: '(max-width: 1399px)',
+          type: 'image/jpeg',
+        }, {
+          srcset: 'assets/images/nd/space10.webp',
+          media: '(max-width: 1399px)',
+          type: 'image/webp',
+        }],
+        [{
+          srcset: 'assets/images/nd/space11.jpg',
+          media: '(min-width: 1400px)',
+          type: 'image/jpeg',
+        }, {
+          srcset: 'assets/images/nd/space11.webp',
+          media: '(min-width: 1400px)',
+          type: 'image/webp',
+        }, {
+          srcset: 'assets/images/nd/space11.jpg',
+          media: '(max-width: 1399px)',
+          type: 'image/jpeg',
+        }, {
+          srcset: 'assets/images/nd/space11.webp',
+          media: '(max-width: 1399px)',
+          type: 'image/webp',
+        }],
       ],
     },
     selfName: 'marker14',
@@ -218,8 +968,58 @@ $(document).ready(function () {
       href: '#',
       title: 'First Base - Cannon Street',
       colorBoxes: ['orange', 'red', 'green'],
-      gallery: ['assets/images/nd/space2.jpg', 'assets/images/nd/space3.jpg',
-        'assets/images/nd/space4.jpg',
+      gallery: [
+        [{
+          srcset: 'assets/images/nd/space1.jpg',
+          media: '(min-width: 1400px)',
+          type: 'image/jpeg',
+        }, {
+          srcset: 'assets/images/nd/space1.webp',
+          media: '(min-width: 1400px)',
+          type: 'image/webp',
+        }, {
+          srcset: 'assets/images/nd/space1.jpg',
+          media: '(max-width: 1399px)',
+          type: 'image/jpeg',
+        }, {
+          srcset: 'assets/images/nd/space1.webp',
+          media: '(max-width: 1399px)',
+          type: 'image/webp',
+        }],
+        [{
+          srcset: 'assets/images/nd/space10.jpg',
+          media: '(min-width: 1400px)',
+          type: 'image/jpeg',
+        }, {
+          srcset: 'assets/images/nd/space10.webp',
+          media: '(min-width: 1400px)',
+          type: 'image/webp',
+        }, {
+          srcset: 'assets/images/nd/space10.jpg',
+          media: '(max-width: 1399px)',
+          type: 'image/jpeg',
+        }, {
+          srcset: 'assets/images/nd/space10.webp',
+          media: '(max-width: 1399px)',
+          type: 'image/webp',
+        }],
+        [{
+          srcset: 'assets/images/nd/space11.jpg',
+          media: '(min-width: 1400px)',
+          type: 'image/jpeg',
+        }, {
+          srcset: 'assets/images/nd/space11.webp',
+          media: '(min-width: 1400px)',
+          type: 'image/webp',
+        }, {
+          srcset: 'assets/images/nd/space11.jpg',
+          media: '(max-width: 1399px)',
+          type: 'image/jpeg',
+        }, {
+          srcset: 'assets/images/nd/space11.webp',
+          media: '(max-width: 1399px)',
+          type: 'image/webp',
+        }],
       ],
     },
     selfName: 'marker15',
@@ -232,8 +1032,58 @@ $(document).ready(function () {
       href: '#',
       title: 'First Base - Cannon Street',
       colorBoxes: ['orange', 'red', 'green'],
-      gallery: ['assets/images/nd/space2.jpg', 'assets/images/nd/space3.jpg',
-        'assets/images/nd/space4.jpg',
+      gallery: [
+        [{
+          srcset: 'assets/images/nd/space1.jpg',
+          media: '(min-width: 1400px)',
+          type: 'image/jpeg',
+        }, {
+          srcset: 'assets/images/nd/space1.webp',
+          media: '(min-width: 1400px)',
+          type: 'image/webp',
+        }, {
+          srcset: 'assets/images/nd/space1.jpg',
+          media: '(max-width: 1399px)',
+          type: 'image/jpeg',
+        }, {
+          srcset: 'assets/images/nd/space1.webp',
+          media: '(max-width: 1399px)',
+          type: 'image/webp',
+        }],
+        [{
+          srcset: 'assets/images/nd/space10.jpg',
+          media: '(min-width: 1400px)',
+          type: 'image/jpeg',
+        }, {
+          srcset: 'assets/images/nd/space10.webp',
+          media: '(min-width: 1400px)',
+          type: 'image/webp',
+        }, {
+          srcset: 'assets/images/nd/space10.jpg',
+          media: '(max-width: 1399px)',
+          type: 'image/jpeg',
+        }, {
+          srcset: 'assets/images/nd/space10.webp',
+          media: '(max-width: 1399px)',
+          type: 'image/webp',
+        }],
+        [{
+          srcset: 'assets/images/nd/space11.jpg',
+          media: '(min-width: 1400px)',
+          type: 'image/jpeg',
+        }, {
+          srcset: 'assets/images/nd/space11.webp',
+          media: '(min-width: 1400px)',
+          type: 'image/webp',
+        }, {
+          srcset: 'assets/images/nd/space11.jpg',
+          media: '(max-width: 1399px)',
+          type: 'image/jpeg',
+        }, {
+          srcset: 'assets/images/nd/space11.webp',
+          media: '(max-width: 1399px)',
+          type: 'image/webp',
+        }],
       ],
     },
     selfName: 'marker16',
@@ -246,8 +1096,58 @@ $(document).ready(function () {
       href: '#',
       title: 'First Base - Cannon Street',
       colorBoxes: ['orange', 'red', 'green'],
-      gallery: ['assets/images/nd/space2.jpg', 'assets/images/nd/space3.jpg',
-        'assets/images/nd/space4.jpg',
+      gallery: [
+        [{
+          srcset: 'assets/images/nd/space1.jpg',
+          media: '(min-width: 1400px)',
+          type: 'image/jpeg',
+        }, {
+          srcset: 'assets/images/nd/space1.webp',
+          media: '(min-width: 1400px)',
+          type: 'image/webp',
+        }, {
+          srcset: 'assets/images/nd/space1.jpg',
+          media: '(max-width: 1399px)',
+          type: 'image/jpeg',
+        }, {
+          srcset: 'assets/images/nd/space1.webp',
+          media: '(max-width: 1399px)',
+          type: 'image/webp',
+        }],
+        [{
+          srcset: 'assets/images/nd/space10.jpg',
+          media: '(min-width: 1400px)',
+          type: 'image/jpeg',
+        }, {
+          srcset: 'assets/images/nd/space10.webp',
+          media: '(min-width: 1400px)',
+          type: 'image/webp',
+        }, {
+          srcset: 'assets/images/nd/space10.jpg',
+          media: '(max-width: 1399px)',
+          type: 'image/jpeg',
+        }, {
+          srcset: 'assets/images/nd/space10.webp',
+          media: '(max-width: 1399px)',
+          type: 'image/webp',
+        }],
+        [{
+          srcset: 'assets/images/nd/space11.jpg',
+          media: '(min-width: 1400px)',
+          type: 'image/jpeg',
+        }, {
+          srcset: 'assets/images/nd/space11.webp',
+          media: '(min-width: 1400px)',
+          type: 'image/webp',
+        }, {
+          srcset: 'assets/images/nd/space11.jpg',
+          media: '(max-width: 1399px)',
+          type: 'image/jpeg',
+        }, {
+          srcset: 'assets/images/nd/space11.webp',
+          media: '(max-width: 1399px)',
+          type: 'image/webp',
+        }],
       ],
     },
     selfName: 'marker17',
@@ -260,8 +1160,58 @@ $(document).ready(function () {
       href: '#',
       title: 'First Base - Cannon Street',
       colorBoxes: ['orange', 'red', 'green'],
-      gallery: ['assets/images/nd/space2.jpg', 'assets/images/nd/space3.jpg',
-        'assets/images/nd/space4.jpg',
+      gallery: [
+        [{
+          srcset: 'assets/images/nd/space1.jpg',
+          media: '(min-width: 1400px)',
+          type: 'image/jpeg',
+        }, {
+          srcset: 'assets/images/nd/space1.webp',
+          media: '(min-width: 1400px)',
+          type: 'image/webp',
+        }, {
+          srcset: 'assets/images/nd/space1.jpg',
+          media: '(max-width: 1399px)',
+          type: 'image/jpeg',
+        }, {
+          srcset: 'assets/images/nd/space1.webp',
+          media: '(max-width: 1399px)',
+          type: 'image/webp',
+        }],
+        [{
+          srcset: 'assets/images/nd/space10.jpg',
+          media: '(min-width: 1400px)',
+          type: 'image/jpeg',
+        }, {
+          srcset: 'assets/images/nd/space10.webp',
+          media: '(min-width: 1400px)',
+          type: 'image/webp',
+        }, {
+          srcset: 'assets/images/nd/space10.jpg',
+          media: '(max-width: 1399px)',
+          type: 'image/jpeg',
+        }, {
+          srcset: 'assets/images/nd/space10.webp',
+          media: '(max-width: 1399px)',
+          type: 'image/webp',
+        }],
+        [{
+          srcset: 'assets/images/nd/space11.jpg',
+          media: '(min-width: 1400px)',
+          type: 'image/jpeg',
+        }, {
+          srcset: 'assets/images/nd/space11.webp',
+          media: '(min-width: 1400px)',
+          type: 'image/webp',
+        }, {
+          srcset: 'assets/images/nd/space11.jpg',
+          media: '(max-width: 1399px)',
+          type: 'image/jpeg',
+        }, {
+          srcset: 'assets/images/nd/space11.webp',
+          media: '(max-width: 1399px)',
+          type: 'image/webp',
+        }],
       ],
     },
     selfName: 'marker18',
