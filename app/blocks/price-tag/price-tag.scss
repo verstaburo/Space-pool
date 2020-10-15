@@ -8,6 +8,7 @@
   border-bottom-style: solid;
 
   @include rule(border-bottom-width, (xl: 1px, xlg: 1, lg: 1, md: 1, sm: 1));
+  @include rule(padding-bottom, (xl: 14px, xlg: 14, lg: 14, md: 14, sm: 14));
 
   &__price {
     display: block;
@@ -30,5 +31,9 @@
     line-height: (26 / 16);
 
     @include rule(font-size, (xl: 16px, xlg: 16, lg: 16, md: 16, sm: 16));
+
+    &:not(:first-child) {
+      @include rule(margin-top, (xl: 16px, xlg: 16, lg: 16, md: 16, sm: 16));
+    }
   }
 }

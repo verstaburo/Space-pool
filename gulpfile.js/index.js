@@ -5,6 +5,7 @@ const ghpages = require('./tasks/ghpages');
 const icons = require('./tasks/icons');
 const server = require('./tasks/server');
 const images = require('./tasks/images');
+const webp = require('./tasks/webp');
 const scripts = require('./tasks/scripts');
 const styles = require('./tasks/styles');
 const templates = require('./tasks/templates');
@@ -17,6 +18,7 @@ gulp.task('clean', clean);
 gulp.task('copy', copy);
 gulp.task('ghpages', ghpages);
 gulp.task('images', images);
+gulp.task('webp', webp);
 gulp.task('icons', icons);
 gulp.task('styles', styles.build);
 gulp.task('templates', templates);
@@ -26,7 +28,8 @@ gulp.task('watch', watch);
 
 gulp.task('build', gulp.series(
   'clean',
-  gulp.parallel('styles', 'scripts', 'copymain', 'images', 'icons', 'templates', 'copy'),
+  gulp.parallel('styles', 'scripts', 'copymain', 'images',
+    'icons', 'webp', 'templates', 'copy'),
 ));
 
 gulp.task('default', gulp.series(

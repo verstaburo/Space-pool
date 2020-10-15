@@ -20,15 +20,33 @@ export default function mapPopup() {
           const slide = document.createElement('a');
           slide.classList.add('gallery__slide');
           slide.setAttribute('href', data.href);
-          const image = document.createElement('div');
+          const image = document.createElement('picture');
           image.classList.add('gallery__image');
-          const imageImg = document.createElement('img');
-          imageImg.src = el;
-          image.append(imageImg);
-          slide.append(image);
-          sliderWrapper.append(slide);
+          el.forEach((srs) => {
+            const sourceEl = document.createElement('source');
+            if (srs.srcset) {
+              sourceEl.srcset = srs.srcset;
+            }
+            if (srs.type) {
+              sourceEl.type = srs.type;
+            }
+            if (srs.sizes) {
+              sourceEl.sizes = srs.sizes;
+            }
+            if (srs.media) {
+              sourceEl.media = srs.media;
+            }
+            image.appendChild(sourceEl);
+            if (srs.default) {
+              const imageImg = document.createElement('img');
+              imageImg.srcset = srs.srcset;
+              image.appendChild(imageImg);
+            }
+          });
+          slide.appendChild(image);
+          sliderWrapper.appendChild(slide);
         });
-        slider.append(sliderWrapper);
+        slider.appendChild(sliderWrapper);
         const buttons = document.createElement('div');
         buttons.classList.add('gallery__buttons');
         buttons.classList.add('gallery__buttons_small');
@@ -49,15 +67,15 @@ export default function mapPopup() {
         arrowPath.setAttributeNS(null, 'd', 'M8.76415 1.03693C9.07957 0.617804 9.67504 0.53373 10.0942 0.849149C10.5133 1.16457 10.5974 1.76003 10.2819 2.17916L2.13861 13L10.2822 23.8212C10.5976 24.2404 10.5135 24.8358 10.0944 25.1512C9.67529 25.4667 9.07982 25.3826 8.7644 24.9635L0.208823 13.5948C-0.0380478 13.2876 -0.0719481 12.851 0.138376 12.5064C0.156503 12.4766 0.176376 12.4476 0.19797 12.4197L8.76415 1.03693Z');
         arrowPath.setAttributeNS(null, 'fill-opacity', '0.71');
         arrowPath.setAttributeNS(null, 'fill', '#d8ddde');
-        arrow.append(arrowPath);
+        arrow.appendChild(arrowPath);
         const arrow2 = arrow.cloneNode(true);
-        buttonNext.append(arrow);
-        buttonPrev.append(arrow2);
-        buttons.append(buttonPrev);
-        buttons.append(buttonNext);
-        gallery.append(slider);
-        gallery.append(buttons);
-        base.append(gallery);
+        buttonNext.appendChild(arrow);
+        buttonPrev.appendChild(arrow2);
+        buttons.appendChild(buttonPrev);
+        buttons.appendChild(buttonNext);
+        gallery.appendChild(slider);
+        gallery.appendChild(buttons);
+        base.appendChild(gallery);
         window.globalFunctions.gallerySliderInit(gallery);
       }
     }
@@ -67,7 +85,7 @@ export default function mapPopup() {
       title.classList.add('map-popup__title');
       title.setAttribute('href', data.href);
       title.innerText = data.title;
-      baseContent.append(title);
+      baseContent.appendChild(title);
     }
     if (data.colorBoxes) {
       const boxes = document.createElement('div');
@@ -77,11 +95,11 @@ export default function mapPopup() {
         box.classList.add('nd-box');
         box.classList.add('nd-box_size6');
         box.classList.add(`nd-box_${el}`);
-        boxes.append(box);
+        boxes.appendChild(box);
       });
-      baseContent.append(boxes);
+      baseContent.appendChild(boxes);
     }
-    base.append(baseContent);
+    base.appendChild(baseContent);
     return base;
   }
 

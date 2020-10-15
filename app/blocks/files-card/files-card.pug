@@ -15,3 +15,18 @@ mixin files-card(data)
     if data.describe
       +e.describe!= data.describe
     block
+
+
+mixin nd-files-card(data)
+  +b.nd-files-card&attributes(attributes)(data-uploader-status)
+    if data.image
+      +e.IMG.image(src=data.image)
+    if data.subtitle
+      +e.subtitle!= data.subtitle
+    if data.title
+      +e.H3.title!= data.title
+    if data.uploader
+      +nd-file-uploader(data.uploader)(class=(data.uploader.class || '') + ' __uploader')
+    if data.describe
+      +e.describe!= data.describe
+    block

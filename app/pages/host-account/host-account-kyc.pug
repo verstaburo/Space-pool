@@ -30,7 +30,102 @@ block content
           +nd-side-navigation(nav, 'KYC')._profile._profile_ha
 
       +nd-content-main
-        +records._acc
+        +nd-section
+          +e.board_kyc
+            +e.row
+              +e.column_left
+                +nd-section-title._fz22 Know Your Client test
+                +e.text_fz18._indent
+                  p Spacepul Company is a business organization that receives and sends money. Based on international legislation, we are required to request important beneficiary information to ensure a safe and secure payment process.
+                  p
+                    b Please give us the information we need to meet our legal requirements. Images must be clear and legible.
+              +e.column_right
+                +e.FIGURE.figure
+                  +e.IMG.figure-image(src="assets/images/nd/il-search.svg")
+            +e.row
+              +e.column_left
+                +nd-form()(data-validated-form)
+                  +form-section()(data-ubo-element)
+                    +form-section-header
+                      +form-section-title._fz22 Owner <span data-ubo-number>1</span> (Ultimate Beneficial Owner)
+                    +form-section-content
+                      +nd-grid.nd-grid_gap25.nd-grid_int37
+                        +nd-grid-col({xl: 12})
+                          +form-section-wrapper
+                            +nd-form-box('Name')._bg-white
+                              +nd-input(type="text" name="ubo-1[firstName]" placeholder="Name" required)
+                        +nd-grid-col({xl: 12})
+                          +form-section-wrapper
+                            +nd-form-box('Surname')._bg-white
+                              +nd-input(type="text" name="ubo-1[surname]" placeholder="Surname" required)
+                        +nd-grid-col({xl: 6, sm: 12})
+                          +form-section-wrapper
+                            +nd-form-box('Date of birth')._bg-white.js-nd-datepicker
+                              +nd-input(type="text" name="ubo-1[dateBirth]" placeholder="Date of birth" data-dates-result required readonly)._date
+                              +e.dates(data-dates-container)
+                        +nd-grid-col({xl: 6, sm: 12})
+                          +form-section-wrapper
+                            +nd-form-box('Nationality', 'div')._bg-white
+                              +nd-select(name="ubo-1[nationality]" placeholder="Nationality" required data-mobile-title="Nationality").js-nd-select
+                                option(value="" placeholder)
+                                option(value="1") Russian
+                                option(value="2") Latvian
+                                option(value="3") German
+                                option(value="4") English
+                        +nd-grid-col({xl: 6, sm: 12})
+                          +form-section-wrapper
+                            +nd-form-box('Birthplace country', 'div')._bg-white
+                              +nd-select(name="ubo-1[birthplaceCountry]" placeholder="Birthplace country" required data-mobile-title="Birthplace countrye").js-nd-select
+                                option(value="" placeholder)
+                                option(value="1") Russia
+                                option(value="2") Latvia
+                                option(value="3") Germany
+                                option(value="4") England
+                        +nd-grid-col({xl: 6, sm: 12})
+                          +form-section-wrapper
+                            +nd-form-box('Birthplace city')._bg-white
+                              +nd-input(type="text" name="ubo-1[birthplaceCity]" placeholder="Birthplace city" required)
+                        +nd-grid-col({xl: 12})
+                          +form-section-wrapper
+                            +nd-form-box('Address line 1')._bg-white
+                              +nd-input(type="text" name="ubo-1[addressLine1]" placeholder="Address line 1")
+                        +nd-grid-col({xl: 12})
+                          +form-section-wrapper
+                            +nd-form-box('Address line 2')._bg-white
+                              +nd-input(type="text" name="ubo-1[addressLine2]" placeholder="Address line 2")
+                        +nd-grid-col({xl: 12})
+                          +form-section-wrapper
+                            +nd-form-box('Country', 'div')._bg-white
+                              +nd-select(name="ubo-1[country]" placeholder="Country" data-mobile-title="Country").js-nd-select
+                                option(value="" placeholder)
+                                option(value="1") London
+                                option(value="2") Moscow
+                                option(value="3") Berlin
+                                option(value="4") Riga
+                        +nd-grid-col({xl: 12})
+                          +form-section-wrapper
+                            +nd-form-box('City')._bg-white
+                              +nd-input(type="text" name="ubo-1[city]" placeholder="City")
+                        +nd-grid-col({xl: 12})(data-form-switchable-item="legalEntity")
+                          +form-section-wrapper
+                            +nd-form-box('Region')._bg-white
+                              +nd-input(type="text" name="ubo-1[region]" placeholder="Region")
+                        +nd-grid-col({xl: 12})
+                          +form-section-wrapper
+                            +nd-form-box('Postal Code')._bg-white
+                              +nd-input(type="text" name="ubo-1[postcode]" placeholder="Postal Code")
+                  +form-section
+                    +e.links
+                      +nd-link-icon('nd-plus').__link.js-add-ubo(href="#" data-url-template="assets/data/nd-templates.json" data-max-ubo-count="4") Add one more UBO
+                    +e.buttons
+                      +nd-button('button', true).__button_wide Save information
+              +e.column_right
+                +nd-section-title._fz22 Necessary Documents
+                +nd-section-content
+                  +nd-files-card({image: 'assets/images/nd/nd-upload.svg', subtitle: 'Upload', title: 'Proof of identity', uploader: true, describe: 'ID of the individual representing the company. Needs to be a valid driving licence (front and back) or the details page of passport.'}).__card
+                  +nd-files-card({image: 'assets/images/nd/nd-upload.svg', subtitle: 'Upload', title: 'Certificate of incorporation', uploader: true, describe: 'Formal proof of the company’s existence. Needs to include business name, activity, registered address and shareholding.'}).__card
+                  +nd-files-card({image: 'assets/images/nd/nd-upload.svg', subtitle: 'Upload', title: 'Confirmation statement', uploader: true, describe: 'Latest confirmation statement (if not available, certificate of incorporation)'}).__card
+
 
 block panels
 

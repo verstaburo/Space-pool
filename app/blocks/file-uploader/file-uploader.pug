@@ -6,3 +6,14 @@ mixin file-uploader()
         +input(type="file" multiple="multiple").hide.js-file-upload
       +button('button', true)(type="submit" data-server-callback="uploadFiles")._short.__button.js-file-send Send Files
     block
+
+mixin nd-file-uploader(data)
+  - var nameInput = data.nameInput || 'Browse...'
+  - var nameSubmit = data.nameSubmit || 'Upload'
+  +b.FORM.nd-file-uploader&attributes(attributes)(data-uploader-block)
+    +e.output(data-files-output)
+    +e.buttons
+      +nd-button('label').__label!=nameInput
+        +input(type="file" multiple="multiple").nd-hide.js-file-upload
+      +nd-button('button', true)(type="submit" data-server-callback="uploadFiles").__button.js-file-send!=nameSubmit
+    block
