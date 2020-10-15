@@ -10,55 +10,58 @@ $(document).ready(function () {
       colorBoxes: ['orange', 'red', 'green'],
       gallery: [
         [{
-          srcset: 'assets/images/nd/space1.jpg',
-          media: '(min-width: 1400px)',
-          type: 'image/jpeg',
-        }, {
-          srcset: 'assets/images/nd/space1.webp',
+          srcset: 'assets/images/nd/space2.webp',
           media: '(min-width: 1400px)',
           type: 'image/webp',
         }, {
-          srcset: 'assets/images/nd/space1.jpg',
-          media: '(max-width: 1399px)',
-          type: 'image/jpeg',
-        }, {
-          srcset: 'assets/images/nd/space1.webp',
+          srcset: 'assets/images/nd/space2.webp',
           media: '(max-width: 1399px)',
           type: 'image/webp',
+        }, {
+          srcset: 'assets/images/nd/space2.jpg',
+          media: '(min-width: 1400px)',
+          type: 'image/jpeg',
+          default: true,
+        }, {
+          srcset: 'assets/images/nd/space2.jpg',
+          media: '(max-width: 1399px)',
+          type: 'image/jpeg',
         }],
         [{
-          srcset: 'assets/images/nd/space10.jpg',
-          media: '(min-width: 1400px)',
-          type: 'image/jpeg',
-        }, {
-          srcset: 'assets/images/nd/space10.webp',
+          srcset: 'assets/images/nd/space26.webp',
           media: '(min-width: 1400px)',
           type: 'image/webp',
         }, {
-          srcset: 'assets/images/nd/space10.jpg',
-          media: '(max-width: 1399px)',
-          type: 'image/jpeg',
-        }, {
-          srcset: 'assets/images/nd/space10.webp',
+          srcset: 'assets/images/nd/space26.webp',
           media: '(max-width: 1399px)',
           type: 'image/webp',
+        }, {
+          srcset: 'assets/images/nd/space26.jpg',
+          media: '(min-width: 1400px)',
+          type: 'image/jpeg',
+          default: true,
+        }, {
+          srcset: 'assets/images/nd/space26.jpg',
+          media: '(max-width: 1399px)',
+          type: 'image/jpeg',
         }],
         [{
-          srcset: 'assets/images/nd/space11.jpg',
-          media: '(min-width: 1400px)',
-          type: 'image/jpeg',
-        }, {
-          srcset: 'assets/images/nd/space11.webp',
+          srcset: 'assets/images/nd/space27.webp',
           media: '(min-width: 1400px)',
           type: 'image/webp',
         }, {
-          srcset: 'assets/images/nd/space11.jpg',
-          media: '(max-width: 1399px)',
-          type: 'image/jpeg',
-        }, {
-          srcset: 'assets/images/nd/space11.webp',
+          srcset: 'assets/images/nd/space27.webp',
           media: '(max-width: 1399px)',
           type: 'image/webp',
+        }, {
+          srcset: 'assets/images/nd/space27.jpg',
+          media: '(min-width: 1400px)',
+          type: 'image/jpeg',
+          default: true,
+        }, {
+          srcset: 'assets/images/nd/space27.jpg',
+          media: '(max-width: 1399px)',
+          type: 'image/jpeg',
         }],
       ],
     },
@@ -74,55 +77,58 @@ $(document).ready(function () {
       colorBoxes: ['orange', 'red', 'blue'],
       gallery: [
         [{
-          srcset: 'assets/images/nd/space1.jpg',
-          media: '(min-width: 1400px)',
-          type: 'image/jpeg',
-        }, {
-          srcset: 'assets/images/nd/space1.webp',
+          srcset: 'assets/images/nd/space2.webp',
           media: '(min-width: 1400px)',
           type: 'image/webp',
         }, {
-          srcset: 'assets/images/nd/space1.jpg',
-          media: '(max-width: 1399px)',
-          type: 'image/jpeg',
-        }, {
-          srcset: 'assets/images/nd/space1.webp',
+          srcset: 'assets/images/nd/space2.webp',
           media: '(max-width: 1399px)',
           type: 'image/webp',
+        }, {
+          srcset: 'assets/images/nd/space2.jpg',
+          media: '(min-width: 1400px)',
+          type: 'image/jpeg',
+          default: true,
+        }, {
+          srcset: 'assets/images/nd/space2.jpg',
+          media: '(max-width: 1399px)',
+          type: 'image/jpeg',
         }],
         [{
-          srcset: 'assets/images/nd/space10.jpg',
-          media: '(min-width: 1400px)',
-          type: 'image/jpeg',
-        }, {
-          srcset: 'assets/images/nd/space10.webp',
+          srcset: 'assets/images/nd/space26.webp',
           media: '(min-width: 1400px)',
           type: 'image/webp',
         }, {
-          srcset: 'assets/images/nd/space10.jpg',
-          media: '(max-width: 1399px)',
-          type: 'image/jpeg',
-        }, {
-          srcset: 'assets/images/nd/space10.webp',
+          srcset: 'assets/images/nd/space26.webp',
           media: '(max-width: 1399px)',
           type: 'image/webp',
+        }, {
+          srcset: 'assets/images/nd/space26.jpg',
+          media: '(min-width: 1400px)',
+          type: 'image/jpeg',
+          default: true,
+        }, {
+          srcset: 'assets/images/nd/space26.jpg',
+          media: '(max-width: 1399px)',
+          type: 'image/jpeg',
         }],
         [{
-          srcset: 'assets/images/nd/space11.jpg',
-          media: '(min-width: 1400px)',
-          type: 'image/jpeg',
-        }, {
-          srcset: 'assets/images/nd/space11.webp',
+          srcset: 'assets/images/nd/space27.webp',
           media: '(min-width: 1400px)',
           type: 'image/webp',
         }, {
-          srcset: 'assets/images/nd/space11.jpg',
-          media: '(max-width: 1399px)',
-          type: 'image/jpeg',
-        }, {
-          srcset: 'assets/images/nd/space11.webp',
+          srcset: 'assets/images/nd/space27.webp',
           media: '(max-width: 1399px)',
           type: 'image/webp',
+        }, {
+          srcset: 'assets/images/nd/space27.jpg',
+          media: '(min-width: 1400px)',
+          type: 'image/jpeg',
+          default: true,
+        }, {
+          srcset: 'assets/images/nd/space27.jpg',
+          media: '(max-width: 1399px)',
+          type: 'image/jpeg',
         }],
       ],
     },
@@ -138,55 +144,58 @@ $(document).ready(function () {
       colorBoxes: ['blue', 'green'],
       gallery: [
         [{
-          srcset: 'assets/images/nd/space1.jpg',
-          media: '(min-width: 1400px)',
-          type: 'image/jpeg',
-        }, {
-          srcset: 'assets/images/nd/space1.webp',
+          srcset: 'assets/images/nd/space2.webp',
           media: '(min-width: 1400px)',
           type: 'image/webp',
         }, {
-          srcset: 'assets/images/nd/space1.jpg',
-          media: '(max-width: 1399px)',
-          type: 'image/jpeg',
-        }, {
-          srcset: 'assets/images/nd/space1.webp',
+          srcset: 'assets/images/nd/space2.webp',
           media: '(max-width: 1399px)',
           type: 'image/webp',
+        }, {
+          srcset: 'assets/images/nd/space2.jpg',
+          media: '(min-width: 1400px)',
+          type: 'image/jpeg',
+          default: true,
+        }, {
+          srcset: 'assets/images/nd/space2.jpg',
+          media: '(max-width: 1399px)',
+          type: 'image/jpeg',
         }],
         [{
-          srcset: 'assets/images/nd/space10.jpg',
-          media: '(min-width: 1400px)',
-          type: 'image/jpeg',
-        }, {
-          srcset: 'assets/images/nd/space10.webp',
+          srcset: 'assets/images/nd/space26.webp',
           media: '(min-width: 1400px)',
           type: 'image/webp',
         }, {
-          srcset: 'assets/images/nd/space10.jpg',
-          media: '(max-width: 1399px)',
-          type: 'image/jpeg',
-        }, {
-          srcset: 'assets/images/nd/space10.webp',
+          srcset: 'assets/images/nd/space26.webp',
           media: '(max-width: 1399px)',
           type: 'image/webp',
+        }, {
+          srcset: 'assets/images/nd/space26.jpg',
+          media: '(min-width: 1400px)',
+          type: 'image/jpeg',
+          default: true,
+        }, {
+          srcset: 'assets/images/nd/space26.jpg',
+          media: '(max-width: 1399px)',
+          type: 'image/jpeg',
         }],
         [{
-          srcset: 'assets/images/nd/space11.jpg',
-          media: '(min-width: 1400px)',
-          type: 'image/jpeg',
-        }, {
-          srcset: 'assets/images/nd/space11.webp',
+          srcset: 'assets/images/nd/space27.webp',
           media: '(min-width: 1400px)',
           type: 'image/webp',
         }, {
-          srcset: 'assets/images/nd/space11.jpg',
-          media: '(max-width: 1399px)',
-          type: 'image/jpeg',
-        }, {
-          srcset: 'assets/images/nd/space11.webp',
+          srcset: 'assets/images/nd/space27.webp',
           media: '(max-width: 1399px)',
           type: 'image/webp',
+        }, {
+          srcset: 'assets/images/nd/space27.jpg',
+          media: '(min-width: 1400px)',
+          type: 'image/jpeg',
+          default: true,
+        }, {
+          srcset: 'assets/images/nd/space27.jpg',
+          media: '(max-width: 1399px)',
+          type: 'image/jpeg',
         }],
       ],
     },
@@ -202,55 +211,58 @@ $(document).ready(function () {
       colorBoxes: ['orange', 'red'],
       gallery: [
         [{
-          srcset: 'assets/images/nd/space1.jpg',
-          media: '(min-width: 1400px)',
-          type: 'image/jpeg',
-        }, {
-          srcset: 'assets/images/nd/space1.webp',
+          srcset: 'assets/images/nd/space2.webp',
           media: '(min-width: 1400px)',
           type: 'image/webp',
         }, {
-          srcset: 'assets/images/nd/space1.jpg',
-          media: '(max-width: 1399px)',
-          type: 'image/jpeg',
-        }, {
-          srcset: 'assets/images/nd/space1.webp',
+          srcset: 'assets/images/nd/space2.webp',
           media: '(max-width: 1399px)',
           type: 'image/webp',
+        }, {
+          srcset: 'assets/images/nd/space2.jpg',
+          media: '(min-width: 1400px)',
+          type: 'image/jpeg',
+          default: true,
+        }, {
+          srcset: 'assets/images/nd/space2.jpg',
+          media: '(max-width: 1399px)',
+          type: 'image/jpeg',
         }],
         [{
-          srcset: 'assets/images/nd/space10.jpg',
-          media: '(min-width: 1400px)',
-          type: 'image/jpeg',
-        }, {
-          srcset: 'assets/images/nd/space10.webp',
+          srcset: 'assets/images/nd/space26.webp',
           media: '(min-width: 1400px)',
           type: 'image/webp',
         }, {
-          srcset: 'assets/images/nd/space10.jpg',
-          media: '(max-width: 1399px)',
-          type: 'image/jpeg',
-        }, {
-          srcset: 'assets/images/nd/space10.webp',
+          srcset: 'assets/images/nd/space26.webp',
           media: '(max-width: 1399px)',
           type: 'image/webp',
+        }, {
+          srcset: 'assets/images/nd/space26.jpg',
+          media: '(min-width: 1400px)',
+          type: 'image/jpeg',
+          default: true,
+        }, {
+          srcset: 'assets/images/nd/space26.jpg',
+          media: '(max-width: 1399px)',
+          type: 'image/jpeg',
         }],
         [{
-          srcset: 'assets/images/nd/space11.jpg',
-          media: '(min-width: 1400px)',
-          type: 'image/jpeg',
-        }, {
-          srcset: 'assets/images/nd/space11.webp',
+          srcset: 'assets/images/nd/space27.webp',
           media: '(min-width: 1400px)',
           type: 'image/webp',
         }, {
-          srcset: 'assets/images/nd/space11.jpg',
-          media: '(max-width: 1399px)',
-          type: 'image/jpeg',
-        }, {
-          srcset: 'assets/images/nd/space11.webp',
+          srcset: 'assets/images/nd/space27.webp',
           media: '(max-width: 1399px)',
           type: 'image/webp',
+        }, {
+          srcset: 'assets/images/nd/space27.jpg',
+          media: '(min-width: 1400px)',
+          type: 'image/jpeg',
+          default: true,
+        }, {
+          srcset: 'assets/images/nd/space27.jpg',
+          media: '(max-width: 1399px)',
+          type: 'image/jpeg',
         }],
       ],
     },
@@ -266,55 +278,58 @@ $(document).ready(function () {
       colorBoxes: ['orange'],
       gallery: [
         [{
-          srcset: 'assets/images/nd/space1.jpg',
-          media: '(min-width: 1400px)',
-          type: 'image/jpeg',
-        }, {
-          srcset: 'assets/images/nd/space1.webp',
+          srcset: 'assets/images/nd/space2.webp',
           media: '(min-width: 1400px)',
           type: 'image/webp',
         }, {
-          srcset: 'assets/images/nd/space1.jpg',
-          media: '(max-width: 1399px)',
-          type: 'image/jpeg',
-        }, {
-          srcset: 'assets/images/nd/space1.webp',
+          srcset: 'assets/images/nd/space2.webp',
           media: '(max-width: 1399px)',
           type: 'image/webp',
+        }, {
+          srcset: 'assets/images/nd/space2.jpg',
+          media: '(min-width: 1400px)',
+          type: 'image/jpeg',
+          default: true,
+        }, {
+          srcset: 'assets/images/nd/space2.jpg',
+          media: '(max-width: 1399px)',
+          type: 'image/jpeg',
         }],
         [{
-          srcset: 'assets/images/nd/space10.jpg',
-          media: '(min-width: 1400px)',
-          type: 'image/jpeg',
-        }, {
-          srcset: 'assets/images/nd/space10.webp',
+          srcset: 'assets/images/nd/space26.webp',
           media: '(min-width: 1400px)',
           type: 'image/webp',
         }, {
-          srcset: 'assets/images/nd/space10.jpg',
-          media: '(max-width: 1399px)',
-          type: 'image/jpeg',
-        }, {
-          srcset: 'assets/images/nd/space10.webp',
+          srcset: 'assets/images/nd/space26.webp',
           media: '(max-width: 1399px)',
           type: 'image/webp',
+        }, {
+          srcset: 'assets/images/nd/space26.jpg',
+          media: '(min-width: 1400px)',
+          type: 'image/jpeg',
+          default: true,
+        }, {
+          srcset: 'assets/images/nd/space26.jpg',
+          media: '(max-width: 1399px)',
+          type: 'image/jpeg',
         }],
         [{
-          srcset: 'assets/images/nd/space11.jpg',
-          media: '(min-width: 1400px)',
-          type: 'image/jpeg',
-        }, {
-          srcset: 'assets/images/nd/space11.webp',
+          srcset: 'assets/images/nd/space27.webp',
           media: '(min-width: 1400px)',
           type: 'image/webp',
         }, {
-          srcset: 'assets/images/nd/space11.jpg',
-          media: '(max-width: 1399px)',
-          type: 'image/jpeg',
-        }, {
-          srcset: 'assets/images/nd/space11.webp',
+          srcset: 'assets/images/nd/space27.webp',
           media: '(max-width: 1399px)',
           type: 'image/webp',
+        }, {
+          srcset: 'assets/images/nd/space27.jpg',
+          media: '(min-width: 1400px)',
+          type: 'image/jpeg',
+          default: true,
+        }, {
+          srcset: 'assets/images/nd/space27.jpg',
+          media: '(max-width: 1399px)',
+          type: 'image/jpeg',
         }],
       ],
     },
@@ -330,55 +345,58 @@ $(document).ready(function () {
       colorBoxes: ['orange', 'red', 'green'],
       gallery: [
         [{
-          srcset: 'assets/images/nd/space1.jpg',
-          media: '(min-width: 1400px)',
-          type: 'image/jpeg',
-        }, {
-          srcset: 'assets/images/nd/space1.webp',
+          srcset: 'assets/images/nd/space2.webp',
           media: '(min-width: 1400px)',
           type: 'image/webp',
         }, {
-          srcset: 'assets/images/nd/space1.jpg',
-          media: '(max-width: 1399px)',
-          type: 'image/jpeg',
-        }, {
-          srcset: 'assets/images/nd/space1.webp',
+          srcset: 'assets/images/nd/space2.webp',
           media: '(max-width: 1399px)',
           type: 'image/webp',
+        }, {
+          srcset: 'assets/images/nd/space2.jpg',
+          media: '(min-width: 1400px)',
+          type: 'image/jpeg',
+          default: true,
+        }, {
+          srcset: 'assets/images/nd/space2.jpg',
+          media: '(max-width: 1399px)',
+          type: 'image/jpeg',
         }],
         [{
-          srcset: 'assets/images/nd/space10.jpg',
-          media: '(min-width: 1400px)',
-          type: 'image/jpeg',
-        }, {
-          srcset: 'assets/images/nd/space10.webp',
+          srcset: 'assets/images/nd/space26.webp',
           media: '(min-width: 1400px)',
           type: 'image/webp',
         }, {
-          srcset: 'assets/images/nd/space10.jpg',
-          media: '(max-width: 1399px)',
-          type: 'image/jpeg',
-        }, {
-          srcset: 'assets/images/nd/space10.webp',
+          srcset: 'assets/images/nd/space26.webp',
           media: '(max-width: 1399px)',
           type: 'image/webp',
+        }, {
+          srcset: 'assets/images/nd/space26.jpg',
+          media: '(min-width: 1400px)',
+          type: 'image/jpeg',
+          default: true,
+        }, {
+          srcset: 'assets/images/nd/space26.jpg',
+          media: '(max-width: 1399px)',
+          type: 'image/jpeg',
         }],
         [{
-          srcset: 'assets/images/nd/space11.jpg',
-          media: '(min-width: 1400px)',
-          type: 'image/jpeg',
-        }, {
-          srcset: 'assets/images/nd/space11.webp',
+          srcset: 'assets/images/nd/space27.webp',
           media: '(min-width: 1400px)',
           type: 'image/webp',
         }, {
-          srcset: 'assets/images/nd/space11.jpg',
-          media: '(max-width: 1399px)',
-          type: 'image/jpeg',
-        }, {
-          srcset: 'assets/images/nd/space11.webp',
+          srcset: 'assets/images/nd/space27.webp',
           media: '(max-width: 1399px)',
           type: 'image/webp',
+        }, {
+          srcset: 'assets/images/nd/space27.jpg',
+          media: '(min-width: 1400px)',
+          type: 'image/jpeg',
+          default: true,
+        }, {
+          srcset: 'assets/images/nd/space27.jpg',
+          media: '(max-width: 1399px)',
+          type: 'image/jpeg',
         }],
       ],
     },
@@ -394,55 +412,58 @@ $(document).ready(function () {
       colorBoxes: ['orange', 'red', 'green'],
       gallery: [
         [{
-          srcset: 'assets/images/nd/space1.jpg',
-          media: '(min-width: 1400px)',
-          type: 'image/jpeg',
-        }, {
-          srcset: 'assets/images/nd/space1.webp',
+          srcset: 'assets/images/nd/space2.webp',
           media: '(min-width: 1400px)',
           type: 'image/webp',
         }, {
-          srcset: 'assets/images/nd/space1.jpg',
-          media: '(max-width: 1399px)',
-          type: 'image/jpeg',
-        }, {
-          srcset: 'assets/images/nd/space1.webp',
+          srcset: 'assets/images/nd/space2.webp',
           media: '(max-width: 1399px)',
           type: 'image/webp',
+        }, {
+          srcset: 'assets/images/nd/space2.jpg',
+          media: '(min-width: 1400px)',
+          type: 'image/jpeg',
+          default: true,
+        }, {
+          srcset: 'assets/images/nd/space2.jpg',
+          media: '(max-width: 1399px)',
+          type: 'image/jpeg',
         }],
         [{
-          srcset: 'assets/images/nd/space10.jpg',
-          media: '(min-width: 1400px)',
-          type: 'image/jpeg',
-        }, {
-          srcset: 'assets/images/nd/space10.webp',
+          srcset: 'assets/images/nd/space26.webp',
           media: '(min-width: 1400px)',
           type: 'image/webp',
         }, {
-          srcset: 'assets/images/nd/space10.jpg',
-          media: '(max-width: 1399px)',
-          type: 'image/jpeg',
-        }, {
-          srcset: 'assets/images/nd/space10.webp',
+          srcset: 'assets/images/nd/space26.webp',
           media: '(max-width: 1399px)',
           type: 'image/webp',
+        }, {
+          srcset: 'assets/images/nd/space26.jpg',
+          media: '(min-width: 1400px)',
+          type: 'image/jpeg',
+          default: true,
+        }, {
+          srcset: 'assets/images/nd/space26.jpg',
+          media: '(max-width: 1399px)',
+          type: 'image/jpeg',
         }],
         [{
-          srcset: 'assets/images/nd/space11.jpg',
-          media: '(min-width: 1400px)',
-          type: 'image/jpeg',
-        }, {
-          srcset: 'assets/images/nd/space11.webp',
+          srcset: 'assets/images/nd/space27.webp',
           media: '(min-width: 1400px)',
           type: 'image/webp',
         }, {
-          srcset: 'assets/images/nd/space11.jpg',
-          media: '(max-width: 1399px)',
-          type: 'image/jpeg',
-        }, {
-          srcset: 'assets/images/nd/space11.webp',
+          srcset: 'assets/images/nd/space27.webp',
           media: '(max-width: 1399px)',
           type: 'image/webp',
+        }, {
+          srcset: 'assets/images/nd/space27.jpg',
+          media: '(min-width: 1400px)',
+          type: 'image/jpeg',
+          default: true,
+        }, {
+          srcset: 'assets/images/nd/space27.jpg',
+          media: '(max-width: 1399px)',
+          type: 'image/jpeg',
         }],
       ],
     },
@@ -458,55 +479,58 @@ $(document).ready(function () {
       colorBoxes: ['orange', 'red', 'green'],
       gallery: [
         [{
-          srcset: 'assets/images/nd/space1.jpg',
-          media: '(min-width: 1400px)',
-          type: 'image/jpeg',
-        }, {
-          srcset: 'assets/images/nd/space1.webp',
+          srcset: 'assets/images/nd/space2.webp',
           media: '(min-width: 1400px)',
           type: 'image/webp',
         }, {
-          srcset: 'assets/images/nd/space1.jpg',
-          media: '(max-width: 1399px)',
-          type: 'image/jpeg',
-        }, {
-          srcset: 'assets/images/nd/space1.webp',
+          srcset: 'assets/images/nd/space2.webp',
           media: '(max-width: 1399px)',
           type: 'image/webp',
+        }, {
+          srcset: 'assets/images/nd/space2.jpg',
+          media: '(min-width: 1400px)',
+          type: 'image/jpeg',
+          default: true,
+        }, {
+          srcset: 'assets/images/nd/space2.jpg',
+          media: '(max-width: 1399px)',
+          type: 'image/jpeg',
         }],
         [{
-          srcset: 'assets/images/nd/space10.jpg',
-          media: '(min-width: 1400px)',
-          type: 'image/jpeg',
-        }, {
-          srcset: 'assets/images/nd/space10.webp',
+          srcset: 'assets/images/nd/space26.webp',
           media: '(min-width: 1400px)',
           type: 'image/webp',
         }, {
-          srcset: 'assets/images/nd/space10.jpg',
-          media: '(max-width: 1399px)',
-          type: 'image/jpeg',
-        }, {
-          srcset: 'assets/images/nd/space10.webp',
+          srcset: 'assets/images/nd/space26.webp',
           media: '(max-width: 1399px)',
           type: 'image/webp',
+        }, {
+          srcset: 'assets/images/nd/space26.jpg',
+          media: '(min-width: 1400px)',
+          type: 'image/jpeg',
+          default: true,
+        }, {
+          srcset: 'assets/images/nd/space26.jpg',
+          media: '(max-width: 1399px)',
+          type: 'image/jpeg',
         }],
         [{
-          srcset: 'assets/images/nd/space11.jpg',
-          media: '(min-width: 1400px)',
-          type: 'image/jpeg',
-        }, {
-          srcset: 'assets/images/nd/space11.webp',
+          srcset: 'assets/images/nd/space27.webp',
           media: '(min-width: 1400px)',
           type: 'image/webp',
         }, {
-          srcset: 'assets/images/nd/space11.jpg',
-          media: '(max-width: 1399px)',
-          type: 'image/jpeg',
-        }, {
-          srcset: 'assets/images/nd/space11.webp',
+          srcset: 'assets/images/nd/space27.webp',
           media: '(max-width: 1399px)',
           type: 'image/webp',
+        }, {
+          srcset: 'assets/images/nd/space27.jpg',
+          media: '(min-width: 1400px)',
+          type: 'image/jpeg',
+          default: true,
+        }, {
+          srcset: 'assets/images/nd/space27.jpg',
+          media: '(max-width: 1399px)',
+          type: 'image/jpeg',
         }],
       ],
     },
@@ -522,55 +546,58 @@ $(document).ready(function () {
       colorBoxes: ['orange', 'red', 'green'],
       gallery: [
         [{
-          srcset: 'assets/images/nd/space1.jpg',
-          media: '(min-width: 1400px)',
-          type: 'image/jpeg',
-        }, {
-          srcset: 'assets/images/nd/space1.webp',
+          srcset: 'assets/images/nd/space2.webp',
           media: '(min-width: 1400px)',
           type: 'image/webp',
         }, {
-          srcset: 'assets/images/nd/space1.jpg',
-          media: '(max-width: 1399px)',
-          type: 'image/jpeg',
-        }, {
-          srcset: 'assets/images/nd/space1.webp',
+          srcset: 'assets/images/nd/space2.webp',
           media: '(max-width: 1399px)',
           type: 'image/webp',
+        }, {
+          srcset: 'assets/images/nd/space2.jpg',
+          media: '(min-width: 1400px)',
+          type: 'image/jpeg',
+          default: true,
+        }, {
+          srcset: 'assets/images/nd/space2.jpg',
+          media: '(max-width: 1399px)',
+          type: 'image/jpeg',
         }],
         [{
-          srcset: 'assets/images/nd/space10.jpg',
-          media: '(min-width: 1400px)',
-          type: 'image/jpeg',
-        }, {
-          srcset: 'assets/images/nd/space10.webp',
+          srcset: 'assets/images/nd/space26.webp',
           media: '(min-width: 1400px)',
           type: 'image/webp',
         }, {
-          srcset: 'assets/images/nd/space10.jpg',
-          media: '(max-width: 1399px)',
-          type: 'image/jpeg',
-        }, {
-          srcset: 'assets/images/nd/space10.webp',
+          srcset: 'assets/images/nd/space26.webp',
           media: '(max-width: 1399px)',
           type: 'image/webp',
+        }, {
+          srcset: 'assets/images/nd/space26.jpg',
+          media: '(min-width: 1400px)',
+          type: 'image/jpeg',
+          default: true,
+        }, {
+          srcset: 'assets/images/nd/space26.jpg',
+          media: '(max-width: 1399px)',
+          type: 'image/jpeg',
         }],
         [{
-          srcset: 'assets/images/nd/space11.jpg',
-          media: '(min-width: 1400px)',
-          type: 'image/jpeg',
-        }, {
-          srcset: 'assets/images/nd/space11.webp',
+          srcset: 'assets/images/nd/space27.webp',
           media: '(min-width: 1400px)',
           type: 'image/webp',
         }, {
-          srcset: 'assets/images/nd/space11.jpg',
-          media: '(max-width: 1399px)',
-          type: 'image/jpeg',
-        }, {
-          srcset: 'assets/images/nd/space11.webp',
+          srcset: 'assets/images/nd/space27.webp',
           media: '(max-width: 1399px)',
           type: 'image/webp',
+        }, {
+          srcset: 'assets/images/nd/space27.jpg',
+          media: '(min-width: 1400px)',
+          type: 'image/jpeg',
+          default: true,
+        }, {
+          srcset: 'assets/images/nd/space27.jpg',
+          media: '(max-width: 1399px)',
+          type: 'image/jpeg',
         }],
       ],
     },
@@ -586,55 +613,58 @@ $(document).ready(function () {
       colorBoxes: ['orange', 'red', 'green'],
       gallery: [
         [{
-          srcset: 'assets/images/nd/space1.jpg',
-          media: '(min-width: 1400px)',
-          type: 'image/jpeg',
-        }, {
-          srcset: 'assets/images/nd/space1.webp',
+          srcset: 'assets/images/nd/space2.webp',
           media: '(min-width: 1400px)',
           type: 'image/webp',
         }, {
-          srcset: 'assets/images/nd/space1.jpg',
-          media: '(max-width: 1399px)',
-          type: 'image/jpeg',
-        }, {
-          srcset: 'assets/images/nd/space1.webp',
+          srcset: 'assets/images/nd/space2.webp',
           media: '(max-width: 1399px)',
           type: 'image/webp',
+        }, {
+          srcset: 'assets/images/nd/space2.jpg',
+          media: '(min-width: 1400px)',
+          type: 'image/jpeg',
+          default: true,
+        }, {
+          srcset: 'assets/images/nd/space2.jpg',
+          media: '(max-width: 1399px)',
+          type: 'image/jpeg',
         }],
         [{
-          srcset: 'assets/images/nd/space10.jpg',
-          media: '(min-width: 1400px)',
-          type: 'image/jpeg',
-        }, {
-          srcset: 'assets/images/nd/space10.webp',
+          srcset: 'assets/images/nd/space26.webp',
           media: '(min-width: 1400px)',
           type: 'image/webp',
         }, {
-          srcset: 'assets/images/nd/space10.jpg',
-          media: '(max-width: 1399px)',
-          type: 'image/jpeg',
-        }, {
-          srcset: 'assets/images/nd/space10.webp',
+          srcset: 'assets/images/nd/space26.webp',
           media: '(max-width: 1399px)',
           type: 'image/webp',
+        }, {
+          srcset: 'assets/images/nd/space26.jpg',
+          media: '(min-width: 1400px)',
+          type: 'image/jpeg',
+          default: true,
+        }, {
+          srcset: 'assets/images/nd/space26.jpg',
+          media: '(max-width: 1399px)',
+          type: 'image/jpeg',
         }],
         [{
-          srcset: 'assets/images/nd/space11.jpg',
-          media: '(min-width: 1400px)',
-          type: 'image/jpeg',
-        }, {
-          srcset: 'assets/images/nd/space11.webp',
+          srcset: 'assets/images/nd/space27.webp',
           media: '(min-width: 1400px)',
           type: 'image/webp',
         }, {
-          srcset: 'assets/images/nd/space11.jpg',
-          media: '(max-width: 1399px)',
-          type: 'image/jpeg',
-        }, {
-          srcset: 'assets/images/nd/space11.webp',
+          srcset: 'assets/images/nd/space27.webp',
           media: '(max-width: 1399px)',
           type: 'image/webp',
+        }, {
+          srcset: 'assets/images/nd/space27.jpg',
+          media: '(min-width: 1400px)',
+          type: 'image/jpeg',
+          default: true,
+        }, {
+          srcset: 'assets/images/nd/space27.jpg',
+          media: '(max-width: 1399px)',
+          type: 'image/jpeg',
         }],
       ],
     },
@@ -650,55 +680,58 @@ $(document).ready(function () {
       colorBoxes: ['orange', 'red', 'green'],
       gallery: [
         [{
-          srcset: 'assets/images/nd/space1.jpg',
-          media: '(min-width: 1400px)',
-          type: 'image/jpeg',
-        }, {
-          srcset: 'assets/images/nd/space1.webp',
+          srcset: 'assets/images/nd/space2.webp',
           media: '(min-width: 1400px)',
           type: 'image/webp',
         }, {
-          srcset: 'assets/images/nd/space1.jpg',
-          media: '(max-width: 1399px)',
-          type: 'image/jpeg',
-        }, {
-          srcset: 'assets/images/nd/space1.webp',
+          srcset: 'assets/images/nd/space2.webp',
           media: '(max-width: 1399px)',
           type: 'image/webp',
+        }, {
+          srcset: 'assets/images/nd/space2.jpg',
+          media: '(min-width: 1400px)',
+          type: 'image/jpeg',
+          default: true,
+        }, {
+          srcset: 'assets/images/nd/space2.jpg',
+          media: '(max-width: 1399px)',
+          type: 'image/jpeg',
         }],
         [{
-          srcset: 'assets/images/nd/space10.jpg',
-          media: '(min-width: 1400px)',
-          type: 'image/jpeg',
-        }, {
-          srcset: 'assets/images/nd/space10.webp',
+          srcset: 'assets/images/nd/space26.webp',
           media: '(min-width: 1400px)',
           type: 'image/webp',
         }, {
-          srcset: 'assets/images/nd/space10.jpg',
-          media: '(max-width: 1399px)',
-          type: 'image/jpeg',
-        }, {
-          srcset: 'assets/images/nd/space10.webp',
+          srcset: 'assets/images/nd/space26.webp',
           media: '(max-width: 1399px)',
           type: 'image/webp',
+        }, {
+          srcset: 'assets/images/nd/space26.jpg',
+          media: '(min-width: 1400px)',
+          type: 'image/jpeg',
+          default: true,
+        }, {
+          srcset: 'assets/images/nd/space26.jpg',
+          media: '(max-width: 1399px)',
+          type: 'image/jpeg',
         }],
         [{
-          srcset: 'assets/images/nd/space11.jpg',
-          media: '(min-width: 1400px)',
-          type: 'image/jpeg',
-        }, {
-          srcset: 'assets/images/nd/space11.webp',
+          srcset: 'assets/images/nd/space27.webp',
           media: '(min-width: 1400px)',
           type: 'image/webp',
         }, {
-          srcset: 'assets/images/nd/space11.jpg',
-          media: '(max-width: 1399px)',
-          type: 'image/jpeg',
-        }, {
-          srcset: 'assets/images/nd/space11.webp',
+          srcset: 'assets/images/nd/space27.webp',
           media: '(max-width: 1399px)',
           type: 'image/webp',
+        }, {
+          srcset: 'assets/images/nd/space27.jpg',
+          media: '(min-width: 1400px)',
+          type: 'image/jpeg',
+          default: true,
+        }, {
+          srcset: 'assets/images/nd/space27.jpg',
+          media: '(max-width: 1399px)',
+          type: 'image/jpeg',
         }],
       ],
     },
@@ -714,55 +747,58 @@ $(document).ready(function () {
       colorBoxes: ['orange', 'red', 'green'],
       gallery: [
         [{
-          srcset: 'assets/images/nd/space1.jpg',
-          media: '(min-width: 1400px)',
-          type: 'image/jpeg',
-        }, {
-          srcset: 'assets/images/nd/space1.webp',
+          srcset: 'assets/images/nd/space2.webp',
           media: '(min-width: 1400px)',
           type: 'image/webp',
         }, {
-          srcset: 'assets/images/nd/space1.jpg',
-          media: '(max-width: 1399px)',
-          type: 'image/jpeg',
-        }, {
-          srcset: 'assets/images/nd/space1.webp',
+          srcset: 'assets/images/nd/space2.webp',
           media: '(max-width: 1399px)',
           type: 'image/webp',
+        }, {
+          srcset: 'assets/images/nd/space2.jpg',
+          media: '(min-width: 1400px)',
+          type: 'image/jpeg',
+          default: true,
+        }, {
+          srcset: 'assets/images/nd/space2.jpg',
+          media: '(max-width: 1399px)',
+          type: 'image/jpeg',
         }],
         [{
-          srcset: 'assets/images/nd/space10.jpg',
-          media: '(min-width: 1400px)',
-          type: 'image/jpeg',
-        }, {
-          srcset: 'assets/images/nd/space10.webp',
+          srcset: 'assets/images/nd/space26.webp',
           media: '(min-width: 1400px)',
           type: 'image/webp',
         }, {
-          srcset: 'assets/images/nd/space10.jpg',
-          media: '(max-width: 1399px)',
-          type: 'image/jpeg',
-        }, {
-          srcset: 'assets/images/nd/space10.webp',
+          srcset: 'assets/images/nd/space26.webp',
           media: '(max-width: 1399px)',
           type: 'image/webp',
+        }, {
+          srcset: 'assets/images/nd/space26.jpg',
+          media: '(min-width: 1400px)',
+          type: 'image/jpeg',
+          default: true,
+        }, {
+          srcset: 'assets/images/nd/space26.jpg',
+          media: '(max-width: 1399px)',
+          type: 'image/jpeg',
         }],
         [{
-          srcset: 'assets/images/nd/space11.jpg',
-          media: '(min-width: 1400px)',
-          type: 'image/jpeg',
-        }, {
-          srcset: 'assets/images/nd/space11.webp',
+          srcset: 'assets/images/nd/space27.webp',
           media: '(min-width: 1400px)',
           type: 'image/webp',
         }, {
-          srcset: 'assets/images/nd/space11.jpg',
-          media: '(max-width: 1399px)',
-          type: 'image/jpeg',
-        }, {
-          srcset: 'assets/images/nd/space11.webp',
+          srcset: 'assets/images/nd/space27.webp',
           media: '(max-width: 1399px)',
           type: 'image/webp',
+        }, {
+          srcset: 'assets/images/nd/space27.jpg',
+          media: '(min-width: 1400px)',
+          type: 'image/jpeg',
+          default: true,
+        }, {
+          srcset: 'assets/images/nd/space27.jpg',
+          media: '(max-width: 1399px)',
+          type: 'image/jpeg',
         }],
       ],
     },
@@ -778,55 +814,58 @@ $(document).ready(function () {
       colorBoxes: ['orange', 'red', 'green'],
       gallery: [
         [{
-          srcset: 'assets/images/nd/space1.jpg',
-          media: '(min-width: 1400px)',
-          type: 'image/jpeg',
-        }, {
-          srcset: 'assets/images/nd/space1.webp',
+          srcset: 'assets/images/nd/space2.webp',
           media: '(min-width: 1400px)',
           type: 'image/webp',
         }, {
-          srcset: 'assets/images/nd/space1.jpg',
-          media: '(max-width: 1399px)',
-          type: 'image/jpeg',
-        }, {
-          srcset: 'assets/images/nd/space1.webp',
+          srcset: 'assets/images/nd/space2.webp',
           media: '(max-width: 1399px)',
           type: 'image/webp',
+        }, {
+          srcset: 'assets/images/nd/space2.jpg',
+          media: '(min-width: 1400px)',
+          type: 'image/jpeg',
+          default: true,
+        }, {
+          srcset: 'assets/images/nd/space2.jpg',
+          media: '(max-width: 1399px)',
+          type: 'image/jpeg',
         }],
         [{
-          srcset: 'assets/images/nd/space10.jpg',
-          media: '(min-width: 1400px)',
-          type: 'image/jpeg',
-        }, {
-          srcset: 'assets/images/nd/space10.webp',
+          srcset: 'assets/images/nd/space26.webp',
           media: '(min-width: 1400px)',
           type: 'image/webp',
         }, {
-          srcset: 'assets/images/nd/space10.jpg',
-          media: '(max-width: 1399px)',
-          type: 'image/jpeg',
-        }, {
-          srcset: 'assets/images/nd/space10.webp',
+          srcset: 'assets/images/nd/space26.webp',
           media: '(max-width: 1399px)',
           type: 'image/webp',
+        }, {
+          srcset: 'assets/images/nd/space26.jpg',
+          media: '(min-width: 1400px)',
+          type: 'image/jpeg',
+          default: true,
+        }, {
+          srcset: 'assets/images/nd/space26.jpg',
+          media: '(max-width: 1399px)',
+          type: 'image/jpeg',
         }],
         [{
-          srcset: 'assets/images/nd/space11.jpg',
-          media: '(min-width: 1400px)',
-          type: 'image/jpeg',
-        }, {
-          srcset: 'assets/images/nd/space11.webp',
+          srcset: 'assets/images/nd/space27.webp',
           media: '(min-width: 1400px)',
           type: 'image/webp',
         }, {
-          srcset: 'assets/images/nd/space11.jpg',
-          media: '(max-width: 1399px)',
-          type: 'image/jpeg',
-        }, {
-          srcset: 'assets/images/nd/space11.webp',
+          srcset: 'assets/images/nd/space27.webp',
           media: '(max-width: 1399px)',
           type: 'image/webp',
+        }, {
+          srcset: 'assets/images/nd/space27.jpg',
+          media: '(min-width: 1400px)',
+          type: 'image/jpeg',
+          default: true,
+        }, {
+          srcset: 'assets/images/nd/space27.jpg',
+          media: '(max-width: 1399px)',
+          type: 'image/jpeg',
         }],
       ],
     },
@@ -842,55 +881,58 @@ $(document).ready(function () {
       colorBoxes: ['orange', 'red', 'green'],
       gallery: [
         [{
-          srcset: 'assets/images/nd/space1.jpg',
-          media: '(min-width: 1400px)',
-          type: 'image/jpeg',
-        }, {
-          srcset: 'assets/images/nd/space1.webp',
+          srcset: 'assets/images/nd/space2.webp',
           media: '(min-width: 1400px)',
           type: 'image/webp',
         }, {
-          srcset: 'assets/images/nd/space1.jpg',
-          media: '(max-width: 1399px)',
-          type: 'image/jpeg',
-        }, {
-          srcset: 'assets/images/nd/space1.webp',
+          srcset: 'assets/images/nd/space2.webp',
           media: '(max-width: 1399px)',
           type: 'image/webp',
+        }, {
+          srcset: 'assets/images/nd/space2.jpg',
+          media: '(min-width: 1400px)',
+          type: 'image/jpeg',
+          default: true,
+        }, {
+          srcset: 'assets/images/nd/space2.jpg',
+          media: '(max-width: 1399px)',
+          type: 'image/jpeg',
         }],
         [{
-          srcset: 'assets/images/nd/space10.jpg',
-          media: '(min-width: 1400px)',
-          type: 'image/jpeg',
-        }, {
-          srcset: 'assets/images/nd/space10.webp',
+          srcset: 'assets/images/nd/space26.webp',
           media: '(min-width: 1400px)',
           type: 'image/webp',
         }, {
-          srcset: 'assets/images/nd/space10.jpg',
-          media: '(max-width: 1399px)',
-          type: 'image/jpeg',
-        }, {
-          srcset: 'assets/images/nd/space10.webp',
+          srcset: 'assets/images/nd/space26.webp',
           media: '(max-width: 1399px)',
           type: 'image/webp',
+        }, {
+          srcset: 'assets/images/nd/space26.jpg',
+          media: '(min-width: 1400px)',
+          type: 'image/jpeg',
+          default: true,
+        }, {
+          srcset: 'assets/images/nd/space26.jpg',
+          media: '(max-width: 1399px)',
+          type: 'image/jpeg',
         }],
         [{
-          srcset: 'assets/images/nd/space11.jpg',
-          media: '(min-width: 1400px)',
-          type: 'image/jpeg',
-        }, {
-          srcset: 'assets/images/nd/space11.webp',
+          srcset: 'assets/images/nd/space27.webp',
           media: '(min-width: 1400px)',
           type: 'image/webp',
         }, {
-          srcset: 'assets/images/nd/space11.jpg',
-          media: '(max-width: 1399px)',
-          type: 'image/jpeg',
-        }, {
-          srcset: 'assets/images/nd/space11.webp',
+          srcset: 'assets/images/nd/space27.webp',
           media: '(max-width: 1399px)',
           type: 'image/webp',
+        }, {
+          srcset: 'assets/images/nd/space27.jpg',
+          media: '(min-width: 1400px)',
+          type: 'image/jpeg',
+          default: true,
+        }, {
+          srcset: 'assets/images/nd/space27.jpg',
+          media: '(max-width: 1399px)',
+          type: 'image/jpeg',
         }],
       ],
     },
@@ -906,55 +948,58 @@ $(document).ready(function () {
       colorBoxes: ['orange', 'red', 'green'],
       gallery: [
         [{
-          srcset: 'assets/images/nd/space1.jpg',
-          media: '(min-width: 1400px)',
-          type: 'image/jpeg',
-        }, {
-          srcset: 'assets/images/nd/space1.webp',
+          srcset: 'assets/images/nd/space2.webp',
           media: '(min-width: 1400px)',
           type: 'image/webp',
         }, {
-          srcset: 'assets/images/nd/space1.jpg',
-          media: '(max-width: 1399px)',
-          type: 'image/jpeg',
-        }, {
-          srcset: 'assets/images/nd/space1.webp',
+          srcset: 'assets/images/nd/space2.webp',
           media: '(max-width: 1399px)',
           type: 'image/webp',
+        }, {
+          srcset: 'assets/images/nd/space2.jpg',
+          media: '(min-width: 1400px)',
+          type: 'image/jpeg',
+          default: true,
+        }, {
+          srcset: 'assets/images/nd/space2.jpg',
+          media: '(max-width: 1399px)',
+          type: 'image/jpeg',
         }],
         [{
-          srcset: 'assets/images/nd/space10.jpg',
-          media: '(min-width: 1400px)',
-          type: 'image/jpeg',
-        }, {
-          srcset: 'assets/images/nd/space10.webp',
+          srcset: 'assets/images/nd/space26.webp',
           media: '(min-width: 1400px)',
           type: 'image/webp',
         }, {
-          srcset: 'assets/images/nd/space10.jpg',
-          media: '(max-width: 1399px)',
-          type: 'image/jpeg',
-        }, {
-          srcset: 'assets/images/nd/space10.webp',
+          srcset: 'assets/images/nd/space26.webp',
           media: '(max-width: 1399px)',
           type: 'image/webp',
+        }, {
+          srcset: 'assets/images/nd/space26.jpg',
+          media: '(min-width: 1400px)',
+          type: 'image/jpeg',
+          default: true,
+        }, {
+          srcset: 'assets/images/nd/space26.jpg',
+          media: '(max-width: 1399px)',
+          type: 'image/jpeg',
         }],
         [{
-          srcset: 'assets/images/nd/space11.jpg',
-          media: '(min-width: 1400px)',
-          type: 'image/jpeg',
-        }, {
-          srcset: 'assets/images/nd/space11.webp',
+          srcset: 'assets/images/nd/space27.webp',
           media: '(min-width: 1400px)',
           type: 'image/webp',
         }, {
-          srcset: 'assets/images/nd/space11.jpg',
-          media: '(max-width: 1399px)',
-          type: 'image/jpeg',
-        }, {
-          srcset: 'assets/images/nd/space11.webp',
+          srcset: 'assets/images/nd/space27.webp',
           media: '(max-width: 1399px)',
           type: 'image/webp',
+        }, {
+          srcset: 'assets/images/nd/space27.jpg',
+          media: '(min-width: 1400px)',
+          type: 'image/jpeg',
+          default: true,
+        }, {
+          srcset: 'assets/images/nd/space27.jpg',
+          media: '(max-width: 1399px)',
+          type: 'image/jpeg',
         }],
       ],
     },
@@ -970,55 +1015,58 @@ $(document).ready(function () {
       colorBoxes: ['orange', 'red', 'green'],
       gallery: [
         [{
-          srcset: 'assets/images/nd/space1.jpg',
-          media: '(min-width: 1400px)',
-          type: 'image/jpeg',
-        }, {
-          srcset: 'assets/images/nd/space1.webp',
+          srcset: 'assets/images/nd/space2.webp',
           media: '(min-width: 1400px)',
           type: 'image/webp',
         }, {
-          srcset: 'assets/images/nd/space1.jpg',
-          media: '(max-width: 1399px)',
-          type: 'image/jpeg',
-        }, {
-          srcset: 'assets/images/nd/space1.webp',
+          srcset: 'assets/images/nd/space2.webp',
           media: '(max-width: 1399px)',
           type: 'image/webp',
+        }, {
+          srcset: 'assets/images/nd/space2.jpg',
+          media: '(min-width: 1400px)',
+          type: 'image/jpeg',
+          default: true,
+        }, {
+          srcset: 'assets/images/nd/space2.jpg',
+          media: '(max-width: 1399px)',
+          type: 'image/jpeg',
         }],
         [{
-          srcset: 'assets/images/nd/space10.jpg',
-          media: '(min-width: 1400px)',
-          type: 'image/jpeg',
-        }, {
-          srcset: 'assets/images/nd/space10.webp',
+          srcset: 'assets/images/nd/space26.webp',
           media: '(min-width: 1400px)',
           type: 'image/webp',
         }, {
-          srcset: 'assets/images/nd/space10.jpg',
-          media: '(max-width: 1399px)',
-          type: 'image/jpeg',
-        }, {
-          srcset: 'assets/images/nd/space10.webp',
+          srcset: 'assets/images/nd/space26.webp',
           media: '(max-width: 1399px)',
           type: 'image/webp',
+        }, {
+          srcset: 'assets/images/nd/space26.jpg',
+          media: '(min-width: 1400px)',
+          type: 'image/jpeg',
+          default: true,
+        }, {
+          srcset: 'assets/images/nd/space26.jpg',
+          media: '(max-width: 1399px)',
+          type: 'image/jpeg',
         }],
         [{
-          srcset: 'assets/images/nd/space11.jpg',
-          media: '(min-width: 1400px)',
-          type: 'image/jpeg',
-        }, {
-          srcset: 'assets/images/nd/space11.webp',
+          srcset: 'assets/images/nd/space27.webp',
           media: '(min-width: 1400px)',
           type: 'image/webp',
         }, {
-          srcset: 'assets/images/nd/space11.jpg',
-          media: '(max-width: 1399px)',
-          type: 'image/jpeg',
-        }, {
-          srcset: 'assets/images/nd/space11.webp',
+          srcset: 'assets/images/nd/space27.webp',
           media: '(max-width: 1399px)',
           type: 'image/webp',
+        }, {
+          srcset: 'assets/images/nd/space27.jpg',
+          media: '(min-width: 1400px)',
+          type: 'image/jpeg',
+          default: true,
+        }, {
+          srcset: 'assets/images/nd/space27.jpg',
+          media: '(max-width: 1399px)',
+          type: 'image/jpeg',
         }],
       ],
     },
@@ -1034,55 +1082,58 @@ $(document).ready(function () {
       colorBoxes: ['orange', 'red', 'green'],
       gallery: [
         [{
-          srcset: 'assets/images/nd/space1.jpg',
-          media: '(min-width: 1400px)',
-          type: 'image/jpeg',
-        }, {
-          srcset: 'assets/images/nd/space1.webp',
+          srcset: 'assets/images/nd/space2.webp',
           media: '(min-width: 1400px)',
           type: 'image/webp',
         }, {
-          srcset: 'assets/images/nd/space1.jpg',
-          media: '(max-width: 1399px)',
-          type: 'image/jpeg',
-        }, {
-          srcset: 'assets/images/nd/space1.webp',
+          srcset: 'assets/images/nd/space2.webp',
           media: '(max-width: 1399px)',
           type: 'image/webp',
+        }, {
+          srcset: 'assets/images/nd/space2.jpg',
+          media: '(min-width: 1400px)',
+          type: 'image/jpeg',
+          default: true,
+        }, {
+          srcset: 'assets/images/nd/space2.jpg',
+          media: '(max-width: 1399px)',
+          type: 'image/jpeg',
         }],
         [{
-          srcset: 'assets/images/nd/space10.jpg',
-          media: '(min-width: 1400px)',
-          type: 'image/jpeg',
-        }, {
-          srcset: 'assets/images/nd/space10.webp',
+          srcset: 'assets/images/nd/space26.webp',
           media: '(min-width: 1400px)',
           type: 'image/webp',
         }, {
-          srcset: 'assets/images/nd/space10.jpg',
-          media: '(max-width: 1399px)',
-          type: 'image/jpeg',
-        }, {
-          srcset: 'assets/images/nd/space10.webp',
+          srcset: 'assets/images/nd/space26.webp',
           media: '(max-width: 1399px)',
           type: 'image/webp',
+        }, {
+          srcset: 'assets/images/nd/space26.jpg',
+          media: '(min-width: 1400px)',
+          type: 'image/jpeg',
+          default: true,
+        }, {
+          srcset: 'assets/images/nd/space26.jpg',
+          media: '(max-width: 1399px)',
+          type: 'image/jpeg',
         }],
         [{
-          srcset: 'assets/images/nd/space11.jpg',
-          media: '(min-width: 1400px)',
-          type: 'image/jpeg',
-        }, {
-          srcset: 'assets/images/nd/space11.webp',
+          srcset: 'assets/images/nd/space27.webp',
           media: '(min-width: 1400px)',
           type: 'image/webp',
         }, {
-          srcset: 'assets/images/nd/space11.jpg',
-          media: '(max-width: 1399px)',
-          type: 'image/jpeg',
-        }, {
-          srcset: 'assets/images/nd/space11.webp',
+          srcset: 'assets/images/nd/space27.webp',
           media: '(max-width: 1399px)',
           type: 'image/webp',
+        }, {
+          srcset: 'assets/images/nd/space27.jpg',
+          media: '(min-width: 1400px)',
+          type: 'image/jpeg',
+          default: true,
+        }, {
+          srcset: 'assets/images/nd/space27.jpg',
+          media: '(max-width: 1399px)',
+          type: 'image/jpeg',
         }],
       ],
     },
@@ -1098,55 +1149,58 @@ $(document).ready(function () {
       colorBoxes: ['orange', 'red', 'green'],
       gallery: [
         [{
-          srcset: 'assets/images/nd/space1.jpg',
-          media: '(min-width: 1400px)',
-          type: 'image/jpeg',
-        }, {
-          srcset: 'assets/images/nd/space1.webp',
+          srcset: 'assets/images/nd/space2.webp',
           media: '(min-width: 1400px)',
           type: 'image/webp',
         }, {
-          srcset: 'assets/images/nd/space1.jpg',
-          media: '(max-width: 1399px)',
-          type: 'image/jpeg',
-        }, {
-          srcset: 'assets/images/nd/space1.webp',
+          srcset: 'assets/images/nd/space2.webp',
           media: '(max-width: 1399px)',
           type: 'image/webp',
+        }, {
+          srcset: 'assets/images/nd/space2.jpg',
+          media: '(min-width: 1400px)',
+          type: 'image/jpeg',
+          default: true,
+        }, {
+          srcset: 'assets/images/nd/space2.jpg',
+          media: '(max-width: 1399px)',
+          type: 'image/jpeg',
         }],
         [{
-          srcset: 'assets/images/nd/space10.jpg',
-          media: '(min-width: 1400px)',
-          type: 'image/jpeg',
-        }, {
-          srcset: 'assets/images/nd/space10.webp',
+          srcset: 'assets/images/nd/space26.webp',
           media: '(min-width: 1400px)',
           type: 'image/webp',
         }, {
-          srcset: 'assets/images/nd/space10.jpg',
-          media: '(max-width: 1399px)',
-          type: 'image/jpeg',
-        }, {
-          srcset: 'assets/images/nd/space10.webp',
+          srcset: 'assets/images/nd/space26.webp',
           media: '(max-width: 1399px)',
           type: 'image/webp',
+        }, {
+          srcset: 'assets/images/nd/space26.jpg',
+          media: '(min-width: 1400px)',
+          type: 'image/jpeg',
+          default: true,
+        }, {
+          srcset: 'assets/images/nd/space26.jpg',
+          media: '(max-width: 1399px)',
+          type: 'image/jpeg',
         }],
         [{
-          srcset: 'assets/images/nd/space11.jpg',
-          media: '(min-width: 1400px)',
-          type: 'image/jpeg',
-        }, {
-          srcset: 'assets/images/nd/space11.webp',
+          srcset: 'assets/images/nd/space27.webp',
           media: '(min-width: 1400px)',
           type: 'image/webp',
         }, {
-          srcset: 'assets/images/nd/space11.jpg',
-          media: '(max-width: 1399px)',
-          type: 'image/jpeg',
-        }, {
-          srcset: 'assets/images/nd/space11.webp',
+          srcset: 'assets/images/nd/space27.webp',
           media: '(max-width: 1399px)',
           type: 'image/webp',
+        }, {
+          srcset: 'assets/images/nd/space27.jpg',
+          media: '(min-width: 1400px)',
+          type: 'image/jpeg',
+          default: true,
+        }, {
+          srcset: 'assets/images/nd/space27.jpg',
+          media: '(max-width: 1399px)',
+          type: 'image/jpeg',
         }],
       ],
     },
@@ -1162,55 +1216,58 @@ $(document).ready(function () {
       colorBoxes: ['orange', 'red', 'green'],
       gallery: [
         [{
-          srcset: 'assets/images/nd/space1.jpg',
-          media: '(min-width: 1400px)',
-          type: 'image/jpeg',
-        }, {
-          srcset: 'assets/images/nd/space1.webp',
+          srcset: 'assets/images/nd/space2.webp',
           media: '(min-width: 1400px)',
           type: 'image/webp',
         }, {
-          srcset: 'assets/images/nd/space1.jpg',
-          media: '(max-width: 1399px)',
-          type: 'image/jpeg',
-        }, {
-          srcset: 'assets/images/nd/space1.webp',
+          srcset: 'assets/images/nd/space2.webp',
           media: '(max-width: 1399px)',
           type: 'image/webp',
+        }, {
+          srcset: 'assets/images/nd/space2.jpg',
+          media: '(min-width: 1400px)',
+          type: 'image/jpeg',
+          default: true,
+        }, {
+          srcset: 'assets/images/nd/space2.jpg',
+          media: '(max-width: 1399px)',
+          type: 'image/jpeg',
         }],
         [{
-          srcset: 'assets/images/nd/space10.jpg',
-          media: '(min-width: 1400px)',
-          type: 'image/jpeg',
-        }, {
-          srcset: 'assets/images/nd/space10.webp',
+          srcset: 'assets/images/nd/space26.webp',
           media: '(min-width: 1400px)',
           type: 'image/webp',
         }, {
-          srcset: 'assets/images/nd/space10.jpg',
-          media: '(max-width: 1399px)',
-          type: 'image/jpeg',
-        }, {
-          srcset: 'assets/images/nd/space10.webp',
+          srcset: 'assets/images/nd/space26.webp',
           media: '(max-width: 1399px)',
           type: 'image/webp',
+        }, {
+          srcset: 'assets/images/nd/space26.jpg',
+          media: '(min-width: 1400px)',
+          type: 'image/jpeg',
+          default: true,
+        }, {
+          srcset: 'assets/images/nd/space26.jpg',
+          media: '(max-width: 1399px)',
+          type: 'image/jpeg',
         }],
         [{
-          srcset: 'assets/images/nd/space11.jpg',
-          media: '(min-width: 1400px)',
-          type: 'image/jpeg',
-        }, {
-          srcset: 'assets/images/nd/space11.webp',
+          srcset: 'assets/images/nd/space27.webp',
           media: '(min-width: 1400px)',
           type: 'image/webp',
         }, {
-          srcset: 'assets/images/nd/space11.jpg',
-          media: '(max-width: 1399px)',
-          type: 'image/jpeg',
-        }, {
-          srcset: 'assets/images/nd/space11.webp',
+          srcset: 'assets/images/nd/space27.webp',
           media: '(max-width: 1399px)',
           type: 'image/webp',
+        }, {
+          srcset: 'assets/images/nd/space27.jpg',
+          media: '(min-width: 1400px)',
+          type: 'image/jpeg',
+          default: true,
+        }, {
+          srcset: 'assets/images/nd/space27.jpg',
+          media: '(max-width: 1399px)',
+          type: 'image/jpeg',
         }],
       ],
     },
