@@ -1,5 +1,7 @@
 mixin space-card(data)
   +b.SECTION.space-card&attributes(attributes)
+    if data.informer
+      +nd-informer.__informer!=data.informer
     if data.type
       +space-type.__type(class=(data.type.cls || ''))
         +nd-box()(class=data.type.box + ' __box')

@@ -87,8 +87,53 @@
   left: -8px;
 }
 
-.tooltipster-arrow {
-  display: none !important;
+.sp-border {
+  .tooltipster-box {
+    font-family: $font-main;
+    display: block;
+    box-sizing: border-box;
+    background-color: transparent;
+    border: none;
+    border-radius: 0;
+    line-height: (19 / 16);
+
+    @include rule(font-size, (xl: 16px, xlg: 16, lg: 16, md: 16, sm: 16));
+    @include rule(padding, (xl: 20px, xlg: 20, lg: 20, md: 20, sm: 20));
+  }
+
+  .tooltipster-content {
+    display: block;
+    box-sizing: border-box;
+    color: $nd-color-basic;
+    background-color: $nd-color-basic-light;
+    border-style: solid;
+    border-color: $nd-color-main;
+    box-shadow: 0 2px 4px rgba(40, 45, 54, .25), 2px 2px 11px rgba(76, 92, 106, .09);
+    line-height: (19 / 16);
+
+    @include rule(border-radius, (xl: 3px, xlg: 3, lg: 3, md: 3, sm: 3));
+    @include rule(border-width, (xl: 2px, xlg: 2, lg: 2, md: 2, sm: 2));
+    @include rule(padding-left, (xl: 26px, xlg: 26, lg: 26, md: 26, sm: 15));
+    @include rule(padding-right, (xl: 28px, xlg: 26, lg: 26, md: 26, sm: 15));
+    @include rule(padding-top, (xl: 20px, xlg: 20, lg: 20, md: 20, sm: 10));
+    @include rule(padding-bottom, (xl: 20px, xlg: 20, lg: 20, md: 20, sm: 10));
+
+    @include screen('xlg', max, 2) {
+      box-shadow: 0 pxtovw(2, 1660) pxtovw(4, 1660) rgba(40, 45, 54, .25), pxtovw(2, 1660) pxtovw(2, 1660) pxtovw(11, 1660) rgba(76, 92, 106, .09);
+    }
+
+    @include screen('lg', max, 2) {
+      box-shadow: 0 pxtovw(2, 1366) pxtovw(4, 1366) rgba(40, 45, 54, .25), pxtovw(2, 1366) pxtovw(2, 1366) pxtovw(11, 1366) rgba(76, 92, 106, .09);
+    }
+
+    @include screen('md', max, 2) {
+      box-shadow: 0 pxtovw(2, 960) pxtovw(4, 960) rgba(40, 45, 54, .25), pxtovw(2, 960) pxtovw(2, 960) pxtovw(11, 960) rgba(76, 92, 106, .09);
+    }
+
+    @include screen('sm', max, 2) {
+      box-shadow: 0 pxtovw(2, 375) pxtovw(4, 375) rgba(40, 45, 54, .25), pxtovw(2, 375) pxtovw(2, 375) pxtovw(11, 375) rgba(76, 92, 106, .09);
+    }
+  }
 }
 
 // Анимации

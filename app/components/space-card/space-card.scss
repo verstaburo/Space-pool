@@ -36,7 +36,7 @@
 
   &__type {
     @include grid-column(1, 2);
-    @include grid-row(1, 2);
+    @include grid-row(2, 3);
 
     #{$b}_view_g & {
       @include grid-column(1, 2);
@@ -135,7 +135,7 @@
 
   &__title {
     @include grid-column(1, 3);
-    @include grid-row(2, 3);
+    @include grid-row(3, 4);
 
     font-family: $font-stolzl;
     font-size: 30px;
@@ -218,7 +218,7 @@
 
   &__location {
     @include grid-column(1, 3);
-    @include grid-row(3, 4);
+    @include grid-row(4, 5);
 
     color: $color-gray-lightest;
     font-size: 12px;
@@ -238,7 +238,7 @@
 
     @include screen('sm', max, 2) {
       @include grid-column(1, 2);
-      @include grid-row(3, 4);
+      @include grid-row(4, 5);
 
       font-size: pxtovw(12, 375);
     }
@@ -373,14 +373,14 @@
 
       @include screen('sm', max, 2) {
         @include grid-column(1, 2);
-        @include grid-row(5, 6);
+        @include grid-row(6, 7);
       }
     }
   }
 
   &__contacts {
     @include grid-column(2, 3);
-    @include grid-row(1, 2);
+    @include grid-row(2, 3);
 
     display: flex;
     justify-content: flex-end;
@@ -402,7 +402,7 @@
 
     @include screen('sm', max, 2) {
       @include grid-column(1, 2);
-      @include grid-row(6, 7);
+      @include grid-row(7, 8);
 
       padding-right: 0;
       justify-content: space-between;
@@ -424,7 +424,7 @@
 
       @include screen('sm', max, 2) {
         @include grid-column(1, 2);
-        @include grid-row(7, 8);
+        @include grid-row(8, 9);
 
         padding-bottom: pxtovw(15, 375);
       }
@@ -502,7 +502,7 @@
 
   &__map {
     @include grid-column(1, 2);
-    @include grid-row(4, 6);
+    @include grid-row(5, 7);
 
     position: relative;
     display: flex;
@@ -528,7 +528,7 @@
 
     @include screen('sm', max, 2) {
       @include grid-column(1, 2);
-      @include grid-row(6, 7);
+      @include grid-row(7, 8);
 
       padding-right: 0;
       margin: 0 pxtovw(-18, 375);
@@ -642,7 +642,7 @@
 
   &__media {
     @include grid-column(1, 2);
-    @include grid-row(4, 5);
+    @include grid-row(5, 6);
 
     border-radius: 3px;
     padding-top: 63.3%;
@@ -663,7 +663,7 @@
 
     @include screen('sm', max, 2) {
       @include grid-column(1, 2);
-      @include grid-row(4, 5);
+      @include grid-row(5, 6);
 
       padding-top: 64%;
       border-radius: pxtovw(3, 375);
@@ -691,11 +691,11 @@
 
     #{$b}_view_g & {
       @include grid-column(2, 3);
-      @include grid-row(4, 6);
+      @include grid-row(5, 7);
 
       @include screen('sm', max, 2) {
         @include grid-column(1, 2);
-        @include grid-row(3, 4);
+        @include grid-row(4, 5);
 
         border-radius: 0;
         padding-top: 68.6%;
@@ -727,7 +727,7 @@
 
   &__datetime {
     @include grid-column(3, 4);
-    @include grid-row(4, 5);
+    @include grid-row(5, 6);
 
     text-align: right;
     font-family: $font-stolzl;
@@ -756,7 +756,7 @@
 
     @include screen('sm', max, 2) {
       @include grid-column(1, 2);
-      @include grid-row(4, 5);
+      @include grid-row(5, 6);
 
       line-height: (30 / 25);
       font-size: pxtovw(25, 375);
@@ -787,7 +787,7 @@
 
   &__table {
     @include grid-column(2, 3);
-    @include grid-row(4, 5);
+    @include grid-row(5, 6);
 
     box-sizing: border-box;
     padding-left: 42px;
@@ -806,7 +806,7 @@
 
     @include screen('sm', max, 2) {
       @include grid-column(1, 2);
-      @include grid-row(5, 6);
+      @include grid-row(6, 7);
 
       padding-left: 0;
     }
@@ -838,7 +838,7 @@
 
   &__links {
     @include grid-column(1, 3);
-    @include grid-row(5, 6);
+    @include grid-row(6, 7);
 
     display: flex;
     width: 100%;
@@ -847,7 +847,7 @@
 
     @include screen('sm', max, 2) {
       @include grid-column(1, 2);
-      @include grid-row(7, 8);
+      @include grid-row(8, 9);
     }
 
     &:not(:first-child) {
@@ -872,12 +872,12 @@
 
     #{$b}_view_g & {
       @include grid-column(3, 4);
-      @include grid-row(5, 6);
+      @include grid-row(6, 7);
       @include grid-align-self(end);
 
       @include screen('sm', max, 2) {
         @include grid-column(1, 2);
-        @include grid-row(8, 9);
+        @include grid-row(9, 10);
       }
 
       &:not(:first-child) {
@@ -949,10 +949,24 @@
     }
   }
 
+  &__informer {
+    @include grid-column(1, 3);
+    @include grid-row(1, 2);
+    @include rule(margin-top, (xl: -23px, xlg: -23, lg: -3, md: -8, sm: -3));
+
+    @include screen('sm', max, 2) {
+      @include grid-column(1, 2);
+    }
+
+    &:not(:last-child) {
+      @include rule(margin-bottom, (xl: 34px, xlg: 34, lg: 34, md: 34, sm: 34));
+    }
+  }
+
   &_rent {
     &_g {
       @include grid-template-columns(442px 1fr);
-      @include grid-template-rows(grid-repeat(5, auto));
+      @include grid-template-rows(grid-repeat(6, auto));
 
       @include screen('xlg', max, 2) {
         @include grid-template-columns(pxtovw(442, 1660) 1fr);
@@ -968,7 +982,7 @@
 
       @include screen('sm', max, 2) {
         @include grid-template-columns(100%);
-        @include grid-template-rows(grid-repeat(7, auto));
+        @include grid-template-rows(grid-repeat(8, auto));
       }
     }
 
@@ -980,7 +994,7 @@
   &_view {
     &_g {
       @include grid-template-columns(291px 356px 1fr);
-      @include grid-template-rows(grid-repeat(5, auto));
+      @include grid-template-rows(grid-repeat(6, auto));
 
       padding: 41px 50px 53px 45px;
 
@@ -1004,7 +1018,7 @@
 
       @include screen('sm', max, 2) {
         @include grid-template-columns(100%);
-        @include grid-template-rows(grid-repeat(8, auto));
+        @include grid-template-rows(grid-repeat(9, auto));
 
         padding: pxtovw(28, 375) pxtovw(18, 375) pxtovw(39, 375);
       }
