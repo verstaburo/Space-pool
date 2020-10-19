@@ -13,7 +13,7 @@ mixin arrange-viewing-form()
     +e.bottom
       +e.title Please set time:
       +e.timeblock
-        +e.time
+        +e.time.is-error
           +nd-form-box('<span class="nd-hide-from-md">Time</span><span class="nd-hide-md">Select prefered viewing time</span>', 'div')._bg-white._h40
             +nd-select()(name="arrangeViewingTime" data-choices-classes=" nd-choices_h40" data-mobile-title="Pick a time" ).js-nd-select
               - for (var i = 0; i < 24; i++) {
@@ -26,6 +26,9 @@ mixin arrange-viewing-form()
                   option(value=zeroi + ':00')!=(zeroi + ':00')
                   option(value=zeroi + ':30')!=(zeroi + ':30')
               - }
+          div.error-message
+            ul
+              li Invalid time
         +e.buttons
           +nd-button('button', true)._pad10._md-fz15.__button(type="submit")
             span.nd-hide-from-md Arrange viewing

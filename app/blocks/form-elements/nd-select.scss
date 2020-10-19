@@ -232,7 +232,7 @@
     display: inline-block;
     vertical-align: top;
     width: 100%;
-    transition: border $ease-main;
+    transition: border $ease-main, box-shadow $ease-main;
     background-color: transparent;
     border: 1px solid $nd-color-field-border;
     border-radius: 3px;
@@ -267,6 +267,10 @@
 
     #{$b}:hover & {
       border-color: $nd-color-field-border-hover;
+
+      .arrange-viewing-form & {
+        box-shadow: none;
+      }
     }
 
     .is-item-select & {
@@ -275,16 +279,29 @@
 
     .is-error & {
       border-color: $nd-color-input-error-border;
+
+      .arrange-viewing-form & {
+        border-color: $nd-color-fixeddesk;
+        box-shadow: inset 0 0 0 1px $nd-color-fixeddesk;
+      }
     }
 
     .is-focused &, .is-focused:hover & {
       border-color: $nd-color-main;
       box-shadow: inset 0 0 0 1px $nd-color-main;
+
+      .arrange-viewing-form & {
+        box-shadow: inset 0 0 0 1px $nd-color-main;
+      }
     }
 
     .is-open &, .is-open:hover & {
       border-color: $nd-color-main;
       box-shadow: inset 0 0 0 1px $nd-color-main;
+
+      .arrange-viewing-form & {
+        box-shadow: inset 0 0 0 1px $nd-color-main;
+      }
     }
 
     #{$b}_popup.is-open & {

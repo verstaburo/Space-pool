@@ -70,6 +70,19 @@ mixin rs-form(isMeeting)
                     else
                       option(value=i) #{i} months
                   -}
+          +nd-grid-col({xl: 3})
+            +form-section-wrapper
+              +nd-form-box('', 'div')
+                +nd-select(name="phoneCode" placeholder="Phone code" required data-mobile-title="Phone code").js-nd-select
+                  option(value="7") +7
+                  option(value="9") +9
+                  option(value="44" selected) +44
+                  option(value="45") +45
+                  option(value="80") +80
+          +nd-grid-col({xl: 9})
+            +form-section-wrapper
+              +nd-form-box('Phone number')
+                +nd-input(type="tel" name="phoneNumber" required)
       +nd-table._info._info_amount.__table
         tbody
           tr
@@ -91,4 +104,4 @@ mixin rs-form(isMeeting)
               b £ ‭2 580‬.00
 
       +e.buttons
-        +nd-button('button', true).__button_wide(type="submit") Continue
+        +nd-button('button', true).__button_wide(type="submit") Request rent

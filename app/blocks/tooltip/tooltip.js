@@ -9,12 +9,21 @@ export default function tooltips() {
     animation: 'fade',
     delay: 0,
     side: ['top', 'right', 'bottom', 'left'],
-    trigger: 'click',
     arrow: false,
     distance: 0,
     interactive: true,
     maxWidth: 620,
     theme: 'sp-border',
+    trigger: 'custom',
+    triggerOpen: {
+      mouseenter: true,
+      tap: true,
+    },
+    triggerClose: {
+      mouseleave: true,
+      originClick: true,
+      tap: true,
+    },
   });
 }
 /* eslint-enable no-unused-vars */
