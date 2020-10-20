@@ -37,42 +37,42 @@ block content
           +nd-side-navigation(nav, 'Statements')
       +nd-content-main
         +dashboard
-          +board._pad35.__board
-            +board-header._align-base
+          +board._pad35._sm-bg-none._sm-pad0.__board
+            +board-header._align-base.nd-hide-sm
               +board-title('h2')._fz22 Statements
               +e.pay-info
                 +e.pay-describe.nd-hide-sm Fund source | Direct Debit:
                 +e.pay-source Company card (15346347)
                 +nd-link._blue.__pay-link(href="#") Change...
-            +nd-table._rent-state.__table_mt27
+            +nd-table._rent-state._rent-state_mobile.__table_mt27
               thead
                 tr
                   th Issued
                   th.nd-hide-sm Due date
                   th Price
-                  th.nd-hide-sm Status
+                  th Status
                   th Invoice
               tbody
-                tr
+                tr.is-new
                   td
                     b 24 April 2020
                   td.nd-hide-sm
                     b 20.04.2020
                   td
                     b £ 860.00
-                  td.nd-hide-sm
+                  td
                     b Pending
                   td
-                    +nd-link-pdf({})(href="#")
+                    +nd-link-pdf({})._sm-blue(href="#")
                 - for (var i = 0; i < 11; i ++) {
                   tr
                     td
                       b 24 April 2020
                     td.nd-hide-sm 20.04.2020
                     td  £ 860.00
-                    td.nd-hide-sm Paid
+                    td Paid
                     td
-                      +nd-link-pdf({})(href="#")
+                      +nd-link-pdf({})._sm-blue(href="#")
                 - }
 
 block panels

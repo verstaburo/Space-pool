@@ -336,6 +336,26 @@
       box-shadow: none;
     }
 
+    #{$b}_fltr & {
+      padding: 11px;
+
+      @include screen('xlg', max, 2) {
+        padding: pxtovw(11, 1660);
+      }
+
+      @include screen('lg', max, 2) {
+        padding: pxtovw(11, 1366);
+      }
+
+      @include screen('md', max, 2) {
+        padding: pxtovw(11, 960);
+      }
+
+      @include screen('sm', max, 2) {
+        padding: pxtovw(6, 375) pxtovw(11, 375);
+      }
+    }
+
     #{$b}_sm-h50 & {
       @include screen('sm', max, 2) {
         padding: pxtovw(14, 375) pxtovw(11, 375) pxtovw(8, 375);
@@ -365,6 +385,26 @@
       @include screen('sm', max, 2) {
         padding: pxtovw(9, 375) pxtovw(11, 375) pxtovw(3, 375);
         min-height: pxtovw(40, 375);
+      }
+    }
+
+    #{$b}_h40.nd-choices_fltr & {
+      padding: 6px 11px;
+
+      @include screen('xlg', max, 2) {
+        padding: pxtovw(6, 1660) pxtovw(11, 1660);
+      }
+
+      @include screen('lg', max, 2) {
+        padding: pxtovw(6, 1366) pxtovw(11, 1366);
+      }
+
+      @include screen('md', max, 2) {
+        padding: pxtovw(6, 960) pxtovw(11, 960);
+      }
+
+      @include screen('sm', max, 2) {
+        padding: pxtovw(6, 375) pxtovw(11, 375);
       }
     }
   }

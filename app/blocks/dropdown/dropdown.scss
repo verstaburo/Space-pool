@@ -1,30 +1,96 @@
 .dropdown {
   display: block;
+  box-sizing: border-box;
   $b: &;
 
-  position: absolute;
-  top: 100%;
-  left: 0;
-  width: 200px;
-  margin-top: 12px;
-  padding: 12px;
-  background-color: white;
-  box-shadow: 0 0 15px 0 rgba(0, 0, 0, .15);
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity $ease-main;
+  &__list {
+    display: flex;
+    justify-content: flex-end;
+    background-color: $nd-color-basic-light;
+    box-shadow: 0 2px 4px rgba(40, 45, 54, .25), 2px 2px 11px rgba(76, 92, 106, .09);
 
-  @include text;
+    @include rule(border-radius, (xl: 3px, xlg: 3, lg: 3, md: 3, sm: 3));
 
-  &.is-active {
-    opacity: 1;
-    pointer-events: all;
+    @include screen('xlg', max, 2) {
+      box-shadow: 0 pxtovw(2, 1660) pxtovw(4, 1660) rgba(40, 45, 54, .25), pxtovw(2, 1660) pxtovw(2, 1660) pxtovw(11, 1660) rgba(76, 92, 106, .09);
+    }
+
+    @include screen('lg', max, 2) {
+      box-shadow: 0 pxtovw(2, 1366) pxtovw(4, 1366) rgba(40, 45, 54, .25), pxtovw(2, 1366) pxtovw(2, 1366) pxtovw(11, 1366) rgba(76, 92, 106, .09);
+    }
+
+    @include screen('md', max, 2) {
+      box-shadow: 0 pxtovw(2, 960) pxtovw(4,9660) rgba(40, 45, 54, .25), pxtovw(2, 960) pxtovw(2, 960) pxtovw(11, 960) rgba(76, 92, 106, .09);
+    }
+
+    @include screen('sm', max, 2) {
+      box-shadow: 0 pxtovw(2, 375) pxtovw(4, 375) rgba(40, 45, 54, .25), pxtovw(2, 375) pxtovw(2, 375) pxtovw(11, 375) rgba(76, 92, 106, .09);
+    }
+
+    .nd-link_pdf_drop_sm-static & {
+      @include screen('sm', max, 2) {
+        box-shadow: none;
+        width: 100%;
+        background-color: transparent;
+      }
+    }
   }
 
-  &_position_top {
-    top: auto;
-    bottom: 100%;
-    margin-top: 0;
-    margin-bottom: 12px;
+  &__item {
+    display: inline-flex;
+    justify-content: flex-start;
+    align-items: baseline;
+    box-sizing: border-box;
+    flex: 1;
+    cursor: pointer;
+    line-height: (19 / 16);
+
+    @include rule(font-size, (xl: 16px, xlg: 16, lg: 16, md: 16, sm: 16));
+    @include rule(padding-left, (xl: 20px, xlg: 20, lg: 20, md: 20, sm: 15));
+    @include rule(padding-right, (xl: 14px, xlg: 14, lg: 14, md: 14, sm: 15));
+    @include rule(padding-top, (xl: 21px, xlg: 21, lg: 21, md: 21, sm: 15));
+    @include rule(padding-bottom, (xl: 21px, xlg: 21, lg: 21, md: 21, sm: 15));
+
+    @include screen('sm', max, 2) {
+      align-items: center;
+      justify-content: center;
+    }
+
+    &:not(:last-child) {
+      border-right-style: solid;
+      border-right-color: $nd-color-border4;
+
+      @include rule(border-right-width, (xl: 1px, xlg: 1, lg: 1, md: 1, sm: 1));
+    }
+  }
+
+  &__name {
+    white-space: nowrap;
+  }
+
+  &__mark {
+    box-sizing: border-box;
+    display: inline-block;
+    background-image: url("data:image/svg+xml,%3Csvg width='12' height='13' viewBox='0 0 12 13' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M5.46967 12.5303C5.76256 12.8232 6.23744 12.8232 6.53033 12.5303L11.3033 7.75736C11.5962 7.46447 11.5962 6.98959 11.3033 6.6967C11.0104 6.40381 10.5355 6.40381 10.2426 6.6967L6 10.9393L1.75736 6.6967C1.46447 6.40381 0.989592 6.40381 0.696699 6.6967C0.403805 6.98959 0.403805 7.46447 0.696699 7.75736L5.46967 12.5303ZM5.25 -3.27835e-08L5.25 12L6.75 12L6.75 3.27835e-08L5.25 -3.27835e-08Z' fill='%230085FF'/%3E%3C/svg%3E%0A");
+    background-position: 100% 50%;
+    background-repeat: no-repeat;
+
+    @include rule(background-size, (xl: 13px, xlg: 13, lg: 13, md: 13, sm: 13));
+    @include rule(padding-right, (xl: 20px, xlg: 20, lg: 20, md: 20, sm: 4));
+    @include rule(font-size, (sm: 13));
+
+    @include screen('sm', max, 2) {
+      background-image: none;
+      line-height: pxtovw(16, 375);
+      padding: pxtovw(1, 375) pxtovw(4, 375);
+      font-weight: 600;
+      background-color: $nd-color-main;
+      color: $nd-color-basic-light;
+      border-radius: pxtovw(3, 375);
+    }
+
+    &:not(:first-child) {
+      @include rule(margin-left, (xl: 4px, xlg: 4, lg: 4, md: 4, sm: 8));
+    }
   }
 }

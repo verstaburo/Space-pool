@@ -5,6 +5,7 @@ block head
 
 block bodyClasses
   - var bodyCls = ' is-sm-noheader';
+  - var isNoFooter = true
 
 block header
   - var headerClass = ' is-login'
@@ -15,7 +16,6 @@ block header
 block content
   +nd-page-header._grid
     .nd-container
-      +e.title.nd-hide-from-sm Finances
       +nd-page-header-side
         +nd-link-icon('arrow5')._back._back_md21.__back_md-noname.nd-hide-from-md Back
       +nd-page-header-main
@@ -40,8 +40,8 @@ block content
               +slider-navigation([{name: "Statements", href: "host-account-finances-statements.html"}, {name: "Bank account details", href: "host-account-finances.html"}, {name: "Account stats", href: "host-account-finances.html"}], 0, 'Statements')
 
           +dashboard.__dashboard_mt55
-            +board.__board
-              +board-header._fx
+            +board._pad33._pb70._sm-bg-none._sm-pad0.__board
+              +board-header._fx.nd-hide-sm
                 +board-title('h2')._fz22 Statements
                 +e.drop-filter
                   +nd-form-box('')._h40
@@ -50,57 +50,61 @@ block content
                       option(value="") First Floor Desk Area
                       option(value="") Second Floor Desk Area
                       option(value="") Third Floor Desk Area
-              +nd-table._ledger._ledger_c6._blight.__table_mt45._mb0
+              +nd-table._ledger._ledger_mobile._blight.__table_mt45._mb0
                 thead
                   tr
                     th Issued
-                    th Rent
-                    th.nd-hide-sm Space
+                    th.nd-hide-sm Rent
+                    th Space
                     th Price
-                    th.nd-hide-sm Status
+                    th Status
                     th Invoice
                 tbody
-                  tr
+                  tr.is-new
                     td
-                      b 24 April
-                    td
-                      b Offica space 31
+                      b 24 April <span class="nd-hide-from-sm">2020</span>
                     td.nd-hide-sm
+                      b Offica space 31
+                    td
                       b FBC Clerkenwell
                     td
                       b £ 860.00
-                    td.nd-hide-sm
+                    td
                       b Pending
                     td
-                      +nd-link-pdf({})(href="#")
+                      +nd-link-pdf({tag: 'div'})._pdf_drop._pdf_drop_sm-static
+                        +dropdown-pdfs.__drop
                   - for (var i = 0; i < 4; i ++) {
                     tr
                       td
-                        b 24 April
-                      td Fixed desk south side
-                      td.nd-hide-sm FBC Clerkenwell
+                        b 24 April <span class="nd-hide-from-sm">2020</span>
+                      td.nd-hide-sm Fixed desk south side
+                      td FBC Clerkenwell
                       td £ 356.00
-                      td.nd-hide-sm Paid
+                      td Paid
                       td
-                        +nd-link-pdf({})(href="#")
+                        +nd-link-pdf({tag: 'div'})._pdf_drop._pdf_drop_sm-static
+                          +dropdown-pdfs.__drop
                     tr
                       td
-                        b 24 April
-                      td Hot desk
-                      td.nd-hide-sm FBC Clerkenwell
+                        b 24 April <span class="nd-hide-from-sm">2020</span>
+                      td.nd-hide-sm Hot desk
+                      td FBC Clerkenwell
                       td £ 356.00
-                      td.nd-hide-sm Paid
+                      td Paid
                       td
-                        +nd-link-pdf({})(href="#")
+                        +nd-link-pdf({tag: 'div'})._pdf_drop._pdf_drop_sm-static
+                          +dropdown-pdfs.__drop
                     tr
                       td
-                        b 24 April
-                      td Office 1129
-                      td.nd-hide-sm First Base - Victoria
+                        b 24 April <span class="nd-hide-from-sm">2020</span>
+                      td.nd-hide-sm Office 1129
+                      td First Base - Victoria
                       td £ 356.00
-                      td.nd-hide-sm Paid
+                      td Paid
                       td
-                        +nd-link-pdf({})(href="#")
+                        +nd-link-pdf({tag: 'div'})._pdf_drop._pdf_drop_sm-static
+                          +dropdown-pdfs.__drop
                   - }
 
 block panels

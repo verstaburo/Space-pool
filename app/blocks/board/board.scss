@@ -26,6 +26,12 @@
     border-radius: pxtovw(3, 375);
   }
 
+  &_sm-bg-none {
+    @include screen('sm', max, 2) {
+      background-color: transparent;
+    }
+  }
+
   &_fx {
     display: flex;
     flex-direction: column;
@@ -72,6 +78,26 @@
 
     @include screen('md', max, 2) {
       padding: pxtovw(26, 960) pxtovw(26, 960) pxtovw(25, 960);
+    }
+
+    @include screen('sm', max, 2) {
+      padding: pxtovw(26, 375) pxtovw(18, 375) pxtovw(35, 375);
+    }
+  }
+
+  &_pad33 {
+    padding: 26px;
+
+    @include screen('xlg', max, 2) {
+      padding: pxtovw(26, 1660);
+    }
+
+    @include screen('lg', max, 2) {
+      padding: pxtovw(26, 1366) pxtovw(33, 1366);
+    }
+
+    @include screen('md', max, 2) {
+      padding: pxtovw(26, 960) pxtovw(33, 960) pxtovw(25, 960);
     }
 
     @include screen('sm', max, 2) {
@@ -147,8 +173,18 @@
     @include rule(padding-bottom, (xl: 60px, xlg: 60, lg: 60, md: 58, sm: 25));
   }
 
+  &_pb70 {
+    @include rule(padding-bottom, (xl: 70px, xlg: 70, lg: 70, md: 70, sm: 25));
+  }
+
   &_pt47 {
     @include rule(padding-top, (xl: 47px, xlg: 47, lg: 47, md: 26, sm: 26));
+  }
+
+  &_sm-pad0 {
+    @include screen('sm', max, 2) {
+      padding: 0;
+    }
   }
 
   &__header {
@@ -482,7 +518,7 @@
   }
 
   &__drop-filter {
-    @include rule(width, (xl: 232px, xlg: 232, lg: 232, md: 232, sm: 160));
+    @include rule(width, (xl: 232px, xlg: 232, lg: 180, md: 180, sm: 180));
   }
 
   &__price {
@@ -533,6 +569,12 @@
     &_mt60 {
       &:not(:first-child) {
         @include rule(margin-top, (xl: 60px, xlg: 60, lg: 60, md: 60, sm: 60));
+      }
+    }
+
+    &_mt73 {
+      &:not(:first-child) {
+        @include rule(margin-top, (xl: 73px, xlg: 73, lg: 73, md: 73, sm: 50));
       }
     }
 

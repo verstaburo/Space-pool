@@ -1,3 +1,14 @@
 mixin dropdown()
-  +b.js-dropdown.dropdown&attributes(attributes)
+  +b.dropdown&attributes(attributes)
+    block
+
+mixin dropdown-pdfs()
+  +b.dropdown&attributes(attributes)
+    +e.list
+      +e.A.item(href="#")
+        +e.name Rent invoice
+        +e.mark PDF
+      +e.A.item(href="#")
+        +e.name Commission
+        +e.mark PDF
     block

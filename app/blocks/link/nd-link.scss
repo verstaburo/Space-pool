@@ -401,6 +401,12 @@
       background-color: $nd-color-main;
     }
 
+    #{$b}_sm-blue & {
+      @include screen('sm', max, 2) {
+        background-color: $nd-color-main;
+      }
+    }
+
     &:not(:first-child) {
       margin-left: 13px;
 
@@ -666,6 +672,58 @@
 
   &_pdf {
     display: inline-flex;
+    cursor: pointer;
+
+    &_drop {
+      position: relative;
+      cursor: pointer;
+
+      #{$b} {
+        &__drop {
+          opacity: 0;
+          pointer-events: none;
+          visibility: hidden;
+          transition: opacity $ease-main;
+          position: absolute;
+          bottom: 100%;
+          z-index: 2;
+
+          @include rule(right, (xl: -4px, xlg: -4, lg: -4, md: -4, sm: -4));
+          @include rule(padding-bottom, (xl: 17px, xlg: 17, lg: 17, md: 17, sm: 10));
+        }
+      }
+
+      &:hover #{$b}__drop {
+        opacity: 1;
+        pointer-events: auto;
+        visibility: visible;
+      }
+
+      &_sm-static {
+        @include screen('sm', max, 2) {
+          position: static;
+        }
+
+        #{$b} {
+          &__drop {
+            @include screen('sm', max, 2) {
+              position: static;
+              opacity: 1;
+              visibility: visible;
+              pointer-events: auto;
+              padding-bottom: 0;
+              width: 100%;
+            }
+          }
+
+          &__type, &__name, &__icon {
+            @include screen('sm', max, 2) {
+              display: none;
+            }
+          }
+        }
+      }
+    }
   }
 
   &_blue {

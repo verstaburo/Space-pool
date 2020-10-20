@@ -5,6 +5,7 @@ block head
 
 block bodyClasses
   - var bodyCls = ' is-sm-noheader';
+  - var isNoFooter = true
 
 block header
   - var headerClass = ' is-login'
@@ -15,7 +16,6 @@ block header
 block content
   +nd-page-header._grid
     .nd-container
-      +e.title.nd-hide-from-sm Finances
       +nd-page-header-side
         +nd-link-icon('arrow5')._back._back_md21.__back_md-noname.nd-hide-from-md Back
       +nd-page-header-main
@@ -46,74 +46,81 @@ block content
                 thead
                   tr
                     th Issued
-                    th Rent
+                    th.nd-hide-sm Rent
                     th Amount
                     th.nd-hide-sm Status
                     th Invoice
                 tbody
-                  tr
+                  tr.is-new
                     td
                       b 24 April
-                    td
+                    td.nd-hide-sm
                       b Offica space 31
                     td
                       b £ 860.00
                     td.nd-hide-sm
                       b Pending
                     td
-                      +nd-link-pdf({})(href="#")
+                      +nd-link-pdf({tag: 'div'})._pdf_drop
+                        +dropdown-pdfs.__drop
                   tr
                     td
                       b 24 April
-                    td Fixed desk south side
+                    td.nd-hide-sm Fixed desk south side
                     td £ 356.00
                     td.nd-hide-sm Paid-in
                     td
-                      +nd-link-pdf({})(href="#")
+                      +nd-link-pdf({tag: 'div'})._pdf_drop
+                        +dropdown-pdfs.__drop
                   tr
                     td
                       b 24 April
-                    td Hot desk
+                    td.nd-hide-sm Hot desk
                     td £ 356.00
                     td.nd-hide-sm Paid-out
                     td
-                      +nd-link-pdf({})(href="#")
+                      +nd-link-pdf({tag: 'div'})._pdf_drop
+                        +dropdown-pdfs.__drop
                   tr
                     td
                       b 24 April
-                    td Office 1129
+                    td.nd-hide-sm Office 1129
                     td £ 356.00
                     td.nd-hide-sm Paid
                     td
-                      +nd-link-pdf({})(href="#")
+                      +nd-link-pdf({tag: 'div'})._pdf_drop
+                        +dropdown-pdfs.__drop
 
                   - for (var i = 0; i < 3; i ++) {
                     tr
                       td
                         b 24 April
-                      td Fixed desk south side
+                      td.nd-hide-sm Fixed desk south side
                       td £ 356.00
                       td.nd-hide-sm Paid
                       td
-                        +nd-link-pdf({})(href="#")
+                        +nd-link-pdf({tag: 'div'})._pdf_drop
+                          +dropdown-pdfs.__drop
                     tr
                       td
                         b 24 April
-                      td Hot desk
+                      td.nd-hide-sm Hot desk
                       td £ 356.00
                       td.nd-hide-sm Paid
                       td
-                        +nd-link-pdf({})(href="#")
+                        +nd-link-pdf({tag: 'div'})._pdf_drop
+                          +dropdown-pdfs.__drop
                     tr
                       td
                         b 24 April
-                      td Office 1129
+                      td.nd-hide-sm Office 1129
                       td £ 356.00
                       td.nd-hide-sm Paid
                       td
-                        +nd-link-pdf({})(href="#")
+                        +nd-link-pdf({tag: 'div'})._pdf_drop
+                          +dropdown-pdfs.__drop
                   - }
-              +e.links_mt60
+              +e.links_mt73
                 +nd-link-image('nd-view')(class='' href='host-account-finances-statements.html').__link_fw600._fz14 View all statements
             +board.__board_ha._ha_stats
               +board-title._fz22 Stats
