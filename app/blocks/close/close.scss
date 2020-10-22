@@ -27,6 +27,10 @@
     height: 34px;
   }
 
+  .nd & {
+    @include rule(padding, (xl: 10px, xlg: 10, lg: 10, md: 10, sm: 10));
+  }
+
   &:hover {
     color: $color-basic;
   }
@@ -39,6 +43,12 @@
   &_small {
     width: 36px;
     height: 36px;
+
+    .nd & {
+      @include rule(padding, (xl: 15px, xlg: 15, lg: 15, md: 15, sm: 15));
+      @include rule(width, (xl: 46px, xlg: 46, lg: 46, md: 46, sm: 46));
+      @include rule(height, (xl: 46px, xlg: 46, lg: 46, md: 46, sm: 46));
+    }
   }
 
   &_gray {
@@ -46,6 +56,14 @@
 
     &:hover {
       color: $color-basic-light;
+    }
+
+    .nd & {
+      color: $nd-color-basic;
+
+      &:hover {
+        color: $nd-color-main;
+      }
     }
   }
 }

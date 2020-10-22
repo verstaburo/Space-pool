@@ -181,6 +181,15 @@
       @include rule(height, (xl: 10px, xlg: 10, lg: 10, md: 10, sm: 10));
     }
 
+    &_nd-plus {
+      @include rule(width, (xl: 22px, xlg: 22, lg: 22, md: 22, sm: 22));
+      @include rule(height, (xl: 22px, xlg: 22, lg: 22, md: 22, sm: 22));
+
+      &:not(:last-child) {
+        @include rule(margin-right, (xl: 18px, xlg: 18, lg: 18, md: 18, sm: 18));
+      }
+    }
+
     &_cross {
       width: 14px;
       height: 14px;
@@ -676,7 +685,7 @@
 
     &_drop {
       position: relative;
-      cursor: pointer;
+      -webkit-tap-highlight-color: transparent;
 
       #{$b} {
         &__drop {
@@ -687,9 +696,14 @@
           position: absolute;
           bottom: 100%;
           z-index: 2;
+          -webkit-tap-highlight-color: transparent;
 
           @include rule(right, (xl: -4px, xlg: -4, lg: -4, md: -4, sm: -4));
           @include rule(padding-bottom, (xl: 17px, xlg: 17, lg: 17, md: 17, sm: 10));
+        }
+
+        &__type {
+          -webkit-tap-highlight-color: auto;
         }
       }
 

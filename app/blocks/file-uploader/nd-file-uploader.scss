@@ -1,0 +1,92 @@
+.nd-file-uploader {
+  display: block;
+  $b: &;
+
+  &.is-ready {
+
+  }
+
+  &.is-loading {
+
+  }
+
+  &__output {
+    display: none;
+    transition: opacity $ease-main;
+
+    #{$b}.is-ready & {
+      display: block;
+    }
+
+    #{$b}.is-loading & {
+      opacity: .4;
+    }
+  }
+
+  &__buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    #{$b}.is-ready & {
+      justify-content: space-between;
+
+      &:not(:first-child) {
+        @include rule(margin-top, (xl: 20px, xlg: 20, lg: 20, md: 20, sm: 20));
+      }
+    }
+  }
+
+  &__label {
+    @include rule(min-width, (xl: 252px, xlg: 252, lg: 252, md: 180, sm: 180));
+
+    cursor: pointer;
+
+    #{$b}.is-ready & {
+      @include rule(min-width, (xl: 60px, xlg: 60, lg: 60, md: 60, sm: 60));
+      @include rule(border-width, (xl: 3px, xlg: 3, lg: 3, md: 3, sm: 3));
+
+      background-color: transparent;
+      border-style: solid;
+      border-color: $nd-color-main;
+      background-image: url("data:image/svg+xml,%3Csvg width='25' height='5' viewBox='0 0 25 5' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='2.5' cy='2.5' r='2.5' fill='%230085FF'/%3E%3Ccircle cx='12.5' cy='2.5' r='2.5' fill='%230085FF'/%3E%3Ccircle cx='22.5' cy='2.5' r='2.5' fill='%230085FF'/%3E%3C/svg%3E%0A");
+      background-repeat: no-repeat;
+      background-position: 50% 50%;
+      background-size: 25px 5px;
+
+      @include screen('xlg', max, 2) {
+        background-size: pxtovw(25, 1660) pxtovw(5, 1660);
+      }
+
+      @include screen('lg', max, 2) {
+        background-size: pxtovw(25, 1366) pxtovw(5, 1366);
+      }
+
+      @include screen('md', max, 2) {
+        background-size: pxtovw(25, 960) pxtovw(5, 960);
+      }
+
+      @include screen('sm', max, 2) {
+        background-size: pxtovw(25, 375) pxtovw(5, 375);
+      }
+
+      .nd-button {
+        &__bg {
+          opacity: 0;
+        }
+
+        &__text {
+          display: none;
+        }
+      }
+    }
+  }
+
+  &__button {
+    @include rule(min-width, (xl: 110px, xlg: 110, lg: 110, md: 110, sm: 110));
+
+    #{$b}:not(.is-ready) & {
+      display: none;
+    }
+  }
+}

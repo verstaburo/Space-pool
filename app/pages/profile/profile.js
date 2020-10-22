@@ -31,6 +31,11 @@ export default function profile() {
       const newTemplate = outputTemplate.replace(/#uboId/g, uboId);
       const ubo = $(newTemplate);
       $(lastUbo).after(ubo);
+      const ndSelects = $(ubo).find('.js-nd-select');
+      $(ndSelects).each((i, el) => {
+        window.ndSelectInput(el);
+      });
+      // START block for remove
       const selects = $(ubo).find('.js-select-input');
       $(selects).each((i, el) => {
         window.inputSelectInit(el);
@@ -39,6 +44,7 @@ export default function profile() {
       $(dates).each((i, el) => {
         window.simpleDatepickerInit($(el));
       });
+      // END block for remove
       window.setLabelPosition();
       window.setLabelListeners();
       const uboNumbers = $('[data-ubo-number]');

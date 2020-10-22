@@ -34,4 +34,29 @@
   &__input {
     display: none;
   }
+
+  .nd-file-uploader & {
+    border-bottom: 1px solid rgba($nd-color-border-gray, .48);
+    text-align: left;
+
+    @include rule(padding-top, (xl: 5px, xlg: 5, lg: 5, md: 5, sm: 5));
+    @include rule(padding-bottom, (xl: 5px, xlg: 5, lg: 5, md: 5, sm: 5));
+
+    &:not(:first-child) {
+      @include rule(margin-top, (xl: 6px, xlg: 6, lg: 6, md: 6, sm: 6));
+    }
+
+    &__text {
+      @include rule(line-height, (xl: 36px, xlg: 36, lg: 36, md: 36, sm: 36));
+      @include rule(font-size, (xl: 18px, xlg: 18, lg: 18, md: 18, sm: 16));
+      @include rule(padding-right, (xl: 35px, xlg: 35, lg: 35, md: 35, sm: 35));
+
+      letter-spacing: normal;
+      font-weight: 700;
+    }
+
+    &__delete {
+      @include rule(right, (xl: -15px, xlg: -15, lg: -15, md: -15, sm: -15));
+    }
+  }
 }

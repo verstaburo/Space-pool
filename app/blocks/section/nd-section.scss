@@ -527,6 +527,12 @@
       }
     }
 
+    &_mt42 {
+      &:not(:first-child) {
+        @include rule(margin-top, (xl: 42px, xlg: 42, lg: 42, md: 42, sm: 42));
+      }
+    }
+
     &_promo {
       display: flex;
       justify-content: space-between;
@@ -695,6 +701,23 @@
 
     &_kyc {
       flex-wrap: wrap;
+      padding: 70px 40px;
+
+      @include screen('xlg', max, 2) {
+        padding: pxtovw(70, 1660) pxtovw(40, 1660);
+      }
+
+      @include screen('lg', max, 2) {
+        padding: pxtovw(70, 1366) pxtovw(40, 1366);
+      }
+
+      @include screen('md', max, 2) {
+        padding: pxtovw(70, 960) pxtovw(20, 960);
+      }
+
+      @include screen('sm', max, 2) {
+        padding: pxtovw(70, 375) pxtovw(20, 375);
+      }
     }
   }
 
@@ -778,6 +801,30 @@
           width: 100%;
         }
       }
+
+      &_w482 {
+        @include rule(width, (xl: 482px, xlg: 482));
+
+        @include screen('lg', max, 2) {
+          width: 50%;
+        }
+
+        @include screen('sm', max, 2) {
+          width: 100%;
+        }
+      }
+    }
+
+    #{$b}__board_kyc & {
+      padding: 0;
+
+      &:not(:first-child) {
+        @include rule(margin-left, (xl: 70px, xlg: 70, lg: 70, md: 40, sm: 0));
+      }
+
+      &_right {
+        justify-content: flex-start;
+      }
     }
   }
 
@@ -787,6 +834,21 @@
     align-content: flex-start;
     flex-wrap: wrap;
     width: 100%;
+
+    #{$b}__board_kyc & {
+      &:not(:first-child) {
+        border-top: 1px solid rgba($nd-color-border4, .48);
+
+        @include rule(margin-top, (xl: 63px, xlg: 63, lg: 63, md: 63, sm: 63));
+        @include rule(padding-top, (xl: 53px, xlg: 53, lg: 53, md: 53, sm: 53));
+      }
+    }
+  }
+
+  &__card {
+    &:not(:first-child) {
+      @include rule(margin-top, (xl: 40px, xlg: 40, lg: 40, md: 40, sm: 40));
+    }
   }
 
   &__note {
@@ -892,6 +954,20 @@
     &_mt {
       &:not(:first-child) {
         @include rule(margin-top, (xl: 25px, xlg: 25, lg: 25, md: 25, sm: 25));
+      }
+    }
+
+    &_mt56 {
+      &:not(:first-child) {
+        @include rule(margin-top, (xl: 56px, xlg: 56, lg: 56, md: 56, sm: 30));
+      }
+    }
+
+    &_indent {
+      p {
+        &:not(:first-child) {
+          @include rule(margin-top, (xl: 30px, xlg: 30, lg: 30, md: 30, sm: 20));
+        }
       }
     }
   }
