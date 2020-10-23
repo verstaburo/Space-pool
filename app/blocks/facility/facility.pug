@@ -1,25 +1,3 @@
-mixin facility(icon, iconCls)
-  +b.facility&attributes(attributes)
-    +e.name
-      block
-    +e.image
-      +icon(icon)(class="__icon " + iconCls)
-
-mixin facility-checkbox(icon, iconCls, name, value, checked)
-  +b.LABEL.facility-checkbox&attributes(attributes)
-    - if (checked) {
-      +e.INPUT(type="checkbox" name=name value=value checked="checked").input
-    - } else {
-      +e.INPUT(type="checkbox" name=name value=value).input
-    - }
-    +b.facility&attributes(attributes)
-      +e.name
-        block
-      +icon('check').check
-      +e.image
-        +icon(icon)(class="__icon " + iconCls)
-
-
 mixin nd-facility-checkbox(data)
   +b.LABEL.nd-facility-checkbox&attributes(attributes)
     if (data.checked)

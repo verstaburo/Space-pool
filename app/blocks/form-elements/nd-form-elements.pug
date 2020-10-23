@@ -14,21 +14,6 @@ mixin nd-input-number(data)
     +e.button.js-numberbox-minus
     +e.button.js-numberbox-plus
 
-//- mixin input-numbers(name, placeholder, min, max)
-//-   +b.input-numbers&attributes(attributes)
-//-     - if (min && max) {
-//-       +input.input-numbers__input.js-numberbox-input(type="text" name=name placeholder=placeholder data-min=min data-max=max)
-//-     - } else if (max) {
-//-       +input.input-numbers__input.js-numberbox-input(type="text" name=name placeholder=placeholder data-max=max)
-//-     - } else if (min) {
-//-       +input.input-numbers__input.js-numberbox-input(type="text" name=name placeholder=placeholder data-min=min)
-//-     - } else {
-//-       +input.input-numbers__input.js-numberbox-input(type="text" name=name placeholder=placeholder)
-//-     - }
-//-     +e.buttons
-//-       +e.button.js-numberbox-minus
-//-       +e.button.js-numberbox-plus
-
 mixin nd-textarea()
   +b.TEXTAREA.nd-textarea&attributes(attributes)
     block
@@ -173,13 +158,3 @@ mixin nd-range(data)
           +nd-form-box(data.output.maxLabel)(class=(data.output.formboxClass || ''))
             +nd-input(type="text" name=data.output.max placeholder=data.output.maxLabel data-nd-range-input-max class=(data.output.inputClass || ''))
     block
-
-//- mixin check-input(isChecked)
-//-   +b.check-input&attributes(attributes)
-//-     +checkbox('', '', isChecked).js-check-input-toggle
-//-     +e.content
-//-       +form-box('Price', '', '', '&pound;')._icon_left
-//-         +input(type="text")
-//-       if block
-//-         +e.SPAN.text
-//-           block

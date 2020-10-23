@@ -1,20 +1,3 @@
-mixin offer-panel()
-  - var offers = getData('offer-items.json');
-  +panel.offer-panel__&attributes(attributes)
-    +panel-head.__head
-      +boxes.offer-panel__boxes
-        +box._smaller._orange
-        +box._smaller._red
-        +box._smaller._blue
-        +box._smaller._green
-      +panel-title Boutique Workplace - 1 Neal Street
-      +panel-toggle
-        +button('button')(type="button" data-closed-name="Choose offer" data-opened-name="Close offers")._thin-border._thin-border_smaller._thin-border_bg-white._smaller.js-panel-toggle Choose offer
-    +panel-content.__content.js-scrollbar
-      ul.offer-panel__list
-        each item in offers
-          +offer-item(item).offer-panel__item
-
 mixin nd-offer-panel()
   +b.nd-offer-panel&attributes(attributes)
     .nd-container

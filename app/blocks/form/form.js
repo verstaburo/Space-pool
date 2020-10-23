@@ -215,11 +215,6 @@ export default function formManipulations() {
       changeType(checker);
     });
 
-    // $(document).on('click', '[data-toggle-form]', (evt) => {
-    //   const self = evt.target;
-    //   changeType(self);
-    // });
-
     $(document).on('change', '[data-toggle-form]', (evt) => {
       const self = evt.target;
       changeType(self);
