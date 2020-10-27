@@ -56,8 +56,8 @@ Parsley.addValidator(
       if (!value) {
         return true; // Builtin validators all accept empty strings, except `required` of course
       }
-      const result = moment.isDate(moment(value, 'YYYY / MM / DD'));
-      return result;
+      const result = value.includes('Y') || value.includes('M') || value.includes('D');
+      return !result;
     },
     256)
   .addMessage('en', 'birthdate', 'Incorrect date');

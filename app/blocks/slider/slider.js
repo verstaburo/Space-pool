@@ -374,7 +374,7 @@ export default function slider() {
       const btnNext = $(el).find('.js-slider-button-next')[0];
       const sliderContainer = $(el).find('.js-slider-container')[0];
       let isCSSMode = false;
-      if (detectIt.hasTouch) {
+      if (detectIt.hasTouch && !window.Modernizr.scrollsnappoints) {
         isCSSMode = true;
         $(el).addClass('is-css-mode-slider');
       } else {
@@ -440,7 +440,7 @@ export default function slider() {
       const btnNext = $(el).find('.js-slider-button-next')[0];
       const sliderContainer = $(el).find('.js-slider-container')[0];
       let isCSSMode = false;
-      if (detectIt.hasTouch) {
+      if (detectIt.hasTouch && !window.Modernizr.scrollsnappoints) {
         isCSSMode = true;
         $(el).addClass('is-css-mode-slider');
       } else {
@@ -541,7 +541,7 @@ export default function slider() {
     let controller = false;
     let control = {};
     let isCSSMode = false;
-    if (detectIt.hasTouch) {
+    if (detectIt.hasTouch && !window.Modernizr.scrollsnappoints) {
       isCSSMode = true;
       $(el).addClass('is-css-mode-slider');
     } else {
@@ -624,7 +624,7 @@ export default function slider() {
     const sliderContainer = $(el).find('.js-offer-slider-container')[0];
     const pagination = $(el).find('.js-offer-slider-pagination')[0];
     let isCSSMode = false;
-    if (detectIt.hasTouch) {
+    if (detectIt.hasTouch && !window.Modernizr.scrollsnappoints) {
       isCSSMode = true;
       $(el).addClass('is-css-mode-slider');
     } else {
@@ -752,7 +752,7 @@ export default function slider() {
       const btnNext = $(el).find('.js-slider-button-next')[0];
       const sliderContainer = $(el).find('.js-slider-container');
       let isCSSMode = false;
-      if (detectIt.hasTouch) {
+      if (detectIt.hasTouch && !window.Modernizr.scrollsnappoints) {
         isCSSMode = true;
         $(el).addClass('is-css-mode-slider');
       } else {
