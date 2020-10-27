@@ -31,7 +31,7 @@ export default function formManipulations() {
   }
 
   // следим за формой, чтобы остановить панель
-  $(window).on('scroll', () => {
+  window.addEventListener('scroll', () => {
     const sT = $(window).scrollTop();
     const panel = $(document).find('[data-hidden-panel]');
     let form = $(panel).closest('form');
@@ -51,6 +51,8 @@ export default function formManipulations() {
         $(panel).removeClass('is-stop');
       }
     }
+  }, {
+    passive: true,
   });
 
   // сбрасываем форму

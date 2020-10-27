@@ -55,10 +55,12 @@ export function unfreeze() {
   }
 }
 
-export function freezebuttons() {
+export function globalFreezes() {
   window.globalFunctions.freeze = freeze;
   window.globalFunctions.unfreeze = unfreeze;
+}
 
+export function freezebuttons() {
   $(document).on('click', '.js-freeze', (e) => {
     e.preventDefault();
     freeze();

@@ -6,6 +6,7 @@ block head
 block bodyClasses
   - var bodyCls = ' is-sm-noheader';
   - var isNoFooter = true
+  - var scripts = ['other']
 
 block header
   - var headerClass = ' is-login'
@@ -61,9 +62,8 @@ block content
                               +nd-input(type="text" name="ubo-1[surname]" placeholder="Surname" required)
                         +nd-grid-col({xl: 6, sm: 12})
                           +form-section-wrapper
-                            +nd-form-box('Date of birth')._bg-white.js-nd-datepicker
-                              +nd-input(type="text" name="ubo-1[dateBirth]" placeholder="Date of birth" data-dates-result required readonly)._date
-                              +e.dates(data-dates-container)
+                            +nd-form-box('Date of birth')._bg-white
+                              +nd-input(type="text" name="ubo-1[birthDate]" data-birthday required data-parsley-birthdate)._birthday
                         +nd-grid-col({xl: 6, sm: 12})
                           +form-section-wrapper
                             +nd-form-box('Nationality', 'div')._bg-white

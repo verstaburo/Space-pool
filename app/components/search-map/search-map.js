@@ -149,7 +149,7 @@ export function ndSearchMapManipulations() {
   });
 
   // скрываем кнопку карты при достижении пагинации
-  $(window).on('scroll', () => {
+  window.addEventListener('scroll', () => {
     const mapButton = document.querySelector('.js-search-map-show');
     if (mapButton && window.Modernizr.mq(`(max-width: ${window.globalOptions.ndsizes.md}px)`)) {
       const pagination = document.querySelector('.nd-pagination');
@@ -163,5 +163,7 @@ export function ndSearchMapManipulations() {
         }
       }
     }
+  }, {
+    passive: true,
   });
 }

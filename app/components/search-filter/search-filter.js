@@ -76,10 +76,7 @@ export default function toggleFilter() {
   });
 
   // Следим за низмо попапа
-  $(window).on('scroll', hideBottomPanel);
-  // setInterval(() => {
-  //   if (window.Modernizr.mq(`(max-width: ${window.globalOptions.sizes.md - 1}px)`)) {
-  //     hideBottomPanel();
-  //   }
-  // }, 100);
+  window.addEventListener('scroll', hideBottomPanel, {
+    passive: true,
+  });
 }

@@ -84,9 +84,8 @@ mixin registration-form(data)
                   +nd-input(type="text" name="lastName" placeholder="Last name" required)
             +nd-grid-col({xl: 12})(data-form-switchable-item="privatePerson")
               +form-section-wrapper
-                +nd-form-box('Date of birth').js-nd-datepicker
-                  +nd-input(type="text" name="firstName" placeholder="Date of birth" data-dates-result required readonly)._date
-                  +e.dates(data-dates-container)
+                +nd-form-box('Date of birth')
+                  +nd-input(type="text" name="birthDate" data-birthday required data-parsley-birthdate)._birthday
             +nd-grid-col({xl: 6, sm: 12})(data-form-switchable-item="privatePerson")
               +form-section-wrapper
                 +nd-form-box('Nationality', 'div')
@@ -182,9 +181,8 @@ mixin registration-form(data)
                     option(value="4") England
             +nd-grid-col({xl: 12})
               +form-section-wrapper
-                +nd-form-box('Date of birth').js-nd-datepicker
-                  +nd-input(type="text" name="firstName" placeholder="Date of birth" data-dates-result required readonly)._date
-                  +e.dates(data-dates-container)
+                +nd-form-box('Date of birth')
+                  +nd-input(type="text" name="birthDate" data-birthday required data-parsley-birthdate)._birthday
         +e.buttons
           +nd-button('button', true).__button_wide(type="submit")
             span(data-form-switchable-item="privatePerson") Continue
@@ -288,9 +286,8 @@ mixin registration-form-summary(data)
                   +nd-input(type="text" name="lastName" placeholder="Last name" required)
             +nd-grid-col({xl: 12})(data-form-switchable-item="privatePerson")
               +form-section-wrapper
-                +nd-form-box('Date of birth').js-nd-datepicker
-                  +nd-input(type="text" name="birthDate" placeholder="Date of birth" data-dates-result required readonly)._date
-                  +e.dates(data-dates-container)
+                +nd-form-box('Date of birth')
+                  +nd-input(type="text" name="birthDate" data-birthday required data-parsley-birthdate)._birthday
             +nd-grid-col({xl: 6, sm: 12})(data-form-switchable-item="privatePerson")
               +form-section-wrapper
                 +nd-form-box('Nationality', 'div')
@@ -386,9 +383,8 @@ mixin registration-form-summary(data)
                     option(value="4") England
             +nd-grid-col({xl: 12})
               +form-section-wrapper
-                +nd-form-box('Date of birth').js-nd-datepicker
-                  +nd-input(type="text" name="firstName" placeholder="Date of birth" data-dates-result required readonly)._date
-                  +e.dates(data-dates-container)
+                +nd-form-box('Date of birth')
+                  +nd-input(type="text" name="birthDate" data-birthday required data-parsley-birthdate)._birthday
         +e.buttons
           +nd-button('button', true).__button_wide(type="submit")
             span(data-form-switchable-item="privatePerson") Continue

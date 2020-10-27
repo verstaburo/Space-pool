@@ -81,7 +81,6 @@ mixin company-form()
                   option(value="4") England
           +nd-grid-col({xl: 12})
             +form-section-wrapper
-              +nd-form-box('Date of birth').js-nd-datepicker
-                +nd-input(type="text" name="firstName" placeholder="Date of birth" data-dates-result required readonly)._date
-                +e.dates(data-dates-container)
+              +nd-form-box('Date of birth')
+                +nd-input(type="text" name="birthDate" data-birthday required data-parsley-birthdate)._birthday
     block

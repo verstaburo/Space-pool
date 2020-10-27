@@ -76,5 +76,7 @@ export default function header() {
   }
 
   headerStyle();
-  $(window).on('scroll', headerStyle);
+  window.addEventListener('scroll', headerStyle, {
+    passive: true,
+  });
 }

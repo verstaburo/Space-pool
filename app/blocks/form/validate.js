@@ -1,6 +1,7 @@
 /* eslint-disable no-unused-vars */
 import $ from 'jquery';
 import 'parsleyjs';
+import moment from 'moment';
 
 const Parsley = window.Parsley;
 
@@ -48,6 +49,18 @@ Parsley.addValidator(
       return result;
     }, 256)
   .addMessage('en', 'passwordequalto', 'Passwords should be the same.');
+
+Parsley.addValidator(
+    'birthdate',
+    (value, refOrValue) => {
+      if (!value) {
+        return true; // Builtin validators all accept empty strings, except `required` of course
+      }
+      const result = moment.isDate(moment(value, 'YYYY / MM / DD'));
+      return result;
+    },
+    256)
+  .addMessage('en', 'birthdate', 'Incorrect date');
 
 Parsley.options.trigger = 'submit';
 Parsley.options.errorClass = 'is-error';
