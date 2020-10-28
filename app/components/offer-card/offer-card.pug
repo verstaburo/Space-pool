@@ -33,20 +33,23 @@ mixin offer-card-for-space(item, cls)
             img(srcset=item.image)
       +e.H4.title!=item.title
       +e.describe
-        +e.summary
-          +e.summary-text(data-text=item.shortDescribe)!=item.shortDescribe
-        +e.details
-          +e.content
-            ul
-              li Super fast Wifi
-              li Community events
-              li Mail handling
-              li Barista coffee
-              li Dog friendly areas
-              li Reservation form
-          +nd-link._underline.__more.js-sm-show-offer-details.nd-hide-from-sm(href="#")
-            span(data-closed) Read more
-            span(data-opened) Hide
+        if item.shortDescribe
+          +e.summary
+            +e.summary-text(data-text=item.shortDescribe)!=item.shortDescribe
+          +e.details
+            +e.content
+              ul
+                li Super fast Wifi
+                li Community events
+                li Mail handling
+                li Barista coffee
+                li Dog friendly areas
+                li Reservation form
+            +nd-link._underline.__more.js-sm-show-offer-details.nd-hide-from-sm(href="#")
+              span(data-closed) Read more
+              span(data-opened) Hide
+        if item.fullDescribe
+          p!=item.fullDescribe
       if item.plan
         +e.FIGURE.plan
           +e.FIGCAPTION.plan-caption Floor plan
@@ -69,6 +72,17 @@ mixin offer-card-for-space-panel(data)
             option(srcset=data.image)
             img(srcset=data.image)
       +e.H4.title!=data.title
+      +e.describe
+        +e.details
+          +e.content
+            p The Finsbury Business Centre (FBC) was set up in 1983 on the site of a former 1930’s print-works. It was one of the first business centres in London and has helped  Holborn station and has excellent access to the local Holborn area.
+            ul
+              li Super fast Wifi
+              li Community events
+              li Mail handling
+              li Barista coffee
+              li Dog friendly areas
+              li Reservation form
       +e.price!=(data.price.amount + ' <span class="offer-card__price-period" data-text="' + data.price.period + '" data-mobile-text="' + data.price.periodshort + '"></span>')
       +e.buttons(data-blind-zone)
         +nd-button()._h30._md-fz15.__button(href="#") Request reservation

@@ -161,16 +161,13 @@
         @include grid-row(1, 2);
 
         padding-left: 96px;
-        padding-bottom: 142px;
 
         @include screen('xlg', max, 2) {
           padding-left: pxtovw(96, 1660);
-          padding-bottom: pxtovw(142, 1660);
         }
 
         @include screen('lg', max, 2) {
           padding-left: 0;
-          padding-bottom: 0;
         }
 
         @include screen('md', max, 2) {
@@ -196,15 +193,17 @@
         @include grid-column(1, 4);
         @include grid-row(2, 3);
 
-        margin: 0 -45px;
+        margin: 142px -45px 0;
         width: calc(100% + 90px);
 
         @include screen('xl', max, 2) {
-          margin: 0;
+          margin: pxtovw(142, 1660) 0 0;
           width: 100%;
         }
 
         @include screen('lg', max, 2) {
+          margin-top: 0;
+
           @include grid-column(1, 2);
         }
 
@@ -213,17 +212,7 @@
         }
 
         &:not(:first-child) {
-          @include screen('lg', max, 2) {
-            margin-top: pxtovw(127, 1366);
-          }
-
-          @include screen('md', max, 2) {
-            margin-top: pxtovw(77, 960);
-          }
-
-          @include screen('sm', max, 2) {
-            margin-top: pxtovw(90, 375);
-          }
+          @include rule(margin-top, (xl: 142, xlg: 142, lg: 127, md: 77, sm: 90));
         }
       }
     }

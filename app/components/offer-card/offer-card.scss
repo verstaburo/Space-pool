@@ -6,36 +6,82 @@
   box-shadow: 1px 1px 1px rgba(0, 0, 0, .03), 2px 2px 2px rgba(0, 0, 0, .04), 3px 3px 3px rgba(0, 0, 0, .02);
   background-color: $nd-color-basic-light;
   color: $nd-color-basic;
-  transition: border $ease-main;
+  transition: border $ease-main, box-shadow $ease-main;
   border-radius: 3px;
   width: 100%;
   padding: 22px 35px 35px;
   box-sizing: border-box;
   cursor: pointer;
 
+  @include rule(border-width, (xl: 2px, xlg: 2, lg: 2, md: 2, sm: 2));
+
   @include screen('xlg', max, 2) {
     padding: pxtovw(22, 1660) pxtovw(35, 1660) pxtovw(35, 1660);
     border-radius: pxtovw(3, 1660);
+    box-shadow: pxtovw(1, 1660) pxtovw(1, 1660) pxtovw(1, 1660) rgba(0, 0, 0, .03), pxtovw(2, 1660) pxtovw(2, 1660) pxtovw(2, 1660) rgba(0, 0, 0, .04), pxtovw(3, 1660) pxtovw(3, 1660) pxtovw(3, 1660) rgba(0, 0, 0, .02);
   }
 
   @include screen('lg', max, 2) {
     padding: pxtovw(22, 1366) pxtovw(35, 1366) pxtovw(35, 1366);
     border-radius: pxtovw(3, 1366);
+    box-shadow: pxtovw(1, 1366) pxtovw(1, 1366) pxtovw(1, 1366) rgba(0, 0, 0, .03), pxtovw(2, 1366) pxtovw(2, 1366) pxtovw(2, 1366) rgba(0, 0, 0, .04), pxtovw(3, 1366) pxtovw(3, 1366) pxtovw(3, 1366) rgba(0, 0, 0, .02);
   }
 
   @include screen('md', max, 2) {
     padding: pxtovw(22, 960) pxtovw(35, 960) pxtovw(35, 960);
     border-radius: pxtovw(3, 960);
+    box-shadow: pxtovw(1, 960) pxtovw(1, 960) pxtovw(1, 960) rgba(0, 0, 0, .03), pxtovw(2, 960) pxtovw(2, 960) pxtovw(2, 960) rgba(0, 0, 0, .04), pxtovw(3, 960) pxtovw(3, 960) pxtovw(3, 960) rgba(0, 0, 0, .02);
   }
 
   @include screen('sm', max, 2) {
     padding: pxtovw(12, 375) pxtovw(14, 375) pxtovw(40, 375);
     border-radius: pxtovw(3, 375);
     cursor: default;
+    box-shadow: pxtovw(1, 375) pxtovw(1, 375) pxtovw(1, 375) rgba(0, 0, 0, .03), pxtovw(2, 375) pxtovw(2, 375) pxtovw(2, 375) rgba(0, 0, 0, .04), pxtovw(3, 375) pxtovw(3, 375) pxtovw(3, 375) rgba(0, 0, 0, .02);
+  }
+
+  &:hover {
+    border-color: $nd-color-main;
+    box-shadow: 1px 1px 1px rgba(0, 0, 0, .03), 2px 2px 2px rgba(0, 0, 0, .04), 3px 3px 16px rgba(0, 0, 0, .15);
+
+    @include screen('xlg', max, 2) {
+      box-shadow: pxtovw(1, 1660) pxtovw(1, 1660) pxtovw(1, 1660) rgba(0, 0, 0, .03), pxtovw(2, 1660) pxtovw(2, 1660) pxtovw(2, 1660) rgba(0, 0, 0, .04), pxtovw(3, 1660) pxtovw(3, 1660) pxtovw(16, 1660) rgba(0, 0, 0, .15);
+    }
+
+    @include screen('lg', max, 2) {
+      box-shadow: pxtovw(1, 1366) pxtovw(1, 1366) pxtovw(1, 1366) rgba(0, 0, 0, .03), pxtovw(2, 1366) pxtovw(2, 1366) pxtovw(2, 1366) rgba(0, 0, 0, .04), pxtovw(3, 1366) pxtovw(3, 1366) pxtovw(16, 1366) rgba(0, 0, 0, .15);
+    }
+
+    @include screen('md', max, 2) {
+      box-shadow: pxtovw(1, 960) pxtovw(1, 960) pxtovw(1, 960) rgba(0, 0, 0, .03), pxtovw(2, 960) pxtovw(2, 960) pxtovw(2, 960) rgba(0, 0, 0, .04), pxtovw(3, 960) pxtovw(3, 960) pxtovw(16, 960) rgba(0, 0, 0, .15);
+    }
+
+    @include screen('sm', max, 2) {
+      cursor: default;
+      box-shadow: pxtovw(1, 375) pxtovw(1, 375) pxtovw(1, 375) rgba(0, 0, 0, .03), pxtovw(2, 375) pxtovw(2, 375) pxtovw(2, 375) rgba(0, 0, 0, .04), pxtovw(3, 375) pxtovw(3, 375) pxtovw(16, 375) rgba(0, 0, 0, .15);
+    }
   }
 
   &.is-active {
     border-color: $nd-color-main;
+    box-shadow: 1px 1px 1px rgba(0, 0, 0, .03), 2px 2px 2px rgba(0, 0, 0, .04), 3px 3px 3px rgba(0, 0, 0, .02);
+
+    @include screen('xlg', max, 2) {
+      box-shadow: pxtovw(1, 1660) pxtovw(1, 1660) pxtovw(1, 1660) rgba(0, 0, 0, .03), pxtovw(2, 1660) pxtovw(2, 1660) pxtovw(2, 1660) rgba(0, 0, 0, .04), pxtovw(3, 1660) pxtovw(3, 1660) pxtovw(3, 1660) rgba(0, 0, 0, .02);
+    }
+
+    @include screen('lg', max, 2) {
+      box-shadow: pxtovw(1, 1366) pxtovw(1, 1366) pxtovw(1, 1366) rgba(0, 0, 0, .03), pxtovw(2, 1366) pxtovw(2, 1366) pxtovw(2, 1366) rgba(0, 0, 0, .04), pxtovw(3, 1366) pxtovw(3, 1366) pxtovw(3, 1366) rgba(0, 0, 0, .02);
+    }
+
+    @include screen('md', max, 2) {
+      box-shadow: pxtovw(1, 960) pxtovw(1, 960) pxtovw(1, 960) rgba(0, 0, 0, .03), pxtovw(2, 960) pxtovw(2, 960) pxtovw(2, 960) rgba(0, 0, 0, .04), pxtovw(3, 960) pxtovw(3, 960) pxtovw(3, 960) rgba(0, 0, 0, .02);
+    }
+
+    @include screen('sm', max, 2) {
+      cursor: default;
+      box-shadow: pxtovw(1, 375) pxtovw(1, 375) pxtovw(1, 375) rgba(0, 0, 0, .03), pxtovw(2, 375) pxtovw(2, 375) pxtovw(2, 375) rgba(0, 0, 0, .04), pxtovw(3, 375) pxtovw(3, 375) pxtovw(3, 375) rgba(0, 0, 0, .02);
+    }
   }
 
   &_short {
@@ -280,7 +326,7 @@
     }
 
     &_short {
-      @include grid-template-rows(auto auto auto);
+      @include grid-template-rows(auto auto auto auto);
       @include grid-template-columns(220px 40px 1fr);
 
       @include screen('xlg', max, 2) {
@@ -469,23 +515,29 @@
       }
     }
 
-    &:not(:first-child) {
-      margin-top: 13px;
+    #{$b}__main_short & {
+      @include grid-column(1, 4);
+      @include grid-row(2, 3);
 
-      @include screen('xlg', max, 2) {
-        margin-top: pxtovw(13, 1660);
-      }
+      box-sizing: border-box;
 
-      @include screen('lg', max, 2) {
-        margin-top: pxtovw(13, 1366);
-      }
-
-      @include screen('md', max, 2) {
-        margin-top: pxtovw(13, 960);
-      }
+      @include rule(padding-bottom, (xl: 29px, xlg: 29, lg: 29, md: 29, sm: 29));
 
       @include screen('sm', max, 2) {
-        margin-top: pxtovw(15, 375);
+        font-size: pxtovw(16, 375);
+        line-height: (19 / 16);
+      }
+    }
+
+    &:not(:first-child) {
+      @include rule(margin-top, (xl: 13px, xlg: 13, lg: 13, md: 13, sm: 15));
+
+      #{$b}__main_short & {
+        margin-top: 0;
+
+        #{$b}.is-active & {
+          @include rule(margin-top, (xl: 24px, xlg: 24, lg: 24, md: 24, sm: 24));
+        }
       }
     }
 
@@ -544,6 +596,12 @@
         @include screen('sm', max, 2) {
           margin-top: pxtovw(28, 375);
         }
+
+        #{$b}__main_short & {
+          @include screen('sm', max, 2) {
+            margin-top: pxtovw(29, 375);
+          }
+        }
       }
     }
 
@@ -585,6 +643,14 @@
           height: pxtovw(26, 375);
           margin-right: pxtovw(10, 375);
         }
+
+        #{$b}__main_short & {
+          @include screen('sm', max, 2) {
+            width: pxtovw(12, 375);
+            height: pxtovw(19, 375);
+            margin-right: pxtovw(15, 375);
+          }
+        }
       }
 
       &:not(:first-child) {
@@ -604,6 +670,12 @@
 
         @include screen('sm', max, 2) {
           margin-top: pxtovw(9, 375);
+        }
+
+        #{$b}__main_short & {
+          @include screen('sm', max, 2) {
+            margin-top: pxtovw(15, 375);
+          }
         }
       }
     }
@@ -913,7 +985,7 @@
 
     #{$b}__main_short & {
       @include grid-column(1, 4);
-      @include grid-row(2, 3);
+      @include grid-row(3, 4);
       @include grid-align-self(end);
       @include grid-justify-self(end);
 
@@ -1072,7 +1144,7 @@
 
     #{$b}__main_short & {
       @include grid-column(1, 4);
-      @include grid-row(3, 4);
+      @include grid-row(4, 5);
 
       display: none;
       max-height: 0;
@@ -1085,6 +1157,10 @@
 
   &__more {
     font-weight: 600;
+
+    #{$b}.is-active & {
+      display: none;
+    }
 
     span[data-closed] {
       display: inline;
@@ -1170,6 +1246,18 @@
 
       @include screen('sm', max, 2) {
         animation: none;
+      }
+    }
+
+    #{$b}__main_short & {
+      @include grid-column(1, 4);
+      @include grid-row(2, 3);
+
+      display: none;
+
+      #{$b}.is-active & {
+        display: block;
+        animation: css-accordion .5s ease-out;
       }
     }
 
