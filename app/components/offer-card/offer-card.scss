@@ -36,7 +36,6 @@
   @include screen('sm', max, 2) {
     padding: pxtovw(12, 375) pxtovw(14, 375) pxtovw(40, 375);
     border-radius: pxtovw(3, 375);
-    cursor: default;
     box-shadow: pxtovw(1, 375) pxtovw(1, 375) pxtovw(1, 375) rgba(0, 0, 0, .03), pxtovw(2, 375) pxtovw(2, 375) pxtovw(2, 375) rgba(0, 0, 0, .04), pxtovw(3, 375) pxtovw(3, 375) pxtovw(3, 375) rgba(0, 0, 0, .02);
   }
 
@@ -57,7 +56,6 @@
     }
 
     @include screen('sm', max, 2) {
-      cursor: default;
       box-shadow: pxtovw(1, 375) pxtovw(1, 375) pxtovw(1, 375) rgba(0, 0, 0, .03), pxtovw(2, 375) pxtovw(2, 375) pxtovw(2, 375) rgba(0, 0, 0, .04), pxtovw(3, 375) pxtovw(3, 375) pxtovw(16, 375) rgba(0, 0, 0, .15);
     }
   }
@@ -79,7 +77,6 @@
     }
 
     @include screen('sm', max, 2) {
-      cursor: default;
       box-shadow: pxtovw(1, 375) pxtovw(1, 375) pxtovw(1, 375) rgba(0, 0, 0, .03), pxtovw(2, 375) pxtovw(2, 375) pxtovw(2, 375) rgba(0, 0, 0, .04), pxtovw(3, 375) pxtovw(3, 375) pxtovw(3, 375) rgba(0, 0, 0, .02);
     }
   }
@@ -520,8 +517,6 @@
       @include grid-row(2, 3);
 
       box-sizing: border-box;
-
-      @include rule(padding-bottom, (xl: 29px, xlg: 29, lg: 29, md: 29, sm: 29));
 
       @include screen('sm', max, 2) {
         font-size: pxtovw(16, 375);
@@ -1252,6 +1247,7 @@
     #{$b}__main_short & {
       @include grid-column(1, 4);
       @include grid-row(2, 3);
+      @include rule(padding-bottom, (xl: 29px, xlg: 29, lg: 29, md: 29, sm: 29));
 
       display: none;
 
