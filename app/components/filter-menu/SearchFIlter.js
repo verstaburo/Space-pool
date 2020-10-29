@@ -367,7 +367,17 @@ export default class SearchFilter {
       const button = $(`[data-nd-filter-target="${type}"]`);
       const range = $(isRange).find('[data-nd-range-container]').get(0);
       const value = range.noUiSlider.get();
-      _this._setButtonName(button, `${Math.trunc(value[0])} - ${Math.trunc(value[1])}`);
+      const defaultMin = Number($(isRange).attr('data-min'));
+      const defaultMax = Number($(isRange).attr('data-max'));
+      if (defaultMin === Math.trunc(value[0]) && defaultMax === Math.trunc(value[1])) {
+        _this._setDefaultButtonState(type);
+      } else if (defaultMin === Math.trunc(value[0]) && defaultMax > Math.trunc(value[1])) {
+        _this._setButtonName(button, `< ${Math.trunc(value[1])}`);
+      } else if (defaultMin < Math.trunc(value[0]) && defaultMax === Math.trunc(value[1])) {
+        _this._setButtonName(button, `${Math.trunc(value[0])}+`);
+      } else {
+        _this._setButtonName(button, `${Math.trunc(value[0])} - ${Math.trunc(value[1])}`);
+      }
     }
 
     const filterButton = $('[data-nd-filter-target="filter"]');

@@ -523,7 +523,11 @@ export function sliders() {
   });
 
   function resetRange(range) {
-    range.noUiSlider.reset();
+    const rangeWrapper = $(range).closest('.js-nd-range');
+    const defaultMin = Number($(rangeWrapper).attr('data-min'));
+    const defaultMax = Number($(rangeWrapper).attr('data-max'));
+    range.noUiSlider.set([defaultMin, defaultMax]);
+    // range.noUiSlider.reset();
   }
 
   window.globalFunctions.rangeInit = rangeInit;

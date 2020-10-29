@@ -225,7 +225,7 @@
     width: 14px;
     height: 14px;
     top: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate3d(-50%, -50%, 0);
     border-radius: 50%;
     background-color: $nd-color-basic;
     box-sizing: border-box;
@@ -233,6 +233,8 @@
     cursor: pointer;
     box-shadow: none;
     border-color: black;
+
+    @include rule(right, (xl: -14px, xlg: -14, lg: -14, md: -14, sm: -14));
 
     @include screen('xlg', max, 2) {
       height: pxtovw(14, 1660);
