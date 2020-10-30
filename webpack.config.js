@@ -1,18 +1,18 @@
 const webpack = require('webpack');
 const path = require('path');
-const ChunksPlugin = require('webpack-split-chunks');
+// const ChunksPlugin = require('webpack-split-chunks');
 
 const isDebug = process.env.NODE_ENV !== 'production';
 
 module.exports = (watch = false) => ({
   entry: {
     index: path.resolve('./app/scripts/app.js'),
-    other: path.resolve('./app/scripts/other.js'),
-    old: path.resolve('./app/scripts/old.js'),
+    // other: path.resolve('./app/scripts/other.js'),
+    // old: path.resolve('./app/scripts/old.js'),
   },
   output: {
     publicPath: '/assets/scripts/',
-    filename: '[name].app.min.js',
+    filename: 'app.min.js',
     path: path.resolve('./dist/assets/scripts/'),
   },
   watch,
@@ -36,10 +36,10 @@ module.exports = (watch = false) => ({
       },
     }),
     new webpack.NoErrorsPlugin(),
-    new ChunksPlugin({
-      to: 'vendor',
-      test: /node_modules/,
-    }),
+    // new ChunksPlugin({
+    //   to: 'vendor',
+    //   test: /node_modules/,
+    // }),
     !isDebug ? new webpack.optimize.UglifyJsPlugin() : f => f,
   ],
 });

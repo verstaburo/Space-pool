@@ -504,6 +504,7 @@ export function sliders() {
     range.noUiSlider.on('update', (values, handle) => {
       inputs[handle].val(`${currency} ${parseInt(values[handle], 10)}`);
       inputs[handle].trigger('change');
+      window.setLabelPosition(inputs[handle]);
     });
 
     $(document).on('blur', '[data-nd-range-input-min], [data-nd-range-input-max]', (evt) => {
