@@ -104,7 +104,15 @@
     }
 
     &:hover {
-      color: $nd-color-main;
+      @include screen('sm', min, 2) {
+        color: $nd-color-main;
+      }
+    }
+
+    &:active {
+      @include screen('sm', max, 2) {
+        color: $nd-color-main;
+      }
     }
 
     &.is-active {

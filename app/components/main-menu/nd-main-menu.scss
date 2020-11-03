@@ -304,12 +304,21 @@
     }
 
     @include screen('sm', max, 2) {
-      padding: pxtovw(10, 375) 0;
+      padding: 0 0 pxtovw(10, 375);
       font-size: pxtovw(15, 375);
+      margin-top: pxtovw(10, 375);
     }
 
     &:hover {
-      color: $nd-color-main;
+      @include screen('sm', min, 2) {
+        color: $nd-color-main;
+      }
+    }
+
+    &:active {
+      @include screen('sm', max, 2) {
+        color: $nd-color-main;
+      }
     }
 
     &_short {
@@ -351,10 +360,6 @@
         @include screen('sm', max, 2) {
           background-size: pxtovw(2, 375) pxtovw(2, 375);
         }
-      }
-
-      &:hover span {
-        // background-image: linear-gradient($nd-color-main, $nd-color-main);
       }
     }
 
