@@ -8,6 +8,7 @@
   left: 0;
   z-index: 23;
   min-height: 90px;
+  box-sizing: border-box;
 
   @include screen('sm', max, 2) {
     transition: transform $ease-main, opacity $ease-main;
@@ -34,17 +35,27 @@
     display: flex;
   }
 
-  .is-keyboard-visible & {
-    @include screen('sm', max, 2) {
-      opacity: 0;
-      transform: translate3d(0, 100%, 0);
-    }
-  }
+  // .is-keyboard-visible & {
+  //   @include screen('sm', max, 2) {
+  //     opacity: 0;
+  //     transform: translate3d(0, 100%, 0);
+  //   }
+  // }
 
   &_hidden {
     visibility: hidden;
     pointer-events: none;
     opacity: 0;
+
+    @include screen('sm', max, 2) {
+      bottom: auto;
+      top: 0;
+      box-sizing: border-box;
+      min-height: pxtovw(85, 375);
+      padding-top: pxtovw(17, 375);
+      padding-bottom: pxtovw(17, 375);
+      box-shadow: 0 pxtovw(2, 375) pxtovw(2, 375) rgba(0, 0, 0, .04);
+    }
 
     &.is-active {
       opacity: 1;
@@ -67,6 +78,13 @@
     width: 100vw;
   }
 
+  &_hidden.is-fixed {
+    @include screen('sm', max, 2) {
+      bottom: auto;
+      top: 0;
+    }
+  }
+
   &__controls {
     display: flex;
     justify-content: space-between;
@@ -87,6 +105,12 @@
 
     @include screen('md', max, 2) {
       padding: 0;
+    }
+
+    #{$b}_hidden & {
+      @include screen('sm', max, 2) {
+        align-items: flex-start;
+      }
     }
   }
 
@@ -133,6 +157,44 @@
         }
       }
     }
+
+    #{$b}_hidden & {
+      @include screen('sm', max, 2) {
+        position: relative;
+      }
+
+      &::before {
+        @include screen('sm', max, 2) {
+          @include pseudo;
+
+          top: 50%;
+          left: 0;
+          transform: translate3d(0, -50%, 0);
+          width: pxtovw(21, 375);
+          height: pxtovw(11, 375);
+          background-image: url('../images/bg/arrow5.svg');
+          background-repeat: no-repeat;
+          background-size: contain;
+          background-position: 50% 50%;
+          z-index: 1;
+        }
+      }
+
+      .nd-link {
+        &__icon {
+          @include screen('sm', max, 2) {
+            opacity: 0;
+            height: pxtovw(19, 375);
+          }
+        }
+
+        &__text {
+          @include screen('sm', max, 2) {
+            display: none;
+          }
+        }
+      }
+    }
   }
 
   &__back {
@@ -173,6 +235,10 @@
         width: 100%;
       }
     }
+
+    #{$b}_hidden & {
+      @include rule(min-width, (sm: 100));
+    }
   }
 
   &__savearea {
@@ -203,6 +269,14 @@
 
     @include screen('sm', max, 2) {
       box-shadow: 0 pxtovw(-1, 375) pxtovw(3, 375) rgba(0, 0, 0, .03);
+    }
+
+    &.nd-form-panel_hidden {
+      @include rule(min-height, (sm: 85));
+
+      @include screen('sm', max, 2) {
+        box-shadow: 0 pxtovw(2, 375) pxtovw(2, 375) rgba(0, 0, 0, .04);
+      }
     }
 
     #{$b} {
