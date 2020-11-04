@@ -271,8 +271,16 @@
       border-bottom: none;
     }
 
-    &:hover {
-      border-color: $nd-color-main;
+    body:not(.is-touched-device) & {
+      &:hover {
+        border-color: $nd-color-main;
+      }
+    }
+
+    .is-touched-device & {
+      &:active {
+        border-color: $nd-color-main;
+      }
     }
   }
 
