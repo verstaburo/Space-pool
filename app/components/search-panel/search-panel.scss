@@ -294,11 +294,18 @@
 
     @include screen('sm', max, 2) {
       height: pxtovw(16, 375);
+      transition: opacity $ease-main;
     }
 
     &_big {
       @include screen('sm', max, 2) {
         height: pxtovw(25, 375);
+      }
+    }
+
+    .is-shifted & {
+      @include screen('sm', max, 2) {
+        opacity: 0;
       }
     }
 
@@ -506,12 +513,19 @@
 
     @include screen('sm', max, 2) {
       font-size: pxtovw(13, 375);
+      transition: opacity $ease-main;
     }
 
     &:not(:first-child) {
       @include screen('sm', max, 2) {
         text-align: center;
         margin-top: pxtovw(17, 375);
+      }
+    }
+
+    .is-shifted & {
+      @include screen('sm', max, 2) {
+        opacity: 0;
       }
     }
 
@@ -785,6 +799,7 @@
       order: 2;
       margin-top: pxtovw(45, 375);
       width: 100%;
+      transition: transform $ease-main;
     }
 
     &:not(:last-child) {
@@ -804,6 +819,12 @@
 
       @include screen('sm', max, 2) {
         margin-right: 0;
+      }
+    }
+
+    .is-shifted & {
+      @include screen('sm', max, 2) {
+        transform: translate3d(0, pxtovw(-150, 375), 0);
       }
     }
   }

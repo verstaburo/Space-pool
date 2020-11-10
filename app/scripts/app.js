@@ -28,6 +28,7 @@ import buttonHover from '../blocks/button/button';
 import locationTagsMax from '../components/tags-map/tags-map';
 import mapPopup from '../blocks/map-popup/map-popup';
 import screenKeyboardVisibility from './functions/screenKeyboardVisibility';
+import ShiftInputLocationOnFocus from '../components/search-panel/search-panel';
 // other
 import positioning from './functions/position';
 import ndSelects from '../blocks/form-elements/nd-select';
@@ -128,6 +129,7 @@ $(() => {
   locationTagsMax();
   mapPopup();
   screenKeyboardVisibility();
+  ShiftInputLocationOnFocus();
   // other
   positioning();
   ndSelects();

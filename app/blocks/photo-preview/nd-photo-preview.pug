@@ -5,6 +5,9 @@ mixin nd-photo-preview(data, index)
     if data.cropName
       +e.INPUT(type="hidden" name=(data.cropName + '[' + index + ']') value=data.cropImage)
     +e.BUTTON.delete.js-delete-file(type="button")
+    +e.manipulators
+      +e.BUTTON.manipulator_down.js-shift-down
+      +e.BUTTON.manipulator_up.js-shift-up
     block
     +e.loader
       +loader

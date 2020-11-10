@@ -74,20 +74,63 @@ export default function uploader() {
 
   window.globalFunctions.updateIndexesAtPreviews = updateAllPreviewIndex;
 
+  function blockUpDownButtons() {
+    const lists = $('[data-draggable-list]');
+    $(lists).each((i, el) => {
+      const items = $('[data-draggable-item]');
+      const firstItem = $(items).first();
+      const lastItem = $(items).last();
+      const firstUp = $(firstItem).find('.js-shift-up');
+      const lastDown = $(lastItem).find('.js-shift-down');
+      $(items).find('.js-shift-up').removeAttr('disabled');
+      $(items).find('.js-shift-down').removeAttr('disabled');
+      $(firstUp).attr('disabled', 'disabled');
+      $(lastDown).attr('disabled', 'disabled');
+    });
+  }
+
+  function shiftElement(evt) {
+    evt.preventDefault();
+    const _this = evt.currentTarget;
+    const direction = $(_this).is('.js-shift-up') ? 'up' : 'down';
+    const element = $(_this).closest('[data-draggable-item]');
+    if (direction === 'up') {
+      const sibUp = $(element).prev();
+      $(element).insertBefore(sibUp);
+    } else {
+      const sibDown = $(element).next();
+      $(element).insertAfter(sibDown);
+    }
+    blockUpDownButtons();
+    updateAllPreviewIndex();
+  }
+
   function draggableListInit() {
     const list = $('[data-draggable-list]');
     if (list.length) {
       $(list).each((i, el) => {
-        const srt = new Sortable(el, {
-          draggable: '[data-draggable-item]',
-          filter: '[data-insert-preview]',
-          onEnd: updateAllPreviewIndex,
-          swap: true,
-          scroll: true,
-          scrollSensitivity: 30,
-          scrollSpeed: 10,
-          bubbleScroll: true,
-        });
+        const element = el;
+        const isInitAlready = el.initSortAndDrag;
+        if (window.Modernizr.mq(`(min-width: ${window.globalOptions.sizes.sm}px)`) && !isInitAlready) {
+          const srt = new Sortable(el, {
+            draggable: '[data-draggable-item]',
+            filter: '[data-insert-preview]',
+            onEnd() {
+              updateAllPreviewIndex();
+              blockUpDownButtons();
+            },
+            swap: true,
+            scroll: true,
+            scrollSensitivity: 30,
+            scrollSpeed: 10,
+            bubbleScroll: true,
+          });
+          element.initSortAndDrag = true;
+          element.sortAndDrag = srt;
+        } else if (window.Modernizr.mq(`(max-width: ${window.globalOptions.sizes.sm - 1}px)`) && isInitAlready) {
+          el.sortAndDrag.destroy();
+          element.initSortAndDrag = false;
+        }
       });
     }
   }
@@ -171,6 +214,7 @@ export default function uploader() {
                 $(input).prependTo(previewEl);
                 input.trigger('IMG_READY_FOR_LOAD');
                 updateAllPreviewIndex();
+                blockUpDownButtons();
               });
               $(preview).find('[data-preview-image]').append(img);
               if (errorMessage.length > 0) {
@@ -197,6 +241,7 @@ export default function uploader() {
         if (conditions.clear && conditions.clear.remove) {
           $(conditions.clear.target).remove();
           updateAllPreviewIndex();
+          blockUpDownButtons();
         }
         if (field) {
           const inpWrap = $(field).closest('.js-upload-file');
@@ -290,6 +335,7 @@ export default function uploader() {
       $(counter).text('');
     }
     updateAllPreviewIndex();
+    blockUpDownButtons();
   });
 
   /* eslint-disable no-unused-vars */
@@ -320,9 +366,14 @@ export default function uploader() {
   window.draggableListInit = draggableListInit;
 
   const dragList = document.querySelectorAll('[data-draggable-list]');
+
   if (dragList) {
     draggableListInit();
+    blockUpDownButtons();
   }
+
+  $(document).on('click', '.js-shift-down, .js-shift-up', shiftElement);
+  $(window).on('resize', draggableListInit);
 }
 /* eslint-enable no-unused-vars */
 /* eslint-enable max-len */

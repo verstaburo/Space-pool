@@ -42,6 +42,12 @@
     box-shadow: 0 0 pxtovw(4, 375) rgba(56, 58, 68, .09), 0 pxtovw(3, 375) pxtovw(14, 375) rgba(0, 0, 0, .13);
   }
 
+  .search-panel__locations & {
+    @include screen('sm', max, 2) {
+      max-height: calc(100vh - (((120 * 100) / 375) * 1vw));
+    }
+  }
+
   &::-webkit-scrollbar-track {
     width: 6px;
     background-color: $nd-color-bg;
@@ -132,6 +138,12 @@
     @include screen('sm', max, 2) {
       padding: pxtovw(11, 375) 0 pxtovw(15, 375);
       max-height: pxtovw(220, 375);
+    }
+
+    .search-panel__locations & {
+      @include screen('sm', max, 2) {
+        max-height: calc(100vh - (((120 * 100) / 375) * 1vw));
+      }
     }
   }
 

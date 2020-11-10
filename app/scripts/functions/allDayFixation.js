@@ -8,8 +8,6 @@ export default function allDayFixation() {
     const startTime = $('[data-allday-from]');
     const endTime = $('[data-allday-till]');
 
-    console.log($(el).prop('checked'));
-
     if ($(el).prop('checked') === true) {
       startTime[0].choices.setChoiceByValue('00:00');
       startTime.trigger('change');
