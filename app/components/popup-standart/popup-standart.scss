@@ -1,0 +1,222 @@
+.popup-standart {
+  $b: &;
+
+  @include rule(max-width, (xl: 800px, xlg: 800, lg: 800, md: 800, sm: 335));
+
+  &__content {
+    @include rule(padding-left, (xl: 50px, xlg: 50, lg: 50, md: 50, sm: 18));
+    @include rule(padding-right, (xl: 50px, xlg: 50, lg: 50, md: 50, sm: 18));
+    @include rule(padding-top, (xl: 105px, xlg: 105, lg: 105, md: 105, sm: 115));
+    @include rule(padding-bottom, (xl: 70px, xlg: 70, lg: 70, md: 70, sm: 57));
+
+    text-align: center;
+
+    &_grid {
+      @include display-grid;
+      @include grid-template-columns(170px 1fr);
+      @include grid-template-rows(auto auto);
+      @include rule(column-gap, (xl: 44px, xlg: 44, lg: 44, md: 44, sm: 44));
+
+      text-align: left;
+
+      @include screen('xlg', max, 2) {
+        @include grid-template-columns(pxtovw(170, 1660) 1fr);
+      }
+
+      @include screen('lg', max, 2) {
+        @include grid-template-columns(pxtovw(170, 1366) 1fr);
+      }
+
+      @include screen('md', max, 2) {
+        @include grid-template-columns(pxtovw(170, 960) 1fr);
+      }
+
+      @include screen('sm', max, 2) {
+        display: block;
+        text-align: center;
+      }
+    }
+  }
+
+  &__describe {
+    @include grid-row(1, 2);
+    @include grid-column(1, 3);
+
+    #{$b}__content_grid #{$b}__media ~ & {
+      @include rule(padding-left, (xl: 214px, xlg: 214, lg: 214, md: 214, sm: 0));
+    }
+
+    #{$b}__content:not(.popup-standart__content_grid) & {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: center;
+    }
+
+    &:not(:first-child) {
+      @include rule(margin-top, (sm: 44));
+    }
+  }
+
+  &__title {
+    font-family: $font-stolzl;
+    line-height: 1.3;
+    font-weight: 400;
+
+    @include rule(max-width, (xl: 578px, xlg: 578, lg: 578, md: 578));
+    @include rule(font-size, (xl: 24px, xlg: 24, lg: 24, md: 24, sm: 20));
+
+    @include screen('sm', max, 2) {
+      max-width: none;
+    }
+  }
+
+  &__text {
+    @include rule(line-height, (xl: 26px, xlg: 26, lg: 26, md: 26, sm: 26));
+    @include rule(font-size, (xl: 18px, xlg: 18, lg: 18, md: 18, sm: 15));
+    @include rule(max-width, (xl: 578px, xlg: 578, lg: 578, md: 578));
+
+    @include screen('sm', max, 2) {
+      max-width: none;
+    }
+
+    &:not(:first-child) {
+      @include rule(margin-top, (xl: 35px, xlg: 35, lg: 35, md: 35, sm: 54));
+
+      #{$b}__content:not(.popup-standart__content_grid) #{$b}__media ~ #{$b}__describe & {
+        @include rule(margin-top, (xl: 45px, xlg: 45, lg: 45, md: 45, sm: 54));
+      }
+    }
+  }
+
+  &__buttons {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+
+    @include grid-column(2, 3);
+    @include grid-row(2, 3);
+
+    @include screen('sm', max, 2) {
+      justify-content: flex-start;
+      flex-direction: column;
+    }
+
+    &_wide {
+      @include grid-column(1, 3);
+    }
+
+    &:not(:first-child) {
+      @include rule(margin-top, (xl: 85px, xlg: 85, lg: 85, md: 85, sm: 60));
+    }
+
+    #{$b}__media ~ & {
+      @include rule(margin-top, (xl: 60px, xlg: 60, lg: 60, md: 60, sm: 60));
+    }
+  }
+
+  &__button {
+    flex: 1;
+
+    @include screen('sm', max, 2) {
+      width: 100%;
+      flex: none;
+    }
+
+    &_wide {
+      flex: none;
+      width: 100%;
+    }
+
+    &_mw335 {
+      @include rule(min-width, (xl: 335px, xlg: 335, lg: 335, md: 335, sm: 0));
+
+      flex: none;
+    }
+
+    &:not(:first-child) {
+      @include rule(margin-left, (xl: 30px, xlg: 30, lg: 30, md: 30, sm: 0));
+      @include rule(margin-top, (sm: 20));
+    }
+  }
+
+  &__media {
+    @include grid-column(1, 2);
+    @include grid-row(1, 2);
+    @include rule(margin-top, (sm: -15));
+    @include grid-justify-self(center);
+    @include rule(margin-bottom, (xl: 56px, xlg: 56, lg: 56, md: 56, sm: 35));
+
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+
+    #{$b}__content_grid & {
+      margin-bottom: 0;
+    }
+  }
+
+  &__image {
+    @include rule(width, (xl: 152px, xlg: 152, lg: 152, md: 152, sm: 170));
+    @include rule(height, (xl: 140px, xlg: 140, lg: 140, md: 140, sm: 170));
+
+    position: relative;
+    display: block;
+    background-color: $nd-color-gray2;
+    overflow: hidden;
+    flex: none;
+
+    #{$b}__content_grid & {
+      @include rule(width, (xl: 170px, xlg: 170, lg: 170, md: 170, sm: 170));
+      @include rule(height, (xl: 170px, xlg: 170, lg: 170, md: 170, sm: 170));
+    }
+
+    img {
+      @include fill-img;
+    }
+  }
+
+  .nd-popup {
+    &__container {
+      justify-content: center;
+      align-items: center;
+    }
+
+    &__header {
+      @include rule(height, (xl: 80px, xlg: 80, lg: 80, md: 80, sm: 76));
+      @include rule(padding-left, (xl: 50px, xlg: 50, lg: 50, md: 50, sm: 18));
+
+      border: none;
+
+      @include screen('sm', max, 2) {
+        justify-content: flex-start;
+      }
+    }
+
+    &__title  {
+      @include screen('sm', max, 2) {
+        text-align: left;
+      }
+    }
+
+    &__wrapper {
+      @include rule(border-radius, (xl: 3px, xlg: 3, lg: 3, md: 3, sm: 3));
+
+      width: 100%;
+      max-height: 100%;
+
+      @include screen('sm', max, 2) {
+        box-shadow: pxtovw(3, 375) pxtovw(3, 375) pxtovw(3, 375) rgba(0, 0, 0, .02), pxtovw(2, 375) pxtovw(2, 375) pxtovw(2, 375) rgba(0, 0, 0, .04), pxtovw(1, 375) pxtovw(1, 375) pxtovw(1, 375) rgba(0, 0, 0, .03);
+      }
+    }
+
+    &__close {
+      top: 0;
+      right: 0;
+      left: auto;
+
+      @include rule(height, (xl: 74px, xlg: 74, lg: 74, md: 74, sm: 72));
+      @include rule(width, (xl: 68px, xlg: 68, lg: 68, md: 68, sm: 54));
+    }
+  }
+}

@@ -1,4 +1,6 @@
 .nd-popup {
+  $b: &;
+
   width: 100%;
   height: 100%;
   pointer-events: none;
@@ -36,6 +38,16 @@
     @include screen('md', max, 2) {
       width: 100%;
     }
+
+    #{$b}_red & {
+      color: $nd-color-basic-light;
+      background-color: $nd-color-fixeddesk;
+    }
+
+    #{$b}_orange & {
+      color: $nd-color-basic-light;
+      background-color: $nd-color-hotdesk;
+    }
   }
 
   &__content {
@@ -44,7 +56,7 @@
     overflow: auto;
     box-sizing: border-box;
     padding: 60px 0;
-    scrollbar-color: $nd-color-basic $nd-color-bg;
+    scrollbar-color: $nd-color-scroll transparent;
     scrollbar-width: thin;
     -ms-overflow-style: none;
 
@@ -62,7 +74,7 @@
 
     &::-webkit-scrollbar-track {
       width: 6px;
-      background-color: $nd-color-bg;
+      background-color: transparent;
 
       @include screen('xlg', max, 2) {
         width: pxtovw(6, 1660);
@@ -83,7 +95,7 @@
 
     &::-webkit-scrollbar {
       width: 4px;
-      background-color: $nd-color-bg;
+      background-color: transparent;
 
       @include screen('xlg', max, 2) {
         width: pxtovw(4, 1660);
@@ -104,7 +116,7 @@
 
     &::-webkit-scrollbar-thumb {
       width: 4px;
-      background-color: $nd-color-basic;
+      background-color: $nd-color-scroll;
 
       @include screen('xlg', max, 2) {
         width: pxtovw(4, 1660);
@@ -151,6 +163,18 @@
       height: pxtovw(60, 375);
       padding: 0 pxtovw(60, 375);
     }
+
+    &_tal {
+      justify-content: flex-start;
+    }
+
+    #{$b}_red & {
+      background-color: $nd-color-fixeddesk;
+    }
+
+    #{$b}_orange & {
+      background-color: $nd-color-hotdesk;
+    }
   }
 
   &__title {
@@ -176,6 +200,10 @@
       @include rule(font-size, (xl: 18px, xlg: 18, lg: 18, md: 18, sm: 18));
 
       line-height: 1;
+    }
+
+    &_sm-fz15 {
+      @include rule(font-size, (sm: 15));
     }
   }
 

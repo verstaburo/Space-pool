@@ -11,7 +11,7 @@ block header
   - var pageClass = ' nd-page_main'
 
 block content
-  - var menuList = [{name: "Общее", href: "#nav-common"}, {name: "Search", href: "#nav-search"}, {name: "Rental Summary", href: "#nav-rental-summary"}, {name: "Deal Passport", href: "#nav-deal"}, {name: "Guest Account", href: "#nav-ga"}, {name: "Host Account", href: "#nav-ha"}, {name: "Edit Space", href: "#nav-edit-space"}, {name: "Add Space", href: "#nav-add-space"}];
+  - var menuList = [{name: "Общее", href: "#nav-common"}, {name: "Search", href: "#nav-search"}, {name: "Rental Summary", href: "#nav-rental-summary"}, {name: "Deal Passport", href: "#nav-deal"}, {name: "Guest Account", href: "#nav-ga"}, {name: "Host Account", href: "#nav-ha"}, {name: "Edit Space", href: "#nav-edit-space"}, {name: "Add Space", href: "#nav-add-space"}, {name: "Popups", href: "#nd-popups"}];
   //- , {name: "HA - Single Space", href: "#nav-ha-space"}];
   - var nav = {menu: menuList, menuLinkCls: ' js-nd-anchor'}
   +nd-page-header._grid._grid_acc
@@ -29,6 +29,19 @@ block content
 
       +nd-content-main
         +b.sitemap
+          +e.group#nd-popups
+            +e.head
+              +page-title Попапы
+            +e.list
+              +nd-link(href="#popup-type1-v1").js-nd-popup Попап вариация 1 (2 кнопки) (#popup-type1-v1)
+              +nd-link(href="#popup-type1-v2").js-nd-popup Попап вариация 1 (1 кнопка) (#popup-type1-v2)
+              +nd-link(href="#popup-type2-v1").js-nd-popup Попап вариация 2 (2 кнопки) (#popup-type2-v1)
+              +nd-link(href="#popup-type2-v2").js-nd-popup Попап вариация 2 (без картинки) (#popup-type2-v2)
+              +nd-link(href="#popup-type3-v1").js-nd-popup Попап вариация 3 (2 кнопки) (#popup-type3-v1)
+              +nd-link(href="#popup-type3-v2").js-nd-popup Попап вариация 3 (без картинки) (#popup-type3-v2)
+              +nd-link(href="#popup-type3-v3").js-nd-popup Попап вариация 3 (1 кнопка) (#popup-type3-v3)
+              +nd-link(href="#popup-type3-v4").js-nd-popup Попап вариация 3 (very important) (#popup-type3-v4)
+              +nd-link(href="#popup-type3-v5").js-nd-popup Попап вариация 3 (error) (#popup-type3-v5)
           +e.group#nav-ha-space.nd-hide
             +e.head
               +page-title Страницы Host Account - Single Space (only HD breakpoint)
@@ -127,3 +140,14 @@ block content
               +nd-link(href="nd-signup-confirm.html") Spacepool - Sign Up - Email Confirmed(nd-signup-confirm.html)
               +nd-link(href="nd-signup-ready.html") Spacepool - Sign Up - Account created (nd-signup-ready.html)
               +nd-link(href="login.html") Spacepool - Login (login.html)
+
+block popups
+  +popup-standart(getData('nd-standart-popups.json').type1)#popup-type1-v1
+  +popup-standart(getData('nd-standart-popups.json')['type1.1'])#popup-type1-v2
+  +popup-standart(getData('nd-standart-popups.json')['type2'])#popup-type2-v1
+  +popup-standart(getData('nd-standart-popups.json')['type2.1'])#popup-type2-v2
+  +popup-standart(getData('nd-standart-popups.json')['type3'])#popup-type3-v1
+  +popup-standart(getData('nd-standart-popups.json')['type3.1'])#popup-type3-v2
+  +popup-standart(getData('nd-standart-popups.json')['type3.2'])#popup-type3-v3
+  +popup-standart(getData('nd-standart-popups.json')['type3.3']).nd-popup_orange#popup-type3-v4
+  +popup-standart(getData('nd-standart-popups.json')['type3.4']).nd-popup_red#popup-type3-v5

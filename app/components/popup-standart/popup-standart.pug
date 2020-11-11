@@ -1,0 +1,21 @@
+mixin popup-standart(data)
+  +nd-popup.popup-standart__&attributes(attributes)
+    +nd-popup-header()(class=(data.headerClass || ''))
+      +nd-popup-title().nd-popup__title_fz18.nd-popup__title_sm-fz15(class=(data.titleClass || ''))!=data.titleHeader
+      +nd-popup-close-fancy
+    +nd-popup-content().popup-standart__content(class=(data.contentClass || ''))
+      if data.media
+        +e.media(class=(data.media.class || ''))
+          +e.PICTURE.image
+            img(src=data.media.src)
+      +e.describe
+        if data.title
+          +e.title(class=(data.title.class || ''))!=data.title.text
+        if data.text
+          +e.text(class=(data.text.class || ''))!=data.text.text
+      if data.buttons
+        +e.buttons(class=(data.buttons.class || ''))
+          each button in data.buttons.buttons
+            +nd-button()(class=(button.class + ' __button'))!=button.name
+
+    block
