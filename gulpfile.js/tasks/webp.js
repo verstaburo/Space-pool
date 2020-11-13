@@ -11,7 +11,8 @@ module.exports = () => (
   }))
   .pipe(changed('dist/assets/images/nd'))
   .pipe(webp({
-    quality: 70,
+    quality: 90,
+    lossless: true,
   }))
   .pipe(gulp.dest('dist/assets/images/nd'))
 );
