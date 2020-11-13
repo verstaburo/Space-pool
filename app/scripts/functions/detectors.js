@@ -14,3 +14,11 @@ if (detectIt.hasTouch) {
 if (navigator.userAgent.indexOf('Edge') !== -1) {
   $('body').addClass('is-Edge');
 }
+
+if ('webkitLineClamp' in document.body.style) {
+  $('body').addClass('css-line-clamp');
+} else if ('lineClamp' in document.body.style) {
+  $('body').addClass('css-line-clamp');
+} else {
+  $('body').addClass('no-css-line-clamp');
+}

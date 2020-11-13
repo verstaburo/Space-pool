@@ -5,7 +5,7 @@ const webp = require('gulp-webp');
 const changed = require('gulp-changed');
 
 module.exports = () => (
-  gulp.src('app/static/images/**/*.{jpg, png}')
+  gulp.src('app/static/images/nd/**/*.{jpg, png}')
   .pipe(plumber({
     errorHandler: errorHandler('Error in webp task'),
   }))

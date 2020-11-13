@@ -24,6 +24,10 @@
     }
   }
 
+  &_promo {
+    overflow: hidden;
+  }
+
   &_mt80:not(:first-child) {
     margin-top: 80px;
 
@@ -566,11 +570,13 @@
 
       #{$b} {
         &__describe {
+          position: relative;
           display: block;
           box-sizing: border-box;
           width: 27.2%;
           flex: none;
           padding-top: 54px;
+          z-index: 2;
 
           @include screen('xl', max, 2) {
             width: 28.3%;

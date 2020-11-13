@@ -847,7 +847,11 @@
       }
     }
 
-    @supports (-webkit-line-clamp: 2) {
+    p:not(:first-child) {
+      margin-top: 0;
+    }
+
+    .css-line-clamp & {
       &::before, &::after {
         content: none;
       }
@@ -865,6 +869,10 @@
 
       @include screen('sm', max, 2) {
         animation: css-acc-sm .5s ease-out;
+      }
+
+      &::after, &::before {
+        opacity: 0;
       }
     }
   }
