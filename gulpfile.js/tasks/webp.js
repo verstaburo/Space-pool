@@ -9,9 +9,9 @@ module.exports = () => (
   .pipe(plumber({
     errorHandler: errorHandler('Error in webp task'),
   }))
-  .pipe(changed('dist/assets/images'))
+  .pipe(changed('dist/assets/images/nd'))
   .pipe(webp({
     quality: 70,
   }))
-  .pipe(gulp.dest('dist/assets/images'))
+  .pipe(gulp.dest('dist/assets/images/nd'))
 );
