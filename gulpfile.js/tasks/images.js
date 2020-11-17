@@ -17,7 +17,11 @@ module.exports = () => (
     }),
     imagemin.gifsicle(),
     imagemin.optipng(),
-    imagemin.svgo(),
+    imagemin.svgo({
+      plugins: [{
+        removeViewBox: false,
+      }],
+    }),
   ], {
     verbose: true,
   }))

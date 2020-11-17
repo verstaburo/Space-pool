@@ -32,6 +32,12 @@ export default function header() {
     }
   });
 
+  $(document).on('click', '.js-close-navigation', () => {
+    if (mainNavigation.isActive()) {
+      mainNavigation.close();
+    }
+  });
+
   $(document).on('click', '.overlay', () => {
     mainNavigation.close();
   });

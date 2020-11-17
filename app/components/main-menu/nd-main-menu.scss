@@ -54,6 +54,12 @@
     }
   }
 
+  .is-md-no-userpanel &, .is-sm-no-userpanel &, .is-no-userpanel & {
+    @include screen('sm', max, 2) {
+      padding-bottom: 0;
+    }
+  }
+
   .is-navigation-open & {
     opacity: 1;
 
@@ -72,6 +78,45 @@
       align-items: stretch;
       padding-left: 0;
       padding-right: 0;
+    }
+  }
+
+  &__top {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    display: none;
+    background-color: $nd-color-basic-light;
+    justify-content: flex-end;
+    align-items: center;
+    z-index: 2;
+
+    @include rule(height, (xl: 60px, xlg: 60, lg: 60, md: 60, sm: 60));
+
+    @include screen('sm', max, 2) {
+      display: flex;
+      padding: 0 pxtovw(20, 375);
+    }
+  }
+
+  &__close {
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-image: url('../images/bg/bg-cross.svg');
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    z-index: 3;
+
+    @include rule(top, (sm: 13));
+    @include rule(width, (xl: 66px, xlg: 66, lg: 66, md: 66, sm: 66));
+    @include rule(height, (xl: 60px, xlg: 60, lg: 60, md: 60, sm: 60));
+    @include rule(background-size, (xl: 19px, xlg: 19, lg: 19, md: 19, sm: 19));
+
+    .is-navigation-open & {
+      pointer-events: auto;
     }
   }
 
@@ -113,9 +158,13 @@
     }
 
     @include screen('sm', max, 2) {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
       max-height: none;
+      min-height: 100%;
       max-width: none;
-      padding: pxtovw(15, 375) pxtovw(20, 375) pxtovw(25, 375);
+      padding: pxtovw(78, 375) pxtovw(20, 375) pxtovw(32, 375);
       border-radius: 0;
       box-shadow: none;
     }
@@ -124,13 +173,13 @@
       pointer-events: auto;
     }
 
-    scrollbar-color: $nd-color-basic $nd-color-bg;
+    scrollbar-color: $nd-color-scroll transparent;
     scrollbar-width: thin;
     -ms-overflow-style: none;
 
     &::-webkit-scrollbar-track {
       width: 6px;
-      background-color: $nd-color-bg;
+      background-color: transparent;
 
       @include screen('xlg', max, 2) {
         width: pxtovw(6, 1660);
@@ -151,7 +200,7 @@
 
     &::-webkit-scrollbar {
       width: 4px;
-      background-color: $nd-color-bg;
+      background-color: transparent;
 
       @include screen('xlg', max, 2) {
         width: pxtovw(4, 1660);
@@ -172,7 +221,7 @@
 
     &::-webkit-scrollbar-thumb {
       width: 4px;
-      background-color: $nd-color-basic;
+      background-color: $nd-color-scroll;
 
       @include screen('xlg', max, 2) {
         width: pxtovw(4, 1660);
@@ -196,6 +245,12 @@
     display: block;
     width: 100%;
 
+    &:first-child {
+      @include screen('sm', max, 2) {
+        margin-bottom: auto;
+      }
+    }
+
     &:not(:first-child) {
       margin-top: 32px;
 
@@ -212,7 +267,7 @@
       }
 
       @include screen('sm', max, 2) {
-        margin-top: pxtovw(32, 375);
+        margin-top: pxtovw(50, 375);
       }
     }
 
@@ -233,7 +288,7 @@
         }
 
         @include screen('sm', max, 2) {
-          margin-top: pxtovw(120, 375);
+          margin-top: pxtovw(50, 375);
         }
       }
     }
@@ -255,7 +310,7 @@
         }
 
         @include screen('sm', max, 2) {
-          margin-top: pxtovw(70, 375);
+          margin-top: pxtovw(50, 375);
         }
       }
     }
@@ -346,6 +401,7 @@
 
       @include screen('sm', max, 2) {
         padding: pxtovw(5, 375) 0 pxtovw(6, 375);
+        margin-top: 0;
       }
 
       span {
@@ -438,7 +494,7 @@
       }
 
       @include screen('sm', max, 2) {
-        margin-top: pxtovw(28, 375);
+        margin-top: pxtovw(44, 375);
       }
     }
 
