@@ -13,7 +13,7 @@ export default class SearchFilter {
     this.tagContainer = $(el).find('[data-nd-filter-tags]');
     this.blocksWithConnect = $(el).find('[data-nd-filter-connect]');
     this.jailers = $(el).find('[data-nd-filter-link-jailer]');
-    this.maxLocations = $(el).attr('data-nd-filter-max-locations');
+    this.maxLocations = $(el).attr('data-nd-filter-max-locations') || 10000;
     this.locations = {};
     // this._filterPopupShow = this._filterPopupShow.bind(this);
     // this._filterPopupHide = this._filterPopupHide.bind(this);
@@ -548,6 +548,7 @@ export default class SearchFilter {
           const item = _this._generateLocationAreaButton(dt);
           $(areasContainer).append(item);
         });
+        $(_this.el).trigger('LOCATION_AREAS_READY');
         const checkedItems = $('[data-nd-filter-type="locationPlace"]:checked');
         if (checkedItems.length > 0) {
           $(checkedItems).each((k, it) => {

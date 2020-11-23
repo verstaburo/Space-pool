@@ -60,6 +60,38 @@
           margin-right: pxtovw(12, 375);
         }
       }
+
+      &::before {
+        @include pseudo;
+        // @include rule(top, (xl: -15px, xlg: -15, lg: -15, md: -15, sm: -15));
+        // @include rule(bottom, (xl: -15px, xlg: -15, lg: -15, md: -15, sm: -15));
+        @include rule(width, (xl: 8px, xlg: 8, lg: 8, md: 8, sm: 8));
+
+        left: 0;
+        top: 0;
+        height: 100%;
+        background-color: $nd-color-bg;
+        // right: 0;
+        pointer-events: none;
+        z-index: 2;
+        // box-shadow: inset 0 0 4px 4px $nd-color-bg;
+
+        // @include screen('xlg', max, 2) {
+        //   box-shadow: inset 0 0 pxtovw(4, 1660) pxtovw(4, 1660) $color-bg;
+        // }
+
+        // @include screen('lg', max, 2) {
+        //   box-shadow: inset 0 0 pxtovw(4, 1366) pxtovw(4, 1366) $color-bg;
+        // }
+
+        // @include screen('md', max, 2) {
+        //   box-shadow: inset 0 0 pxtovw(4, 960) pxtovw(4, 960) $color-bg;
+        // }
+
+        // @include screen('sm', max, 2) {
+        //   box-shadow: inset 0 0 pxtovw(4, 375) pxtovw(4, 375) $color-bg;
+        // }
+      }
     }
   }
 
