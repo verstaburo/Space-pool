@@ -11,7 +11,7 @@ export default function filterTagsScroll() {
     _this.isMouseUnder = false;
   });
 
-  const eventName = ('onWheel' in document) ? 'wheel' : 'mousewheel';
+  const eventName = ('onwheel' in document) ? 'wheel' : 'mousewheel';
 
   window.addEventListener(eventName, (evt) => {
     const filterTags = document.querySelector('.filter-tags');
