@@ -548,12 +548,14 @@ export default class SearchFilter {
           const item = _this._generateLocationAreaButton(dt);
           $(areasContainer).append(item);
         });
-        $(_this.el).trigger('LOCATION_AREAS_READY');
         const checkedItems = $('[data-nd-filter-type="locationPlace"]:checked');
         if (checkedItems.length > 0) {
           $(checkedItems).each((k, it) => {
             _this._filterChoosed(it);
           });
+          $(_this.el).trigger('LOCATION_AREAS_READY');
+        } else {
+          $(_this.el).trigger('LOCATION_AREAS_READY');
         }
       }
     }
