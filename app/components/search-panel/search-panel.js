@@ -1,4 +1,4 @@
-const $ = window.$;
+const { $ } = window;
 
 export default function ShiftInputLocationOnFocus() {
   $(document).on('focus', '.js-shift-on-focus', (evt) => {

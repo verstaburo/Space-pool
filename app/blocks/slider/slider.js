@@ -3,7 +3,9 @@
 import detectIt from 'detect-it';
 import * as Swiper from 'swiper/js/swiper';
 
-const $ = window.$;
+const {
+  $,
+} = window;
 
 export default function slider() {
   const newsSliders = $('.js-slider-news');
@@ -276,8 +278,12 @@ export default function slider() {
           },
           transitionStart() {
             const it = this.el;
-            const slides = this.slides;
-            const activeIndex = this.activeIndex;
+            const {
+              slides,
+            } = this;
+            const {
+              activeIndex,
+            } = this;
             const activeSlide = slides[activeIndex];
             const item = $(it).find(`[data-calendar-month=${activeIndex}]`);
             window.chooseMonth(item);
@@ -354,7 +360,9 @@ export default function slider() {
           slideChange() {
             const sw = this;
             const activeIndex = sw.realIndex;
-            const slides = sw.slides;
+            const {
+              slides,
+            } = sw;
             const activeSlide = slides[activeIndex];
             if (!window.manualChange) {
               const markerId = $(activeSlide).attr('data-map-marker');
@@ -511,7 +519,9 @@ export default function slider() {
         },
         on: {
           init() {
-            const slides = this.slides;
+            const {
+              slides,
+            } = this;
             const currentSlideIndex = this.activeIndex;
             const currentSlide = slides[currentSlideIndex];
             const newTitle = $(currentSlide).attr('data-promo-slide-title');
@@ -520,7 +530,9 @@ export default function slider() {
             $(sliderContainer).addClass('is-visible');
           },
           slideChange() {
-            const slides = this.slides;
+            const {
+              slides,
+            } = this;
             const currentSlideIndex = this.activeIndex;
             const currentSlide = slides[currentSlideIndex];
             const newTitle = $(currentSlide).attr('data-promo-slide-title');

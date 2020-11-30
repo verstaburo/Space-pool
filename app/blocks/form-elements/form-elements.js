@@ -7,7 +7,9 @@ import noUiSlider from 'nouislider';
 // https://github.com/t1m0n/air-datepicker
 import 'air-datepicker';
 
-const $ = window.$;
+const {
+  $,
+} = window;
 
 export function selects() {
   function srtFunc(a, b) {
@@ -32,7 +34,9 @@ export function selects() {
         titleText: title,
       },
       callbackOnCreateTemplates(template) {
-        const classNames = this.config.classNames;
+        const {
+          classNames,
+        } = this.config;
         return {
           containerInner: () => template(`
             <div class="${classNames.containerInner}"><div class="choices__toggle"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16.31 9.16"><line x1="15.31" y1="1" x2="8.16" y2="8.16"/><path d="M8.16,9.16a1,1,0,0,1-.71-.3,1,1,0,0,1,0-1.41L14.61.29A1,1,0,0,1,16,.29a1,1,0,0,1,0,1.42L8.86,8.86A1,1,0,0,1,8.16,9.16Z"/><line x1="8.16" y1="8.16" x2="1" y2="1"/><path d="M8.16,9.16a1,1,0,0,1-.71-.3L.29,1.71A1,1,0,0,1,1.71.29L8.86,7.45a1,1,0,0,1,0,1.41A1,1,0,0,1,8.16,9.16Z"/></svg></div></div>
@@ -83,7 +87,9 @@ export function selects() {
       },
       sorter,
       callbackOnCreateTemplates(template) {
-        const classNames = this.config.classNames;
+        const {
+          classNames,
+        } = this.config;
         return {
           containerInner: () => template(`
             <div class="${classNames.containerInner}"><div class="choices__toggle"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16.31 9.16"><line x1="15.31" y1="1" x2="8.16" y2="8.16"/><path d="M8.16,9.16a1,1,0,0,1-.71-.3,1,1,0,0,1,0-1.41L14.61.29A1,1,0,0,1,16,.29a1,1,0,0,1,0,1.42L8.86,8.86A1,1,0,0,1,8.16,9.16Z"/><line x1="8.16" y1="8.16" x2="1" y2="1"/><path d="M8.16,9.16a1,1,0,0,1-.71-.3L.29,1.71A1,1,0,0,1,1.71.29L8.86,7.45a1,1,0,0,1,0,1.41A1,1,0,0,1,8.16,9.16Z"/></svg></div></div>
@@ -134,7 +140,9 @@ export function selects() {
         },
         sorter,
         callbackOnCreateTemplates(template) {
-          const classNames = this.config.classNames;
+          const {
+            classNames,
+          } = this.config;
           return {
             containerInner: () => template(`
             <div class="${classNames.containerInner}"><div class="choices__toggle"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16.31 9.16"><line x1="15.31" y1="1" x2="8.16" y2="8.16"/><path d="M8.16,9.16a1,1,0,0,1-.71-.3,1,1,0,0,1,0-1.41L14.61.29A1,1,0,0,1,16,.29a1,1,0,0,1,0,1.42L8.86,8.86A1,1,0,0,1,8.16,9.16Z"/><line x1="8.16" y1="8.16" x2="1" y2="1"/><path d="M8.16,9.16a1,1,0,0,1-.71-.3L.29,1.71A1,1,0,0,1,1.71.29L8.86,7.45a1,1,0,0,1,0,1.41A1,1,0,0,1,8.16,9.16Z"/></svg></div></div>
@@ -185,7 +193,9 @@ export function selects() {
         },
         sorter,
         callbackOnCreateTemplates(template) {
-          const classNames = this.config.classNames;
+          const {
+            classNames,
+          } = this.config;
           return {
             containerInner: () => template(`
             <div class="${classNames.containerInner}"><div class="choices__toggle"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16.31 9.16"><line x1="15.31" y1="1" x2="8.16" y2="8.16"/><path d="M8.16,9.16a1,1,0,0,1-.71-.3,1,1,0,0,1,0-1.41L14.61.29A1,1,0,0,1,16,.29a1,1,0,0,1,0,1.42L8.86,8.86A1,1,0,0,1,8.16,9.16Z"/><line x1="8.16" y1="8.16" x2="1" y2="1"/><path d="M8.16,9.16a1,1,0,0,1-.71-.3L.29,1.71A1,1,0,0,1,1.71.29L8.86,7.45a1,1,0,0,1,0,1.41A1,1,0,0,1,8.16,9.16Z"/></svg></div></div>
@@ -235,7 +245,9 @@ export function selects() {
           titleText: title,
         },
         callbackOnCreateTemplates(template) {
-          const classNames = this.config.classNames;
+          const {
+            classNames,
+          } = this.config;
           return {
             containerInner: () => template(`
             <div class="${classNames.containerInner}"><div class="choices__toggle"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16.31 9.16"><line x1="15.31" y1="1" x2="8.16" y2="8.16"/><path d="M8.16,9.16a1,1,0,0,1-.71-.3,1,1,0,0,1,0-1.41L14.61.29A1,1,0,0,1,16,.29a1,1,0,0,1,0,1.42L8.86,8.86A1,1,0,0,1,8.16,9.16Z"/><line x1="8.16" y1="8.16" x2="1" y2="1"/><path d="M8.16,9.16a1,1,0,0,1-.71-.3L.29,1.71A1,1,0,0,1,1.71.29L8.86,7.45a1,1,0,0,1,0,1.41A1,1,0,0,1,8.16,9.16Z"/></svg></div></div>
@@ -285,7 +297,9 @@ export function selects() {
           titleText: title,
         },
         callbackOnCreateTemplates(template) {
-          const classNames = this.config.classNames;
+          const {
+            classNames,
+          } = this.config;
           return {
             containerInner: () => template(`
             <div class="${classNames.containerInner}"><div class="choices__toggle"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16.31 9.16"><line x1="15.31" y1="1" x2="8.16" y2="8.16"/><path d="M8.16,9.16a1,1,0,0,1-.71-.3,1,1,0,0,1,0-1.41L14.61.29A1,1,0,0,1,16,.29a1,1,0,0,1,0,1.42L8.86,8.86A1,1,0,0,1,8.16,9.16Z"/><line x1="8.16" y1="8.16" x2="1" y2="1"/><path d="M8.16,9.16a1,1,0,0,1-.71-.3L.29,1.71A1,1,0,0,1,1.71.29L8.86,7.45a1,1,0,0,1,0,1.41A1,1,0,0,1,8.16,9.16Z"/></svg></div></div>
@@ -336,7 +350,9 @@ export function selects() {
         },
         sorter,
         callbackOnCreateTemplates(template) {
-          const classNames = this.config.classNames;
+          const {
+            classNames,
+          } = this.config;
           return {
             containerInner: () => template(`
             <div class="${classNames.containerInner}"><div class="choices__toggle"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16.31 9.16"><line x1="15.31" y1="1" x2="8.16" y2="8.16"/><path d="M8.16,9.16a1,1,0,0,1-.71-.3,1,1,0,0,1,0-1.41L14.61.29A1,1,0,0,1,16,.29a1,1,0,0,1,0,1.42L8.86,8.86A1,1,0,0,1,8.16,9.16Z"/><line x1="8.16" y1="8.16" x2="1" y2="1"/><path d="M8.16,9.16a1,1,0,0,1-.71-.3L.29,1.71A1,1,0,0,1,1.71.29L8.86,7.45a1,1,0,0,1,0,1.41A1,1,0,0,1,8.16,9.16Z"/></svg></div></div>
@@ -387,7 +403,9 @@ export function selects() {
           titleText: title,
         },
         callbackOnCreateTemplates(template) {
-          const classNames = this.config.classNames;
+          const {
+            classNames,
+          } = this.config;
           return {
             containerInner: () => template(`
             <div class="${classNames.containerInner}"><div class="choices__toggle"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16.31 9.16"><line x1="15.31" y1="1" x2="8.16" y2="8.16"/><path d="M8.16,9.16a1,1,0,0,1-.71-.3,1,1,0,0,1,0-1.41L14.61.29A1,1,0,0,1,16,.29a1,1,0,0,1,0,1.42L8.86,8.86A1,1,0,0,1,8.16,9.16Z"/><line x1="8.16" y1="8.16" x2="1" y2="1"/><path d="M8.16,9.16a1,1,0,0,1-.71-.3L.29,1.71A1,1,0,0,1,1.71.29L8.86,7.45a1,1,0,0,1,0,1.41A1,1,0,0,1,8.16,9.16Z"/></svg></div></div>
@@ -442,7 +460,6 @@ export function sliders() {
   // Параметры берутся из дата-атрибутов
   $('.js-range').each(function () {
     const el = $(this);
-
     const margin = el.data('margin') || 0;
     const step = el.data('step') || 1;
     noUiSlider.create(el.find('[data-range-container]').get(0), {
@@ -607,7 +624,7 @@ export function datepicker() {
         const formatted = getFormattedDate(d);
 
         if (type === 'day') {
-          disabled = disabledDates.filter(date => (date === formatted)).length;
+          disabled = disabledDates.filter((date) => (date === formatted)).length;
         }
 
         return {
@@ -660,7 +677,7 @@ export function datepicker() {
         let disabled = false;
         const formatted = getFormattedDate(d);
         if (type === 'day') {
-          disabled = disabledDates.filter(date => (date === formatted)).length;
+          disabled = disabledDates.filter((date) => (date === formatted)).length;
         }
 
         return {
@@ -708,7 +725,7 @@ export function datepicker() {
         const formatted = getFormattedDate(d);
 
         if (type === 'day') {
-          disabled = disabledDates.filter(date => (date === formatted)).length;
+          disabled = disabledDates.filter((date) => (date === formatted)).length;
         }
 
         return {
@@ -754,7 +771,7 @@ export function datepicker() {
         const formatted = getFormattedDate(d);
 
         if (type === 'day') {
-          disabled = disabledDates.filter(date => (date === formatted)).length;
+          disabled = disabledDates.filter((date) => (date === formatted)).length;
         }
 
         return {
@@ -801,7 +818,7 @@ export function datepicker() {
         const formatted = getFormattedDate(date);
 
         if (cellType === 'day') {
-          disabled = disabledDates.filter(dt => (dt === formatted)).length;
+          disabled = disabledDates.filter((dt) => (dt === formatted)).length;
 
           return {
             html: `<span>${date.getDate()}</span>`,

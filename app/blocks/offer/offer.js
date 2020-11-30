@@ -1,4 +1,4 @@
-const $ = window.$;
+const { $ } = window;
 
 export default function switchOfferState() {
   // we track the change of the 'available' state

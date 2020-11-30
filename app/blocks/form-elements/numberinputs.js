@@ -1,4 +1,4 @@
-const $ = window.$;
+const { $ } = window;
 
 export default function numberinput() {
   $(document).on('click', '.js-numberbox-minus, .js-numberbox-plus', function (e) {

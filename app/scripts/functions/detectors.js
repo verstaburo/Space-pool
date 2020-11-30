@@ -1,7 +1,10 @@
 import detectIt from 'detect-it';
 
-const $ = window.$;
+const {
+  $,
+} = window;
 
+// eslint-disable-next-line operator-linebreak
 if (navigator.userAgent.indexOf('MSIE') !== -1 ||
   navigator.appVersion.indexOf('Trident/') > -1) {
   $('body').addClass('is-IE');

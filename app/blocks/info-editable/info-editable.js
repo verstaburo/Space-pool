@@ -1,4 +1,4 @@
-const $ = window.$;
+const { $ } = window;
 const bp = window.globalOptions.sizes;
 
 export default function infoEditable() {

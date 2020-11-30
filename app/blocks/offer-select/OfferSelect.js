@@ -1,6 +1,8 @@
 import isTouchDevice from 'is-touch-device';
 
-const $ = window.$;
+const {
+  $,
+} = window;
 
 export default class OfferSelect {
   constructor(el) {
@@ -14,6 +16,7 @@ export default class OfferSelect {
     this.dropdown = this.el.find('.offer-select__dropdown');
     this.init = this.init.bind(this);
   }
+
   init() {
     const t = this;
     if (t.links.length <= 0) {
@@ -81,18 +84,21 @@ export default class OfferSelect {
       }
     });
   }
+
   getSelectedElem() {
     const activeEl = this.el.find('[data-offer-input]:checked');
     const parent = activeEl.closest('[data-select-item]');
     const elem = parent.find('[data-select-value]');
     return elem;
   }
+
   getSelectedLink() {
     const activeEl = this.el.find('[data-offer-link].is-select');
     const parent = activeEl.closest('[data-select-item]');
     const elem = parent.find('[data-select-value]');
     return elem;
   }
+
   preset() {
     const t = this;
     const currEl = t.getSelectedElem();
@@ -100,6 +106,7 @@ export default class OfferSelect {
     const cloneEl = $(currEl).clone();
     t.label.append(cloneEl);
   }
+
   linkPreset(newEl) {
     const t = this;
     const currEl = t.getSelectedLink();
@@ -115,9 +122,11 @@ export default class OfferSelect {
       t.label.append(cloneEl);
     }
   }
+
   compensateAllowed() {
     return this.compensateWrap.length && $(window).width() > window.globalOptions.sizes.md;
   }
+
   open() {
     this.el.addClass('is-open');
 
@@ -126,6 +135,7 @@ export default class OfferSelect {
       this.compensateWrap.css('margin-bottom', `${dropHeight}px`);
     }
   }
+
   close() {
     this.el.removeClass('is-open');
 
@@ -133,6 +143,7 @@ export default class OfferSelect {
       this.compensateWrap.css('margin-bottom', 0);
     }
   }
+
   isOpen() {
     return this.el.is('.is-open');
   }

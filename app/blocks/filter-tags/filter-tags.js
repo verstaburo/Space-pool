@@ -1,4 +1,6 @@
-const $ = window.$;
+const {
+  $,
+} = window;
 
 export default function filterTagsScroll() {
   $(document).on('mouseenter', '.filter-tags', (evt) => {

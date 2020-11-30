@@ -1,4 +1,4 @@
-const $ = window.$;
+const { $ } = window;
 
 export default function fileRemove() {
   $(document).on('click', '.js-remove-file', (evt) => {

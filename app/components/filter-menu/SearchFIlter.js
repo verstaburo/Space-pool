@@ -1,7 +1,9 @@
 /* eslint-disable class-methods-use-this */
 import uid from 'uid';
 
-const $ = window.$;
+const {
+  $,
+} = window;
 
 export default class SearchFilter {
   constructor(el) {
@@ -450,7 +452,9 @@ export default class SearchFilter {
     content.classList.add('check-button__content');
     const attributes = data.inputAttributes;
     const clsList = data.clsList.split(',');
-    const title = data.title;
+    const {
+      title,
+    } = data;
     $(clsList).each((i, el) => {
       parent.classList.add(el.replace(/\s+/g, ' ').trim());
     });
@@ -491,7 +495,9 @@ export default class SearchFilter {
   _loadLocationAreaData(data, callbackSuccess, callbackError) {
     const _this = this;
     const urlArr = data;
-    const locations = _this.locations;
+    const {
+      locations,
+    } = _this;
     const area = urlArr[1].toLowerCase();
     const url = urlArr[0];
     $.ajax({
@@ -518,7 +524,9 @@ export default class SearchFilter {
   _generateLocationAreasList(el) {
     const self = el;
     const _this = this;
-    const locations = _this.locations;
+    const {
+      locations,
+    } = _this;
     const urlData = $(self).attr('data-nd-filter-areas-url');
     const urlArr = urlData ? urlData.split(',') : null;
     if (urlArr === null) {

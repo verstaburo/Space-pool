@@ -1,5 +1,7 @@
 /* eslint-disable max-len */
-const $ = window.$;
+const {
+  $,
+} = window;
 
 function putBlockIntoSlot() {
   $('[data-target-slot]').each(function () {
@@ -17,13 +19,17 @@ function putBlockIntoSlot() {
       // получаем слот под нужное разрешение
       if (window.Modernizr.mq(`(max-width: ${window.globalOptions.sizes.xs - 1}px)`) && slots.filter('[data-slot-res*="xs"]').length) {
         return res.indexOf('xs') >= 0;
-      } else if (window.Modernizr.mq(`(max-width: ${window.globalOptions.sizes.sm - 1}px)`) && slots.filter('[data-slot-res*="sm"]').length) {
+      }
+      if (window.Modernizr.mq(`(max-width: ${window.globalOptions.sizes.sm - 1}px)`) && slots.filter('[data-slot-res*="sm"]').length) {
         return res.indexOf('sm') >= 0;
-      } else if (window.Modernizr.mq(`(max-width: ${window.globalOptions.sizes.md - 1}px)`) && slots.filter('[data-slot-res*="md"]').length) {
+      }
+      if (window.Modernizr.mq(`(max-width: ${window.globalOptions.sizes.md - 1}px)`) && slots.filter('[data-slot-res*="md"]').length) {
         return res.indexOf('md') >= 0;
-      } else if (window.Modernizr.mq(`(max-width: ${window.globalOptions.sizes.bg - 1}px)`) && slots.filter('[data-slot-res*="bg"]').length) {
+      }
+      if (window.Modernizr.mq(`(max-width: ${window.globalOptions.sizes.bg - 1}px)`) && slots.filter('[data-slot-res*="bg"]').length) {
         return res.indexOf('bg') >= 0;
-      } else if (window.Modernizr.mq(`(max-width: ${window.globalOptions.sizes.lg - 1}px)`) && slots.filter('[data-slot-res*="lg"]').length) {
+      }
+      if (window.Modernizr.mq(`(max-width: ${window.globalOptions.sizes.lg - 1}px)`) && slots.filter('[data-slot-res*="lg"]').length) {
         return res.indexOf('md') >= 0;
       }
 

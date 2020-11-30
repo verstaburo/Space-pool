@@ -1,6 +1,6 @@
 import Autocomplete from './autocomplete';
 
-const $ = window.$;
+const { $ } = window;
 
 export default function autocompleteList() {
   $(document).on('focus', '.js-autocomplete', (evt) => {

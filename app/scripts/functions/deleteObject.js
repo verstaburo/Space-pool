@@ -1,6 +1,6 @@
 import anime from 'animejs';
 
-const $ = window.$;
+const { $ } = window;
 
 export default function deleteObject() {
   // deleting an object with an animated content shift

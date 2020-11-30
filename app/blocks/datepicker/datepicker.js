@@ -4,7 +4,7 @@ import {
 } from '../../scripts/functions/freeze';
 import DatePicker from './Dates';
 
-const $ = window.$;
+const { $ } = window;
 
 export default function dates() {
   const ndOptionsStPopup = {

@@ -2,7 +2,7 @@
 import moment from 'moment';
 import IMask from 'imask';
 
-const $ = window.$;
+const { $ } = window;
 
 // маскирование
 export default function maskForm() {

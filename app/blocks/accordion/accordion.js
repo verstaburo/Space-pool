@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable prefer-rest-params */
-const $ = window.$;
+const { $ } = window;
 
 export default function accordions() {
   function setHeight(element) {

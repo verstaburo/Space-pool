@@ -2,7 +2,7 @@
 import OverlayScrollbars from 'overlayscrollbars';
 import 'os-scroll-chain';
 
-const $ = window.$;
+const { $ } = window;
 
 export default function scrollbar() {
   function getScrollInstance(el) {

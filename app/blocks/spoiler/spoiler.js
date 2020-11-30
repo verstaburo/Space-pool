@@ -1,6 +1,8 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable prefer-rest-params */
-const $ = window.$;
+const {
+  $,
+} = window;
 
 export default function spoilers() {
   function setHeight(element) {
@@ -14,7 +16,6 @@ export default function spoilers() {
       height: `${totalHeight}px`,
     });
   }
-
 
   function openSpoiler(btn) {
     const container = $(btn).closest('.spoiler');

@@ -81,10 +81,6 @@ import './functions/mobileScale';
 //   selects,
 //   datepicker,
 // } from '../blocks/form-elements/form-elements';
-import {
-  maps,
-  mapsTwo,
-} from '../blocks/map/map';
 import accordions from '../blocks/accordion/accordion';
 import desktopFilter from '../components/filter/filter';
 import mobileFilter from '../components/compact-filter/compact-filter';
@@ -107,7 +103,9 @@ import messageForm from '../blocks/message-form/message-form';
 import photoPreview from '../blocks/photo-preview/photo-preview';
 import reservationRequestShow from '../components/reservation-request/reservation-request';
 
-const $ = window.$;
+const {
+  $,
+} = window;
 
 $(() => {
   // objectassign.polyfill();
@@ -172,8 +170,6 @@ $(() => {
   selects();
   datepicker();
   calendar();
-  maps();
-  mapsTwo();
   desktopFilter();
   mobileFilter();
   addToFavorite();

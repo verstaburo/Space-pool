@@ -29,7 +29,7 @@ import messageForm from '../blocks/message-form/message-form';
 import photoPreview from '../blocks/photo-preview/photo-preview';
 import reservationRequestShow from '../components/reservation-request/reservation-request';
 
-const $ = window.$;
+const { $ } = window;
 
 $(() => {
   selects();

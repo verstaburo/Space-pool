@@ -5,7 +5,9 @@
 import * as Swiper from 'swiper/js/swiper';
 import moment from 'moment';
 
-const $ = window.$;
+const {
+  $,
+} = window;
 
 /**
  * Creates new Datepicker
@@ -103,9 +105,12 @@ export default class DatePicker {
 
   _createStructure() {
     const t = this;
-    const container = t.container;
+    const {
+      container,
+    } = t;
     $(t.container).empty();
     $(container).append(t._template.sliderBase);
+    // eslint-disable-next-line prefer-destructuring
     t.slider = $(t.container).find('.dates')[0];
 
     if (t.autoactivate) {
@@ -334,7 +339,9 @@ export default class DatePicker {
         activeSlide = i;
       }
     });
-    const slider = t.slider;
+    const {
+      slider,
+    } = t;
     const opts = t._getSliderOptions(activeSlide);
     const sw = new Swiper(slider, opts);
     t.sw = sw;
@@ -343,7 +350,9 @@ export default class DatePicker {
   _generateNewSlide() {
     const t = this;
     const sw = t.slider.swiper;
-    const activeIndex = sw.activeIndex;
+    const {
+      activeIndex,
+    } = sw;
     const prevIndex = sw.previousIndex;
     const lastSlide = sw.slides.length - 1;
     const direction = activeIndex - prevIndex;
@@ -426,7 +435,9 @@ export default class DatePicker {
     const t = this;
     const self = t.el;
     if (evt && !$(evt.currentTarget).is('.js-dates-hide')) {
-      const target = evt.target;
+      const {
+        target,
+      } = evt;
       if ($(target).closest('.dates').length === 0 && $(target).closest('.js-nd-datepicker').length === 0 && $(target).not('.js-nd-datepicker')) {
         $(self).removeClass('is-active');
       }

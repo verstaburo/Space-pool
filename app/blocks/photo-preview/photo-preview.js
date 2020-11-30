@@ -1,6 +1,6 @@
 import Cropper from 'cropperjs';
 
-const $ = window.$;
+const { $ } = window;
 
 export default function photoPreview() {
   function initCrop(starter) {
@@ -31,7 +31,7 @@ export default function photoPreview() {
         const imgfinal = img.toDataURL('image/jpeg');
         let input = $(preview).find('[data-file-crop]');
         if ($(input).length > 0) {
-          $.when($(input).val(imgfinal)).then(inp => $(inp).trigger('change'));
+          $.when($(input).val(imgfinal)).then((inp) => $(inp).trigger('change'));
         } else {
           input = document.createElement('input');
           input.setAttribute('type', 'hidden');
@@ -39,7 +39,7 @@ export default function photoPreview() {
           input.setAttribute('data-file-crop', 'data-file-crop');
           $(preview).append(input);
           const newInput = $(preview).find('[data-file-crop]');
-          $.when($(newInput).val(imgfinal)).then(inp => $(inp).trigger('change'));
+          $.when($(newInput).val(imgfinal)).then((inp) => $(inp).trigger('change'));
         }
       },
     });

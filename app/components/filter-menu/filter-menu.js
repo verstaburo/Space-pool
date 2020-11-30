@@ -1,7 +1,7 @@
 /* eslint-disable no-use-before-define */
 import SearchFilter from './SearchFIlter';
 
-const $ = window.$;
+const { $ } = window;
 
 export default function filterMenu() {
   function searchFilterInit(el) {

@@ -1,10 +1,13 @@
 /* eslint-disable class-methods-use-this */
-const $ = window.$;
+const {
+  $,
+} = window;
 
 export default class Autocomplete {
   constructor(el) {
     this.el = el;
     this.source = $(el).attr('data-autocomplete-url');
+    // eslint-disable-next-line prefer-destructuring
     this.container = $(el).parent()[0];
     this.currentFocus = -1;
     this.setFocus = this.setFocus.bind(this);
@@ -13,6 +16,7 @@ export default class Autocomplete {
     this.closeAllLists = this.closeAllLists.bind(this);
     this.el.autocmpl = this;
   }
+
   init() {
     const t = this;
     t.loadList();
@@ -28,7 +32,9 @@ export default class Autocomplete {
     t.el.addEventListener('keydown', (evt) => {
       const self = evt.currentTarget;
       const th = self.autocmpl;
-      const list = th.list;
+      const {
+        list,
+      } = th;
       let elements;
       const key = evt.keyCode;
       if (list) {
@@ -68,10 +74,12 @@ export default class Autocomplete {
       }
     });
   }
+
   setFocus(val) {
     const t = this;
     t.currentFocus = val;
   }
+
   // получаем список
   loadList() {
     const t = this;
@@ -89,6 +97,7 @@ export default class Autocomplete {
       },
     });
   }
+
   // генерируем список
   generateList(value) {
     const t = this;
@@ -146,12 +155,17 @@ export default class Autocomplete {
       window.globalFunctions.scrollbarInit(list);
     }
   }
+
   // подсвечиваем элемен с фокусом
   addActive(items) {
     const t = this;
-    let currentFocus = t.currentFocus;
+    let {
+      currentFocus,
+    } = t;
     if (items) {
-      const length = items.length;
+      const {
+        length,
+      } = items;
       t.removeActive(items);
       if (currentFocus >= length) {
         currentFocus = 0;

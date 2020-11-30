@@ -1,4 +1,6 @@
-const $ = window.$;
+const {
+  $,
+} = window;
 
 export default function reservationRequestShow() {
   // активируем при выборе опции
@@ -36,6 +38,7 @@ export default function reservationRequestShow() {
         $(self).addClass('is-cloned');
         let btnWrapper = $(button)[0];
         if ($(button).closest('.offer-short__buttons').length > 0) {
+          // eslint-disable-next-line prefer-destructuring
           btnWrapper = $(button).closest('.offer-short__buttons')[0];
         }
         const btnWrapParam = btnWrapper.getBoundingClientRect();
@@ -64,7 +67,7 @@ export default function reservationRequestShow() {
     window.stpFormGoToNextStep(form, nextStep, true);
     if (isPopup) {
       window.globalFunctions.unfreeze();
-      $(parent).removeClass('is-popup');
+      $(wrapper).removeClass('is-popup');
       $('body').removeClass('is-rr-popup-show');
     }
     $('.is-cloned').removeClass('is-cloned');

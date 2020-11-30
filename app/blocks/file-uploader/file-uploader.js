@@ -1,6 +1,8 @@
 import uid from 'uid';
 
-const $ = window.$;
+const {
+  $,
+} = window;
 
 function fileTemplate(name) {
   const fileEl = document.createElement('div');
@@ -37,7 +39,9 @@ function processingFiles(source, output, block) {
   }
   while (queue.length !== 0) {
     const file = queue.pop();
-    const name = file.name;
+    const {
+      name,
+    } = file;
     const preview = fileTemplate(name);
     const reader = new FileReader();
     reader.onload = (e) => {
@@ -54,7 +58,6 @@ function processingFiles(source, output, block) {
   }
 }
 
-
 export default function fileUploader() {
   $(document).on('change', '.js-file-upload', (evt) => {
     const self = evt.currentTarget;
@@ -62,7 +65,9 @@ export default function fileUploader() {
     const output = $(uploaderBlock).find('[data-files-output]');
     const card = $(self).closest('[data-uploader-status]');
     $(card).removeClass('is-refused');
-    const files = evt.target.files;
+    const {
+      files,
+    } = evt.target;
     processingFiles(files, output, uploaderBlock);
   });
 

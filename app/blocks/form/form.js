@@ -1,4 +1,6 @@
-const $ = window.$;
+const {
+  $,
+} = window;
 
 export default function formManipulations() {
   // активируме скрытую панель при изменении формы
@@ -107,7 +109,6 @@ export default function formManipulations() {
     $(panel).removeClass('is-active is-saved');
   });
 
-
   // отключенные секции
   const formDisabledElements = $('[data-checker]');
   const formToggleElements = $('[data-toggle-form]');
@@ -192,8 +193,12 @@ export default function formManipulations() {
       if ($(el).is('select')) {
         const option = $(el).find('option:selected');
         const obj = parseDataCustomProperty($(option).attr('data-custom-properties'));
-        const showElements = obj.showElements;
-        const hideElements = obj.hideElements;
+        const {
+          showElements,
+        } = obj;
+        const {
+          hideElements,
+        } = obj;
         hideAndShow(hideElements, showElements);
       }
     }

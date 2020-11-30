@@ -1,4 +1,4 @@
-const $ = window.$;
+const { $ } = window;
 
 export default function offerCard() {
   const offerCardMethods = {

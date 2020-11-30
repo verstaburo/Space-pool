@@ -1,4 +1,6 @@
-const $ = window.$;
+const {
+  $,
+} = window;
 
 export default function textareaCounters() {
   function counterUpdate(evt) {

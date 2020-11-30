@@ -1,4 +1,4 @@
-const $ = window.$;
+const { $ } = window;
 
 export default function buttonHover() {
   $(document).on('mousemove', '.nd-button', (evt) => {

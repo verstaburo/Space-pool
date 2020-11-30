@@ -1,6 +1,6 @@
 import uid from 'uid';
 
-const $ = window.$;
+const { $ } = window;
 
 export default function profile() {
   function loadTemplate(url) {

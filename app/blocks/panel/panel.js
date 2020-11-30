@@ -1,10 +1,11 @@
 import {
   freeze,
   unfreeze,
-}
-from '../../scripts/functions/freeze';
+} from '../../scripts/functions/freeze';
 
-const $ = window.$;
+const {
+  $,
+} = window;
 
 export default function openPanel() {
   const bp = window.globalOptions.sizes;

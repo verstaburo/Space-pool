@@ -1,4 +1,4 @@
-const $ = window.$;
+const { $ } = window;
 
 export default function allDayFixation() {
   const accessCheck = $('.js-allday-fix input');

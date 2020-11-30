@@ -39,7 +39,7 @@ import allDayFixation from './functions/allDayFixation';
 import ndCropedImage from '../components/popup-image-cropper/popup-image-cropper';
 import heightEqualizer from './functions/heightEqualizer';
 
-const $ = window.$;
+const { $ } = window;
 
 $(() => {
   positioning();

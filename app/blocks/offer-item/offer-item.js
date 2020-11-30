@@ -1,7 +1,7 @@
 import anime from 'animejs';
 import OverlayScrollbars from 'overlayscrollbars';
 
-const $ = window.$;
+const { $ } = window;
 
 export default function offerItemOpen() {
   function getHeight(element) {

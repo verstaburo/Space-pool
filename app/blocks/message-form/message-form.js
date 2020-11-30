@@ -1,4 +1,4 @@
-const $ = window.$;
+const { $ } = window;
 
 export default function messageForm() {
   $(document).on('keydown', '.js-message', (evt) => {

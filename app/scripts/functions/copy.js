@@ -1,4 +1,4 @@
-const $ = window.$;
+const { $ } = window;
 
 export default function copyToClip() {
   $(document).on('click', '.js-copy', (evt) => {

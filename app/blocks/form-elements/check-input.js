@@ -1,4 +1,6 @@
-const $ = window.$;
+const {
+  $,
+} = window;
 
 export default () => {
   const toggle = '.js-check-input-toggle input';
@@ -17,5 +19,5 @@ export default () => {
   };
 
   $(toggle).each((index, element) => checkListener(element));
-  $(document).on('change', toggle, e => checkListener(e.target));
+  $(document).on('change', toggle, (e) => checkListener(e.target));
 };

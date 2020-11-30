@@ -1,6 +1,8 @@
 /* eslint-disable max-len */
 
-const $ = window.$;
+const {
+  $,
+} = window;
 
 export default function uploader() {
   function loadTemplate(url) {
@@ -46,10 +48,14 @@ export default function uploader() {
       while (queue.length !== 0) {
         const index = (queue.length + totalPreviews) - 1;
         const file = queue.pop();
-        const name = file.name;
+        const {
+          name,
+        } = file;
         const type = file.type.split('/');
         const ext = name.split('.').pop();
-        const size = file.size;
+        const {
+          size,
+        } = file;
         let isImage = false;
         let errorMessage = '';
         const outputTemplate = window.templates.templates.photoPreview;
@@ -78,8 +84,12 @@ export default function uploader() {
           const img = new Image();
           const imgEtalon = new Image();
           imgEtalon.onload = function () {
-            const width = this.width;
-            const height = this.height;
+            const {
+              width,
+            } = this;
+            const {
+              height,
+            } = this;
             if (width < conditions.shortSide || height < conditions.shortSide) {
               errorMessage = 'Image must be at least 800px on the shortest side';
               $(preview).find('[data-preview-error-text]').text(errorMessage);
@@ -158,7 +168,9 @@ export default function uploader() {
     const self = $(evt.target).closest('.js-upload-file');
     const url = $(self).attr('data-url-template');
     loadTemplate(url);
-    const files = evt.target.files;
+    const {
+      files,
+    } = evt.target;
     const conditions = {};
     conditions.shortSide = parseInt($(self).attr('data-short-side'), 10) || 0;
     conditions.minSize = parseInt($(self).attr('data-min-size'), 10) || 0;

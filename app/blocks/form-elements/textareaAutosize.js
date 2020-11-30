@@ -1,7 +1,7 @@
 // https://www.jacklmoore.com/autosize/
 import autosize from 'autosize';
 
-const $ = window.$;
+const { $ } = window;
 
 // автосайз для textarea
 export default function textareaAutosize() {

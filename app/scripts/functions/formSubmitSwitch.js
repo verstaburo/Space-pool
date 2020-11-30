@@ -1,4 +1,4 @@
-const $ = window.$;
+const { $ } = window;
 
 export default function formSubmitSwitch() {
   function detection(evt) {

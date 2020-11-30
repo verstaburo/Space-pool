@@ -1,4 +1,4 @@
-const $ = window.$;
+const { $ } = window;
 
 export default function addToFavorite() {
   $(document).on('click', '.js-add-favorite', (evt) => {

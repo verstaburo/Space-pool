@@ -1,3 +1,4 @@
+/* eslint-disable operator-linebreak */
 // http://fancyapps.com/fancybox/3/
 import '@fancyapps/fancybox';
 import {
@@ -5,7 +6,9 @@ import {
   unfreeze,
 } from '../../scripts/functions/freeze';
 
-const $ = window.$;
+const {
+  $,
+} = window;
 const bp = window.globalOptions.sizes;
 
 export default function popups() {
@@ -297,6 +300,7 @@ export default function popups() {
     let result = false;
     for (let i = 0, l = data.length; i < l; i += 1) {
       const item = data[i].split(':');
+      // eslint-disable-next-line prefer-destructuring
       sources[item[0]] = item[1];
       if (item[0] !== 'xl') {
         keys.push(item[0]);

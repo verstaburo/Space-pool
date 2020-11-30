@@ -1,6 +1,6 @@
 import 'sticky-kit/dist/sticky-kit';
 
-const $ = window.$;
+const { $ } = window;
 
 export default function scrollCont() {
   function stickElement(el, offsetT) {

@@ -1,4 +1,4 @@
-const $ = window.$;
+const { $ } = window;
 
 // определяем дефолтное изображение (на случай ресета)
 function defaultImage() {

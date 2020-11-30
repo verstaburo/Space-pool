@@ -4,7 +4,9 @@ import {
   unfreeze,
 } from '../../scripts/functions/freeze';
 
-const $ = window.$;
+const {
+  $,
+} = window;
 
 export default function ndCropedImage() {
   function initCrop(image, cropBoxData) {
@@ -38,7 +40,9 @@ export default function ndCropedImage() {
 
   function saveCroppedImage(source) {
     const cropedZone = $('[data-cropped-area]').get(0);
-    const cropper = cropedZone.cropper;
+    const {
+      cropper,
+    } = cropedZone;
     const img = cropper.getCroppedCanvas({
       minWidth: 1064,
       maxWidth: 4096,
@@ -55,19 +59,19 @@ export default function ndCropedImage() {
 
     // записываем данные обрезки
     if ($(cropInput).length > 0) {
-      $.when($(cropInput).val(cropBox)).then(inp => $(inp).trigger('change'));
+      $.when($(cropInput).val(cropBox)).then((inp) => $(inp).trigger('change'));
     } else {
       cropInput = document.createElement('input');
       cropInput.setAttribute('type', 'hidden');
       cropInput.setAttribute('name', 'viewData[0]');
       $(cropInput).prependTo(source);
       const newInput = $(source).find('[name*="viewData"]');
-      $.when($(newInput).val(cropBox)).then(inp => $(inp).trigger('change'));
+      $.when($(newInput).val(cropBox)).then((inp) => $(inp).trigger('change'));
     }
 
     // записываем данные обрезанного изображения
     if ($(input).length > 0) {
-      $.when($(input).val(imgfinal)).then(inp => $(inp).trigger('change'));
+      $.when($(input).val(imgfinal)).then((inp) => $(inp).trigger('change'));
       $(image).attr('src', imgfinal);
     } else {
       input = document.createElement('input');
@@ -76,7 +80,7 @@ export default function ndCropedImage() {
       $(input).prependTo(source);
       const newInput = $(source).find(`input[name*="${inputName}"`);
       $(image).attr('src', imgfinal);
-      $.when($(newInput).val(imgfinal)).then(inp => $(inp).trigger('change'));
+      $.when($(newInput).val(imgfinal)).then((inp) => $(inp).trigger('change'));
     }
     window.globalFunctions.updateIndexesAtPreviews();
     $.fancybox.close();

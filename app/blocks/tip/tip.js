@@ -1,6 +1,6 @@
 import anime from 'animejs';
 
-const $ = window.$;
+const { $ } = window;
 
 export default function tip() {
   // close tip

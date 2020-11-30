@@ -1,5 +1,5 @@
 /* eslint-disable max-len */
-const $ = window.$;
+const { $ } = window;
 
 // скрипт самого календаря находиться в app/blocks/form-elements/form-elements.js
 

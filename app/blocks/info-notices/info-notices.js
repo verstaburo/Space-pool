@@ -1,4 +1,6 @@
-const $ = window.$;
+const {
+  $,
+} = window;
 
 export default function infoNoitces() {
   function Notices(el) {
@@ -23,7 +25,9 @@ export default function infoNoitces() {
     };
     this.coordinates = function () {
       const t = this;
-      const src = t.src;
+      const {
+        src,
+      } = t;
       let result = {};
       if (window.Modernizr.mq(`(max-width: ${window.globalOptions.sizes.md - 1}px)`)) {
         result = {

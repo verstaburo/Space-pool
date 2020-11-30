@@ -22,7 +22,9 @@ export default class Chart {
 
   init() {
     const _this = this;
-    const options = _this.options;
+    const {
+      options,
+    } = _this;
 
     if (Object.keys(options).length === 0) {
       if (_this.elContainer.length) {
@@ -67,7 +69,9 @@ export default class Chart {
 
   _getFormattedDates() {
     const _this = this;
-    const dates = _this.options.dates;
+    const {
+      dates,
+    } = _this.options;
     return {
       startDate: [moment(dates.startDate).format('DD MMM YYYY'), moment(dates.startDate).toISOString()],
       endDate: [moment(dates.endDate).format('DD MMM YYYY'), moment(dates.endDate).toISOString()],
@@ -82,6 +86,7 @@ export default class Chart {
     lbl.classList.add('line__label');
     labelDate.classList.add('line__label-date');
     labelDate.setAttribute('datetime', date[1]);
+    // eslint-disable-next-line prefer-destructuring
     labelDate.innerText = date[0];
     if (label) {
       const labelText = document.createElement('div');
@@ -97,8 +102,12 @@ export default class Chart {
     const _this = this;
     const data = _this._getValues();
     const dates = _this._getFormattedDates();
-    const colors = _this.options.colors;
-    const labels = _this.options.labels;
+    const {
+      colors,
+    } = _this.options;
+    const {
+      labels,
+    } = _this.options;
     const el = document.createElement('div');
     el.classList.add('line');
     const startMarker = _this._generateLineLabelHtml(dates.startDate, labels.start);
@@ -193,7 +202,9 @@ export default class Chart {
 
   _getRemainings() {
     const _this = this;
-    const dates = _this.options.dates;
+    const {
+      dates,
+    } = _this.options;
     const startDate = moment(dates.startDate);
     const endDate = moment(dates.endDate);
     const today = moment();
@@ -224,14 +235,19 @@ export default class Chart {
     _this.elRemainingPeriod.innerText = remainings;
     _this.elProgressCounter.innerText = `${periods.current}`;
     _this.elTotalCounter.innerText = ` / ${periods.total}`;
+    // eslint-disable-next-line prefer-destructuring
     _this.elRemainUnits.innerText = typeName[1];
   }
 
   _createDonutDiagram() {
     const _this = this;
     const data = _this._getValues();
-    const colors = _this.options.colors;
-    const labels = _this.options.labels;
+    const {
+      colors,
+    } = _this.options;
+    const {
+      labels,
+    } = _this.options;
     const el = _this._createBaseDonutHTML();
     Object.keys(data).forEach((key) => {
       const strokeWidth = (key === 'progress' || key === 'overlay') ? 9 : 7;

@@ -1,4 +1,4 @@
-const $ = window.$;
+const { $ } = window;
 
 function setDevice() {
   if (!$('body').is('.no-js-scale')) {

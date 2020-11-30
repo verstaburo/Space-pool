@@ -1,7 +1,9 @@
 // https://github.com/jshjohnson/Choices
 import Choices from 'choices.js';
 
-const $ = window.$;
+const {
+  $,
+} = window;
 
 export default function ndSelects() {
   function srtFunc(a, b) {
@@ -52,7 +54,9 @@ export default function ndSelects() {
       },
       sorter,
       callbackOnCreateTemplates(template) {
-        const classNames = this.config.classNames;
+        const {
+          classNames,
+        } = this.config;
         const result = {};
         result.dropdown = () => template(`
             <div class="${classNames.list} ${classNames.listDropdown}" aria-expanded="false"><div class="nd-choices__header"><div class="nd-choices__close close js-select-close"></div><div class="nd-choices__header-title">${classNames.titleText}</div></div></div>
@@ -95,7 +99,9 @@ export default function ndSelects() {
   // добавляем состояние сделанного выбора у списков
   if ($('select').length) {
     $('select').each((i, el) => {
-      const value = el.value;
+      const {
+        value,
+      } = el;
       const container = $(el).closest('.choices, .nd-choices');
       if (value !== '' && container.length > 0) {
         $(container).addClass('is-item-select');
@@ -106,7 +112,9 @@ export default function ndSelects() {
 
     $(document).on('change', 'select', (evt) => {
       const self = evt.target;
-      const value = self.value;
+      const {
+        value,
+      } = self;
       const container = $(self).closest('.choices, .nd-choices');
       if (value !== '' && container.length > 0) {
         $(container).addClass('is-item-select');

@@ -1,4 +1,4 @@
-const $ = window.$;
+const { $ } = window;
 
 export default function stickyMessage() {
   $(document).on('click', '.js-close-message', (evt) => {

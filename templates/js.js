@@ -1,5 +1,5 @@
 module.exports = blockName => `
-const $ = window.$;
+const { $ } = window;
 
 export default () => {
 

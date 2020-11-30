@@ -1,4 +1,6 @@
-const $ = window.$;
+const {
+  $,
+} = window;
 
 export default function advancedFilter() {
   // расчет весов для расширенного поиска
@@ -13,8 +15,7 @@ export default function advancedFilter() {
     $(weightsEl).each((i, el) => {
       weights.push(parseInt($(el).attr('data-current-weight'), 10));
     });
-    const totalWeight = weights.reduce((sum, current) =>
-      (sum + current), 0);
+    const totalWeight = weights.reduce((sum, current) => (sum + current), 0);
     $(counter).text(totalWeight);
     if (totalWeight > 0) {
       $(counter).addClass('is-selected');

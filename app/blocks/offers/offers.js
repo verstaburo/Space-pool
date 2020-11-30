@@ -1,4 +1,4 @@
-const $ = window.$;
+const { $ } = window;
 
 export default function emptyOffersState() {
   // we catch the moment when the object becomes empty
