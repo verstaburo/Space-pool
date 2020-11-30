@@ -1,9 +1,13 @@
 {
   "presets": [
-    ["es2015", {
-      "modules": false
-    }],
-    "stage-0"
-  ],
-  "plugins": ["transform-runtime"]
+    ["@babel/preset-env", {
+      "modules": "auto",
+      "loose": true,
+      "corejs": 3,
+      "targets": {
+        "browsers": ["last 2 versions", "ie >= 11", "iOS >= 11"]
+      },
+      "useBuiltIns": "entry"
+    }]
+  ]
 }
