@@ -22,7 +22,10 @@ mixin nd-side-navigation(data, activeName, subActiveName)
         if data.space.image
           +nd-space-media-e
             +e.PICTURE.image
-              option(srcset=data.space.image)
+              if data.space.imagewebp
+                option(srcset=data.space.imagewebp type="image/webp")
+              else
+                option(srcset=data.space.image)
               img(srcset=data.space.image)
     if data.menu
       +e.UL.list(class=(data.menuCls || ''))
@@ -32,6 +35,8 @@ mixin nd-side-navigation(data, activeName, subActiveName)
           - if (data.menuLinkCls) addClass += data.menuLinkCls
           +e.LI.item
             +e.A.link(class=addClass href=item.href)!=item.name
+              if item.counter
+                +e.marker!=item.counter
             if item.list
               +e.UL.sublist
                 each link in item.list

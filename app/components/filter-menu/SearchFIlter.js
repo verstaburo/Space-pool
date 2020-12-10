@@ -27,24 +27,9 @@ export default class SearchFilter {
   init() {
     const _this = this;
 
-    const checkedItems = $('[data-nd-filter-type]:checked');
-    const rangeInputs = $('[data-nd-range-input-min]');
-
-    if (checkedItems.length > 0) {
-      $(checkedItems).each((i, el) => {
-        _this._filterChoosed(el, 'init');
-      });
-    }
-
-    if (rangeInputs.length > 0) {
-      $(rangeInputs).each((i, el) => {
-        _this._filterChoosed(el, 'init');
-      });
-    }
-
+    _this._setFilterValues();
     _this._linkStatusChange(_this.jailers);
     _this._popupsPositioning();
-
     _this._bindEvents();
     _this.el.searchFilter = _this;
   }
@@ -582,6 +567,24 @@ export default class SearchFilter {
         alreadyChecked += 1;
       }
     });
+  }
+
+  _setFilterValues() {
+    const _this = this;
+    const checkedItems = $('[data-nd-filter-type]:checked');
+    const rangeInputs = $('[data-nd-range-input-min]');
+
+    if (checkedItems.length > 0) {
+      $(checkedItems).each((i, el) => {
+        _this._filterChoosed(el, 'init');
+      });
+    }
+
+    if (rangeInputs.length > 0) {
+      $(rangeInputs).each((i, el) => {
+        _this._filterChoosed(el, 'init');
+      });
+    }
   }
 
   _handleRedirectFilter(evt) {

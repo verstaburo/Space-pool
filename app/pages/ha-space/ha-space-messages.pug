@@ -1,0 +1,40 @@
+extends ../../layouts/redesign-default
+
+block head
+  - var pageTitle = 'Spacepool - Host Space - Messages'
+
+block bodyClasses
+  - var bodyCls = ' is-sm-noheader';
+  - var isNoFooter = true
+  - var scripts = ['other']
+
+block header
+  - var headerClass = ' is-login'
+  - var pageClass = ''
+  - var isMap = false
+  - var host = true
+
+block content
+  +nd-page-header._grid
+    .nd-container
+      +nd-page-header-side
+        +nd-link-icon('arrow5')._underline._back._back_md21.__back_md-noname Back to Space list
+      +nd-page-header-main
+        - var menuList = getData('sideNavHASpace.json').menu;
+        +e.mb-menu.nd-hide-from-md
+          +slider-navigation(menuList, 4, 'Messages')
+
+  +nd-content
+    .nd-container
+      +nd-content-aside
+        +sidebar-nosticky.nd-sidebar.nd-hide-md
+          - var nav = getData('sideNavHASpace.json')
+          +nd-side-navigation(nav, 'Messages')
+      +nd-content-main
+        +records
+          each item in getData('nd-ha-space-messages.json')
+            +nd-message(item).__item
+
+block panels
+
+block popups

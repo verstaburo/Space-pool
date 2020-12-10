@@ -152,7 +152,7 @@ export default class Autocomplete {
       }
       $(t.el).addClass('is-autocomplete');
       t.list = list;
-      window.globalFunctions.scrollbarInit(list);
+      window.globalFunctions.scrollbarLight(list);
     }
   }
 
