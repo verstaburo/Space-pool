@@ -27,7 +27,7 @@ export default class SearchFilter {
   init() {
     const _this = this;
 
-    _this._setFilterValues();
+    _this._setCheckedFilterValues();
     _this._linkStatusChange(_this.jailers);
     _this._popupsPositioning();
     _this._bindEvents();
@@ -569,20 +569,38 @@ export default class SearchFilter {
     });
   }
 
-  _setFilterValues() {
+  _setCheckedFilterValues() {
     const _this = this;
     const checkedItems = $('[data-nd-filter-type]:checked');
     const rangeInputs = $('[data-nd-range-input-min]');
 
     if (checkedItems.length > 0) {
       $(checkedItems).each((i, el) => {
-        _this._filterChoosed(el, 'init');
+        _this._filterChoosed(el);
       });
     }
 
     if (rangeInputs.length > 0) {
       $(rangeInputs).each((i, el) => {
-        _this._filterChoosed(el, 'init');
+        _this._filterChoosed(el);
+      });
+    }
+  }
+
+  _setFilterValues() {
+    const _this = this;
+    const checkedItems = $('[data-nd-filter-type]');
+    const rangeInputs = $('[data-nd-range-input-min]');
+
+    if (checkedItems.length > 0) {
+      $(checkedItems).each((i, el) => {
+        _this._filterChoosed(el);
+      });
+    }
+
+    if (rangeInputs.length > 0) {
+      $(rangeInputs).each((i, el) => {
+        _this._filterChoosed(el);
       });
     }
   }
