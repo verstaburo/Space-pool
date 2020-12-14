@@ -103,13 +103,13 @@
       padding: pxtovw(9, 375) 0;
     }
 
-    &:hover {
-      @include screen('sm', min, 2) {
+    body:not(.is-touched-device) & {
+      &:hover {
         color: $nd-color-main;
       }
     }
 
-    &:active {
+    .is-touched-device &:active {
       @include screen('sm', max, 2) {
         color: $nd-color-main;
       }

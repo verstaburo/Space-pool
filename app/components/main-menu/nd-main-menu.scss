@@ -372,13 +372,13 @@
       margin-top: pxtovw(10, 375);
     }
 
-    &:hover {
-      @include screen('sm', min, 2) {
+    body:not(.is-touched-device) & {
+      &:hover {
         color: $nd-color-main;
       }
     }
 
-    &:active {
+    .is-touched-device &:active {
       @include screen('sm', max, 2) {
         color: $nd-color-main;
       }
