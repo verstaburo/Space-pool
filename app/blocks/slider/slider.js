@@ -714,8 +714,11 @@ export default function slider() {
       slidesPerGroup: 1,
       roundLengths: true,
       initialSlide: startIndex,
+      preventInteractionOnTransition: true,
       slideToClickedSlide: true,
       cssMode: true,
+      preventClicks: true,
+      preventClicksPropagation: true,
       on: {
         init() {
           $(el).addClass('is-visible');
@@ -725,6 +728,19 @@ export default function slider() {
             $(this.slides).each((ix, slide) => {
               $(slide).removeAttr('style');
             });
+          }
+        },
+        tap(evt) {
+          const {
+            type,
+          } = evt;
+          const link = evt.target;
+          if ($(link).is('a')) {
+            if (type === 'touchend') {
+              document.location.href = link.href;
+            } else if (type === 'mouseup') {
+              evt.preventDefault();
+            }
           }
         },
       },
