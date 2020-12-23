@@ -1,0 +1,182 @@
+mixin registration-form-new(data)
+  - var regClass = ''
+  - if (data.lead) regClass = ' registration-form_lead registration-form_pt0'
+  - if (data.regform) regClass = ' registration-form_pt0 registration-form_data'
+  +nd-form.registration-form&attributes(attributes)(data-validated-form class=regClass)
+    +form-section-header()(class=data.headerCls)
+      +e.H2.title!=data.title
+      if (data.lead)
+        +nd-checkbox({name: 'termsAndConditions', value: "accept", checker: 'registrationMethod'}).__selection(data-step="startSelection") I agree with&nbsp;
+          +nd-link()._underline(href="#") Terms and Conditions
+    if (data.lead)
+      +form-section(data-step="startSelection")
+        +e.methods(data-checker-target="registrationMethod")
+          +nd-button()._sm-fz15._h60._dis-blue(href="nd-signup-data.html") Sign up with E-mail
+          +nd-button-icon('a', {image: {src: 'assets/images/nd/linkedin.svg', cls: "_in"}})._sm-fz15._border._border_gray._border_gray-txt._h60(href="#") Sign up with Linkedin
+          +nd-button-icon('a', {image: {src: 'assets/images/nd/google.svg', cls: '_gg'}})._sm-fz15._border._border_gray._border_gray-txt._h60(href="#") Sign up with Google
+          +nd-button-icon('a', {image: {src: 'assets/images/nd/facebook.svg', cls: "_fb"}})._sm-fz15._border._border_gray._border_gray-txt._h60(href="#") Sign up with Facebook
+    if (data.regform)
+      +form-section._mt45
+        +nd-grid
+          +nd-grid-col({xl: 6, sm: 12})
+            +form-section-wrapper
+              +nd-form-box('First name')
+                +nd-input(type="text" name="firstName" required inputmode="text")
+          +nd-grid-col({xl: 6, sm: 12})
+            +form-section-wrapper
+              +nd-form-box('Last name')
+                +nd-input(type="text" name="lastName" required inputmode="text")
+          +nd-grid-col({xl: 12})
+            +form-section-wrapper
+              +nd-form-box('Email')
+                +nd-input(type="email" name="email" required inputmode="email")
+          +nd-grid-col({xl: 12})
+            +e.row
+              +form-section-wrapper._w118
+                +nd-form-box('', 'div')
+                  +nd-select(name="phoneCode" placeholder="Phone code" required data-choices-classes=" nd-choices_noarrow" data-mobile-title="Phone code").js-nd-select
+                    option(value="7") +7
+                    option(value="9") +9
+                    option(value="44" selected) +44
+                    option(value="45") +45
+                    option(value="80") +80
+              +form-section-wrapper
+                +nd-form-box('Phone number')
+                  +nd-input(type="tel" name="phoneNumber" placeholder="Phone number" inputmode="tel")
+          +nd-grid-col({xl: 12})
+            +form-section-wrapper
+              +nd-form-box('Password')
+                +nd-input(type="password" name="password" required)
+        +e.buttons_mt43
+          +nd-button('button', true).__button_wide(type="submit") Sign Up
+    if (data.confirmemail)
+      +form-section
+        +e.block
+          +nd-grid
+            +nd-grid-col({xl: 6})
+              +form-section-wrapper
+                +radio-button({name: 'user', value: 'privatePerson', checked: true, switch: 'privatePerson'}) Private person
+            +nd-grid-col({xl: 6})
+              +form-section-wrapper
+                +radio-button({name: 'user', value: 'legalEntity', checked: false, switch: 'legalEntity'}) Legal entity
+        +e.block
+          +nd-grid
+            +nd-grid-col({xl: 6, sm: 12})
+              +form-section-wrapper
+                +nd-form-box('First name')
+                  +nd-input(type="text" name="firstName" placeholder="First name" required)
+            +nd-grid-col({xl: 6, sm: 12})
+              +form-section-wrapper
+                +nd-form-box('Last name')
+                  +nd-input(type="text" name="lastName" placeholder="Last name" required)
+            +nd-grid-col({xl: 12})(data-form-switchable-item="privatePerson")
+              +form-section-wrapper
+                +nd-form-box('Date of birth')
+                  +nd-input(type="text" name="birthDate" data-birthday required data-parsley-birthdate)._birthday
+            +nd-grid-col({xl: 6, sm: 12})(data-form-switchable-item="privatePerson")
+              +form-section-wrapper
+                +nd-form-box('Nationality', 'div')
+                  +nd-select(name="nationality" placeholder="Nationality" required data-mobile-title="Nationality").js-nd-select
+                    option(value="" placeholder)
+                    option(value="1") Russian
+                    option(value="2") Latvian
+                    option(value="3") German
+                    option(value="4") English
+            +nd-grid-col({xl: 6, sm: 12})(data-form-switchable-item="privatePerson")
+              +form-section-wrapper
+                +nd-form-box('Country of residence', 'div')
+                  +nd-select(name="countryOfResidence" placeholder="Country of residence" required data-mobile-title="Country of residence").js-nd-select
+                    option(value="" placeholder)
+                    option(value="1") Russia
+                    option(value="2") Latvia
+                    option(value="3") Germany
+                    option(value="4") England
+            +nd-grid-col({xl: 12})(data-form-switchable-item="legalEntity")
+              +form-section-wrapper
+                +nd-form-box('Company name')
+                  +nd-input(type="text" name="companyName" placeholder="Company name" required)
+            +nd-grid-col({xl: 12})(data-form-switchable-item="legalEntity")
+              +form-section-wrapper
+                +nd-form-box('Company Registration No.')
+                  +nd-input(type="text" name="companyRegNum" placeholder="Company Registration No." required)
+            +nd-grid-col({xl: 12})(data-form-switchable-item="legalEntity")
+              +form-section-wrapper
+                +nd-form-box('VAT number (if applicable)')
+                  +nd-input(type="text" name="vatNumber" placeholder="VAT number (if applicable)")
+            +nd-grid-col({xl: 12})(data-form-switchable-item="legalEntity")
+              +form-section-wrapper
+                +nd-form-box('Address line 1')
+                  +nd-input(type="text" name="addressLine1" placeholder="Address line 1")
+            +nd-grid-col({xl: 12})(data-form-switchable-item="legalEntity")
+              +form-section-wrapper
+                +nd-form-box('Address line 2')
+                  +nd-input(type="text" name="addressLine2" placeholder="Address line 2")
+            +nd-grid-col({xl: 6, sm: 12})(data-form-switchable-item="legalEntity")
+              +form-section-wrapper
+                +nd-form-box('City', 'div')
+                  +nd-select(name="city" placeholder="City" data-mobile-title="City").js-nd-select
+                    option(value="" placeholder)
+                    option(value="1") London
+                    option(value="2") Moscow
+                    option(value="3") Berlin
+                    option(value="4") Riga
+            +nd-grid-col({xl: 6, sm: 12})(data-form-switchable-item="legalEntity")
+              +form-section-wrapper
+                +nd-form-box('Country', 'div')
+                  +nd-select(name="country" placeholder="Country" required data-mobile-title="Country").js-nd-select
+                    option(value="" placeholder)
+                    option(value="1") Russia
+                    option(value="2") Latvia
+                    option(value="3") Germany
+                    option(value="4") England
+            +nd-grid-col({xl: 12})(data-form-switchable-item="legalEntity")
+              +form-section-wrapper
+                +nd-form-box('Postcode / ZIP')
+                  +nd-input(type="text" name="postcodeZip" placeholder="Postcode / ZIP")
+            +nd-grid-col({xl: 12})(data-form-switchable-item="legalEntity")
+              +form-section-wrapper
+                +nd-form-box('Company business area')
+                  +nd-input(type="text" name="companyBusinessArea" placeholder="Company business area")
+        +e.block_mt86(data-form-switchable-item="legalEntity")
+          +e.H3.title_fz22._fw400._mb(class=headerClass) Company director details
+          +nd-grid
+            +nd-grid-col({xl: 6, sm: 12})
+              +form-section-wrapper
+                +nd-form-box('First name')
+                  +nd-input(type="text" name="firstNameDirector" placeholder="First name" required)
+            +nd-grid-col({xl: 6, sm: 12})
+              +form-section-wrapper
+                +nd-form-box('Last name')
+                  +nd-input(type="text" name="lastNameDirector" placeholder="Last name" required)
+            +nd-grid-col({xl: 6, sm: 12})
+              +form-section-wrapper
+                +nd-form-box('Nationality', 'div')
+                  +nd-select(name="nationalityDirector" placeholder="Nationality" required data-mobile-title="Nationality").js-nd-select
+                    option(value="" placeholder)
+                    option(value="1") Russian
+                    option(value="2") Latvian
+                    option(value="3") German
+                    option(value="4") English
+            +nd-grid-col({xl: 6, sm: 12})
+              +form-section-wrapper
+                +nd-form-box('Country of residence', 'div')
+                  +nd-select(name="countryOfResidenceDirector" placeholder="Country of residence" required data-mobile-title="Country of residence").js-nd-select
+                    option(value="" placeholder)
+                    option(value="1") Russia
+                    option(value="2") Latvia
+                    option(value="3") Germany
+                    option(value="4") England
+            +nd-grid-col({xl: 12})
+              +form-section-wrapper
+                +nd-form-box('Date of birth')
+                  +nd-input(type="text" name="birthDate" data-birthday required data-parsley-birthdate)._birthday
+        +e.buttons
+          +nd-button('button', true).__button_wide(type="submit")
+            span(data-form-switchable-item="privatePerson") Continue
+            span(data-form-switchable-item="legalEntity") Create account
+    if (data.lead || data.regform)
+      .registration-form__bottom
+        a.registration-form__question(href="#")
+          span Already have an account?
+        +nd-button()._pad10.registration-form__button(href="#" class=(data.lead ? '_mw210' : '')) Login
+    block

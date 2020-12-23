@@ -1,0 +1,78 @@
+.header-panel {
+  $b: &;
+
+  display: flex;
+  align-items: center;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  box-sizing: border-box;
+
+  @include rule(height, (xl: 66px, xlg: 66, lg: 60, md: 60, sm: 60));
+  @include rule(padding-left, (xl: 32px, xlg: 32, lg: 32, md: 22, sm: 20));
+  @include rule(padding-right, (xl: 32px, xlg: 32, lg: 32, md: 22, sm: 20));
+
+  @include screen('sm', max, 2) {
+    position: fixed;
+    background-color: $nd-color-basic-light;
+    z-index: 10;
+    text-align: center;
+    border-bottom: 1px solid $nd-color-border5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__title {
+    display: none;
+    width: 100%;
+    text-align: center;
+    font-family: $font-stolzl;
+    font-weight: 400;
+    line-height: 1;
+
+    @include rule(font-size, (xl: 17px, xlg: 17, lg: 17, md: 17, sm: 17));
+
+    @include screen('sm', max, 2) {
+      display: block;
+    }
+  }
+
+  &__back {
+    @include rule(font-size, (xl: 16px, xlg: 16, lg: 16, md: 16, sm: 16));
+
+    line-height: (17 / 16);
+    letter-spacing: -.02em;
+
+    &_bold {
+      font-weight: 700;
+    }
+
+    &_sm-noname .nd-link__text {
+      @include screen('sm', max, 2) {
+        display: none;
+      }
+    }
+  }
+
+  .nd-link_back .nd-link__icon:not(:last-child) {
+    @include rule(margin-right, (md: 14, sm: 14));
+  }
+
+  .nd-link_back_sm-cross {
+    @include screen('sm', max, 2) {
+      position: absolute;
+      top: 50%;
+      left: pxtovw(20, 375);
+      transform: translate3d(0, -50%, 0);
+    }
+
+    &::before {
+      @include screen('sm', max, 2) {
+        background-image: url(../images/bg/bg-cross.svg);
+        background-size: pxtovw(16, 375);
+      }
+    }
+  }
+}

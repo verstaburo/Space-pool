@@ -718,4 +718,37 @@
       }
     }
   }
+
+  &_reg {
+    #{$b} {
+      &__title {
+        line-height: 1.19;
+        font-family: $font-stolzl-book;
+
+        @include rule(font-size, (xl: 43px, xlg: 43, lg: 43, md: 26, sm: 26));
+      }
+
+      &__content {
+        font-family: $font-stolzl-book;
+        line-height: 1.19;
+        letter-spacing: normal;
+
+        @include rule(font-size, (xl: 18px, xlg: 18, lg: 18, md: 14, sm: 15));
+
+        &:not(:first-child) {
+          @include rule(margin-top, (xl: 126px, xlg: 126, lg: 93, md: 90, sm: 47));
+        }
+
+        p:not(:first-child) {
+          @include rule(margin-top, (xl: 22px, xlg: 22, lg: 22, md: 20, sm: 20));
+        }
+      }
+
+      &__buttons {
+        &:not(:first-child) {
+          @include rule(margin-top, (xl: 40px, xlg: 40, lg: 34, md: 42, sm: 60));
+        }
+      }
+    }
+  }
 }

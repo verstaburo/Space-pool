@@ -289,6 +289,12 @@
       }
     }
 
+    &_mt40 {
+      &:not(:first-child) {
+        @include rule(margin-top, (xl: 40px, xlg: 40, lg: 40, md: 40, sm: 40));
+      }
+    }
+
     &_mt44 {
       &:not(:first-child) {
         @include rule(margin-top, (xl: 44px, xlg: 44, lg: 44, md: 44, sm: 30));
@@ -504,6 +510,18 @@
       }
     }
 
+    &_mt30 {
+      &:not(:first-child) {
+        @include rule(margin-top, (xl: 30px, xlg: 30, lg: 30, md: 30, sm: 30));
+      }
+    }
+
+    &_mt40 {
+      &:not(:first-child) {
+        @include rule(margin-top, (xl: 40px, xlg: 40, lg: 40, md: 40, sm: 40));
+      }
+    }
+
     &_mt44 {
       &:not(:first-child) {
         @include rule(margin-top, (xl: 44px, xlg: 44, lg: 44, md: 44, sm: 44));
@@ -542,6 +560,25 @@
           @include rule(margin-top, (xl: 26px, xlg: 26, lg: 26, md: 26, sm: 18));
         }
       }
+    }
+  }
+
+  &__note {
+    display: inline-flex;
+    width: 100%;
+    justify-content: center;
+    line-height: (26 / 18);
+    font-weight: 400;
+    text-align: center;
+
+    @include rule(font-size, (xl: 18px, xlg: 18, lg: 18, md: 18, sm: 15));
+
+    @include screen('sm', max, 2) {
+      line-height: (18 / 15);
+    }
+
+    &:not(:first-child) {
+      @include rule(margin-top, (xl: 75px, xlg: 75, lg: 75, md: 75, sm: 60));
     }
   }
 
@@ -686,6 +723,16 @@
       }
     }
 
+    &_mt43 {
+      &:not(:first-child) {
+        @include rule(margin-top, (xl: 43px, xlg: 43, lg: 43, md: 43, sm: 43));
+      }
+    }
+
+    &_fxc {
+      justify-content: center;
+    }
+
     &_fxe {
       justify-content: flex-end;
     }
@@ -694,6 +741,10 @@
   &__button {
     &_wide {
       width: 100%;
+    }
+
+    &_mw228 {
+      @include rule(min-width, (xl: 228px, xlg: 228, lg: 228, md: 228, sm: 180));
     }
 
     &_mw303 {
@@ -1063,23 +1114,14 @@
 
       &_w144 {
         flex: none;
-        width: 144px;
 
-        @include screen('xlg', max, 2) {
-          width: pxtovw(144, 1660);
-        }
+        @include rule(width, (xl: 144px, xlg: 144, lg: 144, md: 144, sm: 144));
+      }
 
-        @include screen('lg', max, 2) {
-          width: pxtovw(144, 1366);
-        }
+      &_w118 {
+        flex: none;
 
-        @include screen('md', max, 2) {
-          width: pxtovw(144, 960);
-        }
-
-        @include screen('sm', max, 2) {
-          width: pxtovw(144, 375);
-        }
+        @include rule(width, (xl: 118px, xlg: 118, lg: 118, md: 118, sm: 118));
       }
 
       &_md-wide {
@@ -1215,6 +1257,20 @@
 
     &:not(:first-child) {
       @include rule(margin-top, (xl: 42px, xlg: 42, lg: 38, md: 38, sm: 44));
+    }
+  }
+
+  &__note {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: flex-start;
+    flex-wrap: wrap;
+
+    .nd-link {
+      font-weight: 600;
+
+      @include rule(margin-left, (xl: 4px, xlg: 4, lg: 4, md: 4, sm: 4));
     }
   }
 

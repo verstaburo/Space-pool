@@ -80,6 +80,19 @@
       }
     }
 
+    &_reload {
+      @include rule(width, (xl: 14px, xlg: 14, lg: 14, md: 14, sm: 14));
+      @include rule(height, (xl: 14px, xlg: 14, lg: 14, md: 14, sm: 14));
+
+      #{$b}_icon_reverse & {
+        &:not(:last-child) {
+          margin-right: 0;
+
+          @include rule(margin-left, (xl: 8px, xlg: 8, lg: 8, md: 8, sm: 8));
+        }
+      }
+    }
+
     &_nd-user {
       width: 13px;
       height: 13px;
@@ -457,6 +470,10 @@
 
   &_icon_blue {
     fill: $nd-color-main;
+  }
+
+  &_icon_black {
+    fill: $nd-color-basic;
   }
 
   &_icon_reverse {

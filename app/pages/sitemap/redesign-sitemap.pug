@@ -11,7 +11,7 @@ block header
   - var pageClass = ' nd-page_main'
 
 block content
-  - var menuList = [{name: "Общее", href: "#nav-common"}, {name: "Search", href: "#nav-search"}, {name: "Rental Summary", href: "#nav-rental-summary"}, {name: "Deal Passport", href: "#nav-deal"}, {name: "Guest Account", href: "#nav-ga"}, {name: "Host Account", href: "#nav-ha"}, {name: "Edit Space", href: "#nav-edit-space"}, {name: "Add Space", href: "#nav-add-space"}, /* {name: "HA - Single Space", href: "#nav-ha-space"}, */ {name: "Popups", href: "#nd-popups"}];
+  - var menuList = [{name: "Общее", href: "#nav-common"}, {name: "Search", href: "#nav-search"}, {name: "Rental Summary", href: "#nav-rental-summary"}, {name: "Deal Passport", href: "#nav-deal"}, {name: "Guest Account", href: "#nav-ga"}, {name: "Host Account", href: "#nav-ha"}, {name: "Edit Space", href: "#nav-edit-space"}, {name: "Add Space", href: "#nav-add-space"}, {name: "Popups", href: "#nd-popups"}, {name: "Registration", href: "#nd-registration"}, /* {name: "HA - Single Space", href: "#nav-ha-space"}, */];
   - var nav = {menu: menuList, menuLinkCls: ' js-nd-anchor'}
   +nd-page-header._grid._grid_acc
     .nd-container.nd-hide-from-md
@@ -28,6 +28,24 @@ block content
 
       +nd-content-main
         +b.sitemap
+          //- +e.group#nav-ha-space
+          //-   +e.head
+          //-     +page-title Страницы Host Account - Single Space (only HD breakpoint)
+          //-   +e.list
+          //-     +nd-link(href="ha-space.html") Spacepool - Host Space - Dashboard (ha-space.html)
+          //-     +nd-link(href="ha-space-listings.html") Spacepool - Host Space - Listings (ha-space-listings.html)
+          //-     +nd-link(href="ha-space-rents.html") Spacepool - Host Space - Rents (ha-space-rents.html)
+          //-     +nd-link(href="ha-space-viewings.html") Spacepool - Host Space - Viewings (ha-space-viewings.html)
+          //-     +nd-link(href="ha-space-messages.html") Spacepool - Host Space - Messages (ha-space-messages.html)
+          //-     +nd-link(href="ha-space-manager.html") Spacepool - Host Space - Manager (ha-space-manager.html)
+          +e.group#nd-registration
+            +e.head
+              +page-title Registration Steps
+            +e.list
+              +nd-link(href="nd-signup-lead.html") Spacepool - Join Spacepool - Lead (nd-signup-lead.html)
+              +nd-link(href="nd-signup-data.html") Spacepool - Join Spacepool - Form (nd-signup-data.html)
+              +nd-link(href="nd-signup-verify.html") Spacepool - Registration verification (nd-signup-verify.html)
+              +nd-link(href="nd-signup-ready2.html") Spacepool - Regestration complete (nd-signup-ready2.html)
           +e.group#nd-popups
             +e.head
               +page-title Попапы
@@ -41,16 +59,6 @@ block content
               +nd-link(href="#popup-type3-v3").js-nd-popup Попап вариация 3 (1 кнопка) (#popup-type3-v3)
               +nd-link(href="#popup-type3-v4").js-nd-popup Попап вариация 3 (very important) (#popup-type3-v4)
               +nd-link(href="#popup-type3-v5").js-nd-popup Попап вариация 3 (error) (#popup-type3-v5)
-          //- +e.group#nav-ha-space
-          //-   +e.head
-          //-     +page-title Страницы Host Account - Single Space (only HD breakpoint)
-          //-   +e.list
-          //-     +nd-link(href="ha-space.html") Spacepool - Host Space - Dashboard (ha-space.html)
-          //-     +nd-link(href="ha-space-listings.html") Spacepool - Host Space - Listings (ha-space-listings.html)
-          //-     +nd-link(href="ha-space-rents.html") Spacepool - Host Space - Rents (ha-space-rents.html)
-          //-     +nd-link(href="ha-space-viewings.html") Spacepool - Host Space - Viewings (ha-space-viewings.html)
-          //-     +nd-link(href="ha-space-messages.html") Spacepool - Host Space - Messages (ha-space-messages.html)
-          //-     +nd-link(href="ha-space-manager.html") Spacepool - Host Space - Manager (ha-space-manager.html)
           +e.group#nav-add-space
             +e.head
               +page-title Страницы Add Space

@@ -1,0 +1,42 @@
+mixin registration-form-accready()
+  +nd-form.registration-form&attributes(attributes)(data-validated-form)
+    +form-section-header()
+      +e.H2.title_wide Your account created and ready to use
+      +e.text Do not forget to add payment methods to your account
+    +form-section._mt54
+      +e.buttons
+        +nd-button('a').__button_wide(href="#") Add payment methods
+    .registration-form__bottom.registration-form__bottom_mt58
+      a.registration-form__question(href="#")
+        span You can also add payment methods later
+      +nd-button()(href="#")._pad10.registration-form__button.registration-form__button_mw110 Skip
+    block
+
+mixin registration-form-verify()
+  +nd-form('section').registration-form_verify&attributes(attributes)
+    .registration-form__media
+      picture.registraiton-form__image
+        img(src="assets/images/nd/ico-envelope.svg" alt='')
+    +form-section-header()
+      +e.H2.title_wide Please verify your account
+      +e.text_mt40 Check your email and follow the instruction inside of an email to complete Spacepool registration.
+    +form-section-content._mt40
+      +e.buttons_fxc
+        +nd-button('a').__button_mw228(href="#") OK
+      +e.note Didn’t receive? Try to
+        +nd-link-icon('reload')._icon_reverse._icon_black._blue(href="#") Resend email
+    block
+
+mixin registration-form-accready2()
+  +nd-form('section').registration-form_ready&attributes(attributes)(data-validated-form)
+    +form-section-header()
+      +e.H2.title_wide You are all set and ready to go
+      +e.text_mt30 We will however require some additional information about you / your business before you can make rental requests.
+    +form-section('section')._mt54
+      +e.buttons
+        +nd-button('a').__button_wide(href="#") Complete now
+    .registration-form__bottom.registration-form__bottom_mt58
+      a.registration-form__question(href="#")
+        span Or you can add this information later
+      +nd-button()(href="#")._pad10._black.registration-form__button.registration-form__button_mw110 Skip
+    block

@@ -357,6 +357,37 @@
         width: 100%;
       }
     }
+
+    &_mw210 {
+      @include rule(min-width, (xl: 210px, xlg: 210, lg: 210, md: 125, sm: 0));
+    }
+  }
+
+  &__media {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    font-size: 0;
+    line-height: 0;
+
+    &:not(:last-child) {
+      @include rule(margin-bottom, (xl: 67px, xlg: 67, lg: 67, md: 67, sm: 60));
+    }
+  }
+
+  &__image {
+    line-height: 0;
+    font-size: 0;
+    display: block;
+
+    @include rule(height, (xl: 168px, xlg: 168, lg: 168, md: 168, sm: 168));
+
+    img {
+      display: block;
+      line-height: 0;
+      font-size: 0;
+      height: 100%;
+    }
   }
 
   &_rs {
@@ -408,6 +439,93 @@
           @include screen('sm', max, 2) {
             margin-top: pxtovw(60, 375);
           }
+        }
+      }
+    }
+  }
+
+  &_pt0 {
+    padding-top: 0;
+  }
+
+  &_lead {
+    #{$b} {
+      &__question {
+        @include rule(font-size, (md: 16, sm: 18));
+        @include rule(padding-right, (md: 28, sm: 0));
+      }
+
+      &__bottom {
+        @include rule(margin-top, (xl: 83px, xlg: 83, lg: 60, md: 45, sm: 64));
+        @include rule(padding-top, (md: 34, sm: 0));
+        @include rule(padding-bottom, (md: 34, sm: 0));
+
+        @include screen('sm', max, 2) {
+          border-top: none;
+        }
+      }
+
+      &__button {
+        margin-top: pxtovw(16, 375);
+      }
+    }
+
+    .nd-form {
+      &__header {
+        @include screen('lg', max, 2) {
+          text-align: left;
+          align-items: flex-start;
+        }
+
+        @include screen('sm', max, 2) {
+          text-align: center;
+          align-items: center;
+        }
+      }
+
+      &__selection {
+        @include rule(font-size, (md: 16, sm: 15));
+
+        &:not(:first-child) {
+          @include rule(margin-top, (xl: 88px, xlg: 88, lg: 42, md: 40, sm: 40));
+        }
+      }
+
+      &__methods {
+        @include rule(margin-top, (xl: 32px, xlg: 32, lg: 22, md: 10, sm: 2));
+
+        .nd-button:not(:first-child) {
+          @include rule(margin-top, (md: 28, sm: 22));
+        }
+      }
+    }
+  }
+
+  &_data {
+    #{$b} {
+      &__bottom {
+        @include rule(margin-top, (xl: 75px, xlg: 75, lg: 75, md: 75, sm: 60));
+      }
+    }
+  }
+
+  &_verify {
+    @include rule(max-width, (xl: 432px, xlg: 432, lg: 432, md: 432));
+    @include rule(padding-top, (xl: 100px, xlg: 100, lg: 90, md: 75, sm: 23));
+    @include rule(padding-bottom, (xl: 100px, xlg: 100, lg: 90, md: 75, sm: 23));
+
+    @include screen('sm', max, 2) {
+      max-width: none;
+    }
+  }
+
+  &_ready {
+    .nd-form {
+      &__text {
+        @include rule(max-width, (xl: 440px, xlg: 440, lg: 440, md: 440));
+
+        @include screen('sm', max, 2) {
+          max-width: none;
         }
       }
     }
