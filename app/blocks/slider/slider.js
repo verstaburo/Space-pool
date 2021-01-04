@@ -706,7 +706,7 @@ export default function slider() {
   }
 
   function navigationSlider(el) {
-    const startIndex = +$(el).attr('data-first-slide-index') || 0;
+    const startIndex = +$(el).find('.slider-navigation__link.is-active:visible').attr('data-slide-index') || 0;
     const newslider = new Swiper(el, {
       speed: 300,
       spaceBetween: 0,
@@ -715,7 +715,7 @@ export default function slider() {
       roundLengths: true,
       initialSlide: startIndex,
       preventInteractionOnTransition: true,
-      slideToClickedSlide: true,
+      slideToClickedSlide: false,
       cssMode: true,
       preventClicks: true,
       preventClicksPropagation: true,
@@ -730,19 +730,19 @@ export default function slider() {
             });
           }
         },
-        tap(evt) {
-          const {
-            type,
-          } = evt;
-          const link = evt.target;
-          if ($(link).is('a')) {
-            if (type === 'touchend') {
-              document.location.href = link.href;
-            } else if (type === 'mouseup') {
-              evt.preventDefault();
-            }
-          }
-        },
+        // tap(evt) {
+        //   const {
+        //     type,
+        //   } = evt;
+        //   const link = evt.target;
+        //   if ($(link).is('a')) {
+        //     if (type === 'touchend') {
+        //       document.location.href = link.href;
+        //     } else if (type === 'mouseup') {
+        //       evt.preventDefault();
+        //     }
+        //   }
+        // },
       },
     });
   }
