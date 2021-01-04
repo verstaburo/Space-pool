@@ -548,6 +548,41 @@
       }
     }
 
+    &_debit {
+      td, th {
+        line-height: 22px;
+        padding: 14px 12px 15px 0;
+        border-color: $nd-color-border4;
+
+        @include rule(font-size, (xl: 16px, xlg: 16, lg: 16, md: 16, sm: 16));
+        @include rule(line-height, (xl: 22px, xlg: 22, lg: 22, md: 22, sm: 22));
+
+        b {
+          font-weight: 700;
+
+          &.is-fw600 {
+            font-weight: 600;
+          }
+        }
+
+        @include screen('xlg', max, 2) {
+          padding: pxtovw(14, 1660) pxtovw(12, 1660) pxtovw(15, 1660) 0;
+        }
+
+        @include screen('lg', max, 2) {
+          padding: pxtovw(14, 1366) pxtovw(12, 1366) pxtovw(15, 1366) 0;
+        }
+
+        @include screen('md', max, 2) {
+          padding: pxtovw(12, 960) pxtovw(12, 960) pxtovw(15, 960) 0;
+        }
+
+        @include screen('sm', max, 2) {
+          padding: pxtovw(12, 375) pxtovw(12, 375) pxtovw(15, 375) 0;
+        }
+      }
+    }
+
     &_check {
       tr {
         border-color: $nd-color-border4;

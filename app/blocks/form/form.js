@@ -87,6 +87,19 @@ export default function formManipulations() {
         start: $(el).data('start'),
       });
     });
+    // сбрасываем выбранные секции
+    if ($('[data-form-switch]').length > 0) {
+      $('[data-form-switch]').each((i, el) => {
+        const type = $(el).is('select') ? 'select' : 'input';
+        if (type === 'input') {
+          if ($(el).prop('checked')) {
+            window.globalFunctions.switchElements(el);
+          }
+        } else {
+          window.globalFunctions.switchElements(el);
+        }
+      });
+    }
     // сбрасываем положение лейблов
     window.setLabelPosition();
   }

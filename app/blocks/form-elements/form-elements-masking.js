@@ -2,7 +2,9 @@
 import moment from 'moment';
 import IMask from 'imask';
 
-const { $ } = window;
+const {
+  $,
+} = window;
 
 // маскирование
 export default function maskForm() {
@@ -45,6 +47,32 @@ export default function maskForm() {
             to: 31,
             placeholderChar: 'D',
             maxLength: 2,
+          },
+        },
+      });
+      _this.masked = true;
+    }
+  });
+
+  $(document).on('focus', '[data-expirydate]', (evt) => {
+    const _this = evt.currentTarget;
+    // const maskPattern = 'YYYY / M[M] / D[D]';
+    if (!_this.masked) {
+      const momentMask = IMask(_this, {
+        mask: 'MM/YY',
+        lazy: false,
+        autofix: true,
+        overwrite: true,
+        blocks: {
+          YY: {
+            mask: '00',
+            placeholderChar: 'Y',
+          },
+          MM: {
+            mask: IMask.MaskedRange,
+            from: 1,
+            to: 12,
+            placeholderChar: 'M',
           },
         },
       });

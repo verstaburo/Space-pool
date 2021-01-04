@@ -12,7 +12,7 @@ mixin payment-form(data)
         +e.H2.title Add payment method
         +e.text_mt25 Slect prefered payment method type and fill the form below
     if data.newdebit && data.debittable
-      +nd-table._info._info_amount._info_amount_fz16.__table
+      +nd-table._info._info_debit.__table_mt58
         tbody
           tr
             td
@@ -118,7 +118,7 @@ mixin payment-form(data)
           else
             +nd-button('button', true).__button_wide(type="submit") Add payment method
     if data.newdebit && data.debittable
-      +e.buttons
+      +e.buttons_mt45
         +nd-button('a')._black.__button_equal(href="direct-debit.html") Edit information
         +nd-button('button', true).__button_equal(type="button") Submit
 

@@ -11,15 +11,15 @@ mixin pay-form(data)
           +nd-grid-col({xl: 12})
             +form-section-wrapper
               +nd-form-box('Card number')
-                +nd-input(type="text" name="cardnumber" required inputmode="number" placeholder="Card number")
+                +nd-input(type="text" name="cardnumber" required inputmode="number" placeholder="Card number" data-parsley-type="digits")
           +nd-grid-col({xl: 8})
             +form-section-wrapper
               +nd-form-box('Expiry Date MM/YY')
-                +nd-input(type="text" name="expiryDate" required inputmode="number" placeholder="Expiry Date MM/YY")
+                +nd-input(type="text" name="expiryDate" required inputmode="number" placeholder="Expiry Date MM/YY" data-expirydate="data-expirydate")
           +nd-grid-col({xl: 4})
             +form-section-wrapper
               +nd-form-box('CVC/CVV')
-                +nd-input(type="text" name="code" required inputmode="number" placeholder="CVC/CVV")
+                +nd-input(type="text" name="code" required inputmode="number" placeholder="CVC/CVV" data-parsley-type="digits" autocomplete="off" maxlength="3")
           +nd-grid-col({xl: 12})
             +form-section-wrapper
               +nd-form-box('Name on card')

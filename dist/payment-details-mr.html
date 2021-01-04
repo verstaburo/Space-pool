@@ -24,7 +24,7 @@
             <div class="nd-container">
                 <div class="rs-grid__column rs-grid__column_form rs-grid__column_sm-pb0"><a class="nd-logo nd-logo_rs rs-grid__logo nd-hide-sm"><svg class="nd-logo__icon"><use xlink:href="assets/images/icon.svg#icon_nd-logo"></use></svg></a>
                     <div class="rs-grid__form">
-                        <form class="nd-form pay-form">
+                        <form class="nd-form pay-form" data-validated-form="data-validated-form">
                             <div class="nd-form__header nd-form__header_sm-tac">
                                 <h2 class="nd-form__title">Payment Details</h2>
                                 <div class="nd-form__text nd-form__text_mt16 nd-form__text_sm-fz13">Please add card details for this reservation. You won’t be charged at this point.</div>
@@ -32,17 +32,17 @@
                             <fieldset class="nd-form__section">
                                 <div class="nd-grid nd-grid_int37 nd-grid_gap36">
                                     <div class="nd-grid__col nd-grid__col_xl_12">
-                                        <div class="nd-form__wrapper"><label class="form-box nd-form-box"><input class="nd-input" type="text" name="cardnumber" required="required" inputmode="number" placeholder="Card number" /><span class="form-box__label">Card number</span></label>
+                                        <div class="nd-form__wrapper"><label class="form-box nd-form-box"><input class="nd-input" type="text" name="cardnumber" required="required" inputmode="number" placeholder="Card number" data-parsley-type="digits" /><span class="form-box__label">Card number</span></label>
                                             <div class="error-message"></div>
                                         </div>
                                     </div>
                                     <div class="nd-grid__col nd-grid__col_xl_8">
-                                        <div class="nd-form__wrapper"><label class="form-box nd-form-box"><input class="nd-input" type="text" name="expiryDate" required="required" inputmode="number" placeholder="Expiry Date MM/YY" /><span class="form-box__label">Expiry Date MM/YY</span></label>
+                                        <div class="nd-form__wrapper"><label class="form-box nd-form-box"><input class="nd-input" type="text" name="expiryDate" required="required" inputmode="number" placeholder="Expiry Date MM/YY" data-expirydate="data-expirydate" /><span class="form-box__label">Expiry Date MM/YY</span></label>
                                             <div class="error-message"></div>
                                         </div>
                                     </div>
                                     <div class="nd-grid__col nd-grid__col_xl_4">
-                                        <div class="nd-form__wrapper"><label class="form-box nd-form-box"><input class="nd-input" type="text" name="code" required="required" inputmode="number" placeholder="CVC/CVV" /><span class="form-box__label">CVC/CVV</span></label>
+                                        <div class="nd-form__wrapper"><label class="form-box nd-form-box"><input class="nd-input" type="text" name="code" required="required" inputmode="number" placeholder="CVC/CVV" data-parsley-type="digits" autocomplete="off" maxlength="3" /><span class="form-box__label">CVC/CVV</span></label>
                                             <div class="error-message"></div>
                                         </div>
                                     </div>
