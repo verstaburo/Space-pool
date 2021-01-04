@@ -45,6 +45,35 @@
     padding: pxtovw(29, 375) pxtovw(18, 375) pxtovw(40, 375);
   }
 
+  &_short {
+    @include display-grid;
+    @include grid-template-columns(1fr 322px);
+    @include grid-template-rows(grid-repeat(2, auto));
+    @include rule(padding-top, (xl: 40px, xlg: 40, lg: 40, md: 40, sm: 30));
+    @include rule(padding-bottom, (xl: 45px, xlg: 45, lg: 45, md: 45, sm: 40));
+
+    @include screen('xlg', max, 2) {
+      @include grid-template-columns(1fr pxtovw(322, 1660));
+    }
+
+    @include screen('lg', max, 2) {
+      @include grid-template-columns(1fr pxtovw(322, 1366));
+    }
+
+    @include screen('md', max, 2) {
+      @include grid-template-columns(1fr pxtovw(322, 960));
+      @include grid-template-rows(grid-repeat(3, auto));
+    }
+
+    @include screen('sm', max, 2) {
+      @include grid-template-columns(100%);
+    }
+  }
+
+  &_bordered {
+    border: 1px solid $nd-color-payment-border;
+  }
+
   &__describe {
     @include grid-column(1, 2);
     @include grid-row(1, 2);
@@ -115,23 +144,15 @@
       font-size: pxtovw(26, 375);
     }
 
+    #{$b}_short & {
+      @include rule(font-size, (xl: 26px, xlg: 26, lg: 26, md: 26, sm: 26));
+    }
+
     &:not(:first-child) {
-      margin-top: 17px;
+      @include rule(margin-top, (xl: 17px, xlg: 17, lg: 17, md: 17, sm: 17));
 
-      @include screen('xlg', max, 2) {
-        margin-top: pxtovw(17, 1660);
-      }
-
-      @include screen('lg', max, 2) {
-        margin-top: pxtovw(17, 1366);
-      }
-
-      @include screen('md', max, 2) {
-        margin-top: pxtovw(17, 960);
-      }
-
-      @include screen('sm', max, 2) {
-        margin-top: pxtovw(17, 375);
+      #{$b}_short & {
+        @include rule(margin-top, (xl: 15px, xlg: 15, lg: 15, md: 15, sm: 15));
       }
     }
   }

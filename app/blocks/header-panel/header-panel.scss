@@ -60,7 +60,7 @@
     @include rule(margin-right, (md: 14, sm: 14));
   }
 
-  .nd-link_back_sm-cross {
+  .nd-link_back {
     @include screen('sm', max, 2) {
       position: absolute;
       top: 50%;
@@ -68,10 +68,12 @@
       transform: translate3d(0, -50%, 0);
     }
 
-    &::before {
-      @include screen('sm', max, 2) {
-        background-image: url(../images/bg/bg-cross.svg);
-        background-size: pxtovw(16, 375);
+    &_sm-cross {
+      &::before {
+        @include screen('sm', max, 2) {
+          background-image: url(../images/bg/bg-cross.svg);
+          background-size: pxtovw(16, 375);
+        }
       }
     }
   }

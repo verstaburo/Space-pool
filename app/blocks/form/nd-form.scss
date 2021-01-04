@@ -41,6 +41,12 @@
       }
     }
 
+    &_fx {
+      display: flex;
+      justify-content: flex-start;
+      flex-wrap: wrap;
+    }
+
     &_styled {
       position: relative;
       padding-top: 35px;
@@ -96,6 +102,12 @@
         @include screen('sm', max, 2) {
           margin-top: pxtovw(30, 375);
         }
+      }
+    }
+
+    &_mt40 {
+      &:not(:first-child) {
+        @include rule(margin-top, (xl: 40px, xlg: 40, lg: 40, md: 30, sm: 40));
       }
     }
 
@@ -311,6 +323,12 @@
       text-align: center;
     }
 
+    &_sm-tac {
+      @include screen('sm', max, 2) {
+        text-align: center;
+      }
+    }
+
     &_fx {
       display: flex;
       justify-content: space-between;
@@ -445,6 +463,13 @@
       line-height: (18 / 15);
     }
 
+    &_sm-fz13 {
+      @include screen('sm', max, 2) {
+        font-size: pxtovw(13, 375);
+        line-height: (19 / 13);
+      }
+    }
+
     &_fw700 {
       font-weight: 700;
     }
@@ -479,6 +504,12 @@
 
       @include screen('sm', max, 2) {
         margin-top: pxtovw(38, 375);
+      }
+    }
+
+    &_mt16 {
+      &:not(:first-child) {
+        @include rule(margin-top, (xl: 16px, xlg: 16, lg: 16, md: 16, sm: 13));
       }
     }
 
@@ -656,6 +687,12 @@
       }
     }
 
+    &_mt40 {
+      &:not(:first-child) {
+        @include rule(margin-top, (xl: 40px, xlg: 40, lg: 40, md: 40, sm: 23));
+      }
+    }
+
     &_mt86 {
       &:not(:first-child) {
         margin-top: 86px;
@@ -683,6 +720,7 @@
     display: flex;
     justify-content: flex-start;
     align-items: center;
+    flex-wrap: wrap;
     width: 100%;
 
     &:not(:first-child) {
@@ -741,6 +779,21 @@
   &__button {
     &_wide {
       width: 100%;
+    }
+
+    &_equal {
+      flex: 1;
+      width: auto;
+
+      @include screen('sm', max, 2) {
+        flex: none;
+        width: 100%;
+      }
+
+      &:not(:first-child) {
+        @include rule(margin-left, (xl: 44px, xlg: 44, lg: 44, md: 44, sm: 0));
+        @include rule(margin-top, (sm: 20));
+      }
     }
 
     &_mw228 {
@@ -1271,6 +1324,16 @@
       font-weight: 600;
 
       @include rule(margin-left, (xl: 4px, xlg: 4, lg: 4, md: 4, sm: 4));
+    }
+  }
+
+  &__tile-links {
+    display: block;
+
+    .tile-link {
+      &:not(:first-child) {
+        @include rule(margin-top, (xl: 23px, xlg: 23, lg: 23, md: 23, sm: 20));
+      }
     }
   }
 

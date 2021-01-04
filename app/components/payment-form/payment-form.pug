@@ -1,69 +1,125 @@
-mixin payment-form()
+mixin payment-form(data)
   +nd-form.payment-form&attributes(attributes)(data-validated-form)
-    +form-section-header._tac
-      +e.H2.title Add payment method
-      +e.text_mt25 Slect prefered payment method type and fill the form below
-    +form-section
-      +e.block
-        +nd-grid.nd-grid_int37
-          +nd-grid-col({xl: 6})
-            +form-section-wrapper
-              +radio-button({name: 'account', value: 'personal', checked: false, switch: 'personal'}) Personal <span class="nd-hide-from-sm">acc</span><span class="nd-hide-sm">account</span>
-          +nd-grid-col({xl: 6})
-            +form-section-wrapper
-              +radio-button({name: 'account', value: 'company', checked: true, switch: 'company'}) Comany <span class="nd-hide-from-sm">acc</span><span class="nd-hide-sm">account</span>
-      +e.block
-        +nd-grid.nd-grid_int37
-          +nd-grid-col({xl: 12})(data-form-switchable-item="company")
-            +form-section-wrapper
-              +nd-form-box('Company name')
-                +nd-input(type="text" name="companyName" placeholder="Company name" required)
-          +nd-grid-col({xl: 12})(data-form-switchable-item="personal")
-            +form-section-wrapper
-              +nd-form-box('First Name')
-                +nd-input(type="text" name="firstName" placeholder="First Name'" required)
-          +nd-grid-col({xl: 12})(data-form-switchable-item="personal")
-            +form-section-wrapper
-              +nd-form-box('Last Name')
-                +nd-input(type="text" name="lastName" placeholder="Last Name'" required)
-      +e.block
-        +nd-grid.nd-grid_int37
-          +nd-grid-col({xl: 6})
-            +form-section-wrapper
-              +radio-button({name: 'method', value: 'iban', checked: false, switch: 'iban'}) IBAN account
-          +nd-grid-col({xl: 6})
-            +form-section-wrapper
-              +radio-button({name: 'method', value: 'sortCode', checked: true, switch: 'sortCode'}) Sort code&nbsp;<span class="nd-hide-from-sm">acc</span><span class="nd-hide-sm">account</span>
-      +e.block
-        +nd-grid.nd-grid_int37
-          +nd-grid-col({xl: 12})
-            +form-section-wrapper
-              +nd-form-box('Account Number')
-                +nd-input(type="text" name="accNumber" placeholder="Account Number" required)
-          +nd-grid-col({xl: 12})(data-form-switchable-item="iban")
-            +form-section-wrapper
-              +nd-form-box('Your IBAN')
-                +nd-input(type="text" name="iban" placeholder="Your IBAN" required)
-          +nd-grid-col({xl: 12})(data-form-switchable-item="sortCode")
-            +form-section-wrapper
-              +nd-form-box('Sort Code')
-                +nd-input(type="text" name="sortCode" placeholder="Sort Code" required)
-          +nd-grid-col({xl: 12})
-            +form-section-wrapper
-              +nd-form-box('Billing address line 1')
-                +nd-input(type="text" name="billingAddres1" placeholder="Billing address line 1" required)
-          +nd-grid-col({xl: 12})
-            +form-section-wrapper
-              +nd-form-box('Billing address line 2')
-                +nd-input(type="text" name="billingAddres2" placeholder="Billing address line 2" required)
-          +nd-grid-col({xl: 6, sm: 12})
-            +form-section-wrapper
-              +nd-form-box('Town or city')
-                +nd-input(type="text" name="city" placeholder="Town or city" required)
-          +nd-grid-col({xl: 6, sm: 12})
-            +form-section-wrapper
-              +nd-form-box('Post code')
-                +nd-input(type="text" name="postCode" placeholder="Post code" required)
+    if data.newdebit
+      +form-section-header._sm-tac
+        +e.H2.title New Direct Debit
+        if data.debittable
+          +e.text_mt30 Please check payment information.
+        else
+          +e.text_mt30 You need to add direct debit for this rent
+    else
+      +form-section-header._tac
+        +e.H2.title Add payment method
+        +e.text_mt25 Slect prefered payment method type and fill the form below
+    if data.newdebit && data.debittable
+      +nd-table._info._info_amount._info_amount_fz16.__table
+        tbody
+          tr
+            td
+              b Sort Code
+            td 25309250235
+          tr
+            td
+              b Account Number
+            td 215825378923895
+          tr
+            td
+              b Company name
+            td
+              b.is-fw600 BS Agency
+          tr
+            td
+              b Billing address line 1
+            td
+              b.is-fw600 Riga, Latvia Lielirbes 1
+          tr
+            td
+              b Billing address line 2
+            td
+              b.is-fw600 Office number 313
+          tr
+            td
+              b Town or city
+            td
+              b.is-fw600 London
+          tr
+            td
+              b Postcode
+            td
+              b.is-fw600 Postcode
+    if !data.debittable
+      +form-section
+        +e.block
+          +nd-grid.nd-grid_int37
+            +nd-grid-col({xl: 6})
+              +form-section-wrapper
+                +radio-button({name: 'account', value: 'personal', checked: false, switch: 'personal'}) Personal <span class="nd-hide-from-sm">acc</span><span class="nd-hide-sm">account</span>
+            +nd-grid-col({xl: 6})
+              +form-section-wrapper
+                +radio-button({name: 'account', value: 'company', checked: true, switch: 'company'}) Comany <span class="nd-hide-from-sm">acc</span><span class="nd-hide-sm">account</span>
+        +e.block
+          +nd-grid.nd-grid_int37
+            +nd-grid-col({xl: 12})(data-form-switchable-item="company")
+              +form-section-wrapper
+                +nd-form-box('Company name')
+                  +nd-input(type="text" name="companyName" placeholder="Company name" required)
+            +nd-grid-col({xl: 12})(data-form-switchable-item="personal")
+              +form-section-wrapper
+                +nd-form-box('First Name')
+                  +nd-input(type="text" name="firstName" placeholder="First Name'" required)
+            +nd-grid-col({xl: 12})(data-form-switchable-item="personal")
+              +form-section-wrapper
+                +nd-form-box('Last Name')
+                  +nd-input(type="text" name="lastName" placeholder="Last Name'" required)
+        +e.block
+          +nd-grid.nd-grid_int37
+            +nd-grid-col({xl: 6})
+              +form-section-wrapper
+                +radio-button({name: 'method', value: 'iban', checked: false, switch: 'iban'}) IBAN account
+            +nd-grid-col({xl: 6})
+              +form-section-wrapper
+                +radio-button({name: 'method', value: 'sortCode', checked: true, switch: 'sortCode'}) Sort code&nbsp;<span class="nd-hide-from-sm">acc</span><span class="nd-hide-sm">account</span>
+        +e.block
+          +nd-grid.nd-grid_int37
+            +nd-grid-col({xl: 12})
+              +form-section-wrapper
+                +nd-form-box('Account Number')
+                  +nd-input(type="text" name="accNumber" placeholder="Account Number" required)
+            +nd-grid-col({xl: 12})(data-form-switchable-item="iban")
+              +form-section-wrapper
+                +nd-form-box('Your IBAN')
+                  +nd-input(type="text" name="iban" placeholder="Your IBAN" required)
+            +nd-grid-col({xl: 12})(data-form-switchable-item="sortCode")
+              +form-section-wrapper
+                +nd-form-box('Sort Code')
+                  +nd-input(type="text" name="sortCode" placeholder="Sort Code" required)
+            +nd-grid-col({xl: 12})
+              +form-section-wrapper
+                +nd-form-box('Billing address line 1')
+                  +nd-input(type="text" name="billingAddres1" placeholder="Billing address line 1" required)
+            +nd-grid-col({xl: 12})
+              +form-section-wrapper
+                +nd-form-box('Billing address line 2')
+                  +nd-input(type="text" name="billingAddres2" placeholder="Billing address line 2" required)
+            +nd-grid-col({xl: 6, sm: 12})
+              +form-section-wrapper
+                +nd-form-box('Town or city')
+                  +nd-input(type="text" name="city" placeholder="Town or city" required)
+            +nd-grid-col({xl: 6, sm: 12})
+              +form-section-wrapper
+                +nd-form-box('Post code')
+                  +nd-input(type="text" name="postCode" placeholder="Post code" required)
         +e.buttons
-          +nd-button('button', true).__button_wide(type="submit") Add payment method
+          if data.newdebit && !data.debittable
+            +nd-button('button', true).__button_wide(type="submit") Continue
+          else if data.newdebit && data.debittable
+            +nd-button('a')._black.__button(href="direct-debit.html") Edit information
+            +nd-button('button', true).__button(type="button") Submit
+          else
+            +nd-button('button', true).__button_wide(type="submit") Add payment method
+    if data.newdebit && data.debittable
+      +e.buttons
+        +nd-button('a')._black.__button_equal(href="direct-debit.html") Edit information
+        +nd-button('button', true).__button_equal(type="button") Submit
+
     block

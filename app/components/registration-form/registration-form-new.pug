@@ -2,12 +2,14 @@ mixin registration-form-new(data)
   - var regClass = ''
   - if (data.lead) regClass = ' registration-form_lead registration-form_pt0'
   - if (data.regform) regClass = ' registration-form_pt0 registration-form_data'
-  +nd-form.registration-form&attributes(attributes)(data-validated-form class=regClass)
-    +form-section-header()(class=data.headerCls)
-      +e.H2.title!=data.title
-      if (data.lead)
-        +nd-checkbox({name: 'termsAndConditions', value: "accept", checker: 'registrationMethod'}).__selection(data-step="startSelection") I agree with&nbsp;
-          +nd-link()._underline(href="#") Terms and Conditions
+  - if (data.confirmemail) regClass= ' registration-form_pt0 registration-form_confirm'
+  +nd-form(data.tag || 'form').registration-form&attributes(attributes)(class=regClass)
+    if (data.title)
+      +form-section-header()(class=data.headerCls)
+        +e.H2.title!=data.title
+        if (data.lead)
+          +nd-checkbox({name: 'termsAndConditions', value: "accept", checker: 'registrationMethod'}).__selection(data-step="startSelection") I agree with&nbsp;
+            +nd-link()._underline(href="#") Terms and Conditions
     if (data.lead)
       +form-section(data-step="startSelection")
         +e.methods(data-checker-target="registrationMethod")
@@ -59,23 +61,23 @@ mixin registration-form-new(data)
             +nd-grid-col({xl: 6})
               +form-section-wrapper
                 +radio-button({name: 'user', value: 'legalEntity', checked: false, switch: 'legalEntity'}) Legal entity
-        +e.block
+        +e.block_mt40
           +nd-grid
             +nd-grid-col({xl: 6, sm: 12})
               +form-section-wrapper
-                +nd-form-box('First name')
+                +nd-form-box('First name')._bg-white
                   +nd-input(type="text" name="firstName" placeholder="First name" required)
             +nd-grid-col({xl: 6, sm: 12})
               +form-section-wrapper
-                +nd-form-box('Last name')
+                +nd-form-box('Last name')._bg-white
                   +nd-input(type="text" name="lastName" placeholder="Last name" required)
             +nd-grid-col({xl: 12})(data-form-switchable-item="privatePerson")
               +form-section-wrapper
-                +nd-form-box('Date of birth')
+                +nd-form-box('Date of birth')._bg-white
                   +nd-input(type="text" name="birthDate" data-birthday required data-parsley-birthdate)._birthday
             +nd-grid-col({xl: 6, sm: 12})(data-form-switchable-item="privatePerson")
               +form-section-wrapper
-                +nd-form-box('Nationality', 'div')
+                +nd-form-box('Nationality', 'div')._bg-white
                   +nd-select(name="nationality" placeholder="Nationality" required data-mobile-title="Nationality").js-nd-select
                     option(value="" placeholder)
                     option(value="1") Russian
@@ -84,7 +86,7 @@ mixin registration-form-new(data)
                     option(value="4") English
             +nd-grid-col({xl: 6, sm: 12})(data-form-switchable-item="privatePerson")
               +form-section-wrapper
-                +nd-form-box('Country of residence', 'div')
+                +nd-form-box('Country of residence', 'div')._bg-white
                   +nd-select(name="countryOfResidence" placeholder="Country of residence" required data-mobile-title="Country of residence").js-nd-select
                     option(value="" placeholder)
                     option(value="1") Russia
@@ -93,27 +95,27 @@ mixin registration-form-new(data)
                     option(value="4") England
             +nd-grid-col({xl: 12})(data-form-switchable-item="legalEntity")
               +form-section-wrapper
-                +nd-form-box('Company name')
+                +nd-form-box('Company name')._bg-white
                   +nd-input(type="text" name="companyName" placeholder="Company name" required)
             +nd-grid-col({xl: 12})(data-form-switchable-item="legalEntity")
               +form-section-wrapper
-                +nd-form-box('Company Registration No.')
+                +nd-form-box('Company Registration No.')._bg-white
                   +nd-input(type="text" name="companyRegNum" placeholder="Company Registration No." required)
             +nd-grid-col({xl: 12})(data-form-switchable-item="legalEntity")
               +form-section-wrapper
-                +nd-form-box('VAT number (if applicable)')
+                +nd-form-box('VAT number (if applicable)')._bg-white
                   +nd-input(type="text" name="vatNumber" placeholder="VAT number (if applicable)")
             +nd-grid-col({xl: 12})(data-form-switchable-item="legalEntity")
               +form-section-wrapper
-                +nd-form-box('Address line 1')
+                +nd-form-box('Address line 1')._bg-white
                   +nd-input(type="text" name="addressLine1" placeholder="Address line 1")
             +nd-grid-col({xl: 12})(data-form-switchable-item="legalEntity")
               +form-section-wrapper
-                +nd-form-box('Address line 2')
+                +nd-form-box('Address line 2')._bg-white
                   +nd-input(type="text" name="addressLine2" placeholder="Address line 2")
             +nd-grid-col({xl: 6, sm: 12})(data-form-switchable-item="legalEntity")
               +form-section-wrapper
-                +nd-form-box('City', 'div')
+                +nd-form-box('City', 'div')._bg-white
                   +nd-select(name="city" placeholder="City" data-mobile-title="City").js-nd-select
                     option(value="" placeholder)
                     option(value="1") London
@@ -122,7 +124,7 @@ mixin registration-form-new(data)
                     option(value="4") Riga
             +nd-grid-col({xl: 6, sm: 12})(data-form-switchable-item="legalEntity")
               +form-section-wrapper
-                +nd-form-box('Country', 'div')
+                +nd-form-box('Country', 'div')._bg-white
                   +nd-select(name="country" placeholder="Country" required data-mobile-title="Country").js-nd-select
                     option(value="" placeholder)
                     option(value="1") Russia
@@ -131,26 +133,26 @@ mixin registration-form-new(data)
                     option(value="4") England
             +nd-grid-col({xl: 12})(data-form-switchable-item="legalEntity")
               +form-section-wrapper
-                +nd-form-box('Postcode / ZIP')
+                +nd-form-box('Postcode / ZIP')._bg-white
                   +nd-input(type="text" name="postcodeZip" placeholder="Postcode / ZIP")
             +nd-grid-col({xl: 12})(data-form-switchable-item="legalEntity")
               +form-section-wrapper
-                +nd-form-box('Company business area')
+                +nd-form-box('Company business area')._bg-white
                   +nd-input(type="text" name="companyBusinessArea" placeholder="Company business area")
         +e.block_mt86(data-form-switchable-item="legalEntity")
           +e.H3.title_fz22._fw400._mb(class=headerClass) Company director details
           +nd-grid
             +nd-grid-col({xl: 6, sm: 12})
               +form-section-wrapper
-                +nd-form-box('First name')
+                +nd-form-box('First name')._bg-white
                   +nd-input(type="text" name="firstNameDirector" placeholder="First name" required)
             +nd-grid-col({xl: 6, sm: 12})
               +form-section-wrapper
-                +nd-form-box('Last name')
+                +nd-form-box('Last name')._bg-white
                   +nd-input(type="text" name="lastNameDirector" placeholder="Last name" required)
             +nd-grid-col({xl: 6, sm: 12})
               +form-section-wrapper
-                +nd-form-box('Nationality', 'div')
+                +nd-form-box('Nationality', 'div')._bg-white
                   +nd-select(name="nationalityDirector" placeholder="Nationality" required data-mobile-title="Nationality").js-nd-select
                     option(value="" placeholder)
                     option(value="1") Russian
@@ -159,7 +161,7 @@ mixin registration-form-new(data)
                     option(value="4") English
             +nd-grid-col({xl: 6, sm: 12})
               +form-section-wrapper
-                +nd-form-box('Country of residence', 'div')
+                +nd-form-box('Country of residence', 'div')._bg-white
                   +nd-select(name="countryOfResidenceDirector" placeholder="Country of residence" required data-mobile-title="Country of residence").js-nd-select
                     option(value="" placeholder)
                     option(value="1") Russia
@@ -168,12 +170,8 @@ mixin registration-form-new(data)
                     option(value="4") England
             +nd-grid-col({xl: 12})
               +form-section-wrapper
-                +nd-form-box('Date of birth')
+                +nd-form-box('Date of birth')._bg-white
                   +nd-input(type="text" name="birthDate" data-birthday required data-parsley-birthdate)._birthday
-        +e.buttons
-          +nd-button('button', true).__button_wide(type="submit")
-            span(data-form-switchable-item="privatePerson") Continue
-            span(data-form-switchable-item="legalEntity") Create account
     if (data.lead || data.regform)
       .registration-form__bottom
         a.registration-form__question(href="#")

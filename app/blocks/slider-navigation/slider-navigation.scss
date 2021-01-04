@@ -39,6 +39,12 @@
 
       @include rule(width, (md: 50, sm: 20));
       @include rule(height, (md: 10, sm: 10));
+
+      .nd-section__title ~ .nd-section__menu & {
+        @include screen('md', max, 2) {
+          display: none;
+        }
+      }
     }
   }
 

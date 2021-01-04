@@ -1,0 +1,69 @@
+extends ../../layouts/redesign-default
+
+block head
+  - var pageTitle = 'Spacepool - Guest Account'
+
+block bodyClasses
+  - var bodyCls = ' is-sm-noheader';
+  - var isNoFooter = true
+  - var scripts = ['other']
+
+block header
+  - var headerClass = ' is-login'
+  - var pageClass = ''
+  - var isMap = false
+  - var host = false
+
+block content
+  +nd-page-header._grid._grid_acc.nd-hide-md.nd-show-sm
+    .nd-container
+      +nd-page-header-side
+        +nd-link-icon('arrow5')._back.__back.nd-hide-from-sm Back
+      +nd-page-header-main
+        - var menuList = getData('sideNavProfile.json').menu;
+        +e.dt-menu.nd-hide-md
+          +nd-breadcrumbs([["Home", "#"], ["My account", "#"], ["Account settings", "#"], ["Company details"]]).__breadcrumbs
+        +e.mb-menu.nd-hide-from-sm
+          +slider-navigation(menuList, 6, 'Account settings')
+
+  +nd-content
+    .nd-container
+      +nd-content-aside
+        +sidebar-nosticky.nd-sidebar.nd-hide-md
+          - var nav = getData('sideNavProfile.json')
+          +nd-side-navigation(nav, 'Account settings', 'Company details')._profile
+
+      +nd-content-main
+        +nd-section
+          +nd-section-header._fx._md-pg-head.nd-hide-sm
+            +nd-section-title._fz24 Account settings
+            +e.menu
+              +slider-navigation([{name: "Basic information", href: "#"}, {name: "Account password", href: "#"}, {name: "Company details", href: "#"}], 2, 'Company details')
+          +nd-informer Please fill the following form below. This information needed to slose rental deals.
+          +e.FORM.dashboard_mt30.js-form-with-hidden-panel(data-validated-form)
+            +board._pb108
+              +board-title._fz22 Company details
+              +e.set
+                +e.description
+                  +nd-note({marker: {cls: '_txt'}, text: {cls: '_fz16 _indent'}})._md-left-icon
+                    p The information about you or your company is stored in this section.
+                      br
+                      | This information will be default for all your deals inside Spacepool.
+                    p Although you can always change company details during the the process of closing the rental deal.
+                +e.fields
+                  +registration-form-new({tag: 'section', confirmemail: true})
+
+            +nd-form-panel()._hidden.is-fixed(data-hidden-panel)
+              .nd-content
+                .nd-container
+                  .nd-content__column_aside.nd-hide-md
+                  .nd-content__column_main
+                    +e.controls
+                      +nd-link-icon('cross', 'button')(type="reset")._underline.__reset.js-form-reset Discard <span class="nd-hide-sm">changes</span>
+                      +nd-button('button', true).__button.js-show-success-popup(type="submit" data-callback="serverSave" data-popup="#popup-save-success") Save <span class="nd-hide-sm">changes</span>
+
+
+block panels
+
+block popups
+  +popup-success#popup-save-success

@@ -18,8 +18,13 @@ mixin payment-method(data)
                   +e.TD.state(class=(item.state.class || ''))!=item.state.value
     if data.button
       +e.buttons
-        +nd-button('button')(type="button" class=(data.button.class || '')).nd-button_pad10.__button_add!=data.button.name
-        if data.button.help
-          +nd-info-tooltip().js-tooltip.__info(href="#" title='You can’t delete this payment method while it has been used to pay for and active contract. If you want to change your payment method, add a new payment method and then change it inside the existing contract page. After that you will be able to delete this method.')
+        if (!data.button.href)
+          +nd-button('button')(type="button" class=(data.button.class || '')).nd-button_pad10.__button_add!=data.button.name
+          if data.button.help
+            +nd-info-tooltip().js-tooltip.__info(href="#" title='You can’t delete this payment method while it has been used to pay for and active contract. If you want to change your payment method, add a new payment method and then change it inside the existing contract page. After that you will be able to delete this method.')
+        else
+          +nd-button('a')(href=data.button.href class=(data.button.class || '')).nd-button_pad10.__button_add!=data.button.name
+          if data.button.help
+            +nd-info-tooltip().js-tooltip.__info(href="#" title='You can’t delete this payment method while it has been used to pay for and active contract. If you want to change your payment method, add a new payment method and then change it inside the existing contract page. After that you will be able to delete this method.')
 
     block

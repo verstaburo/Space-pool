@@ -1,0 +1,98 @@
+.tile-link {
+  $b: &;
+
+  position: relative;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  background-color: $nd-color-basic-light;
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, .03), 2px 2px 2px rgba(0, 0, 0, .04), 3px 3px 3px rgba(0, 0, 0, .02);
+  transition: border $ease-main;
+  border-style: solid;
+  border-color: transparent;
+  box-sizing: border-box;
+  font-family: $font-stolzl;
+  line-height: (24 / 20);
+
+  @include rule(padding, (xl: 43px, xlg: 43, lg: 43, md: 30, sm: 16));
+  @include rule(padding-right, (xl: 68px, xlg: 68, lg: 68, md: 56, sm: 40));
+  @include rule(font-size, (xl: 20px, xlg: 20, lg: 20, md: 20, sm: 15));
+  @include rule(border-width, (xl: 2px, xlg: 2, lg: 2, md: 2, sm: 2));
+  @include rule(border-radius, (xl: 3px, xlg: 3, lg: 3, md: 3, sm: 3));
+  @include rule(min-height, (xl: 134px, xlg: 134, lg: 134, md: 134, sm: 75));
+
+  @include screen('xlg', max, 2) {
+    box-shadow: pxtovw(1, 1660) pxtovw(1, 1660) pxtovw(1, 1660) rgba(0, 0, 0, .03), pxtovw(2, 1660) pxtovw(2, 1660) pxtovw(2, 1660) rgba(0, 0, 0, .04), pxtovw(3, 1660) pxtovw(3, 1660) pxtovw(3, 1660) rgba(0, 0, 0, .02);
+  }
+
+  @include screen('lg', max, 2) {
+    box-shadow: pxtovw(1, 1366) pxtovw(1, 1366) pxtovw(1, 1366) rgba(0, 0, 0, .03), pxtovw(2, 1366) pxtovw(2, 1366) pxtovw(2, 1366) rgba(0, 0, 0, .04), pxtovw(3, 1366) pxtovw(3, 1366) pxtovw(3, 1366) rgba(0, 0, 0, .02);
+  }
+
+  @include screen('md', max, 2) {
+    box-shadow: pxtovw(1, 960) pxtovw(1, 960) pxtovw(1, 960) rgba(0, 0, 0, .03), pxtovw(2, 960) pxtovw(2, 960) pxtovw(2, 960) rgba(0, 0, 0, .04), pxtovw(3, 960) pxtovw(3, 960) pxtovw(3, 960) rgba(0, 0, 0, .02);
+  }
+
+  @include screen('sm', max, 2) {
+    box-shadow: pxtovw(1, 375) pxtovw(1, 375) pxtovw(1, 375) rgba(0, 0, 0, .03), pxtovw(2, 375) pxtovw(2, 375) pxtovw(2, 375) rgba(0, 0, 0, .04), pxtovw(3, 375) pxtovw(3, 375) pxtovw(3, 375) rgba(0, 0, 0, .02);
+    line-height: (18 / 15);
+  }
+
+  body:not(.is-touched-device) & {
+    &:hover {
+      border-color: $nd-color-main;
+    }
+  }
+
+  .is-touched-device & {
+    &:active {
+      border-color: $nd-color-main;
+    }
+  }
+
+  &__image {
+    flex: none;
+    display: block;
+    font-size: 0;
+    line-height: 0;
+
+    @include rule(width, (xl: 45px, xlg: 45, lg: 45, md: 45, sm: 30));
+    @include rule(height, (xl: 40px, xlg: 40, lg: 40, md: 40, sm: 25));
+  }
+
+  &__name {
+    display: inline-block;
+
+    &:not(:first-child) {
+      @include rule(margin-left, (xl: 50px, xlg: 50, lg: 50, md: 25, sm: 13));
+    }
+  }
+
+  &::after {
+    @include pseudo;
+    @include rule(width, (xl: 68px, xlg: 68, lg: 68, md: 56, sm: 40));
+
+    top: 0;
+    right: 0;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+
+  }
+
+  &_select {
+    &::after {
+      @include rule(background-size, (xl: 14px, xlg: 14, lg: 14, md: 14, sm: 14))
+
+      background-image: url('../images/bg/bg-angle-blue.svg');
+    }
+  }
+
+  &_plus {
+    &::after {
+      @include rule(background-size, (xl: 18px, xlg: 18, lg: 18, md: 18, sm: 18));
+
+      background-image: url('../images/bg/bg-plus-blue.svg');
+    }
+  }
+}

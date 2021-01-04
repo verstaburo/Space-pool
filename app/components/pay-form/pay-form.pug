@@ -1,0 +1,34 @@
+mixin pay-form(data)
+  +nd-form(data.tag).pay-form&attributes(attributes)
+    +form-section-header._sm-tac
+      if data.title
+        +e.H2.title!=data.title
+      if data.titlenote
+        +e.text_mt16._sm-fz13!=data.titlenote
+    if data.cardinfo
+      +form-section
+        +nd-grid.nd-grid_int37.nd-grid_gap36
+          +nd-grid-col({xl: 12})
+            +form-section-wrapper
+              +nd-form-box('Card number')
+                +nd-input(type="text" name="cardnumber" required inputmode="number" placeholder="Card number")
+          +nd-grid-col({xl: 8})
+            +form-section-wrapper
+              +nd-form-box('Expiry Date MM/YY')
+                +nd-input(type="text" name="expiryDate" required inputmode="number" placeholder="Expiry Date MM/YY")
+          +nd-grid-col({xl: 4})
+            +form-section-wrapper
+              +nd-form-box('CVC/CVV')
+                +nd-input(type="text" name="code" required inputmode="number" placeholder="CVC/CVV")
+          +nd-grid-col({xl: 12})
+            +form-section-wrapper
+              +nd-form-box('Name on card')
+                +nd-input(type="text" name="name" required placeholder="Name on card")
+        +e.buttons
+          +nd-button('button', true).__button_wide(type="submit") Submit
+    if data.debits
+      +e.section_mt40
+        +e.tile-links
+          +tile-link({image: "assets/images/nd/nd-grid.svg", name: "Choose from existing direct debits"})._select.js-nd-popup(href="#popup-debit-list")
+          +tile-link({image: "assets/images/nd/nd-edit.svg", name: "Add new direct debit"})._plus(href="direct-debit.html")
+    block

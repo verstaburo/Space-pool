@@ -385,6 +385,12 @@
       }
     }
 
+    b {
+      &.is-fw600 {
+        font-weight: 600;
+      }
+    }
+
     &_h30 {
       td, th {
         padding: 9px 6px 6px 0;
@@ -484,6 +490,10 @@
 
         b {
           font-weight: 700;
+
+          &.is-fw600 {
+            font-weight: 600;
+          }
         }
 
         @include screen('xlg', max, 2) {
@@ -528,6 +538,12 @@
           @include screen('sm', max, 2) {
             font-size: pxtovw(18, 375);
           }
+        }
+      }
+
+      &_fz16 {
+        th, td {
+          @include rule(font-size, (xl: 16px, xlg: 16, lg: 16, md: 16, sm: 16));
         }
       }
     }

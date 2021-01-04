@@ -277,6 +277,13 @@
       }
     }
 
+    &_fz20 {
+      @include rule(font-size, (xl: 20px, xlg: 20, lg: 20, md: 20, sm: 17));
+
+      line-height: 1.63;
+      letter-spacing: -.02em;
+    }
+
     &:not(:first-child) {
       margin-top: 45px;
 
@@ -303,6 +310,12 @@
       }
     }
 
+    &_mt31 {
+      &:not(:first-child) {
+        @include rule(margin-top, (xl: 31px, xlg: 31, lg: 31, md: 31, sm: 31));
+      }
+    }
+
     &_md-fz14 {
       @include screen('md', max, 2) {
         font-size: pxtovw(14, 960);
@@ -322,6 +335,29 @@
 
       &:hover {
         text-decoration: none;
+      }
+    }
+
+    &_blue-links {
+      a {
+        text-decoration: none;
+        color: $nd-color-main;
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+
+    b, strong {
+      font-weight: 700;
+    }
+
+    &_indent {
+      p {
+        &:not(:first-child) {
+          @include rule(margin-top, (xl: 31px, xlg: 31, lg: 31, md: 31, sm: 28));
+        }
       }
     }
 
@@ -747,6 +783,77 @@
       &__buttons {
         &:not(:first-child) {
           @include rule(margin-top, (xl: 40px, xlg: 40, lg: 34, md: 42, sm: 60));
+        }
+      }
+    }
+  }
+
+  &_payment {
+    #{$b} {
+      &__media {
+        @include screen('sm', max, 2) {
+          display: flex;
+          justify-content: center;
+        }
+      }
+
+      &__image {
+        @include rule(width, (xl: 230px, xlg: 230, lg: 230, md: 230, sm: 147));
+        @include rule(height, (xl: 181px, xlg: 181, lg: 181, md: 181, sm: 116));
+
+        font-size: 0;
+        line-height: 0;
+        display: block;
+        border-radius: 0;
+
+        img {
+          width: 100%;
+          height: 100%;
+          display: block;
+          font-size: 0;
+          line-height: 0;
+        }
+
+        &:not(:first-child) {
+          @include rule(margin-top, (xl: 45px, xlg: 45, lg: 45, md: 45, sm: 45));
+        }
+
+        &:not(:last-child) {
+          @include rule(margin-bottom, (xl: 45px, xlg: 45, lg: 45, md: 45, sm: 45));
+        }
+      }
+
+      &__content {
+        @include rule(font-size, (md: 15, sm: 15));
+
+        line-height: 1.63;
+
+        &_fz20 {
+          @include rule(font-size, (md: 17, sm: 17));
+        }
+
+        &:not(:first-child) {
+          @include rule(margin-top, (xl: 45px, xlg: 45, lg: 41, md: 50, sm: 41));
+        }
+
+        &_mt31 {
+          &:not(:first-child) {
+            @include rule(margin-top, (xl: 31px, xlg: 31, lg: 31, md: 27, sm: 28));
+          }
+        }
+      }
+
+      &__title {
+        @include rule(font-size, (xl: 43px, xlg: 43, lg: 43, md: 34, sm: 34));
+
+        line-height: 1.2;
+
+        @include screen('sm', max, 2) {
+          text-align: center;
+        }
+
+        &:not(:first-child) {
+          @include rule(margin-top, (md: 56, sm: 45));
         }
       }
     }

@@ -177,6 +177,10 @@
     @include rule(padding-bottom, (xl: 70px, xlg: 70, lg: 70, md: 70, sm: 25));
   }
 
+  &_pb108 {
+    @include rule(padding-bottom, (xl: 108px, xlg: 108, lg: 108, md: 58, sm: 58));
+  }
+
   &_pt47 {
     @include rule(padding-top, (xl: 47px, xlg: 47, lg: 47, md: 26, sm: 26));
   }
@@ -202,6 +206,46 @@
     }
 
     #{$b}_fx & {
+      width: 100%;
+    }
+  }
+
+  &__set {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    width: 100%;
+
+    &:not(:first-child) {
+      @include rule(margin-top, (xl: 77px, xlg: 77, lg: 77, md: 57, sm: 30));
+    }
+  }
+
+  &__fields {
+    flex: 1;
+    display: block;
+    box-sizing: border-box;
+
+    @include rule(padding-left, (xl: 115px, xlg: 115, lg: 57, md: 0));
+    @include rule(padding-right, (xl: 115px, xlg: 115, lg: 0));
+
+    @include screen('md', max, 2) {
+      width: 100%;
+    }
+
+    &:not(:first-child) {
+      @include rule(margin-top, (md: 57, sm: 42));
+    }
+  }
+
+  &__description {
+    display: block;
+    flex: none;
+
+    @include rule(width, (xl: 276px, xlg: 276, lg: 237));
+
+    @include screen('md', max, 2) {
       width: 100%;
     }
   }

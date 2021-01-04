@@ -1,0 +1,7 @@
+mixin tile-link(data)
+  +b(data.tag || 'a').tile-link&attributes(attributes)
+    if data.image
+      +e.IMG.image(src=data.image class=(data.imageClass || ''))
+    if data.name
+      +e.name!=data.name
+    block

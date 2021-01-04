@@ -13,4 +13,13 @@
   @include rule(border-radius, (xl: 3px, xlg: 3, lg: 3, md: 3, sm: 3));
   @include rule(font-size, (xl: 16px, xlg: 16, lg: 16, md: 16, sm: 16));
   @include rule(padding, (xl: 10px, xlg: 10, lg: 10, md: 10, sm: 10));
+
+  @include screen('sm', max, 2) {
+    padding-left: pxtovw(30, 375);
+    padding-right: pxtovw(30, 375);
+  }
+
+  &:not(:first-child) {
+    @include rule(margin-top, (xl: 33px, xlg: 33, lg: 63, md: 34, sm: 30));
+  }
 }

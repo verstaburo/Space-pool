@@ -33,6 +33,9 @@ mixin nd-note(data)
     if data.icon
       +e.icon(class=(data.icon.cls || ''))
         +icon(data.icon.name)
+    if data.marker
+      +e.icon(class=(data.marker.cls || ''))
+        span!=(data.marker.content || 'i')
     if data.text
       +e.text(class=(data.text.cls || ''))
         block

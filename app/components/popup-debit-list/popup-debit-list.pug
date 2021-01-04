@@ -1,0 +1,10 @@
+mixin popup-debit-list()
+  +nd-popup.popup-standart_debit&attributes(attributes)
+    +nd-popup-header().nd-popup__header_tal
+      +nd-popup-title().nd-popup__title_fz18.nd-popup__title_sm-fz15 Your account Direct Debits
+      +nd-popup-close-fancy
+    +nd-popup-content().popup-standart__content.popup-standart__content_tal
+      +records
+        each item in getData('nd-guest-payments.json')
+          +payment-method(item)._short._bordered.__item_mt40
+    block

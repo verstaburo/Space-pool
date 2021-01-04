@@ -10,7 +10,6 @@
     box-sizing: border-box;
     align-content: flex-start;
     flex-wrap: wrap;
-    min-height: 100vh;
     max-width: 1762px;
 
     @include screen('xlg', max, 2) {
@@ -98,12 +97,13 @@
   }
 
   &__column {
-    flex: 1;
+    width: 50%;
     box-sizing: border-box;
+    min-height: 100vh;
 
     @include screen('sm', max, 2) {
-      flex: none;
       width: 100%;
+      min-height: 0;
     }
 
     &:not(:last-child) {
@@ -128,13 +128,19 @@
 
       @include screen('md', max, 2) {
         padding: pxtovw(185, 960) pxtovw(50, 960) pxtovw(185, 960)  0;
-        flex: 581;
+        width: 57.2%;
+        // flex: 581;
       }
 
       @include screen('sm', max, 2) {
         padding: pxtovw(42, 375) 0 pxtovw(106, 375);
         flex: none;
+        width: 100%;
         order: 2;
+      }
+
+      &_pt180 {
+        @include rule(padding-top, (xl: 180px, xlg: 180, lg: 220, md: 180, sm: 10));
       }
     }
 
@@ -151,7 +157,8 @@
 
       @include screen('md', max, 2) {
         padding: pxtovw(185, 960) 0 pxtovw(185, 960) pxtovw(50, 960);
-        flex: 417;
+        width: 42.8%;
+        // flex: 417;
       }
 
       @include screen('sm', max, 2) {
@@ -169,6 +176,39 @@
         box-shadow: 0 pxtovw(2, 375) pxtovw(2, 375) rgba(0, 0, 0, .04);
       }
     }
+
+    &_payment {
+      @include rule(padding-top, (xl: 221px, xlg: 221, lg: 230, md: 190, sm: 38));
+    }
+
+    &_text {
+      @include rule(padding-top, (xl: 98px, xlg: 98, lg: 123, md: 147, sm: 56));
+      @include rule(padding-left, (xl: 163px, xlg: 163, lg: 65, md: 50, sm: 0));
+      @include rule(padding-bottom, (xl: 60px, xlg: 60, lg: 60, md: 185, sm: 106));
+      @include rule(padding-right, (xl: 10px, xlg: 10, lg: 10, md: 10, sm: 0));
+
+      @include screen('md', max, 2) {
+        // flex: 417;
+        width: 42.8%;
+      }
+
+      @include screen('sm', max, 2) {
+        flex: none;
+        width: 100%;
+        order: 3;
+      }
+    }
+
+    &_sm-pb0 {
+      @include rule(padding-bottom, (sm: 0));
+    }
+  }
+
+  &__prev-link {
+    font-weight: 600;
+    line-height: (26 / 18);
+
+    @include rule(font-size, (xl: 18px, xlg: 18, lg: 18, md: 18, sm: 18));
   }
 
   .registration-form {

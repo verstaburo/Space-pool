@@ -15,6 +15,65 @@
       width: 100%;
       height: 100%;
     }
+
+    &_txt {
+      display: block;
+      box-sizing: border-box;
+      background-color: $nd-color-main;
+      line-height: 0;
+      font-size: 15px;
+      padding: 8px 0;
+      width: 16px;
+      height: auto;
+      text-align: center;
+      font-weight: 700;
+      color: $nd-color-basic-light;
+      border-radius: 50%;
+
+      @include screen('xlg', max, 2) {
+        font-size: pxtovw(15, 1660);
+        padding: pxtovw(8, 1660) 0;
+        width: pxtovw(16, 1660);
+      }
+
+      @include screen('lg', max, 2) {
+        font-size: pxtovw(15, 1366);
+        padding: pxtovw(8, 1366) 0;
+        width: pxtovw(16, 1366);
+      }
+
+      @include screen('md', max, 2) {
+        font-size: pxtovw(15, 960);
+        padding: pxtovw(8, 960) 0;
+        width: pxtovw(16, 960);
+      }
+
+      @include screen('sm', max, 2) {
+        font-size: pxtovw(15, 375);
+        padding: pxtovw(8, 375) 0;
+        width: pxtovw(16, 375);
+      }
+
+      &::before {
+        display: none;
+      }
+
+      span {
+        position: static;
+        display: block;
+        width: 100%;
+        height: auto;
+        font-size: inherit;
+        line-height: inherit;
+        font-weight: inherit;
+      }
+    }
+
+    #{$b}_md-left-icon & {
+      flex: none;
+
+      @include rule(margin-top, (md: 4, sm: 0));
+    }
   }
 
   &__text {
@@ -41,8 +100,55 @@
       line-height: (18 / 15);
     }
 
+    #{$b}_md-left-icon & {
+      @include screen('md', max, 2) {
+        flex: 1;
+        width: auto;
+      }
+
+      @include screen('sm', max, 2) {
+        width: 100%;
+        flex: none;
+      }
+    }
+
     &:not(:first-child) {
       @include rule(margin-top, (xl: 20px, xlg: 20, lg: 20, md: 20, sm: 20));
+
+      #{$b}_md-left-icon & {
+        @include rule(margin-top, (xl: 20px, xlg: 20, lg: 17, md: 0, sm: 15));
+        @include rule(margin-left, (md: 23, sm: 0));
+      }
+    }
+
+    &_fz16 {
+      @include rule(font-size, (xl: 16px, xlg: 16, lg: 16, md: 16, sm: 14));
+
+      line-height: (26 / 16);
+
+      @include screen('sm', max, 2) {
+        line-height: (26 / 14);
+      }
+    }
+
+    &_indent {
+      p {
+        &:not(:first-child) {
+          @include rule(margin-top, (xl: 53px, xlg: 53, lg: 27, md: 27, sm: 30));
+        }
+      }
+    }
+  }
+
+  &_md-left-icon {
+    @include screen('md', max, 2) {
+      display: flex;
+      justify-content: flex-start;
+      align-items: flex-start;
+    }
+
+    @include screen('sm', max, 2) {
+      display: block;
     }
   }
 }
