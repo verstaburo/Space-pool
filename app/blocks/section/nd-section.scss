@@ -292,6 +292,10 @@
       @include rule(margin-right, (md: -50, sm: -20));
       @include rule(margin-left, (md: 0, sm: -20));
     }
+
+    #{$b}__filtration {
+      @include rule(margin-left, (md: -30, sm: 0));
+    }
   }
 
   &__tabs {
@@ -1154,7 +1158,7 @@
     @include rule(min-width, (xl: 160px, xlg: 160, lg: 160, md: 160, sm: 160));
 
     &_mw180 {
-      @include rule(min-width, (xl: 180px, xlg: 180, lg: 180, md: 180, sm: 180));
+      @include rule(min-width, (xl: 180px, xlg: 180, lg: 180, md: 180, sm: 120));
     }
 
     &:not(:first-child) {
@@ -1164,6 +1168,18 @@
     &_ml56 {
       &:not(:first-child) {
         @include rule(margin-left, (xl: 56px, xlg: 56, lg: 56, md: 56, sm: 30));
+      }
+    }
+  }
+
+  &__filtration {
+    @include screen('sm', max, 2) {
+      margin-right: auto;
+    }
+
+    &_md {
+      @include screen('md', max, 2) {
+        margin-right: auto;
       }
     }
   }

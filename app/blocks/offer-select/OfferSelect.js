@@ -96,6 +96,7 @@ export default class OfferSelect {
     const activeEl = this.el.find('[data-offer-link].is-select');
     const parent = activeEl.closest('[data-select-item]');
     const elem = parent.find('[data-select-value]');
+    console.log(elem);
     return elem;
   }
 
@@ -114,7 +115,8 @@ export default class OfferSelect {
       $(t.links).removeClass('is-select');
       $(newEl).addClass('is-select');
       t.label.empty();
-      const cloneEl = $(newEl).find('[data-select-value]').clone();
+      const newSelectedValue = $(newEl).is('[data-select-value]') ? newEl : $(newEl).find('[data-select-value]');
+      const cloneEl = $(newSelectedValue).clone();
       t.label.append(cloneEl);
     } else {
       t.label.empty();

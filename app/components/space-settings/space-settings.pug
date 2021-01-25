@@ -15,11 +15,12 @@ mixin space-settings(data)
           +e.address
             each item in data.address
               span!=item
-        if data.info
+      if data.info
+        +e.offers
           +nd-table._resume._resume_space.__table
             tbody
               if data.info.manager
-                tr
+                tr.nd-hide-sm
                   td Manager
                   td
                     +nd-short-profile-data(data.info.manager)._acc.__profile
@@ -62,7 +63,7 @@ mixin space-settings(data)
                   td
                     +nd-link + Add
               if data.info.deal
-                tr
+                tr.nd-hide-sm
                   td Deals
                   td
                     if data.info.deal.active

@@ -1,0 +1,534 @@
+.drop-navigation {
+  $b: &;
+
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  box-sizing: border-box;
+  font-size: 0;
+  line-height: 0;
+  overflow: hidden;
+
+  @include screen('md', max, 2) {
+    width: auto;
+  }
+
+  @include screen('sm', max, 2) {
+    overflow: visible;
+  }
+
+  &_md {
+    @include screen('md', max, 2) {
+      overflow: visible;
+    }
+  }
+
+  &__head {
+    position: relative;
+    display: none;
+    box-sizing: border-box;
+    align-items: center;
+    z-index: 1;
+    border: 1px solid $nd-color-field-border;
+    overflow: hidden;
+
+    @include rule(min-width, (xl: 180px, xlg: 180, lg: 180, md: 180, sm: 166));
+    @include rule(height, (sm: 35));
+    @include rule(border-radius, (xl: 3px, xlg: 3, lg: 3, md: 3, sm: 3));
+    @include rule(padding-left, (xl: 11px, xlg: 11, lg: 11, md: 11, sm: 11));
+    @include rule(padding-right, (xl: 30px, xlg: 30, lg: 30, md: 30, sm: 30));
+
+    @include screen('sm', max, 2) {
+      display: inline-flex;
+      align-items: center;
+    }
+
+    &:hover {
+      border-color: $nd-color-field-border-hover;
+    }
+
+    &::after {
+      position: absolute;
+      top: 0;
+      right: 0;
+      display: block;
+      content: '';
+      height: 100%;
+      width: 30px;
+      pointer-events: none;
+      background-image: $icon-select-arrow;
+      background-repeat: no-repeat;
+      background-position: 50% 50%;
+      background-size: 10px 7px;
+      transform-origin: 50% 50%;
+      transition: transform $ease-main;
+      z-index: 2;
+
+      @include screen('xlg', max, 2) {
+        width: pxtovw(30, 1660);
+        background-size: pxtovw(10, 1660) pxtovw(7, 1660);
+      }
+
+      @include screen('lg', max, 2) {
+        width: pxtovw(30, 1366);
+        background-size: pxtovw(10, 1366) pxtovw(7, 1366);
+      }
+
+      @include screen('md', max, 2) {
+        width: pxtovw(30, 960);
+        background-size: pxtovw(10, 960) pxtovw(7, 960);
+      }
+
+      @include screen('sm', max, 2) {
+        width: pxtovw(30, 375);
+        background-size: pxtovw(10, 375) pxtovw(7, 375);
+      }
+    }
+
+    #{$b}.is-open &::after {
+      transform: rotate(-180deg);
+      z-index: 4;
+      pointer-events: auto;
+
+      @include screen('sm', max, 2) {
+        pointer-events: none;
+      }
+    }
+
+    #{$b}.is-open & {
+      box-shadow: 0 0 0 1px $nd-color-main;
+      border-color: $nd-color-main;
+    }
+
+    #{$b}_md & {
+      @include rule(height, (md: 40, sm: 35));
+
+      @include screen('md', max, 2) {
+        display: inline-flex;
+        align-items: center;
+      }
+    }
+  }
+
+  &__label {
+    display: inline-block;
+    position: relative;
+    font-weight: 400;
+    color: $nd-color-placeholder;
+    font-family: $font-main;
+
+    @include rule(font-size, (xl: 17px, xlg: 17, lg: 17, md: 17, sm: 17));
+    @include ellipsis(100%);
+
+    #{$b}__link {
+      padding: 0;
+
+      &.is-select {
+        color: $nd-color-basic;
+        box-shadow: none;
+      }
+    }
+  }
+
+  &__header {
+    display: none;
+    color: $nd-color-basic;
+    box-sizing: border-box;
+    background-color: $nd-color-basic-light;
+    z-index: 5;
+
+    @include screen('sm', max, 2) {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: absolute;
+      padding: 0 pxtovw(55, 375);
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: pxtovw(60, 375);
+      border-bottom: 1px solid $nd-color-border5;
+      z-index: 2;
+    }
+  }
+
+  &__title {
+    font-family: $font-stolzl;
+    font-weight: 400;
+    user-select: none;
+
+    @include screen('sm', max, 2) {
+      font-size: pxtovw(17, 375);
+      line-height: 1.2;
+      font-weight: 400;
+    }
+  }
+
+  &__close {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    display: none;
+    background-image: $icon-arrow-back;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    background-size: 22px 11px;
+
+    @include screen('sm', max, 2) {
+      display: block;
+      width: pxtovw(62, 375);
+      height: pxtovw(60, 375);
+      background-size: pxtovw(22, 375) pxtovw(11, 375);
+    }
+  }
+
+  &__dropdown {
+    position: relative;
+    display: flex;
+
+    @include screen('sm', max, 2) {
+      position: fixed;
+      opacity: 0;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: $nd-color-basic-light;
+      pointer-events: none;
+      touch-action: none;
+      visibility: hidden;
+      z-index: 10;
+      overflow: auto;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: flex-start;
+      padding: pxtovw(60, 375) pxtovw(5, 375) pxtovw(18, 375) pxtovw(5, 375);
+    }
+
+    #{$b}_md & {
+      @include screen('md', max, 2) {
+        position: absolute;
+        opacity: 0;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: $nd-color-basic-light;
+        visibility: hidden;
+        will-change: visibility;
+        touch-action: none;
+        z-index: 3;
+        overflow: auto;
+        box-shadow: 0 pxtovw(2, 960) pxtovw(11, 960) rgba(0, 0, 0, .09), 0 pxtovw(4, 960) pxtovw(19, 960) rgba(0, 0, 0, .06);
+        border-radius: pxtovw(3, 960);
+        margin-top: pxtovw(6, 960);
+        max-height: pxtovw(245, 960);
+        padding: pxtovw(17, 960) pxtovw(3, 960) pxtovw(17, 960) pxtovw(5, 960);
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+      }
+
+      @include screen('sm', max, 2) {
+        position: fixed;
+        z-index: 10;
+        top: 0;
+        border-radius: 0;
+        box-shadow: none;
+        margin-top: 0;
+        box-sizing: border-box;
+        max-height: 100%;
+        margin-bottom: 0;
+        height: 100%;
+        padding: pxtovw(60, 375) pxtovw(5, 375) pxtovw(18, 375) pxtovw(5, 375);
+      }
+    }
+
+    #{$b}.is-open & {
+      opacity: 1;
+      pointer-events: auto;
+      touch-action: auto;
+      visibility: visible;
+    }
+  }
+
+  &__item {
+    display: inline-block;
+    width: auto;
+
+    @include screen('sm', max, 2) {
+      width: 100%;
+    }
+
+    #{$b}_md & {
+      @include screen('md', max, 2) {
+        width: 100%;
+      }
+    }
+
+    &:not(:last-child) {
+      margin-right: 40px;
+
+      @include screen('xlg', max, 2) {
+        margin-right: pxtovw(40, 1660);
+      }
+
+      @include screen('lg', max, 2) {
+        margin-right: pxtovw(40, 1366);
+      }
+
+      @include screen('md', max, 2) {
+        margin-right: pxtovw(50, 960);
+      }
+
+      @include screen('sm', max, 2) {
+        margin-right: 0;
+        margin-top: pxtovw(4, 375);
+      }
+
+      #{$b}_md & {
+        @include screen('md', max, 2) {
+          margin-right: 0;
+        }
+      }
+    }
+  }
+
+  &__link {
+    display: inline-block;
+    font-family: $font-stolzl;
+    font-size: 16px;
+    line-height: (19 / 16);
+    font-weight: 400;
+    letter-spacing: -.015em;
+    padding: 10px 0;
+    transition: color $ease-main, box-shadow $ease-main;
+    cursor: pointer;
+    box-sizing: border-box;
+
+    @include screen('xlg', max, 2) {
+      font-size: pxtovw(16, 1660);
+      padding: pxtovw(10, 1660) 0;
+    }
+
+    @include screen('lg', max, 2) {
+      font-size: pxtovw(16, 1366);
+      padding: pxtovw(10, 1366) 0;
+    }
+
+    @include screen('md', max, 2) {
+      font-size: pxtovw(16, 960);
+      padding: pxtovw(10, 960) 0;
+    }
+
+    @include screen('sm', max, 2) {
+      font-size: pxtovw(20, 375);
+      padding: pxtovw(13, 375) pxtovw(10, 375) pxtovw(12, 375);
+      line-height: (26 / 20);
+      border-radius: pxtovw(3, 375);
+      width: 100%;
+    }
+
+    #{$b}_md & {
+      @include rule(font-size, (md: 18, sm: 20));
+      @include rule(border-radius, (md: 3, sm: 3));
+
+      @include screen('md', max, 2) {
+        padding: pxtovw(10, 960) pxtovw(15, 960);
+        width: 100%;
+      }
+
+      @include screen('sm', max, 2) {
+        line-height: (26 / 20);
+        padding: pxtovw(13, 375) pxtovw(10, 375) pxtovw(12, 375);
+      }
+    }
+
+    body:not(.is-touched-device) & {
+      &:hover {
+        color: $nd-color-main;
+
+        @include screen('sm', max, 2) {
+          background-color: $nd-color-main;
+          color: $nd-color-basic-light;
+        }
+
+        #{$b}_md & {
+          @include screen('md', max, 2) {
+            background-color: $nd-color-main;
+            color: $nd-color-basic-light;
+          }
+        }
+      }
+    }
+
+    .is-touched-device &:active {
+      @include screen('sm', max, 2) {
+        background-color: $nd-color-main;
+        color: $nd-color-basic-light;
+      }
+
+      #{$b}_md & {
+        @include screen('md', max, 2) {
+          background-color: $nd-color-main;
+          color: $nd-color-basic-light;
+        }
+      }
+    }
+
+    body:not(.is-touched-device) #{$b}_md & {
+      &:hover {
+        color: $nd-color-main;
+
+        @include screen('md', max, 2) {
+          background-color: $nd-color-main;
+          color: $nd-color-basic-light;
+        }
+      }
+    }
+
+    .is-touched-device #{$b}_md &:active {
+      @include screen('md', max, 2) {
+        background-color: $nd-color-main;
+        color: $nd-color-basic-light;
+      }
+    }
+
+    &.is-select {
+      color: $nd-color-gray-text;
+      box-shadow: inset 0 -3px 0 0 $nd-color-main;
+
+      @include screen('xlg', max, 2) {
+        box-shadow: inset 0 pxtovw(-3, 1660) 0 0 $nd-color-main;
+      }
+
+      @include screen('lg', max, 2) {
+        box-shadow: inset 0 pxtovw(-3, 1366) 0 0 $nd-color-main;
+      }
+
+      @include screen('md', max, 2) {
+        box-shadow: inset 0 pxtovw(-3, 960) 0 0 $nd-color-main;
+      }
+
+      @include screen('sm', max, 2) {
+        box-shadow: none;
+        color: $nd-color-basic;
+      }
+
+      #{$b}_md & {
+        @include screen('md', max, 2) {
+          box-shadow: none;
+          color: $nd-color-basic;
+        }
+      }
+    }
+
+    &.is-new {
+      display: inline-flex;
+      justify-content: flex-start;
+      align-items: center;
+    }
+
+    &.is-disabled {
+      pointer-events: none;
+    }
+
+    #{$b}__label & {
+      display: inline-block;
+      position: relative;
+      font-weight: 400;
+      color: $nd-color-basic;
+      font-family: $font-main;
+      padding: 0;
+
+      @include rule(font-size, (xl: 17px, xlg: 17, lg: 17, md: 17, sm: 17));
+      @include ellipsis(100%);
+
+      &.is-select {
+        color: $nd-color-basic;
+        box-shadow: none;
+      }
+    }
+
+    &_progress {
+      &.is-select {
+        color: $nd-color-basic;
+      }
+
+      &.is-disabled {
+        color: rgba(0, 0, 0, .3);
+      }
+    }
+  }
+
+  &__marker {
+    display: none;
+    position: relative;
+    vertical-align: middle;
+    text-align: center;
+    font-size: 8px;
+    font-weight: 700;
+    line-height: 1;
+    color: $nd-color-basic-light;
+    background-color: $nd-color-fixeddesk;
+    margin-left: 11px;
+    flex: none;
+
+    @include screen('xlg', max, 2) {
+      font-size: pxtovw(8, 1660);
+      margin-left: pxtovw(11, 1660);
+    }
+
+    @include screen('lg', max, 2) {
+      font-size: pxtovw(8, 1366);
+      margin-left: pxtovw(11, 1366);
+    }
+
+    @include screen('md', max, 2) {
+      font-size: pxtovw(8, 960);
+      margin-left: pxtovw(11, 960);
+    }
+
+    @include screen('sm', max, 2) {
+      font-size: pxtovw(8, 375);
+      margin-left: pxtovw(11, 375);
+    }
+
+    &::before {
+      @include pseudo;
+
+      top: 50%;
+      left: 50%;
+      transform: translate3d(-50%, -50%, 0);
+      border-radius: 100%;
+      width: 13px;
+      height: 13px;
+      background-color: $nd-color-fixeddesk;
+      z-index: -1;
+
+      @include screen('xlg', max, 2) {
+        width: pxtovw(13, 1660);
+        height: pxtovw(13, 1660);
+      }
+
+      @include screen('lg', max, 2) {
+        width: pxtovw(13, 1366);
+        height: pxtovw(13, 1366);
+      }
+
+      @include screen('md', max, 2) {
+        width: pxtovw(13, 960);
+        height: pxtovw(13, 960);
+      }
+
+      @include screen('sm', max, 2) {
+        width: pxtovw(13, 375);
+        height: pxtovw(13, 375);
+      }
+    }
+
+    #{$b}__link.is-new & {
+      display: inline-block;
+    }
+  }
+}
