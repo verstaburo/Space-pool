@@ -1,0 +1,57 @@
+mixin quick-search()
+  +b.FORM.quick-search&attributes(attributes)
+    +e.FIELDSET.section
+      +selection.__selection_type
+        +selection-head('Office type')._type
+        +selection-drop({header: {title: 'Office type'}, footer: true})
+          +e.describe
+            +e.text Pick the type of workspace you want.
+            +e.icon_type
+          +e.list
+            each item in [{title: 'Private Office', value: 'Private Office', name: 'team', value2: 'Private Office', class: "_offer_green"}, {title: 'Hot Desk', value: 'Hot Desk', name: 'team', value2: 'Hot Desk', class: "_offer_orange"}, {title: 'Fixed Desk', value: 'Fixed Desk', name: 'team', value2: 'Fixed Desk', class: "_offer_red"}, {title: 'Meeting Room', value: 'Meeting Room', name: 'team', value2: 'Meeting Room', class: "_offer_blue"} ]
+              +styled-radio(item.title)._offer(class=item.class + ' __item')
+                +e.INPUT.input(type="radio", value=item.value, name=item.name, data-selection-item, data-selection-item-value=item.value2, data-selection-item-type="offer")
+    +e.FIELDSET.section
+      +selection.__selection_team
+        +selection-head('Team size')._team
+        +selection-drop({header: {title: 'Team size'}, footer: true})
+          +e.describe
+            +e.text Start-up, scale-up, big business or just you – we have a perfect match for you.
+            +e.icon_team
+          +e.list
+            each item in [{title: '1', value: '1', name: 'team', value2: '1'}, {title: '2 — 9', value: '2 — 9', name: 'team', value2: '2+'}, {title: '10 — 19', value: '10 — 19', name: 'team', value2: '10+'}, {title: '20+', value: '20+', name: 'team', value2: '20+'} ]
+              +styled-radio(item.title)._team.__item
+                +e.INPUT.input(type="radio", value=item.value, name=item.name, data-selection-item, data-selection-item-value=item.value2, data-selection-item-type="team")
+    +e.FIELDSET.section
+      +selection.__selection_location
+        +selection-head('Location')._location
+        +selection-drop({header: {title: 'Location'}, footer: true})
+          +e.describe
+            +e.text
+            +e.icon_location
+          +e.list_mt0
+            - var cityList = getData('nd-main-search-cities.json');
+            - var areaList = getData('nd-main-search-areas.json');
+            +e.section
+              +e.section-title.nd-hide-from-sm Choose city
+              +e.checklist
+                each item in cityList
+                  +b.LABEL.check-button_hov-blue._h34.__check(class=(item.cls || ''))
+                    if item.checked
+                      +e.INPUT.input(name=item.name, value=item.value, checked, type="radio", data-selection-item, data-selection-item-value=item.title, data-selection-item-type="city")
+                    else
+                      +e.INPUT.input(name=item.name, value=item.value, type="radio", data-selection-item, data-selection-item-value=item.title, data-selection-item-type="city")
+                    +e.SPAN.content!=item.title
+            +e.section.nd-hide-from-sm
+              +e.section-title.nd-hide-from-sm Specific area
+              +e.checklist
+                each item in areaList
+                  +b.LABEL.check-button_hov-blue._h34.__check(class=(item.cls || ''))
+                    if item.checked
+                      +e.INPUT.input(name=item.name, value=item.value, checked, type="radio", data-selection-item, data-selection-item-value=item.title, data-selection-item-type="area")
+                    else
+                      +e.INPUT.input(name=item.name, value=item.value, type="radio", data-selection-item, data-selection-item-value=item.title, data-selection-item-type="area")
+                    +e.SPAN.content!=item.title
+    +e.buttons
+      +nd-button-icon('button', {icon: 'search'})._icon_reverse._h60.__button(type="submit") 134 results
+    block

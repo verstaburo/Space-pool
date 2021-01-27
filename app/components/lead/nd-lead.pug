@@ -1,0 +1,28 @@
+mixin nd-lead(data)
+  +b.SECTION.nd-lead&attributes(attributes)
+    .nd-container
+      +e.content
+        +e.bg.js-sr.js-sr_opacity
+          if data.mainimage
+            +e.PICTURE.image
+              source(srcset="assets/images/nd/nd-lead-bg-mobile.webp, assets/images/nd/nd-lead-bg-mobile@2x.webp 2x" type="image/webp" media="(max-width: 767px)")
+              source(srcset="assets/images/nd/nd-lead-bg-descktop.webp, assets/images/nd/nd-lead-bg-descktop@2x.webp 2x" type="image/webp" media="(min-width: 768px)")
+              source(srcset="assets/images/nd/nd-lead-bg-mobile.webp, assets/images/nd/nd-lead-bg-mobile@2x.webp 2x" type="image/jpeg" media="(max-width: 768px)")
+              source(srcset="assets/images/nd/nd-lead-bg-descktop.jpg, assets/images/nd/nd-lead-bg-descktop@2x.jpg 2x" type="image/jpeg" media="(min-width: 768px)")
+              img(src="assets/images/nd/nd-lead-bg-desctop.jpg" alt="")
+        +e.header
+          if data.title
+            +e.H1.title.js-sr.js-sr_bottom-slow!=data.title
+          if data.describe
+            +e.text.js-sr.js-sr_bottom-slow!=data.describe
+        +e.main.js-sr.js-sr_opacity
+          +quick-search.__search
+          +e.stages
+            +e.text!=(data.stagesText || ' Everything in one place:')
+            +stages(data.stages)
+        +e.footer.js-sr.js-sr_opacity
+          if data.support
+          +e.support
+            +e.H3.subtitle Need help? Give us a ring
+            +nd-link-icon('call')._icon_blue.__phone(href="tel:02084322219") 0208 432 2219
+            +e.text Our customer support team will be happy to answer your office search related questions

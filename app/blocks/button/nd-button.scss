@@ -310,6 +310,11 @@
       }
     }
 
+    &_search {
+      @include rule(width, (xl: 17px, xlg: 17, lg: 17, md: 17, sm: 13));
+      @include rule(height, (xl: 17px, xlg: 17, lg: 17, md: 17, sm: 13));
+    }
+
     &_abs {
       position: absolute;
       top: 50%;
@@ -786,6 +791,16 @@
             left: pxtovw(15, 375);
           }
         }
+      }
+    }
+  }
+
+  &_icon_reverse {
+    #{$b}__text {
+      order: 2;
+
+      &:not(:last-child) {
+        margin-right: 0;
       }
     }
   }

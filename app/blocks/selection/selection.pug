@@ -1,0 +1,23 @@
+mixin selection()
+  +b.DIV.selection&attributes(attributes)
+    block
+
+mixin selection-head(placeholder)
+  +e.DIV.head&attributes(attributes)(data-selection-head)
+    +e.placeholder!=placeholder
+    +e.values(data-selection-value)
+    +e.toggle
+      +icon('select-arrow2')(width="7" heigh="4")
+
+mixin selection-drop(data)
+  +e.DIV.drop&attributes(attributes)(data-selection-drop)
+    if data.header
+      +e.header.nd-hide-from-sm
+        +e.BUTTON.close(type="button" data-selection-close) Close
+        +e.title!=data.header.title
+        +e.BUTTON.clear(type="button" data-selection-clear) Clear
+    +e.content(data-selection-content)
+      block
+    if data.footer
+      +e.footer.nd-hide-from-sm
+        +nd-button()._wide.__setter(data-selection-setter) Set filter

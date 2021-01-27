@@ -1,0 +1,102 @@
+.quick-search {
+  $b: &;
+
+  display: flex;
+  background-color: $nd-color-basic-light;
+  box-sizing: border-box;
+
+  @include rule(border-radius, (xl: 44px, xlg: 44, lg: 44, md: 44, sm: 29));
+
+  @include screen('sm', max, 2) {
+    display: block;
+    width: 100%;
+    background: rgba(252, 252, 252, .14);
+    border: 1px solid rgba(94, 94, 94, .66);
+    backdrop-filter: blur(6px);
+    padding: pxtovw(21, 375) pxtovw(17, 375) pxtovw(16, 375);
+
+    .is-selection-open & {
+      backdrop-filter: none;
+    }
+  }
+
+  &__section {
+    position: relative;
+    display: inline-block;
+    border: none;
+    padding: 0;
+    margin: 0;
+
+    @include screen('sm', max, 2) {
+      width: 100%;
+    }
+
+    &:not(:first-child) {
+      @include rule(margin-top, (sm: 12));
+      @include rule(margin-left, (xl: 1px, xlg: 1, lg: 1, md: 1, sm: 0));
+
+      &::before {
+        @include pseudo;
+        @include rule(height, (xl: 34px, xlg: 34, lg: 34, md: 34, sm: 0));
+        @include rule(width, (xl: 1px, xlg: 1, lg: 1, md: 1, sm: 0));
+        @include rule(left, (xl: -1px, xlg: -1, lg: -1, md: -1, sm: 0));
+
+        top: 50%;
+        transform: translate3d(0, -50%, 0);
+        background-color: $nd-color-border2;
+
+        @include screen('sm', max, 2) {
+          display: none;
+        }
+      }
+    }
+  }
+
+  &__selection {
+    &_type {
+      @include rule(width, (xl: 183px, xlg: 183, lg: 183, md: 183));
+
+      @include screen('sm', max, 2) {
+        width: 100%;
+      }
+    }
+
+    &_team {
+      @include rule(width, (xl: 173px, xlg: 173, lg: 173, md: 173));
+
+      @include screen('sm', max, 2) {
+        width: 100%;
+      }
+    }
+
+    &_location {
+      @include rule(width, (xl: 200px, xlg: 200, lg: 200, md: 200));
+
+      @include screen('sm', max, 2) {
+        width: 100%;
+      }
+    }
+  }
+
+  &__buttons {
+    @include screen('sm', max, 2) {
+      width: 100%;
+    }
+
+    &:not(:first-child) {
+      @include rule(margin-left, (xl: 16px, xlg: 16, lg: 16, md: 16, sm: 0));
+      @include rule(margin-top, (sm: 17));
+    }
+  }
+
+  &__button {
+    @include rule(min-width, (xl: 212px, xlg: 212, lg: 212, md: 212, sm: 0));
+    @include rule(font-size, (xl: 22px, xlg: 22, lg: 22, md: 22, sm: 18));
+
+    line-height: .9;
+
+    @include screen('sm', max, 2) {
+      width: 100%;
+    }
+  }
+}
