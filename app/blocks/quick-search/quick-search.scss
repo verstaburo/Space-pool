@@ -38,12 +38,13 @@
       &::before {
         @include pseudo;
         @include rule(height, (xl: 34px, xlg: 34, lg: 34, md: 34, sm: 0));
-        @include rule(width, (xl: 1px, xlg: 1, lg: 1, md: 1, sm: 0));
+        @include rule(width, (xl: .5px, xlg: .5, lg: .5, md: .5, sm: 0));
         @include rule(left, (xl: -1px, xlg: -1, lg: -1, md: -1, sm: 0));
 
         top: 50%;
         transform: translate3d(0, -50%, 0);
         background-color: $nd-color-border2;
+        z-index: 1;
 
         @include screen('sm', max, 2) {
           display: none;
@@ -53,11 +54,21 @@
   }
 
   &__selection {
+    @include screen('sm', min, 2) {
+      z-index: 2;
+    }
+
     &_type {
       @include rule(width, (xl: 183px, xlg: 183, lg: 183, md: 183));
 
       @include screen('sm', max, 2) {
         width: 100%;
+      }
+
+      &:hover, &.is-open {
+        @include screen('sm', min, 2) {
+          box-shadow: 1.5px 0 0 0 #fff;
+        }
       }
     }
 
@@ -67,6 +78,12 @@
       @include screen('sm', max, 2) {
         width: 100%;
       }
+
+      &:hover, &.is-open {
+        @include screen('sm', min, 2) {
+          box-shadow: 1.5px 0 0 0 #fff, -1.5px 0 0 0 #fff;
+        }
+      }
     }
 
     &_location {
@@ -74,6 +91,12 @@
 
       @include screen('sm', max, 2) {
         width: 100%;
+      }
+
+      &:hover, &.is-open {
+        @include screen('sm', min, 2) {
+          box-shadow: -1.5px 0 0 0 #fff;
+        }
       }
     }
   }

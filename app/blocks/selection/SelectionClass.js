@@ -1,3 +1,8 @@
+import {
+  freeze,
+  unfreeze,
+} from '../../scripts/functions/freeze';
+
 export default class Selection {
   constructor(el) {
     this.el = el;
@@ -71,12 +76,18 @@ export default class Selection {
     });
     document.body.classList.add('is-selection-open');
     _this.el.classList.add('is-open');
+    if (window.Modernizr.mq(`(max-width: ${window.globalOptions.sizes.sm - 1}px)`)) {
+      freeze();
+    }
   }
 
   _close() {
     const _this = this;
     document.body.classList.remove('is-selection-open');
     _this.el.classList.remove('is-open');
+    if (window.Modernizr.mq(`(max-width: ${window.globalOptions.sizes.sm - 1}px)`)) {
+      unfreeze();
+    }
   }
 
   _clear() {
@@ -98,19 +109,21 @@ export default class Selection {
     const _this = this;
     const items = _this.content.querySelectorAll('[data-selection-item]:checked');
     if (items.length > 1) {
-      let result = '';
+      const result = {};
       items.forEach((el) => {
         const type = el.getAttribute('data-selection-item-type');
-        const value = items[0].getAttribute('data-selection-item-value') || items[0].value;
-        if (type === 'city') {
-          result += value;
-        } else if (type === 'area' && value !== 'All areas') {
-          result = value;
-        } else if (type !== 'area' && type !== 'city') {
-          result += `${value}, `;
-        }
+        const value = el.getAttribute('data-selection-item-value') || el.value;
+        result[type] = value;
       });
-      _this._setValue(result);
+      if (result.area && result.area !== 'All areas') {
+        _this._setValue(result.area);
+      } else if (result.city) {
+        _this._setValue(result.city);
+      } else if (result.team) {
+        _this._setValue(result.team);
+      } else {
+        _this._setValue(result.type);
+      }
     } else {
       const value = items[0].getAttribute('data-selection-item-value') || items[0].value;
       _this._setValue(value);
@@ -130,12 +143,35 @@ export default class Selection {
     const slf = evt.currentTarget;
     if (slf.checked) {
       const value = slf.getAttribute('data-selection-item-value') || slf.value;
-      _this._setValue(value);
+      // let value = '';
+      // const type = slf.getAttribute('data-selection-item-type');
+      // const selfValue = slf.getAttribute('data-selection-item-value') || slf.value;
+      // if (type === 'city' || type === 'area') {
+      //   const items = _this.content.querySelectorAll('[data-selection-item]:checked');
+      //   const result = {};
+      //   items.forEach((el) => {
+      //     const elType = el.getAttribute('data-selection-item-type');
+      //     const elValue = el.getAttribute('data-selection-item-value') || el.value;
+      //     result[elType] = elValue;
+      //   });
+      //   if (result.area && result.area !== 'All areas') {
+      //     value = result.area;
+      //   } else {
+      //     value = result.city;
+      //   }
+      // } else {
+      //   value = selfValue;
+      // }
+      if (window.Modernizr.mq(`(min-width: ${window.globalOptions.sizes.sm}px)`)) {
+        _this._setValue(value);
+        _this._close();
+      }
     }
   }
 
   _observeNewItems(rec) {
     const _this = this;
+    console.log(rec);
     if (rec.type === 'childList') {
       const addedNodesList = rec.addedNodes;
       if (addedNodesList.length) {
