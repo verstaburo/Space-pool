@@ -145,8 +145,48 @@
     top: 0;
     bottom: 0;
     right: 0;
+    pointer-events: none;
 
     @include rule(width, (xl: 30px, xlg: 30, lg: 30, md: 30, sm: 45));
+
+    &::before {
+      @include pseudo;
+      @include rule(width, (xl: 20px, xlg: 20, lg: 20, md: 20, sm: 20));
+      @include rule(height, (xl: 20px, xlg: 20, lg: 20, md: 20, sm: 20));
+      @include rule(background-size, (xl: 8px, xlg: 8, lg: 8, md: 8, sm: 8));
+      @include rule(right, (xl: 7px, xlg: 7, lg: 7, md: 7, sm: 7));
+
+      top: 50%;
+      border-radius: 50%;
+      background-color: #adb5bd;
+      background-image: url('../images/bg/bg-cross-white.svg');
+      background-position: 50% 50%;
+      background-repeat: no-repeat;
+      transition: background $ease-main, opacity $ease-main;
+      transform: translate3d(0, -50%, 0);
+      opacity: 0;
+      z-index: 2;
+
+      @include screen('sm', max, 2) {
+        display: none;
+      }
+    }
+
+    &:hover {
+      &::before {
+        background-color: $nd-color-main;
+      }
+    }
+
+    #{$b}.is-selected.is-open & {
+      @include screen('sm', min, 2) {
+        pointer-events: auto;
+      }
+
+      &::before {
+        opacity: 1;
+      }
+    }
 
     svg {
       @include rule(width, (xl: 7px, xlg: 7, lg: 7, md: 7, sm: 12));

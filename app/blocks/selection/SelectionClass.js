@@ -10,7 +10,7 @@ export default class Selection {
     this.drop = el.querySelector('[data-selection-drop]');
     this.content = el.querySelector('[data-selection-content]');
     this.closeBtn = el.querySelector('[data-selection-close]');
-    this.clearBtn = el.querySelector('[data-selection-clear]');
+    this.clearBtns = el.querySelectorAll('[data-selection-clear]');
     this.setBtn = el.querySelector('[data-selection-setter]');
     this.valueField = el.querySelector('[data-selection-value]');
   }
@@ -37,10 +37,8 @@ export default class Selection {
       _this._close();
     });
 
-    _this.clearBtn.addEventListener('click', (evt) => {
-      evt.preventDefault();
-      _this._clear();
-      _this._close();
+    _this.clearBtns.forEach((el) => {
+      el.addEventListener('click', _this._handlerClearFilter.bind(_this));
     });
 
     _this.setBtn.addEventListener('click', _this._handlerSetValue.bind(_this));
@@ -103,6 +101,14 @@ export default class Selection {
     contentSibling.after(content);
     _this.valueField.innerHTML = '';
     _this.el.classList.remove('is-selected');
+  }
+
+  _handlerClearFilter(evt) {
+    evt.preventDefault();
+    evt.stopPropagation();
+    const _this = this;
+    _this._clear();
+    _this._close();
   }
 
   _handlerSetValue(evt) {
