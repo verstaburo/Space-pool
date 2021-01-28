@@ -34,7 +34,7 @@
 
     &::before {
       @include pseudo;
-      @include rule(width, (xl: 52px, xlg: 52, lg: 52, md: 52, sm: 45));
+      @include rule(width, (xl: 40px, xlg: 40, lg: 40, md: 40, sm: 45));
 
       top: 0;
       left: 0;
@@ -46,7 +46,7 @@
     &_type {
       &::before {
         background-image: url('../images/bg/bg-search-type.svg');
-        background-position: 60% 50%;
+        background-position: 100% 50%;
 
         @include rule(background-size, (xl: 14px, xlg: 14, lg: 14, md: 14, sm: 14));
 
@@ -59,6 +59,7 @@
     &_team {
       &::before {
         background-image: url('../images/bg/bg-search-team.svg');
+        background-position: 100% 50%;
         background-size: 24px 13px;
 
         @include screen('xlg', max, 2) {
@@ -75,6 +76,7 @@
 
         @include screen('sm', max, 2) {
           background-size: pxtovw(24, 375) pxtovw(13, 375);
+          background-position: 50% 50%;
         }
       }
     }
@@ -82,22 +84,24 @@
     &_location {
       &::before {
         background-image: url('../images/bg/bg-search-location.svg');
-        background-size: 12px 16px;
+        background-size: 14px 17px;
+        background-position: 100% 50%;
 
         @include screen('xlg', max, 2) {
-          background-size: pxtovw(12, 1660) pxtovw(16, 1660);
+          background-size: pxtovw(14, 1660) pxtovw(17, 1660);
         }
 
         @include screen('lg', max, 2) {
-          background-size: pxtovw(12, 1366) pxtovw(16, 1366);
+          background-size: pxtovw(14, 1366) pxtovw(17, 1366);
         }
 
         @include screen('md', max, 2) {
-          background-size: pxtovw(12, 960) pxtovw(16, 960);
+          background-size: pxtovw(14, 960) pxtovw(17, 960);
         }
 
         @include screen('sm', max, 2) {
-          background-size: pxtovw(12, 375) pxtovw(16, 375);
+          background-size: pxtovw(14, 375) pxtovw(17, 375);
+          background-position: 50% 50%;
         }
       }
     }

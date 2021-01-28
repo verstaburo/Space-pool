@@ -40,6 +40,7 @@ export default class Selection {
     _this.clearBtn.addEventListener('click', (evt) => {
       evt.preventDefault();
       _this._clear();
+      _this._close();
     });
 
     _this.setBtn.addEventListener('click', _this._handlerSetValue.bind(_this));
