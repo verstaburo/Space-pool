@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 import {
   freeze,
   unfreeze,
@@ -18,6 +19,7 @@ export default class Selection {
   init() {
     const _this = this;
     _this._bindEvents();
+    _this._stopOverscrollChaining();
     _this.el.selection = _this;
   }
 
@@ -198,4 +200,22 @@ export default class Selection {
       subtree: true,
     });
   }
+
+  _stopOverscrollChaining() {
+    const _this = this;
+    if (!window.Modernizr.testAllProps('overscrollBehavior', 'none')) {
+      const {
+        content,
+      } = _this;
+      const height = _this.content.clientHeight;
+      const {
+        scrollHeight,
+      } = _this.content;
+      _this.content.addEventListener('mousewheel', (event) => {
+        const blockScrolling = (content.scrollTop === scrollHeight - height && event.deltaY < 0) || (content.scrollTop === 0 && event.deltaY > 0);
+        return !blockScrolling;
+      });
+    }
+  }
 }
+/* eslint-enable max-len */

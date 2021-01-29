@@ -1,7 +1,7 @@
 /* eslint-disable*/
 /*!
  * modernizr v3.6.0
- * Build https://modernizr.com/download?-scrollsnappoints-mq-setclasses-dontmin
+ * Build https://modernizr.com/download?-scrollsnappoints-mq-setclasses-testallprops-dontmin
  *
  * Copyright (c)
  *  Faruk Ates
@@ -602,22 +602,6 @@
 
 
 
-  /**
-   * domToCSS takes a camelCase string and converts it to kebab-case
-   * e.g. boxSizing -> box-sizing
-   *
-   * @access private
-   * @function domToCSS
-   * @param {string} name - String name of camelCase prop we want to convert
-   * @returns {string} The kebab-case version of the supplied name
-   */
-
-  function domToCSS(name) {
-    return name.replace(/([A-Z])/g, function (str, m1) {
-      return '-' + m1.toLowerCase();
-    }).replace(/^ms-/, '-ms-');
-  };
-
 
   /**
    * wrapper around getComputedStyle, to fix issues with Firefox returning null when
@@ -655,6 +639,22 @@
   }
 
   ;
+
+  /**
+   * domToCSS takes a camelCase string and converts it to kebab-case
+   * e.g. boxSizing -> box-sizing
+   *
+   * @access private
+   * @function domToCSS
+   * @param {string} name - String name of camelCase prop we want to convert
+   * @returns {string} The kebab-case version of the supplied name
+   */
+
+  function domToCSS(name) {
+    return name.replace(/([A-Z])/g, function (str, m1) {
+      return '-' + m1.toLowerCase();
+    }).replace(/^ms-/, '-ms-');
+  };
 
   /**
    * nativeTestProps allows for us to use native feature detection functionality if available.
