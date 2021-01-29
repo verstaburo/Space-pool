@@ -228,6 +228,7 @@
 
     @include rule(margin-top, (xl: 10px, xlg: 10, lg: 10, md: 10, sm: 0));
     @include rule(width, (xl: 478px, xlg: 478, lg: 478, md: 478));
+    @include rule(max-height, (xl: 400px, xlg: 400, lg: 400, md: 400));
     @include rule(border-radius, (xl: 3px, xlg: 3, lg: 3, md: 3, sm: 0));
     @include rule(padding-top, (sm: 60));
     @include rule(padding-bottom, (sm: 60));
@@ -253,6 +254,7 @@
       box-shadow: none;
       z-index: 25;
       transform: translate3d(100%, 0, 0);
+      max-height: none;
     }
 
     #{$b}.is-open & {
@@ -277,6 +279,7 @@
     box-sizing: border-box;
     overflow: auto;
 
+    @include native-scroll;
     @include rule(padding-top, (xl: 30px, xlg: 30, lg: 30, md: 30, sm: 42));
     @include rule(padding-bottom, (xl: 67px, xlg: 67, lg: 67, md: 67, sm: 48));
     @include rule(padding-left, (xl: 36px, xlg: 36, lg: 36, md: 36, sm: 20));
