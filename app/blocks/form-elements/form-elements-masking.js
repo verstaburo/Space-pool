@@ -10,7 +10,8 @@ const {
 export default function maskForm() {
   $(document).on('focus', '[data-birthday]', (evt) => {
     const _this = evt.currentTarget;
-    const momentFormat = 'YYYY / MM / DD';
+    const dataMask = _this.getAttribute('data-birthday-mask');
+    const momentFormat = dataMask || 'DD/MM/YYYY';
     // const maskPattern = 'YYYY / M[M] / D[D]';
     if (!_this.masked) {
       const momentMask = IMask(_this, {

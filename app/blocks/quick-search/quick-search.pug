@@ -19,9 +19,9 @@ mixin quick-search()
             +e.text Start-up, scale-up, big business or just you – we have a perfect match for you.
             +e.icon_team
           +e.list
-            each item in [{title: '1', value: '1', name: 'team', value2: '1'}, {title: '2 — 4', value: '2 — 4', name: 'team', value2: '2+'}, {title: '5 — 7', value: '5 — 7', name: 'team', value2: '5++'}, {title: '8 — 10', value: '8 — 10', name: 'team', value2: '8+'}, {title: '11 — 15', value: '11 — 15', name: 'team', value2: '11+'}, {title: '16 — 20', value: '16 — 20', name: 'team', value2: '16+'}, {title: '21 — 30', value: '21 — 30', name: 'team', value2: '21+'}, {title: '31+', value: '31+', name: 'team', value2: '31+'} ]
+            each item in [{title: '1', value: '1', name: 'team', value2: '1'}, {title: '2 — 4', value: '2 — 4', name: 'team'}, {title: '5 — 7', value: '5 — 7', name: 'team'}, {title: '8 — 10', value: '8 — 10', name: 'team'}, {title: '11 — 15', value: '11 — 15', name: 'team'}, {title: '16 — 20', value: '16 — 20', name: 'team'}, {title: '21 — 30', value: '21 — 30', name: 'team'}, {title: '31+', value: '31+', name: 'team', value2: '31+'} ]
               +styled-radio(item.title)._team.__item
-                +e.INPUT.input(type="radio", value=item.value, name=item.name, data-selection-item, data-selection-item-value=item.value2, data-selection-item-type="team")
+                +e.INPUT.input(type="radio", value=item.value, name=item.name, data-selection-item, data-selection-item-value=(item.value2 || item.value), data-selection-item-type="team")
     +e.FIELDSET.section
       +selection.__selection_location
         +selection-head('Location')._location
