@@ -20,6 +20,7 @@ export default class Selection {
     const _this = this;
     _this._bindEvents();
     _this._stopOverscrollChaining();
+    _this._observeChilds();
     _this.el.selection = _this;
   }
 
@@ -180,7 +181,6 @@ export default class Selection {
 
   _observeNewItems(rec) {
     const _this = this;
-    console.log(rec);
     if (rec.type === 'childList') {
       const addedNodesList = rec.addedNodes;
       if (addedNodesList.length) {
