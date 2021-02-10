@@ -13,7 +13,11 @@
     background: rgba(252, 252, 252, .14);
     border: 1px solid rgba(94, 94, 94, .66);
     backdrop-filter: blur(6px);
-    padding: pxtovw(21, 375) pxtovw(17, 375) pxtovw(16, 375);
+    padding: pxtovw(21, 375) pxtovw(17, 375) pxtovw(18, 375);
+
+    .nd-lead_old & {
+      padding: pxtovw(21, 375) pxtovw(17, 375) pxtovw(16, 375);
+    }
 
     .is-selection-open & {
       backdrop-filter: none;
@@ -108,7 +112,11 @@
 
     &:not(:first-child) {
       @include rule(margin-left, (xl: 16px, xlg: 16, lg: 16, md: 16, sm: 0));
-      @include rule(margin-top, (sm: 17));
+      @include rule(margin-top, (sm: 12));
+
+      .nd-lead_old & {
+        @include rule(margin-top, (sm: 17));
+      }
     }
   }
 

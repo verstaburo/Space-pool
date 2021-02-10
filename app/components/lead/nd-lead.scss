@@ -39,7 +39,7 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background: linear-gradient(180deg, rgba(0, 0, 0, 0) 79.17%,rgba(0, 0, 0, 1) 100%), linear-gradient(0deg, rgba(0, 0, 0, .38), rgba(0, 0, 0, .38));
+      background: linear-gradient(180deg, rgba(0, 0, 0, 0) 79.17%, rgba(0, 0, 0, 1) 100%), linear-gradient(0deg, rgba(0, 0, 0, .38), rgba(0, 0, 0, .38));
       z-index: 2;
     }
   }
@@ -72,8 +72,8 @@
     box-sizing: border-box;
 
     @include rule(border-radius, (xl: 3px, xlg: 3, lg: 3, md: 3, sm: 0));
-    @include rule(padding-top, (xl: 75px, xlg: 75, lg: 75, md: 75, sm: 103));
-    @include rule(padding-bottom, (xl: 27px, xlg: 27, lg: 27, md: 27, sm: 50));
+    @include rule(padding-top, (xl: 75px, xlg: 75, lg: 75, md: 75, sm: 85));
+    @include rule(padding-bottom, (xl: 27px, xlg: 27, lg: 27, md: 27, sm: 45));
   }
 
   &__header, &__footer, &__main {
@@ -98,7 +98,7 @@
     display: inline-block;
 
     &:not(:first-child) {
-      @include rule(margin-top, (xl: 30px, xlg: 30, lg: 30, md: 30, sm: 35));
+      @include rule(margin-top, (xl: 30px, xlg: 30, lg: 30, md: 30, sm: 26));
     }
   }
 
@@ -163,7 +163,7 @@
         margin-top: 0;
 
         @include rule(margin-left, (xl: 52px, xlg: 52, lg: 52, md: 0));
-        @include rule(margin-top, (md: 36, sm: 36));
+        @include rule(margin-top, (md: 36, sm: 40));
       }
     }
 
@@ -180,7 +180,7 @@
     z-index: 3;
 
     &:not(:first-child) {
-      @include rule(margin-top, (xl: 43px, xlg: 43, lg: 43, md: 43, sm: 46));
+      @include rule(margin-top, (xl: 43px, xlg: 43, lg: 43, md: 43, sm: 23));
     }
   }
 
@@ -200,7 +200,7 @@
     }
 
     &:not(:first-child) {
-      @include rule(margin-top, (xl: 47px, xlg: 47, lg: 47, md: 47, sm: 43));
+      @include rule(margin-top, (xl: 47px, xlg: 47, lg: 47, md: 47, sm: 36));
     }
 
     .stages {
@@ -225,6 +225,53 @@
 
     &:not(:first-child) {
       @include rule(margin-top, (xl: 58px, xlg: 58, lg: 58, md: 58, sm: 62));
+    }
+  }
+
+  &_old {
+    #{$b} {
+      &__content {
+        @include rule(padding-top, (xl: 75px, xlg: 75, lg: 75, md: 75, sm: 103));
+        @include rule(padding-bottom, (xl: 27px, xlg: 27, lg: 27, md: 27, sm: 50));
+      }
+
+      &__text {
+        &:not(:first-child) {
+          @include rule(margin-top, (xl: 30px, xlg: 30, lg: 30, md: 30, sm: 35));
+        }
+      }
+
+      &__main {
+        &:not(:first-child) {
+          @include rule(margin-top, (xl: 43px, xlg: 43, lg: 43, md: 43, sm: 46));
+        }
+      }
+
+      &__search {
+        &:not(:first-child) {
+          @include rule(margin-top, (xl: 43px, xlg: 43, lg: 43, md: 43, sm: 43));
+        }
+      }
+
+      &__stages {
+        &:not(:first-child) {
+          @include rule(margin-top, (xl: 47px, xlg: 47, lg: 47, md: 47, sm: 43));
+        }
+
+        .stages {
+          &:not(:first-child) {
+            @include rule(margin-top, (xl: 17px, xlg: 17, lg: 17, md: 17, sm: 20));
+          }
+        }
+      }
+
+      &__footer {
+        @include rule(padding-top, (xl: 27px, xlg: 27, lg: 27, md: 27, sm: 0));
+
+        &:not(:first-child) {
+          @include rule(margin-top, (xl: 58px, xlg: 58, lg: 58, md: 58, sm: 62));
+        }
+      }
     }
   }
 }

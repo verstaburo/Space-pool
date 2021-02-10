@@ -1,8 +1,11 @@
 // Скрипт "замораживает" страничку, запрещая скролл
-const { $ } = window;
+const {
+  $,
+} = window;
 
 export function freeze() {
   const h = $('html');
+  console.log('freeze');
 
   h.addClass('freeze');
 
@@ -30,6 +33,7 @@ export function freeze() {
 
 export function unfreeze() {
   const h = $('html');
+  console.log('unfreeze');
 
   h.removeClass('freeze');
 

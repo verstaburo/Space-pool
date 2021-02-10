@@ -45,8 +45,10 @@ export default function header() {
 
   $(document).on('click', (evt) => {
     const self = evt.target;
-    if ($(self).closest('.nd-main-menu').length === 0 && $(self).closest('.js-open-navigation').length === 0 && $(self).not('.js-open-navigation')) {
-      mainNavigation.close();
+    if (mainNavigation.isActive()) {
+      if ($(self).closest('.nd-main-menu').length === 0 && $(self).closest('.js-open-navigation').length === 0 && $(self).not('.js-open-navigation')) {
+        mainNavigation.close();
+      }
     }
   });
 

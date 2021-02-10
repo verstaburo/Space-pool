@@ -72,7 +72,7 @@ export default class Selection {
     other.forEach((el) => {
       if (el !== _this.el) {
         if (el.selection) {
-          el.selection._close();
+          el.selection._close(true);
         }
       }
     });
@@ -83,11 +83,11 @@ export default class Selection {
     }
   }
 
-  _close() {
+  _close(isFreeze) {
     const _this = this;
     document.body.classList.remove('is-selection-open');
     _this.el.classList.remove('is-open');
-    if (window.Modernizr.mq(`(max-width: ${window.globalOptions.sizes.sm - 1}px)`)) {
+    if (window.Modernizr.mq(`(max-width: ${window.globalOptions.sizes.sm - 1}px)`) && !isFreeze) {
       unfreeze();
     }
   }
