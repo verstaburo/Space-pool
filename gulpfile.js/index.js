@@ -21,6 +21,7 @@ gulp.task('images', images);
 gulp.task('webp', webp);
 gulp.task('icons', icons);
 gulp.task('styles', styles.build);
+gulp.task('lint', styles.lint);
 gulp.task('templates', templates);
 gulp.task('copymain', copymain);
 gulp.task('server', server);

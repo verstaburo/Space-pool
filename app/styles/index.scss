@@ -1,0 +1,225 @@
+@import '../../node_modules/normalize.css/normalize.css';
+@import 'helpers/animations'; // анимации
+@import 'helpers/variables'; // Переменные
+@import 'helpers/mixins'; // Миксины
+@import 'helpers/gradients'; // Градиенты
+@import 'helpers/basics'; // Основные общие стили
+@import 'helpers/text-styles'; // Стили текстов
+@import '../blocks/avatar/avatar.scss';
+@import '../blocks/box/box.scss';
+@import '../blocks/boxes/boxes.scss';
+@import '../blocks/burger/nd-burger.scss';
+@import '../blocks/button/nd-button.scss';
+@import '../blocks/form-elements/check-button.scss';
+@import '../blocks/header-user/header-user.scss';
+@import '../blocks/header-menu/header-menu.scss';
+@import '../blocks/info-notice/info-notice.scss';
+@import '../blocks/info-notices/nd-info-notices.scss';
+@import '../blocks/logo/nd-logo.scss';
+@import '../blocks/link/nd-link.scss';
+@import '../blocks/news/nd-news.scss';
+@import '../blocks/quick-search/quick-search.scss';
+@import '../blocks/page/nd-page.scss';
+@import '../blocks/promo-slider/promo-slider.scss';
+@import '../components/promo/promo.scss';
+@import '../blocks/section/nd-section.scss';
+@import '../blocks/slider/nd-slider.scss';
+@import '../blocks/space/nd-space.scss';
+@import '../blocks/space-type/space-type.scss';
+@import '../blocks/short-profile/short-profile.scss';
+@import '../blocks/social/nd-social.scss';
+@import '../blocks/socials/nd-socials.scss';
+@import '../blocks/stages/stages.scss';
+@import '../blocks/selection/selection.scss';
+@import '../blocks/styled-radio/styled-radio.scss';
+@import '../blocks/text-block/text-block.scss';
+@import '../components/tags-map/tags-map.scss';
+@import '../blocks/user-link/user-link.scss';
+@import '../components/footer/nd-footer.scss';
+@import '../components/header/header.scss';
+@import '../components/lead/nd-lead.scss';
+@import '../components/main-menu/nd-main-menu.scss';
+@import '../components/user-menu-panel/user-menu-panel.scss';
+
+.nd-container {
+  width: 100%;
+  padding: 0 150px;
+  margin: 0 auto;
+  box-sizing: border-box;
+
+  @include screen('xl', max, 2) {
+    padding: 0 60px;
+  }
+
+  @include screen('xlg', max, 2) {
+    padding: 0 pxtovw(60, 1660);
+  }
+
+  @include screen('lg', max, 2) {
+    padding: 0 pxtovw(50, 1366);
+  }
+
+  @include screen('md', max, 2) {
+    padding: 0 pxtovw(50, 960);
+  }
+
+  @include screen('sm', max, 2) {
+    padding: 0 pxtovw(20, 375);
+  }
+
+  &_space {
+    padding: 0 195px;
+
+    @include screen('xl', max, 2) {
+      padding: 0 50px;
+    }
+
+    @include screen('lg', max, 2) {
+      padding: 0 pxtovw(50, 1366);
+    }
+
+    @include screen('md', max, 2) {
+      padding: 0 pxtovw(50, 960);
+    }
+
+    @include screen('sm', max, 2) {
+      padding: 0 pxtovw(20, 375);
+    }
+  }
+
+  &_wide {
+    padding: 0 32px;
+
+    @include screen('xlg', max, 2) {
+      padding: 0 pxtovw(32, 1660);
+    }
+
+    @include screen('lg', max, 2) {
+      padding: 0 pxtovw(50, 1366);
+    }
+
+    @include screen('md', max, 2) {
+      padding: 0 pxtovw(50, 960);
+    }
+
+    @include screen('sm', max, 2) {
+      padding: 0 pxtovw(20, 375);
+    }
+  }
+
+  &_centered {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+  }
+}
+
+.js-sr {
+  visibility: hidden;
+}
+
+.hide {
+  display: none !important;
+}
+
+// спрятать на cредне большом десктопе и ниже
+
+.nd-hide-xl {
+  @include screen('xl', max, 2) {
+    display: none;
+  }
+}
+
+// спрятать на среднем десктопе и ниже
+
+.nd-hide-xlg {
+  @include screen('xlg', max, 2) {
+    display: none;
+  }
+}
+
+// спрятать на малом десктопе и ниже
+
+.nd-hide-lg {
+  @include screen('lg', max, 2) {
+    display: none;
+  }
+}
+
+// cпрятать на планшете и мобиле
+
+.nd-hide-md {
+  @include screen('md', max, 2) {
+    display: none;
+  }
+}
+
+// cпрятать на мобиле
+
+.nd-hide-sm {
+  @include screen('sm', max, 2) {
+    display: none;
+  }
+}
+
+// спрятать начиная с планшета и выше
+
+.nd-hide-from-sm {
+  @include screen('sm', min, 2) {
+    display: none;
+  }
+}
+
+// cпрятать начиная с маленьких десктопов и выше
+
+.nd-hide-from-md {
+  @include screen('md', min, 2) {
+    display: none;
+  }
+}
+
+// спрятать на средних десктопах
+
+.nd-hide-from-lg {
+  @include screen('lg', min, 2) {
+    display: none;
+  }
+}
+
+// спрятать на средне больших десктопах
+
+.nd-hide-from-xlg {
+  @include screen('xlg', min, 2) {
+    display: none;
+  }
+}
+
+// спрятать на больших десктопах
+
+.nd-hide-from-xl {
+  @include screen('xl', min, 2) {
+    display: none;
+  }
+}
+
+.nd-hide-only-lg {
+  @media only screen and (min-width: 768px) and (max-width: 1029px) {
+    display: none;
+  }
+}
+
+.nd-show-sm {
+  @include screen('sm', max, 2) {
+    display: flex;
+  }
+}
+
+.nd-hide {
+  display: none !important;
+}
+
+label.is-readonly {
+  pointer-events: none;
+  cursor: default;
+}
