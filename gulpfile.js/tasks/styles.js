@@ -4,7 +4,7 @@ const errorHandler = require('gulp-plumber-error-handler');
 const gulpIf = require('gulp-if');
 const postcss = require('gulp-postcss');
 const sass = require('gulp-sass');
-const cssnano = require('cssnano');
+// const cssnano = require('cssnano');
 const sourcemaps = require('gulp-sourcemaps');
 const bulkSass = require('gulp-sass-bulk-import');
 const rename = require('gulp-rename');
@@ -12,6 +12,7 @@ const stylelint = require('stylelint');
 const autoprefixer = require('autoprefixer');
 const postcssImport = require('postcss-import');
 const reporter = require('postcss-reporter');
+const discardComents = require('postcss-discard-comments');
 const scssSyntax = require('postcss-scss');
 // const sassSyntax = require('postcss-sass');
 
@@ -29,9 +30,10 @@ exports.build = () => (
       grid: 'autoplace',
     }),
     postcssImport(),
-    cssnano({
-      preset: 'default',
-    }),
+    discardComents(),
+    // cssnano({
+    //   preset: 'default',
+    // }),
   ]))
   .pipe(gulpIf(isDebug, sourcemaps.write('.')))
   .pipe(rename({
