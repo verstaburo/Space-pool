@@ -54,6 +54,10 @@
 
       @include screen('sm', max, 2) {
         padding: pxtovw(111, 375) 0;
+
+        @media screen and (max-height: 560px) {
+          padding-top: pxtovw(60, 375);
+        }
       }
 
       .nd-container {
@@ -148,6 +152,10 @@
 
   .dates {
     @include rule(padding-top, (xl: 40px, xlg: 40, lg: 40, md: 40, sm: 40));
+
+    @media screen and (max-height: 560px) {
+      padding-top: pxtovw(10, 375);
+    }
   }
 
   .dates__buttons {
