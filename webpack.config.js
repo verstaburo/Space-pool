@@ -6,13 +6,14 @@ const isDebug = process.env.NODE_ENV !== 'production';
 
 module.exports = (watch = false) => ({
   entry: {
-    index: path.resolve('./app/scripts/app.js'),
+    app: path.resolve('./app/scripts/app.js'),
+    index: path.resolve('./app/scripts/index.js'),
     // other: path.resolve('./app/scripts/other.js'),
     // old: path.resolve('./app/scripts/old.js'),
   },
   output: {
     publicPath: '/assets/scripts/',
-    filename: 'app.min.js',
+    filename: '[name].min.js',
     path: path.resolve('./dist/assets/scripts/'),
   },
   watch,

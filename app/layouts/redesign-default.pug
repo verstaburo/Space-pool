@@ -66,7 +66,10 @@ html(lang='en')
     if !noFooter
       +nd-footer
 
-    script(src='assets/scripts/app.min.js')
+    if pageStyle == 'index'
+      script(src='assets/scripts/index.min.js')
+    else
+      script(src='assets/scripts/app.min.js')
     if map
       //- script(src='https://maps.googleapis.com/maps/api/js?key=AIzaSyCKtbucQSqDWV-9lNCgzESqbdUakhraXDY&callback=initMap')
       script(src='https://maps.googleapis.com/maps/api/js?key=AIzaSyAlLpVITMmaCmvob8dU3xWWBDOjPefUkZ4&callback=initMap')
