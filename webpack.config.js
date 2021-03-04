@@ -1,6 +1,5 @@
 const webpack = require('webpack');
 const path = require('path');
-// const ChunksPlugin = require('webpack-split-chunks');
 
 const isDebug = process.env.NODE_ENV !== 'production';
 
@@ -16,8 +15,8 @@ module.exports = (watch = false) => ({
     filename: '[name].min.js',
     path: path.resolve('./dist/assets/scripts/'),
   },
-  watch,
-  devtool: isDebug ? 'cheap-module-inline-source-map' : false,
+  watch: isDebug,
+  mode: isDebug ? 'development' : 'production',
   module: {
     rules: [{
       enforce: 'pre',
@@ -30,17 +29,4 @@ module.exports = (watch = false) => ({
       loader: 'babel-loader',
     }],
   },
-  plugins: [
-    new webpack.DefinePlugin({
-      'process.env': {
-        NODE_ENV: JSON.stringify(process.env.NODE_ENV || 'development'),
-      },
-    }),
-    new webpack.NoErrorsPlugin(),
-    // new ChunksPlugin({
-    //   to: 'vendor',
-    //   test: /node_modules/,
-    // }),
-    !isDebug ? new webpack.optimize.UglifyJsPlugin() : f => f,
-  ],
 });
