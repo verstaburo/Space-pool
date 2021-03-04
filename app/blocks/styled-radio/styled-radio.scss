@@ -41,7 +41,7 @@
 
   &__content {
     @include rule(font-size, (xl: 18px, xlg: 18, lg: 18, md: 18, sm: 17));
-    @include rule(height, (xl: 56px, xlg: 56, lg: 56, md: 56, sm: 54));
+    @include rule(height, (xl: 56px, xlg: 56, lg: 56, md: 56, sm: 52));
     @include rule(padding-right, (sm: 30));
 
     box-sizing: border-box;
@@ -62,7 +62,6 @@
     }
 
     &::after {
-      @include rule(right, (sm: 5));
       @include rule(width, (sm: 20));
       @include rule(height, (sm: 20));
 
@@ -71,6 +70,7 @@
 
         border-radius: 50%;
         top: 50%;
+        right: 0;
         background-repeat: no-repeat;
         background-position: 50% 50%;
         background-size: pxtovw(12, 375) pxtovw(10, 375);
@@ -82,10 +82,6 @@
 
     #{$b}:first-child & {
       border-top-color: transparent;
-
-      @include screen('sm', max, 2) {
-        border-top-color: $nd-color-border6;
-      }
     }
 
     #{$b}__input:checked ~ & {

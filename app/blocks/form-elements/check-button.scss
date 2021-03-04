@@ -228,6 +228,79 @@
       }
     }
 
+    #{$b}_sm-styled & {
+      @include rule(font-size, (sm: 17));
+      @include rule(height, (sm: 52));
+      @include rule(padding-right, (sm: 30));
+
+      @include screen('sm', max, 2) {
+        border-top: 1px solid $nd-color-border6;
+        border-bottom: 1px solid $nd-color-border6;
+        border-left: none;
+        border-right: none;
+        line-height: (22 / 18);
+        font-weight: 500;
+        letter-spacing: -.02em;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        transition: border $ease-main;
+        z-index: 2;
+        border-radius: 0;
+        position: relative;
+        padding-left: 0;
+
+        &::after {
+          @include rule(width, (sm: 20));
+          @include rule(height, (sm: 20));
+
+          @include screen('sm', max, 2) {
+            @include pseudo;
+
+            border-radius: 50%;
+            top: 50%;
+            right: 0;
+            background-repeat: no-repeat;
+            background-position: 50% 50%;
+            background-size: pxtovw(12, 375) pxtovw(10, 375);
+            background-color: $nd-color-border6;
+            transform: translate3d(0, -50%, 0);
+            transition: background $ease-main;
+          }
+        }
+      }
+    }
+
+    #{$b}_sm-styled #{$b}__input:checked ~ & {
+      @include screen('sm', max, 2) {
+        background-color: transparent;
+        color: $nd-color-basic;
+        border-color: $nd-color-logo;
+        z-index: 3;
+      }
+
+      &::after {
+        @include screen('sm', max, 2) {
+          background-color: $nd-color-main;
+          background-image: url('../images/bg/bg-check.svg');
+        }
+      }
+    }
+
+    #{$b}_sm-styled:first-child & {
+      @include screen('sm', max, 2) {
+        border-top-color: transparent;
+      }
+    }
+
+    #{$b}_sm-styled:hover & {
+      @include screen('sm', max, 2) {
+        background-color: transparent;
+        border-color: $nd-color-border6;
+        transform: scale(1);
+      }
+    }
+
     #{$b}_pad10 & {
       @include rule(padding-left, (xl: 10px, xlg: 10, lg: 10, md: 10, sm: 10));
       @include rule(padding-right, (xl: 10px, xlg: 10, lg: 10, md: 10, sm: 10));
@@ -403,5 +476,8 @@
         }
       }
     }
+  }
+
+  &_sm-styled {
   }
 }

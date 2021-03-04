@@ -35,10 +35,6 @@
     box-sizing: border-box;
     z-index: 10;
 
-    @include screen('md') {
-      z-index: 0;
-    }
-
     @include screen('sm') {
       top: 0;
       height: 50px;
@@ -108,11 +104,9 @@
       @include screen('md', max, 2) {
         top: pxtovw(13, 960);
         height: pxtovw(60, 960);
-        z-index: 10;
       }
 
       @include screen('sm', max, 2) {
-        z-index: 0;
         top: pxtovw(13, 375);
         height: pxtovw(60, 375);
       }
@@ -144,20 +138,6 @@
     }
 
     #{$b}.is-short & {
-      @include screen('md', min) {
-        position: fixed;
-        top: 0;
-      }
-
-      &::before {
-        @include screen('md', min) {
-          background-color: $color-white;
-          border-bottom-color: $color-border-light;
-        }
-      }
-    }
-
-    #{$b}.is-short.nd-header & {
       @include screen('sm', min, 2) {
         position: fixed;
         top: 0;
@@ -188,7 +168,7 @@
     }
   }
 
-  .container, .nd-container {
+  .nd-container {
     position: relative;
     display: flex;
     z-index: 2;
@@ -205,46 +185,33 @@
   }
 
   &__logo {
+    display: inline-flex;
+    text-align: left;
+    justify-content: flex-start;
+    align-items: center;
+    color: $nd-color-logo;
     font-size: 0;
     line-height: 0;
     margin-right: 50px;
 
-    @include screen('sm') {
-      margin-right: 10px;
+    @include screen('xlg', max, 2) {
+      margin-right: pxtovw(50, 1660);
     }
 
-    #{$b}.nd-header & {
-      display: inline-flex;
-      text-align: left;
-      justify-content: flex-start;
-      align-items: center;
-      color: $nd-color-logo;
+    @include screen('lg', max, 2) {
+      margin-right: pxtovw(50, 1366);
+    }
 
-      @include screen('xlg', max, 2) {
-        margin-right: pxtovw(50, 1660);
-      }
+    @include screen('md', max, 2) {
+      margin-right: pxtovw(50, 960);
+    }
 
-      @include screen('lg', max, 2) {
-        margin-right: pxtovw(50, 1366);
-      }
-
-      @include screen('md', max, 2) {
-        margin-right: pxtovw(50, 960);
-      }
-
-      @include screen('sm', max, 2) {
-        margin-right: pxtovw(20, 375);
-      }
+    @include screen('sm', max, 2) {
+      margin-right: pxtovw(20, 375);
     }
 
     #{$b}_sm-white & {
       @include screen('sm') {
-        color: $color-white;
-      }
-    }
-
-    #{$b}_sm-white.nd-header & {
-      @include screen('sm', max, 2) {
         color: $nd-color-basic-light;
       }
     }
@@ -256,20 +223,8 @@
     align-items: center;
     flex: 1;
 
-    @include screen('sm') {
+    @include screen('sm', max, 2) {
       display: none;
-    }
-
-    #{$b}.is-login & {
-      @include screen('sm') {
-        display: flex;
-      }
-    }
-
-    #{$b}.nd-header & {
-      @include screen('sm', max, 2) {
-        display: none;
-      }
     }
   }
 
@@ -442,7 +397,7 @@
     color: $nd-color-basic-light;
 
     @include screen('sm', max, 2) {
-      z-index: 10;
+      z-index: 1;
       background-color: transparent;
     }
   }

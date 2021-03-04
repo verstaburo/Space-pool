@@ -134,7 +134,7 @@ export default class Selection {
       } else {
         _this._setValue(result.type);
       }
-    } else {
+    } else if (items.length) {
       const value = items[0].getAttribute('data-selection-item-value') || items[0].value;
       _this._setValue(value);
     }

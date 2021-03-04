@@ -1,6 +1,7 @@
 .quick-search {
   $b: &;
 
+  position: relative;
   display: flex;
   background-color: $nd-color-basic-light;
   box-sizing: border-box;
@@ -10,17 +11,21 @@
   @include screen('sm', max, 2) {
     display: block;
     width: 100%;
-    background: rgba(252, 252, 252, .14);
-    border: 1px solid rgba(94, 94, 94, .66);
-    backdrop-filter: blur(6px);
+    background-color: transparent;
     padding: pxtovw(21, 375) pxtovw(17, 375) pxtovw(18, 375);
 
-    .nd-lead_old & {
-      padding: pxtovw(21, 375) pxtovw(17, 375) pxtovw(16, 375);
-    }
+    &::before {
+      @include pseudo;
 
-    .is-selection-open & {
-      backdrop-filter: none;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      background: rgba(252, 252, 252, .14);
+      backdrop-filter: blur(6px);
+      border-radius: pxtovw(29, 375);
+      border: 1px solid rgba(94, 94, 94, .66);
+      z-index: 0;
     }
   }
 
