@@ -89,9 +89,16 @@
       }
     }
 
-    .is-filter-popup-opened &, .is-selection-open & {
+    .is-filter-popup-opened & {
       @include screen('sm', max, 2) {
         visibility: hidden;
+      }
+    }
+
+    .is-selection-open & {
+      @include screen('sm', max, 2) {
+        opacity: 0;
+        transform: translate3d(0, 100%, 0);
       }
     }
 
