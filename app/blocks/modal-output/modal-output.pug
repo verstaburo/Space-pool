@@ -1,0 +1,10 @@
+mixin modal-output(data)
+  +b.modal-output&attributes(attributes)
+    +e.placeholder!=data.placeholder
+    if data.default
+      +e.values(data-modal-output-value data-sm-default-value=data.default)
+    else
+      +e.values(data-modal-output-value)
+    +e.BUTTON.toggle(type="button")
+      +icon('select-arrow2')(width="7" heigh="4")
+    block

@@ -1,0 +1,178 @@
+.layout {
+  $b: &;
+
+  position: relative;
+  display: grid;
+  grid-template-columns: 58.49% 41.51%;
+  grid-template-rows: auto 1fr;
+  width: 100%;
+  height: calc(100vh - 94px);
+  box-sizing: border-box;
+  overflow: hidden;
+
+  @include screen("xlg") {
+    height: calc(100vh - (9400 / 1920) * 1vw);
+  }
+
+  @include screen("lg") {
+    grid-template-columns: 52.93% 47.07%;
+    height: calc(100vh - (6600 / 1366) * 1vw);
+  }
+
+  @include screen("md") {
+    grid-template-columns: 68.75% 31.25%;
+    grid-template-rows: repeat(3, auto);
+    height: calc(100vh - (6600 / 960) * 1vw);
+    overflow: auto;
+  }
+
+  @include screen("sm") {
+    grid-template-columns: 100%;
+    height: calc(100vh - (6600 / 375) * 1vw);
+  }
+
+  &__column {
+    display: block;
+    width: 100%;
+
+    &_filter {
+      grid-column: 1 / 3;
+      grid-row: 1 / 2;
+      background-color: $nd-color-bg;
+
+      @include screen('md') {
+        position: sticky;
+        top: 0;
+        grid-row: 2 / 3;
+        z-index: 2;
+        transform: translate3d(0, 0, 0);
+        will-change: top;
+        overscroll-behavior: none;
+      }
+
+      @include screen('sm') {
+        grid-row: 1 / 2;
+      }
+    }
+
+    &_results {
+      grid-column: 1 / 2;
+      grid-row: 2 / 3;
+      max-height: 100%;
+      overflow: auto;
+      padding-left: 150px;
+      box-sizing: border-box;
+      background-color: $nd-color-bg;
+
+      @include screen('xl', max, 2) {
+        padding-left: 60px;
+      }
+
+      @include screen('md') {
+        grid-column: 1 / 3;
+        grid-row: 3 / 4;
+        z-index: 1;
+        max-height: none;
+        height: auto;
+        overflow: visible;
+      }
+
+      @include rule(padding-left, (xlg: 60, lg: 50, md: 50, sm: 20));
+      @include rule(padding-right, (xl: 50px, xlg: 50, lg: 20, md: 50, sm: 20));
+
+      @include native-scroll($nd-layout-scroll, transparent, 4, 7, 4);
+    }
+
+    &_map {
+      grid-column: 2 / 3;
+      grid-row: 2 / 3;
+      height: 100%;
+      overflow: hidden;
+
+      @include screen('md') {
+        grid-column: 1 / 3;
+        grid-row: 1 / 2;
+      }
+
+      @include screen('sm') {
+        grid-row: 2 / 3;
+      }
+
+      @include rule(height, (md: 254, sm: 208));
+    }
+
+    &_start {
+      grid-column: 1 / 2;
+      grid-row: 1 / 3;
+      max-height: 100%;
+      overflow: auto;
+
+      @include screen('sm') {
+        grid-column: 1 / 3;
+      }
+
+      @include native-scroll($nd-layout-scroll, transparent, 4, 7, 4);
+    }
+
+    &_end {
+      grid-column: 2 / 3;
+      grid-row: 1 / 3;
+      max-height: 100%;
+      overflow: auto;
+
+      @include screen('sm') {
+        grid-column: 1 / 3;
+      }
+
+      @include native-scroll($nd-layout-scroll, transparent, 4, 7, 4);
+    }
+
+    &_popup {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      visibility: hidden;
+      background-color: $nd-color-bg;
+      overflow: auto;
+      z-index: 2;
+      transform: translate3d(100%, 0, 0);
+      transition: transform $ease-main;
+      will-change: transform, visibility;
+
+      @include native-scroll($nd-layout-scroll, transparent, 4, 7, 4);
+
+      &.layout__column_start {
+        border-right: 1px solid $nd-color-border6;
+      }
+
+      .is-map-show &.layout__column_end {
+        box-shadow: -11px 0px 11px rgba(0, 0, 0, 0.14);
+
+        @include screen('xlg', max, 2) {
+          box-shadow: -pxtovw(11, 1660) 0px pxtovw(11, 1660) rgba(0, 0, 0, 0.14);
+        }
+
+        @include screen('lg', max, 2) {
+          box-shadow: -pxtovw(11, 1366) 0px pxtovw(11, 1366) rgba(0, 0, 0, 0.14);
+        }
+
+        @include screen('md', max, 2) {
+          box-shadow: -pxtovw(11, 960) 0px pxtovw(11, 960) rgba(0, 0, 0, 0.14);
+        }
+
+        @include screen('sm', max, 2) {
+          box-shadow: none;
+        }
+      }
+
+      &.is-animated {
+        visibility: visible;
+      }
+
+      &.is-active {
+        visibility: visible;
+        transform: translate3d(0, 0, 0);
+      }
+    }
+  }
+}

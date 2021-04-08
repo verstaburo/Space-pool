@@ -1,0 +1,20 @@
+mixin modal(data)
+  +b.modal&attributes(attributes)
+    +e.overlay
+    +e.wrapper
+      if data.header
+        +e.header(class=(data.header.class || ' nd-hide-from-sm'))
+          +e.BUTTON.close(type="button") Close
+          +e.title!=data.header.title
+      +e.content
+        if data.describe
+          +e.describe
+            +e.text!=data.describe
+        block
+      if data.footer
+        +e.footer(class=(data.footer.class || ' nd-hide-from-sm'))
+          if data.footer.view === 'range'
+            +nd-button()(type="reset")._black.__reset Clear
+            +nd-button()(type="button").__setter Set filter
+          else
+            +nd-button()._wide.__setter Set filter

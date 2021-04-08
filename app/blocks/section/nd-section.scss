@@ -904,6 +904,10 @@
       line-height: 1.63;
     }
 
+    &_fz15 {
+      @include rule(font-size, (xl: 15px, xlg: 15, lg: 15, md: 15, sm: 15));
+    }
+
     &_fz18 {
       font-size: 18px;
       font-weight: 400;
@@ -979,6 +983,10 @@
           @include rule(margin-top, (xl: 30px, xlg: 30, lg: 30, md: 30, sm: 20));
         }
       }
+    }
+
+    &_gray {
+      color: $nd-color-gray-text8;
     }
   }
 
@@ -1389,6 +1397,22 @@
 
       @include screen('sm', max, 2) {
         margin-top: pxtovw(45, 375);
+      }
+    }
+  }
+
+  &__filter-group {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+
+    .filter-section {
+      width: 100%;
+
+      @include screen('sm', max, 2) {
+        width: auto;
       }
     }
   }

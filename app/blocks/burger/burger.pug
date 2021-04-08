@@ -8,8 +8,8 @@ mixin nd-burger()
     +e.image
       +e.line
 
-mixin nd-burger-icon()
-  +b.BUTTON.nd-burger.js-open-navigation&attributes(attributes)
+mixin nd-burger-icon(tag)
+  +b(tag || 'button').nd-burger&attributes(attributes)
     +e.icon
       +e.SVG(viewBox="0 0 32 27" fill="none" xmlns="http://www.w3.org/2000/svg")
         +e.PATH.border_top(d="M1 1L31 1" stroke-width="2" stroke-linecap="round")

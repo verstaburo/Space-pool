@@ -5,91 +5,28 @@
   display: inline-flex;
   justify-content: center;
   align-items: center;
-  width: 30px;
-  height: 30px;
+  flex: none;
 
-  @include screen('sm') {
-    width: 24px;
-    height: 24px;
-  }
-
-  &.nd-user-link {
-    min-width: 28px;
-    width: 28px;
-    height: 25px;
-
-    @include screen('xlg', max, 2) {
-      min-width: pxtovw(28, 1660);
-      width: pxtovw(28, 1660);
-      height: pxtovw(25, 1660);
-    }
-
-    @include screen('lg', max, 2) {
-      min-width: pxtovw(23, 1366);
-      width: pxtovw(23, 1366);
-      height: pxtovw(20, 1366);
-    }
-
-    @include screen('md', max, 2) {
-      min-width: pxtovw(23, 960);
-      width: pxtovw(23, 960);
-      height: pxtovw(20, 960);
-    }
-
-    @include screen('sm', max, 2) {
-      min-width: pxtovw(23, 375);
-      width: pxtovw(23, 375);
-      height: pxtovw(20, 375);
-    }
-  }
+  @include rule(width, (xl: 28px, xlg: 28, lg: 23, md: 23, sm: 23));
+  @include rule(height, (xl: 25px, xlg: 25, lg: 20, md: 20, sm: 20));
 
   &__icon {
     display: block;
-    min-width: 28px;
-    width: 28px;
-    height: 26px;
-    fill: $color-basic;
+    width: 100%;
+    height: 100%;
+    fill: $nd-color-basic;
     font-size: 0;
     line-height: 0;
     transition: fill $ease-main;
 
-    @include screen('sm') {
-      min-width: 20px;
-      width: 20px;
-      height: 20px;
-    }
+    path {
+      transition: fill $ease-main;
 
-    #{$b}.nd-user-link & {
-      min-width: 0;
-      width: 100%;
-      height: 100%;
-      fill: $nd-color-basic;
-
-      path {
-        transition: fill $ease-main;
-      }
-    }
-
-    #{$b}:hover & {
-      fill: $color-basic-dark;
-    }
-
-    #{$b}.nd-user-link:hover & {
-      path {
+      #{$b}:hover & {
         fill: $nd-color-main;
       }
-    }
 
-    #{$b}.is-active & {
-      fill: $color-user-link-active;
-
-      &:hover {
-        fill: $color-user-link-active;
-      }
-    }
-
-    #{$b}.nd-user-link.is-active & {
-      path {
+      .is-active & {
         fill: $nd-color-main;
       }
     }
@@ -97,60 +34,22 @@
 
   &__marker {
     position: absolute;
-    top: 3px;
-    right: -3px;
-    width: 8px;
-    height: 8px;
-    background-color: $color-red;
+    top: 50%;
+    background-color: $nd-color-fixeddesk;
     border-radius: 50%;
     opacity: 0;
     transition: opacity $ease-main;
+    transform: translate3d(0, -50%, 0);
 
-    @include screen('sm') {
-      top: 2px;
-      right: 1px;
-      width: 6px;
-      height: 6px;
-    }
+    @include rule(width, (xl: 9px, xlg: 9, lg: 7, md: 7, sm: 7));
+    @include rule(height, (xl: 9px, xlg: 9, lg: 7, md: 7, sm: 7));
+    @include rule(right, (xl: -4px, xlg: -4, lg: -4, md: -4, sm: -4));
 
-    #{$b}.nd-user-link & {
-      width: 9px;
-      height: 9px;
-      top: 50%;
-      right: -4px;
-      background-color: $nd-color-fixeddesk;
-      transform: translate3d(0, -50%, 0);
-
-      @include screen('xlg', max, 2) {
-        width: pxtovw(9, 1660);
-        height: pxtovw(9, 1660);
-        right: pxtovw(-4, 1660);
-      }
-
-      @include screen('lg', max, 2) {
-        width: pxtovw(7, 1366);
-        height: pxtovw(7, 1366);
-        right: pxtovw(-4, 1366);
-      }
-
-      @include screen('md', max, 2) {
-        width: pxtovw(7, 960);
-        height: pxtovw(7, 960);
-        right: pxtovw(-4, 960);
-      }
-
-      @include screen('sm', max, 2) {
-        width: pxtovw(7, 375);
-        height: pxtovw(7, 375);
-        right: pxtovw(-4, 375);
-      }
-    }
-
-    #{$b}.is-new & {
+    .is-new & {
       opacity: 1;
     }
 
-    #{$b}.is-active & {
+    .is-active & {
       opacity: 0;
     }
   }

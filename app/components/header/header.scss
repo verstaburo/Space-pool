@@ -9,56 +9,45 @@
   right: 0;
   width: 100%;
   max-width: 100vw;
-  // z-index: 10;
+  z-index: 10;
   transition: border $ease-main;
   background-color: $color-bg;
   box-sizing: border-box;
-  height: 115px;
   border-top: 1px solid transparent;
   border-bottom: 1px solid transparent;
   overflow: hidden;
   backface-visibility: hidden;
   overscroll-behavior: none;
 
-  @include screen('sm') {
-    height: 50px;
-  }
+  @include rule(height, (xl: 94px, xlg: 94, lg: 66, md: 66, sm: 66));
 
   &__wrapper {
     position: absolute;
-    top: 19px;
     display: flex;
     justify-content: center;
     align-items: center;
     width: 100%;
-    height: 70px;
     box-sizing: border-box;
     z-index: 10;
+    max-width: 100vw;
 
-    @include screen('sm') {
-      top: 0;
-      height: 50px;
-    }
+    @include rule(top, (xl: 17px, xlg: 17, lg: 3, md: 3, sm: 3));
+    @include rule(height, (xl: 60px, xlg: 60, lg: 60, md: 60, sm: 60));
 
     &::before {
       @include pseudo;
+      @include rule(height, (xl: 60px, xlg: 60, lg: 60, md: 60, sm: 60));
 
-      height: 89px;
-      top: -19px;
+      top: 0;
       width: 100%;
       border-bottom: 1px solid transparent;
       background-color: $color-bg;
       transition:
-        background $ease-main,
-        border $ease-main;
+        background .15s ease,
+        border .15s ease;
       box-sizing: border-box;
       z-index: 1;
       backface-visibility: hidden;
-
-      @include screen('sm') {
-        height: 50px;
-        top: 0;
-      }
     }
 
     #{$b}_border & {
@@ -85,58 +74,6 @@
       }
     }
 
-    #{$b}.nd-header & {
-      height: 60px;
-      z-index: 10;
-      top: 15px;
-      max-width: 100vw;
-
-      @include screen('xlg', max, 2) {
-        height: pxtovw(60, 1660);
-        top: pxtovw(15, 1660);
-      }
-
-      @include screen('lg', max, 2) {
-        top: pxtovw(19, 1366);
-        height: pxtovw(60, 1366);
-      }
-
-      @include screen('md', max, 2) {
-        top: pxtovw(13, 960);
-        height: pxtovw(60, 960);
-      }
-
-      @include screen('sm', max, 2) {
-        top: pxtovw(13, 375);
-        height: pxtovw(60, 375);
-      }
-
-      &::before {
-        height: 60px;
-        top: 0;
-        transition:
-          background .15s ease,
-          border .15s ease;
-
-        @include screen('xlg', max, 2) {
-          height: pxtovw(60, 1660);
-        }
-
-        @include screen('lg', max, 2) {
-          height: pxtovw(60, 1366);
-        }
-
-        @include screen('md', max, 2) {
-          top: 0;
-          height: pxtovw(60, 960);
-        }
-
-        @include screen('sm', max, 2) {
-          height: pxtovw(60, 375);
-        }
-      }
-    }
-
     #{$b}.is-short & {
       @include screen('sm', min, 2) {
         position: fixed;
@@ -149,12 +86,6 @@
           border-bottom-color: $color-border-light;
         }
       }
-    }
-  }
-
-  &.is-short {
-    @include screen('md', min) {
-      height: 70px;
     }
   }
 
@@ -243,23 +174,9 @@
     display: block;
     font-size: 0;
     line-height: 0;
-    margin-left: 75px;
-    min-width: 45px;
-    height: 40px;
-    align-self: top;
+    align-self: center;
 
-    @include screen('lg') {
-      min-width: 42px;
-    }
-
-    @include screen('md') {
-      margin-left: 58px;
-    }
-
-    @include screen('sm') {
-      min-width: 30px;
-      margin-left: 20px;
-    }
+    @include rule(margin-left, (xl: 73px, xlg: 73, lg: 60, md: 60, sm: 0));
 
     .burger {
       left: 0;
@@ -267,30 +184,6 @@
 
       @include screen('sm') {
         top: 8px;
-      }
-    }
-
-    #{$b}.nd-header & {
-      min-width: 0;
-      width: auto;
-      height: auto;
-      margin-left: 73px;
-      align-self: center;
-
-      @include screen('xlg', max, 2) {
-        margin-left: pxtovw(73, 1660);
-      }
-
-      @include screen('lg', max, 2) {
-        margin-left: pxtovw(60, 1366);
-      }
-
-      @include screen('md', max, 2) {
-        margin-left: pxtovw(60, 960);
-      }
-
-      @include screen('sm', max, 2) {
-        margin-left: 0;
       }
     }
 
@@ -340,26 +233,6 @@
 
     #{$b}__main {
       display: none;
-    }
-  }
-
-  &.nd-header {
-    height: 90px;
-
-    @include screen('xlg', max, 2) {
-      height: pxtovw(90, 1660);
-    }
-
-    @include screen('lg', max, 2) {
-      height: pxtovw(98, 1366);
-    }
-
-    @include screen('md', max, 2) {
-      height: pxtovw(84, 960);
-    }
-
-    @include screen('sm', max, 2) {
-      height: pxtovw(86, 375);
     }
   }
 

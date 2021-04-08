@@ -6,8 +6,6 @@
   font-size: 0;
   line-height: 0;
   box-sizing: border-box;
-  width: 30px;
-  height: 30px;
   background-color: transparent;
   -webkit-appearance: none;
   will-change: position;
@@ -15,25 +13,8 @@
   color: $nd-color-basic;
   transition: color $ease-main;
 
-  @include screen('xlg', max, 2) {
-    width: pxtovw(30, 1660);
-    height: pxtovw(30, 1660);
-  }
-
-  @include screen('lg', max, 2) {
-    width: pxtovw(30, 1366);
-    height: pxtovw(30, 1366);
-  }
-
-  @include screen('md', max, 2) {
-    width: pxtovw(30, 960);
-    height: pxtovw(30, 960);
-  }
-
-  @include screen('sm', max, 2) {
-    width: pxtovw(30, 375);
-    height: pxtovw(30, 375);
-  }
+  @include rule(width, (xl: 30px, xlg: 30, lg: 30, md: 30, sm: 30));
+  @include rule(height, (xl: 30px, xlg: 30, lg: 30, md: 30, sm: 30));
 
   .is-navigation-open &, &:hover {
     color: $nd-color-main;
@@ -167,6 +148,10 @@
     }
 
     #{$b}_small & {
+      top: 50%;
+      right: 50%;
+      transform: translate3d(50%, -50%, 0);
+
       @include screen('md', max, 2) {
         width: pxtovw(19, 960);
         height: pxtovw(16, 960);

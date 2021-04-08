@@ -6,3 +6,9 @@ mixin nd-search-filter(specific)
           +filter-menu(specific)
         +e.switch
           +nd-switch({type: 'twoSide', name: 'mapSwitch', value: 'mapHide', labels: {off: 'Map view', on: 'Tile view'}, inputClass: ' js-search-map-switch'})
+
+mixin nd-search-filter-v2()
+  +b.nd-search-filter_v2&attributes(attributes)
+    +e.wrapper
+      .nd-container
+        +nd-filter().__filter

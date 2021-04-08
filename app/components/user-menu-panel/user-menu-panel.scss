@@ -7,107 +7,128 @@
   opacity: 0;
   pointer-events: none;
   display: flex;
-  align-items: center;
+  align-items: flex-end;
   width: 100%;
-  height: 70px;
+  max-width: 100vw;
   background-color: #fff;
   box-sizing: border-box;
-  padding: 5px 0;
-  border-top: 1px solid $color-border-light;
-  transition: opacity $ease-main;
+  padding: 0;
+  border-top: none;
+  transition: opacity $ease-main, transform $ease-main;
   z-index: 22;
+  visibility: hidden;
+  will-change: opacity, transform;
+
+  @include rule(height, (xl: 60px, xlg: 60, lg: 60, md: 60, sm: 60));
 
   @include screen('md') {
-    padding: 5px 0;
     opacity: 1;
+    visibility: visible;
     pointer-events: auto;
-  }
-
-  @include screen('sm') {
-    padding: 5px 4px;
-    height: 50px;
   }
 
   &__list {
     display: flex;
-    align-items: center;
+    align-items: stretch;
     justify-content: space-between;
     width: 100%;
+
+    @include rule(margin-bottom, (xl: 3px, xlg: 3, lg: 3, md: 3, sm: 3));
   }
 
   &__item {
     display: inline-flex;
     justify-content: center;
-    align-items: center;
     font-size: 0;
     line-height: 0;
     flex: 1;
     box-sizing: border-box;
-    padding: 0 15px;
+    padding: 0;
     transition: opacity $ease-main;
-
-    #{$b}.nd-user-menu-panel & {
-      padding: 0;
-    }
   }
 
   &__link {
-    opacity: .2;
-    pointer-events: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    opacity: 1;
+    pointer-events: auto;
+  }
 
-    body.is-login & {
-      opacity: 1;
-      pointer-events: auto;
+  &__text {
+    text-align: center;
+    line-height: 1.76;
+    font-weight: 400;
+    font-family: $font-stolzl;
+    color: $nd-color-gray-text;
+
+    @include rule(font-size, (xl: 9px, xlg: 9, lg: 9, md: 9, sm: 9));
+
+    &:not(:first-child) {
+      @include rule(margin-top, (xl: 2px, xlg: 2, lg: 2, md: 2, sm: 2));
     }
   }
 
-  &.nd-user-menu-panel {
-    visibility: hidden;
-    opacity: 0;
-    pointer-events: none;
-    height: 60px;
-    border-top: none;
-    padding: 0;
-    max-width: 100vw;
-    transition: opacity $ease-main, transform $ease-main;
-    will-change: opacity, transform;
+  .user-link {
+    width: auto;
+    flex: 1;
 
-    @include screen('md', max, 2) {
-      visibility: visible;
-      opacity: 1;
-      pointer-events: auto;
-      height: pxtovw(60, 960);
+    @include rule(max-width, (xl: 30px, xlg: 30, lg: 30, md: 30, sm: 30));
+
+
+    &__icon {
+      @include rule(max-height, (xl: 21px, xlg: 21, lg: 21, md: 21, sm: 21));
+
+      &_sort {
+        @include rule(max-height, (xl: 18px, xlg: 18, lg: 18, md: 18, sm: 18));
+      }
+
+      &_signin {
+        @include rule(margin-left, (xl: -8px, xlg: -8, lg: -8, md: -8, sm: -8));
+      }
     }
 
+    &__marker {
+      @include rule(right, (xl: 1px, xlg: 1, lg: 1, md: 1, sm: 1));
+    }
+  }
+
+  .nd-burger {
+    &:not(:last-child) {
+      @include rule(margin-bottom, (xl: -2px, xlg: -2, lg: -2, md: -2, sm: -2));
+    }
+  }
+
+  .is-navigation-open & {
     @include screen('sm', max, 2) {
-      height: pxtovw(60, 375);
+      box-shadow: 0 pxtovw(-1, 375) pxtovw(3, 375) rgba(0, 0, 0, .03);
     }
+  }
 
-    .is-navigation-open & {
-      @include screen('sm', max, 2) {
-        box-shadow: 0 pxtovw(-1, 375) pxtovw(3, 375) rgba(0, 0, 0, .03);
-      }
+  .is-filter-popup-opened & {
+    @include screen('sm', max, 2) {
+      visibility: hidden;
     }
+  }
 
-    .is-filter-popup-opened & {
-      @include screen('sm', max, 2) {
-        visibility: hidden;
-      }
+  .is-selection-open & {
+    @include screen('sm', max, 2) {
+      opacity: 0;
+      transform: translate3d(0, 100%, 0);
     }
+  }
 
-    .is-selection-open & {
-      @include screen('sm', max, 2) {
-        opacity: 0;
-        transform: translate3d(0, 100%, 0);
-      }
+  .is-keyboard-visible & {
+    @include screen('sm', max, 2) {
+      opacity: 0;
+      transform: translate3d(0, 100%, 0);
     }
+  }
 
-    .is-keyboard-visible & {
-      @include screen('sm', max, 2) {
-        opacity: 0;
-        transform: translate3d(0, 100%, 0);
-      }
-    }
+  .is-no-userpanel & {
+    visibility: hidden;
+    pointer-events: none;
   }
 
   .is-md-no-userpanel & {
@@ -117,15 +138,10 @@
     }
   }
 
-  .is-sm-noheader &, .is-sm-no-userpanel & {
-    @include screen('md', max, 2) {
+  .is-sm-no-userpanel & {
+    @include screen('sm', max, 2) {
       visibility: hidden;
       pointer-events: none;
     }
-  }
-
-  .is-no-userpanel & {
-    visibility: hidden;
-    pointer-events: none;
   }
 }

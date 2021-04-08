@@ -22,6 +22,7 @@ html(lang='en')
     - var noUser = isNoUser || false
     - var menuData = getData('nd-guest-acc-list.json')
     - var otherScripts = scripts || []
+    - var isSearch = searchPage || false
     if noUser
       - menuData = getData('nd-nouser-acc-list.json')
     if isHost
@@ -32,7 +33,7 @@ html(lang='en')
       +gradients-redesign
     if !noHeader
       +nd-header(isHost)(class=addClass)
-      +nd-user-menu-panel(isHost, noUser)
+      +nd-user-menu-panel(isHost, noUser, isSearch)
       +nd-main-menu(menuData, isHost, noUser)
       +nd-info-notices({title: 'Notifications', link: {name: 'Read all notifications'}})#events-list
         if isHost == 'manager'

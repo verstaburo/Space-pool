@@ -282,3 +282,33 @@ label.is-readonly {
   pointer-events: none;
   cursor: default;
 }
+
+.md-visibility-hidden {
+  @include screen('md', max, 2) {
+    position: absolute;
+    height: 0;
+    width: 0;
+    visibility: hidden;
+    pointer-events: none;
+  }
+}
+
+.md-only-visibility-hidden {
+  @media screen and (max-width: 1019px) and (min-width: 768px) {
+    position: absolute;
+    height: 0;
+    width: 0;
+    visibility: hidden;
+    pointer-events: none;
+  }
+}
+
+.sm-visibility-hidden {
+  @include screen('sm', max, 2) {
+    position: absolute;
+    height: 0;
+    width: 0;
+    visibility: hidden;
+    pointer-events: none;
+  }
+}

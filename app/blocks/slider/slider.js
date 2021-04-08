@@ -1,6 +1,8 @@
 /* eslint-disable no-unused-vars */
 // http://idangero.us/swiper/#.WcIu5oy0OHs
-import detectIt from 'detect-it';
+import {
+  primaryInput,
+} from 'detect-it';
 import * as Swiper from 'swiper/js/swiper';
 
 const {
@@ -8,6 +10,7 @@ const {
 } = window;
 
 export default function slider() {
+  const isTouchedDevice = (primaryInput === 'touch');
   const newsSliders = $('.js-slider-news');
   const spacesSliders = $('.js-slider-spaces');
   const roomsSliders = $('.js-slider-rooms');
@@ -382,7 +385,7 @@ export default function slider() {
       const btnNext = $(el).find('.js-slider-button-next')[0];
       const sliderContainer = $(el).find('.js-slider-container')[0];
       let isCSSMode = false;
-      if (detectIt.hasTouch && !window.Modernizr.scrollsnappoints) {
+      if (isTouchedDevice && !window.Modernizr.scrollsnappoints) {
         isCSSMode = true;
         $(el).addClass('is-css-mode-slider');
       } else {
@@ -448,7 +451,7 @@ export default function slider() {
       const btnNext = $(el).find('.js-slider-button-next')[0];
       const sliderContainer = $(el).find('.js-slider-container')[0];
       let isCSSMode = false;
-      if (detectIt.hasTouch && !window.Modernizr.scrollsnappoints) {
+      if (isTouchedDevice && !window.Modernizr.scrollsnappoints) {
         isCSSMode = true;
         $(el).addClass('is-css-mode-slider');
       } else {
@@ -553,7 +556,7 @@ export default function slider() {
     let controller = false;
     let control = {};
     let isCSSMode = false;
-    if (detectIt.hasTouch && !window.Modernizr.scrollsnappoints) {
+    if (isTouchedDevice && !window.Modernizr.scrollsnappoints) {
       isCSSMode = true;
       $(el).addClass('is-css-mode-slider');
     } else {
@@ -636,7 +639,7 @@ export default function slider() {
     const sliderContainer = $(el).find('.js-offer-slider-container')[0];
     const pagination = $(el).find('.js-offer-slider-pagination')[0];
     let isCSSMode = false;
-    if (detectIt.hasTouch && !window.Modernizr.scrollsnappoints) {
+    if (isTouchedDevice && !window.Modernizr.scrollsnappoints) {
       isCSSMode = true;
       $(el).addClass('is-css-mode-slider');
     } else {
@@ -780,7 +783,7 @@ export default function slider() {
       const btnNext = $(el).find('.js-slider-button-next')[0];
       const sliderContainer = $(el).find('.js-slider-container');
       let isCSSMode = false;
-      if (detectIt.hasTouch && !window.Modernizr.scrollsnappoints) {
+      if (isTouchedDevice && !window.Modernizr.scrollsnappoints) {
         isCSSMode = true;
         $(el).addClass('is-css-mode-slider');
       } else {

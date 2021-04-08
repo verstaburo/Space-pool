@@ -5,10 +5,10 @@ mixin user-link(ico, classIco, marker)
     +icon(ico)(class="__icon " + addClass)
     +e.marker
 
-mixin nd-user-link(ico, classIco, marker)
+mixin nd-user-link(ico, classIco, marker, tag)
   - var addClass = classIco || '';
   - var marker = marker ? ' is-new' : '';
-  +b.A.nd-user-link.user-link__&attributes(attributes)(class=marker)
+  +b(tag || 'a').nd-user-link.user-link__&attributes(attributes)(class=marker)
     if ico
       +icon(ico)(class="__icon " + addClass)
     else

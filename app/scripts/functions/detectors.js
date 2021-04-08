@@ -1,4 +1,6 @@
-import detectIt from 'detect-it';
+import {
+  primaryInput,
+} from 'detect-it';
 
 const {
   $,
@@ -10,7 +12,7 @@ if (navigator.userAgent.indexOf('MSIE') !== -1 ||
   $('body').addClass('is-IE');
 }
 
-if (detectIt.hasTouch) {
+if (primaryInput === 'touch') {
   $('body').addClass('is-touched-device');
 }
 
