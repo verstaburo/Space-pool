@@ -1,11 +1,11 @@
-mixin nd-search-map-v2()
-  +b#popup-search-map.nd-search-map_v2&attributes(attributes)
-    +e.wrapper.js-search-map-sm-show
-      +e.BUTTON.button.js-search-map-toggle
+mixin nd-search-map-v2(mapid)
+  +b.nd-search-map_v2&attributes(attributes)
+    +e.wrapper
+      +e.BUTTON.button.js-map-toggle-fullview
         span(data-map-hidden) Full map view
-        span(data-map-shown).nd-hide-sm Close map view
-        span(data-map-shown).nd-hide-from-sm View list
-      +e.map#search-map
+        span(data-map-shown="xl") Close map view
+        span(data-map-shown="sm") View list
+      +e.map(id=(mapid || 'search-map'))
     block
 
 mixin nd-search-map-button()

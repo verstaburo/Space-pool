@@ -70,6 +70,7 @@ import allDayFixation from './functions/allDayFixation';
 import ndCropedImage from '../components/popup-image-cropper/popup-image-cropper';
 import heightEqualizer from './functions/heightEqualizer';
 import filterTagsScroll from '../blocks/filter-tags/filter-tags';
+import srMapToggle from '../components/search-map/search-map-v2';
 // old
 import './functions/mobileScale';
 // import {
@@ -162,6 +163,7 @@ $(() => {
   ndCropedImage();
   heightEqualizer();
   filterTagsScroll();
+  srMapToggle();
   // old
   selects();
   datepicker();

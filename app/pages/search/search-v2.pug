@@ -20,16 +20,18 @@ block content
     +e.column_filter
       +nd-search-filter-v2
 
-    +e.column_map
-      +nd-search-map-v2
+    +e.column_map.js-map-sm-show-fullview
+      +nd-search-map-v2('search-map-unsort')
 
     +e.column_results
+
       +nd-section.md-only-visibility-hidden
         +nd-section-header
           +nd-section-title._fz30 Office spaces in London
           +e.filter-group
             +e.text_fz15._gray Looking for workspace type, Any team size and Any price
             +filter-section({groupClass: 'nd-hide-sm'})(form="search-filter")
+
       +nd-results._v2
         each item in getData('new-nd-spaces-search.json')
           +nd-results-item
@@ -46,7 +48,9 @@ block content
               +e.button.hide-from-sm View all 20 listings
 
     +e.column_start._popup(data-layout-tag="space")
+
     +e.column_end._popup(data-layout-tag="list,space")
+
     +e.column_start._popup(data-layout-tag="offer")
 
   +modals('form')#search-filter(action="/")
@@ -73,7 +77,7 @@ block content
             +styled-radio(item.title)._team.__item
               +e.INPUT.input(type="radio", value=item.value, name=item.name, data-modal-item, data-modal-item-value=(item.value2 || item.value), data-modal-item-type="team")
     +e.FIELDSET.fieldset
-      +modal({header: {title: 'Price range'}, footer: {view: 'range'}})#filter-range
+      +modal({header: {title: 'Price range'}, footer: {class: '_range', view: 'range'}})#filter-range
         +nd-range({output: {minLabel: 'Min', maxLabel: 'Max', max: 'maxPrice', min: 'minPrice', formboxClass: '_bg-white _sm-h50', inputClass: '_sm-h50'}})(data-start="[0, 5000]" data-connect="[false, true, false]" data-step="10" data-margin="30" data-min="0" data-max="10000" data-currency="£" data-nd-filter-type="priceRange").__range
       +modal({header: {title: 'Sort by'}, footer: false})#filter-sort
         +e.list

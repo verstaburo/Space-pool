@@ -1,5 +1,317 @@
-$(document).ready(function () {
-  var locations = [{
+// обновление карт в поиске и на странице спейса
+$(document).ready(() => {
+  const locations = [{
+    coords: {
+      lat: 51.93,
+      lng: 30.325,
+    },
+    price: '£ 150 - £ 3500',
+    offerCount: '4',
+  }, {
+    coords: {
+      lat: 51.934,
+      lng: 30.315,
+    },
+    price: '£ 150 - £ 3500',
+    offerCount: '12',
+  }, {
+    coords: {
+      lat: 59.9345,
+      lng: 30.3156,
+    },
+    price: '£ 150 - £ 3500',
+    offerCount: '25',
+  }, {
+    coords: {
+      lat: 59.924,
+      lng: 30.335,
+    },
+    price: '£ 150 - £ 3500',
+    offerCount: '6',
+  }, {
+    coords: {
+      lat: 59.924,
+      lng: 30.305,
+    },
+    price: '£ 150 - £ 3500',
+    offerCount: '10',
+  }, {
+    coords: {
+      lat: 59.924,
+      lng: 30.335,
+    },
+    price: '£ 150 - £ 3500',
+    offerCount: '28',
+  }, {
+    coords: {
+      lat: 59.914,
+      lng: 30.335,
+    },
+    price: '£ 150 - £ 3500',
+    offerCount: '9',
+  }, {
+    coords: {
+      lat: 59.934,
+      lng: 30.325,
+    },
+    price: '£ 150 - £ 3500',
+    offerCount: '18',
+  }, {
+    coords: {
+      lat: 59.900,
+      lng: 30.315,
+    },
+    price: '£ 150 - £ 3500',
+    offerCount: '2',
+  }, {
+    coords: {
+      lat: 59.934,
+      lng: 30.300,
+    },
+    price: '£ 150 - £ 3500',
+    offerCount: '14',
+  }, {
+    coords: {
+      lat: 59.913,
+      lng: 30.330,
+    },
+    price: '£ 150 - £ 3500',
+    offerCount: '11',
+  }, {
+    coords: {
+      lat: 59.927,
+      lng: 30.338,
+    },
+    price: '£ 150 - £ 3500',
+    offerCount: '3',
+  }, {
+    coords: {
+      lat: 59.948,
+      lng: 30.34,
+    },
+    price: '£ 150 - £ 3500',
+    offerCount: '5',
+  }, {
+    coords: {
+      lat: 59.988,
+      lng: 30.324,
+    },
+    price: '£ 150 - £ 3500',
+    offerCount: '15',
+  }, {
+    coords: {
+      lat: 59.9,
+      lng: 30.34476,
+    },
+    price: '£ 150 - £ 3500',
+    offerCount: '12',
+  }, {
+    coords: {
+      lat: 59.939,
+      lng: 30.76,
+    },
+    price: '£ 150 - £ 3500',
+    offerCount: '1',
+  }, {
+    coords: {
+      lat: 59.941,
+      lng: 30.9,
+    },
+    price: '£ 150 - £ 3500',
+    offerCount: '5',
+  }, {
+    coords: {
+      lat: 59.966,
+      lng: 30.8,
+    },
+    price: '£ 150 - £ 1500',
+    offerCount: '20',
+  }, {
+    coords: {
+      lat: 59.977,
+      lng: 30.73735,
+    },
+    price: '£ 150 - £ 3500',
+    offerCount: '2',
+  }];
+
+  const iconMarker = {
+    path: 'M32.5 16.3528C32.5 23.2608 28.4673 30.0588 24.36 35.1772C22.3144 37.7265 20.2675 39.838 18.7319 41.3121C17.9644 42.0488 17.3253 42.6256 16.8791 43.0175C16.7324 43.1463 16.6065 43.2551 16.5039 43.3431C16.4005 43.2525 16.2734 43.1401 16.125 43.0069C15.6785 42.6061 15.0392 42.017 14.2714 41.2665C12.7351 39.7649 10.6876 37.6205 8.64125 35.0489C4.53115 29.8838 0.5 23.0865 0.5 16.3528C0.5 7.59059 7.64797 0.5 16.5 0.5C25.352 0.5 32.5 7.59059 32.5 16.3528Z',
+    fillColor: '#0085FF',
+    fillOpacity: 1,
+    strokeColor: '#0969C1',
+    scale: 1,
+    anchor: new google.maps.Point(16, 44),
+    labelOrigin: new google.maps.Point(16, 15),
+  };
+  const iconMarkerHover = {
+    path: 'M32.5 16.3528C32.5 23.2608 28.4673 30.0588 24.36 35.1772C22.3144 37.7265 20.2675 39.838 18.7319 41.3121C17.9644 42.0488 17.3253 42.6256 16.8791 43.0175C16.7324 43.1463 16.6065 43.2551 16.5039 43.3431C16.4005 43.2525 16.2734 43.1401 16.125 43.0069C15.6785 42.6061 15.0392 42.017 14.2714 41.2665C12.7351 39.7649 10.6876 37.6205 8.64125 35.0489C4.53115 29.8838 0.5 23.0865 0.5 16.3528C0.5 7.59059 7.64797 0.5 16.5 0.5C25.352 0.5 32.5 7.59059 32.5 16.3528Z',
+    fillColor: 'black',
+    fillOpacity: 1,
+    strokeColor: 'black',
+    scale: 1,
+    anchor: new google.maps.Point(16, 44),
+    labelOrigin: new google.maps.Point(16, 15),
+  };
+
+  const iconMarkerActive = {
+    path: 'M32.5 16.3528C32.5 23.2608 28.4673 30.0588 24.36 35.1772C22.3144 37.7265 20.2675 39.838 18.7319 41.3121C17.9644 42.0488 17.3253 42.6256 16.8791 43.0175C16.7324 43.1463 16.6065 43.2551 16.5039 43.3431C16.4005 43.2525 16.2734 43.1401 16.125 43.0069C15.6785 42.6061 15.0392 42.017 14.2714 41.2665C12.7351 39.7649 10.6876 37.6205 8.64125 35.0489C4.53115 29.8838 0.5 23.0865 0.5 16.3528C0.5 7.59059 7.64797 0.5 16.5 0.5C25.352 0.5 32.5 7.59059 32.5 16.3528Z',
+    fillColor: 'black',
+    fillOpacity: 1,
+    strokeColor: 'black',
+    scale: 1.18,
+    anchor: new google.maps.Point(16, 44),
+    labelOrigin: new google.maps.Point(16, 15),
+  };
+
+  const centerOfMap = {
+    lat: 59.914,
+    lng: 30.335,
+  };
+
+  const searchUnsortedMap = document.getElementById('search-map-unsort');
+  const searchSortedMap = document.getElementById('search-map-bytype');
+  const lonelyMap = document.getElementById('space-map');
+
+  // дефолтная карта в резултатах поиска
+  // Карта в поиске
+  function searchMapSettings(mapEl, locationList, markerType) {
+    if (mapEl) {
+      const mapWrapper = mapEl;
+      const map = new google.maps.Map(
+        mapEl, {
+          zoom: 13,
+          center: centerOfMap,
+          disableDefaultUI: true,
+          zoomControl: false,
+        },
+      );
+
+      mapWrapper.map = map;
+
+      const markers = locationList.map((location, i) => {
+        const mm = new google.maps.Marker({
+          position: location.coords,
+          map,
+          icon: iconMarker,
+          label: {
+            text: location.offerCount || '',
+            className: ' map-marker-label',
+            color: '#fff',
+            fontFamily: 'ProximaNova, Arial, sans-serif',
+            fontSize: '18px',
+            fontWeight: '700',
+          },
+          clicable: true,
+          userState: 'default',
+          markerType,
+          labelText: location.offerCount,
+        });
+        const mmInfo = new google.maps.InfoWindow({
+          content: location.price,
+        });
+        mm.addListener('mouseover', (evt) => {
+          mmInfo.open(map, mm);
+          if (mm.userState !== 'active') {
+            mm.setIcon(iconMarkerHover);
+          }
+        });
+        mm.addListener('mouseout', (evt) => {
+          mmInfo.close();
+          if (mm.userState !== 'active') {
+            mm.setIcon(iconMarker);
+          }
+        });
+        mm.addListener('click', () => {
+          const isMapFull = $('body').hasClass('map-in-fullview');
+          // const mMark = evt.target;
+          // if (mm.userState === 'close') {
+          //   searchMarkerPopups.forEach((el) => {
+          //     el.close();
+          //   });
+          if (mm.userState !== 'active') {
+            markers.forEach((el) => {
+              const m = el;
+              m.setIcon(iconMarker);
+              m.setLabel({
+                text: m.labelText,
+                className: ' map-marker-label',
+                color: '#fff',
+                fontFamily: 'ProximaNova, Arial, sans-serif',
+                fontSize: '18px',
+                fontWeight: '700',
+              });
+              m.userState = 'default';
+            });
+            mm.setIcon(iconMarkerActive);
+            mm.setLabel({
+              text: '.',
+              className: ' map-marker-label-circle',
+              color: '#fff',
+              fontSize: '1px',
+            });
+            mm.userState = 'active';
+            if (mm.markerType === 'space') {
+              if (isMapFull) {
+
+              } else {
+
+              }
+            }
+
+            if (mm.markerType === 'offer') {
+
+            }
+          } else {
+            mm.setIcon(iconMarker);
+            mm.setLabel({
+              text: mm.labelText,
+              className: ' map-marker-label',
+              color: '#fff',
+              fontFamily: 'ProximaNova, Arial, sans-serif',
+              fontSize: '18px',
+              fontWeight: '700',
+            });
+            mm.userState = 'default';
+          }
+          //   // mm.userState = 'open';
+          //   // mm.setIcon(biggestBlackIconParam);
+          //   mmInfo.open(map3);
+          // } else {
+          //   // mm.userState = 'close';
+          //   // mm.setIcon(smallBlueIconParam);
+          //   mmInfo.close();
+          // }
+        });
+        return mm;
+      });
+
+      new MarkerClusterer(map, markers, {
+        styles:
+          [MarkerClusterer.withDefaultStyle({
+            url: 'assets/images/nd/cluster-icon.svg',
+            width: 70,
+            height: 70,
+            textColor: '#fff',
+            textSize: 18,
+            fontFamily: 'ProximaNova, sans-serif',
+            fontWeight: 700,
+          })],
+      });
+    }
+  }
+
+  searchMapSettings(searchSortedMap, locations, 'offer');
+  searchMapSettings(searchUnsortedMap, locations, 'space');
+
+  // сортированая карта в результатах поиска
+
+  // карта одного спейса
+});
+
+// старые версии карт и карты на других страницах
+$(document).ready(() => {
+  const locations = [{
     coords: {
       lat: 51.93,
       lng: 30.325,
@@ -1274,20 +1586,20 @@ $(document).ready(function () {
     selfName: 'marker18',
   }];
 
-  var uluru = {
+  const uluru = {
     lat: 59.914,
     lng: 30.335,
   };
 
   function initGMap() {
-    var tagsMap = document.getElementById('tagsMap');
-    var spaceMap = document.getElementById('spaceMap');
-    var spaceMap1 = document.getElementById('spaceMap1');
-    var spaceMap2 = document.getElementById('spaceMap2');
-    var searchMap = document.getElementById('search-map');
-    var addSpaceMap = document.getElementById('add-map');
+    const tagsMap = document.getElementById('tagsMap');
+    const spaceMap = document.getElementById('spaceMap');
+    const spaceMap1 = document.getElementById('spaceMap1');
+    const spaceMap2 = document.getElementById('spaceMap2');
+    const searchMap = document.getElementById('search-map');
+    const addSpaceMap = document.getElementById('add-map');
 
-    var smallBlueIconParam = {
+    const smallBlueIconParam = {
       url: "data:image/svg+xml,%3Csvg width='23' height='31' viewBox='0 0 23 31' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M23 11.5213C23 21.5047 11.5 31 11.5 31C11.5 31 0 21.2606 0 11.5213C0 5.15039 5.14089 0 11.5 0C17.8591 0 23 5.15039 23 11.5213Z' fill='%230085FF'/%3E%3Cpath d='M22.5 11.5213C22.5 16.3378 19.7155 21.0944 16.8584 24.6936C15.4376 26.4834 14.0156 27.9662 12.9487 29.0015C12.4155 29.5189 11.9718 29.9238 11.6622 30.1986C11.6047 30.2496 11.5518 30.2962 11.5038 30.3382C11.4549 30.2944 11.4008 30.2457 11.3419 30.1922C11.032 29.9111 10.588 29.4975 10.0545 28.9704C8.98702 27.9156 7.56436 26.4094 6.14288 24.6036C3.283 20.9706 0.5 16.2147 0.5 11.5213C0.5 5.42566 5.4179 0.5 11.5 0.5C17.5821 0.5 22.5 5.42566 22.5 11.5213Z' stroke='%231F1F1F' stroke-opacity='0.28'/%3E%3Ccircle cx='11.5' cy='10.5' r='4.5' fill='white'/%3E%3C/svg%3E ",
       size: new google.maps.Size(23, 31),
       // The origin for this image is (0, 0).
@@ -1297,7 +1609,7 @@ $(document).ready(function () {
       scaledSize: new google.maps.Size(23, 31),
     };
 
-    var bigBlackIconParam = {
+    const bigBlackIconParam = {
       url: "data:image/svg+xml,%3Csvg width='23' height='31' viewBox='0 0 23 31' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M23 11.5213C23 21.5047 11.5 31 11.5 31C11.5 31 0 21.2606 0 11.5213C0 5.15039 5.14089 0 11.5 0C17.8591 0 23 5.15039 23 11.5213Z' fill='black'/%3E%3Cpath d='M22.5 11.5213C22.5 16.3378 19.7155 21.0944 16.8584 24.6936C15.4376 26.4834 14.0156 27.9662 12.9487 29.0015C12.4155 29.5189 11.9718 29.9238 11.6622 30.1986C11.6047 30.2496 11.5518 30.2962 11.5038 30.3382C11.4549 30.2944 11.4008 30.2457 11.3419 30.1922C11.032 29.9111 10.588 29.4975 10.0545 28.9704C8.98702 27.9156 7.56436 26.4094 6.14288 24.6036C3.283 20.9706 0.5 16.2147 0.5 11.5213C0.5 5.42566 5.4179 0.5 11.5 0.5C17.5821 0.5 22.5 5.42566 22.5 11.5213Z' stroke='black' stroke-opacity='0.28'/%3E%3Ccircle cx='11.5' cy='10.5' r='4.5' fill='white'/%3E%3C/svg%3E ",
       size: new google.maps.Size(35, 47),
       // The origin for this image is (0, 0).
@@ -1307,7 +1619,7 @@ $(document).ready(function () {
       scaledSize: new google.maps.Size(35, 47),
     };
 
-    var biggestBlackIconParam = {
+    const biggestBlackIconParam = {
       url: "data:image/svg+xml,%3Csvg width='23' height='31' viewBox='0 0 23 31' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M23 11.5213C23 21.5047 11.5 31 11.5 31C11.5 31 0 21.2606 0 11.5213C0 5.15039 5.14089 0 11.5 0C17.8591 0 23 5.15039 23 11.5213Z' fill='black'/%3E%3Cpath d='M22.5 11.5213C22.5 16.3378 19.7155 21.0944 16.8584 24.6936C15.4376 26.4834 14.0156 27.9662 12.9487 29.0015C12.4155 29.5189 11.9718 29.9238 11.6622 30.1986C11.6047 30.2496 11.5518 30.2962 11.5038 30.3382C11.4549 30.2944 11.4008 30.2457 11.3419 30.1922C11.032 29.9111 10.588 29.4975 10.0545 28.9704C8.98702 27.9156 7.56436 26.4094 6.14288 24.6036C3.283 20.9706 0.5 16.2147 0.5 11.5213C0.5 5.42566 5.4179 0.5 11.5 0.5C17.5821 0.5 22.5 5.42566 22.5 11.5213Z' stroke='black' stroke-opacity='0.28'/%3E%3Ccircle cx='11.5' cy='10.5' r='4.5' fill='white'/%3E%3C/svg%3E ",
       size: new google.maps.Size(47, 64),
       // The origin for this image is (0, 0).
@@ -1326,13 +1638,14 @@ $(document).ready(function () {
         // Optionally stop clicks, etc., from bubbling up to the map.
         Popup.preventMapHitsAndGesturesFrom(this.containerDiv);
 
-        var _t = this;
+        const _t = this;
       }
+
       open(map) {
         this.setMap(map);
         this.containerDiv.classList.add('is-show');
-        var _t = this;
-        var _marker = this.marker;
+        const _t = this;
+        const _marker = this.marker;
 
         _marker.userState = 'open';
         _marker.setIcon(bigBlackIconParam);
@@ -1340,13 +1653,15 @@ $(document).ready(function () {
           _t.close();
         });
       }
+
       close() {
         this.containerDiv.classList.remove('is-show');
-        var _marker = this.marker;
+        const _marker = this.marker;
         _marker.userState = 'close';
         _marker.setIcon(smallBlueIconParam);
         this.setMap(null);
       }
+
       toggle() {
         if (this.containerDiv.classList.contains('is-show')) {
           this.close();
@@ -1354,6 +1669,7 @@ $(document).ready(function () {
           this.open();
         }
       }
+
       /** Called when the popup is added to the map. */
       onAdd() {
         this.getPanes().floatPane.appendChild(this.containerDiv);
@@ -1363,15 +1679,15 @@ $(document).ready(function () {
         const divPosition = this.getProjection().fromLatLngToDivPixel(
           this.position,
         );
-        var mapSizes = mapDiv.getBoundingClientRect();
-        var containerSizes = this.containerDiv.getBoundingClientRect();
-        var distanceForRight = (mapSizes.width / 2) - divPosition.x - 30;
-        var distanceForLeft = (mapSizes.width / 2) + (divPosition.x - 30);
-        var distanceForTop = ((mapSizes.height / 2) + divPosition.y) - 50 - 15 - 47;
-        var freeDistanceRightX = distanceForRight - (containerSizes.width / 2);
-        var freeDistanceLeftX = distanceForLeft - (containerSizes.width / 2);
-        var freeDistanceY = distanceForTop - containerSizes.height;
-        var newCenter = [0, 0];
+        const mapSizes = mapDiv.getBoundingClientRect();
+        const containerSizes = this.containerDiv.getBoundingClientRect();
+        const distanceForRight = (mapSizes.width / 2) - divPosition.x - 30;
+        const distanceForLeft = (mapSizes.width / 2) + (divPosition.x - 30);
+        const distanceForTop = ((mapSizes.height / 2) + divPosition.y) - 50 - 15 - 47;
+        const freeDistanceRightX = distanceForRight - (containerSizes.width / 2);
+        const freeDistanceLeftX = distanceForLeft - (containerSizes.width / 2);
+        const freeDistanceY = distanceForTop - containerSizes.height;
+        let newCenter = [0, 0];
 
         if (freeDistanceRightX < 0 && freeDistanceY < 0) {
           newCenter = [(0 - freeDistanceRightX), (0 + freeDistanceY)];
@@ -1389,25 +1705,26 @@ $(document).ready(function () {
 
         this.getMap().panBy(newCenter[0], newCenter[1]);
       }
+
       /** Called when the popup is removed from the map. */
       onRemove() {
         if (this.containerDiv.parentElement) {
           this.containerDiv.parentElement.removeChild(this.containerDiv);
         }
       }
+
       /** Called each frame when the popup needs to draw itself. */
       draw() {
         const divPosition = this.getProjection().fromLatLngToDivPixel(
           this.position,
         );
         // Hide the popup when it is far out of view.
-        const display =
-          Math.abs(divPosition.x) < 4000 && Math.abs(divPosition.y) < 4000 ?
-          'block' :
-          'none';
+        const display = Math.abs(divPosition.x) < 4000 && Math.abs(divPosition.y) < 4000
+          ? 'block'
+          : 'none';
         if (display === 'block') {
-          this.containerDiv.style.top = (divPosition.y - 47 - 15) + 'px';
-          this.containerDiv.style.left = divPosition.x + 'px';
+          this.containerDiv.style.top = `${divPosition.y - 47 - 15}px`;
+          this.containerDiv.style.left = `${divPosition.x}px`;
         }
 
         if (this.containerDiv.style.display !== display) {
@@ -1418,19 +1735,20 @@ $(document).ready(function () {
 
     // Карта на главной
     if (tagsMap) {
-      var map = new google.maps.Map(
+      const map = new google.maps.Map(
         tagsMap, {
           zoom: 13,
           center: uluru,
           disableDefaultUI: true,
           zoomControl: true,
-        });
+        },
+      );
 
-      var popups = [];
-      var markers = locations.map(function (location, i) {
-        var mm = new google.maps.Marker({
+      const popups = [];
+      var markers = locations.map((location, i) => {
+        const mm = new google.maps.Marker({
           position: location.coords,
-          map: map,
+          map,
           icon: {
             url: 'assets/images/nd/nd-map-marker.svg',
             size: new google.maps.Size(23, 31),
@@ -1442,16 +1760,16 @@ $(document).ready(function () {
           },
           userState: 'close',
         });
-        var mmInfoContent = window.globalFunctions.generateMapPopup(location.popup);
-        var mmInfo = new Popup(new google.maps.LatLng(location.coords.lat, location.coords.lng), mmInfoContent, mm);
+        const mmInfoContent = window.globalFunctions.generateMapPopup(location.popup);
+        const mmInfo = new Popup(new google.maps.LatLng(location.coords.lat, location.coords.lng), mmInfoContent, mm);
         popups.push(mmInfo);
-        mm.addListener('click', function (evt) {
+        mm.addListener('click', (evt) => {
           const mMark = evt.target;
           if (mm.userState === 'close') {
-            popups.forEach(function (el) {
+            popups.forEach((el) => {
               el.close();
             });
-            markers.forEach(function (el) {
+            markers.forEach((el) => {
               el.setIcon(smallBlueIconParam);
             });
             // mm.userState = 'open';
@@ -1470,14 +1788,15 @@ $(document).ready(function () {
     // Карта в спейсе
 
     if (spaceMap) {
-      var map2 = new google.maps.Map(
+      const map2 = new google.maps.Map(
         spaceMap, {
           zoom: 13,
           center: uluru,
           disableDefaultUI: true,
-        });
+        },
+      );
 
-      var marker = new google.maps.Marker({
+      const marker = new google.maps.Marker({
         position: uluru,
         map: map2,
         icon: {
@@ -1491,14 +1810,15 @@ $(document).ready(function () {
     }
 
     if (spaceMap1) {
-      var mapSp1 = new google.maps.Map(
+      const mapSp1 = new google.maps.Map(
         spaceMap1, {
           zoom: 13,
           center: uluru,
           disableDefaultUI: true,
-        });
+        },
+      );
 
-      var markerSp1 = new google.maps.Marker({
+      const markerSp1 = new google.maps.Marker({
         position: uluru,
         map: mapSp1,
         icon: {
@@ -1512,14 +1832,15 @@ $(document).ready(function () {
     }
 
     if (spaceMap2) {
-      var mapSp2 = new google.maps.Map(
+      const mapSp2 = new google.maps.Map(
         spaceMap2, {
           zoom: 13,
           center: uluru,
           disableDefaultUI: true,
-        });
+        },
+      );
 
-      var markerSp2 = new google.maps.Marker({
+      const markerSp2 = new google.maps.Marker({
         position: uluru,
         map: mapSp2,
         icon: {
@@ -1534,33 +1855,34 @@ $(document).ready(function () {
 
     // Карта в поиске
     if (searchMap) {
-      var map3 = new google.maps.Map(
+      const map3 = new google.maps.Map(
         searchMap, {
           zoom: 13,
           center: uluru,
           disableDefaultUI: true,
           zoomControl: true,
-        });
+        },
+      );
 
-      var searchMarkerPopups = [];
-      var markers3 = locations.map(function (location, i) {
-        var mm = new google.maps.Marker({
+      const searchMarkerPopups = [];
+      var markers3 = locations.map((location, i) => {
+        const mm = new google.maps.Marker({
           position: location.coords,
           map: map3,
           selfName: location.selfName,
           icon: smallBlueIconParam,
           userState: 'close',
         });
-        var mmInfoContent = window.globalFunctions.generateMapPopup(location.popup);
-        var mmInfo = new Popup(new google.maps.LatLng(location.coords.lat, location.coords.lng), mmInfoContent, mm);
+        const mmInfoContent = window.globalFunctions.generateMapPopup(location.popup);
+        const mmInfo = new Popup(new google.maps.LatLng(location.coords.lat, location.coords.lng), mmInfoContent, mm);
         searchMarkerPopups.push(mmInfo);
-        mm.addListener('click', function (evt) {
+        mm.addListener('click', (evt) => {
           const mMark = evt.target;
           if (mm.userState === 'close') {
-            searchMarkerPopups.forEach(function (el) {
+            searchMarkerPopups.forEach((el) => {
               el.close();
             });
-            markers3.forEach(function (el) {
+            markers3.forEach((el) => {
               el.setIcon(smallBlueIconParam);
             });
             // mm.userState = 'open';
@@ -1575,21 +1897,17 @@ $(document).ready(function () {
         return mm;
       });
 
-      $(document).on('mouseenter', '.js-map-marker-link', function (evt) {
-        var self = evt.currentTarget;
-        var markerName = $(self).data('marker-name');
-        var mark = $(markers3).filter(function (i, el) {
-          return el.selfName === markerName;
-        });
+      $(document).on('mouseenter', '.js-map-marker-link', (evt) => {
+        const self = evt.currentTarget;
+        const markerName = $(self).data('marker-name');
+        const mark = $(markers3).filter((i, el) => el.selfName === markerName);
         mark[0].setIcon(biggestBlackIconParam);
       });
 
-      $(document).on('mouseleave', '.js-map-marker-link', function (evt) {
-        var self = evt.currentTarget;
-        var markerName = $(self).data('marker-name');
-        var mark = $(markers3).filter(function (i, el) {
-          return el.selfName === markerName;
-        });
+      $(document).on('mouseleave', '.js-map-marker-link', (evt) => {
+        const self = evt.currentTarget;
+        const markerName = $(self).data('marker-name');
+        const mark = $(markers3).filter((i, el) => el.selfName === markerName);
         if (mark[0].userState === 'close') {
           mark[0].setIcon(smallBlueIconParam);
         } else if (mark[0].userState === 'open') {
@@ -1601,19 +1919,20 @@ $(document).ready(function () {
     // Карта в add/edit space manager - location
 
     if (addSpaceMap) {
-      var mapASM = new google.maps.Map(
+      const mapASM = new google.maps.Map(
         addSpaceMap, {
           zoom: 13,
           center: uluru,
           disableDefaultUI: true,
-        });
+        },
+      );
 
       mapASM.addListener('center_changed', function () {
-        var _this = this;
-        var newCoord = _this.getCenter();
-        var latitude = newCoord.lat();
-        var longitude = newCoord.lng();
-        var inputForCoord = document.querySelector('input[data-map-coordinates]');
+        const _this = this;
+        const newCoord = _this.getCenter();
+        const latitude = newCoord.lat();
+        const longitude = newCoord.lng();
+        const inputForCoord = document.querySelector('input[data-map-coordinates]');
         if (inputForCoord) {
           inputForCoord.value = `${latitude},${longitude}`;
         }

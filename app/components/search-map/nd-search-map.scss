@@ -184,8 +184,102 @@
 
   &__button {
     position: absolute;
-    top: 0;
-    left: 0;
+    background-color: $nd-color-basic-light;
+    color: $nd-color-basic;
+    font-weight: 700;
+    z-index: 2;
+
+    @include rule(border-radius, (xl: 20px, xlg: 20, lg: 20, md: 20, sm: 20));
+    @include rule(padding-left, (xl: 50px, xlg: 50, lg: 40, md: 50, sm: 26));
+    @include rule(padding-right, (xl: 20px, xlg:20, lg: 16, md: 20, sm: 26));
+    @include rule(top, (xl: 28px, xlg: 28, lg: 28, md: 25));
+    @include rule(left, (xl: 36px, xlg: 36, lg: 36, md: 25));
+    @include rule(font-size, (xl: 18px, xlg: 18, lg: 14, md: 18, sm: 16));
+    @include rule(bottom, (sm: 28));
+    @include rule(right, (sm: 16));
+
+    span {
+      @include rule(height, (xl: 40px, xlg: 40, lg: 40, md: 40, sm: 40));
+
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+
+      .map-in-fullview & {
+        @include rule(height, (xl: 40px, xlg: 40, lg: 40, md: 30, sm: 40));
+      }
+    }
+
+    @include screen('sm', max, 2) {
+      opacity: 0;
+      pointer-events: none;
+      top: auto;
+      left: auto;
+    }
+
+    [data-map-hidden] {
+      display: inline-flex;
+
+      .map-in-fullview & {
+        display: none;
+      }
+    }
+
+    [data-map-shown="xl"] {
+      display: none;
+
+      .map-in-fullview & {
+        @include screen('sm', min, 2) {
+          display: inline-flex;
+        }
+      }
+    }
+
+    [data-map-shown="sm"] {
+      display: none;
+
+      .map-in-fullview & {
+        @include screen('sm', max, 2) {
+          display: inline-flex;
+        }
+      }
+    }
+
+    &::before {
+      @include pseudo;
+      @include rule(width, (xl: 50px, xlg: 50, lg: 40, md: 50, sm: 26));
+      @include rule(background-size, (xl: 20px, xlg: 20, lg: 20, md: 20, sm: 20));
+
+      top: 0;
+      left: 0;
+      height: 100%;
+      background-image: $icon-map-blue;
+      background-repeat: no-repeat;
+      background-position: 50% 50%;
+
+      @include screen('sm', max, 2) {
+        display: none;
+      }
+    }
+
+    .map-in-fullview & {
+      @include rule(font-size, (xl: 18px, xlg: 18, lg: 18, md: 14, sm: 16));
+      @include rule(padding-left, (xl: 40px, xlg: 40, lg: 40, md: 30, sm: 26));
+      @include rule(padding-right, (xl: 20px, xlg:20, lg: 20, md: 12, sm: 26));
+      @include rule(top, (md: 80));
+
+      @include screen('sm', max, 2) {
+        opacity: 1;
+        pointer-events: auto;
+        top: auto;
+      }
+
+      &::before {
+        @include rule(width, (xl: 40px, xlg: 40, lg: 40, md: 30, sm: 26));
+        @include rule(background-size, (xl: 12px, xlg: 12, lg: 12, md: 12, sm: 12));
+        background-image: $icon-bold-cross-blue;
+      }
+    }
   }
 
   &_v2 {
@@ -198,6 +292,8 @@
     pointer-events: auto;
     transform: translate3d(0, 0, 0);
     z-index: 0;
+    transition: height $ease-main, width $ease-main;
+    will-change: width, height;
 
     @include rule(top, (md: 60, sm: 54));
     @include rule(height, (md: 254, sm: 208));
@@ -206,7 +302,16 @@
       position: fixed;
       left: 0;
       width: 100%;
-      z-index: -1;
+    }
+
+    .map-in-fullview & {
+      @include screen('md', max, 2) {
+        height: calc(100% - (6600 / 960) * 1vw);
+      }
+
+      @include screen('sm', max, 2) {
+        height: calc(100% - (6000 / 375) * 1vw);
+      }
     }
 
     #{$b} {

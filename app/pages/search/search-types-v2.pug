@@ -20,8 +20,8 @@ block content
     +e.column_filter
       +nd-search-filter-v2
 
-    +e.column_map
-      +nd-search-map-v2
+    +e.column_map.js-map-sm-show-fullview
+      +nd-search-map-v2('search-map-bytype')
 
     +e.column_results
       +nd-section.md-only-visibility-hidden
@@ -29,7 +29,7 @@ block content
           +nd-section-title._fz30 Private Office in London
           +e.filter-group
             +e.text_fz15._gray Looking for workspace type, Any team size and Any price
-            +filter-section().nd-hide-sm(form="search-filter")
+            +filter-section({}).nd-hide-sm(form="search-filter")
       +nd-results._v2
         each item in getData('new-nd-spaces-search-offer.json')
           +nd-results-item

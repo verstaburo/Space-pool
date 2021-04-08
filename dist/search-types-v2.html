@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimal-ui">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Spacepool - Search for offer type filter</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <link href="favicon.ico" rel="shortcut icon">
+    <link rel="preload" href="assets/fonts/Stolzl-Regular.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="assets/fonts/Stolzl-Book.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="assets/fonts/ProximaNovaRegular.woff2" as="font" type="font/woff2" crossorigin>
+    <link href="assets/styles/fonts.min.css" rel="stylesheet">
+    <link href="assets/styles/app.min.css" rel="stylesheet">
+    <script src="assets/scripts/libs/jquery.min.js"></script>
+</head>
+
+<body class="no-js-scale nd  is-sm-noheader is-nofooter">
+    <header class="compensate-for-scrollbar nd-header header is-login">
+        <div class="header__wrapper">
+            <div class="nd-container">
+                <div class="header__logo"><a class="nd-logo" href="/"><svg class="nd-logo__icon"><use xlink:href="assets/images/icon.svg#icon_nd-logo"></use></svg></a></div>
+                <nav class="header__navigation" data-rounding-target="data-rounding-target">
+                    <div class="header__main">
+                        <ul class="nd-header-menu header-menu">
+                            <li class="header-menu__item"><a class="nd-link" href="#"><span class="nd-link__text">Sign Up</span></a></li>
+                            <li class="header-menu__item"><a class="nd-link js-popup" href="#popup-signin"><span class="nd-link__text">Login</span></a></li>
+                        </ul>
+                    </div>
+                    <div class="header__user">
+                        <div class="nd-header-user header-user">
+                            <div class="header-user__user"><a class="short-profile short-profile_login" href="#">
+                                    <div class="avatar avatar_small short-profile__avatar"><img class="avatar__image" src="assets/images/nd/user-avatar-1.jpg" alt="" role="presentation" /></div><span class="short-profile__name">Marge Landlordy</span>
+                                </a></div>
+                            <ul class="header-user__list">
+                                <li class="header-user__item"><a class="nd-user-link user-link js-show-notices" href="#events-list"><svg class="user-link__icon user-link__icon_calendar" fill="none" viewBox="0 0 29 25" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M26.58 1.6C26.79 1.6 26.95 1.77 26.95 1.97V22.87C26.95 23.08 26.78 23.24 26.58 23.24H1.97C1.76 23.24 1.6 23.07 1.6 22.87V1.97C1.6 1.76 1.77 1.6 1.97 1.6H26.58ZM26.58 0H1.97C0.88 0 0 0.88 0 1.97V22.87C0 23.96 0.88 24.84 1.97 24.84H26.58C27.67 24.84 28.55 23.96 28.55 22.87V1.97C28.56 0.88 27.67 0 26.58 0Z" fill="black"></path>
+                                            <path d="M28.56 6.89H0V8.49H28.56V6.89Z" fill="black"></path>
+                                            <g class="c-days">
+                                                <path d="M6.74 13.9H5.59C5.15 13.9 4.79 13.54 4.79 13.1C4.79 12.66 5.15 12.3 5.59 12.3H6.74C7.18 12.3 7.54 12.66 7.54 13.1C7.54 13.54 7.18 13.9 6.74 13.9Z" fill="#0085FF"></path>
+                                                <path d="M12.21 13.9H11.06C10.62 13.9 10.26 13.54 10.26 13.1C10.26 12.66 10.62 12.3 11.06 12.3H12.21C12.65 12.3 13.01 12.66 13.01 13.1C13.01 13.54 12.65 13.9 12.21 13.9Z" fill="#0085FF"></path>
+                                                <path d="M17.69 13.9H16.54C16.1 13.9 15.74 13.54 15.74 13.1C15.74 12.66 16.1 12.3 16.54 12.3H17.69C18.13 12.3 18.49 12.66 18.49 13.1C18.49 13.54 18.13 13.9 17.69 13.9Z" fill="#0085FF"></path>
+                                                <path d="M23.16 13.9H22.01C21.57 13.9 21.21 13.54 21.21 13.1C21.21 12.66 21.57 12.3 22.01 12.3H23.16C23.6 12.3 23.96 12.66 23.96 13.1C23.96 13.54 23.6 13.9 23.16 13.9Z" fill="#0085FF"></path>
+                                                <path d="M6.74 18.53H5.59C5.15 18.53 4.79 18.17 4.79 17.73C4.79 17.29 5.15 16.93 5.59 16.93H6.74C7.18 16.93 7.54 17.29 7.54 17.73C7.54 18.17 7.18 18.53 6.74 18.53Z" fill="#0085FF"></path>
+                                                <path d="M12.21 18.53H11.06C10.62 18.53 10.26 18.17 10.26 17.73C10.26 17.29 10.62 16.93 11.06 16.93H12.21C12.65 16.93 13.01 17.29 13.01 17.73C13.01 18.17 12.65 18.53 12.21 18.53Z" fill="#0085FF"></path>
+                                                <path d="M17.69 18.53H16.54C16.1 18.53 15.74 18.17 15.74 17.73C15.74 17.29 16.1 16.93 16.54 16.93H17.69C18.13 16.93 18.49 17.29 18.49 17.73C18.49 18.17 18.13 18.53 17.69 18.53Z" fill="#0085FF"></path>
+                                                <path d="M23.16 18.53H22.01C21.57 18.53 21.21 18.17 21.21 17.73C21.21 17.29 21.57 16.93 22.01 16.93H23.16C23.6 16.93 23.96 17.29 23.96 17.73C23.96 18.17 23.6 18.53 23.16 18.53Z" fill="#0085FF"></path>
+                                            </g>
+                                        </svg><span class="user-link__marker"></span></a></li>
+                                <li class="header-user__item"><a class="nd-user-link user-link js-show-notices" href="#messages-list"><svg class="user-link__icon user-link__icon_message" viewBox="0 0 28 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M17.61 1.6C22.34 1.6 26.19 5.45 26.19 10.18C26.19 14.91 22.34 18.76 17.61 18.76H14.24H14.12C13.63 18.76 13.17 18.98 12.86 19.37L10.81 21.97L10.27 19.85C10.11 19.22 9.59 18.76 8.95 18.66C4.76 18.04 1.6 14.4 1.6 10.18C1.6 5.45 5.45 1.6 10.18 1.6H17.61ZM17.61 0H10.17C4.58 0 0 4.58 0 10.18C0 15.28 3.81 19.53 8.73 20.24L9.81 24.46C9.88 24.71 10.1 24.86 10.32 24.86C10.47 24.86 10.62 24.8 10.73 24.66L14.12 20.36H14.24H17.61C23.21 20.36 27.79 15.78 27.79 10.18C27.79 4.58 23.21 0 17.61 0Z" fill="black"></path>
+                                            <path d="M19.58 8.58H7.57C7.13 8.58 6.77 8.22 6.77 7.78C6.77 7.34 7.13 6.98 7.57 6.98H19.59C20.03 6.98 20.39 7.34 20.39 7.78C20.39 8.22 20.03 8.58 19.58 8.58Z" fill="#0085FF"></path>
+                                            <path d="M13.9 13.74H7.57C7.13 13.74 6.77 13.38 6.77 12.94C6.77 12.5 7.13 12.14 7.57 12.14H13.9C14.34 12.14 14.7 12.5 14.7 12.94C14.7 13.38 14.34 13.74 13.9 13.74Z" fill="#0085FF"></path>
+                                        </svg><span class="user-link__marker"></span></a></li>
+                                <li class="header-user__item"><a class="nd-user-link user-link" href="#"><svg class="user-link__icon user-link__icon_heart" viewBox="0 0 26 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M8.03276 1.47636C9.50428 1.47636 10.9383 1.9654 12.0818 2.84198L13.0097 3.55248L13.9376 2.84198C15.0811 1.95617 16.5151 1.47636 17.9866 1.47636C19.7393 1.47636 21.3796 2.14072 22.6074 3.34948C25.1568 5.85928 25.1568 9.95617 22.6074 12.466L13.0003 21.9146L3.412 12.466C2.1748 11.2572 1.49996 9.63322 1.49996 7.90773C1.49996 6.18224 2.1748 4.55825 3.412 3.34948C4.63983 2.14072 6.28006 1.47636 8.03276 1.47636ZM17.9772 0C16.2152 0 14.4531 0.56286 13.0097 1.67935C11.5475 0.56286 9.79484 0 8.03276 0C5.97076 0 3.90875 0.765859 2.35288 2.30681C-0.777619 5.3887 -0.777619 10.4268 2.35288 13.5087L13.0097 24L23.6665 13.5087C26.797 10.4268 26.797 5.3887 23.6665 2.30681C22.0919 0.765859 20.0299 0 17.9772 0Z" fill="black"></path>
+                                            <path d="M13.9185 17.9469C13.7217 17.9469 13.5343 17.8731 13.3843 17.7347C13.0937 17.4487 13.0937 16.9781 13.3843 16.692L19.6453 10.5282C19.9358 10.2422 20.4139 10.2422 20.7044 10.5282C20.995 10.8143 20.995 11.2849 20.7044 11.5709L14.4434 17.7347C14.3028 17.8731 14.1154 17.9469 13.9185 17.9469Z" fill="#0085FF"></path>
+                                        </svg><span class="user-link__marker"></span></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+                <div class="header__burger"><button class="nd-burger js-open-navigation" data-menu-position="top">
+                        <div class="nd-burger__icon"><svg viewBox="0 0 32 27" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path class="nd-burger__border nd-burger__border_top" d="M1 1L31 1" stroke-width="2" stroke-linecap="round"></path>
+                                <path class="nd-burger__border nd-burger__border_mid" d="M8 13L31 13" stroke-width="2" stroke-linecap="round"></path>
+                                <path class="nd-burger__border nd-burger__border_bottom" d="M2 26L31 26" stroke-width="2" stroke-linecap="round"></path>
+                            </svg></div>
+                    </button></div>
+            </div>
+        </div>
+    </header>
+    <div class="nd-user-menu-panel user-menu-panel">
+        <ul class="user-menu-panel__list">
+            <li class="user-menu-panel__item user-menu-panel__item_filter"><a class="user-menu-panel__link js-show-modal" href="#" data-modal-target="filter-range">
+                    <div class="nd-user-link user-link"><svg class="user-link__icon user-link__icon_filter" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 23.8 21.1">
+                            <path d="M21.25,4.2H7.35a.65.65,0,0,1,0-1.3h13.9a.65.65,0,1,1,0,1.3Z"></path>
+                            <path d="M3.65,7.1A3.65,3.65,0,0,1,0,3.55,3.55,3.55,0,0,1,3.55,0,3.65,3.65,0,0,1,7.2,3.55,3.55,3.55,0,0,1,3.65,7.1Zm-.1-5.8A2.25,2.25,0,0,0,1.3,3.55,2.33,2.33,0,0,0,3.65,5.8,2.25,2.25,0,0,0,5.9,3.55,2.33,2.33,0,0,0,3.55,1.3Z" fill="#0085ff"></path>
+                            <path d="M21.25,18.2H7.35a.65.65,0,0,1,0-1.3h13.9a.65.65,0,1,1,0,1.3Z"></path>
+                            <path d="M3.65,21.1A3.55,3.55,0,1,1,7.2,17.55,3.55,3.55,0,0,1,3.65,21.1Zm0-5.8A2.25,2.25,0,1,0,5.9,17.55,2.25,2.25,0,0,0,3.65,15.3Z" fill="#0085ff"></path>
+                            <path d="M16.55,11.4H2.65a.65.65,0,1,1,0-1.3h13.9a.65.65,0,1,1,0,1.3Z"></path>
+                            <path d="M20.25,14.3a3.55,3.55,0,0,1-3.55-3.55A3.69,3.69,0,0,1,17.84,8.1a3.3,3.3,0,0,1,2.45-.9h0a3.55,3.55,0,0,1,0,7.1Zm-.13-5.8a2,2,0,0,0-1.39.55,2.37,2.37,0,0,0-.73,1.7A2.25,2.25,0,1,0,20.25,8.5Z" fill="#0085ff"></path>
+                        </svg>
+                        <div class="user-link__marker"></div>
+                    </div><span class="user-menu-panel__text">Filter</span>
+                </a></li>
+            <li class="user-menu-panel__item"><a class="user-menu-panel__link js-show-modal" href="#" data-modal-target="filter-sort">
+                    <div class="nd-user-link user-link"><svg class="user-link__icon user-link__icon_sort" viewBox="0 0 22.3 17.78" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M4.85,16.38a.66.66,0,0,1-.65-.66V.72a.65.65,0,1,1,1.3,0v15A.66.66,0,0,1,4.85,16.38Z"></path>
+                            <path d="M4.84,17.74.19,13.08a.66.66,0,0,1,0-.92.66.66,0,0,1,.92,0l3.74,3.75L8.6,12.26a.65.65,0,1,1,.9.93Z"></path>
+                            <path d="M17.45,17.78a.66.66,0,0,1-.65-.65V2a.65.65,0,0,1,1.3,0V17.13A.66.66,0,0,1,17.45,17.78Z" fill="#0085ff"></path>
+                            <path d="M13.25,5.87a.64.64,0,0,1-.46-1.1L17.44,0l4.67,4.67a.65.65,0,0,1-.92.91L17.46,1.85,13.71,5.68A.62.62,0,0,1,13.25,5.87Z" fill="#0085ff"></path>
+                        </svg>
+                        <div class="user-link__marker"></div>
+                    </div><span class="user-menu-panel__text">Sort</span>
+                </a></li>
+            <li class="user-menu-panel__item"><a class="user-menu-panel__link" href="#">
+                    <div class="nd-user-link user-link"><svg class="user-link__icon user-link__icon_support" viewBox="0 0 24.45 23.6" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M7.7,23.6a.46.46,0,0,1-.23-.05A.6.6,0,0,1,7.1,23V19.58A7.7,7.7,0,0,1,7.7,4.2h7.2a.6.6,0,0,1,0,1.2H7.7a6.5,6.5,0,0,0,0,13,.6.6,0,0,1,.6.6v2.55l3-3a.56.56,0,0,1,.42-.18H15a6.69,6.69,0,0,0,6.33-4.68.6.6,0,0,1,1.14.36A7.89,7.89,0,0,1,15,19.6H12L8.12,23.42A.56.56,0,0,1,7.7,23.6Z"></path>
+                            <path d="M15.27,15h-.15a.64.64,0,0,1-.27-.11l-2.4-1.7a.61.61,0,0,1-.15-.83L14,9.86a.62.62,0,0,1,.82-.17l.8.5A1,1,0,0,0,16.94,10l3.37-4.77A1,1,0,0,0,20.16,4l-.73-.36a.61.61,0,0,1-.31-.39.65.65,0,0,1,.08-.49L20.9.26A.66.66,0,0,1,21.3,0a.58.58,0,0,1,.46.11l2.3,1.7a.69.69,0,0,1,.16.18c.13.23,1.18,2.39-2.63,7.84h0C18.19,14.63,15.9,15,15.27,15Zm-1.64-2.45,1.76,1.25c.45-.07,2.32-.57,5.22-4.64s2.7-6.05,2.59-6.48L21.55,1.45l-1,1.42.19.09.11.08A2.15,2.15,0,0,1,21.29,6l-3.4,4.8a2.16,2.16,0,0,1-2.94.44L14.67,11Z" fill="#0085ff"></path>
+                        </svg>
+                        <div class="user-link__marker"></div>
+                    </div><span class="user-menu-panel__text">Support</span>
+                </a></li>
+            <li class="user-menu-panel__item"><a class="user-menu-panel__link" href="#">
+                    <div class="nd-user-link user-link"><svg class="user-link__icon user-link__icon_map" viewBox="0 0 30.91 22.2" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M25.43,20.33,25,20a18.93,18.93,0,0,1-2.41-2.5.65.65,0,0,1,1-.82,20.43,20.43,0,0,0,1.82,2c1.13-1,4.17-4.09,4.17-7.21a4.09,4.09,0,0,0-3.35-4.1.64.64,0,0,1-.54-.74A.66.66,0,0,1,26.47,6a5.38,5.38,0,0,1,4.44,5.38c0,4.43-4.86,8.41-5.07,8.58Z" fill="#0085ff"></path>
+                            <path d="M5.48,20.33,5.07,20C4.86,19.83,0,15.85,0,11.42A5.38,5.38,0,0,1,4.44,6a.66.66,0,0,1,.75.54.64.64,0,0,1-.53.74,4.09,4.09,0,0,0-3.36,4.1c0,3.13,3,6.18,4.17,7.21a20.43,20.43,0,0,0,1.82-2,.65.65,0,0,1,.92-.09.64.64,0,0,1,.09.91A18.93,18.93,0,0,1,5.89,20Z" fill="#0085ff"></path>
+                            <path d="M15.5,22.2l-.42-.35c-.32-.28-7.93-6.77-7.93-13.5a8.36,8.36,0,0,1,16.71,0c0,6.92-7.62,13.24-7.95,13.5Zm0-20.9a7.05,7.05,0,0,0-7,7.05c0,5.27,5.49,10.69,7.06,12.13,1.57-1.41,7-6.71,7-12.13A7.06,7.06,0,0,0,15.5,1.3Z"></path>
+                            <path d="M15.5,10.68a2.6,2.6,0,1,0-2.6-2.6A2.6,2.6,0,0,0,15.5,10.68Z"></path>
+                        </svg>
+                        <div class="user-link__marker"></div>
+                    </div><span class="user-menu-panel__text">View map</span>
+                </a></li>
+            <li class="user-menu-panel__item"><a class="user-menu-panel__link js-open-navigation" data-menu-position="bottom" href="#">
+                    <div class="nd-burger nd-burger_small">
+                        <div class="nd-burger__icon"><svg viewBox="0 0 32 27" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path class="nd-burger__border nd-burger__border_top" d="M1 1L31 1" stroke-width="2" stroke-linecap="round"></path>
+                                <path class="nd-burger__border nd-burger__border_mid" d="M8 13L31 13" stroke-width="2" stroke-linecap="round"></path>
+                                <path class="nd-burger__border nd-burger__border_bottom" d="M2 26L31 26" stroke-width="2" stroke-linecap="round"></path>
+                            </svg></div>
+                    </div><span class="user-menu-panel__text">Menu</span>
+                </a></li>
+        </ul>
+    </div>
+    <div class="nd-main-menu">
+        <div class="nd-main-menu__top"><button class="nd-main-menu__close js-close-navigation"></button></div>
+        <div class="nd-container">
+            <div class="nd-main-menu__content">
+                <ul class="nd-main-menu__list">
+                    <li class="nd-main-menu__item"><a class="nd-main-menu__link" href="guest-account-viewings.html"><span class="nd-main-menu__name">My viewings</span><img class="nd-main-menu__image" src="assets/images/nd/acc-view.svg" alt="" role="presentation" /></a></li>
+                    <li class="nd-main-menu__item"><a class="nd-main-menu__link" href="guest-account-rents.html"><span class="nd-main-menu__name">My rents</span><img class="nd-main-menu__image" src="assets/images/nd/acc-key.svg" alt="" role="presentation" /></a></li>
+                    <li class="nd-main-menu__item"><a class="nd-main-menu__link" href="guest-account-shorts.html"><span class="nd-main-menu__name">Shortlist</span><img class="nd-main-menu__image" src="assets/images/nd/acc-heart.svg" alt="" role="presentation" /></a></li>
+                    <li class="nd-main-menu__item"><a class="nd-main-menu__link is-active" href="guest-account-notes.html"><span class="nd-main-menu__name">Notifications</span><img class="nd-main-menu__image" src="assets/images/nd/acc-note.svg" alt="" role="presentation" /></a></li>
+                    <li class="nd-main-menu__item"><a class="nd-main-menu__link" href="guest-account-messages.html"><span class="nd-main-menu__name">Messages</span><img class="nd-main-menu__image" src="assets/images/nd/acc-message.svg" alt="" role="presentation" /></a></li>
+                    <li class="nd-main-menu__item"><a class="nd-main-menu__link" href="guest-account-payments.html"><span class="nd-main-menu__name">Payment methods</span><img class="nd-main-menu__image" src="assets/images/nd/acc-card.svg" alt="" role="presentation" /></a></li>
+                    <li class="nd-main-menu__item"><a class="nd-main-menu__link" href="guest-account-basic.html"><span class="nd-main-menu__name">Account settings</span><img class="nd-main-menu__image" src="assets/images/nd/acc-settings.svg" alt="" role="presentation" /></a></li>
+                </ul>
+                <ul class="nd-main-menu__list">
+                    <li class="nd-main-menu__item nd-main-menu__item_noborder"><a class="nd-main-menu__link nd-main-menu__link_short" href="#"><span class="nd-main-menu__name">About Spacepool</span></a></li>
+                    <li class="nd-main-menu__item nd-main-menu__item_noborder"><a class="nd-main-menu__link nd-main-menu__link_short" href="#"><span class="nd-main-menu__name">Help & Support</span></a></li>
+                    <li class="nd-main-menu__item nd-main-menu__item_noborder"><a class="nd-main-menu__link nd-main-menu__link_short" href="#"><span class="nd-main-menu__name">Get listed</span></a></li>
+                    <li class="nd-main-menu__item nd-main-menu__item_noborder"><a class="nd-main-menu__link nd-main-menu__link_short" href="#"><span class="nd-main-menu__name">Blog</span></a></li>
+                </ul>
+                <div class="nd-main-menu__footer"><a class="nd-main-menu__link nd-main-menu__link_bold nd-main-menu__link_ls" href="#"><span class="nd-main-menu__name">Exit account</span></a>
+                    <ul class="nd-socials nd-main-menu__socials">
+                        <li class="nd-socials__item nd-socials__item_mg17"><a class="nd-social nd-social_fb nd-social_small" target="_blank" href="#" title="facebook"><svg class="nd-social__icon"><use xlink:href="assets/images/icon.svg#icon_nd-facebook"></use></svg></a></li>
+                        <li class="nd-socials__item nd-socials__item_mg17"><a class="nd-social nd-social_inst nd-social_small" target="_blank" href="#" title="instagram"><svg class="nd-social__icon"><use xlink:href="assets/images/icon.svg#icon_nd-instagram"></use></svg></a></li>
+                        <li class="nd-socials__item nd-socials__item_mg17"><a class="nd-social nd-social_ln nd-social_small" target="_blank" href="#" title="linkedIn"><svg class="nd-social__icon"><use xlink:href="assets/images/icon.svg#icon_nd-linkedin"></use></svg></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="nd-info-notices" id="events-list">
+        <div class="nd-info-notices__head">
+            <div class="nd-info-notices__close js-close-notices"></div>
+            <div class="nd-info-notices__title">Notifications</div>
+        </div>
+        <div class="nd-info-notices__content"><a class="info-notice is-new nd-info-notices__notice"><span class="info-notice__image"><img src="assets/images/nd/space4.jpg" /></span><span class="info-notice__content">
+                    <h3 class="info-notice__title">FCB Clerkenwell</h3><span class="info-notice__text">Host signed the rental conract. Please sign on your side.</span>
+                </span></a><a class="info-notice is-new nd-info-notices__notice"><span class="info-notice__image"><img src="assets/images/nd/space4.jpg" /></span><span class="info-notice__content">
+                    <h3 class="info-notice__title">FCB Clerkenwell</h3><span class="info-notice__text">Host accepted rental summary. </span>
+                </span></a><a class="info-notice is-new nd-info-notices__notice"><span class="info-notice__image"><img src="assets/images/nd/space28.jpg" /></span><span class="info-notice__content">
+                    <h3 class="info-notice__title">Southwark Street – Southwark Street</h3><span class="info-notice__text">Accepted your viewing request for 03.09.2020 14:00</span>
+                </span></a><a class="info-notice nd-info-notices__notice"><span class="info-notice__image"><img src="assets/images/nd/space28.jpg" /></span><span class="info-notice__content">
+                    <h3 class="info-notice__title">Southwark Street – Southwark Street</h3><span class="info-notice__text">Received your viewing request</span>
+                </span></a><a class="info-notice nd-info-notices__notice"><span class="info-notice__image"><img src="assets/images/nd/space28.jpg" /></span><span class="info-notice__content">
+                    <h3 class="info-notice__title">Southwark Street – Southwark Street</h3><span class="info-notice__text">Received your viewing request</span>
+                </span></a><a class="info-notice nd-info-notices__notice"><span class="info-notice__image"><img src="assets/images/nd/space13.jpg" /></span><span class="info-notice__content">
+                    <h3 class="info-notice__title">Workpad - Soho - Wardour street</h3><span class="info-notice__text">Received your viewing request</span>
+                </span></a><a class="info-notice nd-info-notices__notice"><span class="info-notice__image"><img src="assets/images/nd/space13.jpg" /></span><span class="info-notice__content">
+                    <h3 class="info-notice__title">Workpad - Soho - Wardour street</h3><span class="info-notice__text">Received your viewing request</span>
+                </span></a><a class="info-notice nd-info-notices__notice"><span class="info-notice__image"><img src="assets/images/nd/space28.jpg" /></span><span class="info-notice__content">
+                    <h3 class="info-notice__title">Southwark Street – Southwark Street</h3><span class="info-notice__text">Received your viewing request</span>
+                </span></a><a class="info-notice nd-info-notices__notice"><span class="info-notice__image"><img src="assets/images/nd/space28.jpg" /></span><span class="info-notice__content">
+                    <h3 class="info-notice__title">Southwark Street – Southwark Street</h3><span class="info-notice__text">Received your viewing request</span>
+                </span></a><a class="info-notice nd-info-notices__notice"><span class="info-notice__image"><img src="assets/images/nd/space13.jpg" /></span><span class="info-notice__content">
+                    <h3 class="info-notice__title">Workpad - Soho - Wardour street</h3><span class="info-notice__text">Received your viewing request</span>
+                </span></a></div>
+        <div class="nd-info-notices__bottom"><a class="nd-link nd-link_icon nd-link_icon_reverse nd-info-notices__link" href="#"><svg class="nd-link__icon nd-link__icon_arrow2"><use xlink:href="assets/images/icon.svg#icon_arrow2"></use></svg><span class="nd-link__text">Read all notifications</span></a></div>
+    </div>
+    <div class="nd-info-notices" id="messages-list">
+        <div class="nd-info-notices__head">
+            <div class="nd-info-notices__close js-close-notices"></div>
+            <div class="nd-info-notices__title">Messages</div>
+        </div>
+        <div class="nd-info-notices__content"><a class="info-notice is-new nd-info-notices__notice">
+                <div class="avatar info-notice__avatar"><img class="avatar__image" src="assets/images/nd/user-avatar-10.jpg" alt="" role="presentation" /></div><span class="info-notice__content">
+                    <h3 class="info-notice__title">Mary Mindtail wrote:</h3><span class="info-notice__text">Hey! Wana see new Hot desk offers?</span><time class="info-notice__time">5 minutes ago</time>
+                </span>
+            </a><a class="info-notice is-new nd-info-notices__notice">
+                <div class="avatar info-notice__avatar"><img class="avatar__image" src="assets/images/nd/user-avatar-11.jpg" alt="" role="presentation" /></div><span class="info-notice__content">
+                    <h3 class="info-notice__title">Vladlen Smagur wrote:</h3><span class="info-notice__text">Hello! Ready not you can move in</span><time class="info-notice__time">5 days ago</time>
+                </span>
+            </a><a class="info-notice is-new nd-info-notices__notice">
+                <div class="avatar info-notice__avatar"><img class="avatar__image" src="assets/images/nd/user-avatar-12.jpg" alt="" role="presentation" /></div><span class="info-notice__content">
+                    <h3 class="info-notice__title">Robert Pratt wrote:</h3><span class="info-notice__text">Speaking about trends...</span><time class="info-notice__time">about 1 month ago</time>
+                </span>
+            </a><a class="info-notice nd-info-notices__notice">
+                <div class="avatar info-notice__avatar"><img class="avatar__image" src="assets/images/nd/user-avatar-13.jpg" alt="" role="presentation" /></div><span class="info-notice__content">
+                    <h3 class="info-notice__title">Naomi Mcgill wrote:</h3><span class="info-notice__text">Hello!</span><time class="info-notice__time">about 1 month ago</time>
+                </span>
+            </a><a class="info-notice nd-info-notices__notice">
+                <div class="avatar avatar_blue info-notice__avatar">
+                    <div class="avatar__text">BB</div>
+                </div><span class="info-notice__content">
+                    <h3 class="info-notice__title">Ben Blennerhassett wrote:</h3><span class="info-notice__text">Yeah sure. Meet on sunday!</span><time class="info-notice__time">about 1 month ago</time>
+                </span>
+            </a></div>
+        <div class="nd-info-notices__bottom"><a class="nd-link nd-link_icon nd-link_icon_reverse nd-info-notices__link" href="#"><svg class="nd-link__icon nd-link__icon_arrow2"><use xlink:href="assets/images/icon.svg#icon_arrow2"></use></svg><span class="nd-link__text">Read all messages</span></a></div>
+    </div>
+    <main class="nd-page nd-page_pb0 nd-page_sm-pt0" role="main">
+        <section class="layout">
+            <div class="layout__column layout__column_filter">
+                <div class="nd-search-filter nd-search-filter_v2">
+                    <div class="nd-search-filter__wrapper">
+                        <div class="nd-container">
+                            <div class="nd-filter nd-search-filter__filter">
+                                <div class="nd-filter__item"><button class="nd-filter__reset" type="reset" disabled="disabled" form="search-filter">Clear filter</button></div>
+                                <div class="nd-filter__item">
+                                    <div class="modal-output modal-output_location js-toggle-modal" data-modal-target="filter-location" data-modal-output-type="city">
+                                        <div class="modal-output__placeholder">Location</div>
+                                        <div class="modal-output__values" data-modal-output-value="data-modal-output-value" data-sm-default-value="Anywhere"></div><button class="modal-output__toggle" type="button"><svg width="7" heigh="4"><use xlink:href="assets/images/icon.svg#icon_select-arrow2"></use></svg></button>
+                                    </div>
+                                </div>
+                                <div class="nd-filter__item">
+                                    <div class="modal-output modal-output_type js-toggle-modal" data-modal-target="filter-type" data-modal-output-type="offer">
+                                        <div class="modal-output__placeholder">Office type</div>
+                                        <div class="modal-output__values" data-modal-output-value="data-modal-output-value" data-sm-default-value="Any"></div><button class="modal-output__toggle" type="button"><svg width="7" heigh="4"><use xlink:href="assets/images/icon.svg#icon_select-arrow2"></use></svg></button>
+                                    </div>
+                                </div>
+                                <div class="nd-filter__item nd-filter__item_team">
+                                    <div class="modal-output modal-output_team js-toggle-modal" data-modal-target="filter-team" data-modal-output-type="team">
+                                        <div class="modal-output__placeholder">Team size</div>
+                                        <div class="modal-output__values" data-modal-output-value="data-modal-output-value" data-sm-default-value="Any"></div><button class="modal-output__toggle" type="button"><svg width="7" heigh="4"><use xlink:href="assets/images/icon.svg#icon_select-arrow2"></use></svg></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="layout__column layout__column_map js-map-sm-show-fullview">
+                <div class="nd-search-map nd-search-map_v2">
+                    <div class="nd-search-map__wrapper"><button class="nd-search-map__button js-map-toggle-fullview"><span data-map-hidden="data-map-hidden">Full map view</span><span data-map-shown="xl">Close map view</span><span data-map-shown="sm">View list</span></button>
+                        <div class="nd-search-map__map" id="search-map-bytype"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="layout__column layout__column_results">
+                <section class="nd-section md-only-visibility-hidden">
+                    <div class="nd-section__header">
+                        <h3 class="nd-section__title nd-section__title_fz30">Private Office in London</h3>
+                        <div class="nd-section__filter-group">
+                            <div class="nd-section__text nd-section__text_fz15 nd-section__text_gray">Looking for workspace type, Any team size and Any price</div>
+                            <div class="filter-section nd-hide-sm" form="search-filter">
+                                <div class="filter-section__group">
+                                    <div class="filter-section__item">
+                                        <div class="modal-output modal-output_rounded js-toggle-modal" data-modal-target="filter-range" data-modal-output-type="range">
+                                            <div class="modal-output__placeholder">Price range</div>
+                                            <div class="modal-output__values" data-modal-output-value="data-modal-output-value"></div><button class="modal-output__toggle" type="button"><svg width="7" heigh="4"><use xlink:href="assets/images/icon.svg#icon_select-arrow2"></use></svg></button>
+                                        </div>
+                                    </div>
+                                    <div class="filter-section__item">
+                                        <div class="modal-output modal-output_rounded js-toggle-modal" data-modal-target="filter-available" data-modal-output-type="available">
+                                            <div class="modal-output__placeholder">Available from</div>
+                                            <div class="modal-output__values" data-modal-output-value="data-modal-output-value"></div><button class="modal-output__toggle" type="button"><svg width="7" heigh="4"><use xlink:href="assets/images/icon.svg#icon_select-arrow2"></use></svg></button>
+                                        </div>
+                                    </div>
+                                    <div class="filter-section__item">
+                                        <div class="modal-output modal-output_rounded js-toggle-modal" data-modal-target="filter-area" data-modal-output-type="area-size">
+                                            <div class="modal-output__placeholder">Total floor area</div>
+                                            <div class="modal-output__values" data-modal-output-value="data-modal-output-value"></div><button class="modal-output__toggle" type="button"><svg width="7" heigh="4"><use xlink:href="assets/images/icon.svg#icon_select-arrow2"></use></svg></button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="filter-section__item">
+                                    <div class="modal-output modal-output_rounded js-toggle-modal" data-modal-target="filter-sort" data-modal-output-type="sort">
+                                        <div class="modal-output__placeholder">Sort by</div>
+                                        <div class="modal-output__values" data-modal-output-value="data-modal-output-value"></div><button class="modal-output__toggle" type="button"><svg width="7" heigh="4"><use xlink:href="assets/images/icon.svg#icon_select-arrow2"></use></svg></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <div class="nd-results nd-results_v2">
+                    <div class="nd-results__item"><a class="nd-space nd-space_single-offer js-show-layout" data-layout-target="offer"><span class="gallery gallery_space nd-space__media js-nd-gallery"><span class="gallery__slider js-gallery-container"><span class="gallery__wrapper"><span class="gallery__slide">
+                                            <picture class="gallery__image">
+                                                <source srcset="assets/images/nd/space17.jpg" /><img srcset="assets/images/nd/space17.jpg" alt="" role="presentation" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" />
+                                            </picture>
+                                        </span><span class="gallery__slide">
+                                            <picture class="gallery__image">
+                                                <source srcset="assets/images/nd/space1.jpg" /><img srcset="assets/images/nd/space1.jpg" alt="" role="presentation" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" />
+                                            </picture>
+                                        </span><span class="gallery__slide">
+                                            <picture class="gallery__image">
+                                                <source srcset="assets/images/nd/space2.jpg" /><img srcset="assets/images/nd/space2.jpg" alt="" role="presentation" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" />
+                                            </picture>
+                                        </span><span class="gallery__slide">
+                                            <picture class="gallery__image">
+                                                <source srcset="assets/images/nd/space7.jpg" /><img srcset="assets/images/nd/space7.jpg" alt="" role="presentation" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" />
+                                            </picture>
+                                        </span></span></span><span class="gallery__buttons gallery__buttons_small"><span class="gallery__button gallery__button_prev js-gallery-button-prev"><svg><use xlink:href="assets/images/icon.svg#icon_nd-slider-arrow"></use></svg></span><span class="gallery__button gallery__button_next js-gallery-button-next"><svg><use xlink:href="assets/images/icon.svg#icon_nd-slider-arrow"></use></svg></span></span></span><span class="nd-space__describe"><span class="nd-space__head"><span class="nd-space__subtitle">The Finsbury Business Centre</span><span class="space-type space-type_big space-type_gray nd-space__type"><span class="nd-box nd-box_green space-type__box"></span><span class="space-type__name">PRIVATE OFFICE</span></span></span><span class="nd-space__title">Studio 21</span>
+                                <table class="nd-table nd-table_info nd-table_info_space" cellspacing="0">
+                                    <tbody>
+                                        <tr>
+                                            <td>Amount of desks</td>
+                                            <td>12</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Floor area</td>
+                                            <td>257 ft2</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Min. term</td>
+                                            <td>1 month</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Price</td>
+                                            <td><b>£ 2,400 per month</b></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </span></a></div>
+                    <div class="nd-results__item"><a class="nd-space nd-space_single-offer js-show-layout" data-layout-target="offer"><span class="gallery gallery_space nd-space__media js-nd-gallery"><span class="gallery__slider js-gallery-container"><span class="gallery__wrapper"><span class="gallery__slide">
+                                            <picture class="gallery__image">
+                                                <source srcset="assets/images/nd/space18.jpg" /><img srcset="assets/images/nd/space18.jpg" alt="" role="presentation" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" />
+                                            </picture>
+                                        </span><span class="gallery__slide">
+                                            <picture class="gallery__image">
+                                                <source srcset="assets/images/nd/space1.jpg" /><img srcset="assets/images/nd/space1.jpg" alt="" role="presentation" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" />
+                                            </picture>
+                                        </span><span class="gallery__slide">
+                                            <picture class="gallery__image">
+                                                <source srcset="assets/images/nd/space2.jpg" /><img srcset="assets/images/nd/space2.jpg" alt="" role="presentation" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" />
+                                            </picture>
+                                        </span><span class="gallery__slide">
+                                            <picture class="gallery__image">
+                                                <source srcset="assets/images/nd/space7.jpg" /><img srcset="assets/images/nd/space7.jpg" alt="" role="presentation" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" />
+                                            </picture>
+                                        </span></span></span><span class="gallery__buttons gallery__buttons_small"><span class="gallery__button gallery__button_prev js-gallery-button-prev"><svg><use xlink:href="assets/images/icon.svg#icon_nd-slider-arrow"></use></svg></span><span class="gallery__button gallery__button_next js-gallery-button-next"><svg><use xlink:href="assets/images/icon.svg#icon_nd-slider-arrow"></use></svg></span></span></span><span class="nd-space__describe"><span class="nd-space__head"><span class="nd-space__subtitle">The Finsbury Business Centre</span><span class="space-type space-type_big space-type_gray nd-space__type"><span class="nd-box nd-box_green space-type__box"></span><span class="space-type__name">PRIVATE OFFICE</span></span></span><span class="nd-space__title">13 desks office space</span>
+                                <table class="nd-table nd-table_info nd-table_info_space" cellspacing="0">
+                                    <tbody>
+                                        <tr>
+                                            <td>Amount of desks</td>
+                                            <td>12</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Floor area</td>
+                                            <td>257 ft2</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Min. term</td>
+                                            <td>1 month</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Price</td>
+                                            <td><b>£ 2,400 per month</b></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </span></a></div>
+                    <div class="nd-results__item"><a class="nd-space nd-space_single-offer js-show-layout" data-layout-target="offer"><span class="gallery gallery_space nd-space__media js-nd-gallery"><span class="gallery__slider js-gallery-container"><span class="gallery__wrapper"><span class="gallery__slide">
+                                            <picture class="gallery__image">
+                                                <source srcset="assets/images/nd/space19.jpg" /><img srcset="assets/images/nd/space19.jpg" alt="" role="presentation" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" />
+                                            </picture>
+                                        </span><span class="gallery__slide">
+                                            <picture class="gallery__image">
+                                                <source srcset="assets/images/nd/space1.jpg" /><img srcset="assets/images/nd/space1.jpg" alt="" role="presentation" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" />
+                                            </picture>
+                                        </span><span class="gallery__slide">
+                                            <picture class="gallery__image">
+                                                <source srcset="assets/images/nd/space2.jpg" /><img srcset="assets/images/nd/space2.jpg" alt="" role="presentation" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" />
+                                            </picture>
+                                        </span><span class="gallery__slide">
+                                            <picture class="gallery__image">
+                                                <source srcset="assets/images/nd/space7.jpg" /><img srcset="assets/images/nd/space7.jpg" alt="" role="presentation" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" />
+                                            </picture>
+                                        </span></span></span><span class="gallery__buttons gallery__buttons_small"><span class="gallery__button gallery__button_prev js-gallery-button-prev"><svg><use xlink:href="assets/images/icon.svg#icon_nd-slider-arrow"></use></svg></span><span class="gallery__button gallery__button_next js-gallery-button-next"><svg><use xlink:href="assets/images/icon.svg#icon_nd-slider-arrow"></use></svg></span></span></span><span class="nd-space__describe"><span class="nd-space__head"><span class="nd-space__subtitle">The Finsbury Business Centre</span><span class="space-type space-type_big space-type_gray nd-space__type"><span class="nd-box nd-box_green space-type__box"></span><span class="space-type__name">PRIVATE OFFICE</span></span></span><span class="nd-space__title">8 Person office</span>
+                                <table class="nd-table nd-table_info nd-table_info_space" cellspacing="0">
+                                    <tbody>
+                                        <tr>
+                                            <td>Amount of desks</td>
+                                            <td>12</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Floor area</td>
+                                            <td>257 ft2</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Min. term</td>
+                                            <td>1 month</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Price</td>
+                                            <td><b>£ 2,400 per month</b></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </span></a></div>
+                    <div class="nd-results__item"><a class="nd-space nd-space_single-offer js-show-layout" data-layout-target="offer"><span class="gallery gallery_space nd-space__media js-nd-gallery"><span class="gallery__slider js-gallery-container"><span class="gallery__wrapper"><span class="gallery__slide">
+                                            <picture class="gallery__image">
+                                                <source srcset="assets/images/nd/space17.jpg" /><img srcset="assets/images/nd/space17.jpg" alt="" role="presentation" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" />
+                                            </picture>
+                                        </span><span class="gallery__slide">
+                                            <picture class="gallery__image">
+                                                <source srcset="assets/images/nd/space1.jpg" /><img srcset="assets/images/nd/space1.jpg" alt="" role="presentation" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" />
+                                            </picture>
+                                        </span><span class="gallery__slide">
+                                            <picture class="gallery__image">
+                                                <source srcset="assets/images/nd/space2.jpg" /><img srcset="assets/images/nd/space2.jpg" alt="" role="presentation" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" />
+                                            </picture>
+                                        </span><span class="gallery__slide">
+                                            <picture class="gallery__image">
+                                                <source srcset="assets/images/nd/space7.jpg" /><img srcset="assets/images/nd/space7.jpg" alt="" role="presentation" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" />
+                                            </picture>
+                                        </span></span></span><span class="gallery__buttons gallery__buttons_small"><span class="gallery__button gallery__button_prev js-gallery-button-prev"><svg><use xlink:href="assets/images/icon.svg#icon_nd-slider-arrow"></use></svg></span><span class="gallery__button gallery__button_next js-gallery-button-next"><svg><use xlink:href="assets/images/icon.svg#icon_nd-slider-arrow"></use></svg></span></span></span><span class="nd-space__describe"><span class="nd-space__head"><span class="nd-space__subtitle">The Finsbury Business Centre</span><span class="space-type space-type_big space-type_gray nd-space__type"><span class="nd-box nd-box_green space-type__box"></span><span class="space-type__name">PRIVATE OFFICE</span></span></span><span class="nd-space__title">Studio 21</span>
+                                <table class="nd-table nd-table_info nd-table_info_space" cellspacing="0">
+                                    <tbody>
+                                        <tr>
+                                            <td>Amount of desks</td>
+                                            <td>12</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Floor area</td>
+                                            <td>257 ft2</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Min. term</td>
+                                            <td>1 month</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Price</td>
+                                            <td><b>£ 2,400 per month</b></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </span></a></div>
+                    <div class="nd-results__item"><a class="nd-space nd-space_single-offer js-show-layout" data-layout-target="offer"><span class="gallery gallery_space nd-space__media js-nd-gallery"><span class="gallery__slider js-gallery-container"><span class="gallery__wrapper"><span class="gallery__slide">
+                                            <picture class="gallery__image">
+                                                <source srcset="assets/images/nd/space17.jpg" /><img srcset="assets/images/nd/space17.jpg" alt="" role="presentation" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" />
+                                            </picture>
+                                        </span><span class="gallery__slide">
+                                            <picture class="gallery__image">
+                                                <source srcset="assets/images/nd/space1.jpg" /><img srcset="assets/images/nd/space1.jpg" alt="" role="presentation" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" />
+                                            </picture>
+                                        </span><span class="gallery__slide">
+                                            <picture class="gallery__image">
+                                                <source srcset="assets/images/nd/space2.jpg" /><img srcset="assets/images/nd/space2.jpg" alt="" role="presentation" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" />
+                                            </picture>
+                                        </span><span class="gallery__slide">
+                                            <picture class="gallery__image">
+                                                <source srcset="assets/images/nd/space7.jpg" /><img srcset="assets/images/nd/space7.jpg" alt="" role="presentation" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" />
+                                            </picture>
+                                        </span></span></span><span class="gallery__buttons gallery__buttons_small"><span class="gallery__button gallery__button_prev js-gallery-button-prev"><svg><use xlink:href="assets/images/icon.svg#icon_nd-slider-arrow"></use></svg></span><span class="gallery__button gallery__button_next js-gallery-button-next"><svg><use xlink:href="assets/images/icon.svg#icon_nd-slider-arrow"></use></svg></span></span></span><span class="nd-space__describe"><span class="nd-space__head"><span class="nd-space__subtitle">The Finsbury Business Centre</span><span class="space-type space-type_big space-type_gray nd-space__type"><span class="nd-box nd-box_green space-type__box"></span><span class="space-type__name">PRIVATE OFFICE</span></span></span><span class="nd-space__title">Studio 21</span>
+                                <table class="nd-table nd-table_info nd-table_info_space" cellspacing="0">
+                                    <tbody>
+                                        <tr>
+                                            <td>Amount of desks</td>
+                                            <td>12</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Floor area</td>
+                                            <td>257 ft2</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Min. term</td>
+                                            <td>1 month</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Price</td>
+                                            <td><b>£ 2,400 per month</b></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </span></a></div>
+                    <div class="nd-results__item"><a class="nd-space nd-space_single-offer js-show-layout" data-layout-target="offer"><span class="gallery gallery_space nd-space__media js-nd-gallery"><span class="gallery__slider js-gallery-container"><span class="gallery__wrapper"><span class="gallery__slide">
+                                            <picture class="gallery__image">
+                                                <source srcset="assets/images/nd/space18.jpg" /><img srcset="assets/images/nd/space18.jpg" alt="" role="presentation" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" />
+                                            </picture>
+                                        </span><span class="gallery__slide">
+                                            <picture class="gallery__image">
+                                                <source srcset="assets/images/nd/space1.jpg" /><img srcset="assets/images/nd/space1.jpg" alt="" role="presentation" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" />
+                                            </picture>
+                                        </span><span class="gallery__slide">
+                                            <picture class="gallery__image">
+                                                <source srcset="assets/images/nd/space2.jpg" /><img srcset="assets/images/nd/space2.jpg" alt="" role="presentation" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" />
+                                            </picture>
+                                        </span><span class="gallery__slide">
+                                            <picture class="gallery__image">
+                                                <source srcset="assets/images/nd/space7.jpg" /><img srcset="assets/images/nd/space7.jpg" alt="" role="presentation" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" />
+                                            </picture>
+                                        </span></span></span><span class="gallery__buttons gallery__buttons_small"><span class="gallery__button gallery__button_prev js-gallery-button-prev"><svg><use xlink:href="assets/images/icon.svg#icon_nd-slider-arrow"></use></svg></span><span class="gallery__button gallery__button_next js-gallery-button-next"><svg><use xlink:href="assets/images/icon.svg#icon_nd-slider-arrow"></use></svg></span></span></span><span class="nd-space__describe"><span class="nd-space__head"><span class="nd-space__subtitle">The Finsbury Business Centre</span><span class="space-type space-type_big space-type_gray nd-space__type"><span class="nd-box nd-box_green space-type__box"></span><span class="space-type__name">PRIVATE OFFICE</span></span></span><span class="nd-space__title">13 desks office space</span>
+                                <table class="nd-table nd-table_info nd-table_info_space" cellspacing="0">
+                                    <tbody>
+                                        <tr>
+                                            <td>Amount of desks</td>
+                                            <td>12</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Floor area</td>
+                                            <td>257 ft2</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Min. term</td>
+                                            <td>1 month</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Price</td>
+                                            <td><b>£ 2,400 per month</b></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </span></a></div>
+                    <div class="nd-results__item"><a class="nd-space nd-space_single-offer js-show-layout" data-layout-target="offer"><span class="gallery gallery_space nd-space__media js-nd-gallery"><span class="gallery__slider js-gallery-container"><span class="gallery__wrapper"><span class="gallery__slide">
+                                            <picture class="gallery__image">
+                                                <source srcset="assets/images/nd/space19.jpg" /><img srcset="assets/images/nd/space19.jpg" alt="" role="presentation" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" />
+                                            </picture>
+                                        </span><span class="gallery__slide">
+                                            <picture class="gallery__image">
+                                                <source srcset="assets/images/nd/space1.jpg" /><img srcset="assets/images/nd/space1.jpg" alt="" role="presentation" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" />
+                                            </picture>
+                                        </span><span class="gallery__slide">
+                                            <picture class="gallery__image">
+                                                <source srcset="assets/images/nd/space2.jpg" /><img srcset="assets/images/nd/space2.jpg" alt="" role="presentation" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" />
+                                            </picture>
+                                        </span><span class="gallery__slide">
+                                            <picture class="gallery__image">
+                                                <source srcset="assets/images/nd/space7.jpg" /><img srcset="assets/images/nd/space7.jpg" alt="" role="presentation" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" />
+                                            </picture>
+                                        </span></span></span><span class="gallery__buttons gallery__buttons_small"><span class="gallery__button gallery__button_prev js-gallery-button-prev"><svg><use xlink:href="assets/images/icon.svg#icon_nd-slider-arrow"></use></svg></span><span class="gallery__button gallery__button_next js-gallery-button-next"><svg><use xlink:href="assets/images/icon.svg#icon_nd-slider-arrow"></use></svg></span></span></span><span class="nd-space__describe"><span class="nd-space__head"><span class="nd-space__subtitle">The Finsbury Business Centre</span><span class="space-type space-type_big space-type_gray nd-space__type"><span class="nd-box nd-box_green space-type__box"></span><span class="space-type__name">PRIVATE OFFICE</span></span></span><span class="nd-space__title">8 Person office</span>
+                                <table class="nd-table nd-table_info nd-table_info_space" cellspacing="0">
+                                    <tbody>
+                                        <tr>
+                                            <td>Amount of desks</td>
+                                            <td>12</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Floor area</td>
+                                            <td>257 ft2</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Min. term</td>
+                                            <td>1 month</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Price</td>
+                                            <td><b>£ 2,400 per month</b></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </span></a></div>
+                    <div class="nd-results__item"><a class="nd-space nd-space_single-offer js-show-layout" data-layout-target="offer"><span class="gallery gallery_space nd-space__media js-nd-gallery"><span class="gallery__slider js-gallery-container"><span class="gallery__wrapper"><span class="gallery__slide">
+                                            <picture class="gallery__image">
+                                                <source srcset="assets/images/nd/space17.jpg" /><img srcset="assets/images/nd/space17.jpg" alt="" role="presentation" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" />
+                                            </picture>
+                                        </span><span class="gallery__slide">
+                                            <picture class="gallery__image">
+                                                <source srcset="assets/images/nd/space1.jpg" /><img srcset="assets/images/nd/space1.jpg" alt="" role="presentation" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" />
+                                            </picture>
+                                        </span><span class="gallery__slide">
+                                            <picture class="gallery__image">
+                                                <source srcset="assets/images/nd/space2.jpg" /><img srcset="assets/images/nd/space2.jpg" alt="" role="presentation" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" />
+                                            </picture>
+                                        </span><span class="gallery__slide">
+                                            <picture class="gallery__image">
+                                                <source srcset="assets/images/nd/space7.jpg" /><img srcset="assets/images/nd/space7.jpg" alt="" role="presentation" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" />
+                                            </picture>
+                                        </span></span></span><span class="gallery__buttons gallery__buttons_small"><span class="gallery__button gallery__button_prev js-gallery-button-prev"><svg><use xlink:href="assets/images/icon.svg#icon_nd-slider-arrow"></use></svg></span><span class="gallery__button gallery__button_next js-gallery-button-next"><svg><use xlink:href="assets/images/icon.svg#icon_nd-slider-arrow"></use></svg></span></span></span><span class="nd-space__describe"><span class="nd-space__head"><span class="nd-space__subtitle">The Finsbury Business Centre</span><span class="space-type space-type_big space-type_gray nd-space__type"><span class="nd-box nd-box_green space-type__box"></span><span class="space-type__name">PRIVATE OFFICE</span></span></span><span class="nd-space__title">Studio 21</span>
+                                <table class="nd-table nd-table_info nd-table_info_space" cellspacing="0">
+                                    <tbody>
+                                        <tr>
+                                            <td>Amount of desks</td>
+                                            <td>12</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Floor area</td>
+                                            <td>257 ft2</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Min. term</td>
+                                            <td>1 month</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Price</td>
+                                            <td><b>£ 2,400 per month</b></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </span></a></div>
+                </div>
+            </div>
+            <div class="layout__column layout__column_start layout__column_popup" data-layout-tag="space"></div>
+            <div class="layout__column layout__column_end layout__column_popup" data-layout-tag="list,space"></div>
+            <div class="layout__column layout__column_start layout__column_popup" data-layout-tag="offer"></div>
+        </section>
+        <form class="modals" id="search-filter" action="/">
+            <fieldset class="modals__fieldset">
+                <div class="modal" id="filter-location">
+                    <div class="modal__overlay"></div>
+                    <div class="modal__wrapper">
+                        <div class="modal__header nd-hide-from-sm"><button class="modal__close" type="button">Close</button>
+                            <div class="modal__title">Location</div>
+                        </div>
+                        <div class="modal__content">
+                            <div class="modal__list">
+                                <div class="modal__checklist"><label class="check-button check-button_hov-blue check-button_h34 check-button_sm-styled modal__check"><input class="check-button__input" name="city" value="Anywhere" checked="checked" type="radio" data-modal-item="data-modal-item" data-modal-item-value="Anywhere" data-modal-item-type="city" /><span class="check-button__content">Anywhere</span></label><label class="check-button check-button_hov-blue check-button_h34 check-button_sm-styled modal__check"><input class="check-button__input" name="city" value="London" type="radio" data-modal-item="data-modal-item" data-modal-item-value="London" data-modal-item-type="city" /><span class="check-button__content">London</span></label><label class="check-button check-button_hov-blue check-button_h34 check-button_sm-styled modal__check"><input class="check-button__input" name="city" value="Hearthfordshire" type="radio" data-modal-item="data-modal-item" data-modal-item-value="Hearthfordshire" data-modal-item-type="city" /><span class="check-button__content">Hearthfordshire</span></label></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal" id="filter-type">
+                    <div class="modal__overlay"></div>
+                    <div class="modal__wrapper">
+                        <div class="modal__header nd-hide-from-sm"><button class="modal__close" type="button">Close</button>
+                            <div class="modal__title">Office type</div>
+                        </div>
+                        <div class="modal__content">
+                            <div class="modal__describe">
+                                <div class="modal__text">Pick the type of workspace you want.</div>
+                            </div>
+                            <div class="modal__list"><label class="styled-radio styled-radio_offer styled-radio_offer_green modal__item"><input class="styled-radio__input" type="radio" value="Private Office" name="team" data-modal-item="data-modal-item" data-modal-item-value="Private Office" data-modal-item-type="offer" /><span class="styled-radio__content">Private Office</span></label><label class="styled-radio styled-radio_offer styled-radio_offer_orange modal__item"><input class="styled-radio__input" type="radio" value="Hot Desk" name="team" data-modal-item="data-modal-item" data-modal-item-value="Hot Desk" data-modal-item-type="offer" /><span class="styled-radio__content">Hot Desk</span></label><label class="styled-radio styled-radio_offer styled-radio_offer_red modal__item"><input class="styled-radio__input" type="radio" value="Fixed Desk" name="team" data-modal-item="data-modal-item" data-modal-item-value="Fixed Desk" data-modal-item-type="offer" /><span class="styled-radio__content">Fixed Desk</span></label><label class="styled-radio styled-radio_offer styled-radio_offer_blue modal__item"><input class="styled-radio__input" type="radio" value="Meeting Room" name="team" data-modal-item="data-modal-item" data-modal-item-value="Meeting Room" data-modal-item-type="offer" /><span class="styled-radio__content">Meeting Room</span></label></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal" id="filter-team">
+                    <div class="modal__overlay"></div>
+                    <div class="modal__wrapper">
+                        <div class="modal__header nd-hide-from-sm"><button class="modal__close" type="button">Close</button>
+                            <div class="modal__title">Team size</div>
+                        </div>
+                        <div class="modal__content">
+                            <div class="modal__describe">
+                                <div class="modal__text">Start-up, scale-up, big business or just you – we have a perfect match for you.</div>
+                            </div>
+                            <div class="modal__list"><label class="styled-radio styled-radio_team modal__item"><input class="styled-radio__input" type="radio" value="1" name="team" data-modal-item="data-modal-item" data-modal-item-value="1" data-modal-item-type="team" /><span class="styled-radio__content">1</span></label><label class="styled-radio styled-radio_team modal__item"><input class="styled-radio__input" type="radio" value="2 — 4" name="team" data-modal-item="data-modal-item" data-modal-item-value="2 — 4" data-modal-item-type="team" /><span class="styled-radio__content">2 — 4</span></label><label class="styled-radio styled-radio_team modal__item"><input class="styled-radio__input" type="radio" value="5 — 7" name="team" data-modal-item="data-modal-item" data-modal-item-value="5 — 7" data-modal-item-type="team" /><span class="styled-radio__content">5 — 7</span></label><label class="styled-radio styled-radio_team modal__item"><input class="styled-radio__input" type="radio" value="8 — 10" name="team" data-modal-item="data-modal-item" data-modal-item-value="8 — 10" data-modal-item-type="team" /><span class="styled-radio__content">8 — 10</span></label><label class="styled-radio styled-radio_team modal__item"><input class="styled-radio__input" type="radio" value="11 — 15" name="team" data-modal-item="data-modal-item" data-modal-item-value="11 — 15" data-modal-item-type="team" /><span class="styled-radio__content">11 — 15</span></label><label class="styled-radio styled-radio_team modal__item"><input class="styled-radio__input" type="radio" value="16 — 20" name="team" data-modal-item="data-modal-item" data-modal-item-value="16 — 20" data-modal-item-type="team" /><span class="styled-radio__content">16 — 20</span></label><label class="styled-radio styled-radio_team modal__item"><input class="styled-radio__input" type="radio" value="21 — 30" name="team" data-modal-item="data-modal-item" data-modal-item-value="21 — 30" data-modal-item-type="team" /><span class="styled-radio__content">21 — 30</span></label><label class="styled-radio styled-radio_team modal__item"><input class="styled-radio__input" type="radio" value="31+" name="team" data-modal-item="data-modal-item" data-modal-item-value="31+" data-modal-item-type="team" /><span class="styled-radio__content">31+</span></label></div>
+                        </div>
+                    </div>
+                </div>
+            </fieldset>
+            <fieldset class="modals__fieldset">
+                <div class="modal" id="filter-range">
+                    <div class="modal__overlay"></div>
+                    <div class="modal__wrapper">
+                        <div class="modal__header nd-hide-from-sm"><button class="modal__close" type="button">Close</button>
+                            <div class="modal__title">Price range</div>
+                        </div>
+                        <div class="modal__content">
+                            <div class="nd-range js-nd-range modal__range" data-start="[0, 5000]" data-connect="[false, true, false]" data-step="10" data-margin="30" data-min="0" data-max="10000" data-currency="£" data-modal-output-type="range">
+                                <div class="nd-range__slider" data-nd-range-container="data-nd-range-container"></div>
+                                <div class="nd-range__output" data-nd-range-output="data-nd-range-output">
+                                    <div class="nd-range__item"><label class="form-box nd-form-box nd-form-box_bg-white nd-form-box_sm-h50"><input class="nd-input nd-input_sm-h50" type="text" name="minPrice" placeholder="Min" data-nd-range-input-min="data-nd-range-input-min" /><span class="form-box__label">Min</span></label></div>
+                                    <div class="nd-range__item"><label class="form-box nd-form-box nd-form-box_bg-white nd-form-box_sm-h50"><input class="nd-input nd-input_sm-h50" type="text" name="maxPrice" placeholder="Max" data-nd-range-input-max="data-nd-range-input-max" /><span class="form-box__label">Max</span></label></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal__footer nd-hide-from-sm"><a class="nd-button nd-button_black modal__reset" type="reset"><span class="nd-button__bg"></span><span class="nd-button__text">Clear</span></a><a class="nd-button modal__setter" type="button"><span class="nd-button__bg"></span><span class="nd-button__text">Set filter</span></a></div>
+                    </div>
+                </div>
+                <div class="modal" id="filter-sort">
+                    <div class="modal__overlay"></div>
+                    <div class="modal__wrapper">
+                        <div class="modal__header nd-hide-from-sm"><button class="modal__close" type="button">Close</button>
+                            <div class="modal__title">Sort by</div>
+                        </div>
+                        <div class="modal__content">
+                            <div class="modal__list"><label class="styled-radio styled-radio_sort modal__item"><input class="styled-radio__input" type="radio" value="Popular" name="sort" data-modal-item="data-modal-item" data-modal-item-value="Popular" data-modal-item-type="sort" checked="checked" /><span class="styled-radio__content">Popular</span></label><label class="styled-radio styled-radio_sort modal__item"><input class="styled-radio__input" type="radio" value="Relevance" name="sort" data-modal-item="data-modal-item" data-modal-item-value="Relevance" data-modal-item-type="sort" /><span class="styled-radio__content">Relevance</span></label><label class="styled-radio styled-radio_sort modal__item"><input class="styled-radio__input" type="radio" value="Price ascending" name="sort" data-modal-item="data-modal-item" data-modal-item-value="Price ascending" data-modal-item-type="sort" /><span class="styled-radio__content">Price ascending</span></label><label class="styled-radio styled-radio_sort modal__item"><input class="styled-radio__input" type="radio" value="Price descending" name="sort" data-modal-item="data-modal-item" data-modal-item-value="Price descending" data-modal-item-type="sort" /><span class="styled-radio__content">Price descending</span></label></div>
+                        </div>
+                    </div>
+                </div>
+            </fieldset>
+        </form>
+    </main>
+    <div class="popups"></div>
+    <script src="assets/scripts/app.min.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAlLpVITMmaCmvob8dU3xWWBDOjPefUkZ4&amp;callback=initMap"></script><!-- Библиотека для кластеризации в картах-->
+    <script src="https://unpkg.com/@googlemaps/markerclustererplus/dist/index.min.js"></script>
+    <script src="assets/scripts/map.js"></script>
+</body>
+
+</html>
