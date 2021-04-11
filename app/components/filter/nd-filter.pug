@@ -1,10 +1,14 @@
 mixin nd-filter()
   +b.nd-filter&attributes(attributes)
     +e.item
-      +e.BUTTON.reset(type="reset" disabled form="search-filter") Clear filter
+      +e.A.button(href="#").nd-hide-from-sm
+        +icon('back-arrow').__icon_back
+      +e.BUTTON.button.nd-hide-sm.js-sr-filter-reset(type="reset" disabled form="search-filter")
+        +icon('cross-bold').__icon_cross
+        span Clear filter
     +e.item
-      +modal-output({placeholder: 'Location', default: 'Anywhere'})._location.js-toggle-modal(data-modal-target="filter-location" data-modal-output-type="city")
+      +modal-output({placeholder: 'Location', default: 'Anywhere'})._special._location.js-toggle-modal(data-modal-target="filter-location" data-modal-output-type="city")
     +e.item
-      +modal-output({placeholder: 'Office type', default: 'Any'})._type.js-toggle-modal(data-modal-target="filter-type" data-modal-output-type="offer")
+      +modal-output({placeholder: 'Office type', default: 'Any'})._special._type.js-toggle-modal(data-modal-target="filter-type" data-modal-output-type="offer")
     +e.item_team
-      +modal-output({placeholder: 'Team size', default: 'Any'})._team.js-toggle-modal(data-modal-target="filter-team" data-modal-output-type="team")
+      +modal-output({placeholder: 'Team size', default: 'Any'})._special._team.js-toggle-modal(data-modal-target="filter-team" data-modal-output-type="team")

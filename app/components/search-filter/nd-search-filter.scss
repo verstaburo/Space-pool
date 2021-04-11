@@ -161,5 +161,38 @@
   &_v2 {
     position: relative;
     top: auto;
+    display: flex;
+
+    @include rule(height, (xl: 50px, xlg: 50, lg: 40, md: 40, sm: 60));
+
+    @include screen('sm', max, 2) {
+      background-color: $nd-color-basic-light;
+    }
+
+    .nd-container {
+      display: flex;
+      align-items: stretch;
+      justify-content: flex-start;
+      height: 100%;
+
+      @include screen('sm', max, 2) {
+        padding-left: 0;
+        padding-right: 0;
+      }
+    }
+
+    #{$b} {
+
+      &__wrapper {
+        padding: 0;
+      }
+
+      &__filter {
+        display: flex;
+        align-items: stretch;
+        justify-content: flex-start;
+        width: 100%;
+      }
+    }
   }
 }

@@ -144,4 +144,17 @@
       pointer-events: none;
     }
   }
+
+  .map-in-fullview & {
+    @include screen('sm', max, 2) {
+      transform: translate3d(0, 100%, 0);
+      z-index: 26;
+    }
+  }
+
+  .is-map-filter-shown & {
+    @include screen('sm', max, 2) {
+      transform: translate3d(0, 0, 0);
+    }
+  }
 }

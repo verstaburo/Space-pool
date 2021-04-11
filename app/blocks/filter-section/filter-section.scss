@@ -5,9 +5,27 @@
   justify-content: space-between;
   align-items: center;
 
+  .modal-output {
+    @include rule(min-width, (xl: 145px, xlg: 145, lg: 130, md: 130, sm: 127));
+  }
+
   &__group {
     display: flex;
     justify-content: flex-start;
     align-items: center;
+
+    &:not(:last-child) {
+      @include rule(margin-right, (xl: 16px, xlg: 16, lg: 16, md: 16, sm: 16));
+    }
+
+    .modal-output {
+      @include rule(min-width, (xl: 170px, xlg: 170, lg: 120, md: 120, sm: 120));
+    }
+  }
+
+  &__item {
+    &:not(:last-child) {
+      @include rule(margin-right, (xl: 16px, xlg: 16, lg: 16, md: 16, sm: 16));
+    }
   }
 }

@@ -59,38 +59,38 @@
       }
     }
 
+    #{$b}_search-card_v2 & {
+      grid-column: 1 / 2;
+      grid-row: 1 / 3;
+
+      @include screen('lg', max, 2) {
+        grid-row: 1 / 2;
+      }
+
+      @include screen('md', max, 2) {
+        grid-row: 1 / 3;
+      }
+
+      @include screen('sm', max, 2) {
+        grid-row: 1 / 2;
+      }
+    }
+
     #{$b}_single-offer & {
       box-sizing: border-box;
       flex: none;
-      width: 284px;
-      height: 180px;
       padding-top: 0;
       border-radius: 3px;
       overflow: hidden;
 
-      @include screen('xlg', max, 2) {
-        width: pxtovw(284, 1660);
-        height: pxtovw(180, 1660);
-        border-radius: pxtovw(3, 1660);
-      }
-
-      @include screen('lg', max, 2) {
-        width: pxtovw(196, 1366);
-        height: pxtovw(138, 1366);
-        border-radius: pxtovw(3, 1366);
-      }
-
-      @include screen('md', max, 2) {
-        width: pxtovw(219, 960);
-        height: pxtovw(151, 960);
-        border-radius: pxtovw(3, 960);
-      }
+      @include rule(width, (xl: 284px, xlg: 284, lg: 284, md: 284));
+      @include rule(height, (xl: 180px, xlg: 180, lg: 180, md: 180));
+      @include rule(border-radius, (xl: 3px, xlg: 3, lg: 3, md: 3, sm: 0));
 
       @include screen('sm', max, 2) {
         width: 100%;
         height: auto;
         padding-top: 63.3%;
-        border-radius: 0;
       }
     }
 
@@ -615,129 +615,55 @@
     }
 
     #{$b}_search-card & {
-      font-size: 20px;
       line-height: (24 / 20);
       font-weight: 400;
 
-      @include screen('xlg', max, 2) {
-        font-size: pxtovw(20, 1660);
-      }
-
-      @include screen('lg', max, 2) {
-        font-size: pxtovw(20, 1366);
-      }
-
-      @include screen('md', max, 2) {
-        font-size: pxtovw(20, 960);
-      }
-
-      @include screen('sm', max, 2) {
-        font-size: pxtovw(20, 375);
-      }
+      @include rule(font-size, (xl: 20px, xlg: 20, lg: 20, md: 20, sm: 20));
 
       &:not(:first-child) {
-        margin-top: 15px;
-
-        @include screen('xlg', max, 2) {
-          margin-top: pxtovw(15, 1660);
-        }
-
-        @include screen('lg', max, 2) {
-          margin-top: pxtovw(16, 1366);
-        }
-
-        @include screen('md', max, 2) {
-          margin-top: pxtovw(16, 960);
-        }
-
-        @include screen('sm', max, 2) {
-          margin-top: pxtovw(10, 375);
-        }
+        @include rule(margin-top, (xl: 15px, xlg: 15, lg: 16, md: 16, sm: 10));
       }
 
       &:not(:last-child) {
-        margin-bottom: 10px;
-
-        @include screen('xlg', max, 2) {
-          margin-bottom: pxtovw(10, 1660);
-        }
-
-        @include screen('lg', max, 2) {
-          margin-bottom: pxtovw(16, 1366);
-        }
-
-        @include screen('md', max, 2) {
-          margin-bottom: pxtovw(16, 960);
-        }
-
-        @include screen('sm', max, 2) {
-          margin-bottom: pxtovw(35, 375);
-        }
+        @include rule(margin-bottom, (xl: 10px, xlg: 10, lg: 16, md: 16, sm: 35));
       }
 
       .is-search-map-hide & {
         font-family: $font-main;
         font-weight: 700;
 
+        @include rule(font-size, (xl: 20px, xlg: 18, lg: 18, md: 18, sm: 20));
+
         @include screen('xlg', max, 2) {
-          font-size: pxtovw(18, 1660);
           line-height: (22 / 18);
         }
 
-        @include screen('lg', max, 2) {
-          font-size: pxtovw(18, 1366);
-        }
-
-        @include screen('md', max, 2) {
-          font-size: pxtovw(18, 960);
-        }
 
         @include screen('sm', max, 2) {
-          font-size: pxtovw(20, 375);
           line-height: (24 / 20);
           font-family: $font-stolzl;
           font-weight: 400;
         }
 
         &:not(:first-child) {
-          margin-top: 10px;
-
-          @include screen('xlg', max, 2) {
-            margin-top: pxtovw(10, 1660);
-          }
-
-          @include screen('lg', max, 2) {
-            margin-top: pxtovw(10, 1366);
-          }
-
-          @include screen('md', max, 2) {
-            margin-top: pxtovw(10, 960);
-          }
-
-          @include screen('sm', max, 2) {
-            margin-top: pxtovw(10, 375);
-          }
+          @include rule(margin-top, (xl: 10px, xlg: 10, lg: 10, md: 10, sm: 10));
         }
 
         &:not(:last-child) {
-          margin-bottom: 45px;
-
-          @include screen('xlg', max, 2) {
-            margin-bottom: pxtovw(45, 1660);
-          }
-
-          @include screen('lg', max, 2) {
-            margin-bottom: pxtovw(20, 1366);
-          }
-
-          @include screen('md', max, 2) {
-            margin-bottom: pxtovw(16, 960);
-          }
-
-          @include screen('sm', max, 2) {
-            margin-bottom: pxtovw(35, 375);
-          }
+          @include rule(margin-bottom, (xl: 45px, xlg: 45, lg: 20, md: 16, sm: 35));
         }
+      }
+    }
+
+    #{$b}_search-card_v2 & {
+      @include rule(font-size, (xl: 20px, xlg: 20, lg: 19, md: 20, sm: 20));
+
+      &:not(:first-child) {
+        @include rule(margin-top, (xl: 14px, xlg: 14, lg: 10, md: 16, sm: 10));
+      }
+
+      &:not(:last-child) {
+        @include rule(margin-bottom, (xl: 13px, xlg: 13, lg: 26, md: 16, sm: 35));
       }
     }
 
@@ -1062,43 +988,28 @@
       font-weight: inherit;
       letter-spacing: inherit;
       line-height: inherit;
-      max-height: ($lines + 1) * $line-height * 1em;
       display: -webkit-box;
-      -webkit-line-clamp: $lines;
+      -webkit-line-clamp: 2;
       -webkit-box-orient: vertical;
-      line-clamp: $lines;
+      line-clamp: 2;
 
       @include screen('sm', max, 2) {
         display: none;
       }
+    }
 
-      &::before {
-        background: #fff; // fallback for old IE
-        background: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1) 50%);
-        bottom: $line-height * 1em;
-        content: '\02026';
-        height: $line-height * 1em;
-        position: absolute;
-        right: 0;
-        text-align: right;
-        width: 4em;
+    #{$b}_search-card_v2 & {
+      -webkit-line-clamp: 2;
+      line-clamp: 2;
+
+      @include screen('lg', max, 2) {
+        -webkit-line-clamp: 4;
+        line-clamp: 4;
       }
 
-      &::after { // to cover all but the last line of text
-        background: #fff;
-        content: attr(data-text);
-        left: 0;
-        height: ($lines - 1) * $line-height * 1em;
-        overflow: hidden;
-        position: absolute;
-        top: 0;
-        width: 100%;
-      }
-
-      @supports (-webkit-line-clamp: 2) {
-        &::before,&::after {
-          content: none;
-        }
+      @include screen('md', max, 2) {
+        -webkit-line-clamp: 4;
+        line-clamp: 4;
       }
     }
   }
@@ -1107,7 +1018,7 @@
     display: block;
     overflow: hidden;
     line-height: $line-height;
-    max-height: $lines * $line-height * 1em;
+    max-height: 2 * $line-height * 1em;
     text-overflow: ellipsis;
     color: $nd-color-gray-text8;
     font-size: 15px;
@@ -1147,6 +1058,20 @@
 
     .is-search-map-hide & {
       display: none;
+    }
+
+    #{$b}__text {
+      color: currentColor;
+    }
+
+    #{$b}_search-card_v2 & {
+      @include screen('lg', max, 2) {
+        max-height: 4 * $line-height * 1em;
+      }
+
+      @include screen('md', max, 2) {
+        max-height: 2 * $line-height * 1em;
+      }
     }
   }
 
@@ -1240,6 +1165,16 @@
         @include screen('sm', max, 2) {
           padding: pxtovw(13, 375) pxtovw(16, 375);
         }
+      }
+    }
+
+    #{$b}_search-card_v2 & {
+      grid-column: 2 / 3;
+      grid-row: 1 / 2;
+
+      @include screen('sm', max, 2) {
+        grid-column: 1 / 2;
+        grid-row: 2 / 3;
       }
     }
 
@@ -1351,6 +1286,35 @@
         margin-top: auto;
       }
     }
+
+    #{$b}_search-card_v2 & {
+      margin-top: 0;
+    }
+  }
+
+  &__offer-list {
+    @include rule(margin-top, (xl: 22px, xlg: 22, lg: 17, md: 22, sm: 22));
+    @include rule(padding-left, (xl: 30px, xlg: 30, lg: 0, md: 25, sm: 16));
+    @include rule(padding-right, (sm: 16));
+
+    grid-column: 2 / 3;
+    grid-row: 2 / 3;
+    box-sizing: border-box;
+
+    @include screen('lg', max, 2) {
+      grid-column: 1 / 3;
+      grid-row: 2 / 3;
+    }
+
+    @include screen('md', max, 2) {
+      grid-column:  2 / 3;
+      grid-row: 2 / 3;
+    }
+
+    @include screen('sm', max, 2) {
+      grid-column: 1 / 2;
+      grid-row: 3 / 4;
+    }
   }
 
   &__address {
@@ -1362,42 +1326,17 @@
     line-height: (15 / 12);
     color: $color-gray-lightest;
 
-    @include screen('xlg', max, 2) {
-      font-size: pxtovw(12, 1660);
-    }
+    @include rule(font-size, (xl: 12px, xlg: 12, lg: 12, md: 12, sm: 12));
 
-    @include screen('lg', max, 2) {
-      font-size: pxtovw(12, 1366);
-    }
-
-    @include screen('md', max, 2) {
-      font-size: pxtovw(12, 960);
-    }
-
-    @include screen('sm', max, 2) {
-      font-size: pxtovw(12, 375);
+    #{$b}_search-card_v2 & {
+      @include rule(font-size, (xl: 12px, xlg: 12, lg: 11, md: 12, sm: 12));
     }
 
     #{$b}_rs & {
       color: $nd-color-gray-text;
-      font-size: 15px;
       line-height: (18 / 15);
 
-      @include screen('xlg', max, 2) {
-        font-size: pxtovw(15, 1660);
-      }
-
-      @include screen('lg', max, 2) {
-        font-size: pxtovw(15, 1366);
-      }
-
-      @include screen('md', max, 2) {
-        font-size: pxtovw(15, 960);
-      }
-
-      @include screen('sm', max, 2) {
-        font-size: pxtovw(15, 375);
-      }
+      @include rule(font-size, (xl: 15px, xlg: 15, lg: 15, md: 15, sm: 15));
     }
 
     span, a {
@@ -1406,90 +1345,35 @@
       box-sizing: border-box;
 
       &:not(:last-child) {
-        padding-right: 23px;
-
-        @include screen('xlg', max, 2) {
-          padding-right: pxtovw(23, 1660);
-        }
-
-        @include screen('lg', max, 2) {
-          padding-right: pxtovw(23, 1366);
-        }
-
-        @include screen('md', max, 2) {
-          padding-right: pxtovw(23, 960);
-        }
-
-        @include screen('sm', max, 2) {
-          padding-right: pxtovw(23, 375);
-        }
+        @include rule(padding-right, (xl: 23px, xlg: 23, lg: 23, md: 23, sm: 23));
 
         &::after {
           position: absolute;
           display: inline-block;
           content: '-';
           height: 100%;
-          width: 23px;
           text-align: center;
           vertical-align: middle;
           top: 50%;
           right: 0;
           transform: translate3d(0, -50%, 0);
 
-          @include screen('xlg', max, 2) {
-            width: pxtovw(23, 1660);
-          }
-
-          @include screen('lg', max, 2) {
-            width: pxtovw(23, 1366);
-          }
-
-          @include screen('md', max, 2) {
-            width: pxtovw(23, 960);
-          }
-
-          @include screen('sm', max, 2) {
-            width: pxtovw(23, 375);
-          }
+          @include rule(width, (xl: 23px, xlg: 23, lg: 23, md: 23, sm: 23));
         }
 
         #{$b}_rs & {
-          padding-right: 28px;
-
-          @include screen('xlg', max, 2) {
-            padding-right: pxtovw(28, 1660);
-          }
-
-          @include screen('lg', max, 2) {
-            padding-right: pxtovw(28, 1366);
-          }
-
-          @include screen('md', max, 2) {
-            padding-right: pxtovw(28, 960);
-          }
-
-          @include screen('sm', max, 2) {
-            padding-right: pxtovw(28, 375);
-          }
+          @include rule(padding-right, (xl: 28px, xlg: 28, lg: 28, md: 28, sm: 28));
 
           &::after {
-            width: 28px;
+            @include rule(width, (xl: 28px, xlg: 28, lg: 28, md: 28, sm: 28));
+          }
+        }
 
-            @include screen('xlg', max, 2) {
-              width: pxtovw(28, 1660);
-            }
+        #{$b}_search-card_v2 & {
+          @include rule(padding-right, (xl: 21px, xlg: 21, lg: 23, md: 23, sm: 23));
 
-            @include screen('lg', max, 2) {
-              width: pxtovw(28, 1366);
-            }
-
-            @include screen('md', max, 2) {
-              width: pxtovw(28, 960);
-            }
-
-            @include screen('sm', max, 2) {
-              width: pxtovw(28, 375);
-            }
+          &::after {
+            @include rule(width, (xl: 21px, xlg: 21, lg: 23, md: 23, sm: 23));
           }
         }
       }
@@ -1900,6 +1784,29 @@
 
       #{$b}__title {
         text-decoration: none;
+      }
+    }
+
+    &_v2 {
+      display: grid;
+      grid-template-columns: 284px 1fr;
+      grid-template-rows: repeat(3, auto);
+
+      @include screen('xlg', max, 2) {
+        grid-template-columns: pxtovw(284, 1660) 1fr;
+      }
+
+      @include screen('lg', max, 2) {
+        grid-template-columns: pxtovw(196, 1366) 1fr;
+      }
+
+      @include screen('md', max, 2) {
+        grid-template-columns: pxtovw(219, 960) 1fr;
+      }
+
+      @include screen('sm', max, 2) {
+        grid-template-columns: 100%;
+        grid-template-rows: repeat(4, auto);
       }
     }
   }

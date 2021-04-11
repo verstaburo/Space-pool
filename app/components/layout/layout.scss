@@ -8,25 +8,25 @@
   width: 100%;
   height: calc(100vh - 94px);
   box-sizing: border-box;
-  overflow: hidden;
+  overflow-x: hidden;
 
-  @include screen("xlg") {
+  @include screen("xlg", max, 2) {
     height: calc(100vh - (9400 / 1920) * 1vw);
   }
 
-  @include screen("lg") {
+  @include screen("lg", max, 2) {
     grid-template-columns: 52.93% 47.07%;
     height: calc(100vh - (6600 / 1366) * 1vw);
   }
 
-  @include screen("md") {
+  @include screen("md", max, 2) {
     grid-template-columns: 68.75% 31.25%;
     grid-template-rows: repeat(3, auto);
     height: calc(100vh - (6600 / 960) * 1vw);
     overflow: auto;
   }
 
-  @include screen("sm") {
+  @include screen("sm", max, 2) {
     grid-template-columns: 100%;
     height: calc(100vh - (6600 / 375) * 1vw);
   }
@@ -34,13 +34,14 @@
   &__column {
     display: block;
     width: 100%;
+    box-sizing: border-box;
 
     &_filter {
       grid-column: 1 / 3;
       grid-row: 1 / 2;
       background-color: $nd-color-bg;
 
-      @include screen('md') {
+      @include screen('md', max, 2) {
         position: sticky;
         top: 0;
         grid-row: 2 / 3;
@@ -50,7 +51,7 @@
         overscroll-behavior: none;
       }
 
-      @include screen('sm') {
+      @include screen('sm', max, 2) {
         grid-row: 1 / 2;
       }
 
@@ -76,7 +77,7 @@
         padding-left: 60px;
       }
 
-      @include screen('md') {
+      @include screen('md', max, 2) {
         grid-column: 1 / 3;
         grid-row: 3 / 4;
         z-index: 1;
@@ -87,6 +88,8 @@
 
       @include rule(padding-left, (xlg: 60, lg: 50, md: 50, sm: 20));
       @include rule(padding-right, (xl: 50px, xlg: 50, lg: 20, md: 50, sm: 20));
+      @include rule(padding-top, (xl: 55px, xlg: 55, lg: 44, md: 23, sm: 29));
+      @include rule(padding-bottom, (xl: 80px, xlg: 80, lg: 80, md: 80, sm: 80));
 
       @include native-scroll($nd-layout-scroll, transparent, 4, 7, 4);
     }
@@ -98,16 +101,16 @@
       overflow: hidden;
       transition: width $ease-main, height $ease-main;
 
-      @include screen('md') {
+      @include screen('md', max, 2) {
         grid-column: 1 / 3;
         grid-row: 1 / 2;
       }
 
-      @include screen('sm') {
+      @include screen('sm', max, 2) {
         grid-row: 2 / 3;
       }
 
-      @include rule(height, (md: 254, sm: 208));
+      @include rule(height, (md: 257, sm: 208));
 
       .map-in-fullview & {
         z-index: 3;
@@ -130,8 +133,12 @@
       max-height: 100%;
       overflow: auto;
 
-      @include screen('sm') {
-        grid-column: 1 / 3;
+      @include screen('md', max, 2) {
+        grid-column: 2 / 4;
+      }
+
+      @include screen('sm', max, 2) {
+        grid-column: 1 / 4;
       }
 
       @include native-scroll($nd-layout-scroll, transparent, 4, 7, 4);
@@ -143,8 +150,12 @@
       max-height: 100%;
       overflow: auto;
 
-      @include screen('sm') {
-        grid-column: 1 / 3;
+      @include screen('md', max, 2) {
+        grid-column: 2 / 4;
+      }
+
+      @include screen('sm', max, 2) {
+        grid-column: 1 / 4;
       }
 
       @include native-scroll($nd-layout-scroll, transparent, 4, 7, 4);
@@ -152,7 +163,7 @@
 
     &_popup {
       position: absolute;
-      width: 100%;
+      width: 0;
       height: 100%;
       visibility: hidden;
       background-color: $nd-color-bg;
@@ -194,6 +205,7 @@
 
       &.is-active {
         visibility: visible;
+        width: 100%;
         transform: translate3d(0, 0, 0);
       }
     }

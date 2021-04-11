@@ -1,5 +1,106 @@
 .nd-filter {
   $b: &;
 
-  display: block;
+  display: flex;
+  align-items: stretch;
+  justify-content: flex-start;
+
+  &__item {
+    display: flex;
+    border-right: 1px solid $nd-color-border4;
+    flex: none;
+
+    &:first-child {
+      border-left: 1px solid $nd-color-border4;
+
+      @include screen('sm', max, 2) {
+        border-left-width: 0;
+      }
+    }
+
+    &:last-child {
+      @include screen('sm', max, 2) {
+        border-right-width: 0;
+      }
+    }
+
+    &:nth-child(2) {
+      flex: 1;
+
+      @include rule(max-width, (xl: 337px, xlg: 337, lg: 337, md: 337, sm: 337));
+    }
+
+    @include screen('sm', max, 2) {
+      border-color: $nd-color-border6;
+    }
+  }
+
+  &__button {
+    @include rule(padding-left, (xl: 13px, xlg: 13, lg: 13, md: 13, sm: 13));
+    @include rule(padding-right, (xl: 13px, xlg: 13, lg: 13, md: 13, sm: 13));
+    @include rule(font-size, (xl: 15px, xlg: 15, lg: 15, md: 15, sm: 15));
+    @include rule(width, (xl: 124px, xlg: 124, lg: 124, md: 124, sm: 40));
+
+    display: flex;
+    justify-content: flex-start;
+    color: $nd-color-basic;
+    font-weight: 600;
+    height: 100%;
+    box-sizing: border-box;
+
+    &[disabled], &.is-disabled {
+      cursor: default;
+      cursor: not-allowed;
+      color: $nd-color-border6;
+      pointer-events: none;
+    }
+
+    span {
+      height: 100%;
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+  }
+
+  &__icon {
+    display: inline-block;
+    fill: currentColor;
+    flex: none;
+    height: 100%;
+
+    @include rule(width, (xl: 15px, xlg: 15, lg: 15, md: 15, sm: 15));
+    // @include rule(height, (xl: 15px, xlg: 15, lg: 15, md: 15, sm: 15));
+
+    &_back {
+      @include rule(width, (xl: 15px, xlg: 15, lg: 15, md: 15, sm: 15));
+      // @include rule(height, (xl: 15px, xlg: 15, lg: 15, md: 15, sm: 15));
+    }
+
+    &_cross {
+      @include rule(width, (xl: 12px, xlg: 12, lg: 12, md: 12, sm: 12));
+      // @include rule(height, (xl: 12px, xlg: 12, lg: 12, md: 12, sm: 12));
+    }
+
+    &:not(:last-child) {
+      @include rule(margin-right, (xl: 12px, xlg: 12, lg: 12, md: 12, sm: 12));
+    }
+  }
+
+  .modal-output {
+    height: 100%;
+
+    &_location {
+      width: 100%;
+    }
+
+    &_type {
+      @include rule(width, (xl: 216px, xlg: 216, lg: 216, md: 216, sm: 110))
+    }
+
+    &_team {
+      @include rule(width, (xl: 180px, xlg: 180, lg: 180, md: 180, sm: 89))
+    }
+  }
 }

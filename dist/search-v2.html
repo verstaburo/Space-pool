@@ -74,7 +74,7 @@
     </header>
     <div class="nd-user-menu-panel user-menu-panel">
         <ul class="user-menu-panel__list">
-            <li class="user-menu-panel__item user-menu-panel__item_filter"><a class="user-menu-panel__link js-show-modal" href="#" data-modal-target="filter-range">
+            <li class="user-menu-panel__item user-menu-panel__item_filter"><a class="user-menu-panel__link js-toggle-modal" href="#" data-modal-target="filter-range">
                     <div class="nd-user-link user-link"><svg class="user-link__icon user-link__icon_filter" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 23.8 21.1">
                             <path d="M21.25,4.2H7.35a.65.65,0,0,1,0-1.3h13.9a.65.65,0,1,1,0,1.3Z"></path>
                             <path d="M3.65,7.1A3.65,3.65,0,0,1,0,3.55,3.55,3.55,0,0,1,3.55,0,3.65,3.65,0,0,1,7.2,3.55,3.55,3.55,0,0,1,3.65,7.1Zm-.1-5.8A2.25,2.25,0,0,0,1.3,3.55,2.33,2.33,0,0,0,3.65,5.8,2.25,2.25,0,0,0,5.9,3.55,2.33,2.33,0,0,0,3.55,1.3Z" fill="#0085ff"></path>
@@ -86,7 +86,7 @@
                         <div class="user-link__marker"></div>
                     </div><span class="user-menu-panel__text">Filter</span>
                 </a></li>
-            <li class="user-menu-panel__item"><a class="user-menu-panel__link js-show-modal" href="#" data-modal-target="filter-sort">
+            <li class="user-menu-panel__item"><a class="user-menu-panel__link js-toggle-modal" href="#" data-modal-target="filter-sort">
                     <div class="nd-user-link user-link"><svg class="user-link__icon user-link__icon_sort" viewBox="0 0 22.3 17.78" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M4.85,16.38a.66.66,0,0,1-.65-.66V.72a.65.65,0,1,1,1.3,0v15A.66.66,0,0,1,4.85,16.38Z"></path>
                             <path d="M4.84,17.74.19,13.08a.66.66,0,0,1,0-.92.66.66,0,0,1,.92,0l3.74,3.75L8.6,12.26a.65.65,0,1,1,.9.93Z"></path>
@@ -219,21 +219,21 @@
                     <div class="nd-search-filter__wrapper">
                         <div class="nd-container">
                             <div class="nd-filter nd-search-filter__filter">
-                                <div class="nd-filter__item"><button class="nd-filter__reset" type="reset" disabled="disabled" form="search-filter">Clear filter</button></div>
+                                <div class="nd-filter__item"><a class="nd-filter__button nd-hide-from-sm" href="#"><svg class="nd-filter__icon nd-filter__icon_back"><use xlink:href="assets/images/icon.svg#icon_back-arrow"></use></svg></a><button class="nd-filter__button nd-hide-sm js-sr-filter-reset" type="reset" disabled="disabled" form="search-filter"><svg class="nd-filter__icon nd-filter__icon_cross"><use xlink:href="assets/images/icon.svg#icon_cross-bold"></use></svg><span>Clear filter</span></button></div>
                                 <div class="nd-filter__item">
-                                    <div class="modal-output modal-output_location js-toggle-modal" data-modal-target="filter-location" data-modal-output-type="city">
+                                    <div class="modal-output modal-output_special modal-output_location js-toggle-modal" data-modal-target="filter-location" data-modal-output-type="city">
                                         <div class="modal-output__placeholder">Location</div>
                                         <div class="modal-output__values" data-modal-output-value="data-modal-output-value" data-sm-default-value="Anywhere"></div><button class="modal-output__toggle" type="button"><svg width="7" heigh="4"><use xlink:href="assets/images/icon.svg#icon_select-arrow2"></use></svg></button>
                                     </div>
                                 </div>
                                 <div class="nd-filter__item">
-                                    <div class="modal-output modal-output_type js-toggle-modal" data-modal-target="filter-type" data-modal-output-type="offer">
+                                    <div class="modal-output modal-output_special modal-output_type js-toggle-modal" data-modal-target="filter-type" data-modal-output-type="offer">
                                         <div class="modal-output__placeholder">Office type</div>
                                         <div class="modal-output__values" data-modal-output-value="data-modal-output-value" data-sm-default-value="Any"></div><button class="modal-output__toggle" type="button"><svg width="7" heigh="4"><use xlink:href="assets/images/icon.svg#icon_select-arrow2"></use></svg></button>
                                     </div>
                                 </div>
                                 <div class="nd-filter__item nd-filter__item_team">
-                                    <div class="modal-output modal-output_team js-toggle-modal" data-modal-target="filter-team" data-modal-output-type="team">
+                                    <div class="modal-output modal-output_special modal-output_team js-toggle-modal" data-modal-target="filter-team" data-modal-output-type="team">
                                         <div class="modal-output__placeholder">Team size</div>
                                         <div class="modal-output__values" data-modal-output-value="data-modal-output-value" data-sm-default-value="Any"></div><button class="modal-output__toggle" type="button"><svg width="7" heigh="4"><use xlink:href="assets/images/icon.svg#icon_select-arrow2"></use></svg></button>
                                     </div>
@@ -245,7 +245,7 @@
             </div>
             <div class="layout__column layout__column_map js-map-sm-show-fullview">
                 <div class="nd-search-map nd-search-map_v2">
-                    <div class="nd-search-map__wrapper"><button class="nd-search-map__button js-map-toggle-fullview"><span data-map-hidden="data-map-hidden">Full map view</span><span data-map-shown="xl">Close map view</span><span data-map-shown="sm">View list</span></button>
+                    <div class="nd-search-map__wrapper"><button class="nd-search-map__button js-map-toggle-fullview"><span data-map-hidden="data-map-hidden">Full map view</span><span data-map-shown="xl">Close map view</span><span data-map-shown="sm">View list</span></button><button class="nd-search-map__filter js-map-filter-show">Filters</button>
                         <div class="nd-search-map__map" id="search-map-unsort"></div>
                     </div>
                 </div>
@@ -253,32 +253,32 @@
             <div class="layout__column layout__column_results">
                 <section class="nd-section md-only-visibility-hidden">
                     <div class="nd-section__header">
-                        <h3 class="nd-section__title nd-section__title_fz30">Office spaces in London</h3>
+                        <h3 class="nd-section__title nd-section__title_fz30 nd-section__title_sm-fz22 nd-section__title_ls-015">Office spaces in London</h3>
                         <div class="nd-section__filter-group">
-                            <div class="nd-section__text nd-section__text_fz15 nd-section__text_gray">Looking for workspace type, Any team size and Any price</div>
+                            <div class="nd-section__text nd-section__text_fz15 nd-section__text_ls0 nd-section__text_gray">Looking for workspace type, Any team size and Any price</div>
                             <div class="filter-section" form="search-filter">
                                 <div class="filter-section__group nd-hide-sm">
                                     <div class="filter-section__item">
-                                        <div class="modal-output modal-output_rounded js-toggle-modal" data-modal-target="filter-range" data-modal-output-type="range">
+                                        <div class="modal-output js-toggle-modal" data-modal-target="filter-range" data-modal-output-type="range">
                                             <div class="modal-output__placeholder">Price range</div>
                                             <div class="modal-output__values" data-modal-output-value="data-modal-output-value"></div><button class="modal-output__toggle" type="button"><svg width="7" heigh="4"><use xlink:href="assets/images/icon.svg#icon_select-arrow2"></use></svg></button>
                                         </div>
                                     </div>
                                     <div class="filter-section__item">
-                                        <div class="modal-output modal-output_rounded js-toggle-modal" data-modal-target="filter-available" data-modal-output-type="available">
+                                        <div class="modal-output js-toggle-modal" data-modal-target="filter-available" data-modal-output-type="available">
                                             <div class="modal-output__placeholder">Available from</div>
                                             <div class="modal-output__values" data-modal-output-value="data-modal-output-value"></div><button class="modal-output__toggle" type="button"><svg width="7" heigh="4"><use xlink:href="assets/images/icon.svg#icon_select-arrow2"></use></svg></button>
                                         </div>
                                     </div>
                                     <div class="filter-section__item">
-                                        <div class="modal-output modal-output_rounded js-toggle-modal" data-modal-target="filter-area" data-modal-output-type="area-size">
+                                        <div class="modal-output js-toggle-modal" data-modal-target="filter-area" data-modal-output-type="area-size">
                                             <div class="modal-output__placeholder">Total floor area</div>
                                             <div class="modal-output__values" data-modal-output-value="data-modal-output-value"></div><button class="modal-output__toggle" type="button"><svg width="7" heigh="4"><use xlink:href="assets/images/icon.svg#icon_select-arrow2"></use></svg></button>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="filter-section__item">
-                                    <div class="modal-output modal-output_rounded js-toggle-modal" data-modal-target="filter-sort" data-modal-output-type="sort">
+                                    <div class="modal-output js-toggle-modal" data-modal-target="filter-sort" data-modal-output-type="sort">
                                         <div class="modal-output__placeholder">Sort by</div>
                                         <div class="modal-output__values" data-modal-output-value="data-modal-output-value"></div><button class="modal-output__toggle" type="button"><svg width="7" heigh="4"><use xlink:href="assets/images/icon.svg#icon_select-arrow2"></use></svg></button>
                                     </div>
@@ -288,7 +288,7 @@
                     </div>
                 </section>
                 <div class="nd-results nd-results_v2">
-                    <div class="nd-results__item"><a class="nd-space nd-space_search-card js-show-layout" data-layout-target="space"><span class="gallery gallery_space nd-space__media js-nd-gallery"><span class="gallery__slider js-gallery-container"><span class="gallery__wrapper"><span class="gallery__slide">
+                    <div class="nd-results__item"><a class="nd-space nd-space_search-card nd-space_search-card_v2 js-show-layout" data-layout-target="space"><span class="gallery gallery_space nd-space__media js-nd-gallery"><span class="gallery__slider js-gallery-container"><span class="gallery__wrapper"><span class="gallery__slide">
                                             <picture class="gallery__image">
                                                 <source srcset="assets/images/nd/space17.jpg" /><img srcset="assets/images/nd/space17.jpg" alt="" role="presentation" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" />
                                             </picture>
@@ -304,8 +304,8 @@
                                             <picture class="gallery__image">
                                                 <source srcset="assets/images/nd/space7.jpg" /><img srcset="assets/images/nd/space7.jpg" alt="" role="presentation" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" />
                                             </picture>
-                                        </span></span></span><span class="gallery__buttons gallery__buttons_small"><span class="gallery__button gallery__button_prev js-gallery-button-prev"><svg><use xlink:href="assets/images/icon.svg#icon_nd-slider-arrow"></use></svg></span><span class="gallery__button gallery__button_next js-gallery-button-next"><svg><use xlink:href="assets/images/icon.svg#icon_nd-slider-arrow"></use></svg></span></span></span><span class="nd-space__describe"><span class="nd-space__address"><span>London</span><span>Mayfare</span><span>EC2A 4SD</span></span><span class="nd-space__title">The Finsbury Business Centre</span><span class="nd-space__clip-text"><span class="nd-space__text" data-text="The Finsbury Business Centre (FBC) was set up in 1983 on the site of a former 1930’s printworks. It was one of the first business centres in London and has helped a variety of diverse and interesting businesses to grow and flourish over the years.">The Finsbury Business Centre (FBC) was set up in 1983 on the site of a former 1930’s printworks. It was one of the first business centres in London and has helped a variety of diverse and interesting businesses to grow and flourish over the years.</span></span>
-                                <table class="offer-table offer-table_transforma nd-space__list">
+                                        </span></span></span><span class="gallery__buttons gallery__buttons_small"><span class="gallery__button gallery__button_prev js-gallery-button-prev"><svg><use xlink:href="assets/images/icon.svg#icon_nd-slider-arrow"></use></svg></span><span class="gallery__button gallery__button_next js-gallery-button-next"><svg><use xlink:href="assets/images/icon.svg#icon_nd-slider-arrow"></use></svg></span></span></span><span class="nd-space__describe"><span class="nd-space__address"><span>London</span><span>Mayfare</span><span>EC2A 4SD</span></span><span class="nd-space__title">The Finsbury Business Centre</span><span class="nd-space__clip-text"><span class="nd-space__text">The Finsbury Business Centre (FBC) was set up in 1983 on the site of a former 1930’s printworks. It was one of the first business centres in London and has helped a variety of diverse and interesting businesses to grow and flourish over the years.</span></span></span><span class="nd-space__offer-list">
+                                <table class="offer-table offer-table_transforma offer-table_transforma_v2 nd-space__list">
                                     <tbody>
                                         <tr class="offer-table__row">
                                             <td class="offer-table__cell">
@@ -358,7 +358,7 @@
                                     </tbody>
                                 </table>
                             </span><span class="nd-space__button hide-from-sm">View all 20 listings</span></a></div>
-                    <div class="nd-results__item"><a class="nd-space nd-space_search-card js-show-layout" data-layout-target="space"><span class="gallery gallery_space nd-space__media js-nd-gallery"><span class="gallery__slider js-gallery-container"><span class="gallery__wrapper"><span class="gallery__slide">
+                    <div class="nd-results__item"><a class="nd-space nd-space_search-card nd-space_search-card_v2 js-show-layout" data-layout-target="space"><span class="gallery gallery_space nd-space__media js-nd-gallery"><span class="gallery__slider js-gallery-container"><span class="gallery__wrapper"><span class="gallery__slide">
                                             <picture class="gallery__image">
                                                 <source srcset="assets/images/nd/space17.jpg" /><img srcset="assets/images/nd/space17.jpg" alt="" role="presentation" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" />
                                             </picture>
@@ -374,8 +374,8 @@
                                             <picture class="gallery__image">
                                                 <source srcset="assets/images/nd/space7.jpg" /><img srcset="assets/images/nd/space7.jpg" alt="" role="presentation" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" />
                                             </picture>
-                                        </span></span></span><span class="gallery__buttons gallery__buttons_small"><span class="gallery__button gallery__button_prev js-gallery-button-prev"><svg><use xlink:href="assets/images/icon.svg#icon_nd-slider-arrow"></use></svg></span><span class="gallery__button gallery__button_next js-gallery-button-next"><svg><use xlink:href="assets/images/icon.svg#icon_nd-slider-arrow"></use></svg></span></span></span><span class="nd-space__describe"><span class="nd-space__address"><span>London</span><span>Mayfare</span><span>EC2A 4SD</span></span><span class="nd-space__title">The Finsbury Business Centre</span><span class="nd-space__clip-text"><span class="nd-space__text" data-text="The Finsbury Business Centre (FBC) was set up in 1983 on the site of a former 1930’s printworks. It was one of the first business centres in London and has helped a variety of diverse and interesting businesses to grow and flourish over the years.">The Finsbury Business Centre (FBC) was set up in 1983 on the site of a former 1930’s printworks. It was one of the first business centres in London and has helped a variety of diverse and interesting businesses to grow and flourish over the years.</span></span>
-                                <table class="offer-table offer-table_transforma nd-space__list">
+                                        </span></span></span><span class="gallery__buttons gallery__buttons_small"><span class="gallery__button gallery__button_prev js-gallery-button-prev"><svg><use xlink:href="assets/images/icon.svg#icon_nd-slider-arrow"></use></svg></span><span class="gallery__button gallery__button_next js-gallery-button-next"><svg><use xlink:href="assets/images/icon.svg#icon_nd-slider-arrow"></use></svg></span></span></span><span class="nd-space__describe"><span class="nd-space__address"><span>London</span><span>Mayfare</span><span>EC2A 4SD</span></span><span class="nd-space__title">The Finsbury Business Centre</span><span class="nd-space__clip-text"><span class="nd-space__text">The Finsbury Business Centre (FBC) was set up in 1983 on the site of a former 1930’s printworks. It was one of the first business centres in London and has helped a variety of diverse and interesting businesses to grow and flourish over the years.</span></span></span><span class="nd-space__offer-list">
+                                <table class="offer-table offer-table_transforma offer-table_transforma_v2 nd-space__list">
                                     <tbody>
                                         <tr class="offer-table__row">
                                             <td class="offer-table__cell">
@@ -428,7 +428,7 @@
                                     </tbody>
                                 </table>
                             </span><span class="nd-space__button hide-from-sm">View all 20 listings</span></a></div>
-                    <div class="nd-results__item"><a class="nd-space nd-space_search-card js-show-layout" data-layout-target="space"><span class="gallery gallery_space nd-space__media js-nd-gallery"><span class="gallery__slider js-gallery-container"><span class="gallery__wrapper"><span class="gallery__slide">
+                    <div class="nd-results__item"><a class="nd-space nd-space_search-card nd-space_search-card_v2 js-show-layout" data-layout-target="space"><span class="gallery gallery_space nd-space__media js-nd-gallery"><span class="gallery__slider js-gallery-container"><span class="gallery__wrapper"><span class="gallery__slide">
                                             <picture class="gallery__image">
                                                 <source srcset="assets/images/nd/space18.jpg" /><img srcset="assets/images/nd/space18.jpg" alt="" role="presentation" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" />
                                             </picture>
@@ -444,8 +444,8 @@
                                             <picture class="gallery__image">
                                                 <source srcset="assets/images/nd/space6.jpg" /><img srcset="assets/images/nd/space6.jpg" alt="" role="presentation" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" />
                                             </picture>
-                                        </span></span></span><span class="gallery__buttons gallery__buttons_small"><span class="gallery__button gallery__button_prev js-gallery-button-prev"><svg><use xlink:href="assets/images/icon.svg#icon_nd-slider-arrow"></use></svg></span><span class="gallery__button gallery__button_next js-gallery-button-next"><svg><use xlink:href="assets/images/icon.svg#icon_nd-slider-arrow"></use></svg></span></span></span><span class="nd-space__describe"><span class="nd-space__address"><span>London</span><span>Mayfare</span><span>EC2A 4SD</span></span><span class="nd-space__title">First Base - Cannon Street</span><span class="nd-space__clip-text"><span class="nd-space__text" data-text="The Finsbury Business Centre (FBC) was set up in 1983 on the site of a former 1930’s printworks. It was one of the first business centres in London and has helped a variety of diverse and interesting businesses to grow and flourish over the years.">The Finsbury Business Centre (FBC) was set up in 1983 on the site of a former 1930’s printworks. It was one of the first business centres in London and has helped a variety of diverse and interesting businesses to grow and flourish over the years.</span></span>
-                                <table class="offer-table offer-table_transforma nd-space__list">
+                                        </span></span></span><span class="gallery__buttons gallery__buttons_small"><span class="gallery__button gallery__button_prev js-gallery-button-prev"><svg><use xlink:href="assets/images/icon.svg#icon_nd-slider-arrow"></use></svg></span><span class="gallery__button gallery__button_next js-gallery-button-next"><svg><use xlink:href="assets/images/icon.svg#icon_nd-slider-arrow"></use></svg></span></span></span><span class="nd-space__describe"><span class="nd-space__address"><span>London</span><span>Mayfare</span><span>EC2A 4SD</span></span><span class="nd-space__title">First Base - Cannon Street</span><span class="nd-space__clip-text"><span class="nd-space__text">The Finsbury Business Centre (FBC) was set up in 1983 on the site of a former 1930’s printworks. It was one of the first business centres in London and has helped a variety of diverse and interesting businesses to grow and flourish over the years.</span></span></span><span class="nd-space__offer-list">
+                                <table class="offer-table offer-table_transforma offer-table_transforma_v2 nd-space__list">
                                     <tbody>
                                         <tr class="offer-table__row">
                                             <td class="offer-table__cell">
@@ -474,7 +474,7 @@
                                     </tbody>
                                 </table>
                             </span><span class="nd-space__button hide-from-sm">View all 20 listings</span></a></div>
-                    <div class="nd-results__item"><a class="nd-space nd-space_search-card js-show-layout" data-layout-target="space"><span class="gallery gallery_space nd-space__media js-nd-gallery"><span class="gallery__slider js-gallery-container"><span class="gallery__wrapper"><span class="gallery__slide">
+                    <div class="nd-results__item"><a class="nd-space nd-space_search-card nd-space_search-card_v2 js-show-layout" data-layout-target="space"><span class="gallery gallery_space nd-space__media js-nd-gallery"><span class="gallery__slider js-gallery-container"><span class="gallery__wrapper"><span class="gallery__slide">
                                             <picture class="gallery__image">
                                                 <source srcset="assets/images/nd/space9.jpg" /><img srcset="assets/images/nd/space9.jpg" alt="" role="presentation" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" />
                                             </picture>
@@ -490,8 +490,8 @@
                                             <picture class="gallery__image">
                                                 <source srcset="assets/images/nd/space7.jpg" /><img srcset="assets/images/nd/space7.jpg" alt="" role="presentation" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" />
                                             </picture>
-                                        </span></span></span><span class="gallery__buttons gallery__buttons_small"><span class="gallery__button gallery__button_prev js-gallery-button-prev"><svg><use xlink:href="assets/images/icon.svg#icon_nd-slider-arrow"></use></svg></span><span class="gallery__button gallery__button_next js-gallery-button-next"><svg><use xlink:href="assets/images/icon.svg#icon_nd-slider-arrow"></use></svg></span></span></span><span class="nd-space__describe"><span class="nd-space__address"><span>London</span><span>Mayfare</span><span>EC2A 4SD</span></span><span class="nd-space__title">Finsbury Business Centre</span><span class="nd-space__clip-text"><span class="nd-space__text" data-text="The Finsbury Business Centre (FBC) was set up in 1983 on the site of a former 1930’s printworks. It was one of the first business centres in London and has helped a variety of diverse and interesting businesses to grow and flourish over the years.">The Finsbury Business Centre (FBC) was set up in 1983 on the site of a former 1930’s printworks. It was one of the first business centres in London and has helped a variety of diverse and interesting businesses to grow and flourish over the years.</span></span>
-                                <table class="offer-table offer-table_transforma nd-space__list">
+                                        </span></span></span><span class="gallery__buttons gallery__buttons_small"><span class="gallery__button gallery__button_prev js-gallery-button-prev"><svg><use xlink:href="assets/images/icon.svg#icon_nd-slider-arrow"></use></svg></span><span class="gallery__button gallery__button_next js-gallery-button-next"><svg><use xlink:href="assets/images/icon.svg#icon_nd-slider-arrow"></use></svg></span></span></span><span class="nd-space__describe"><span class="nd-space__address"><span>London</span><span>Mayfare</span><span>EC2A 4SD</span></span><span class="nd-space__title">Finsbury Business Centre</span><span class="nd-space__clip-text"><span class="nd-space__text">The Finsbury Business Centre (FBC) was set up in 1983 on the site of a former 1930’s printworks. It was one of the first business centres in London and has helped a variety of diverse and interesting businesses to grow and flourish over the years.</span></span></span><span class="nd-space__offer-list">
+                                <table class="offer-table offer-table_transforma offer-table_transforma_v2 nd-space__list">
                                     <tbody>
                                         <tr class="offer-table__row">
                                             <td class="offer-table__cell">
@@ -508,7 +508,7 @@
                                     </tbody>
                                 </table>
                             </span><span class="nd-space__button hide-from-sm">View all 20 listings</span></a></div>
-                    <div class="nd-results__item"><a class="nd-space nd-space_search-card js-show-layout" data-layout-target="space"><span class="gallery gallery_space nd-space__media js-nd-gallery"><span class="gallery__slider js-gallery-container"><span class="gallery__wrapper"><span class="gallery__slide">
+                    <div class="nd-results__item"><a class="nd-space nd-space_search-card nd-space_search-card_v2 js-show-layout" data-layout-target="space"><span class="gallery gallery_space nd-space__media js-nd-gallery"><span class="gallery__slider js-gallery-container"><span class="gallery__wrapper"><span class="gallery__slide">
                                             <picture class="gallery__image">
                                                 <source srcset="assets/images/nd/space19.jpg" /><img srcset="assets/images/nd/space19.jpg" alt="" role="presentation" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" />
                                             </picture>
@@ -524,8 +524,8 @@
                                             <picture class="gallery__image">
                                                 <source srcset="assets/images/nd/space7.jpg" /><img srcset="assets/images/nd/space7.jpg" alt="" role="presentation" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" />
                                             </picture>
-                                        </span></span></span><span class="gallery__buttons gallery__buttons_small"><span class="gallery__button gallery__button_prev js-gallery-button-prev"><svg><use xlink:href="assets/images/icon.svg#icon_nd-slider-arrow"></use></svg></span><span class="gallery__button gallery__button_next js-gallery-button-next"><svg><use xlink:href="assets/images/icon.svg#icon_nd-slider-arrow"></use></svg></span></span></span><span class="nd-space__describe"><span class="nd-space__address"><span>London</span><span>Mayfare</span><span>EC2A 4SD</span></span><span class="nd-space__title">Finsbury Business Centre</span><span class="nd-space__clip-text"><span class="nd-space__text" data-text="The Finsbury Business Centre (FBC) was set up in 1983 on the site of a former 1930’s printworks. It was one of the first business centres in London and has helped a variety of diverse and interesting businesses to grow and flourish over the years.">The Finsbury Business Centre (FBC) was set up in 1983 on the site of a former 1930’s printworks. It was one of the first business centres in London and has helped a variety of diverse and interesting businesses to grow and flourish over the years.</span></span>
-                                <table class="offer-table offer-table_transforma nd-space__list">
+                                        </span></span></span><span class="gallery__buttons gallery__buttons_small"><span class="gallery__button gallery__button_prev js-gallery-button-prev"><svg><use xlink:href="assets/images/icon.svg#icon_nd-slider-arrow"></use></svg></span><span class="gallery__button gallery__button_next js-gallery-button-next"><svg><use xlink:href="assets/images/icon.svg#icon_nd-slider-arrow"></use></svg></span></span></span><span class="nd-space__describe"><span class="nd-space__address"><span>London</span><span>Mayfare</span><span>EC2A 4SD</span></span><span class="nd-space__title">Finsbury Business Centre</span><span class="nd-space__clip-text"><span class="nd-space__text">The Finsbury Business Centre (FBC) was set up in 1983 on the site of a former 1930’s printworks. It was one of the first business centres in London and has helped a variety of diverse and interesting businesses to grow and flourish over the years.</span></span></span><span class="nd-space__offer-list">
+                                <table class="offer-table offer-table_transforma offer-table_transforma_v2 nd-space__list">
                                     <tbody>
                                         <tr class="offer-table__row">
                                             <td class="offer-table__cell">
@@ -554,7 +554,7 @@
                                     </tbody>
                                 </table>
                             </span><span class="nd-space__button hide-from-sm">View all 20 listings</span></a></div>
-                    <div class="nd-results__item"><a class="nd-space nd-space_search-card js-show-layout" data-layout-target="space"><span class="gallery gallery_space nd-space__media js-nd-gallery"><span class="gallery__slider js-gallery-container"><span class="gallery__wrapper"><span class="gallery__slide">
+                    <div class="nd-results__item"><a class="nd-space nd-space_search-card nd-space_search-card_v2 js-show-layout" data-layout-target="space"><span class="gallery gallery_space nd-space__media js-nd-gallery"><span class="gallery__slider js-gallery-container"><span class="gallery__wrapper"><span class="gallery__slide">
                                             <picture class="gallery__image">
                                                 <source srcset="assets/images/nd/space20.jpg" /><img srcset="assets/images/nd/space20.jpg" alt="" role="presentation" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" />
                                             </picture>
@@ -570,8 +570,8 @@
                                             <picture class="gallery__image">
                                                 <source srcset="assets/images/nd/space7.jpg" /><img srcset="assets/images/nd/space7.jpg" alt="" role="presentation" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" />
                                             </picture>
-                                        </span></span></span><span class="gallery__buttons gallery__buttons_small"><span class="gallery__button gallery__button_prev js-gallery-button-prev"><svg><use xlink:href="assets/images/icon.svg#icon_nd-slider-arrow"></use></svg></span><span class="gallery__button gallery__button_next js-gallery-button-next"><svg><use xlink:href="assets/images/icon.svg#icon_nd-slider-arrow"></use></svg></span></span></span><span class="nd-space__describe"><span class="nd-space__address"><span>London</span><span>Mayfare</span><span>EC2A 4SD</span></span><span class="nd-space__title">First Base - Cannon Street</span><span class="nd-space__clip-text"><span class="nd-space__text" data-text="The Finsbury Business Centre (FBC) was set up in 1983 on the site of a former 1930’s printworks. It was one of the first business centres in London and has helped a variety of diverse and interesting businesses to grow and flourish over the years.">The Finsbury Business Centre (FBC) was set up in 1983 on the site of a former 1930’s printworks. It was one of the first business centres in London and has helped a variety of diverse and interesting businesses to grow and flourish over the years.</span></span>
-                                <table class="offer-table offer-table_transforma nd-space__list">
+                                        </span></span></span><span class="gallery__buttons gallery__buttons_small"><span class="gallery__button gallery__button_prev js-gallery-button-prev"><svg><use xlink:href="assets/images/icon.svg#icon_nd-slider-arrow"></use></svg></span><span class="gallery__button gallery__button_next js-gallery-button-next"><svg><use xlink:href="assets/images/icon.svg#icon_nd-slider-arrow"></use></svg></span></span></span><span class="nd-space__describe"><span class="nd-space__address"><span>London</span><span>Mayfare</span><span>EC2A 4SD</span></span><span class="nd-space__title">First Base - Cannon Street</span><span class="nd-space__clip-text"><span class="nd-space__text">The Finsbury Business Centre (FBC) was set up in 1983 on the site of a former 1930’s printworks. It was one of the first business centres in London and has helped a variety of diverse and interesting businesses to grow and flourish over the years.</span></span></span><span class="nd-space__offer-list">
+                                <table class="offer-table offer-table_transforma offer-table_transforma_v2 nd-space__list">
                                     <tbody>
                                         <tr class="offer-table__row">
                                             <td class="offer-table__cell">
@@ -624,7 +624,7 @@
                                     </tbody>
                                 </table>
                             </span><span class="nd-space__button hide-from-sm">View all 20 listings</span></a></div>
-                    <div class="nd-results__item"><a class="nd-space nd-space_search-card js-show-layout" data-layout-target="space"><span class="gallery gallery_space nd-space__media js-nd-gallery"><span class="gallery__slider js-gallery-container"><span class="gallery__wrapper"><span class="gallery__slide">
+                    <div class="nd-results__item"><a class="nd-space nd-space_search-card nd-space_search-card_v2 js-show-layout" data-layout-target="space"><span class="gallery gallery_space nd-space__media js-nd-gallery"><span class="gallery__slider js-gallery-container"><span class="gallery__wrapper"><span class="gallery__slide">
                                             <picture class="gallery__image">
                                                 <source srcset="assets/images/nd/space2.jpg" /><img srcset="assets/images/nd/space2.jpg" alt="" role="presentation" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" />
                                             </picture>
@@ -640,8 +640,8 @@
                                             <picture class="gallery__image">
                                                 <source srcset="assets/images/nd/space7.jpg" /><img srcset="assets/images/nd/space7.jpg" alt="" role="presentation" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" />
                                             </picture>
-                                        </span></span></span><span class="gallery__buttons gallery__buttons_small"><span class="gallery__button gallery__button_prev js-gallery-button-prev"><svg><use xlink:href="assets/images/icon.svg#icon_nd-slider-arrow"></use></svg></span><span class="gallery__button gallery__button_next js-gallery-button-next"><svg><use xlink:href="assets/images/icon.svg#icon_nd-slider-arrow"></use></svg></span></span></span><span class="nd-space__describe"><span class="nd-space__address"><span>London</span><span>Mayfare</span><span>EC2A 4SD</span></span><span class="nd-space__title">First Base - Cannon Street</span><span class="nd-space__clip-text"><span class="nd-space__text" data-text="The Finsbury Business Centre (FBC) was set up in 1983 on the site of a former 1930’s printworks. It was one of the first business centres in London and has helped a variety of diverse and interesting businesses to grow and flourish over the years.">The Finsbury Business Centre (FBC) was set up in 1983 on the site of a former 1930’s printworks. It was one of the first business centres in London and has helped a variety of diverse and interesting businesses to grow and flourish over the years.</span></span>
-                                <table class="offer-table offer-table_transforma nd-space__list">
+                                        </span></span></span><span class="gallery__buttons gallery__buttons_small"><span class="gallery__button gallery__button_prev js-gallery-button-prev"><svg><use xlink:href="assets/images/icon.svg#icon_nd-slider-arrow"></use></svg></span><span class="gallery__button gallery__button_next js-gallery-button-next"><svg><use xlink:href="assets/images/icon.svg#icon_nd-slider-arrow"></use></svg></span></span></span><span class="nd-space__describe"><span class="nd-space__address"><span>London</span><span>Mayfare</span><span>EC2A 4SD</span></span><span class="nd-space__title">First Base - Cannon Street</span><span class="nd-space__clip-text"><span class="nd-space__text">The Finsbury Business Centre (FBC) was set up in 1983 on the site of a former 1930’s printworks. It was one of the first business centres in London and has helped a variety of diverse and interesting businesses to grow and flourish over the years.</span></span></span><span class="nd-space__offer-list">
+                                <table class="offer-table offer-table_transforma offer-table_transforma_v2 nd-space__list">
                                     <tbody>
                                         <tr class="offer-table__row">
                                             <td class="offer-table__cell">
@@ -694,7 +694,7 @@
                                     </tbody>
                                 </table>
                             </span><span class="nd-space__button hide-from-sm">View all 20 listings</span></a></div>
-                    <div class="nd-results__item"><a class="nd-space nd-space_search-card js-show-layout" data-layout-target="space"><span class="gallery gallery_space nd-space__media js-nd-gallery"><span class="gallery__slider js-gallery-container"><span class="gallery__wrapper"><span class="gallery__slide">
+                    <div class="nd-results__item"><a class="nd-space nd-space_search-card nd-space_search-card_v2 js-show-layout" data-layout-target="space"><span class="gallery gallery_space nd-space__media js-nd-gallery"><span class="gallery__slider js-gallery-container"><span class="gallery__wrapper"><span class="gallery__slide">
                                             <picture class="gallery__image">
                                                 <source srcset="assets/images/nd/space17.jpg" /><img srcset="assets/images/nd/space17.jpg" alt="" role="presentation" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" />
                                             </picture>
@@ -710,8 +710,8 @@
                                             <picture class="gallery__image">
                                                 <source srcset="assets/images/nd/space7.jpg" /><img srcset="assets/images/nd/space7.jpg" alt="" role="presentation" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" />
                                             </picture>
-                                        </span></span></span><span class="gallery__buttons gallery__buttons_small"><span class="gallery__button gallery__button_prev js-gallery-button-prev"><svg><use xlink:href="assets/images/icon.svg#icon_nd-slider-arrow"></use></svg></span><span class="gallery__button gallery__button_next js-gallery-button-next"><svg><use xlink:href="assets/images/icon.svg#icon_nd-slider-arrow"></use></svg></span></span></span><span class="nd-space__describe"><span class="nd-space__address"><span>London</span><span>Mayfare</span><span>EC2A 4SD</span></span><span class="nd-space__title">The Finsbury Business Centre</span><span class="nd-space__clip-text"><span class="nd-space__text" data-text="The Finsbury Business Centre (FBC) was set up in 1983 on the site of a former 1930’s printworks. It was one of the first business centres in London and has helped a variety of diverse and interesting businesses to grow and flourish over the years.">The Finsbury Business Centre (FBC) was set up in 1983 on the site of a former 1930’s printworks. It was one of the first business centres in London and has helped a variety of diverse and interesting businesses to grow and flourish over the years.</span></span>
-                                <table class="offer-table offer-table_transforma nd-space__list">
+                                        </span></span></span><span class="gallery__buttons gallery__buttons_small"><span class="gallery__button gallery__button_prev js-gallery-button-prev"><svg><use xlink:href="assets/images/icon.svg#icon_nd-slider-arrow"></use></svg></span><span class="gallery__button gallery__button_next js-gallery-button-next"><svg><use xlink:href="assets/images/icon.svg#icon_nd-slider-arrow"></use></svg></span></span></span><span class="nd-space__describe"><span class="nd-space__address"><span>London</span><span>Mayfare</span><span>EC2A 4SD</span></span><span class="nd-space__title">The Finsbury Business Centre</span><span class="nd-space__clip-text"><span class="nd-space__text">The Finsbury Business Centre (FBC) was set up in 1983 on the site of a former 1930’s printworks. It was one of the first business centres in London and has helped a variety of diverse and interesting businesses to grow and flourish over the years. The Finsbury Business Centre (FBC) was set up in 1983 on the site of a former 1930’s printworks. It was one of the first business centres in London and has helped a variety of diverse and interesting businesses to grow and flourish over the years.</span></span></span><span class="nd-space__offer-list">
+                                <table class="offer-table offer-table_transforma offer-table_transforma_v2 nd-space__list">
                                     <tbody>
                                         <tr class="offer-table__row">
                                             <td class="offer-table__cell">
@@ -764,7 +764,7 @@
                                     </tbody>
                                 </table>
                             </span><span class="nd-space__button hide-from-sm">View all 20 listings</span></a></div>
-                    <div class="nd-results__item"><a class="nd-space nd-space_search-card js-show-layout" data-layout-target="space"><span class="gallery gallery_space nd-space__media js-nd-gallery"><span class="gallery__slider js-gallery-container"><span class="gallery__wrapper"><span class="gallery__slide">
+                    <div class="nd-results__item"><a class="nd-space nd-space_search-card nd-space_search-card_v2 js-show-layout" data-layout-target="space"><span class="gallery gallery_space nd-space__media js-nd-gallery"><span class="gallery__slider js-gallery-container"><span class="gallery__wrapper"><span class="gallery__slide">
                                             <picture class="gallery__image">
                                                 <source srcset="assets/images/nd/space18.jpg" /><img srcset="assets/images/nd/space18.jpg" alt="" role="presentation" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" />
                                             </picture>
@@ -780,8 +780,8 @@
                                             <picture class="gallery__image">
                                                 <source srcset="assets/images/nd/space6.jpg" /><img srcset="assets/images/nd/space6.jpg" alt="" role="presentation" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" />
                                             </picture>
-                                        </span></span></span><span class="gallery__buttons gallery__buttons_small"><span class="gallery__button gallery__button_prev js-gallery-button-prev"><svg><use xlink:href="assets/images/icon.svg#icon_nd-slider-arrow"></use></svg></span><span class="gallery__button gallery__button_next js-gallery-button-next"><svg><use xlink:href="assets/images/icon.svg#icon_nd-slider-arrow"></use></svg></span></span></span><span class="nd-space__describe"><span class="nd-space__address"><span>London</span><span>Mayfare</span><span>EC2A 4SD</span></span><span class="nd-space__title">First Base - Cannon Street</span><span class="nd-space__clip-text"><span class="nd-space__text" data-text="The Finsbury Business Centre (FBC) was set up in 1983 on the site of a former 1930’s printworks. It was one of the first business centres in London and has helped a variety of diverse and interesting businesses to grow and flourish over the years.">The Finsbury Business Centre (FBC) was set up in 1983 on the site of a former 1930’s printworks. It was one of the first business centres in London and has helped a variety of diverse and interesting businesses to grow and flourish over the years.</span></span>
-                                <table class="offer-table offer-table_transforma nd-space__list">
+                                        </span></span></span><span class="gallery__buttons gallery__buttons_small"><span class="gallery__button gallery__button_prev js-gallery-button-prev"><svg><use xlink:href="assets/images/icon.svg#icon_nd-slider-arrow"></use></svg></span><span class="gallery__button gallery__button_next js-gallery-button-next"><svg><use xlink:href="assets/images/icon.svg#icon_nd-slider-arrow"></use></svg></span></span></span><span class="nd-space__describe"><span class="nd-space__address"><span>London</span><span>Mayfare</span><span>EC2A 4SD</span></span><span class="nd-space__title">First Base - Cannon Street</span><span class="nd-space__clip-text"><span class="nd-space__text">The Finsbury Business Centre (FBC) was set up in 1983 on the site of a former 1930’s printworks. It was one of the first business centres in London and has helped a variety of diverse and interesting businesses to grow and flourish over the years.</span></span></span><span class="nd-space__offer-list">
+                                <table class="offer-table offer-table_transforma offer-table_transforma_v2 nd-space__list">
                                     <tbody>
                                         <tr class="offer-table__row">
                                             <td class="offer-table__cell">
@@ -810,7 +810,7 @@
                                     </tbody>
                                 </table>
                             </span><span class="nd-space__button hide-from-sm">View all 20 listings</span></a></div>
-                    <div class="nd-results__item"><a class="nd-space nd-space_search-card js-show-layout" data-layout-target="space"><span class="gallery gallery_space nd-space__media js-nd-gallery"><span class="gallery__slider js-gallery-container"><span class="gallery__wrapper"><span class="gallery__slide">
+                    <div class="nd-results__item"><a class="nd-space nd-space_search-card nd-space_search-card_v2 js-show-layout" data-layout-target="space"><span class="gallery gallery_space nd-space__media js-nd-gallery"><span class="gallery__slider js-gallery-container"><span class="gallery__wrapper"><span class="gallery__slide">
                                             <picture class="gallery__image">
                                                 <source srcset="assets/images/nd/space9.jpg" /><img srcset="assets/images/nd/space9.jpg" alt="" role="presentation" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" />
                                             </picture>
@@ -826,8 +826,8 @@
                                             <picture class="gallery__image">
                                                 <source srcset="assets/images/nd/space7.jpg" /><img srcset="assets/images/nd/space7.jpg" alt="" role="presentation" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" />
                                             </picture>
-                                        </span></span></span><span class="gallery__buttons gallery__buttons_small"><span class="gallery__button gallery__button_prev js-gallery-button-prev"><svg><use xlink:href="assets/images/icon.svg#icon_nd-slider-arrow"></use></svg></span><span class="gallery__button gallery__button_next js-gallery-button-next"><svg><use xlink:href="assets/images/icon.svg#icon_nd-slider-arrow"></use></svg></span></span></span><span class="nd-space__describe"><span class="nd-space__address"><span>London</span><span>Mayfare</span><span>EC2A 4SD</span></span><span class="nd-space__title">Finsbury Business Centre</span><span class="nd-space__clip-text"><span class="nd-space__text" data-text="The Finsbury Business Centre (FBC) was set up in 1983 on the site of a former 1930’s printworks. It was one of the first business centres in London and has helped a variety of diverse and interesting businesses to grow and flourish over the years.">The Finsbury Business Centre (FBC) was set up in 1983 on the site of a former 1930’s printworks. It was one of the first business centres in London and has helped a variety of diverse and interesting businesses to grow and flourish over the years.</span></span>
-                                <table class="offer-table offer-table_transforma nd-space__list">
+                                        </span></span></span><span class="gallery__buttons gallery__buttons_small"><span class="gallery__button gallery__button_prev js-gallery-button-prev"><svg><use xlink:href="assets/images/icon.svg#icon_nd-slider-arrow"></use></svg></span><span class="gallery__button gallery__button_next js-gallery-button-next"><svg><use xlink:href="assets/images/icon.svg#icon_nd-slider-arrow"></use></svg></span></span></span><span class="nd-space__describe"><span class="nd-space__address"><span>London</span><span>Mayfare</span><span>EC2A 4SD</span></span><span class="nd-space__title">Finsbury Business Centre</span><span class="nd-space__clip-text"><span class="nd-space__text">The Finsbury Business Centre (FBC) was set up in 1983 on the site of a former 1930’s printworks. It was one of the first business centres in London and has helped a variety of diverse and interesting businesses to grow and flourish over the years.</span></span></span><span class="nd-space__offer-list">
+                                <table class="offer-table offer-table_transforma offer-table_transforma_v2 nd-space__list">
                                     <tbody>
                                         <tr class="offer-table__row">
                                             <td class="offer-table__cell">
@@ -844,7 +844,7 @@
                                     </tbody>
                                 </table>
                             </span><span class="nd-space__button hide-from-sm">View all 20 listings</span></a></div>
-                    <div class="nd-results__item"><a class="nd-space nd-space_search-card js-show-layout" data-layout-target="space"><span class="gallery gallery_space nd-space__media js-nd-gallery"><span class="gallery__slider js-gallery-container"><span class="gallery__wrapper"><span class="gallery__slide">
+                    <div class="nd-results__item"><a class="nd-space nd-space_search-card nd-space_search-card_v2 js-show-layout" data-layout-target="space"><span class="gallery gallery_space nd-space__media js-nd-gallery"><span class="gallery__slider js-gallery-container"><span class="gallery__wrapper"><span class="gallery__slide">
                                             <picture class="gallery__image">
                                                 <source srcset="assets/images/nd/space19.jpg" /><img srcset="assets/images/nd/space19.jpg" alt="" role="presentation" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" />
                                             </picture>
@@ -860,8 +860,8 @@
                                             <picture class="gallery__image">
                                                 <source srcset="assets/images/nd/space7.jpg" /><img srcset="assets/images/nd/space7.jpg" alt="" role="presentation" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" />
                                             </picture>
-                                        </span></span></span><span class="gallery__buttons gallery__buttons_small"><span class="gallery__button gallery__button_prev js-gallery-button-prev"><svg><use xlink:href="assets/images/icon.svg#icon_nd-slider-arrow"></use></svg></span><span class="gallery__button gallery__button_next js-gallery-button-next"><svg><use xlink:href="assets/images/icon.svg#icon_nd-slider-arrow"></use></svg></span></span></span><span class="nd-space__describe"><span class="nd-space__address"><span>London</span><span>Mayfare</span><span>EC2A 4SD</span></span><span class="nd-space__title">Finsbury Business Centre</span><span class="nd-space__clip-text"><span class="nd-space__text" data-text="The Finsbury Business Centre (FBC) was set up in 1983 on the site of a former 1930’s printworks. It was one of the first business centres in London and has helped a variety of diverse and interesting businesses to grow and flourish over the years.">The Finsbury Business Centre (FBC) was set up in 1983 on the site of a former 1930’s printworks. It was one of the first business centres in London and has helped a variety of diverse and interesting businesses to grow and flourish over the years.</span></span>
-                                <table class="offer-table offer-table_transforma nd-space__list">
+                                        </span></span></span><span class="gallery__buttons gallery__buttons_small"><span class="gallery__button gallery__button_prev js-gallery-button-prev"><svg><use xlink:href="assets/images/icon.svg#icon_nd-slider-arrow"></use></svg></span><span class="gallery__button gallery__button_next js-gallery-button-next"><svg><use xlink:href="assets/images/icon.svg#icon_nd-slider-arrow"></use></svg></span></span></span><span class="nd-space__describe"><span class="nd-space__address"><span>London</span><span>Mayfare</span><span>EC2A 4SD</span></span><span class="nd-space__title">Finsbury Business Centre</span><span class="nd-space__clip-text"><span class="nd-space__text">The Finsbury Business Centre (FBC) was set up in 1983 on the site of a former 1930’s printworks. It was one of the first business centres in London and has helped a variety of diverse and interesting businesses to grow and flourish over the years.</span></span></span><span class="nd-space__offer-list">
+                                <table class="offer-table offer-table_transforma offer-table_transforma_v2 nd-space__list">
                                     <tbody>
                                         <tr class="offer-table__row">
                                             <td class="offer-table__cell">
@@ -890,7 +890,7 @@
                                     </tbody>
                                 </table>
                             </span><span class="nd-space__button hide-from-sm">View all 20 listings</span></a></div>
-                    <div class="nd-results__item"><a class="nd-space nd-space_search-card js-show-layout" data-layout-target="space"><span class="gallery gallery_space nd-space__media js-nd-gallery"><span class="gallery__slider js-gallery-container"><span class="gallery__wrapper"><span class="gallery__slide">
+                    <div class="nd-results__item"><a class="nd-space nd-space_search-card nd-space_search-card_v2 js-show-layout" data-layout-target="space"><span class="gallery gallery_space nd-space__media js-nd-gallery"><span class="gallery__slider js-gallery-container"><span class="gallery__wrapper"><span class="gallery__slide">
                                             <picture class="gallery__image">
                                                 <source srcset="assets/images/nd/space20.jpg" /><img srcset="assets/images/nd/space20.jpg" alt="" role="presentation" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" />
                                             </picture>
@@ -906,8 +906,8 @@
                                             <picture class="gallery__image">
                                                 <source srcset="assets/images/nd/space7.jpg" /><img srcset="assets/images/nd/space7.jpg" alt="" role="presentation" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" />
                                             </picture>
-                                        </span></span></span><span class="gallery__buttons gallery__buttons_small"><span class="gallery__button gallery__button_prev js-gallery-button-prev"><svg><use xlink:href="assets/images/icon.svg#icon_nd-slider-arrow"></use></svg></span><span class="gallery__button gallery__button_next js-gallery-button-next"><svg><use xlink:href="assets/images/icon.svg#icon_nd-slider-arrow"></use></svg></span></span></span><span class="nd-space__describe"><span class="nd-space__address"><span>London</span><span>Mayfare</span><span>EC2A 4SD</span></span><span class="nd-space__title">First Base - Cannon Street</span><span class="nd-space__clip-text"><span class="nd-space__text" data-text="The Finsbury Business Centre (FBC) was set up in 1983 on the site of a former 1930’s printworks. It was one of the first business centres in London and has helped a variety of diverse and interesting businesses to grow and flourish over the years.">The Finsbury Business Centre (FBC) was set up in 1983 on the site of a former 1930’s printworks. It was one of the first business centres in London and has helped a variety of diverse and interesting businesses to grow and flourish over the years.</span></span>
-                                <table class="offer-table offer-table_transforma nd-space__list">
+                                        </span></span></span><span class="gallery__buttons gallery__buttons_small"><span class="gallery__button gallery__button_prev js-gallery-button-prev"><svg><use xlink:href="assets/images/icon.svg#icon_nd-slider-arrow"></use></svg></span><span class="gallery__button gallery__button_next js-gallery-button-next"><svg><use xlink:href="assets/images/icon.svg#icon_nd-slider-arrow"></use></svg></span></span></span><span class="nd-space__describe"><span class="nd-space__address"><span>London</span><span>Mayfare</span><span>EC2A 4SD</span></span><span class="nd-space__title">First Base - Cannon Street</span><span class="nd-space__clip-text"><span class="nd-space__text">The Finsbury Business Centre (FBC) was set up in 1983 on the site of a former 1930’s printworks. It was one of the first business centres in London and has helped a variety of diverse and interesting businesses to grow and flourish over the years.</span></span></span><span class="nd-space__offer-list">
+                                <table class="offer-table offer-table_transforma offer-table_transforma_v2 nd-space__list">
                                     <tbody>
                                         <tr class="offer-table__row">
                                             <td class="offer-table__cell">
@@ -960,7 +960,7 @@
                                     </tbody>
                                 </table>
                             </span><span class="nd-space__button hide-from-sm">View all 20 listings</span></a></div>
-                    <div class="nd-results__item"><a class="nd-space nd-space_search-card js-show-layout" data-layout-target="space"><span class="gallery gallery_space nd-space__media js-nd-gallery"><span class="gallery__slider js-gallery-container"><span class="gallery__wrapper"><span class="gallery__slide">
+                    <div class="nd-results__item"><a class="nd-space nd-space_search-card nd-space_search-card_v2 js-show-layout" data-layout-target="space"><span class="gallery gallery_space nd-space__media js-nd-gallery"><span class="gallery__slider js-gallery-container"><span class="gallery__wrapper"><span class="gallery__slide">
                                             <picture class="gallery__image">
                                                 <source srcset="assets/images/nd/space17.jpg" /><img srcset="assets/images/nd/space17.jpg" alt="" role="presentation" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" />
                                             </picture>
@@ -976,8 +976,8 @@
                                             <picture class="gallery__image">
                                                 <source srcset="assets/images/nd/space7.jpg" /><img srcset="assets/images/nd/space7.jpg" alt="" role="presentation" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" />
                                             </picture>
-                                        </span></span></span><span class="gallery__buttons gallery__buttons_small"><span class="gallery__button gallery__button_prev js-gallery-button-prev"><svg><use xlink:href="assets/images/icon.svg#icon_nd-slider-arrow"></use></svg></span><span class="gallery__button gallery__button_next js-gallery-button-next"><svg><use xlink:href="assets/images/icon.svg#icon_nd-slider-arrow"></use></svg></span></span></span><span class="nd-space__describe"><span class="nd-space__address"><span>London</span><span>Mayfare</span><span>EC2A 4SD</span></span><span class="nd-space__title">The Finsbury Business Centre</span><span class="nd-space__clip-text"><span class="nd-space__text" data-text="The Finsbury Business Centre (FBC) was set up in 1983 on the site of a former 1930’s printworks. It was one of the first business centres in London and has helped a variety of diverse and interesting businesses to grow and flourish over the years.">The Finsbury Business Centre (FBC) was set up in 1983 on the site of a former 1930’s printworks. It was one of the first business centres in London and has helped a variety of diverse and interesting businesses to grow and flourish over the years.</span></span>
-                                <table class="offer-table offer-table_transforma nd-space__list">
+                                        </span></span></span><span class="gallery__buttons gallery__buttons_small"><span class="gallery__button gallery__button_prev js-gallery-button-prev"><svg><use xlink:href="assets/images/icon.svg#icon_nd-slider-arrow"></use></svg></span><span class="gallery__button gallery__button_next js-gallery-button-next"><svg><use xlink:href="assets/images/icon.svg#icon_nd-slider-arrow"></use></svg></span></span></span><span class="nd-space__describe"><span class="nd-space__address"><span>London</span><span>Mayfare</span><span>EC2A 4SD</span></span><span class="nd-space__title">The Finsbury Business Centre</span><span class="nd-space__clip-text"><span class="nd-space__text">The Finsbury Business Centre (FBC) was set up in 1983 on the site of a former 1930’s printworks. It was one of the first business centres in London and has helped a variety of diverse and interesting businesses to grow and flourish over the years.</span></span></span><span class="nd-space__offer-list">
+                                <table class="offer-table offer-table_transforma offer-table_transforma_v2 nd-space__list">
                                     <tbody>
                                         <tr class="offer-table__row">
                                             <td class="offer-table__cell">
@@ -1030,7 +1030,7 @@
                                     </tbody>
                                 </table>
                             </span><span class="nd-space__button hide-from-sm">View all 20 listings</span></a></div>
-                    <div class="nd-results__item"><a class="nd-space nd-space_search-card js-show-layout" data-layout-target="space"><span class="gallery gallery_space nd-space__media js-nd-gallery"><span class="gallery__slider js-gallery-container"><span class="gallery__wrapper"><span class="gallery__slide">
+                    <div class="nd-results__item"><a class="nd-space nd-space_search-card nd-space_search-card_v2 js-show-layout" data-layout-target="space"><span class="gallery gallery_space nd-space__media js-nd-gallery"><span class="gallery__slider js-gallery-container"><span class="gallery__wrapper"><span class="gallery__slide">
                                             <picture class="gallery__image">
                                                 <source srcset="assets/images/nd/space17.jpg" /><img srcset="assets/images/nd/space17.jpg" alt="" role="presentation" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" />
                                             </picture>
@@ -1046,8 +1046,8 @@
                                             <picture class="gallery__image">
                                                 <source srcset="assets/images/nd/space7.jpg" /><img srcset="assets/images/nd/space7.jpg" alt="" role="presentation" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" />
                                             </picture>
-                                        </span></span></span><span class="gallery__buttons gallery__buttons_small"><span class="gallery__button gallery__button_prev js-gallery-button-prev"><svg><use xlink:href="assets/images/icon.svg#icon_nd-slider-arrow"></use></svg></span><span class="gallery__button gallery__button_next js-gallery-button-next"><svg><use xlink:href="assets/images/icon.svg#icon_nd-slider-arrow"></use></svg></span></span></span><span class="nd-space__describe"><span class="nd-space__address"><span>London</span><span>Mayfare</span><span>EC2A 4SD</span></span><span class="nd-space__title">The Finsbury Business Centre</span><span class="nd-space__clip-text"><span class="nd-space__text" data-text="The Finsbury Business Centre (FBC) was set up in 1983 on the site of a former 1930’s printworks. It was one of the first business centres in London and has helped a variety of diverse and interesting businesses to grow and flourish over the years.">The Finsbury Business Centre (FBC) was set up in 1983 on the site of a former 1930’s printworks. It was one of the first business centres in London and has helped a variety of diverse and interesting businesses to grow and flourish over the years.</span></span>
-                                <table class="offer-table offer-table_transforma nd-space__list">
+                                        </span></span></span><span class="gallery__buttons gallery__buttons_small"><span class="gallery__button gallery__button_prev js-gallery-button-prev"><svg><use xlink:href="assets/images/icon.svg#icon_nd-slider-arrow"></use></svg></span><span class="gallery__button gallery__button_next js-gallery-button-next"><svg><use xlink:href="assets/images/icon.svg#icon_nd-slider-arrow"></use></svg></span></span></span><span class="nd-space__describe"><span class="nd-space__address"><span>London</span><span>Mayfare</span><span>EC2A 4SD</span></span><span class="nd-space__title">The Finsbury Business Centre</span><span class="nd-space__clip-text"><span class="nd-space__text">The Finsbury Business Centre (FBC) was set up in 1983 on the site of a former 1930’s printworks. It was one of the first business centres in London and has helped a variety of diverse and interesting businesses to grow and flourish over the years.</span></span></span><span class="nd-space__offer-list">
+                                <table class="offer-table offer-table_transforma offer-table_transforma_v2 nd-space__list">
                                     <tbody>
                                         <tr class="offer-table__row">
                                             <td class="offer-table__cell">
@@ -1100,7 +1100,7 @@
                                     </tbody>
                                 </table>
                             </span><span class="nd-space__button hide-from-sm">View all 20 listings</span></a></div>
-                    <div class="nd-results__item"><a class="nd-space nd-space_search-card js-show-layout" data-layout-target="space"><span class="gallery gallery_space nd-space__media js-nd-gallery"><span class="gallery__slider js-gallery-container"><span class="gallery__wrapper"><span class="gallery__slide">
+                    <div class="nd-results__item"><a class="nd-space nd-space_search-card nd-space_search-card_v2 js-show-layout" data-layout-target="space"><span class="gallery gallery_space nd-space__media js-nd-gallery"><span class="gallery__slider js-gallery-container"><span class="gallery__wrapper"><span class="gallery__slide">
                                             <picture class="gallery__image">
                                                 <source srcset="assets/images/nd/space18.jpg" /><img srcset="assets/images/nd/space18.jpg" alt="" role="presentation" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" />
                                             </picture>
@@ -1116,8 +1116,8 @@
                                             <picture class="gallery__image">
                                                 <source srcset="assets/images/nd/space6.jpg" /><img srcset="assets/images/nd/space6.jpg" alt="" role="presentation" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" />
                                             </picture>
-                                        </span></span></span><span class="gallery__buttons gallery__buttons_small"><span class="gallery__button gallery__button_prev js-gallery-button-prev"><svg><use xlink:href="assets/images/icon.svg#icon_nd-slider-arrow"></use></svg></span><span class="gallery__button gallery__button_next js-gallery-button-next"><svg><use xlink:href="assets/images/icon.svg#icon_nd-slider-arrow"></use></svg></span></span></span><span class="nd-space__describe"><span class="nd-space__address"><span>London</span><span>Mayfare</span><span>EC2A 4SD</span></span><span class="nd-space__title">First Base - Cannon Street</span><span class="nd-space__clip-text"><span class="nd-space__text" data-text="The Finsbury Business Centre (FBC) was set up in 1983 on the site of a former 1930’s printworks. It was one of the first business centres in London and has helped a variety of diverse and interesting businesses to grow and flourish over the years.">The Finsbury Business Centre (FBC) was set up in 1983 on the site of a former 1930’s printworks. It was one of the first business centres in London and has helped a variety of diverse and interesting businesses to grow and flourish over the years.</span></span>
-                                <table class="offer-table offer-table_transforma nd-space__list">
+                                        </span></span></span><span class="gallery__buttons gallery__buttons_small"><span class="gallery__button gallery__button_prev js-gallery-button-prev"><svg><use xlink:href="assets/images/icon.svg#icon_nd-slider-arrow"></use></svg></span><span class="gallery__button gallery__button_next js-gallery-button-next"><svg><use xlink:href="assets/images/icon.svg#icon_nd-slider-arrow"></use></svg></span></span></span><span class="nd-space__describe"><span class="nd-space__address"><span>London</span><span>Mayfare</span><span>EC2A 4SD</span></span><span class="nd-space__title">First Base - Cannon Street</span><span class="nd-space__clip-text"><span class="nd-space__text">The Finsbury Business Centre (FBC) was set up in 1983 on the site of a former 1930’s printworks. It was one of the first business centres in London and has helped a variety of diverse and interesting businesses to grow and flourish over the years.</span></span></span><span class="nd-space__offer-list">
+                                <table class="offer-table offer-table_transforma offer-table_transforma_v2 nd-space__list">
                                     <tbody>
                                         <tr class="offer-table__row">
                                             <td class="offer-table__cell">
@@ -1146,7 +1146,7 @@
                                     </tbody>
                                 </table>
                             </span><span class="nd-space__button hide-from-sm">View all 20 listings</span></a></div>
-                    <div class="nd-results__item"><a class="nd-space nd-space_search-card js-show-layout" data-layout-target="space"><span class="gallery gallery_space nd-space__media js-nd-gallery"><span class="gallery__slider js-gallery-container"><span class="gallery__wrapper"><span class="gallery__slide">
+                    <div class="nd-results__item"><a class="nd-space nd-space_search-card nd-space_search-card_v2 js-show-layout" data-layout-target="space"><span class="gallery gallery_space nd-space__media js-nd-gallery"><span class="gallery__slider js-gallery-container"><span class="gallery__wrapper"><span class="gallery__slide">
                                             <picture class="gallery__image">
                                                 <source srcset="assets/images/nd/space9.jpg" /><img srcset="assets/images/nd/space9.jpg" alt="" role="presentation" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" />
                                             </picture>
@@ -1162,8 +1162,8 @@
                                             <picture class="gallery__image">
                                                 <source srcset="assets/images/nd/space7.jpg" /><img srcset="assets/images/nd/space7.jpg" alt="" role="presentation" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" />
                                             </picture>
-                                        </span></span></span><span class="gallery__buttons gallery__buttons_small"><span class="gallery__button gallery__button_prev js-gallery-button-prev"><svg><use xlink:href="assets/images/icon.svg#icon_nd-slider-arrow"></use></svg></span><span class="gallery__button gallery__button_next js-gallery-button-next"><svg><use xlink:href="assets/images/icon.svg#icon_nd-slider-arrow"></use></svg></span></span></span><span class="nd-space__describe"><span class="nd-space__address"><span>London</span><span>Mayfare</span><span>EC2A 4SD</span></span><span class="nd-space__title">Finsbury Business Centre</span><span class="nd-space__clip-text"><span class="nd-space__text" data-text="The Finsbury Business Centre (FBC) was set up in 1983 on the site of a former 1930’s printworks. It was one of the first business centres in London and has helped a variety of diverse and interesting businesses to grow and flourish over the years.">The Finsbury Business Centre (FBC) was set up in 1983 on the site of a former 1930’s printworks. It was one of the first business centres in London and has helped a variety of diverse and interesting businesses to grow and flourish over the years.</span></span>
-                                <table class="offer-table offer-table_transforma nd-space__list">
+                                        </span></span></span><span class="gallery__buttons gallery__buttons_small"><span class="gallery__button gallery__button_prev js-gallery-button-prev"><svg><use xlink:href="assets/images/icon.svg#icon_nd-slider-arrow"></use></svg></span><span class="gallery__button gallery__button_next js-gallery-button-next"><svg><use xlink:href="assets/images/icon.svg#icon_nd-slider-arrow"></use></svg></span></span></span><span class="nd-space__describe"><span class="nd-space__address"><span>London</span><span>Mayfare</span><span>EC2A 4SD</span></span><span class="nd-space__title">Finsbury Business Centre</span><span class="nd-space__clip-text"><span class="nd-space__text">The Finsbury Business Centre (FBC) was set up in 1983 on the site of a former 1930’s printworks. It was one of the first business centres in London and has helped a variety of diverse and interesting businesses to grow and flourish over the years.</span></span></span><span class="nd-space__offer-list">
+                                <table class="offer-table offer-table_transforma offer-table_transforma_v2 nd-space__list">
                                     <tbody>
                                         <tr class="offer-table__row">
                                             <td class="offer-table__cell">
@@ -1180,7 +1180,7 @@
                                     </tbody>
                                 </table>
                             </span><span class="nd-space__button hide-from-sm">View all 20 listings</span></a></div>
-                    <div class="nd-results__item"><a class="nd-space nd-space_search-card js-show-layout" data-layout-target="space"><span class="gallery gallery_space nd-space__media js-nd-gallery"><span class="gallery__slider js-gallery-container"><span class="gallery__wrapper"><span class="gallery__slide">
+                    <div class="nd-results__item"><a class="nd-space nd-space_search-card nd-space_search-card_v2 js-show-layout" data-layout-target="space"><span class="gallery gallery_space nd-space__media js-nd-gallery"><span class="gallery__slider js-gallery-container"><span class="gallery__wrapper"><span class="gallery__slide">
                                             <picture class="gallery__image">
                                                 <source srcset="assets/images/nd/space19.jpg" /><img srcset="assets/images/nd/space19.jpg" alt="" role="presentation" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" />
                                             </picture>
@@ -1196,8 +1196,8 @@
                                             <picture class="gallery__image">
                                                 <source srcset="assets/images/nd/space7.jpg" /><img srcset="assets/images/nd/space7.jpg" alt="" role="presentation" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" />
                                             </picture>
-                                        </span></span></span><span class="gallery__buttons gallery__buttons_small"><span class="gallery__button gallery__button_prev js-gallery-button-prev"><svg><use xlink:href="assets/images/icon.svg#icon_nd-slider-arrow"></use></svg></span><span class="gallery__button gallery__button_next js-gallery-button-next"><svg><use xlink:href="assets/images/icon.svg#icon_nd-slider-arrow"></use></svg></span></span></span><span class="nd-space__describe"><span class="nd-space__address"><span>London</span><span>Mayfare</span><span>EC2A 4SD</span></span><span class="nd-space__title">Finsbury Business Centre</span><span class="nd-space__clip-text"><span class="nd-space__text" data-text="The Finsbury Business Centre (FBC) was set up in 1983 on the site of a former 1930’s printworks. It was one of the first business centres in London and has helped a variety of diverse and interesting businesses to grow and flourish over the years.">The Finsbury Business Centre (FBC) was set up in 1983 on the site of a former 1930’s printworks. It was one of the first business centres in London and has helped a variety of diverse and interesting businesses to grow and flourish over the years.</span></span>
-                                <table class="offer-table offer-table_transforma nd-space__list">
+                                        </span></span></span><span class="gallery__buttons gallery__buttons_small"><span class="gallery__button gallery__button_prev js-gallery-button-prev"><svg><use xlink:href="assets/images/icon.svg#icon_nd-slider-arrow"></use></svg></span><span class="gallery__button gallery__button_next js-gallery-button-next"><svg><use xlink:href="assets/images/icon.svg#icon_nd-slider-arrow"></use></svg></span></span></span><span class="nd-space__describe"><span class="nd-space__address"><span>London</span><span>Mayfare</span><span>EC2A 4SD</span></span><span class="nd-space__title">Finsbury Business Centre</span><span class="nd-space__clip-text"><span class="nd-space__text">The Finsbury Business Centre (FBC) was set up in 1983 on the site of a former 1930’s printworks. It was one of the first business centres in London and has helped a variety of diverse and interesting businesses to grow and flourish over the years.</span></span></span><span class="nd-space__offer-list">
+                                <table class="offer-table offer-table_transforma offer-table_transforma_v2 nd-space__list">
                                     <tbody>
                                         <tr class="offer-table__row">
                                             <td class="offer-table__cell">
@@ -1226,7 +1226,7 @@
                                     </tbody>
                                 </table>
                             </span><span class="nd-space__button hide-from-sm">View all 20 listings</span></a></div>
-                    <div class="nd-results__item"><a class="nd-space nd-space_search-card js-show-layout" data-layout-target="space"><span class="gallery gallery_space nd-space__media js-nd-gallery"><span class="gallery__slider js-gallery-container"><span class="gallery__wrapper"><span class="gallery__slide">
+                    <div class="nd-results__item"><a class="nd-space nd-space_search-card nd-space_search-card_v2 js-show-layout" data-layout-target="space"><span class="gallery gallery_space nd-space__media js-nd-gallery"><span class="gallery__slider js-gallery-container"><span class="gallery__wrapper"><span class="gallery__slide">
                                             <picture class="gallery__image">
                                                 <source srcset="assets/images/nd/space20.jpg" /><img srcset="assets/images/nd/space20.jpg" alt="" role="presentation" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" />
                                             </picture>
@@ -1242,8 +1242,8 @@
                                             <picture class="gallery__image">
                                                 <source srcset="assets/images/nd/space7.jpg" /><img srcset="assets/images/nd/space7.jpg" alt="" role="presentation" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" />
                                             </picture>
-                                        </span></span></span><span class="gallery__buttons gallery__buttons_small"><span class="gallery__button gallery__button_prev js-gallery-button-prev"><svg><use xlink:href="assets/images/icon.svg#icon_nd-slider-arrow"></use></svg></span><span class="gallery__button gallery__button_next js-gallery-button-next"><svg><use xlink:href="assets/images/icon.svg#icon_nd-slider-arrow"></use></svg></span></span></span><span class="nd-space__describe"><span class="nd-space__address"><span>London</span><span>Mayfare</span><span>EC2A 4SD</span></span><span class="nd-space__title">First Base - Cannon Street</span><span class="nd-space__clip-text"><span class="nd-space__text" data-text="The Finsbury Business Centre (FBC) was set up in 1983 on the site of a former 1930’s printworks. It was one of the first business centres in London and has helped a variety of diverse and interesting businesses to grow and flourish over the years.">The Finsbury Business Centre (FBC) was set up in 1983 on the site of a former 1930’s printworks. It was one of the first business centres in London and has helped a variety of diverse and interesting businesses to grow and flourish over the years.</span></span>
-                                <table class="offer-table offer-table_transforma nd-space__list">
+                                        </span></span></span><span class="gallery__buttons gallery__buttons_small"><span class="gallery__button gallery__button_prev js-gallery-button-prev"><svg><use xlink:href="assets/images/icon.svg#icon_nd-slider-arrow"></use></svg></span><span class="gallery__button gallery__button_next js-gallery-button-next"><svg><use xlink:href="assets/images/icon.svg#icon_nd-slider-arrow"></use></svg></span></span></span><span class="nd-space__describe"><span class="nd-space__address"><span>London</span><span>Mayfare</span><span>EC2A 4SD</span></span><span class="nd-space__title">First Base - Cannon Street</span><span class="nd-space__clip-text"><span class="nd-space__text">The Finsbury Business Centre (FBC) was set up in 1983 on the site of a former 1930’s printworks. It was one of the first business centres in London and has helped a variety of diverse and interesting businesses to grow and flourish over the years.</span></span></span><span class="nd-space__offer-list">
+                                <table class="offer-table offer-table_transforma offer-table_transforma_v2 nd-space__list">
                                     <tbody>
                                         <tr class="offer-table__row">
                                             <td class="offer-table__cell">
@@ -1296,7 +1296,7 @@
                                     </tbody>
                                 </table>
                             </span><span class="nd-space__button hide-from-sm">View all 20 listings</span></a></div>
-                    <div class="nd-results__item"><a class="nd-space nd-space_search-card js-show-layout" data-layout-target="space"><span class="gallery gallery_space nd-space__media js-nd-gallery"><span class="gallery__slider js-gallery-container"><span class="gallery__wrapper"><span class="gallery__slide">
+                    <div class="nd-results__item"><a class="nd-space nd-space_search-card nd-space_search-card_v2 js-show-layout" data-layout-target="space"><span class="gallery gallery_space nd-space__media js-nd-gallery"><span class="gallery__slider js-gallery-container"><span class="gallery__wrapper"><span class="gallery__slide">
                                             <picture class="gallery__image">
                                                 <source srcset="assets/images/nd/space2.jpg" /><img srcset="assets/images/nd/space2.jpg" alt="" role="presentation" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" />
                                             </picture>
@@ -1312,8 +1312,8 @@
                                             <picture class="gallery__image">
                                                 <source srcset="assets/images/nd/space7.jpg" /><img srcset="assets/images/nd/space7.jpg" alt="" role="presentation" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" />
                                             </picture>
-                                        </span></span></span><span class="gallery__buttons gallery__buttons_small"><span class="gallery__button gallery__button_prev js-gallery-button-prev"><svg><use xlink:href="assets/images/icon.svg#icon_nd-slider-arrow"></use></svg></span><span class="gallery__button gallery__button_next js-gallery-button-next"><svg><use xlink:href="assets/images/icon.svg#icon_nd-slider-arrow"></use></svg></span></span></span><span class="nd-space__describe"><span class="nd-space__address"><span>London</span><span>Mayfare</span><span>EC2A 4SD</span></span><span class="nd-space__title">First Base - Cannon Street</span><span class="nd-space__clip-text"><span class="nd-space__text" data-text="The Finsbury Business Centre (FBC) was set up in 1983 on the site of a former 1930’s printworks. It was one of the first business centres in London and has helped a variety of diverse and interesting businesses to grow and flourish over the years.">The Finsbury Business Centre (FBC) was set up in 1983 on the site of a former 1930’s printworks. It was one of the first business centres in London and has helped a variety of diverse and interesting businesses to grow and flourish over the years.</span></span>
-                                <table class="offer-table offer-table_transforma nd-space__list">
+                                        </span></span></span><span class="gallery__buttons gallery__buttons_small"><span class="gallery__button gallery__button_prev js-gallery-button-prev"><svg><use xlink:href="assets/images/icon.svg#icon_nd-slider-arrow"></use></svg></span><span class="gallery__button gallery__button_next js-gallery-button-next"><svg><use xlink:href="assets/images/icon.svg#icon_nd-slider-arrow"></use></svg></span></span></span><span class="nd-space__describe"><span class="nd-space__address"><span>London</span><span>Mayfare</span><span>EC2A 4SD</span></span><span class="nd-space__title">First Base - Cannon Street</span><span class="nd-space__clip-text"><span class="nd-space__text">The Finsbury Business Centre (FBC) was set up in 1983 on the site of a former 1930’s printworks. It was one of the first business centres in London and has helped a variety of diverse and interesting businesses to grow and flourish over the years.</span></span></span><span class="nd-space__offer-list">
+                                <table class="offer-table offer-table_transforma offer-table_transforma_v2 nd-space__list">
                                     <tbody>
                                         <tr class="offer-table__row">
                                             <td class="offer-table__cell">
@@ -1366,7 +1366,7 @@
                                     </tbody>
                                 </table>
                             </span><span class="nd-space__button hide-from-sm">View all 20 listings</span></a></div>
-                    <div class="nd-results__item"><a class="nd-space nd-space_search-card js-show-layout" data-layout-target="space"><span class="gallery gallery_space nd-space__media js-nd-gallery"><span class="gallery__slider js-gallery-container"><span class="gallery__wrapper"><span class="gallery__slide">
+                    <div class="nd-results__item"><a class="nd-space nd-space_search-card nd-space_search-card_v2 js-show-layout" data-layout-target="space"><span class="gallery gallery_space nd-space__media js-nd-gallery"><span class="gallery__slider js-gallery-container"><span class="gallery__wrapper"><span class="gallery__slide">
                                             <picture class="gallery__image">
                                                 <source srcset="assets/images/nd/space17.jpg" /><img srcset="assets/images/nd/space17.jpg" alt="" role="presentation" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" />
                                             </picture>
@@ -1382,8 +1382,8 @@
                                             <picture class="gallery__image">
                                                 <source srcset="assets/images/nd/space7.jpg" /><img srcset="assets/images/nd/space7.jpg" alt="" role="presentation" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" />
                                             </picture>
-                                        </span></span></span><span class="gallery__buttons gallery__buttons_small"><span class="gallery__button gallery__button_prev js-gallery-button-prev"><svg><use xlink:href="assets/images/icon.svg#icon_nd-slider-arrow"></use></svg></span><span class="gallery__button gallery__button_next js-gallery-button-next"><svg><use xlink:href="assets/images/icon.svg#icon_nd-slider-arrow"></use></svg></span></span></span><span class="nd-space__describe"><span class="nd-space__address"><span>London</span><span>Mayfare</span><span>EC2A 4SD</span></span><span class="nd-space__title">The Finsbury Business Centre</span><span class="nd-space__clip-text"><span class="nd-space__text" data-text="The Finsbury Business Centre (FBC) was set up in 1983 on the site of a former 1930’s printworks. It was one of the first business centres in London and has helped a variety of diverse and interesting businesses to grow and flourish over the years.">The Finsbury Business Centre (FBC) was set up in 1983 on the site of a former 1930’s printworks. It was one of the first business centres in London and has helped a variety of diverse and interesting businesses to grow and flourish over the years.</span></span>
-                                <table class="offer-table offer-table_transforma nd-space__list">
+                                        </span></span></span><span class="gallery__buttons gallery__buttons_small"><span class="gallery__button gallery__button_prev js-gallery-button-prev"><svg><use xlink:href="assets/images/icon.svg#icon_nd-slider-arrow"></use></svg></span><span class="gallery__button gallery__button_next js-gallery-button-next"><svg><use xlink:href="assets/images/icon.svg#icon_nd-slider-arrow"></use></svg></span></span></span><span class="nd-space__describe"><span class="nd-space__address"><span>London</span><span>Mayfare</span><span>EC2A 4SD</span></span><span class="nd-space__title">The Finsbury Business Centre</span><span class="nd-space__clip-text"><span class="nd-space__text">The Finsbury Business Centre (FBC) was set up in 1983 on the site of a former 1930’s printworks. It was one of the first business centres in London and has helped a variety of diverse and interesting businesses to grow and flourish over the years.</span></span></span><span class="nd-space__offer-list">
+                                <table class="offer-table offer-table_transforma offer-table_transforma_v2 nd-space__list">
                                     <tbody>
                                         <tr class="offer-table__row">
                                             <td class="offer-table__cell">
@@ -1436,7 +1436,7 @@
                                     </tbody>
                                 </table>
                             </span><span class="nd-space__button hide-from-sm">View all 20 listings</span></a></div>
-                    <div class="nd-results__item"><a class="nd-space nd-space_search-card js-show-layout" data-layout-target="space"><span class="gallery gallery_space nd-space__media js-nd-gallery"><span class="gallery__slider js-gallery-container"><span class="gallery__wrapper"><span class="gallery__slide">
+                    <div class="nd-results__item"><a class="nd-space nd-space_search-card nd-space_search-card_v2 js-show-layout" data-layout-target="space"><span class="gallery gallery_space nd-space__media js-nd-gallery"><span class="gallery__slider js-gallery-container"><span class="gallery__wrapper"><span class="gallery__slide">
                                             <picture class="gallery__image">
                                                 <source srcset="assets/images/nd/space18.jpg" /><img srcset="assets/images/nd/space18.jpg" alt="" role="presentation" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" />
                                             </picture>
@@ -1452,8 +1452,8 @@
                                             <picture class="gallery__image">
                                                 <source srcset="assets/images/nd/space6.jpg" /><img srcset="assets/images/nd/space6.jpg" alt="" role="presentation" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" />
                                             </picture>
-                                        </span></span></span><span class="gallery__buttons gallery__buttons_small"><span class="gallery__button gallery__button_prev js-gallery-button-prev"><svg><use xlink:href="assets/images/icon.svg#icon_nd-slider-arrow"></use></svg></span><span class="gallery__button gallery__button_next js-gallery-button-next"><svg><use xlink:href="assets/images/icon.svg#icon_nd-slider-arrow"></use></svg></span></span></span><span class="nd-space__describe"><span class="nd-space__address"><span>London</span><span>Mayfare</span><span>EC2A 4SD</span></span><span class="nd-space__title">First Base - Cannon Street</span><span class="nd-space__clip-text"><span class="nd-space__text" data-text="The Finsbury Business Centre (FBC) was set up in 1983 on the site of a former 1930’s printworks. It was one of the first business centres in London and has helped a variety of diverse and interesting businesses to grow and flourish over the years.">The Finsbury Business Centre (FBC) was set up in 1983 on the site of a former 1930’s printworks. It was one of the first business centres in London and has helped a variety of diverse and interesting businesses to grow and flourish over the years.</span></span>
-                                <table class="offer-table offer-table_transforma nd-space__list">
+                                        </span></span></span><span class="gallery__buttons gallery__buttons_small"><span class="gallery__button gallery__button_prev js-gallery-button-prev"><svg><use xlink:href="assets/images/icon.svg#icon_nd-slider-arrow"></use></svg></span><span class="gallery__button gallery__button_next js-gallery-button-next"><svg><use xlink:href="assets/images/icon.svg#icon_nd-slider-arrow"></use></svg></span></span></span><span class="nd-space__describe"><span class="nd-space__address"><span>London</span><span>Mayfare</span><span>EC2A 4SD</span></span><span class="nd-space__title">First Base - Cannon Street</span><span class="nd-space__clip-text"><span class="nd-space__text">The Finsbury Business Centre (FBC) was set up in 1983 on the site of a former 1930’s printworks. It was one of the first business centres in London and has helped a variety of diverse and interesting businesses to grow and flourish over the years.</span></span></span><span class="nd-space__offer-list">
+                                <table class="offer-table offer-table_transforma offer-table_transforma_v2 nd-space__list">
                                     <tbody>
                                         <tr class="offer-table__row">
                                             <td class="offer-table__cell">
@@ -1482,7 +1482,7 @@
                                     </tbody>
                                 </table>
                             </span><span class="nd-space__button hide-from-sm">View all 20 listings</span></a></div>
-                    <div class="nd-results__item"><a class="nd-space nd-space_search-card js-show-layout" data-layout-target="space"><span class="gallery gallery_space nd-space__media js-nd-gallery"><span class="gallery__slider js-gallery-container"><span class="gallery__wrapper"><span class="gallery__slide">
+                    <div class="nd-results__item"><a class="nd-space nd-space_search-card nd-space_search-card_v2 js-show-layout" data-layout-target="space"><span class="gallery gallery_space nd-space__media js-nd-gallery"><span class="gallery__slider js-gallery-container"><span class="gallery__wrapper"><span class="gallery__slide">
                                             <picture class="gallery__image">
                                                 <source srcset="assets/images/nd/space9.jpg" /><img srcset="assets/images/nd/space9.jpg" alt="" role="presentation" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" />
                                             </picture>
@@ -1498,8 +1498,8 @@
                                             <picture class="gallery__image">
                                                 <source srcset="assets/images/nd/space7.jpg" /><img srcset="assets/images/nd/space7.jpg" alt="" role="presentation" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" />
                                             </picture>
-                                        </span></span></span><span class="gallery__buttons gallery__buttons_small"><span class="gallery__button gallery__button_prev js-gallery-button-prev"><svg><use xlink:href="assets/images/icon.svg#icon_nd-slider-arrow"></use></svg></span><span class="gallery__button gallery__button_next js-gallery-button-next"><svg><use xlink:href="assets/images/icon.svg#icon_nd-slider-arrow"></use></svg></span></span></span><span class="nd-space__describe"><span class="nd-space__address"><span>London</span><span>Mayfare</span><span>EC2A 4SD</span></span><span class="nd-space__title">Finsbury Business Centre</span><span class="nd-space__clip-text"><span class="nd-space__text" data-text="The Finsbury Business Centre (FBC) was set up in 1983 on the site of a former 1930’s printworks. It was one of the first business centres in London and has helped a variety of diverse and interesting businesses to grow and flourish over the years.">The Finsbury Business Centre (FBC) was set up in 1983 on the site of a former 1930’s printworks. It was one of the first business centres in London and has helped a variety of diverse and interesting businesses to grow and flourish over the years.</span></span>
-                                <table class="offer-table offer-table_transforma nd-space__list">
+                                        </span></span></span><span class="gallery__buttons gallery__buttons_small"><span class="gallery__button gallery__button_prev js-gallery-button-prev"><svg><use xlink:href="assets/images/icon.svg#icon_nd-slider-arrow"></use></svg></span><span class="gallery__button gallery__button_next js-gallery-button-next"><svg><use xlink:href="assets/images/icon.svg#icon_nd-slider-arrow"></use></svg></span></span></span><span class="nd-space__describe"><span class="nd-space__address"><span>London</span><span>Mayfare</span><span>EC2A 4SD</span></span><span class="nd-space__title">Finsbury Business Centre</span><span class="nd-space__clip-text"><span class="nd-space__text">The Finsbury Business Centre (FBC) was set up in 1983 on the site of a former 1930’s printworks. It was one of the first business centres in London and has helped a variety of diverse and interesting businesses to grow and flourish over the years.</span></span></span><span class="nd-space__offer-list">
+                                <table class="offer-table offer-table_transforma offer-table_transforma_v2 nd-space__list">
                                     <tbody>
                                         <tr class="offer-table__row">
                                             <td class="offer-table__cell">
@@ -1516,7 +1516,7 @@
                                     </tbody>
                                 </table>
                             </span><span class="nd-space__button hide-from-sm">View all 20 listings</span></a></div>
-                    <div class="nd-results__item"><a class="nd-space nd-space_search-card js-show-layout" data-layout-target="space"><span class="gallery gallery_space nd-space__media js-nd-gallery"><span class="gallery__slider js-gallery-container"><span class="gallery__wrapper"><span class="gallery__slide">
+                    <div class="nd-results__item"><a class="nd-space nd-space_search-card nd-space_search-card_v2 js-show-layout" data-layout-target="space"><span class="gallery gallery_space nd-space__media js-nd-gallery"><span class="gallery__slider js-gallery-container"><span class="gallery__wrapper"><span class="gallery__slide">
                                             <picture class="gallery__image">
                                                 <source srcset="assets/images/nd/space19.jpg" /><img srcset="assets/images/nd/space19.jpg" alt="" role="presentation" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" />
                                             </picture>
@@ -1532,8 +1532,8 @@
                                             <picture class="gallery__image">
                                                 <source srcset="assets/images/nd/space7.jpg" /><img srcset="assets/images/nd/space7.jpg" alt="" role="presentation" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" />
                                             </picture>
-                                        </span></span></span><span class="gallery__buttons gallery__buttons_small"><span class="gallery__button gallery__button_prev js-gallery-button-prev"><svg><use xlink:href="assets/images/icon.svg#icon_nd-slider-arrow"></use></svg></span><span class="gallery__button gallery__button_next js-gallery-button-next"><svg><use xlink:href="assets/images/icon.svg#icon_nd-slider-arrow"></use></svg></span></span></span><span class="nd-space__describe"><span class="nd-space__address"><span>London</span><span>Mayfare</span><span>EC2A 4SD</span></span><span class="nd-space__title">Finsbury Business Centre</span><span class="nd-space__clip-text"><span class="nd-space__text" data-text="The Finsbury Business Centre (FBC) was set up in 1983 on the site of a former 1930’s printworks. It was one of the first business centres in London and has helped a variety of diverse and interesting businesses to grow and flourish over the years.">The Finsbury Business Centre (FBC) was set up in 1983 on the site of a former 1930’s printworks. It was one of the first business centres in London and has helped a variety of diverse and interesting businesses to grow and flourish over the years.</span></span>
-                                <table class="offer-table offer-table_transforma nd-space__list">
+                                        </span></span></span><span class="gallery__buttons gallery__buttons_small"><span class="gallery__button gallery__button_prev js-gallery-button-prev"><svg><use xlink:href="assets/images/icon.svg#icon_nd-slider-arrow"></use></svg></span><span class="gallery__button gallery__button_next js-gallery-button-next"><svg><use xlink:href="assets/images/icon.svg#icon_nd-slider-arrow"></use></svg></span></span></span><span class="nd-space__describe"><span class="nd-space__address"><span>London</span><span>Mayfare</span><span>EC2A 4SD</span></span><span class="nd-space__title">Finsbury Business Centre</span><span class="nd-space__clip-text"><span class="nd-space__text">The Finsbury Business Centre (FBC) was set up in 1983 on the site of a former 1930’s printworks. It was one of the first business centres in London and has helped a variety of diverse and interesting businesses to grow and flourish over the years.</span></span></span><span class="nd-space__offer-list">
+                                <table class="offer-table offer-table_transforma offer-table_transforma_v2 nd-space__list">
                                     <tbody>
                                         <tr class="offer-table__row">
                                             <td class="offer-table__cell">
@@ -1562,7 +1562,7 @@
                                     </tbody>
                                 </table>
                             </span><span class="nd-space__button hide-from-sm">View all 20 listings</span></a></div>
-                    <div class="nd-results__item"><a class="nd-space nd-space_search-card js-show-layout" data-layout-target="space"><span class="gallery gallery_space nd-space__media js-nd-gallery"><span class="gallery__slider js-gallery-container"><span class="gallery__wrapper"><span class="gallery__slide">
+                    <div class="nd-results__item"><a class="nd-space nd-space_search-card nd-space_search-card_v2 js-show-layout" data-layout-target="space"><span class="gallery gallery_space nd-space__media js-nd-gallery"><span class="gallery__slider js-gallery-container"><span class="gallery__wrapper"><span class="gallery__slide">
                                             <picture class="gallery__image">
                                                 <source srcset="assets/images/nd/space20.jpg" /><img srcset="assets/images/nd/space20.jpg" alt="" role="presentation" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" />
                                             </picture>
@@ -1578,8 +1578,8 @@
                                             <picture class="gallery__image">
                                                 <source srcset="assets/images/nd/space7.jpg" /><img srcset="assets/images/nd/space7.jpg" alt="" role="presentation" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" />
                                             </picture>
-                                        </span></span></span><span class="gallery__buttons gallery__buttons_small"><span class="gallery__button gallery__button_prev js-gallery-button-prev"><svg><use xlink:href="assets/images/icon.svg#icon_nd-slider-arrow"></use></svg></span><span class="gallery__button gallery__button_next js-gallery-button-next"><svg><use xlink:href="assets/images/icon.svg#icon_nd-slider-arrow"></use></svg></span></span></span><span class="nd-space__describe"><span class="nd-space__address"><span>London</span><span>Mayfare</span><span>EC2A 4SD</span></span><span class="nd-space__title">First Base - Cannon Street</span><span class="nd-space__clip-text"><span class="nd-space__text" data-text="The Finsbury Business Centre (FBC) was set up in 1983 on the site of a former 1930’s printworks. It was one of the first business centres in London and has helped a variety of diverse and interesting businesses to grow and flourish over the years.">The Finsbury Business Centre (FBC) was set up in 1983 on the site of a former 1930’s printworks. It was one of the first business centres in London and has helped a variety of diverse and interesting businesses to grow and flourish over the years.</span></span>
-                                <table class="offer-table offer-table_transforma nd-space__list">
+                                        </span></span></span><span class="gallery__buttons gallery__buttons_small"><span class="gallery__button gallery__button_prev js-gallery-button-prev"><svg><use xlink:href="assets/images/icon.svg#icon_nd-slider-arrow"></use></svg></span><span class="gallery__button gallery__button_next js-gallery-button-next"><svg><use xlink:href="assets/images/icon.svg#icon_nd-slider-arrow"></use></svg></span></span></span><span class="nd-space__describe"><span class="nd-space__address"><span>London</span><span>Mayfare</span><span>EC2A 4SD</span></span><span class="nd-space__title">First Base - Cannon Street</span><span class="nd-space__clip-text"><span class="nd-space__text">The Finsbury Business Centre (FBC) was set up in 1983 on the site of a former 1930’s printworks. It was one of the first business centres in London and has helped a variety of diverse and interesting businesses to grow and flourish over the years.</span></span></span><span class="nd-space__offer-list">
+                                <table class="offer-table offer-table_transforma offer-table_transforma_v2 nd-space__list">
                                     <tbody>
                                         <tr class="offer-table__row">
                                             <td class="offer-table__cell">
@@ -1638,12 +1638,12 @@
             <div class="layout__column layout__column_end layout__column_popup" data-layout-tag="list,space"></div>
             <div class="layout__column layout__column_start layout__column_popup" data-layout-tag="offer"></div>
         </section>
-        <form class="modals" id="search-filter" action="/">
-            <fieldset class="modals__fieldset">
+        <div class="modals">
+            <form class="modals__fieldset" id="search-filter" action="/">
                 <div class="modal" id="filter-location">
-                    <div class="modal__overlay"></div>
+                    <div class="modal__overlay js-close-modal"></div>
                     <div class="modal__wrapper">
-                        <div class="modal__header nd-hide-from-sm"><button class="modal__close" type="button">Close</button>
+                        <div class="modal__header nd-hide-from-sm"><button class="modal__close js-close-modal" type="button">Close</button>
                             <div class="modal__title">Location</div>
                         </div>
                         <div class="modal__content">
@@ -1654,23 +1654,23 @@
                     </div>
                 </div>
                 <div class="modal" id="filter-type">
-                    <div class="modal__overlay"></div>
+                    <div class="modal__overlay js-close-modal"></div>
                     <div class="modal__wrapper">
-                        <div class="modal__header nd-hide-from-sm"><button class="modal__close" type="button">Close</button>
+                        <div class="modal__header nd-hide-from-sm"><button class="modal__close js-close-modal" type="button">Close</button>
                             <div class="modal__title">Office type</div>
                         </div>
                         <div class="modal__content">
                             <div class="modal__describe">
                                 <div class="modal__text">Pick the type of workspace you want.</div>
                             </div>
-                            <div class="modal__list"><label class="styled-radio styled-radio_offer styled-radio_offer_green modal__item"><input class="styled-radio__input" type="radio" value="Private Office" name="team" data-modal-item="data-modal-item" data-modal-item-value="Private Office" data-modal-item-type="offer" /><span class="styled-radio__content">Private Office</span></label><label class="styled-radio styled-radio_offer styled-radio_offer_orange modal__item"><input class="styled-radio__input" type="radio" value="Hot Desk" name="team" data-modal-item="data-modal-item" data-modal-item-value="Hot Desk" data-modal-item-type="offer" /><span class="styled-radio__content">Hot Desk</span></label><label class="styled-radio styled-radio_offer styled-radio_offer_red modal__item"><input class="styled-radio__input" type="radio" value="Fixed Desk" name="team" data-modal-item="data-modal-item" data-modal-item-value="Fixed Desk" data-modal-item-type="offer" /><span class="styled-radio__content">Fixed Desk</span></label><label class="styled-radio styled-radio_offer styled-radio_offer_blue modal__item"><input class="styled-radio__input" type="radio" value="Meeting Room" name="team" data-modal-item="data-modal-item" data-modal-item-value="Meeting Room" data-modal-item-type="offer" /><span class="styled-radio__content">Meeting Room</span></label></div>
+                            <div class="modal__list"><label class="styled-radio styled-radio_offer styled-radio_offer_green modal__item"><input class="styled-radio__input" type="radio" value="Private Office" name="team" data-modal-item="data-modal-item" data-modal-item-value="Private Office" data-modal-item-wrapper-class="is-green" data-modal-item-type="offer" /><span class="styled-radio__content">Private Office</span></label><label class="styled-radio styled-radio_offer styled-radio_offer_orange modal__item"><input class="styled-radio__input" type="radio" value="Hot Desk" name="team" data-modal-item="data-modal-item" data-modal-item-value="Hot Desk" data-modal-item-wrapper-class="is-orange" data-modal-item-type="offer" /><span class="styled-radio__content">Hot Desk</span></label><label class="styled-radio styled-radio_offer styled-radio_offer_red modal__item"><input class="styled-radio__input" type="radio" value="Fixed Desk" name="team" data-modal-item="data-modal-item" data-modal-item-value="Fixed Desk" data-modal-item-wrapper-class="is-red" data-modal-item-type="offer" /><span class="styled-radio__content">Fixed Desk</span></label><label class="styled-radio styled-radio_offer styled-radio_offer_blue modal__item"><input class="styled-radio__input" type="radio" value="Meeting Room" name="team" data-modal-item="data-modal-item" data-modal-item-value="Meeting Room" data-modal-item-wrapper-class="is-blue" data-modal-item-type="offer" /><span class="styled-radio__content">Meeting Room</span></label></div>
                         </div>
                     </div>
                 </div>
                 <div class="modal" id="filter-team">
-                    <div class="modal__overlay"></div>
+                    <div class="modal__overlay js-close-modal"></div>
                     <div class="modal__wrapper">
-                        <div class="modal__header nd-hide-from-sm"><button class="modal__close" type="button">Close</button>
+                        <div class="modal__header nd-hide-from-sm"><button class="modal__close js-close-modal" type="button">Close</button>
                             <div class="modal__title">Team size</div>
                         </div>
                         <div class="modal__content">
@@ -1681,16 +1681,16 @@
                         </div>
                     </div>
                 </div>
-            </fieldset>
-            <fieldset class="modals__fieldset">
+            </form>
+            <div class="modals__fieldset">
                 <div class="modal" id="filter-range">
-                    <div class="modal__overlay"></div>
+                    <div class="modal__overlay js-close-modal"></div>
                     <div class="modal__wrapper">
-                        <div class="modal__header nd-hide-from-sm"><button class="modal__close" type="button">Close</button>
+                        <div class="modal__header nd-hide-from-sm"><button class="modal__close js-close-modal" type="button">Close</button>
                             <div class="modal__title">Price range</div>
                         </div>
                         <div class="modal__content">
-                            <div class="nd-range js-nd-range modal__range" data-start="[0, 5000]" data-connect="[false, true, false]" data-step="10" data-margin="30" data-min="0" data-max="10000" data-currency="£" data-nd-filter-type="priceRange">
+                            <div class="nd-range js-nd-range modal__range" data-start="[0, 5000]" data-connect="[false, true, false]" data-step="10" data-margin="30" data-min="0" data-max="10000" data-currency="£" data-modal-item="data-modal-item" data-modal-item-type="range">
                                 <div class="nd-range__slider" data-nd-range-container="data-nd-range-container"></div>
                                 <div class="nd-range__output" data-nd-range-output="data-nd-range-output">
                                     <div class="nd-range__item"><label class="form-box nd-form-box nd-form-box_bg-white nd-form-box_sm-h50"><input class="nd-input nd-input_sm-h50" type="text" name="minPrice" placeholder="Min" data-nd-range-input-min="data-nd-range-input-min" /><span class="form-box__label">Min</span></label></div>
@@ -1702,18 +1702,18 @@
                     </div>
                 </div>
                 <div class="modal" id="filter-sort">
-                    <div class="modal__overlay"></div>
+                    <div class="modal__overlay js-close-modal"></div>
                     <div class="modal__wrapper">
-                        <div class="modal__header nd-hide-from-sm"><button class="modal__close" type="button">Close</button>
+                        <div class="modal__header nd-hide-from-sm"><button class="modal__close js-close-modal" type="button">Close</button>
                             <div class="modal__title">Sort by</div>
                         </div>
                         <div class="modal__content">
-                            <div class="modal__list"><label class="styled-radio styled-radio_sort modal__item"><input class="styled-radio__input" type="radio" value="Popular" name="sort" data-modal-item="data-modal-item" data-modal-item-value="Popular" data-modal-item-type="sort" checked="checked" /><span class="styled-radio__content">Popular</span></label><label class="styled-radio styled-radio_sort modal__item"><input class="styled-radio__input" type="radio" value="Relevance" name="sort" data-modal-item="data-modal-item" data-modal-item-value="Relevance" data-modal-item-type="sort" /><span class="styled-radio__content">Relevance</span></label><label class="styled-radio styled-radio_sort modal__item"><input class="styled-radio__input" type="radio" value="Price ascending" name="sort" data-modal-item="data-modal-item" data-modal-item-value="Price ascending" data-modal-item-type="sort" /><span class="styled-radio__content">Price ascending</span></label><label class="styled-radio styled-radio_sort modal__item"><input class="styled-radio__input" type="radio" value="Price descending" name="sort" data-modal-item="data-modal-item" data-modal-item-value="Price descending" data-modal-item-type="sort" /><span class="styled-radio__content">Price descending</span></label></div>
+                            <div class="modal__list"><label class="styled-radio styled-radio_sort modal__item"><input class="styled-radio__input" type="radio" value="Popular" name="sort" data-modal-item="data-modal-item" data-modal-item-value="Popular" data-modal-item-type="sort" /><span class="styled-radio__content">Popular</span></label><label class="styled-radio styled-radio_sort modal__item"><input class="styled-radio__input" type="radio" value="Relevance" name="sort" data-modal-item="data-modal-item" data-modal-item-value="Relevance" data-modal-item-type="sort" /><span class="styled-radio__content">Relevance</span></label><label class="styled-radio styled-radio_sort modal__item"><input class="styled-radio__input" type="radio" value="Price ascending" name="sort" data-modal-item="data-modal-item" data-modal-item-value="Price ascending" data-modal-item-type="sort" /><span class="styled-radio__content">Price ascending</span></label><label class="styled-radio styled-radio_sort modal__item"><input class="styled-radio__input" type="radio" value="Price descending" name="sort" data-modal-item="data-modal-item" data-modal-item-value="Price descending" data-modal-item-type="sort" /><span class="styled-radio__content">Price descending</span></label></div>
                         </div>
                     </div>
                 </div>
-            </fieldset>
-        </form>
+            </div>
+        </div>
     </main>
     <div class="popups"></div>
     <script src="assets/scripts/app.min.js"></script>

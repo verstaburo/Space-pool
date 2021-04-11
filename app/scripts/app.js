@@ -71,6 +71,8 @@ import ndCropedImage from '../components/popup-image-cropper/popup-image-cropper
 import heightEqualizer from './functions/heightEqualizer';
 import filterTagsScroll from '../blocks/filter-tags/filter-tags';
 import srMapToggle from '../components/search-map/search-map-v2';
+import { modalShowes } from '../blocks/modals/modals';
+import outputValuesFromModal from '../blocks/modal/modal';
 // old
 import './functions/mobileScale';
 // import {
@@ -164,6 +166,8 @@ $(() => {
   heightEqualizer();
   filterTagsScroll();
   srMapToggle();
+  modalShowes();
+  outputValuesFromModal();
   // old
   selects();
   datepicker();

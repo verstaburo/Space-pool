@@ -1,3 +1,126 @@
+class Popup extends google.maps.OverlayView {
+  constructor(options) {
+    super();
+    this.defaultOptions = {
+      distance: 15,
+      iconClose: '',
+      iconOpen: '',
+    };
+    // координаты
+    this.position = options.position;
+    // Dom элемент
+    this.containerDiv = options.content;
+    // маркер карты
+    this.marker = options.marker;
+    // как выглядит маркер при открытие попапа
+    this.iconClose = options.iconClose || this.defaultOptions.iconClose;
+    // как выглядит маркер при закрытии попапа
+    this.iconOpen = options.iconOpen || this.defaultOptions.iconOpen;
+    // расстояние от попапа до маркера
+    this.distance = options.distance || this.defaultOptions.distance;
+    Popup.preventMapHitsAndGesturesFrom(this.containerDiv);
+
+    const _t = this;
+  }
+
+  open(map) {
+    this.setMap(map);
+    this.containerDiv.classList.add('is-show');
+    const _t = this;
+    const _marker = this.marker;
+
+    if (this.iconOpen) {
+      _marker.userState = 'open';
+      _marker.setIcon(this.iconOpen);
+    }
+    map.addListener('click', () => {
+      _t.close();
+    });
+  }
+
+  close() {
+    this.containerDiv.classList.remove('is-show');
+    const _marker = this.marker;
+    if (this.iconClose) {
+      _marker.userState = 'close';
+      _marker.setIcon(this.iconClose);
+    }
+    this.setMap(null);
+  }
+
+  toggle() {
+    if (this.containerDiv.classList.contains('is-show')) {
+      this.close();
+    } else {
+      this.open();
+    }
+  }
+
+  /** Called when the popup is added to the map. */
+  onAdd() {
+    this.getPanes().floatPane.appendChild(this.containerDiv);
+
+    // автопозиционирование
+    const dist = this.distance;
+    const mapDiv = this.getMap().getDiv();
+    const divPosition = this.getProjection().fromLatLngToDivPixel(
+      this.position,
+    );
+    const mapSizes = mapDiv.getBoundingClientRect();
+    const containerSizes = this.containerDiv.getBoundingClientRect();
+    const distanceForRight = (mapSizes.width / 2) - divPosition.x - 30;
+    const distanceForLeft = (mapSizes.width / 2) + (divPosition.x - 30);
+    const distanceForTop = ((mapSizes.height / 2) + divPosition.y) - 50 - dist - 47;
+    const freeDistanceRightX = distanceForRight - (containerSizes.width / 2);
+    const freeDistanceLeftX = distanceForLeft - (containerSizes.width / 2);
+    const freeDistanceY = distanceForTop - containerSizes.height;
+    let newCenter = [0, 0];
+
+    if (freeDistanceRightX < 0 && freeDistanceY < 0) {
+      newCenter = [(0 - freeDistanceRightX), (0 + freeDistanceY)];
+    } else if (freeDistanceRightX > 0 && freeDistanceY < 0) {
+      newCenter = [0, (0 + freeDistanceY)];
+
+      if (freeDistanceLeftX < 0) {
+        newCenter = [(0 + freeDistanceLeftX), (0 + freeDistanceY)];
+      }
+    } else if (freeDistanceRightX < 0 && freeDistanceY > 0) {
+      newCenter = [(0 - freeDistanceRightX), 0];
+    } else if (freeDistanceLeftX < 0) {
+      newCenter = [(0 + freeDistanceLeftX), 0];
+    }
+
+    this.getMap().panBy(newCenter[0], newCenter[1]);
+  }
+
+  /** Called when the popup is removed from the map. */
+  onRemove() {
+    if (this.containerDiv.parentElement) {
+      this.containerDiv.parentElement.removeChild(this.containerDiv);
+    }
+  }
+
+  /** Called each frame when the popup needs to draw itself. */
+  draw() {
+    const dist = this.distance;
+    const divPosition = this.getProjection().fromLatLngToDivPixel(
+      this.position,
+    );
+    // Hide the popup when it is far out of view.
+    const display = Math.abs(divPosition.x) < 4000 && Math.abs(divPosition.y) < 4000
+      ? 'block'
+      : 'none';
+    if (display === 'block') {
+      this.containerDiv.style.top = `${divPosition.y - 47 - dist}px`;
+      this.containerDiv.style.left = `${divPosition.x}px`;
+    }
+
+    if (this.containerDiv.style.display !== display) {
+      this.containerDiv.style.display = display;
+    }
+  }
+}
+
 // обновление карт в поиске и на странице спейса
 $(document).ready(() => {
   const locations = [{
@@ -189,6 +312,7 @@ $(document).ready(() => {
 
       mapWrapper.map = map;
 
+      const popups = [];
       const markers = locationList.map((location, i) => {
         const mm = new google.maps.Marker({
           position: location.coords,
@@ -207,9 +331,17 @@ $(document).ready(() => {
           markerType,
           labelText: location.offerCount,
         });
-        const mmInfo = new google.maps.InfoWindow({
-          content: location.price,
-        });
+        const mmInfoContent = document.createElement('div');
+        mmInfoContent.classList.add('map-marker-tooltip');
+        mmInfoContent.append(location.price);
+        const popupOptions = {
+          position: new google.maps.LatLng(location.coords.lat, location.coords.lng),
+          content: mmInfoContent,
+          marker: mm,
+          distance: 6,
+        };
+        const mmInfo = new Popup(popupOptions);
+        popups.push(mmInfo);
         mm.addListener('mouseover', (evt) => {
           mmInfo.open(map, mm);
           if (mm.userState !== 'active') {
@@ -1629,110 +1761,6 @@ $(document).ready(() => {
       scaledSize: new google.maps.Size(47, 64),
     };
 
-    class Popup extends google.maps.OverlayView {
-      constructor(position, content, marker) {
-        super();
-        this.position = position;
-        this.containerDiv = content;
-        this.marker = marker;
-        // Optionally stop clicks, etc., from bubbling up to the map.
-        Popup.preventMapHitsAndGesturesFrom(this.containerDiv);
-
-        const _t = this;
-      }
-
-      open(map) {
-        this.setMap(map);
-        this.containerDiv.classList.add('is-show');
-        const _t = this;
-        const _marker = this.marker;
-
-        _marker.userState = 'open';
-        _marker.setIcon(bigBlackIconParam);
-        map.addListener('click', () => {
-          _t.close();
-        });
-      }
-
-      close() {
-        this.containerDiv.classList.remove('is-show');
-        const _marker = this.marker;
-        _marker.userState = 'close';
-        _marker.setIcon(smallBlueIconParam);
-        this.setMap(null);
-      }
-
-      toggle() {
-        if (this.containerDiv.classList.contains('is-show')) {
-          this.close();
-        } else {
-          this.open();
-        }
-      }
-
-      /** Called when the popup is added to the map. */
-      onAdd() {
-        this.getPanes().floatPane.appendChild(this.containerDiv);
-
-        // автопозиционирование
-        const mapDiv = this.getMap().getDiv();
-        const divPosition = this.getProjection().fromLatLngToDivPixel(
-          this.position,
-        );
-        const mapSizes = mapDiv.getBoundingClientRect();
-        const containerSizes = this.containerDiv.getBoundingClientRect();
-        const distanceForRight = (mapSizes.width / 2) - divPosition.x - 30;
-        const distanceForLeft = (mapSizes.width / 2) + (divPosition.x - 30);
-        const distanceForTop = ((mapSizes.height / 2) + divPosition.y) - 50 - 15 - 47;
-        const freeDistanceRightX = distanceForRight - (containerSizes.width / 2);
-        const freeDistanceLeftX = distanceForLeft - (containerSizes.width / 2);
-        const freeDistanceY = distanceForTop - containerSizes.height;
-        let newCenter = [0, 0];
-
-        if (freeDistanceRightX < 0 && freeDistanceY < 0) {
-          newCenter = [(0 - freeDistanceRightX), (0 + freeDistanceY)];
-        } else if (freeDistanceRightX > 0 && freeDistanceY < 0) {
-          newCenter = [0, (0 + freeDistanceY)];
-
-          if (freeDistanceLeftX < 0) {
-            newCenter = [(0 + freeDistanceLeftX), (0 + freeDistanceY)];
-          }
-        } else if (freeDistanceRightX < 0 && freeDistanceY > 0) {
-          newCenter = [(0 - freeDistanceRightX), 0];
-        } else if (freeDistanceLeftX < 0) {
-          newCenter = [(0 + freeDistanceLeftX), 0];
-        }
-
-        this.getMap().panBy(newCenter[0], newCenter[1]);
-      }
-
-      /** Called when the popup is removed from the map. */
-      onRemove() {
-        if (this.containerDiv.parentElement) {
-          this.containerDiv.parentElement.removeChild(this.containerDiv);
-        }
-      }
-
-      /** Called each frame when the popup needs to draw itself. */
-      draw() {
-        const divPosition = this.getProjection().fromLatLngToDivPixel(
-          this.position,
-        );
-        // Hide the popup when it is far out of view.
-        const display = Math.abs(divPosition.x) < 4000 && Math.abs(divPosition.y) < 4000
-          ? 'block'
-          : 'none';
-        if (display === 'block') {
-          this.containerDiv.style.top = `${divPosition.y - 47 - 15}px`;
-          this.containerDiv.style.left = `${divPosition.x}px`;
-        }
-
-        if (this.containerDiv.style.display !== display) {
-          this.containerDiv.style.display = display;
-        }
-      }
-    }
-
     // Карта на главной
     if (tagsMap) {
       const map = new google.maps.Map(
@@ -1745,7 +1773,7 @@ $(document).ready(() => {
       );
 
       const popups = [];
-      var markers = locations.map((location, i) => {
+      const markers = locations.map((location, i) => {
         const mm = new google.maps.Marker({
           position: location.coords,
           map,
@@ -1761,7 +1789,15 @@ $(document).ready(() => {
           userState: 'close',
         });
         const mmInfoContent = window.globalFunctions.generateMapPopup(location.popup);
-        const mmInfo = new Popup(new google.maps.LatLng(location.coords.lat, location.coords.lng), mmInfoContent, mm);
+        const popupOptions = {
+          position: new google.maps.LatLng(location.coords.lat, location.coords.lng),
+          content: mmInfoContent,
+          marker: mm,
+          distance: 15,
+          iconOpen: bigBlackIconParam,
+          iconClose: smallBlueIconParam,
+        };
+        const mmInfo = new Popup(popupOptions);
         popups.push(mmInfo);
         mm.addListener('click', (evt) => {
           const mMark = evt.target;
@@ -1865,7 +1901,7 @@ $(document).ready(() => {
       );
 
       const searchMarkerPopups = [];
-      var markers3 = locations.map((location, i) => {
+      const markers3 = locations.map((location, i) => {
         const mm = new google.maps.Marker({
           position: location.coords,
           map: map3,
@@ -1874,7 +1910,15 @@ $(document).ready(() => {
           userState: 'close',
         });
         const mmInfoContent = window.globalFunctions.generateMapPopup(location.popup);
-        const mmInfo = new Popup(new google.maps.LatLng(location.coords.lat, location.coords.lng), mmInfoContent, mm);
+        const popupOptions = {
+          position: new google.maps.LatLng(location.coords.lat, location.coords.lng),
+          content: mmInfoContent,
+          marker: mm,
+          distance: 15,
+          iconOpen: bigBlackIconParam,
+          iconClose: smallBlueIconParam,
+        };
+        const mmInfo = new Popup(popupOptions);
         searchMarkerPopups.push(mmInfo);
         mm.addListener('click', (evt) => {
           const mMark = evt.target;

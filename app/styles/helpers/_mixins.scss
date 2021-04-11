@@ -7,6 +7,28 @@
   @return $result;
 }
 
+@function boxShadow($x: 0, $y: 0, $blur: 0, $size: 0, $color: rgba(0, 0, 0), $display: false, $inner: false) {
+  $result: ($x * 1px) ($y * 1px) ($blur * 1px) ($size * 1px) $color;
+
+  @if $inner {
+    @if $display {
+      $result: inset pxtovw($x, $display) pxtovw($y, $display) pxtovw($blur, $display) pxtovw($size, $display) $color;
+    }
+
+    @else {
+      $result: inset ($x * 1px) ($y * 1px) ($blur * 1px) ($size * 1px) $color;
+    }
+  }
+
+  @else {
+    @if $display {
+      $result: pxtovw($x, $display) pxtovw($y, $display) pxtovw($blur, $display) pxtovw($size, $display) $color;
+    }
+  }
+
+  @return $result;
+}
+
 /*
 Миксин для подключения шрифтов.
 Описание в файле _fonts.scss

@@ -253,6 +253,14 @@
         font-size: pxtovw(26, 375);
       }
     }
+
+    &_sm-fz22 {
+      @include rule(font-size, (sm: 22));
+    }
+
+    &_ls-015 {
+      letter-spacing: -.015em;
+    }
   }
 
   &__menu {
@@ -988,6 +996,10 @@
     &_gray {
       color: $nd-color-gray-text8;
     }
+
+    &_ls0 {
+      letter-spacing: normal;
+    }
   }
 
   &__figure {
@@ -1408,11 +1420,34 @@
     justify-content: space-between;
     width: 100%;
 
+    @include screen('sm', max, 2) {
+      flex-wrap: nowrap;
+    }
+
+    &:not(:first-child) {
+      @include rule(margin-top, (xl: 9px, xlg: 9, lg: 9, md: 9, sm: 24));
+    }
+
+    #{$b}__text {
+      width: auto;
+      flex: 1;
+
+      @include screen('sm', max, 2) {
+        line-height: normal;
+      }
+    }
+
     .filter-section {
       width: 100%;
+      flex: none;
 
       @include screen('sm', max, 2) {
         width: auto;
+      }
+
+      &:not(:first-child) {
+        @include rule(margin-top, (xl: 35px, xlg: 35, lg: 28, md: 28, sm: 0));
+        @include rule(margin-left, (sm: 40));
       }
     }
   }

@@ -1,7 +1,9 @@
 .modal {
   $b: &;
 
-  position: absolute;
+  position: fixed;
+  left: 0;
+  top: 0;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
@@ -17,15 +19,14 @@
 
   &.is-popup {
     @include screen('md', max, 2) {
-      position: fixed;
-      top: 0;
-      left: 0;
+      top: 0 !important;
+      left: 0 !important;
       width: 100%;
       height: 100%;
     }
   }
 
-  &.is-open, &.is-animated {
+  &.is-opened, &.is-animated {
     visibility: visible;
     pointer-events: auto;
   }
@@ -41,13 +42,13 @@
     transition: opacity $ease-main;
     background-color: rgba($color-overlay, .2);
 
-    .is-open & {
+    .is-opened & {
       @include screen('sm', max, 2) {
         opacity: 1;
       }
     }
 
-    .is-open.is-popup & {
+    .is-opened.is-popup & {
       opacity: 1;
     }
   }
@@ -65,6 +66,7 @@
     display: flex;
     overflow: hidden;
     flex-direction: column;
+    z-index: 2;
 
     @include rule(margin-top, (xl: 10px, xlg: 10, lg: 10, md: 10, sm: 0));
     @include rule(width, (xl: 478px, xlg: 478, lg: 478, md: 478));
@@ -91,7 +93,7 @@
       z-index: 2;
     }
 
-    .is-open & {
+    .is-opened & {
       transform: translate3d(0, 0, 0);
     }
   }
@@ -168,6 +170,7 @@
       display: flex;
       flex-direction: row-reverse;
       justify-content: space-between;
+      align-items: center;
       padding: pxtovw(14, 375) pxtovw(20, 375);
     }
   }

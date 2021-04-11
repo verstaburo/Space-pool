@@ -1,3 +1,284 @@
 .modal-output {
   $b: &;
+
+  position: relative;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  box-sizing: border-box;
+  cursor: pointer;
+  transition: border $ease-main,
+  box-shadow $ease-main;
+  border: 1px solid $nd-color-border5;
+
+  @include rule(padding-left, (xl: 19px, xlg: 19, lg: 12, md: 12, sm: 18));
+  @include rule(padding-right, (xl: 35px, xlg: 35, lg: 35, md: 35, sm: 30));
+  @include rule(padding-top, (xl: 5px, xlg: 5, lg: 5, md: 5, sm: 5));
+  @include rule(padding-bottom, (xl: 5px, xlg: 5, lg: 5, md: 5, sm: 5));
+  @include rule(border-radius, (xl: 20px, xlg: 20, lg: 20, md: 20, sm: 20));
+  @include rule(height, (xl: 35px, xlg: 35, lg: 35, md: 35, sm: 35));
+
+  &:hover {
+    body:not(.is-touched-device) & {
+      @include screen('sm', min, 2) {
+        border-color: $nd-color-basic;
+      }
+    }
+  }
+
+  &.is-selected {
+    @include screen('sm', min, 2) {
+      border-color: $nd-color-basic;
+    }
+  }
+
+  &.is-opened,
+  &:focus,
+  &:active {
+    @include screen('sm', min, 2) {
+      border-color: $nd-color-main !important;
+      box-shadow: inset 0 0 0 1px $nd-color-main;
+    }
+  }
+
+  &__placeholder {
+    display: block;
+    color: $nd-color-basic;
+    letter-spacing: -.02em;
+    font-weight: 400;
+    width: 100%;
+
+    @include rule(font-size, (xl: 15px, xlg: 15, lg: 14, md: 14, sm: 15));
+
+    #{$b}.is-selected & {
+      display: none;
+    }
+
+    #{$b}_special & {
+      display: flex;
+      align-items: center;
+      color: $nd-modal-output-placeholder;
+      letter-spacing: -.015em;
+      font-family: $font-stolzl;
+
+      @include rule(font-size, (xl: 15px, xlg: 15, lg: 13, md: 13, sm: 12));
+      @include rule(margin-left, (sm: -4));
+
+      @include screen('sm', max, 2) {
+        font-family: $font-main;
+        color: $nd-color-gray-text;
+        letter-spacing: -.02em;
+        width: calc(100% + (400 / 375) * 1vw);
+      }
+
+      &::before {
+        display: inline-block;
+        content: '';
+        background-position: 50% 50%;
+        background-repeat: no-repeat;
+        background-size: contain;
+
+        @include rule(margin-right, (xl: 9px, xlg: 9, lg: 9, md: 9, sm: 5));
+      }
+    }
+
+    #{$b}_special.is-selected & {
+      @include screen('sm', max, 2) {
+        display: block;
+      }
+    }
+
+    #{$b}_location & {
+      &::before {
+        @include rule(width, (xl: 9px, xlg: 9, lg: 9, md: 9, sm: 9));
+        @include rule(height, (xl: 12px, xlg: 12, lg: 12, md: 12, sm: 12));
+
+        background-image: $icon-location;
+
+        @include screen('sm', min, 2) {
+          display: none;
+        }
+      }
+    }
+
+    #{$b}_team & {
+      &::before {
+        @include rule(width, (xl: 26px, xlg: 26, lg: 26, md: 26, sm: 17));
+        @include rule(height, (xl: 14px, xlg: 14, lg: 14, md: 14, sm: 9));
+
+        background-image: $icon-team;
+      }
+    }
+
+    #{$b}_type & {
+      &::before {
+        @include rule(width, (xl: 17px, xlg: 17, lg: 17, md: 17, sm: 11));
+        @include rule(height, (xl: 17px, xlg: 17, lg: 17, md: 17, sm: 11));
+
+        background-image: $icon-type2;
+      }
+    }
+  }
+
+  &__values {
+    font-weight: 400;
+    color: $nd-color-logo;
+    display: none;
+
+    @include rule(font-size, (xl: 15px, xlg: 15, lg: 14, md: 14, sm: 15));
+
+    #{$b}.is-selected & {
+      display: block;
+    }
+
+    #{$b}_special & {
+      font-family: $font-stolzl;
+      letter-spacing: -.015em;
+
+      @include rule(font-size, (xl: 15px, xlg: 15, lg: 13, md: 13, sm: 12));
+
+      @include screen('sm', max, 2) {
+        display: block;
+      }
+    }
+
+    #{$b}_special:not(.is-selected) & {
+      &::before {
+        @include screen('sm', max, 2) {
+          display: block;
+          content: attr(data-sm-default-value);
+        }
+      }
+    }
+
+    span {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+
+      &::before {
+        display: inline-block;
+        content: '';
+        font-size: 0;
+        line-height: 0;
+        flex: none;
+        transform-origin: 50% 50%;
+        transform: rotate(45deg);
+
+        @include rule(width, (xl: 12px, xlg: 12, lg: 9, md: 9, sm: 0));
+        @include rule(height, (xl: 12px, xlg: 12, lg: 9, md: 9, sm: 0));
+        @include rule(margin-right, (xl: 10px, xlg: 10, lg: 13, md: 13, sm: 0));
+
+        @include screen('sm', max, 2) {
+          display: none;
+        }
+      }
+
+      &.is-green::before {
+        background-color: $nd-color-privateoffice;
+      }
+
+      &.is-red::before {
+        background-color: $nd-color-fixeddesk;
+      }
+
+      &.is-orange::before {
+        background-color: $nd-color-hotdesk;
+      }
+
+      &.is-blue::before {
+        background-color: $nd-color-meetingroom;
+      }
+    }
+  }
+
+  &__toggle {
+    position: absolute;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    right: 0;
+    top: 0;
+    color: $nd-color-border2;
+    transform-origin: 50% 50% 0;
+    transition: transform $ease-main;
+
+    @include rule(width, (xl: 40px, xlg: 40, lg: 40, md: 40, sm: 30));
+
+    svg {
+      @include rule(width, (xl: 11px, xlg: 11, lg: 11, md: 11, sm: 11));
+      @include rule(heigh, (xl: 8px, xlg: 8, lg: 8, md: 8, sm: 8));
+
+      fill: currentColor;
+      flex: none;
+    }
+
+    #{$b}_special & {
+      @include rule(width, (xl: 47px, xlg: 47, lg: 47, md: 40, sm: 30));
+
+      @include screen('sm', max, 2) {
+        display: none;
+      }
+    }
+  }
+
+  &_special {
+    @include rule(padding-left, (xl: 18px, xlg: 18, lg: 18, md: 18, sm: 13));
+    @include rule(padding-right, (xl: 35px, xlg: 35, lg: 35, md: 35, sm: 5));
+    @include rule(padding-bottom, (sm: 8));
+
+    transition: none;
+    border: none;
+    height: auto;
+
+    @include screen('sm', max, 2) {
+      align-content: space-between;
+      flex-wrap: wrap;
+    }
+
+    &::before {
+      @include pseudo;
+
+      top: -1px;
+      left: -1px;
+      right: -1px;
+      bottom: -1px;
+      border: 1px solid transparent;
+      transition: border $ease-main, box-shadow $ease-main;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    &:hover {
+      body:not(.is-touched-device) & {
+        &::before {
+          @include screen('sm', min, 2) {
+            border-color: $nd-color-basic;
+          }
+        }
+      }
+    }
+
+    // &.is-selected {
+    //   &::before {
+    //     @include screen('sm', min, 2) {
+    //       border-color: $nd-color-basic;
+    //     }
+    //   }
+    // }
+
+    &.is-opened,
+    &:focus,
+    &:active {
+      box-shadow: none;
+
+      &::before {
+        @include screen('sm', min, 2) {
+          border-color: $nd-color-main !important;
+          box-shadow: inset 0 0 0 1px $nd-color-main;
+        }
+      }
+    }
+  }
 }

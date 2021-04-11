@@ -1,10 +1,10 @@
 mixin modal(data)
   +b.modal&attributes(attributes)
-    +e.overlay
+    +e.overlay.js-close-modal
     +e.wrapper
       if data.header
         +e.header(class=(data.header.class || ' nd-hide-from-sm'))
-          +e.BUTTON.close(type="button") Close
+          +e.BUTTON.close.js-close-modal(type="button") Close
           +e.title!=data.header.title
       +e.content
         if data.describe

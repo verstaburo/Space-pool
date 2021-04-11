@@ -37,4 +37,8 @@ export default function srMapToggle() {
       mapMethods.open();
     }
   });
+
+  $(document).on('click', '.js-map-filter-show', () => {
+    $('body').addClass('is-map-filter-shown');
+  });
 }

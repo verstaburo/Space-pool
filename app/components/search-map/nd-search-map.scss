@@ -6,9 +6,6 @@
   display: flex;
   width: 795px;
   height: calc(100% - 110px);
-  // width: calc(100% + 150px);
-  // margin: 0 -150px 0 0;
-  // height: calc(100vh - 110px);
   transform: translate3d(0, 0, 0);
   transition: visibility 0s linear, transform $ease-main, opacity $ease-main;
   pointer-events: auto;
@@ -17,18 +14,12 @@
     top: pxtovw(110, 1660);
     width: pxtovw(705, 1660);
     height: calc(100% - ((11000 / 1660) * 1vw));
-    // width: calc(100% + ((6000 / 1660) * 1vw));
-    // height: calc(100vh - ((11000 / 1660) * 1vw));
-    // margin: 0 pxtovw(-60, 1660) 0 0;
   }
 
   @include screen('lg', max, 2) {
     top: pxtovw(110, 1366);
     width: pxtovw(459, 1366);
     height: calc(100% - ((11000 / 1366) * 1vw));
-    // width: calc(100% + ((5000 / 1366) * 1vw));
-    // height: calc(100vh - ((11000 / 1366) * 1vw));
-    // margin: 0 pxtovw(-50, 1366) 0 0;
   }
 
   @include screen('md', max, 2) {
@@ -104,8 +95,6 @@
       width: pxtovw(36, 960);
       height: pxtovw(36, 960);
       box-sizing: border-box;
-      // background-position: pxtovw(9, 960) pxtovw(9, 960);
-      // background-size: pxtovw(15, 960) pxtovw(15, 960);
     }
 
     @include screen('sm', max, 2) {
@@ -114,8 +103,6 @@
       width: pxtovw(36, 375);
       height: pxtovw(36, 375);
       box-shadow: pxtovw(2, 375) pxtovw(4, 375) pxtovw(8, 375) rgba(0, 0, 0, .25);
-      // background-position: pxtovw(9, 375) pxtovw(9, 375);
-      // background-size: pxtovw(15, 375) pxtovw(15, 375);
     }
   }
 
@@ -184,29 +171,77 @@
 
   &__button {
     position: absolute;
+    display: block;
     background-color: $nd-color-basic-light;
     color: $nd-color-basic;
     font-weight: 700;
+    transition: opacity $ease-main;
     z-index: 2;
 
     @include rule(border-radius, (xl: 20px, xlg: 20, lg: 20, md: 20, sm: 20));
-    @include rule(padding-left, (xl: 50px, xlg: 50, lg: 40, md: 50, sm: 26));
-    @include rule(padding-right, (xl: 20px, xlg:20, lg: 16, md: 20, sm: 26));
-    @include rule(top, (xl: 28px, xlg: 28, lg: 28, md: 25));
+    @include rule(padding-left, (xl: 23px, xlg: 23, lg: 9, md: 23, sm: 28));
+    @include rule(padding-right, (xl: 23px, xlg:23, lg: 14, md: 23, sm: 28));
+    @include rule(top, (xl: 28px, xlg: 28, lg: 44, md: 25));
     @include rule(left, (xl: 36px, xlg: 36, lg: 36, md: 25));
     @include rule(font-size, (xl: 18px, xlg: 18, lg: 14, md: 18, sm: 16));
     @include rule(bottom, (sm: 28));
     @include rule(right, (sm: 16));
+    @include rule(height, (xl: 40px, xlg: 40, lg: 32, md: 40, sm: 40));
+    box-shadow: boxShadow(3, 3, 3, 0, rgba(0, 0, 0, 0.02)),
+    boxShadow(2, 2, 2, 0, rgba(0, 0, 0, 0.04)),
+    boxShadow(1, 1, 1, 0, rgba(0, 0, 0, 0.03));
+
+    @include screen('xlg', max, 2) {
+      box-shadow: boxShadow(3, 3, 3, 0, rgba(0, 0, 0, 0.02), 1660),
+      boxShadow(2, 2, 2, 0, rgba(0, 0, 0, 0.04), 1660),
+      boxShadow(1, 1, 1, 0, rgba(0, 0, 0, 0.03), 1660);
+    }
+
+    @include screen('lg', max, 2) {
+      box-shadow: boxShadow(3, 3, 3, 0, rgba(0, 0, 0, 0.02), 1366),       boxShadow(2, 2, 2, 0, rgba(0, 0, 0, 0.04), 1366), boxShadow(1, 1, 1, 0, rgba(0, 0, 0, 0.03), 1366);
+    }
+
+    @include screen('md', max, 2) {
+      box-shadow: boxShadow(3, 3, 3, 0, rgba(0, 0, 0, 0.02), 960),
+      boxShadow(2, 2, 2, 0, rgba(0, 0, 0, 0.04), 960),
+      boxShadow(1, 1, 1, 0, rgba(0, 0, 0, 0.03), 960);
+    }
+
+    @include screen('sm', max, 2) {
+      box-shadow: boxShadow(1, 3, 11, 0, rgba(0, 0, 0, 0.25), 375);
+    }
 
     span {
-      @include rule(height, (xl: 40px, xlg: 40, lg: 40, md: 40, sm: 40));
-
       display: inline-flex;
       justify-content: center;
       align-items: center;
+      height: 100%;
+
+      &::before {
+        @include rule(width, (xl: 20px, xlg: 20, lg: 20, md: 20, sm: 20));
+        @include rule(background-size, (xl: 20px, xlg: 20, lg: 16, md: 20, sm: 20));
+        @include rule(margin-right, (xl: 10px, xlg: 10, lg: 10, md: 10, sm: 10));
+
+        display: inline-block;
+        content: '';
+        top: 0;
+        left: 0;
+        height: 100%;
+        background-image: $icon-map-blue;
+        background-repeat: no-repeat;
+        background-position: 50% 50%;
+
+        @include screen('sm', max, 2) {
+          display: none;
+        }
+      }
 
       .map-in-fullview & {
-        @include rule(height, (xl: 40px, xlg: 40, lg: 40, md: 30, sm: 40));
+        &::before {
+          @include rule(background-size, (xl: 12px, xlg: 12, lg: 12, md: 10, sm: 10));
+          @include rule(margin-right, (md: 4, sm: 10));
+          background-image: $icon-bold-cross-blue;
+        }
       }
     }
 
@@ -245,39 +280,68 @@
       }
     }
 
-    &::before {
-      @include pseudo;
-      @include rule(width, (xl: 50px, xlg: 50, lg: 40, md: 50, sm: 26));
-      @include rule(background-size, (xl: 20px, xlg: 20, lg: 20, md: 20, sm: 20));
-
-      top: 0;
-      left: 0;
-      height: 100%;
-      background-image: $icon-map-blue;
-      background-repeat: no-repeat;
-      background-position: 50% 50%;
-
-      @include screen('sm', max, 2) {
-        display: none;
-      }
-    }
-
     .map-in-fullview & {
       @include rule(font-size, (xl: 18px, xlg: 18, lg: 18, md: 14, sm: 16));
-      @include rule(padding-left, (xl: 40px, xlg: 40, lg: 40, md: 30, sm: 26));
-      @include rule(padding-right, (xl: 20px, xlg:20, lg: 20, md: 12, sm: 26));
-      @include rule(top, (md: 80));
+      @include rule(padding-left, (xl: 12px, xlg: 12, lg: 12, md: 5, sm: 28));
+      @include rule(padding-right, (xl: 16px, xlg: 16, lg: 16, md: 12, sm: 28));
+      @include rule(left, (xl: 24px, xlg: 24, lg: 40, md: 30));
+      @include rule(top, (lg: 28, md: 60));
+      @include rule(height, (xl: 40px, xlg: 40, lg: 40, md: 30, sm: 40));
 
       @include screen('sm', max, 2) {
         opacity: 1;
         pointer-events: auto;
         top: auto;
+        left: auto;
       }
+    }
 
-      &::before {
-        @include rule(width, (xl: 40px, xlg: 40, lg: 40, md: 30, sm: 26));
-        @include rule(background-size, (xl: 12px, xlg: 12, lg: 12, md: 12, sm: 12));
-        background-image: $icon-bold-cross-blue;
+    .is-map-filter-shown & {
+      @include screen('sm', max, 2) {
+        opacity: 0;
+        pointer-events: none;
+      }
+    }
+  }
+
+  &__filter {
+    position: absolute;
+    display: none;
+    font-size: 0;
+    line-height: 0;
+    border-radius: 50%;
+    background-color: $nd-color-basic-light;
+    box-sizing: border-box;
+    background-image: $icon-filter;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    z-index: 2;
+    transition: opacity $ease-main;
+
+    @include rule(left, (xl: 16px, xlg: 16, lg: 16, md: 16, sm: 16));
+    @include rule(bottom, (xl: 22px, xlg: 22, lg: 22, md: 22, sm: 22));
+    @include rule(width, (xl: 53px, xlg: 53, lg: 53, md: 53, sm: 53));
+    @include rule(height, (xl: 53px, xlg: 53, lg: 53, md: 53, sm: 53));
+    @include rule(background-size, (xl: 25px, xlg: 25, lg: 25, md: 25, sm: 25));
+
+    @include screen('sm', max, 2) {
+      display: block;
+      opacity: 0;
+      pointer-events: none;
+      box-shadow: boxShadow(1, 3, 11, 0, rgba(0, 0, 0, 0.25), 375);
+    }
+
+    .map-in-fullview & {
+      @include screen('sm', max, 2) {
+        opacity: 1;
+        pointer-events: auto;
+      }
+    }
+
+    .is-map-filter-shown & {
+      @include screen('sm', max, 2) {
+        opacity: 0;
+        pointer-events: none;
       }
     }
   }
@@ -295,8 +359,8 @@
     transition: height $ease-main, width $ease-main;
     will-change: width, height;
 
-    @include rule(top, (md: 60, sm: 54));
-    @include rule(height, (md: 254, sm: 208));
+    @include rule(top, (md: 66, sm: 60));
+    @include rule(height, (md: 257, sm: 208));
 
     @include screen('md', max, 2) {
       position: fixed;
@@ -317,6 +381,16 @@
     #{$b} {
       &__wrapper {
         position: relative;
+      }
+
+      &__map {
+        @include screen('md', max, 2) {
+          pointer-events: none;
+
+          .map-in-fullview & {
+            pointer-events: auto;
+          }
+        }
       }
     }
   }
