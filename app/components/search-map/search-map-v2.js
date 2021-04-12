@@ -12,11 +12,17 @@ export default function srMapToggle() {
 
   const mapMethods = {
     open() {
-      $('body').addClass('map-in-fullview');
+      $('body').addClass('map-in-fullview').addClass('is-map-animated-in');
+      setTimeout(() => {
+        $('body').removeClass('is-map-animated-in');
+      }, 500);
       freeze();
     },
     close() {
-      $('body').removeClass('map-in-fullview');
+      $('body').removeClass('map-in-fullview').addClass('is-map-animated-out');
+      setTimeout(() => {
+        $('body').removeClass('is-map-animated-out');
+      }, 500);
       unfreeze();
     },
     isActive() {

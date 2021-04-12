@@ -356,7 +356,7 @@
     pointer-events: auto;
     transform: translate3d(0, 0, 0);
     z-index: 0;
-    transition: height $ease-main, width $ease-main;
+    // transition: height 1s ease-in-out, width 1s ease-in-out;
     will-change: width, height;
 
     @include rule(top, (md: 66, sm: 60));
@@ -369,14 +369,41 @@
     }
 
     .map-in-fullview & {
+      // @include screen('md', max, 2) {
+      //   height: calc(100% - (6600 / 960) * 1vw);
+      // }
+
+      // @include screen('sm', max, 2) {
+      //   height: calc(100% - (6000 / 375) * 1vw);
+      // }
       @include screen('md', max, 2) {
-        height: calc(100% - (6600 / 960) * 1vw);
+        animation: map-gg-vert-animation-md .5s ease-in-out forwards;
       }
 
       @include screen('sm', max, 2) {
-        height: calc(100% - (6000 / 375) * 1vw);
+        animation: map-gg-vert-animation-sm .5s ease-in-out forwards;
       }
     }
+
+    .is-map-animated-out & {
+      @include screen('md', max, 2) {
+        animation: map-gg-vert-animation-md-reverse .5s ease-in-out forwards;
+      }
+
+      @include screen('sm', max, 2) {
+        animation: map-gg-vert-animation-sm-reverse .5s ease-in-out forwards;
+      }
+    }
+
+    // .is-map-animated-in & {
+    //   @include screen('md', max, 2) {
+    //     animation: map-gg-vert-animation-md 1s ease-in-out forwards;
+    //   }
+
+    //   @include screen('sm', max, 2) {
+    //     animation: map-gg-ver-animation-sm 1s ease-in-out forwards;
+    //   }
+    // }
 
     #{$b} {
       &__wrapper {

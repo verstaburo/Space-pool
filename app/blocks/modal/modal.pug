@@ -14,7 +14,7 @@ mixin modal(data)
       if data.footer
         +e.footer(class=(data.footer.class || ' nd-hide-from-sm'))
           if data.footer.view === 'range'
-            +nd-button()(type="reset")._black._pad10.__reset.js-modal-reset-value Clear
-            +nd-button()._pad10(type="button").__setter.js-modal-set-value Set filter
+            +nd-button('button')(type="reset")._black._pad10.__reset.js-modal-reset-value Clear
+            +nd-button('button')._pad10(type="button").__setter.js-modal-set-value Set filter
           else
-            +nd-button()._pad10._wide.__setter.js-modal-set-value Set filter
+            +nd-button('button')._pad10._wide.__setter.js-modal-set-value Set filter
