@@ -23,6 +23,7 @@ html(lang='en')
     - var menuData = getData('nd-guest-acc-list.json')
     - var otherScripts = scripts || []
     - var isSearch = searchPage || false
+    - var headerSpecial = headSpec || false
     if noUser
       - menuData = getData('nd-nouser-acc-list.json')
     if isHost
@@ -32,7 +33,10 @@ html(lang='en')
     if gradients
       +gradients-redesign
     if !noHeader
-      +nd-header(isHost)(class=addClass)
+      if headerSpecial
+        +nd-header-special(isHost)(class=addClass)
+      else
+        +nd-header(isHost)(class=addClass)
       +nd-user-menu-panel(isHost, noUser, isSearch)
       +nd-main-menu(menuData, isHost, noUser)
       +nd-info-notices({title: 'Notifications', link: {name: 'Read all notifications'}})#events-list

@@ -12,3 +12,15 @@ mixin nd-header(host)
             +nd-header-user(host)
         +e.burger
           +nd-burger-icon().js-open-navigation(data-menu-position="top")
+
+mixin nd-header-special(host)
+  - var isAuthorized = authorized ? 'is-login' : '';
+  +b.HEADER.compensate-for-scrollbar.nd-header.header__._search&attributes(attributes)(class=isAuthorized)
+    +e.wrapper
+      +e.logo
+        +nd-logo-short()(href="/")
+      +nd-filter().__filter
+      +e.menu
+        +nd-short-profile-origin('assets/images/nd/user-avatar-1.jpg', '', 'a')._login.__profile(href="#")
+        +e.burger
+          +nd-burger-icon().js-open-navigation(data-menu-position="top")

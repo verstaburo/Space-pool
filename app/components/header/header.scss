@@ -274,4 +274,84 @@
       background-color: transparent;
     }
   }
+
+  &_search {
+    @include rule(height, (xl: 70px, xlg: 70, lg: 66, md: 66, sm: 60));
+
+    @include screen('sm', max, 2) {
+      background-color: $nd-color-basic-light;
+    }
+
+    #{$b} {
+      &__wrapper {
+        display: flex;
+        justify-content: flex-start;
+        border-bottom: 1px solid $nd-color-border4;
+        box-sizing: border-box;
+        top: 0;
+
+        @include rule(height, (xl: 68px, xlg: 68, lg: 64, md: 64, sm: 58));
+
+        &::before {
+          display: none;
+        }
+      }
+
+      &__logo {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        margin-right: 0;
+        height: 100%;
+        flex: none;
+        width: 150px;
+        box-sizing: border-box;
+        padding: 0 22px;
+
+        @include screen('xl', max, 2) {
+          width: 60px;
+          padding: 0 11px;
+        }
+
+        @include rule(padding-left, (xlg: 11
+        , lg: 6, md: 6, sm: 0));
+        @include rule(padding-right, (xlg: 11, lg: 6, md: 6, sm: 0));
+        @include rule(width, (xlg: 60, lg: 50, md: 50));
+
+        @include screen('sm', max, 2) {
+          display: none;
+        }
+      }
+
+      &__filter {
+        height: 100%;
+        flex: 1;
+      }
+
+      &__menu {
+        margin-left: auto;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        height: 100%;
+        box-sizing: border-box;
+        padding: 0 22px;
+
+        @include screen('xl', max, 2) {
+          padding: 0 22px;
+        }
+
+        @include rule(padding-left, (xlg: 22, lg: 22, md: 22, sm: 0));
+        @include rule(padding-right, (xlg: 22, lg: 22, md: 22, sm: 0));
+
+        @include screen('md', max, 2) {
+          display: none;
+        }
+      }
+
+      &__burger {
+        @include rule(margin-left, (xl: 11px, xlg: 11, lg: 11, md: 11));
+      }
+    }
+  }
 }
