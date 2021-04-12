@@ -183,23 +183,7 @@
         }
 
         &:not(:last-child) {
-          margin-right: 25px;
-
-          @include screen('xlg', max, 2) {
-            margin-right: pxtovw(20, 1660);
-          }
-
-          @include screen('lg', max, 2) {
-            margin-right: pxtovw(25, 1366);
-          }
-
-          @include screen('md', max, 2) {
-            margin-right: pxtovw(27, 960);
-          }
-
-          @include screen('sm', max, 2) {
-            margin-right: 0;
-          }
+          @include rule(margin-right, (xl: 25px, xlg: 25, lg: 20, md: 27, sm: 0));
         }
       }
 
@@ -295,6 +279,8 @@
         white-space: nowrap;
         font-size: 14px;
         line-height: (17 / 14);
+        text-align: left;
+        justify-content: flex-start;
 
         @include screen('xlg', max, 2) {
           font-size: pxtovw(13, 1660);
@@ -311,6 +297,8 @@
         @include screen('sm', max, 2) {
           font-size: pxtovw(15, 375);
           line-height: (18 / 15);
+          text-align: right;
+          justify-content: flex-end;
 
           span {
             display: none;
@@ -424,6 +412,30 @@
           span {
             display: none;
           }
+        }
+      }
+    }
+
+    &_v2 {
+
+      #{$b} {
+        &__row {
+          min-width: 133px;
+
+          @include screen('xl', max, 2) {
+            min-width: 120px;
+          }
+
+          @include rule(min-width, (xlg: 133, lg: 133, md: 133, sm: 0));
+
+          &:not(:last-child) {
+            @include rule(margin-right, (xl: 3px, xlg: 3, lg: 13, md: 3, sm: 0));
+          }
+        }
+
+        &__cell {
+          @include rule(padding-top, (xl: 5px, xlg: 5, lg: 5, md: 5, sm: 5));
+          @include rule(padding-bottom, (xl: 5px, xlg: 5, lg: 5, md: 5, sm: 5));
         }
       }
     }

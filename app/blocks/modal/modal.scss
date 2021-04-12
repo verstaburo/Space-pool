@@ -9,21 +9,14 @@
   justify-content: flex-end;
   z-index: 25;
 
+  @include rule(padding-bottom, (xl: 10px, xlg: 10, lg: 10, md: 10, sm: 0));
+
   @include screen('sm', max, 2) {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-  }
-
-  &.is-popup {
-    @include screen('md', max, 2) {
-      top: 0 !important;
-      left: 0 !important;
-      width: 100%;
-      height: 100%;
-    }
   }
 
   &.is-opened, &.is-animated {
@@ -46,10 +39,6 @@
       @include screen('sm', max, 2) {
         opacity: 1;
       }
-    }
-
-    .is-opened.is-popup & {
-      opacity: 1;
     }
   }
 
@@ -106,16 +95,13 @@
     overscroll-behavior: none;
 
     @include native-scroll;
-    @include rule(padding-top, (xl: 30px, xlg: 30, lg: 30, md: 30, sm: 19));
-    @include rule(padding-bottom, (xl: 67px, xlg: 67, lg: 67, md: 67, sm: 29));
+    @include rule(padding-top, (xl: 30px, xlg: 30, lg: 30, md: 30, sm: 24));
+    @include rule(padding-bottom, (xl: 67px, xlg: 67, lg: 67, md: 67, sm: 65));
     @include rule(padding-left, (xl: 36px, xlg: 36, lg: 36, md: 36, sm: 25));
     @include rule(padding-right, (xl: 36px, xlg: 36, lg: 36, md: 36, sm: 25));
 
-    #{$b}__head_location~#{$b}__drop & {
-      @include rule(padding-bottom, (xl: 28px, xlg: 28, lg: 28, md: 28, sm: 29));
-      @include rule(padding-left, (xl: 33px, xlg: 33, lg: 33, md: 33, sm: 25));
-      @include rule(padding-right, (xl: 33px, xlg: 33, lg: 33, md: 33, sm: 25));
-      @include rule(padding-top, (xl: 32px, xlg: 32, lg: 32, md: 32, sm: 19));
+    .is-overlay-user-panel & {
+      @include rule(padding-bottom, (sm: 107));
     }
   }
 
@@ -192,10 +178,9 @@
     text-align: center;
     font-family: $font-stolzl;
     line-height: (20 / 17);
-    align-self: flex-end;
+    font-weight: 400;
 
     @include rule(font-size, (sm: 17));
-    @include rule(margin-top, (sm: 16));
   }
 
   &__clear {
@@ -220,6 +205,16 @@
     }
   }
 
+  &__range {
+    @include rule(margin-left, (sm: -5));
+    @include rule(margin-right, (sm: -5));
+    @include rule(margin-top, (sm: -15));
+
+    @include screen('sm', max, 2) {
+      width: calc(100% + (1000 / 375) * 1vw);
+    }
+  }
+
   &__footer {
     width: 100%;
     display: none;
@@ -232,6 +227,22 @@
       align-items: center;
       justify-content: center;
       padding: pxtovw(16, 375) pxtovw(20, 375);
+    }
+
+    &_range {
+      display: flex;
+      justify-content: space-between;
+
+      @include rule(padding-left, (xl: 36px, xlg: 36, lg: 36, md: 36, sm: 20));
+      @include rule(padding-right, (xl: 36px, xlg: 36, lg: 36, md: 36, sm: 20));
+      @include rule(padding-top, (xl: 10px, xlg: 10, lg: 10, md: 10, sm: 10));
+      @include rule(padding-bottom, (xl: 67px, xlg: 67, lg: 67, md: 67, sm: 63));
+      @include rule(margin-top, (xl: -44px, xlg: -44, lg: -44, md: -44, sm: -44));
+
+      .is-overlay-user-panel & {
+        @include rule(margin-top, (sm: -86));
+        @include rule(padding-bottom, (sm: 104));
+      }
     }
   }
 
@@ -321,6 +332,20 @@
   &__item {
     &:not(:first-child) {
       margin-top: -1px;
+    }
+  }
+
+  &__reset {
+    flex: none;
+
+    @include rule(width, (xl: 85px, xlg: 85, lg: 85, md: 85, sm: 85));
+  }
+
+  &__setter {
+    flex: 1;
+
+    &:not(:first-child) {
+      @include rule(margin-left, (xl: 13px, xlg: 13, lg:13, md: 13, sm: 13));
     }
   }
 }

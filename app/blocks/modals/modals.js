@@ -88,9 +88,13 @@ export function modalShowes() {
     const _this = evt.currentTarget;
     const modalId = $(_this).attr('data-modal-target');
     const isActive = $(_this).hasClass('is-opened');
+    const isShowUserPanel = $(_this).is('[data-modal-user-panel="visible"]');
     if (isActive) {
       modalMethods.close(modalId);
     } else {
+      if (isShowUserPanel) {
+        $('body').addClass('is-overlay-user-panel');
+      }
       modalMethods.open(modalId, _this);
     }
   });
@@ -112,6 +116,7 @@ export function modalShowes() {
     if (isMapInFullView) {
       $('body').removeClass('is-map-filter-shown');
     }
+    $('body').removeClass(' is-overlay-user-panel');
   });
 
   const layouts = document.querySelectorAll('.layout__column');

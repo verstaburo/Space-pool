@@ -58,6 +58,30 @@ export default function outputValuesFromModal() {
         $(valueEl).empty();
       });
     },
+    resetValue(modalId) {
+      const modal = $(`#${modalId}`);
+      const range = $(modal).find('.js-nd-range');
+      const isRange = range.length;
+      const items = $(modal).find('[data-modal-item]').not('.js-nd-range');
+      const isItems = items.length;
+      if (isRange) {
+        const rangeContainer = $(range).find('[data-nd-range-container]').get(0);
+        window.globalFunctions.resetRange(rangeContainer);
+      }
+
+      if (isItems) {
+        $(items).each((i, el) => {
+          $(el).prop('checked', false);
+          $(el).removeAttr('checked');
+        });
+      }
+
+      const output = $(`[data-modal-target="${modalId}"]`);
+      const valueEl = $(output).find('[data-modal-output-value]');
+      $(output).removeClass('is-selected');
+      $(valueEl).empty();
+      modalMethods.close(modalId);
+    },
   };
 
   const modalItems = $('[data-modal-item]:checked');
@@ -73,9 +97,37 @@ export default function outputValuesFromModal() {
       const formId = $(form).attr('id');
       const resetButton = $(`.js-sr-filter-reset[form="${formId}"]`);
       $(resetButton).removeAttr('disabled');
+      modalItemMethods.setValue(_this);
     }
+  });
 
-    modalItemMethods.setValue(_this);
+  $(document).on('click', '.js-modal-set-value', (evt) => {
+    const _this = evt.currentTarget;
+    const modal = $(_this).closest('.modal');
+    const modalId = $(modal).attr('id');
+    const items = $(modal).find('[data-modal-item]');
+    let item = null;
+    if (items.length > 1) {
+      item = $(modal).find('[data-modal-item]:checked').get(0);
+    } else {
+      const isRange = $(items).is('.js-nd-range');
+      if (isRange) {
+        item = $(items).get(0);
+      } else {
+        item = $(items).is('[data-modal-item]:checked') ? $(items).get(0) : null;
+      }
+    }
+    if (item) {
+      modalItemMethods.setValue(item);
+      modalMethods.close(modalId);
+    }
+  });
+
+  $(document).on('click', '.js-modal-reset-value', (evt) => {
+    const _this = evt.currentTarget;
+    const modal = $(_this).closest('.modal');
+    const modalId = $(modal).attr('id');
+    modalItemMethods.resetValue(modalId);
   });
 
   $(document).on('click', '.js-sr-filter-reset', (evt) => {

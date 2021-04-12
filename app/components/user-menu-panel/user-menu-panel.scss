@@ -21,10 +21,15 @@
 
   @include rule(height, (xl: 60px, xlg: 60, lg: 60, md: 60, sm: 60));
 
-  @include screen('md') {
+  @include screen('md', max, 2) {
     opacity: 1;
     visibility: visible;
     pointer-events: auto;
+    box-shadow: boxShadow(0, -1, 3, 0, rgba(0, 0, 0, .05), 960);
+  }
+
+  @include screen('sm', max, 2) {
+    box-shadow: boxShadow(0, -1, 3, 0, rgba(0, 0, 0, .05), 375);
   }
 
   &__list {
@@ -155,6 +160,12 @@
   .is-map-filter-shown & {
     @include screen('sm', max, 2) {
       transform: translate3d(0, 0, 0);
+    }
+  }
+
+  .is-overlay-user-panel & {
+    @include screen('sm', max, 2) {
+      z-index: 26;
     }
   }
 }

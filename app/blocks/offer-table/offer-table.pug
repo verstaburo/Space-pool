@@ -2,7 +2,8 @@ mixin offer-table(data, isFrom)
   +b.TABLE.offer-table&attributes(attributes)
     tbody
       each item in data
-        +e.TR.row
+        - var rowEmptyClass = (item.price === '-' || item.price === '') ? ' nd-hide-sm' : ''
+        +e.TR.row(class=rowEmptyClass)
           +e.TD.cell
             +e.offer
               +nd-box()(class=item.box + ' __box')

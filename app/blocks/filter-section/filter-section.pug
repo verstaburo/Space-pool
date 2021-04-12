@@ -2,11 +2,11 @@ mixin filter-section(data)
   +b.filter-section&attributes(attributes)
     +e.group(class=(data.groupClass || ''))
       +e.item
-        +modal-output({placeholder: 'Price range'}).js-toggle-modal(data-modal-target="filter-range" data-modal-output-type="range")
+        +modal-output({placeholder: 'Price range'}).js-toggle-modal(data-modal-target="filter-range" data-modal-output-type="range" data-modal-user-panel="visible")
       +e.item
-        +modal-output({placeholder: 'Available from'}).js-toggle-modal(data-modal-target="filter-available" data-modal-output-type="available")
+        +modal-output({placeholder: 'Available from'}).js-toggle-modal(data-modal-target="filter-available" data-modal-output-type="available" data-modal-user-panel="visible")
       +e.item
-        +modal-output({placeholder: 'Total floor area'}).js-toggle-modal(data-modal-target="filter-area" data-modal-output-type="area-size")
+        +modal-output({placeholder: 'Total floor area'}).js-toggle-modal(data-modal-target="filter-area" data-modal-output-type="area-size" data-modal-user-panel="visible")
     +e.item
-      +modal-output({placeholder: 'Sort by'}).js-toggle-modal(data-modal-target="filter-sort" data-modal-output-type="sort" class=(data.sortClass || ''))
+      +modal-output({placeholder: 'Sort by'}).js-toggle-modal(data-modal-target="filter-sort" data-modal-output-type="sort" data-modal-user-panel="visible" class=(data.sortClass || ''))
     block

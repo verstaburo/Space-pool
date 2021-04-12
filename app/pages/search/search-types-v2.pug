@@ -27,18 +27,18 @@ block content
       +nd-section.md-only-visibility-hidden
         +nd-section-header
           +nd-section-title._fz30._sm-fz22._ls-015 Private Office in London
-          +e.filter-group
+          +e.filter-group_sm-mt15
             +e.text_fz15._ls0._gray Looking for workspace type, Any team size and Any price
             +filter-section({}).nd-hide-sm(form="search-filter")
       +nd-results._v2
         each item in getData('new-nd-spaces-search-offer.json')
-          +nd-results-item
+          +nd-results-item._mt23
             +nd-space()._single-offer.js-show-layout(data-layout-target="offer")
               +gallery(item.gallery)._space.__media.js-nd-gallery
               +e.describe
                 +e.head
                   +e.subtitle!=item.subtitle
-                  +space-type._big._gray.__type
+                  +space-type._gray.__type
                     +nd-box()(class=item.type.box + ' __box')
                     +e.name!=item.type.name
                 if item.title
@@ -50,7 +50,7 @@ block content
                       td 12
                     tr
                       td Floor area
-                      td 257 ft2
+                      td 257 ft<sup>2</sup>
                     tr
                       td Min. term
                       td 1 month
@@ -87,7 +87,7 @@ block content
                 +e.INPUT.input(type="radio", value=item.value, name=item.name, data-modal-item, data-modal-item-value=item.value2, data-modal-item-wrapper-class=item.wrapClass data-modal-item-type="offer")
       +modal({header: {title: 'Team size'}, describe: 'Start-up, scale-up, big business or just you – we have a perfect match for you.', footer: false})#filter-team
         +e.list
-          each item in [{title: '1', value: '1', name: 'team', value2: '1'}, {title: '2 — 4', value: '2 — 4', name: 'team'}, {title: '5 — 7', value: '5 — 7', name: 'team'}, {title: '8 — 10', value: '8 — 10', name: 'team'}, {title: '11 — 15', value: '11 — 15', name: 'team'}, {title: '16 — 20', value: '16 — 20', name: 'team'}, {title: '21 — 30', value: '21 — 30', name: 'team'}, {title: '31+', value: '31+', name: 'team', value2: '31+'} ]
+          each item in [{title: '1', value: '1', name: 'team', value2: '1'}, {title: '2 - 4', value: '2 - 4', name: 'team'}, {title: '5 - 7', value: '5 - 7', name: 'team'}, {title: '8 - 10', value: '8 - 10', name: 'team'}, {title: '11 - 15', value: '11 - 15', name: 'team'}, {title: '16 - 20', value: '16 - 20', name: 'team'}, {title: '21 - 30', value: '21 - 30', name: 'team'}, {title: '31 +', value: '31 +', name: 'team', value2: '31 +'} ]
             +styled-radio(item.title)._team.__item
               +e.INPUT.input(type="radio", value=item.value, name=item.name, data-modal-item, data-modal-item-value=(item.value2 || item.value), data-modal-item-type="team")
     +e.fieldset

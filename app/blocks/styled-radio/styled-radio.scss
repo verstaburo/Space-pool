@@ -88,11 +88,21 @@
       border-color: $nd-color-logo;
       z-index: 3;
 
+      @include screen('sm', max, 2) {
+        border-color: $nd-color-border6;
+      }
+
       &::after {
         @include screen('sm', max, 2) {
           background-color: $nd-color-main;
           background-image: url('../images/bg/bg-check.svg');
         }
+      }
+    }
+
+    #{$b}:first-child #{$b}__input:checked ~ & {
+      @include screen('sm', max, 2) {
+        border-top-color: transparent;
       }
     }
 

@@ -234,7 +234,7 @@
       @include rule(padding-right, (sm: 30));
 
       @include screen('sm', max, 2) {
-        border-top: 1px solid $nd-color-border6;
+        border-top: 1px solid transparent;
         border-bottom: 1px solid $nd-color-border6;
         border-left: none;
         border-right: none;
@@ -275,7 +275,7 @@
       @include screen('sm', max, 2) {
         background-color: transparent;
         color: $nd-color-basic;
-        border-color: $nd-color-logo;
+        border-color: $nd-color-border6;
         z-index: 3;
       }
 
@@ -288,6 +288,12 @@
     }
 
     #{$b}_sm-styled:first-child & {
+      @include screen('sm', max, 2) {
+        border-top-color: transparent;
+      }
+    }
+
+    #{$b}_sm-styled:first-child #{$b}__input:checked ~ & {
       @include screen('sm', max, 2) {
         border-top-color: transparent;
       }

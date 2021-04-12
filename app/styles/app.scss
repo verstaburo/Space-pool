@@ -186,7 +186,7 @@
 
 .nd-hide-xl {
   @include screen('xl', max, 2) {
-    display: none;
+    display: none !important;
   }
 }
 
@@ -194,7 +194,7 @@
 
 .nd-hide-xlg {
   @include screen('xlg', max, 2) {
-    display: none;
+    display: none !important;
   }
 }
 
@@ -202,7 +202,7 @@
 
 .nd-hide-lg {
   @include screen('lg', max, 2) {
-    display: none;
+    display: none !important;
   }
 }
 
@@ -210,7 +210,7 @@
 
 .nd-hide-md {
   @include screen('md', max, 2) {
-    display: none;
+    display: none !important;
   }
 }
 
@@ -218,7 +218,7 @@
 
 .nd-hide-sm {
   @include screen('sm', max, 2) {
-    display: none;
+    display: none !important;
   }
 }
 
@@ -226,7 +226,7 @@
 
 .nd-hide-from-sm {
   @include screen('sm', min, 2) {
-    display: none;
+    display: none !important;
   }
 }
 
@@ -234,7 +234,7 @@
 
 .nd-hide-from-md {
   @include screen('md', min, 2) {
-    display: none;
+    display: none !important;
   }
 }
 
@@ -242,7 +242,7 @@
 
 .nd-hide-from-lg {
   @include screen('lg', min, 2) {
-    display: none;
+    display: none !important;
   }
 }
 
@@ -250,7 +250,7 @@
 
 .nd-hide-from-xlg {
   @include screen('xlg', min, 2) {
-    display: none;
+    display: none !important;
   }
 }
 
@@ -258,19 +258,19 @@
 
 .nd-hide-from-xl {
   @include screen('xl', min, 2) {
-    display: none;
+    display: none !important;
   }
 }
 
 .nd-hide-only-lg {
   @media only screen and (min-width: 768px) and (max-width: 1029px) {
-    display: none;
+    display: none !important;
   }
 }
 
 .nd-show-sm {
   @include screen('sm', max, 2) {
-    display: flex;
+    display: flex !important;
   }
 }
 
@@ -290,16 +290,18 @@ label.is-readonly {
     width: 0;
     visibility: hidden;
     pointer-events: none;
+    opacity: 0;
   }
 }
 
 .md-only-visibility-hidden {
-  @media screen and (max-width: 1019px) and (min-width: 768px) {
+  @media only screen and (min-width: 768px) and (max-width: 1029px) {
     position: absolute;
     height: 0;
     width: 0;
     visibility: hidden;
     pointer-events: none;
+    opacity: 0;
   }
 }
 
@@ -310,5 +312,6 @@ label.is-readonly {
     width: 0;
     visibility: hidden;
     pointer-events: none;
+    opacity: 0;
   }
 }
