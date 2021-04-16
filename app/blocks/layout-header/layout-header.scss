@@ -1,0 +1,288 @@
+.layout-header {
+  $b: &;
+
+  display: flex;
+  justify-content: flex-start;
+  z-index: 5;
+  background-color: $nd-color-bg;
+
+  @include rule(height, (xl: 142px, xlg: 142, lg: 106, md: 80, sm: 60));
+
+  &__boxes {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+
+    #{$b}_main & {
+      margin-bottom: auto;
+    }
+  }
+
+  &__box {
+    @include rule(width, (xl: 12px, xlg: 12, lg: 10, md: 6, sm: 6));
+    @include rule(height, (xl: 12px, xlg: 12, lg: 10, md: 6, sm: 6));
+  }
+
+  &__title {
+    display: block;
+    font-family: $font-stolzl;
+    font-weight: 400;
+    letter-spacing: normal;
+    line-height: 1.19;
+
+    @include rule(font-size, (xl: 30px, xlg: 30, lg: 24, md: 18, sm: 18));
+
+    &_fz20 {
+      @include rule(font-size, (xl: 20px, xlg: 20, lg: 20, md: 18, sm: 18));
+    }
+  }
+
+  &__share {
+    @include rule(font-size, (xl: 16px, xlg: 16, lg: 16, md: 16, sm: 16));
+
+    font-weight: 600;
+    letter-spacing: normal;
+    line-height: (36 / 16);
+
+    @include screen('lg', max, 2) {
+      line-height: (28 / 16);
+    }
+
+    @include screen('md', max, 2) {
+      line-height: (22 / 16);
+    }
+
+    @include screen('sm', max, 2) {
+      line-height: 1.2;
+    }
+  }
+
+  &__close {
+    @include rule(width, (xl: 104px, xlg: 104, lg: 72, md: 50, sm: 60));
+
+    border-right: 1px solid $nd-color-border6;
+    flex: none;
+
+    svg {
+      @include rule(width, (xl: 18px, xlg: 18, lg: 18, md: 15, sm: 15));
+      @include rule(height, (xl: 18px, xlg: 18, lg: 18, md: 15, sm: 15));
+
+      @include screen('sm', max, 2) {
+        display: none;
+      }
+    }
+
+    @include screen('sm', max, 2) {
+      background-repeat: no-repeat;
+      background-position: 50% 50%;
+      background-image: $icon-arrow5;
+      border-right: none;
+      background-size: pxtovw(22, 375);
+    }
+  }
+
+  &__wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    flex: 1;
+
+    @include screen('sm', max, 2) {
+      justify-content: flex-end;
+      align-items: center;
+    }
+
+    #{$b}_main & {
+      @include rule(padding-left, (xl: 45px, xlg: 45, lg: 25, md: 25, sm: 25));
+      @include rule(padding-right, (xl: 50px, xlg: 50, lg: 30, md: 40, sm: 25));
+      @include rule(padding-top, (xl: 23px, xlg: 23, lg: 28, md: 25, sm: 0));
+      @include rule(padding-bottom, (xl: 16px, xlg: 16, lg: 13, md: 17, sm: 0));
+    }
+
+    #{$b}_sort & {
+      flex-wrap: wrap;
+      align-content: space-between;
+
+      @include rule(padding-top, (xl: 24px, xlg: 24, lg: 24, md: 10, sm: 0));
+      @include rule(padding-left, (xl: 50px, xlg: 50, lg: 28, md: 28, sm: 25));
+      @include rule(padding-right, (xl: 50px, xlg: 50, lg: 25, md: 25, sm: 25));
+    }
+  }
+
+  &__select {
+    width: 100%;
+
+    @include rule(width, (md: 150, sm: 150));
+  }
+
+  &__describe {
+    #{$b}_main & {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: flex-start;
+    }
+  }
+
+  &_popup {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: $nd-color-basic-light;
+    transform: translate3d(0, -100%, 0);
+
+    @include rule(height, (xl: 142px, xlg: 142, lg: 114, md: 80, sm: 60));
+
+    @include screen('lg', max, 2) {
+      transform: translate3d(0, pxtovw(-106, 1366), 0);
+    }
+
+    @include screen('md', max, 2) {
+      transform: translate3d(0, pxtovw(-66, 960), 0);
+    }
+
+    @include screen('sm', max, 2) {
+      box-shadow: boxShadow(0, 2, 2, 0,  rgba(0, 0, 0, .06), 375);
+      transform: translate3d(0, 0, 0);
+    }
+
+    .map-in-fullview &, .is-map-animated-out & {
+      transform: translate3d(0, 0, 0);
+      box-shadow: boxShadow(0, 2, 2, 0,  rgba(0, 0, 0, .06));
+
+      @include screen('xlg') {
+        box-shadow: boxShadow(0, 2, 2, 0, rgba(0, 0, 0, .06), 1660);
+      }
+
+      @include screen('lg') {
+        box-shadow: boxShadow(0, 2, 2, 0,  rgba(0, 0, 0, .06), 1366);
+      }
+
+      @include screen('md') {
+        box-shadow: boxShadow(0, 2, 2, 0,  rgba(0, 0, 0, .06), 960);
+      }
+
+      @include screen('sm') {
+        box-shadow: boxShadow(0, 2, 2, 0,  rgba(0, 0, 0, .06), 375);
+      }
+    }
+
+    #{$b} {
+      &__boxes {
+        @include screen('sm', max, 2) {
+          display: none;
+        }
+      }
+
+      &__title {
+        &_main {
+          @include screen('sm', max, 2) {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+
+  &_inner {
+    padding-left: 0;
+    padding-right: 0;
+
+    #{$b} {
+      &__close {
+        display: none;
+      }
+    }
+  }
+
+  &_sort {
+    padding-bottom: 0;
+
+    #{$b} {
+      &__boxes {
+        display: none;
+      }
+
+      &__box {
+        @include rule(width, (xl: 7px, xlg: 7, lg: 7, md: 7, sm: 7));
+        @include rule(height, (xl: 7px, xlg: 7, lg: 7, md: 7, sm: 7));
+      }
+
+      &__title {
+        display: block;
+
+        &_main {
+          @include rule(font-size, (xl: 16px, xlg: 16, lg: 16, md: 16, sm: 16));
+
+          display: none;
+        }
+      }
+
+      &__close {
+        position: absolute;
+        top: 0;
+        right: 0;
+        display: none;
+
+        svg {
+          @include rule(width, (xl: 14px, xlg: 14, lg: 14, md: 14, sm: 14));
+          @include rule(height, (xl: 14px, xlg: 14, lg: 14, md: 14, sm: 14));
+        }
+      }
+    }
+
+    .map-in-fullview &,
+    .is-map-animated-out & {
+      #{$b}__boxes {
+        display: flex;
+      }
+
+      #{$b}__title {
+        display: none;
+
+        &_main {
+          display: block;
+        }
+      }
+    }
+
+    .layout-list-active & {
+      #{$b}__close {
+        display: block;
+      }
+    }
+  }
+
+  &_list {
+    border-bottom: 1px solid $nd-color-border6;
+    transform: translate3d(0, 0, 0);
+    box-shadow: none;
+  }
+
+  &_bg-gray {
+    background-color: $nd-color-bg;
+  }
+
+  &_main.layout-header_popup {
+    border-right: 1px solid $nd-color-border6;
+
+    @include screen('sm', max, 2) {
+      border-right: none;
+    }
+  }
+
+  .drop-navigation {
+
+    &__item {
+      &:not(:last-child) {
+        @include rule(margin-right, (xl: 40px, xlg: 28, lg: 28, md: 0, sm: 0));
+      }
+    }
+
+    &__link {
+      @include rule(padding-bottom, (xl: 27px, xlg: 27, lg: 16, md: 10, sm: 12));
+    }
+  }
+}

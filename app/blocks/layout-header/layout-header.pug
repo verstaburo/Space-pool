@@ -1,0 +1,28 @@
+mixin layout-header(data)
+  +b.layout-header&attributes(attributes)
+    if data.popup && data.type=== 'space'
+      +e.BUTTON.close.js-layout-close(data-layout-close-target=data.type type="button")
+        +icon('cross')
+    if !data.popup && data.type === 'space'
+      +e.A.back.js-layout-close-active.nd-hide-from-sm(href="#")
+        +icon('back-arrow')
+    +e.wrapper
+      - var isListing = (data.type === 'list' && data.popup)
+      - var titleClass = isListing ? '_fz20' : ''
+      if data.type === 'space' || data.popup
+        +e.describe
+          +e.boxes
+            +nd-box._orange.__box
+            +nd-box._red.__box
+            +nd-box._blue.__box
+            +nd-box._green.__box
+          +e.title_main Canvas Dalston Lane
+          if isListing
+            +e.title(class=titleClass) Listings
+            +e.BUTTON.close.js-layout-close(data-layout-close-target=data.type type="button")
+              +icon('cross')
+      if data.type === 'space'
+        +nd-link-icon('share').__share Share
+      if data.type === 'list'
+        +drop-navigation({title: 'Offers', linkClasses: '_fz13 _small', list: [{name: "All (15)", href: "#"}, {name: "Hot desks (2)", href: "#"}, {name: "Fixed desks (8)", href: "#"}, {name: "Meeting Rooms (8)", href: "#"}, {name: "Private offices (5)", href: "#"}]}, 4, 'Private offices (5)')._md._rounded.__select.js-offer-select
+    block

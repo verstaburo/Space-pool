@@ -12,29 +12,43 @@
     align-items: center;
 
     &:not(:last-child) {
-      margin-right: 12px;
+      @include rule(margin-right, (xl: 12px, xlg: 12, lg: 12, md: 12, sm: 12));
     }
   }
 
   &__item {
-    @include text;
+    @include rule(font-size, (xl: 14px, xlg: 14, lg: 14, md: 14, sm: 14));
 
     position: relative;
     line-height: (26/14);
     font-weight: 400;
-    color: $color-basic-light;
+    color: $color-gray-lightest;
+
+    .nd & {
+      @include rule(font-size, (xl: 12px, xlg: 12, lg: 12, md: 12, sm: 12));
+
+      letter-spacing: normal;
+    }
 
     &:not(:last-child) {
-      padding-right: 19px;
+      @include rule(padding-right, (xl: 19px, xlg: 19, lg: 19, md: 19, sm: 19));
+
+      .nd & {
+        @include rule(padding-right, (xl: 21px, xlg: 21, lg: 21, md: 21, sm: 21));
+      }
 
       &::after {
         @include pseudo;
+        @include rule(width, (xl: 5px, xlg: 5, lg: 5, md: 5, sm: 5));
+        @include rule(height, (xl: 1px, xlg: 1, lg: 1, md: 1, sm: 1));
+        @include rule(right, (xl: 10px, xlg: 10, lg: 10, md: 10, sm: 10));
+
+        .nd & {
+          @include rule(width, (xl: 2px, xlg: 2, lg: 2, md: 2, sm: 2));
+        }
 
         top: 50%;
-        right: 7px;
-        width: 5px;
-        height: 1px;
-        background-color: $color-basic-light;
+        background-color: $color-gray-lightest;
         transform: translate3d(0, -50%, 0);
       }
     }
@@ -47,16 +61,16 @@
   }
 
   &__icon {
-    width: 14px;
-    height: 14px;
+    @include rule(width, (xl: 14px, xlg: 14, lg: 14, md: 14, sm: 14));
+    @include rule(height, (xl: 14px, xlg: 14, lg: 14, md: 14, sm: 14));
 
     &:not(:last-child) {
       margin-right: 4px;
+      @include rule(margin-right, (xl: 4px, xlg: 4, lg: 4, md: 4, sm: 4));
     }
 
     &_metro {
-      width: 14px;
-      height: 11px;
+      @include rule(height, (xl: 11px, xlg: 11, lg: 11, md: 11, sm: 11));
     }
   }
 }

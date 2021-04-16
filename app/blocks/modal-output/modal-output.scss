@@ -203,6 +203,7 @@
     color: $nd-color-border2;
     transform-origin: 50% 50% 0;
     transition: transform $ease-main;
+    overflow: hidden;
 
     @include rule(width, (xl: 40px, xlg: 40, lg: 40, md: 40, sm: 30));
 
@@ -220,6 +221,10 @@
       @include screen('sm', max, 2) {
         display: none;
       }
+    }
+
+    #{$b}.is-opened & {
+      transform: rotate(180deg);
     }
   }
 

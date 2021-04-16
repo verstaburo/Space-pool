@@ -2,6 +2,7 @@ import {
   freeze,
   unfreeze,
 } from '../../scripts/functions/freeze';
+import { layoutsMethods } from '../layout/layout';
 
 const {
   $,
@@ -19,6 +20,9 @@ export default function srMapToggle() {
       freeze();
     },
     close() {
+      if (layoutsMethods.whichLayerActive().list) {
+        layoutsMethods.close('list', {});
+      }
       $('body').removeClass('map-in-fullview').addClass('is-map-animated-out');
       setTimeout(() => {
         $('body').removeClass('is-map-animated-out');

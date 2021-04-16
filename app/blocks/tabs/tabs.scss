@@ -299,6 +299,70 @@
       flex-direction: column;
     }
   }
+
+  &_space {
+    position: relative;
+    border-top: none;
+    width: 100%;
+
+    & + .tabs-content {
+      margin-top: 0;
+    }
+
+    &::after {
+      @include pseudo;
+
+      left: 50%;
+      width: 100vw;
+      height: 1px;
+      background-color: $nd-color-small-offer;
+      transform: translate3d(-50%, 0, 0);
+      bottom: 1px;
+      z-index: 1;
+    }
+
+    #{$b} {
+
+      &__tab {
+        display: inline-block;
+        height: auto;
+        border-top: none;
+        padding: 0;
+        margin: 0;
+        text-transform: none;
+        flex: none;
+        width: auto;
+        font-family: $font-stolzl;
+        font-weight: 400;
+        letter-spacing: -.015em;
+        color: $nd-color-basic;
+        line-height: 1.23;
+        border-bottom: 3px solid transparent;
+        box-shadow: 0 0 0 transparent;
+        z-index: 2;
+
+        @include rule(padding-top, (xl: 9px,xlg: 9, lg: 9, md: 9, sm: 9));
+        @include rule(padding-bottom, (xl: 6px, xlg: 6, lg: 6, md: 6, sm: 6));
+        @include rule(border-bottom-width, (xl: 3px, xlg: 3, lg: 3, md: 3, sm: 3));
+        @include rule(font-size, (xl: 13px, xlg: 13, lg: 13, md: 13, sm: 13));
+
+        &.active {
+          color: $nd-color-gray-text;
+          border-bottom-color: $nd-color-main;
+          box-shadow: 0 0 0 0 transparent;
+
+          span {
+            display: none;
+          }
+        }
+
+        &:not(:first-child) {
+          @include rule(margin-left, (xl: 20px, xlg: 20, lg: 20, md: 20, sm: 20));
+        }
+      }
+
+    }
+  }
 }
 
 .tab-radio {

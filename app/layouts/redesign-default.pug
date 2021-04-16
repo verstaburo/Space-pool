@@ -19,6 +19,7 @@ html(lang='en')
     - var gradients = isGradients || false
     - var isHost = host || false
     - var map = isMap || false
+    - var newMapFile = isMapNew || false
     - var noUser = isNoUser || false
     - var menuData = getData('nd-guest-acc-list.json')
     - var otherScripts = scripts || []
@@ -78,6 +79,9 @@ html(lang='en')
     if map
       //- script(src='https://maps.googleapis.com/maps/api/js?key=AIzaSyCKtbucQSqDWV-9lNCgzESqbdUakhraXDY&callback=initMap')
       script(src='https://maps.googleapis.com/maps/api/js?key=AIzaSyAlLpVITMmaCmvob8dU3xWWBDOjPefUkZ4&callback=initMap')
-      // Библиотека для кластеризации в картах
-      script(src="https://unpkg.com/@googlemaps/markerclustererplus/dist/index.min.js")
-      script(src='assets/scripts/map.js')
+      if newMapFile
+        // Библиотека для кластеризации в картах
+        script(src="https://unpkg.com/@googlemaps/markerclustererplus/dist/index.min.js")
+        script(src='assets/scripts/map_search.js')
+      else
+        script(src='assets/scripts/map.js')

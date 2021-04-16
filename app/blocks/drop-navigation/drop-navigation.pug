@@ -1,4 +1,5 @@
-mixin drop-navigation(data, startSlide, activeName, linkClasses)
+mixin drop-navigation(data, startSlide, activeName, linkClass)
+  - var linkClasses = linkClass || data.linkClasses
   +b.drop-navigation&attributes(attributes)
     +e.head(data-head class=(data.headCls || ''))
       +e.label(data-label class=(data.labelCls || ''))!=data.labelValue
@@ -6,7 +7,7 @@ mixin drop-navigation(data, startSlide, activeName, linkClasses)
       +e.header
         +e.close(data-select-close) Close
         +e.H3.title!=data.title
-      each item in data
+      each item in data.list
         - var addClass = '';
         -if (linkClasses) addClass += linkClasses;
         - addClass += (item.name == activeName) ? ' is-select' : '';

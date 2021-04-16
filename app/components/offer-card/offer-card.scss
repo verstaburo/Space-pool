@@ -1308,4 +1308,89 @@
       }
     }
   }
+
+  &__pay {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+    flex: none;
+    text-align: right;
+
+    &:not(:first-child) {
+      @include rule(margin-left, (xl: 50px, xlg: 50, lg: 50, md: 50, sm: 50));
+    }
+  }
+
+  &_small {
+    border: none;
+    border-top: 1px solid $nd-color-small-offer;
+    border-bottom: 1px solid $nd-color-small-offer;
+    background-color: transparent;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    box-shadow: none;
+    padding-left: 0;
+    padding-right: 0;
+    width: 100%;
+
+    @include rule(padding-left, (xl: 2px, xlg: 2, lg: 2, md: 2, sm: 2));
+    @include rule(padding-right, (xl: 2px, xlg: 2, lg: 2, md: 2, sm: 2));
+    @include rule(padding-top, (xl: 10px, xlg: 10, lg: 10, md: 10, sm: 10));
+    @include rule(padding-bottom, (xl: 10px, xlg: 10, lg: 10, md: 10, sm: 10));
+
+    #{$b} {
+      &__media {
+        overflow: hidden;
+        flex: none;
+        margin: 0;
+
+        @include rule(width, (xl: 68px, xlg: 68, lg: 68, md: 68, sm: 68));
+      }
+
+      &__image {
+        padding-top: 63.24%;
+      }
+
+      &__describe {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-right: 0;
+        margin-top: 0;
+        margin-bottom: 0;
+        flex: 1;
+
+        &:not(:first-child) {
+          @include rule(margin-left, (xl: 10px, xlg: 10, lg: 10, md: 10, sm: 10));
+        }
+      }
+
+      &__title {
+        margin-top: 0;
+        margin-bottom: 0;
+        font-weight: 600;
+        line-height: (18 / 15);
+        font-family: $font-main;
+
+        @include rule(font-size, (xl: 15px, xlg: 15, lg: 15, md: 15, sm: 15));
+      }
+
+      &__price {
+        margin-top: 0;
+        margin-bottom: 0;
+        background-color: transparent;
+        margin: 0;
+        padding: 0;
+        color: currentColor;
+        font-weight: 400;
+        line-height: (18 / 15);
+        font-family: $font-main;
+        height: auto;
+
+        @include rule(font-size, (xl: 15px, xlg: 15, lg: 15, md: 15, sm: 15));
+      }
+    }
+  }
 }

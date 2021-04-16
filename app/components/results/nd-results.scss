@@ -196,6 +196,41 @@
     &_mt23 {
       @include rule(margin-top, (xl: 23px,xlg: 23, lg: 23, md: 23, sm: 23));
     }
+
+    &_mt-1 {
+      margin-top: -1px;
+    }
+  }
+
+  &__list {
+    display: block;
+    width: 100%;
+  }
+
+  &__divider {
+    display: box;
+    width: 100%;
+
+    &:not(:first-child) {
+      @include rule(margin-top, (xl: 42px, xlg: 42, lg: 42, md: 42, sm: 42));
+    }
+
+    &:not(:last-child) {
+      @include rule(margin-bottom, (xl: 20px, xlg: 20, lg: 20, md: 20, sm: 15));
+    }
+  }
+
+  &__type {
+    letter-spacing: normal;
+    font-family: $font-main;
+
+    .space-type {
+      &__box {
+        &:not(:last-child) {
+          @include rule(margin-right, (xl: 8px, xlg: 8, lg: 8, md: 8, sm: 8));
+        }
+      }
+    }
   }
 
   &_v2 {
@@ -219,6 +254,10 @@
 
         &:first-child {
           @include rule(margin-top, (md: 0));
+        }
+
+        &_mt-1 {
+          margin-top: -1px;
         }
       }
     }

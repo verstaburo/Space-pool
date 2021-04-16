@@ -1,0 +1,103 @@
+mixin space-description()
+  +b.space-description&attributes(attributes)
+    +nd-section.__map
+      +nd-section-header.nd-hide-sm
+        +nd-section-title._fz26 Location
+      +space-map('space-map').__space-map
+    +nd-section._space._space_v2.__head
+      +nd-section-header
+        +address-line({line: ['London', 'Mayfare', 'EC2A 4SD']}).nd-hide-from-sm
+        +nd-section-title('h2')._fz26
+          span.nd-hide-sm About Canvas Dalston Lane
+          span.nd-hide-from-sm House of Creative - 320 Angel
+      +space-gallery.__space-gallery
+      +nd-section-content.nd-hide-sm
+        +e.text Perfectly located on Shoreditch High Street, alongside three of our other buildings, 229 offers 12 private offices, meeting rooms, large board room and a perfect breakout/kitchen space and rooftop. House of Creative has been around for 8 years so we know what our client's needs are. We keep our pricing low and offer and all in service to make life easy for you.
+    +tabs()._space.__tabs.nd-hide-from-sm
+      +tab(data-tab-target="tab-space-offers" data-layout-tab="tab-space-offers") Office offers <span>(13)</span>
+      +tab.active(data-tab-target="tab-space-describe" data-layout-tab="tab-space-describe") About this space
+    +tabs-content.space-description__tabs-content
+      +tab-wrapper()(data-tab="tab-space-offers" data-tab-group="tab-space")
+        +nd-results._v2
+          +e.divider
+            +space-type._gray._fz12.__type
+              +nd-box()._green.__box_sz9
+              +e.name PRIVATE OFFICES
+          +e.list
+            each item, index in ['assets/images/nd/space33.jpg', 'assets/images/nd/space32.jpg', 'assets/images/nd/space34.jpg']
+              +nd-results-item._mt-1
+                +offer-card()._small.js-layout-show(data-layout-target="offer")
+                  +e.media
+                    +e.PICTURE.image
+                      source(srcset=item)
+                      img(src=item)
+                  +e.describe
+                    +e.H4.title Suite G0#{index + 1}
+                    +e.pay
+                      +e.price £ 4,950.00
+          +e.divider
+            +space-type._gray._fz12.__type
+              +nd-box()._orange.__box_sz9
+              +e.name HOT DESK
+          +e.list
+            +nd-results-item._mt-1
+              +offer-card()._small.js-layout-show(data-layout-target="offer")
+                +e.media
+                  +e.PICTURE.image
+                    source(srcset='assets/images/nd/space22.jpg')
+                    img(src='assets/images/nd/space22.jpg')
+                +e.describe
+                  +e.H4.title Hot desk available on demand
+                  +e.pay
+                    +e.price £ 350.00
+            +nd-results-item._mt-1
+              +offer-card()._small.js-layout-show(data-layout-target="offer")
+                +e.media
+                  +e.PICTURE.image
+                    source(srcset='assets/images/nd/space32.jpg')
+                    img(src='assets/images/nd/space32.jpg')
+                +e.describe
+                  +e.H4.title Day pass Hot desk
+                  +e.pay
+                    +e.price £ 50.00
+                    +label.__label DAY PASS
+          +e.divider
+            +space-type._gray._fz12.__type
+              +nd-box()._red.__box_sz9
+              +e.name FIXED DESK
+          +e.list
+            each item, index in ['assets/images/nd/space33.jpg', 'assets/images/nd/space34.jpg']
+              +nd-results-item._mt-1
+                +offer-card()._small.js-layout-show(data-layout-target="offer")
+                  +e.media
+                    +e.PICTURE.image
+                      source(srcset=item)
+                      img(src=item)
+                  +e.describe
+                    +e.H4.title Suite G0#{index + 1}
+                    +e.pay
+                      +e.price £ 4,950.00
+
+      +tab-wrapper()(data-tab="tab-space-describe" data-tab-group="tab-space").active
+        +nd-section.nd-hide-from-sm
+          +nd-section-header
+            +e.boxes
+              +nd-box._orange._size10
+              +nd-box._red._size10
+              +nd-box._blue._size10
+              +nd-box._green._size10
+          +nd-section-content
+            +e.text_fz15._xl-fz18 Perfectly located on Shoreditch High Street, alongside three of our other buildings, 229 offers 12 private offices, meeting rooms, large board room and a perfect breakout/kitchen space and rooftop. House of Creative has been around for 8 years so we know what our client's needs are. We keep our pricing low and offer and all in service to make life easy for you.
+
+        +nd-section
+          +nd-section-header.nd-hide-sm
+            +nd-section-title._fz26 Nearby
+          +routes._small.__routes
+
+        +nd-section
+          +nd-section-header
+            +nd-section-title._fz26 Facilities
+          +facility-list._small.__facility
+
+mixin space-description-panel()
+  +nd-link-icon('nd-burger')._blue._block.space-description-panel.js-layout-tab-redirect.nd-hide-from-sm(href="#" data-layout-tab-target="tab-space-offers" data-tab="tab-space-describe" data-tab-group="tab-space") View listings

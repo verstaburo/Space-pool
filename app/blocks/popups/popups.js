@@ -427,6 +427,40 @@ export default function popups() {
     });
   });
 
+  $(document).on('click', '.js-fancygallery', (evt) => {
+    evt.preventDefault();
+    const self = evt.currentTarget;
+    // именование галереи
+    const targetName = $(self).attr('data-targets');
+    const targets = $(`[data-target="${targetName}"]`);
+    // массив для храниения источников изображений
+    const galleryItems = [];
+    // переменная для определения текущего активного элемента
+    $(targets).each((i, el) => {
+      const src = $(el).attr('srcset') || $(el).attr('src') || $(el).attr('href') || $(el).attr('data-src');
+      // делаем первичноге наполнение массива
+      galleryItems.push({
+        src,
+      });
+    });
+    // открываем галлерею
+    $.fancybox.open(galleryItems, {
+      loop: true,
+      afterLoad: freeze,
+      afterClose: unfreeze,
+      baseTpl: '<div class="fancybox-container" role="dialog" tabindex="-1">' +
+        '<div class="fancybox-bg fancybox-bg_dark"></div>' +
+        '<div class="fancybox-inner">' +
+        '<div class="fancybox-infobar"><span data-fancybox-index></span>&nbsp;/&nbsp;<span data-fancybox-count></span></div>' +
+        '<div class="fancybox-toolbar">{{buttons}}</div>' +
+        '<div class="fancybox-navigation">{{arrows}}</div>' +
+        '<div class="fancybox-stage"></div>' +
+        '<div class="fancybox-caption"></div>' +
+        '</div' +
+        '</div>',
+    });
+  });
+
   $(document).on('click', '.js-show-pfooter', (evt) => {
     evt.preventDefault();
     const self = evt.currentTarget;

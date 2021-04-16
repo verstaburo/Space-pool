@@ -11,8 +11,9 @@ block bodyClasses
 
 block header
   - var headerClass = ' is-login'
-  - var pageClass = '_pb0 _sm-pt0'
+  - var pageClass = '_nopad'
   - var isMap = true
+  - var isMapNew = true
   - var host = false
 
 block content
@@ -24,45 +25,99 @@ block content
       +nd-search-map-v2('search-map-bytype')
 
     +e.column_results
-      +nd-section.md-only-visibility-hidden
-        +nd-section-header
-          +nd-section-title._fz30._sm-fz22._ls-015 Private Office in London
-          +e.filter-group_sm-mt15
-            +e.text_fz15._ls0._gray Looking for workspace type, Any team size and Any price
-            +filter-section({}).nd-hide-sm(form="search-filter")
-      +nd-results._v2
-        each item in getData('new-nd-spaces-search-offer.json')
-          +nd-results-item._mt23
-            +nd-space()._single-offer.js-show-layout(data-layout-target="offer")
-              +gallery(item.gallery)._space.__media.js-nd-gallery
-              +e.describe
-                +e.head
-                  +e.subtitle!=item.subtitle
-                  +space-type._gray.__type
-                    +nd-box()(class=item.type.box + ' __box')
+      +e.wrapper
+        +nd-section.md-only-visibility-hidden
+          +nd-section-header
+            +nd-section-title._fz30._sm-fz22._ls-015 Private Office in London
+            +e.filter-group_sm-mt15
+              +e.text_fz15._ls0._gray Looking for workspace type, Any team size and Any price
+              +filter-section({}).nd-hide-sm(form="search-filter")
+        +nd-results._v2
+          each item in getData('new-nd-spaces-search-offer.json')
+            +nd-results-item._mt23
+              +nd-space()._single-offer.js-layout-show(data-layout-target="offer")
+                +gallery(item.gallery)._space.__media.js-nd-gallery
+                +e.describe
+                  +e.head
+                    +e.subtitle!=item.subtitle
+                    +space-type._gray.__type
+                      +nd-box()(class=item.type.box + ' __box')
+                      +e.name!=item.type.name
+                  if item.title
+                    +e.title!=item.title
+                  +nd-table._info._info_space.__table
+                    tbody
+                      tr
+                        td Amount of desks
+                        td 12
+                      tr
+                        td Floor area
+                        td 257 ft<sup>2</sup>
+                      tr
+                        td Min. term
+                        td 1 month
+                      tr
+                        td Price
+                        td
+                          b £ 2,400 per month
+
+
+    +e.column_start._popup(data-layout="space")
+      +layout-header({type: 'space', popup: true})._main._popup
+      +e.wrapper
+        +space-description
+        +space-description-panel
+    +e.column_end._popup(data-layout="list,space")
+      +layout-header({type: 'list', popup: true})._sort._popup
+      +e.wrapper
+        +nd-results._v2
+          +e.divider.nd-hide-from-md
+            +space-type._gray._fz12.__type
+              +nd-box()._green.__box_sz9
+              +e.name PRIVATE OFFICES
+          each item in getData('space-offers-po.json')
+            +nd-results-item._mt23
+              +nd-space()._single-offer._single-offer_short.js-layout-show(data-layout-target="offer")
+                if item.gallery && item.gallery.images.length === 1
+                  +nd-space-media-e()
+                    +e.PICTURE.image
+                      +e.SOURCE(srcset=item.gallery.images[0])
+                      +e.IMG(src=item.gallery.images[0])
+                else if item.gallery
+                  +gallery(item.gallery)._space.__media.js-nd-gallery
+                +e.describe
+                  +space-type._gray._fz12.__type.nd-hide-md
+                    +nd-box()(class=item.type.box + ' __box_sz9')
                     +e.name!=item.type.name
-                if item.title
-                  +e.title!=item.title
-                +nd-table._info._info_space.__table
-                  tbody
-                    tr
-                      td Amount of desks
-                      td 12
-                    tr
-                      td Floor area
-                      td 257 ft<sup>2</sup>
-                    tr
-                      td Min. term
-                      td 1 month
-                    tr
-                      td Price
-                      td
-                        b £ 2,400 per month
-
-
-    +e.column_start._popup(data-layout-tag="space")
-    +e.column_end._popup(data-layout-tag="list,space")
-    +e.column_start._popup(data-layout-tag="offer")
+                  if item.title
+                    +e.title!=item.title
+                  +nd-table._info._info_space.__table
+                    tbody
+                      tr
+                        td Amount of desks
+                        td 12
+                      tr
+                        td Floor area
+                        td 257 ft<sup>2</sup>
+                      tr
+                        td Min. term
+                        td 1 month
+                      tr
+                        td Price
+                        td
+                          b £ 2,400 per month
+    +e.column_start._popup(data-layout="offer")
+      +e.wrapper
+        +offer-description
+        +offer-description-panel()._abs(data-offer-panel)
+          +e.offer
+            +space-type._gray.__type
+              +nd-box()._green.__box
+              +e.name PRIVATE OFFICE
+            +e.title 13 desks office space
+          +e.buttons
+            +nd-button._pad10._black.__button.js-nd-arrange-viewing(href="#nd-popup-arrange-viewing" data-min-date="2021-15-4" data-max-date="2021-20-8") Arrange viewing
+            +nd-button._pad10.__button(href="#") Request reservation
 
   +modals('div')
     +e.FORM.fieldset#search-filter(action="/")
@@ -93,6 +148,8 @@ block content
     +e.fieldset
       +modal({header: {title: 'Price range'}, footer: {class: '_range', view: 'range'}})#filter-range
         +nd-range({output: {minLabel: 'Min', maxLabel: 'Max', max: 'maxPrice', min: 'minPrice', formboxClass: '_bg-white _sm-h50', inputClass: '_sm-h50'}})(data-start="[0, 5000]" data-connect="[false, true, false]" data-step="10" data-margin="30" data-min="0" data-max="10000" data-currency="£" data-modal-item data-modal-item-type="range").__range
+      +modal({header: {title: 'Available from'}, footer: false})#filter-available
+      +modal({header: {title: 'Total floor area'}, footer: false})#filter-area
       +modal({header: {title: 'Sort by'}, footer: false})#filter-sort
         +e.list
           each item in [{title: 'Popular', value: 'Popular', name: 'sort', checked: true}, {title: 'Relevance', value: 'Relevance', name: 'sort'}, {title: 'Price ascending', value: 'Price ascending', name: 'sort'}, {title: 'Price descending', value: 'Price descending', name: 'sort'}]
@@ -104,3 +161,4 @@ block content
 block panels
 
 block popups
+  +nd-popup-arrange-viewing#nd-popup-arrange-viewing

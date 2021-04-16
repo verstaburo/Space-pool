@@ -111,6 +111,11 @@
       }
     }
 
+    &_sz9 {
+      @include rule(width, (xl: 9px, xlg: 9, lg: 9, md: 9, sm: 9));
+      @include rule(height, (xl: 9px, xlg: 9, lg: 9, md: 9, sm: 9));
+    }
+
     &_sz13 {
       width: 13px;
       height: 13px;
@@ -398,6 +403,27 @@
 
       &__name {
         @include rule(font-size, (xl: 12px, xlg: 12, lg: 10, md: 12, sm: 12));
+
+        font-weight: 700;
+        font-family: $font-main;
+      }
+    }
+  }
+
+  .nd-space_single-offer_short & {
+
+    #{$b} {
+      &__box {
+        @include rule(width, (xl: 9px, xlg: 9, lg: 9, md: 9, sm: 9));
+        @include rule(height, (xl: 9px, xlg: 9, lg: 9, md: 9, sm: 9));
+
+        &:not(:last-child) {
+          @include rule(margin-right, (xl: 7px, xlg: 7, lg: 6, md: 7, sm: 7));
+        }
+      }
+
+      &__name {
+        @include rule(font-size, (xl: 12px, xlg: 12, lg: 12, md: 12, sm: 12));
 
         font-weight: 700;
         font-family: $font-main;

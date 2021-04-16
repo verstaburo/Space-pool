@@ -9,52 +9,95 @@ block bodyClasses
 
 block header
   - var headerClass = ' is-login'
-  - var pageClass = '_sm-pt0'
+  - var pageClass = ' _pt0'
   - var isMap = true
+  - var isMapNew = true
   - var host = true
 
 block content
-  +layout
+  +layout._static
     +e.column_start
-      +nd-section._space._mt114
-        +gallery({images: ["assets/images/nd/nd-space-lead.jpg", "assets/images/space-lead1.jpg", "assets/images/space-lead2.jpg", "assets/images/space-lead3.jpg", "assets/images/space-lead4.jpg"], gallerytag: "spacegallery", buttons: true, dots: true, dotsClass: ' nd-hide-from-sm'}).__gallery.js-nd-gallery(data-equalizer-target="space")
-        +nd-section-header
-          +e.boxes.nd-hide-from-md
-            +nd-box._orange._size10
-            +nd-box._red._size10
-            +nd-box._blue._size10
-            +nd-box._green._size10
-          +nd-section-title('h1')._fz30._sm-fz26 About House of Creative - 229 Shoreditch High Street
-        +nd-section-content
-          +e.text Perfectly located on Shoreditch High Street, alongside three of our other buildings, 229 offers 12 private offices, meeting rooms, large board room and a perfect breakout/kitchen space and rooftop. House of Creative has been around for 8 years so we know what our client's needs are. We keep our pricing low and offer and all in service to make life easy for you.
+      +e.wrapper
+        +layout-header({type: 'space', popup: false})._main._inner
+        +space-description
+        +space-description-panel
 
-      +nd-section._mt114
-        +nd-section-header
-          +nd-section-title Location
-          +e.text 229 Shoreditch High St, Shoreditch, London E1 6PJ, UK, London, E1 6PJ
-        +map._space#spaceMap.__map
-        +routes.__routes
-
-      +nd-section._mt114
-        +nd-section-header
-          +nd-section-title Facilities
-          +facility-list.__facility
     +e.column_end
-    +e.column_start._popup(data-layout-tag="offers")
+      +layout-header({type: 'list', popup: false})._list._sort._popup._bg-gray
+      +e.wrapper
+        +nd-results._v2
+          +e.divider.nd-hide-from-md
+            +space-type._gray._fz12.__type
+              +nd-box()._green.__box_sz9
+              +e.name PRIVATE OFFICES
+          each item in getData('space-offers-po.json')
+            +nd-results-item._mt23
+              +nd-space()._single-offer._single-offer_short.js-layout-show(data-layout-target="offer")
+                if item.gallery && item.gallery.images.length === 1
+                  +nd-space-media-e()
+                    +e.PICTURE.image
+                      +e.SOURCE(srcset=item.gallery.images[0])
+                      +e.IMG(src=item.gallery.images[0])
+                else if item.gallery
+                  +gallery(item.gallery)._space.__media.js-nd-gallery
+                +e.describe
+                  +space-type._gray._fz12.__type.nd-hide-md
+                    +nd-box()(class=item.type.box + '__box_sz9')
+                    +e.name!=item.type.name
+                  if item.title
+                    +e.title!=item.title
+                  +nd-table._info._info_space.__table
+                    tbody
+                      tr
+                        td Amount of desks
+                        td 12
+                      tr
+                        td Floor area
+                        td 257 ft<sup>2</sup>
+                      tr
+                        td Min. term
+                        td 1 month
+                      tr
+                        td Price
+                        td
+                          b £ 2,400 per month
+
+    +e.column_start._popup(data-layout="offer")
+      +e.wrapper
+        +offer-description
+        +offer-description-panel()._abs(data-offer-panel)
+          +e.offer
+            +space-type._gray.__type
+              +nd-box()._green.__box
+              +e.name PRIVATE OFFICE
+            +e.title 13 desks office space
+          +e.buttons
+            +nd-button._pad10._black.__button.js-nd-arrange-viewing(href="#nd-popup-arrange-viewing" data-min-date="2021-15-4" data-max-date="2021-20-8") Arrange viewing
+            +nd-button._pad10.__button(href="#") Request reservation
 
   +nd-section
-    +nd-section-header
-      +nd-section-title More places
-    +nd-slider(false, false, true).__slider_spaces.js-nd-double-space-slider
-      each item in getData('nd-spaces-search-around.json')
-        +nd-space()._card.__slide_card.swiper-slide
-          +gallery(item.gallery)._space.__media.js-nd-gallery
-          +e.describe
-            +e.address
-              each el in item.address
-                span!= el
-            +e.title_fz20._proxima._bold!=item.title
-            +offer-table(item.offers).__list
+    .nd-container
+      +nd-section-header
+        +nd-section-title More places
+    +nd-slider(true, false).__slider.js-nd-slider
+      each item in getData('nd-spaces.json')
+        +nd-space('a').__slide_space.swiper-slide(href="#")
+          +nd-space-media()(data-slider-buttons-orientir)
+            img(src=item.image)
+          +nd-space-colors
+            each box in item.boxes
+              +nd-box()(class=box + ' __box')
+          +nd-space-title()!=item.title
+          +nd-space-text()!=item.text
+      each item in getData('nd-spaces.json')
+        +nd-space('a').__slide_space.swiper-slide(href="#")
+          +nd-space-media()(data-slider-buttons-orientir)
+            img(src=item.image)
+          +nd-space-colors
+            each box in item.boxes
+              +nd-box()(class=box + ' __box')
+          +nd-space-title()!=item.title
+          +nd-space-text()!=item.text
 
 block panels
   //- +nd-offer-panel.nd-hide-from-md

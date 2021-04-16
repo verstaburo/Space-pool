@@ -1,0 +1,127 @@
+const { $ } = window;
+
+export const layoutsMethods = {
+  redirectOnTab(tabTarget) {
+    const tabButton = $(`[data-layout-tab="${tabTarget}"]`);
+    $(tabButton).trigger('click');
+  },
+  open(layoutName, context) {
+    const layouts = $(`[data-layout*="${layoutName}"]`);
+    const detail = context || {};
+    $(layouts).each((i, el) => {
+      el.dispatchEvent(new CustomEvent('layout-before-show'), { bubbles: true, cancelable: true, detail });
+    });
+    const activeLayouts = layoutsMethods.whichLayerActive();
+    switch (layoutName) {
+      case 'space': {
+        document.body.classList.add('layout-space-active');
+        break;
+      }
+      case 'list': {
+        if (activeLayouts.map) {
+          document.body.classList.add('layout-list-active');
+        }
+        break;
+      }
+      case 'offer': {
+        document.body.classList.add('layout-offer-active');
+        $('.js-layout-show').removeClass('is-active');
+        if (detail.sourceElement) {
+          detail.sourceElement.classList.add('is-active');
+        }
+        break;
+      }
+      default:
+        break;
+    }
+    setTimeout(() => {
+      $(layouts).each((i, el) => {
+        el.dispatchEvent(new CustomEvent('layout-after-show'), { bubbles: true, cancelable: true, detail });
+      });
+    }, 500);
+  },
+  close(layoutName, context) {
+    const layouts = $(`[data-layout*="${layoutName}"]`);
+    const detail = context || {};
+    $(layouts).each((i, el) => {
+      el.dispatchEvent(new CustomEvent('layout-before-close'), { bubbles: true, cancelable: true, detail });
+      el.classList.add('is-layout-animated-out');
+    });
+    const activeLayouts = layoutsMethods.whichLayerActive();
+    $('.js-layout-show').removeClass('is-active');
+    switch (layoutName) {
+      case 'space': {
+        if (activeLayouts.offer) {
+          document.body.classList.remove('layout-offer-active');
+        }
+        if (activeLayouts.space) {
+          document.body.classList.remove('layout-space-active');
+        }
+        if (activeLayouts.list) {
+          document.body.classList.remove('layout-list-active');
+        }
+        break;
+      }
+      case 'list': {
+        if (activeLayouts.map) {
+          document.body.classList.remove('layout-list-active');
+        }
+        break;
+      }
+      case 'offer': {
+        document.body.classList.remove('layout-offer-active');
+        break;
+      }
+      default:
+        break;
+    }
+    setTimeout(() => {
+      $(layouts).each((i, el) => {
+        el.dispatchEvent(new CustomEvent('layout-after-close'), { bubbles: true, cancelable: true, detail });
+        el.classList.remove('is-layout-animated-out');
+      });
+    }, 500);
+  },
+  whichLayerActive() {
+    return {
+      list: document.body.classList.contains('layout-list-active'),
+      space: document.body.classList.contains('layout-space-active'),
+      offer: document.body.classList.contains('layout-offer-active'),
+      map: document.body.classList.contains('map-in-fullview'),
+    };
+  },
+};
+
+window.globalFunctions.layoutsMethods = layoutsMethods;
+
+export default function layoutsInit() {
+  $(document).on('click', '.js-layout-show', (evt) => {
+    const _this = evt.currentTarget;
+    const isStopEvtBubbling = $(_this).is('[data-dead-zone]');
+
+    if (isStopEvtBubbling) {
+      evt.stopPropagation();
+    }
+
+    const layoutName = $(_this).attr('data-layout-target');
+    if (layoutName) {
+      layoutsMethods.open(layoutName, { sourceElement: _this, marker: undefined });
+    }
+  });
+
+  $(document).on('click', '.js-layout-tab-redirect', (evt) => {
+    const _this = evt.currentTarget;
+    const tabName = $(_this).attr('data-layout-tab-target');
+    if (tabName) {
+      layoutsMethods.redirectOnTab(tabName);
+    }
+  });
+
+  $(document).on('click', '.js-layout-close', (evt) => {
+    const _this = evt.currentTarget;
+    const layoutName = $(_this).attr('data-layout-close-target');
+    if (layoutName) {
+      layoutsMethods.close(layoutName, {});
+    }
+  });
+}

@@ -354,8 +354,8 @@ $(document).ready(() => {
             mm.setIcon(iconMarker);
           }
         });
-        mm.addListener('click', () => {
-          const isMapFull = $('body').hasClass('map-in-fullview');
+        mm.addListener('click', (evt) => {
+          const layersStatus = window.globalFunctions.layoutsMethods.whichLayerActive();
           // const mMark = evt.target;
           // if (mm.userState === 'close') {
           //   searchMarkerPopups.forEach((el) => {
@@ -384,15 +384,19 @@ $(document).ready(() => {
             });
             mm.userState = 'active';
             if (mm.markerType === 'space') {
-              if (isMapFull) {
-
+              if (layersStatus.map) {
+                window.globalFunctions.layoutsMethods.open('list', { sourceElement: undefined, marker: mm });
               } else {
-
+                window.globalFunctions.layoutsMethods.open('space', { sourceElement: undefined, marker: mm });
               }
             }
 
             if (mm.markerType === 'offer') {
-
+              if (layersStatus.map) {
+                window.globalFunctions.layoutsMethods.open('offer', { sourceElement: undefined, marker: mm });
+              } else {
+                window.globalFunctions.layoutsMethods.open('offer', { sourceElement: undefined, marker: mm });
+              }
             }
           } else {
             mm.setIcon(iconMarker);
@@ -406,14 +410,6 @@ $(document).ready(() => {
             });
             mm.userState = 'default';
           }
-          //   // mm.userState = 'open';
-          //   // mm.setIcon(biggestBlackIconParam);
-          //   mmInfo.open(map3);
-          // } else {
-          //   // mm.userState = 'close';
-          //   // mm.setIcon(smallBlueIconParam);
-          //   mmInfo.close();
-          // }
         });
         return mm;
       });

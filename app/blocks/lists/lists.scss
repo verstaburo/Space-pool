@@ -42,3 +42,89 @@ ul.list {
 ol.list {
   @include ollist;
 }
+
+ul.styled-list {
+  display: block;
+  width: 100%;
+
+  &:not(:first-child) {
+    margin-top: 28px;
+
+    @include screen('xlg', max, 2) {
+      margin-top: pxtovw(28, 1660);
+    }
+
+    @include screen('lg', max, 2) {
+      margin-top: pxtovw(28, 1366);
+    }
+
+    @include screen('md', max, 2) {
+      margin-top: pxtovw(28, 960);
+    }
+
+    @include screen('sm', max, 2) {
+      margin-top: pxtovw(28, 375);
+    }
+  }
+
+  li {
+    display: block;
+
+    &::before {
+      display: inline-block;
+      content: '';
+      background-image: url("data:image/svg+xml,%3Csvg width='12' height='10' viewBox='0 0 12 10' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 4.76471L4.46154 9L11 1' stroke='%230085FF' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E%0A");
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-position: 50% 50%;
+      width: 12px;
+      height: 19px;
+      vertical-align: top;
+      margin-right: 15px;
+
+      @include screen('xlg', max, 2) {
+        width: pxtovw(12, 1660);
+        height: pxtovw(19, 1660);
+        margin-right: pxtovw(15, 1660);
+      }
+
+      @include screen('lg', max, 2) {
+        width: pxtovw(12, 1366);
+        height: pxtovw(19, 1366);
+        margin-right: pxtovw(15, 1366);
+      }
+
+      @include screen('md', max, 2) {
+        width: pxtovw(12, 960);
+        height: pxtovw(19, 960);
+        margin-right: pxtovw(15, 960);
+      }
+
+      @include screen('sm', max, 2) {
+        width: pxtovw(12, 375);
+        height: pxtovw(26, 375);
+        margin-right: pxtovw(19, 375);
+      }
+    }
+
+    &:not(:first-child) {
+      margin-top: 15px;
+
+      @include screen('xlg', max, 2) {
+        margin-top: pxtovw(15, 1660);
+      }
+
+      @include screen('lg', max, 2) {
+        margin-top: pxtovw(15, 1366);
+      }
+
+      @include screen('md', max, 2) {
+        margin-top: pxtovw(15, 960);
+      }
+
+      @include screen('sm', max, 2) {
+        margin-top: pxtovw(9, 375);
+      }
+    }
+  }
+}

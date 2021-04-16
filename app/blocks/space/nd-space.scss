@@ -94,6 +94,19 @@
       }
     }
 
+    #{$b}_single-offer_short & {
+      @include rule(width, (xl: 284px, xlg: 284, lg: 205));
+      @include rule(height, (xl: 180px, xlg: 180, lg: 154));
+
+      position: relative;
+
+      @include screen('md', max, 2) {
+        width: 100%;
+        height: auto;
+        padding-top: 63.3%;
+      }
+    }
+
     #{$b}_notice & {
       display: flex;
       width: 114px;
@@ -313,6 +326,15 @@
       }
     }
 
+    #{$b}_single-offer_short & {
+      padding-top: 0;
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+    }
+
     img {
       display: block;
       font-size: 0;
@@ -453,6 +475,13 @@
 
       &:not(:first-child) {
         @include rule(margin-top, (xl: 0, xlg: 0, lg: 16, md: 0, sm: 23));
+      }
+    }
+
+    #{$b}_single-offer_short & {
+
+      &:not(:first-child) {
+        @include rule(margin-top, (md: 0));
       }
     }
   }
@@ -678,6 +707,16 @@
 
       &:not(:first-child) {
         @include rule(margin-top, (xl: 9px, xlg: 9, lg: 16, md: 9, sm: 9));
+      }
+    }
+
+    #{$b}_single-offer_short & {
+      @include rule(font-size, (xl: 20px, xlg: 20, lg: 16, md: 15, sm: 15));
+
+      line-height: (24 / 20);
+
+      &:not(:first-child) {
+        @include rule(margin-top, (xl: 14px, xlg: 14, lg: 6, md: 12, sm: 9));
       }
     }
 
@@ -1227,6 +1266,20 @@
       }
     }
 
+    #{$b}_single-offer_short & {
+      padding: 0;
+
+      @include rule(padding-left, (xl: 27px, xlg: 27, lg: 27, md: 18, sm: 18));
+
+      @include screen('md', max, 2) {
+        padding: pxtovw(13, 960) pxtovw(18, 960) pxtovw(20, 960);
+      }
+
+      @include screen('sm', max, 2) {
+        padding: pxtovw(13, 375) pxtovw(18, 375) pxtovw(20, 375);
+      }
+    }
+
     #{$b}_rs & {
       padding: 0;
 
@@ -1322,6 +1375,12 @@
   &__table {
     &:not(:first-child) {
       @include rule(margin-top, (xl: 34px, xlg: 34, lg: 20, md: 34, sm: 34));
+    }
+
+    #{$b}_single-offer_short & {
+      &:not(:first-child) {
+        @include rule(margin-top, (xl: 34px, xlg: 34, lg: 36, md: 34, sm: 34));
+      }
     }
   }
 
@@ -1531,6 +1590,19 @@
       }
 
       @include screen('sm', max, 2) {
+        flex-wrap: wrap;
+      }
+    }
+
+    #{$b}_single-offer_short & {
+      padding-top: 0;
+      padding-right: 0;
+      padding-left: 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      @include screen('lg', max, 2) {
         flex-wrap: wrap;
       }
     }
@@ -1939,6 +2011,41 @@
 
       #{$b}__title {
         text-decoration: none;
+      }
+    }
+
+    &.is-active {
+      box-shadow: boxShadow(0, 0, 0, 2, $nd-color-main, false, true);
+
+      @include screen('xlg', max, 2) {
+        box-shadow: boxShadow(0, 0, 0, 2, $nd-color-main, 1660, true);
+      }
+
+      @include screen('lg', max, 2) {
+        box-shadow: boxShadow(0, 0, 0, 2, $nd-color-main, 1366, true);
+      }
+
+      @include screen('md', max, 2) {
+        box-shadow: boxShadow(0, 0, 0, 2, $nd-color-main, 960, true);
+      }
+
+      @include screen('sm', max, 2) {
+        box-shadow: boxShadow(0, 0, 0, 2, $nd-color-main, 375, true);
+      }
+    }
+
+    &_short {
+      @include rule(padding-left, (lg: 22, md: 0));
+      @include rule(padding-right, (lg: 22, md: 0));
+      @include rule(padding-top, (lg: 19, md: 0));
+      @include rule(padding-bottom, (lg: 19, md: 0));
+
+      @include screen('md', max, 2) {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        padding: 0;
       }
     }
   }

@@ -1,0 +1,194 @@
+.space-description {
+  $b: &;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
+
+  &__head {
+    @include screen('sm', max, 2) {
+      position: relative;
+      z-index: 2;
+      background-color: $nd-color-basic-light;
+      ;
+    }
+
+    @include rule(padding-top, (sm: 18));
+
+    &:not(:first-child) {
+      @include rule(padding-top, (sm: 18));
+    }
+
+    &::before {
+      @include screen('sm') {
+        @include pseudo;
+
+        top: -1px;
+        left: pxtovw(-20, 375);
+        right: pxtovw(-20, 375);
+        bottom: 0;
+        background-color: $nd-color-basic-light;
+        z-index: -1;
+      }
+    }
+
+    .nd-section {
+      &__title {
+        letter-spacing: normal;
+
+        @include rule(font-size, (xl: 26px, xlg: 26, lg: 24, md: 18, sm: 20));
+
+        &:not(:first-child) {
+          @include rule(margin-top, (xl: 3px, xlg: 3, lg: 3, md: 3, sm: 3));
+        }
+      }
+
+      &__text {
+        @include rule(font-size, (xl: 18px, xlg: 18, lg: 15, md: 15, sm: 15));
+        @include rule(line-height, (xl: 26px, xlg: 26, lg: 26, md: 26, sm: 26));
+      }
+    }
+  }
+
+  &__tabs {
+    z-index: 2;
+    background-color: $nd-color-basic-light;
+    ;
+    margin: 0;
+    width: 100%;
+
+    &:not(:first-child) {
+      @include rule(padding-top, (xl: 26px, xlg: 26, lg: 26, md: 26, sm: 26));
+    }
+
+    &::before {
+      @include screen('sm') {
+        @include pseudo;
+
+        top: -1px;
+        left: pxtovw(-20, 375);
+        right: pxtovw(-20, 375);
+        bottom: 0;
+        background-color: $nd-color-basic-light;
+        ;
+        z-index: -1;
+      }
+    }
+  }
+
+  &__tabs-content {
+    background-color: $nd-color-bg;
+
+    @include screen('sm', min, 2) {
+      order: 2;
+    }
+
+    @include screen('sm', max, 2) {
+      background-color: $nd-color-basic-light;
+      ;
+      position: relative;
+      z-index: 2;
+    }
+
+    &::before {
+      @include screen('sm') {
+        @include pseudo;
+
+        top: -1px;
+        left: pxtovw(-20, 375);
+        right: pxtovw(-20, 375);
+        bottom: 0;
+        background-color: $nd-color-basic-light;
+        z-index: -1;
+      }
+    }
+
+    &:not(:first-child) {
+      @include rule(padding-top, (xl: 37px, xlg: 37, lg: 7, md: 30, sm: 28));
+    }
+
+    .nd-results {
+      @include rule(padding-top, (xl: 37px, xlg: 37, lg: 37, md: 37, sm: 37));
+    }
+
+    .nd-section {
+      &:not(:first-child) {
+        @include rule(padding-top, (xl: 30px, xlg: 30, lg: 30, md: 30, sm: 30));
+      }
+
+      &__text {
+        line-height: (26 / 18);
+
+        @include screen('lg', max, 2) {
+          line-height: 1.75;
+        }
+      }
+
+      &__content {
+        &:not(:first-child) {
+          @include rule(margin-top, (xl: 24px, xlg: 24, lg: 24, md: 24, sm: 24));
+        }
+      }
+
+      &__routes {
+        @include rule(margin-bottom, (xl: 45px, xlg: 45, lg: 35, md: 14, sm: 45));
+        @include rule(font-size, (xl: 18px, xlg: 18, lg: 15, md: 13, sm: 15));
+
+        &:not(:first-child) {
+          @include rule(margin-top, (xl: 26px, xlg: 26, lg: 15, md: 15, sm: 18));
+        }
+      }
+
+      &__facility {
+        &:not(:first-child) {
+          @include rule(margin-top, (xl: 55px, xlg: 55, lg: 55, md: 36, sm: 45));
+        }
+      }
+    }
+  }
+
+  .nd-section {
+    margin-top: 0;
+    margin-bottom: 0;
+
+    &:not(:first-child) {
+      @include rule(margin-top, (sm: 0));
+    }
+
+    &:not(:last-child) {
+      @include rule(margin-bottom, (sm: 0));
+    }
+  }
+
+  &__map {
+    @include screen('sm', min, 2) {
+      order: 1;
+    }
+
+    @include rule(padding-top, (xl: 60px, xlg: 60, lg: 55, md: 50, sm: 0));
+  }
+}
+
+.space-description-panel {
+  @include rule(font-size, (xl: 16px, xlg: 16, lg: 16, md: 16, sm: 16));
+  @include rule(margin-left, (sm: -20));
+  @include rule(margin-right, (sm: -20));
+
+  background-color: $nd-color-basic-light;
+  ;
+  display: none;
+  position: absolute;
+  bottom: 0;
+  z-index: 3;
+
+  @include screen('sm', max, 2) {
+    width: calc(100% + (4000 / 375)*1vw);
+  }
+
+  &.active {
+    @include screen('sm', max, 2) {
+      display: inline-flex !important;
+    }
+  }
+}

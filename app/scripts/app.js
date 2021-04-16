@@ -73,6 +73,7 @@ import filterTagsScroll from '../blocks/filter-tags/filter-tags';
 import srMapToggle from '../components/search-map/search-map-v2';
 import { modalShowes } from '../blocks/modals/modals';
 import outputValuesFromModal from '../blocks/modal/modal';
+import layoutsInit from '../components/layout/layout';
 // old
 import './functions/mobileScale';
 // import {
@@ -168,6 +169,7 @@ $(() => {
   srMapToggle();
   modalShowes();
   outputValuesFromModal();
+  layoutsInit();
   // old
   selects();
   datepicker();

@@ -93,6 +93,15 @@
       }
     }
 
+    &_share {
+      @include rule(width, (xl: 11px, xlg: 11, lg: 11, md: 11, sm: 11));
+      @include rule(height, (xl: 11px, xlg: 11, lg: 11, md: 11, sm: 11));
+
+      &:not(:last-child) {
+        @include rule(margin-right, (xl: 10px, xlg: 10, lg: 10, md: 10, sm: 10));
+      }
+    }
+
     &_nd-user {
       width: 13px;
       height: 13px;
@@ -807,5 +816,38 @@
     opacity: .2;
     cursor: not-allowed;
     pointer-events: none;
+  }
+
+  &_block {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    text-align: center;
+    border-top: 1px solid $nd-color-border4;
+    color: $nd-color-main;
+    width: 100%;
+    font-family: $font-stolzl;
+    font-weight: 400;
+    letter-spacing: normal;
+
+    @include rule(padding-left, (xl: 40px, xlg: 40, lg: 40, md: 40, sm: 40));
+    @include rule(padding-right, (xl: 40px, xlg: 40, lg: 40, md: 40, sm: 40));
+    @include rule(height, (xl: 60px, xlg: 60, lg: 60, md: 60, sm: 60));
+
+    #{$b} {
+
+      &__icon {
+        position: absolute;
+        top: 50%;
+        transform-origin: 50% 50%;
+        transform: translate3d(0, -50%, 0);
+
+        @include rule(left, (xl: 20px, xlg: 20, lg: 20, md: 20, sm: 20));
+        @include rule(width, (xl: 13px, xlg: 13, lg: 13, md: 13, sm: 13));
+        @include rule(height, (xl: 13px, xlg: 13, lg: 13, md: 13, sm: 13));
+      }
+    }
   }
 }
