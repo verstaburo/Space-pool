@@ -7,30 +7,31 @@ mixin drop-navigation(data, startSlide, activeName, linkClass)
       +e.header
         +e.close(data-select-close) Close
         +e.H3.title!=data.title
-      each item in data.list
-        - var addClass = '';
-        -if (linkClasses) addClass += linkClasses;
-        - addClass += (item.name == activeName) ? ' is-select' : '';
-        if !item.list
-          +e.item(data-select-item)
-            if item.marker
-              +e.A.link(href=item.href class=addClass + ' is-new' data-offer-link  data-select-value)!=item.name
-                +e.marker!=item.marker
-            else
-              +e.A.link(href=item.href class=addClass data-offer-link  data-select-value)!=item.name
-        else
-          +e.item(data-select-item)
-            if item.marker
-              +e.A.link(href=item.href class=addClass + ' is-new' data-offer-link  data-select-value)!=item.name
-                +e.marker!=item.marker
-            else
-              +e.A.link(href=item.href class=addClass  data-offer-link data-select-value)!=item.name
-          each subitem in item.list
-            - addClass = (subitem.name == activeName) ? ' is-select' : '';
+      +e.wrapper
+        each item in data.list
+          - var addClass = '';
+          -if (linkClasses) addClass += linkClasses;
+          - addClass += (item.name == activeName) ? ' is-select' : '';
+          if !item.list
             +e.item(data-select-item)
-              if subitem.marker
-                +e.A.link(href=subitem.href class=addClass + ' is-new' data-offer-link data-select-value)!=subitem.name
-                  +e.marker!=subitem.marker
+              if item.marker
+                +e.A.link(href=item.href class=addClass + ' is-new' data-offer-link  data-select-value)!=item.name
+                  +e.marker!=item.marker
               else
-                +e.A.link(href=subitem.href class=addClass data-offer-link data-select-value)!=subitem.name
+                +e.A.link(href=item.href class=addClass data-offer-link  data-select-value)!=item.name
+          else
+            +e.item(data-select-item)
+              if item.marker
+                +e.A.link(href=item.href class=addClass + ' is-new' data-offer-link  data-select-value)!=item.name
+                  +e.marker!=item.marker
+              else
+                +e.A.link(href=item.href class=addClass  data-offer-link data-select-value)!=item.name
+            each subitem in item.list
+              - addClass = (subitem.name == activeName) ? ' is-select' : '';
+              +e.item(data-select-item)
+                if subitem.marker
+                  +e.A.link(href=subitem.href class=addClass + ' is-new' data-offer-link data-select-value)!=subitem.name
+                    +e.marker!=subitem.marker
+                else
+                  +e.A.link(href=subitem.href class=addClass data-offer-link data-select-value)!=subitem.name
     block

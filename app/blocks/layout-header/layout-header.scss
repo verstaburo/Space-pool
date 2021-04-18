@@ -86,6 +86,7 @@
     justify-content: space-between;
     align-items: flex-end;
     flex: 1;
+    box-sizing: border-box;
 
     @include screen('sm', max, 2) {
       justify-content: flex-end;
@@ -106,6 +107,13 @@
       @include rule(padding-top, (xl: 24px, xlg: 24, lg: 24, md: 10, sm: 0));
       @include rule(padding-left, (xl: 50px, xlg: 50, lg: 28, md: 28, sm: 25));
       @include rule(padding-right, (xl: 50px, xlg: 50, lg: 25, md: 25, sm: 25));
+      @include rule(padding-bottom, (md: 12, sm: 12));
+
+      @include screen('md', max, 2) {
+        align-items: center;
+        flex: none;
+        width: 100%;
+      }
     }
   }
 
@@ -140,12 +148,11 @@
     }
 
     @include screen('md', max, 2) {
-      transform: translate3d(0, pxtovw(-66, 960), 0);
+      transform: translate3d(0, 0, 0);
     }
 
     @include screen('sm', max, 2) {
       box-shadow: boxShadow(0, 2, 2, 0,  rgba(0, 0, 0, .06), 375);
-      transform: translate3d(0, 0, 0);
     }
 
     .map-in-fullview &, .is-map-animated-out & {
@@ -273,6 +280,12 @@
     }
   }
 
+  &_sort {
+    @include screen('md', max, 2) {
+      align-items: flex-end;
+    }
+  }
+
   .drop-navigation {
 
     &__item {
@@ -282,7 +295,11 @@
     }
 
     &__link {
-      @include rule(padding-bottom, (xl: 27px, xlg: 27, lg: 16, md: 10, sm: 12));
+      @include rule(padding-bottom, (xl: 27px, xlg: 27, lg: 16, md: 10, sm: 10));
+
+      .drop-navigation__label & {
+        @include rule(padding-bottom, (md: 0, sm: 0));
+      }
     }
   }
 }

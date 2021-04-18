@@ -218,6 +218,12 @@
     &:not(:last-child) {
       @include rule(margin-bottom, (xl: 20px, xlg: 20, lg: 20, md: 20, sm: 15));
     }
+
+    + #{$b}__item {
+      @include screen('md', max, 2) {
+        margin-top: 0;
+      }
+    }
   }
 
   &__type {

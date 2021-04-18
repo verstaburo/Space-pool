@@ -26,12 +26,13 @@
     grid-template-rows: pxtovw(257, 960)auto;
     overflow-x: hidden;
     overflow-y: auto;
-    // height: calc(100vh - (6600 / 960) * 1vw);
+    max-height: calc(100vh - (6600 / 960) * 1vw);
   }
 
   @include screen("sm", max, 2) {
     grid-template-columns: 100%;
     grid-template-rows: auto pxtovw(208, 375) auto;
+    max-height: 100%;
     // height: calc(100vh - (6600 / 375) * 1vw);
   }
 
@@ -239,6 +240,10 @@
       border-bottom: none;
       overscroll-behavior: none;
 
+      @include screen('md', max, 2) {
+        position: fixed;
+      }
+
       @include screen('sm', max, 2) {
         position: fixed;
         background-color: $nd-color-basic-light;
@@ -287,7 +292,7 @@
       }
 
       &[data-layout*="offer"] {
-        @include rule(top, (lg: 8, md: 14, sm: 60));
+        @include rule(top, (lg: 8, md: 80, sm: 60));
 
         &::before {
           @include pseudo;
@@ -326,6 +331,28 @@
           transform: translate3d(0, 0, 0);
           pointer-events: auto;
         }
+
+        &.layout__column_start[data-layout*="space"] {
+          @include screen('md', max, 2) {
+            left: 0;
+            width: 68.75vw;
+          }
+
+          @include screen('sm', max, 2) {
+            width: 100%;
+          }
+        }
+
+        &.layout__column_end[data-layout*="space"] {
+          @include screen('md', max, 2) {
+            right: 0;
+            width: 31.25vw;
+          }
+
+          @include screen('sm', max, 2) {
+            width: 100%;
+          }
+        }
       }
 
       .layout-list-active & {
@@ -345,6 +372,15 @@
           opacity: 1;
           transform: translate3d(0, 0, 0);
           pointer-events: auto;
+
+          @include screen('md', max, 2) {
+            left: 0;
+            width: 68.75vw;
+          }
+
+          @include screen('sm', max, 2) {
+            width: 100%;
+          }
         }
       }
     }
@@ -390,7 +426,7 @@
     }
 
     #{$b}__column_end & {
-      @include rule(padding-top, (xl: 11px, xlg: 11, lg: 19, md: 11, sm: 0));
+      @include rule(padding-top, (xl: 11px, xlg: 11, lg: 19, md: 116, sm: 0));
       @include rule(padding-left, (xl: 50px, xlg: 50, lg: 30, md: 30, sm: 20));
       @include rule(padding-right, (xl: 50px, xlg: 50, lg: 25, md: 25, sm: 20));
     }
@@ -400,7 +436,7 @@
     }
 
     #{$b}__column_popup.layout__column_start & {
-      @include rule(padding-top, (xl: 20px, xlg: 20, lg: 14, md: 24, sm: 60));
+      @include rule(padding-top, (xl: 20px, xlg: 20, lg: 14, md: 88, sm: 60));
     }
   }
 }
