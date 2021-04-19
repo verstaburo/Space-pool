@@ -291,7 +291,14 @@
         width: 100%;
       }
 
-      &[data-layout*="offer"] {
+      .map-in-fullview &, .is-map-animated-out & {
+
+        &.layout__column_end {
+          @include rule(top, (md: 106, sm: 60));
+        }
+      }
+
+      &.layout__column_start_offer {
         @include rule(top, (lg: 8, md: 80, sm: 60));
 
         &::before {
@@ -332,7 +339,7 @@
           pointer-events: auto;
         }
 
-        &.layout__column_start[data-layout*="space"] {
+        &.layout__column_start_space {
           @include screen('md', max, 2) {
             left: 0;
             width: 68.75vw;
@@ -343,7 +350,7 @@
           }
         }
 
-        &.layout__column_end[data-layout*="space"] {
+        &.layout__column_end {
           @include screen('md', max, 2) {
             right: 0;
             width: 31.25vw;
@@ -363,6 +370,17 @@
           transform: translate3d(0, 0, 0);
           pointer-events: auto;
         }
+
+        &.layout__column_end {
+          @include screen('md', max, 2) {
+            right: 0;
+            width: 31.25vw;
+          }
+
+          @include screen('sm', max, 2) {
+            width: 100%;
+          }
+        }
       }
 
       .layout-offer-active & {
@@ -372,10 +390,23 @@
           opacity: 1;
           transform: translate3d(0, 0, 0);
           pointer-events: auto;
+        }
 
+        &.layout__column_start_offer {
           @include screen('md', max, 2) {
             left: 0;
             width: 68.75vw;
+          }
+
+          @include screen('sm', max, 2) {
+            width: 100%;
+          }
+        }
+
+        &.layout__column_end {
+          @include screen('md', max, 2) {
+            right: 0;
+            width: 31.25vw;
           }
 
           @include screen('sm', max, 2) {
@@ -429,14 +460,25 @@
       @include rule(padding-top, (xl: 11px, xlg: 11, lg: 19, md: 116, sm: 0));
       @include rule(padding-left, (xl: 50px, xlg: 50, lg: 30, md: 30, sm: 20));
       @include rule(padding-right, (xl: 50px, xlg: 50, lg: 25, md: 25, sm: 20));
+
+      .map-in-fullview &, .is-map-animated-out & {
+        @include rule(padding-top, (xl: 118px, xlg: 118, lg: 122, md: 116, sm: 0));
+        @include rule(padding-left, (xl: 25px, xlg: 25, lg: 30, md: 30, sm: 20));
+        @include rule(padding-right, (xl: 25px, xlg: 25, lg: 25, md: 25, sm: 20));
+      }
     }
 
     #{$b}__column_popup & {
       overscroll-behavior: none;
     }
 
-    #{$b}__column_popup.layout__column_start & {
+    #{$b}__column_popup.layout__column_start_space & {
       @include rule(padding-top, (xl: 20px, xlg: 20, lg: 14, md: 88, sm: 60));
+    }
+
+    #{$b}__column_popup.layout__column_start_offer & {
+      @include rule(padding-top, (xl: 50px, xlg: 50, lg: 14, md: 18, sm: 60));
+      @include rule(padding-right, (xl: 50px, xlg: 50, lg: 50, md: 40, sm: 20));
     }
   }
 }

@@ -792,10 +792,50 @@
         }
       }
     }
-  }
 
-  &_space-v2 {
+    &_space-v2 {
+      tr {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+      }
 
+      td,
+      th {
+        display: inline-block;
+
+        @include rule(font-size, (xl: 15px, xlg: 15, lg: 15, md: 13, sm: 15));
+        @include rule(line-height, (lg: 26, md: 23, sm: 26));
+
+        &:first-child {
+          flex: 1;
+          display: flex;
+          align-items: baseline;
+          white-space: nowrap;
+
+          &::after {
+            display: inline-block;
+            content: '';
+            height: 1px;
+            flex: 1;
+            background-color: $nd-color-border6;
+
+            @include rule(margin-left, (xl: 7px, xlg: 7, lg: 7, md: 7, sm: 0));
+
+            @include screen('sm', max, 2) {
+              display: none;
+            }
+          }
+        }
+
+        &:last-child {
+          flex: none;
+          white-space: nowrap;
+
+          @include rule(padding-left, (xl: 7px, xlg: 7, lg: 7, md: 7, sm: 10));
+        }
+      }
+    }
   }
 
   &_ledger {

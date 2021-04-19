@@ -6,6 +6,8 @@
   align-items: center;
   box-sizing: border-box;
 
+  @include rule(height, (xl: 70px, xlg: 70, lg: 60, md: 60, sm: 60));
+
   &__close {
     position: relative;
     display: block;
@@ -52,8 +54,8 @@
   &__button {
     @include rule(height, (xl: 40px, xlg: 40, lg: 30, md: 30, sm: 40));
     @include rule(font-size, (xl: 18px, xlg: 18, lg: 14, md: 14, sm: 16));
-    @include rule(padding-left, (xl: 13px, xlg: 13, lg: 13, md: 13, sm: 13));
-    @include rule(padding-right, (xl: 13px, xlg: 13, lg: 13, md: 13, sm: 13));
+    @include rule(padding-left, (xl: 26px, xlg: 26, lg: 13, md: 14, sm: 13));
+    @include rule(padding-right, (xl: 26px, xlg: 26, lg: 13, md: 14, sm: 13));
 
     &:not(:last-child) {
       @include rule(margin-right, (xl: 17px, xlg: 17, lg: 12, md: 12, sm: 10));
@@ -65,6 +67,26 @@
 
     @include screen('sm', max, 2) {
       display: none;
+    }
+  }
+
+  &__type {
+    @include rule(font-size, (xl: 9px, xlg: 9, lg: 9, md: 9, sm: 9));
+
+    font-weight: 700;
+    font-family: $font-main;
+    letter-spacing: normal;
+  }
+
+  &__title {
+    font-family: $font-stolzl;
+    font-weight: 400;
+    line-height: 1.19;
+
+    @include rule(font-size, (xl: 20px, xlg: 20, lg: 16, md: 16, sm: 16));
+
+    &:not(:first-child) {
+      @include rule(margin-top, (xl: 4px, xlg: 4, lg: 5, md: 5, sm: 5));
     }
   }
 
@@ -87,10 +109,20 @@
     z-index: 2;
     background-color:$nd-color-basic-light;
     box-shadow: 0px -1px 2px rgba(0, 0, 0, 0.05);
+    transition: opacity $ease-main;
 
     @include rule(height, (xl: 70px, xlg: 70, lg: 60, md: 60, sm: 60));
-    @include rule(padding-right, (xl: 20px, xlg: 20, lg: 20, md: 20, sm: 20));
-    @include rule(padding-left, (xl: 20px, xlg: 20, lg: 20, md: 20, sm: 20));
-    @include rule(padding-right, (xl: 20px, xlg: 20, lg: 20, md: 20, sm: 20));
+    @include rule(padding-right, (xl: 20px, xlg: 20, lg: 16, md: 20, sm: 20));
+    @include rule(padding-left, (xl: 28px, xlg: 28, lg: 16, md: 16, sm: 20));
+
+    @include screen('sm', min, 2) {
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    &.is-visible {
+      opacity: 1;
+      pointer-events: auto;
+    }
   }
 }

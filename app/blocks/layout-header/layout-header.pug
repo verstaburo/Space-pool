@@ -1,7 +1,7 @@
 mixin layout-header(data)
   +b.layout-header&attributes(attributes)
     if data.popup && data.type=== 'space'
-      +e.BUTTON.close.js-layout-close(data-layout-close-target=data.type type="button")
+      +e.BUTTON.close.js-layout-close-active(data-layout-close-target=data.type type="button")
         +icon('cross')
     if !data.popup && data.type === 'space'
       +e.A.back.js-layout-close-active.nd-hide-from-sm(href="#")

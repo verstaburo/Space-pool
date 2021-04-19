@@ -114,6 +114,18 @@
         flex: none;
         width: 100%;
       }
+
+      .map-in-fullview &, .is-map-animated-out & {
+        @include rule(padding-top, (xl: 17px, xlg: 17, lg: 17, md: 5, sm: 5));
+        @include rule(padding-bottom, (md: 10, sm: 10));
+        @include rule(padding-left, (xl: 25px, xlg: 25, lg: 28, md: 28, sm: 25));
+        @include rule(padding-right, (xl: 25px, xlg: 25, lg: 25, md: 25, sm: 25));
+
+        @include screen('md', max, 2) {
+          flex: 1;
+          width: auto;
+        }
+      }
     }
   }
 
@@ -156,6 +168,8 @@
     }
 
     .map-in-fullview &, .is-map-animated-out & {
+      @include rule(height, (xl: 114px, xlg: 114, lg: 114, md: 80, sm: 60));
+
       transform: translate3d(0, 0, 0);
       box-shadow: boxShadow(0, 2, 2, 0,  rgba(0, 0, 0, .06));
 
@@ -222,6 +236,8 @@
 
         &_main {
           @include rule(font-size, (xl: 16px, xlg: 16, lg: 16, md: 16, sm: 16));
+          @include rule(margin-top, (xl: 7px, xlg: 7, lg: 7, md: 0, sm: 0));
+          @include rule(margin-bottom, (md: 7, sm: 7));
 
           display: none;
         }
@@ -229,13 +245,16 @@
 
       &__close {
         position: absolute;
-        top: 0;
         right: 0;
         display: none;
 
+        @include rule(top, (xl: 6px, xlg: 6, lg: 10, md: 0, sm: 0));
+        @include rule(width, (xl: 68px, xlg: 68, lg: 60, md: 60, sm: 60));
+        @include rule(height, (xl: 68px, xlg: 68, lg: 60, md: 50, sm: 50));
+
         svg {
-          @include rule(width, (xl: 14px, xlg: 14, lg: 14, md: 14, sm: 14));
-          @include rule(height, (xl: 14px, xlg: 14, lg: 14, md: 14, sm: 14));
+          @include rule(width, (xl: 16px, xlg: 16, lg: 16, md: 15, sm: 15));
+          @include rule(height, (xl: 16px, xlg: 16, lg: 16, md: 15, sm: 15));
         }
       }
     }
@@ -244,6 +263,10 @@
     .is-map-animated-out & {
       #{$b}__boxes {
         display: flex;
+
+        @include screen('md', max, 2) {
+          display: none;
+        }
       }
 
       #{$b}__title {
@@ -258,6 +281,12 @@
     .layout-list-active & {
       #{$b}__close {
         display: block;
+      }
+    }
+
+    .layout-offer-active & {
+      #{$b}__close {
+        display: none;
       }
     }
   }
@@ -284,6 +313,12 @@
     @include screen('md', max, 2) {
       align-items: flex-end;
     }
+
+    .map-in-fullview &, .is-map-animated-out & {
+      @include screen('md', max, 2) {
+        align-items: stretch;
+      }
+    }
   }
 
   .drop-navigation {
@@ -294,11 +329,23 @@
       }
     }
 
-    &__link {
+    &__dropdown .drop-navigation__link {
       @include rule(padding-bottom, (xl: 27px, xlg: 27, lg: 16, md: 10, sm: 10));
 
-      .drop-navigation__label & {
-        @include rule(padding-bottom, (md: 0, sm: 0));
+      .map-in-fullview &, .is-map-animated-out & {
+        @include rule(padding-bottom, (xl: 16px, xlg: 16, lg: 16, md: 10, sm: 10));
+      }
+    }
+
+    .map-in-fullview &, .is-map-animated-out &, #{$b}_list & {
+      @include screen('md', max, 2) {
+        width: 100%;
+      }
+
+      &__head {
+        @include screen('md', max, 2) {
+          width: 100%;
+        }
       }
     }
   }

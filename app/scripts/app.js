@@ -25,6 +25,8 @@ import mapPopup from '../blocks/map-popup/map-popup';
 import screenKeyboardVisibility from './functions/screenKeyboardVisibility';
 import ShiftInputLocationOnFocus from '../components/search-panel/search-panel';
 import selection from '../blocks/selection/selection';
+// search and space
+import offerPanel from '../blocks/offer-description-panel/offer-description-panel';
 // other
 import positioning from './functions/position';
 import ndSelects from '../blocks/form-elements/nd-select';
@@ -107,9 +109,6 @@ const {
 } = window;
 
 $(() => {
-  // objectassign.polyfill();
-  // find.shim();
-  // findIndex.shim();
   svg4everybody();
   picturefill();
   objectFitImages();
@@ -130,6 +129,8 @@ $(() => {
   screenKeyboardVisibility();
   ShiftInputLocationOnFocus();
   selection();
+  // search
+  offerPanel();
   // other
   positioning();
   ndSelects();

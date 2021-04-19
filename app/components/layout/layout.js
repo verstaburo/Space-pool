@@ -53,6 +53,7 @@ export const layoutsMethods = {
       case 'space': {
         if (activeLayouts.offer) {
           document.body.classList.remove('layout-offer-active');
+          $('.js-layout-show').removeClass('is-active');
         }
         if (activeLayouts.space) {
           document.body.classList.remove('layout-space-active');
@@ -70,6 +71,7 @@ export const layoutsMethods = {
       }
       case 'offer': {
         document.body.classList.remove('layout-offer-active');
+        $('.js-layout-show').removeClass('is-active');
         break;
       }
       default:
@@ -122,6 +124,23 @@ export default function layoutsInit() {
     const layoutName = $(_this).attr('data-layout-close-target');
     if (layoutName) {
       layoutsMethods.close(layoutName, {});
+    }
+  });
+
+  $(document).on('click', '.js-layout-close-active', () => {
+    const activeLayouts = layoutsMethods.whichLayerActive();
+    if (activeLayouts.map) {
+      if (activeLayouts.offer) {
+        layoutsMethods.close('offer', {});
+      } else if (activeLayouts.list) {
+        layoutsMethods.close('list', {});
+      } else if (activeLayouts.space) {
+        layoutsMethods.close('space', {});
+      }
+    } else if (activeLayouts.offer) {
+      layoutsMethods.close('offer', {});
+    } else if (activeLayouts.space) {
+      layoutsMethods.close('space', {});
     }
   });
 }
