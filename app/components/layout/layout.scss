@@ -481,4 +481,85 @@
       @include rule(padding-right, (xl: 50px, xlg: 50, lg: 50, md: 40, sm: 20));
     }
   }
+
+  &_static {
+    #{$b} {
+      &__column {
+        &_start_space {
+          @include screen('sm', max, 2) {
+            background-color: $nd-color-bg;
+
+            &::after {
+              @include screen('sm', max, 2) {
+                @include pseudo;
+
+                background-color: $nd-color-bg;
+                height: pxtovw(80,375);
+                bottom: 0;
+                left: 0;
+                right: 0;
+                z-index: 0;
+                pointer-events: none;
+              }
+            }
+          }
+        }
+
+        &_start_offer {
+          z-index: 8;
+          top: 0;
+
+          @include screen('md', max, 2) {
+            position: absolute;
+          }
+
+          @include screen('sm', max, 2) {
+            top: pxtovw(60, 375);
+            background-color: $nd-color-bg;
+          }
+
+          .layout__wrapper {
+            overscroll-behavior: auto;
+          }
+        }
+
+        &_end {
+          z-index: 9;
+          background-color: $nd-color-bg;
+
+          .layout__wrapper {
+            @include rule(padding-top, (xl: 139px, xlg: 139, lg: 66, md: 96, sm: 0));
+          }
+        }
+      }
+    }
+
+    + .nd-section {
+      @include screen('sm', max, 2) {
+        z-index: 1;
+        position: relative;
+      }
+
+      .nd-section__header {
+        @include screen('sm', max, 2) {
+          position: relative;
+          z-index: 1;
+        }
+      }
+
+      &::before {
+        @include screen('sm', max, 2) {
+          @include pseudo;
+
+          background-color: $nd-color-bg;
+          top: pxtovw(-50, 375);
+          bottom: pxtovw(-50, 375);
+          left: 0;
+          right: 0;
+          z-index: 0;
+          pointer-events: none;
+        }
+      }
+    }
+  }
 }

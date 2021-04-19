@@ -20,13 +20,15 @@ const isDebug = process.env.NODE_ENV !== 'production';
 
 exports.build = () => (
   gulp.src('app/styles/*.scss')
-  .pipe(plumber({
-    errorHandler: errorHandler('Error in styles task'),
-  }))
-  .pipe(gulpIf(isDebug, sourcemaps.init()))
-  .pipe(bulkSass())
-  .pipe(sass())
-  .pipe(postcss([autoprefixer({
+    .pipe(plumber({
+      errorHandler: errorHandler('Error in styles task'),
+    }))
+    .pipe(gulpIf(isDebug, sourcemaps.init()))
+    .pipe(bulkSass())
+    .pipe(sass({
+      precision: 6,
+    }))
+    .pipe(postcss([autoprefixer({
       grid: 'autoplace',
     }),
     postcssImport(),
@@ -34,25 +36,25 @@ exports.build = () => (
     // cssnano({
     //   preset: 'default',
     // }),
-  ]))
-  .pipe(gulpIf(isDebug, sourcemaps.write('.')))
-  .pipe(rename({
-    suffix: '.min',
-  }))
-  .pipe(gulp.dest('dist/assets/styles'))
+    ]))
+    .pipe(gulpIf(isDebug, sourcemaps.write('.')))
+    .pipe(rename({
+      suffix: '.min',
+    }))
+    .pipe(gulp.dest('dist/assets/styles'))
 );
 
 exports.lint = () => (
   gulp.src('app/**/*.scss')
-  .pipe(plumber({
-    errorHandler: errorHandler('Error in stylelint task'),
-  }))
-  .pipe(postcss([
-    stylelint(),
-    reporter({
-      clearAllMessages: true,
-    }),
-  ], {
-    parser: scssSyntax,
-  }))
+    .pipe(plumber({
+      errorHandler: errorHandler('Error in stylelint task'),
+    }))
+    .pipe(postcss([
+      stylelint(),
+      reporter({
+        clearAllMessages: true,
+      }),
+    ], {
+      parser: scssSyntax,
+    }))
 );
