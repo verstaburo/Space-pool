@@ -4,7 +4,7 @@
   position: relative;
   display: grid;
   grid-template-columns: 58.49% 41.51%;
-  grid-template-rows: auto 1fr;
+  grid-template-rows: 50px calc(100vh - 144px);
   width: 100%;
   // height: calc(100vh - 94px);
   box-sizing: border-box;
@@ -13,11 +13,13 @@
   max-height: 100%;
 
   @include screen("xlg", max, 2) {
+    grid-template-rows: pxtovw(50, 1660) calc(100vh - (14400 / 1660) * 1vw);
     // height: calc(100vh - (9400 / 1920) * 1vw);
   }
 
   @include screen("lg", max, 2) {
     grid-template-columns: 52.93% 47.07%;
+    grid-template-rows: pxtovw(40, 1366) calc(100vh - (10600 / 1366) * 1vw);
     // height: calc(100vh - (6600 / 1366) * 1vw);
   }
 
@@ -26,7 +28,8 @@
     grid-template-rows: pxtovw(257, 960)auto;
     overflow-x: hidden;
     overflow-y: auto;
-    max-height: calc(100vh - (6600 / 960) * 1vw);
+    // max-height: calc(100vh - (6600 / 960) * 1vw);
+    max-height: 100%;
   }
 
   @include screen("sm", max, 2) {
