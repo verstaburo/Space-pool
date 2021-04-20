@@ -1,10 +1,11 @@
 export default function offerPanel() {
   function handlerForScrollInWrapper(evt) {
-    const wrapper = evt.currentTarget;
+    const wrapper = evt.currentTarget === window ? document.body : evt.currentTarget;
     const indicator = wrapper.querySelector('[data-offer-panel-indicator]');
     if (indicator) {
       const indicatorSizes = indicator.getBoundingClientRect();
       const panel = wrapper.parentElement.querySelector('[data-offer-panel]');
+      console.log(indicatorSizes.top);
       if (panel) {
         if (indicatorSizes.top < 0) {
           panel.classList.add('is-visible');
@@ -42,4 +43,5 @@ export default function offerPanel() {
       el.addEventListener('scroll', handlerForScrollInWrapper, { passive: true });
     });
   }
+  window.addEventListener('scroll', handlerForScrollInWrapper, { passive: true });
 }

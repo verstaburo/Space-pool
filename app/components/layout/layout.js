@@ -34,11 +34,12 @@ export const layoutsMethods = {
       default:
         break;
     }
-    setTimeout(() => {
-      $(layouts).each((i, el) => {
-        el.dispatchEvent(new CustomEvent('layout-after-show'), { bubbles: true, cancelable: true, detail });
+    $(layouts).each((i, el) => {
+      $(el).one('transitionend', (evt) => {
+        const _self = evt.currentTarget;
+        _self.dispatchEvent(new CustomEvent('layout-after-show'), { bubbles: true, cancelable: true, detail });
       });
-    }, 500);
+    });
   },
   close(layoutName, context) {
     const layouts = $(`[data-layout*="${layoutName}"]`);
@@ -53,6 +54,7 @@ export const layoutsMethods = {
       case 'space': {
         if (activeLayouts.offer) {
           document.body.classList.remove('layout-offer-active');
+          document.body.classList.add('is-layout-offer-out');
           $('.js-layout-show').removeClass('is-active');
         }
         if (activeLayouts.space) {
@@ -71,18 +73,21 @@ export const layoutsMethods = {
       }
       case 'offer': {
         document.body.classList.remove('layout-offer-active');
+        document.body.classList.add('is-layout-offer-out');
         $('.js-layout-show').removeClass('is-active');
         break;
       }
       default:
         break;
     }
-    setTimeout(() => {
-      $(layouts).each((i, el) => {
-        el.dispatchEvent(new CustomEvent('layout-after-close'), { bubbles: true, cancelable: true, detail });
-        el.classList.remove('is-layout-animated-out');
+    $(layouts).each((i, el) => {
+      $(el).one('transitionend', (evt) => {
+        const _self = evt.currentTarget;
+        _self.dispatchEvent(new CustomEvent('layout-after-close'), { bubbles: true, cancelable: true, detail });
+        _self.classList.remove('is-layout-animated-out');
+        document.body.classList.remove('is-layout-offer-out');
       });
-    }, 500);
+    });
   },
   whichLayerActive() {
     return {

@@ -221,14 +221,6 @@ export default class SearchFilter {
       $(prisoners).removeClass('is-link-inactive').addClass('is-link-active');
       $(prisonerInputs).removeAttr('disabled');
     } else {
-      // const rangeSource = $(prisoners).find('.js-nd-range');
-      // const range = $(rangeSource).find('[data-nd-range-container]').get(0);
-      // if (range) {
-      //   setTimeout(() => {
-      //     console.log('no this work');
-      //     window.globalFunctions.resetRange(range);
-      //   }, 0);
-      // }
       $(prisoners).removeClass('is-link-active').addClass('is-link-inactive');
       $(prisonerInputs).attr('disabled', 'disabled');
     }
@@ -414,7 +406,6 @@ export default class SearchFilter {
     const range = $(rangeSource).find('[data-nd-range-container]').get(0);
     if (range) {
       setTimeout(() => {
-        console.log('this work');
         window.globalFunctions.resetRange(range);
       }, 0);
     }

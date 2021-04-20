@@ -14,9 +14,9 @@ export default function srMapToggle() {
   const mapMethods = {
     open() {
       $('body').addClass('map-in-fullview').addClass('is-map-animated-in');
-      setTimeout(() => {
+      $('.layout__column_map').one('animationend', () => {
         $('body').removeClass('is-map-animated-in');
-      }, 500);
+      });
       freeze();
     },
     close() {
@@ -24,15 +24,17 @@ export default function srMapToggle() {
         layoutsMethods.close('list', {});
       }
       $('body').removeClass('map-in-fullview').addClass('is-map-animated-out');
-      setTimeout(() => {
+      $('.layout__column_map').one('animationend', () => {
         $('body').removeClass('is-map-animated-out');
-      }, 500);
+      });
       unfreeze();
     },
     isActive() {
       return $('body').hasClass('map-in-fullview');
     },
   };
+
+  window.globalFunctions.mapMethods = mapMethods;
 
   $(document).on('click', '.js-map-toggle-fullview', () => {
     if (mapMethods.isActive()) {

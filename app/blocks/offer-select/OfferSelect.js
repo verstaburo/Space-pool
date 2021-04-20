@@ -96,7 +96,6 @@ export default class OfferSelect {
     const activeEl = this.el.find('[data-offer-link].is-select');
     const parent = activeEl.closest('[data-select-item]');
     const elem = parent.find('[data-select-value]');
-    console.log(elem);
     return elem;
   }
 

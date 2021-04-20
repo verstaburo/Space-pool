@@ -77,7 +77,6 @@ export default function calendar() {
     const targetBlockId = $(self).attr('data-record-step-target');
     const blocks = $('[data-record-step]');
     const targetBlock = $(`[data-record-step="${targetBlockId}"]`);
-    console.log(targetBlock);
     $(blocks).removeClass('is-active');
     $(targetBlock).addClass('is-active');
   });
