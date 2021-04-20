@@ -14,7 +14,7 @@ export default function srMapToggle() {
   const mapMethods = {
     open() {
       $('body').addClass('map-in-fullview').addClass('is-map-animated-in');
-      $('.layout__column_map').one('animationend', () => {
+      $('.layout__column_results').one('transitionend', () => {
         $('body').removeClass('is-map-animated-in');
       });
       freeze();
@@ -24,7 +24,7 @@ export default function srMapToggle() {
         layoutsMethods.close('list', {});
       }
       $('body').removeClass('map-in-fullview').addClass('is-map-animated-out');
-      $('.layout__column_map').one('animationend', () => {
+      $('.layout__column_results').one('transitionend', () => {
         $('body').removeClass('is-map-animated-out');
       });
       unfreeze();

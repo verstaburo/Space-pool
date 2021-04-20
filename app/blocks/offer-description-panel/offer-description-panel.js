@@ -5,7 +5,6 @@ export default function offerPanel() {
     if (indicator) {
       const indicatorSizes = indicator.getBoundingClientRect();
       const panel = wrapper.parentElement.querySelector('[data-offer-panel]');
-      console.log(indicatorSizes.top);
       if (panel) {
         if (indicatorSizes.top < 0) {
           panel.classList.add('is-visible');
