@@ -1,4 +1,4 @@
-mixin nd-search-map-v2(mapid)
+mixin nd-search-map-v2(mapid, markersurl)
   +b.nd-search-map_v2&attributes(attributes)
     +e.wrapper
       +e.BUTTON.button.js-map-toggle-fullview
@@ -6,7 +6,7 @@ mixin nd-search-map-v2(mapid)
         span(data-map-shown="xl") Close map view
         span(data-map-shown="sm") View list
       +e.BUTTON.filter.js-map-filter-show Filters
-      +e.map(id=(mapid || 'search-map'))
+      +e.map(id=(mapid || 'search-map') data-map-markers-url=markersurl)
     block
 
 mixin nd-search-map-button()

@@ -121,332 +121,8 @@ class Popup extends google.maps.OverlayView {
   }
 }
 
-const locations1 = [{
-  coords: {
-    lat: 51.93,
-    lng: 30.325,
-  },
-  markerType: 'space',
-  popupText: '£ 150 - £ 3500',
-  offerCount: '4',
-}, {
-  coords: {
-    lat: 51.934,
-    lng: 30.315,
-  },
-  markerType: 'space',
-  popupText: '£ 150 - £ 3500',
-  offerCount: '12',
-}, {
-  coords: {
-    lat: 59.9345,
-    lng: 30.3156,
-  },
-  markerType: 'space',
-  popupText: '£ 150 - £ 3500',
-  offerCount: '25',
-}, {
-  coords: {
-    lat: 59.924,
-    lng: 30.335,
-  },
-  markerType: 'space',
-  popupText: '£ 150 - £ 3500',
-  offerCount: '6',
-}, {
-  coords: {
-    lat: 59.924,
-    lng: 30.305,
-  },
-  markerType: 'space',
-  popupText: '£ 150 - £ 3500',
-  offerCount: '10',
-}, {
-  coords: {
-    lat: 59.924,
-    lng: 30.335,
-  },
-  markerType: 'space',
-  popupText: '£ 150 - £ 3500',
-  offerCount: '28',
-}, {
-  coords: {
-    lat: 59.914,
-    lng: 30.335,
-  },
-  markerType: 'space',
-  popupText: '£ 150 - £ 3500',
-  offerCount: '9',
-}, {
-  coords: {
-    lat: 59.934,
-    lng: 30.325,
-  },
-  markerType: 'space',
-  popupText: '£ 150 - £ 3500',
-  offerCount: '18',
-}, {
-  coords: {
-    lat: 59.900,
-    lng: 30.315,
-  },
-  markerType: 'space',
-  popupText: '£ 150 - £ 3500',
-  offerCount: '2',
-}, {
-  coords: {
-    lat: 59.934,
-    lng: 30.300,
-  },
-  markerType: 'space',
-  popupText: '£ 150 - £ 3500',
-  offerCount: '14',
-}, {
-  coords: {
-    lat: 59.913,
-    lng: 30.330,
-  },
-  markerType: 'space',
-  popupText: '£ 150 - £ 3500',
-  offerCount: '11',
-}, {
-  coords: {
-    lat: 59.927,
-    lng: 30.338,
-  },
-  markerType: 'space',
-  popupText: '£ 150 - £ 3500',
-  offerCount: '3',
-}, {
-  coords: {
-    lat: 59.948,
-    lng: 30.34,
-  },
-  markerType: 'space',
-  popupText: '£ 150 - £ 3500',
-  offerCount: '5',
-}, {
-  coords: {
-    lat: 59.988,
-    lng: 30.324,
-  },
-  markerType: 'space',
-  popupText: '£ 150 - £ 3500',
-  offerCount: '15',
-}, {
-  coords: {
-    lat: 59.9,
-    lng: 30.34476,
-  },
-  markerType: 'space',
-  popupText: '£ 150 - £ 3500',
-  offerCount: '12',
-}, {
-  coords: {
-    lat: 59.939,
-    lng: 30.76,
-  },
-  markerType: 'space',
-  popupText: '£ 150 - £ 3500',
-  offerCount: '1',
-}, {
-  coords: {
-    lat: 59.941,
-    lng: 30.9,
-  },
-  markerType: 'space',
-  popupText: '£ 150 - £ 3500',
-  offerCount: '5',
-}, {
-  coords: {
-    lat: 59.966,
-    lng: 30.8,
-  },
-  markerType: 'space',
-  popupText: '£ 150 - £ 1500',
-  offerCount: '20',
-}, {
-  coords: {
-    lat: 59.977,
-    lng: 30.73735,
-  },
-  markerType: 'space',
-  popupText: '£ 150 - £ 3500',
-  offerCount: '2',
-}];
-
-const locations2 = [{
-  coords: {
-    lat: 51.93,
-    lng: 30.325,
-  },
-  markerType: 'offer',
-  popupText: '£ 150 - £ 3500',
-  offerCount: '4',
-}, {
-  coords: {
-    lat: 51.934,
-    lng: 30.315,
-  },
-  markerType: 'offer',
-  popupText: '£ 150 - £ 3500',
-  offerCount: '12',
-}, {
-  coords: {
-    lat: 59.9345,
-    lng: 30.3156,
-  },
-  markerType: 'offer',
-  popupText: '£ 150 - £ 3500',
-  offerCount: '25',
-}, {
-  coords: {
-    lat: 59.924,
-    lng: 30.335,
-  },
-  markerType: 'offer',
-  popupText: '£ 150 - £ 3500',
-  offerCount: '6',
-}, {
-  coords: {
-    lat: 59.924,
-    lng: 30.305,
-  },
-  markerType: 'offer',
-  popupText: '£ 150 - £ 3500',
-  offerCount: '10',
-}, {
-  coords: {
-    lat: 59.924,
-    lng: 30.335,
-  },
-  markerType: 'offer',
-  popupText: '£ 150 - £ 3500',
-  offerCount: '28',
-}, {
-  coords: {
-    lat: 59.914,
-    lng: 30.335,
-  },
-  markerType: 'offer',
-  popupText: '£ 150 - £ 3500',
-  offerCount: '9',
-}, {
-  coords: {
-    lat: 59.934,
-    lng: 30.325,
-  },
-  markerType: 'offer',
-  popupText: '£ 150 - £ 3500',
-  offerCount: '18',
-}, {
-  coords: {
-    lat: 59.900,
-    lng: 30.315,
-  },
-  markerType: 'offer',
-  popupText: '£ 150 - £ 3500',
-  offerCount: '2',
-}, {
-  coords: {
-    lat: 59.934,
-    lng: 30.300,
-  },
-  markerType: 'offer',
-  popupText: '£ 150 - £ 3500',
-  offerCount: '14',
-}, {
-  coords: {
-    lat: 59.913,
-    lng: 30.330,
-  },
-  markerType: 'offer',
-  popupText: '£ 150 - £ 3500',
-  offerCount: '11',
-}, {
-  coords: {
-    lat: 59.927,
-    lng: 30.338,
-  },
-  markerType: 'offer',
-  popupText: '£ 150 - £ 3500',
-  offerCount: '3',
-}, {
-  coords: {
-    lat: 59.948,
-    lng: 30.34,
-  },
-  markerType: 'offer',
-  popupText: '£ 150 - £ 3500',
-  offerCount: '5',
-}, {
-  coords: {
-    lat: 59.988,
-    lng: 30.324,
-  },
-  markerType: 'offer',
-  popupText: '£ 150 - £ 3500',
-  offerCount: '15',
-}, {
-  coords: {
-    lat: 59.9,
-    lng: 30.34476,
-  },
-  markerType: 'offer',
-  popupText: '£ 150 - £ 3500',
-  offerCount: '12',
-}, {
-  coords: {
-    lat: 59.939,
-    lng: 30.76,
-  },
-  markerType: 'offer',
-  popupText: '£ 150 - £ 3500',
-  offerCount: '1',
-}, {
-  coords: {
-    lat: 59.941,
-    lng: 30.9,
-  },
-  markerType: 'offer',
-  popupText: '£ 150 - £ 3500',
-  offerCount: '5',
-}, {
-  coords: {
-    lat: 59.966,
-    lng: 30.8,
-  },
-  markerType: 'offer',
-  popupText: '£ 150 - £ 1500',
-  offerCount: '20',
-}, {
-  coords: {
-    lat: 59.977,
-    lng: 30.73735,
-  },
-  markerType: 'offer',
-  popupText: '£ 150 - £ 3500',
-  offerCount: '2',
-}];
-
-const lonelyMarker = [{
-  coords: {
-    lat: 51.93,
-    lng: 30.325,
-  },
-  markerType: 'space',
-  popupText: '',
-  offerCount: '',
-  iconIndex: 1,
-}];
-
-const centerOfMap = {
-  lat: 59.914,
-  lng: 30.335,
-};
-
-function generateMarker(data, map) {
-  const markersIcon = [
+window.mapData = {
+  markerIconArray: [
     {
       default: {
         path: 'M32.5 16.3528C32.5 23.2608 28.4673 30.0588 24.36 35.1772C22.3144 37.7265 20.2675 39.838 18.7319 41.3121C17.9644 42.0488 17.3253 42.6256 16.8791 43.0175C16.7324 43.1463 16.6065 43.2551 16.5039 43.3431C16.4005 43.2525 16.2734 43.1401 16.125 43.0069C15.6785 42.6061 15.0392 42.017 14.2714 41.2665C12.7351 39.7649 10.6876 37.6205 8.64125 35.0489C4.53115 29.8838 0.5 23.0865 0.5 16.3528C0.5 7.59059 7.64797 0.5 16.5 0.5C25.352 0.5 32.5 7.59059 32.5 16.3528Z',
@@ -537,10 +213,32 @@ function generateMarker(data, map) {
       },
       labelClass: 'map-marker-label',
     },
-  ];
+  ],
+};
 
+function resetActiveMarker(mapId) {
+  if (!mapId) return;
+  const { activeMarker } = window.mapData[mapId];
+  if (!activeMarker) return;
+  const markerIcons = window.mapData.markerIconArray;
+  if (activeMarker) {
+    activeMarker.setIcon(markerIcons[activeMarker.markerIconIndex].default);
+    activeMarker.setLabel({
+      text: activeMarker.labelText,
+      className: ' map-marker-label',
+      color: '#fff',
+      fontFamily: 'ProximaNova, Arial, sans-serif',
+      fontSize: '18px',
+      fontWeight: '700',
+    });
+    activeMarker.userState = 'default';
+    window.mapData[mapId].activeMarker = null;
+  }
+}
+
+function generateMarker(data, map) {
   const activeIconIndex = data.iconIndex || 0;
-
+  const markersIcon = window.mapData.markerIconArray;
   const mm = new google.maps.Marker({
     position: data.coords,
     map,
@@ -557,6 +255,7 @@ function generateMarker(data, map) {
     userState: 'default',
     markerType: data.markerType,
     labelText: data.offerCount,
+    markerIconIndex: activeIconIndex,
   });
 
   if (data.popupText) {
@@ -587,7 +286,9 @@ function generateMarker(data, map) {
     const layersStatus = window.globalFunctions.layoutsMethods.whichLayerActive();
     const bp = window.globalOptions.ndsizes;
     const wW = window.innerWidth;
-    if (layersStatus.map) {
+    const mapId = map.getDiv().getAttribute('id');
+    if (layersStatus.map || mm.markerType === 'offer') {
+      resetActiveMarker(mapId);
       if (mm.userState !== 'active') {
         mm.setIcon(markersIcon[activeIconIndex].active);
         mm.setLabel({
@@ -597,6 +298,7 @@ function generateMarker(data, map) {
           fontSize: '1px',
         });
         mm.userState = 'active';
+        window.mapData[mapId].activeMarker = mm;
       } else {
         mm.setIcon(markersIcon[activeIconIndex].default);
         mm.setLabel({
@@ -644,11 +346,12 @@ function generateMarker(data, map) {
           break;
       }
     }
+    map.setCenter(mm.position);
   });
   return mm;
 }
 
-function initMap(mapEl, center) {
+function initGMap(mapEl, center) {
   if (!mapEl) return undefined;
   const map = new google.maps.Map(
     mapEl, {
@@ -662,21 +365,17 @@ function initMap(mapEl, center) {
   return map;
 }
 
-function setMarkersOnMap(locationList, centerMap, mapWrapper) {
-  const container = mapWrapper;
-  const map = initMap(mapWrapper, centerMap);
+function setMarkersOnMap(locationList, centerMap, mapId) {
+  const mapWrapper = document.getElementById(mapId);
+  if (!mapWrapper) return;
+  const map = initGMap(mapWrapper, centerMap);
   if (map) {
     const markers = locationList.map((location) => generateMarker(location, map));
 
-    if (container.mapData) {
-      container.mapData.map = map;
-      container.mapData.markers = markers;
-    } else {
-      container.mapData = {
-        map,
-        markers,
-      };
-    }
+    window.mapData[mapId] = {
+      map,
+      markers,
+    };
 
     if (markers.length > 1) {
       const cluster = new MarkerClusterer(map, markers, {
@@ -702,14 +401,50 @@ function setMarkersOnMap(locationList, centerMap, mapWrapper) {
   }
 }
 
-// обновление карт в поиске и на странице спейса
-$(document).ready(() => {
-  const searchUnsortedMap = document.getElementById('search-map-unsort');
-  const searchSortedMap = document.getElementById('search-map-bytype');
+function clearMapMarkers(mapId) {
+  const { mapData } = window;
+
+  if (markerClusterer) {
+    markerClusterer.clearMarkers();
+    mapData[mapId].markers = null;
+  } else if (mapData.markers) {
+    mapData[mapId].markers.forEach((el) => el.setMap(null));
+    mapData[mapId].markers = null;
+  }
+}
+
+window.mapData.setMarkersOnMap = setMarkersOnMap;
+window.mapData.clearMapMarkers = clearMapMarkers;
+window.mapData.resetActiveMarker = resetActiveMarker;
+
+function initMap() {
+  const searchMap = document.getElementById('search-map');
+
+  if (searchMap) {
+    const mapMarkersUrl = searchMap.getAttribute('data-map-markers-url');
+
+    if (mapMarkersUrl) {
+      fetch(mapMarkersUrl).then((response) => response.json()).then((result) => {
+        setMarkersOnMap(result.markers, result.center, 'search-map');
+      });
+    }
+  }
+
   const lonelyMap = document.getElementById('space-map');
 
-  // Карта в поиске
-  setMarkersOnMap(locations1, centerOfMap, searchUnsortedMap);
-  setMarkersOnMap(locations2, centerOfMap, searchSortedMap);
-  setMarkersOnMap(lonelyMarker, lonelyMarker[0].coords, lonelyMap);
+  if (lonelyMap) {
+    const mapMarkerUrl = lonelyMap.getAttribute('data-map-markers-url');
+
+    if (mapMarkerUrl) {
+      fetch(mapMarkerUrl).then((response) => response.json()).then((result) => {
+        setMarkersOnMap(result.markers, result.center, 'space-map');
+      });
+    }
+  }
+}
+
+window.initMap = initMap;
+
+$(document).ready(() => {
+  initMap();
 });
