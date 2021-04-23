@@ -4,7 +4,7 @@ block head
   - var pageTitle = 'Spacepool - Search'
 
 block bodyClasses
-  - var bodyCls = ' is-sm-noheader';
+  - var bodyCls = ' ';
   - var isNoFooter = true
   - var scripts = ['other']
   - var searchPage = true
@@ -15,12 +15,10 @@ block header
   - var isMap = true
   - var isMapNew = true
   - var host = false
+  - var headSpec = true
 
 block content
   +layout
-    +e.column_filter
-      +nd-search-filter-v2
-
     +e.column_map.js-map-sm-show-fullview
       +nd-search-map-v2('search-map', 'assets/data/space-markers.json')
 
@@ -29,9 +27,7 @@ block content
         +nd-section.md-only-visibility-hidden
           +nd-section-header
             +nd-section-title._fz30._sm-fz22._ls-015 Office spaces in London
-            +e.filter-group
-              +e.text_fz15._ls0._gray Looking for workspace type, Any team size and Any price
-              +filter-section({groupClass: 'nd-hide-sm'})(form="search-filter")
+            +e.text_fz15._ls0._gray Looking for workspace type, Any team size and Any price
 
         +nd-results._v2
           each item in getData('new-nd-spaces-search.json')
@@ -50,7 +46,6 @@ block content
                 +e.button.hide-from-sm.js-layout-show.js-layout-tab-redirect(data-layout-target="space" data-layout-tab-target="tab-space-offers" data-dead-zone) View all 20 listings
 
     +e.column_start._start_space._popup(data-layout="space")
-      +layout-header({type: 'space', popup: true})._main._popup
       +e.wrapper
         +space-description
         +space-description-panel
@@ -97,7 +92,7 @@ block content
     +e.column_start._start_offer._popup(data-layout="offer")
       +e.wrapper
         +offer-description
-        +offer-description-panel()._abs(data-offer-panel)
+        +offer-description-panel()._abs.is-visible(data-offer-panel)
           +e.offer
             +space-type._gray.__type
               +nd-box()._green.__box_sz7
@@ -106,6 +101,8 @@ block content
           +e.buttons
             +nd-button._pad10._black.__button.js-nd-arrange-viewing(href="#nd-popup-arrange-viewing" data-min-date="2021-15-4" data-max-date="2021-20-8") Arrange viewing
             +nd-button._pad10.__button(href="#") Request reservation
+    +e.column_start._start_header._popup(data-layout="space,offer")
+      +layout-header({type: 'space', popup: true})._main._popup
 
   +modals('FORM')#search-filter(action="/")
     +e.FIELDSET.fieldset
@@ -134,10 +131,8 @@ block content
             +styled-radio(item.title)._team.__item
               +e.INPUT.input(type="radio", value=item.value, name=item.name, data-modal-item, data-modal-item-value=(item.value2 || item.value), data-modal-item-type="team")
     +e.FIELDSET.fieldset
-      +modal({header: {title: 'Price range'}, footer: {class: '_range', view: 'range'}})#filter-range
-        +nd-range({output: {minLabel: 'Min', maxLabel: 'Max', max: 'maxPrice', min: 'minPrice', formboxClass: '_bg-white _sm-h50', inputClass: '_sm-h50'}})(data-start="[0, 5000]" data-connect="[false, true, false]" data-step="10" data-margin="30" data-min="0" data-max="10000" data-currency="£" data-modal-item data-modal-item-type="range").__range
-      +modal({header: {title: 'Available from'}, footer: false})#filter-available
-      +modal({header: {title: 'Total floor area'}, footer: false})#filter-area
+      +modal({header: {title: 'Filter'}, footer: {class: '_range', view: 'range'}})#filter-multi
+        +nd-range({output: {minLabel: 'Min', maxLabel: 'Max', max: 'maxPrice', min: 'minPrice', formboxClass: '_bg-white _sm-h50', inputClass: '_sm-h50'}})(data-start="[0, 5000]" data-connect="[false, true, false]" data-step="10" data-margin="30" data-min="0" data-max="10000" data-currency="£" data-modal-item data-modal-item-type="multi").__range
       +modal({header: {title: 'Sort by'}, footer: false})#filter-sort
         +e.list
           each item in [{title: 'Popular', value: 'Popular', name: 'sort', /*checked: true*/}, {title: 'Relevance', value: 'Relevance', name: 'sort'}, {title: 'Price ascending', value: 'Price ascending', name: 'sort'}, {title: 'Price descending', value: 'Price descending', name: 'sort'}]

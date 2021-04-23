@@ -277,6 +277,11 @@
 
   &_search {
     @include rule(height, (xl: 70px, xlg: 70, lg: 66, md: 66, sm: 60));
+    @include rule(padding-top, (xl: 22px, xlg: 22, lg: 20, md: 10, sm: 0));
+    @include rule(padding-bottom, (md: 10, sm: 0));
+
+    background-color: transparent;
+    pointer-events: none;
 
     @include screen('sm', max, 2) {
       background-color: $nd-color-basic-light;
@@ -284,13 +289,15 @@
 
     #{$b} {
       &__wrapper {
+        position: relative;
         display: flex;
         justify-content: flex-start;
-        border-bottom: 1px solid $nd-color-border4;
+        border-bottom: none;
         box-sizing: border-box;
-        top: 0;
+        top: auto;
+        left: auto;
 
-        @include rule(height, (xl: 68px, xlg: 68, lg: 64, md: 64, sm: 58));
+        @include rule(height, (xl: 46px, xlg: 46, lg: 46, md: 46, sm: 60));
 
         &::before {
           display: none;
@@ -299,7 +306,7 @@
 
       &__logo {
         display: flex;
-        justify-content: flex-start;
+        justify-content: center;
         align-items: center;
         margin-right: 0;
         height: 100%;
@@ -307,6 +314,7 @@
         width: 150px;
         box-sizing: border-box;
         padding: 0 22px;
+        pointer-events: auto;
 
         @include screen('xl', max, 2) {
           width: 60px;
@@ -325,7 +333,7 @@
 
       &__filter {
         height: 100%;
-        flex: 1;
+        pointer-events: auto;
       }
 
       &__menu {
@@ -335,14 +343,12 @@
         align-items: center;
         height: 100%;
         box-sizing: border-box;
-        padding: 0 22px;
+        background-color: $nd-color-basic-light;
+        pointer-events: auto;
 
-        @include screen('xl', max, 2) {
-          padding: 0 22px;
-        }
-
-        @include rule(padding-left, (xlg: 22, lg: 22, md: 22, sm: 0));
-        @include rule(padding-right, (xlg: 22, lg: 22, md: 22, sm: 0));
+        @include rule(border-radius, (xl: 35px, xlg: 35, lg: 35, md: 35, sm: 0));
+        @include rule(padding-left, (xl: 6px, xlg: 6, lg: 6, md: 6, sm: 0));
+        @include rule(padding-right, (xl: 22px, xlg: 22, lg: 22, md: 22, sm: 0));
 
         @include screen('md', max, 2) {
           display: none;

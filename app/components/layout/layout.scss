@@ -4,7 +4,7 @@
   position: relative;
   display: grid;
   grid-template-columns: 58.49% 41.51%;
-  grid-template-rows: 50px calc(100vh - 144px);
+  grid-template-rows: 100vh;
   width: 100%;
   // height: calc(100vh - 94px);
   box-sizing: border-box;
@@ -12,20 +12,14 @@
   height: 100vh;
   max-height: 100%;
 
-  @include screen("xlg", max, 2) {
-    grid-template-rows: pxtovw(50, 1660) calc(100vh - (14400 / 1660) * 1vw);
-    // height: calc(100vh - (9400 / 1920) * 1vw);
-  }
-
   @include screen("lg", max, 2) {
     grid-template-columns: 52.93% 47.07%;
-    grid-template-rows: pxtovw(40, 1366) calc(100vh - (10600 / 1366) * 1vw);
-    // height: calc(100vh - (6600 / 1366) * 1vw);
+    grid-template-rows: 100vh;
   }
 
   @include screen("md", max, 2) {
     grid-template-columns: 68.75% 31.25%;
-    grid-template-rows: pxtovw(257, 960)auto;
+    grid-template-rows: pxtovw(323, 960)auto;
     overflow-x: hidden;
     overflow-y: auto;
     // max-height: calc(100vh - (6600 / 960) * 1vw);
@@ -34,13 +28,13 @@
 
   @include screen("sm", max, 2) {
     grid-template-columns: 100%;
-    grid-template-rows: auto pxtovw(208, 375) auto;
+    grid-template-rows: pxtovw(208, 375) auto;
     max-height: 100%;
     // height: calc(100vh - (6600 / 375) * 1vw);
   }
 
-  @include native-scroll($nd-layout-scroll, transparent, 4, 7, 4);
-  @include rule(padding-top, (xl: 94px, xlg: 94, lg: 66, md: 66, sm: 0));
+  @include native-scroll($nd-layout-scroll, transparent, 4, 4, 4);
+
 
   @include screen('md', max, 2) {
     @include native-scroll($nd-layout-scroll, transparent, 2, 2, 2);
@@ -51,96 +45,30 @@
     width: 100%;
     box-sizing: border-box;
 
-    &_filter {
-      grid-column: 1 / 3;
-      grid-row: 1 / 2;
-      background-color: $nd-color-bg;
-
-      @include screen('md', max, 2) {
-        position: sticky;
-        top: 0;
-        grid-row: 1 / 2;
-        background-color: transparent;
-        align-self: end;
-        z-index: 2;
-        transform: translate3d(0, 0, 0);
-        will-change: top;
-        overscroll-behavior: none;
-      }
-
-      @include screen('sm', max, 2) {
-        grid-row: 1 / 2;
-      }
-
-      .map-in-fullview & {
-        z-index: 4;
-
-        @include screen('sm', min, 2) {
-          z-index: 16;
-        }
-
-        @include screen('md', max, 2) {
-          align-self: start;
-        }
-      }
-
-      .is-map-animated-out & {
-        @include screen('md', max, 2) {
-          align-self: start;
-        }
-      }
-
-      .layout-offer-active &, .is-layout-animated-out & {
-        @media screen and (min-width: 768px) and (max-width: 1029px) {
-          align-self: start;
-          z-index: 16;
-        }
-      }
-
-      .layout-space-active & {
-        @media screen and (min-width: 768px) and (max-width: 1029px) {
-          z-index: 4;
-        }
-      }
-    }
-
     &_results {
       position: relative;
       grid-column: 1 / 2;
-      grid-row: 2 / 3;
-      // max-height: 100%;
+      grid-row: 1 / 2;
       height: 100%;
-      // overflow: auto;
       overflow: hidden;
-      // padding-left: 150px;
       box-sizing: border-box;
       background-color: $nd-color-bg;
       transition: transform .5s ease-in-out;
       z-index: 1;
 
-      // @include screen('xl', max, 2) {
-      //   padding-left: 60px;
-      // }
-
       @include screen('md', max, 2) {
         grid-column: 1 / 3;
         grid-row: 2 / 3;
         z-index: 1;
-        // max-height: none;
         height: auto;
         overflow: visible;
       }
 
       @include screen('sm', max, 2) {
-        grid-row: 3 / 4;
+        grid-row: 2 / 3;
       }
 
-      // @include rule(padding-left, (xlg: 60, lg: 50, md: 50, sm: 20));
-      // @include rule(padding-right, (xl: 50px, xlg: 50, lg: 20, md: 50, sm: 20));
-      // @include rule(padding-top, (xl: 55px, xlg: 55, lg: 44, md: 23, sm: 29));
-      // @include rule(padding-bottom, (xl: 80px, xlg: 80, lg: 80, md: 80, sm: 80));
-
-      @include native-scroll($nd-layout-scroll, transparent, 4, 7, 4);
+      @include native-scroll($nd-layout-scroll, transparent, 4, 4, 4);
 
       .map-in-fullview & {
         transform: translate3d(-100%, 0, 0);
@@ -153,7 +81,7 @@
 
     &_map {
       grid-column: 2 / 3;
-      grid-row: 2 / 3;
+      grid-row: 1 / 2;
       height: 100%;
       overflow: hidden;
       justify-self: end;
@@ -168,17 +96,17 @@
       }
 
       @include screen('sm', max, 2) {
-        grid-row: 2 / 4;
+        grid-row: 1 / 3;
       }
 
       @include screen('md', min, 2) {
-        z-index: 11;
+        z-index: 7;
       }
 
       .layout-offer-active &,
       .is-layout-offer-out & {
         @include screen('md', min, 2) {
-          z-index: 14;
+          z-index: 9;
         }
       }
 
@@ -186,7 +114,7 @@
       .layout-list-active &,
       .map-in-fullview & {
         @include screen('md', min, 2) {
-          z-index: 11;
+          z-index: 7;
         }
       }
 
@@ -222,7 +150,7 @@
     &_start {
       position: relative;
       grid-column: 1 / 2;
-      grid-row: 2 / 3;
+      grid-row: 1 / 2;
       height: 100%;
       overflow: hidden;
       border-right: 1px solid $nd-color-border6;
@@ -231,19 +159,19 @@
 
       @include screen('md', max, 2) {
         grid-column: 1 / 2;
-        grid-row: 1 / 4;
+        grid-row: 1 / 3;
       }
 
       @include screen('sm', max, 2) {
         grid-column: 1 / 3;
-        grid-row: 2 / 4;
+        grid-row: 1 / 3;
       }
     }
 
     &_end {
       position: relative;
       grid-column: 2 / 3;
-      grid-row: 2 / 3;
+      grid-row: 1 / 2;
       height: 100%;
       overflow: hidden;
       border-top: 1px solid $nd-color-border6;
@@ -251,16 +179,16 @@
 
       @include screen('md', max, 2) {
         grid-column: 2 / 3;
-        grid-row: 1 / 4;
+        grid-row: 1 / 3;
       }
 
       @include screen('sm', max, 2) {
         grid-column: 1 / 3;
-        grid-row: 2 / 4;
+        grid-row: 1 / 3;
       }
 
       @include screen('sm', min, 2) {
-        z-index: 15;
+        z-index: 12;
       }
 
       &.layout__column_popup {
@@ -279,7 +207,7 @@
       visibility: hidden;
       background-color: $nd-color-bg;
       overflow: visible;
-      z-index: 12;
+      z-index: 7;
       // opacity: 0;
       transform: translate3d(100vw, 0, 0);
       transition: transform .5s ease-in-out;
@@ -300,39 +228,40 @@
 
       &.layout__column_end {
         @include screen('sm', min, 2) {
-          z-index: 15;
+          z-index: 12;
         }
       }
 
-      &.layout__column_offer {
-        z-index: 13;
+      &.layout__column_start_offer {
+        z-index: 8;
+      }
+
+      &.layout__column_start_header {
+        z-index: 11;
+        background-color: transparent;
       }
 
       .map-in-fullview & {
         &.layout__column_end {
-          box-shadow: -11px 0px 11px rgba(0, 0, 0, 0.14);
+          box-shadow: boxShadow(-11, 0, 11, 0, rgba(0, 0, 0, 0.14), false);
           // z-index: 3;
 
           @include screen('xlg', max, 2) {
-            box-shadow: -pxtovw(11, 1660) 0px pxtovw(11, 1660) rgba(0, 0, 0, 0.14);
+            box-shadow: boxShadow(-11, 0, 11, 0, rgba(0, 0, 0, 0.14), 1660);
           }
 
           @include screen('lg', max, 2) {
-            box-shadow: -pxtovw(11, 1366) 0px pxtovw(11, 1366) rgba(0, 0, 0, 0.14);
+            box-shadow: boxShadow(-11, 0, 11, 0, rgba(0, 0, 0, 0.14), 1366);
           }
 
           @include screen('md', max, 2) {
-            box-shadow: -pxtovw(11, 960) 0px pxtovw(11, 960) rgba(0, 0, 0, 0.14);
+            box-shadow: boxShadow(-11, 0, 11, 0, rgba(0, 0, 0, 0.14), 960);
           }
 
           @include screen('sm', max, 2) {
             box-shadow: none;
           }
         }
-
-        // &.layout__column_start {
-        //   z-index: 2;
-        // }
       }
 
       .map-in-fullview.layout-offer-active & {
@@ -349,40 +278,12 @@
       .map-in-fullview &, .is-map-animated-out & {
 
         &.layout__column_end {
-          @include rule(top, (md: 106, sm: 60));
+          @include rule(top, (sm: 60));
         }
       }
 
       &.layout__column_start_offer {
-        @include rule(top, (lg: 8, md: 80, sm: 60));
-
-        &::before {
-          @include pseudo;
-
-          top: -1px;
-          left: 0;
-          right: 0;
-          z-index: 2;
-          height: 1px;
-          background-color: transparent;
-          box-shadow: boxShadow(0, 2, 2, 0, rgba(0, 0, 0, 0.06), false);
-
-          @include screen('xlg', max, 2) {
-            box-shadow: boxShadow(0, 2, 2, 0, rgba(0, 0, 0, 0.06), 1660);
-          }
-
-          @include screen('lg', max, 2) {
-            box-shadow: boxShadow(0, 2, 2, 0, rgba(0, 0, 0, 0.06), 1366);
-          }
-
-          @include screen('md', max, 2) {
-            box-shadow: boxShadow(0, 2, 2, 0, rgba(0, 0, 0, 0.06), 960);
-          }
-
-          @include screen('sm', max, 2) {
-            box-shadow: boxShadow(0, 2, 2, 0,rgba(0, 0, 0, 0.06), 375);
-          }
-        }
+        @include rule(top, (sm: 60));
       }
 
       .layout-space-active & {
@@ -394,7 +295,8 @@
           pointer-events: auto;
         }
 
-        &.layout__column_start_space {
+        &.layout__column_start_space,
+        &.layout__column_start_header {
           @include screen('md', max, 2) {
             left: 0;
             width: 68.75vw;
@@ -403,6 +305,10 @@
           @include screen('sm', max, 2) {
             width: 100%;
           }
+        }
+
+        &.layout__column_start_header {
+          pointer-events: none;
         }
 
         &.layout__column_end {
@@ -447,7 +353,8 @@
           pointer-events: auto;
         }
 
-        &.layout__column_start_offer {
+        &.layout__column_start_offer,
+        &.layout__column_start_header {
           @include screen('md', max, 2) {
             left: 0;
             width: 68.75vw;
@@ -456,6 +363,10 @@
           @include screen('sm', max, 2) {
             width: 100%;
           }
+        }
+
+        &.layout__column_start_header {
+          pointer-events: none;
         }
 
         &.layout__column_end {
@@ -507,7 +418,7 @@
 
     @include rule(padding-top, (sm: 60));
     @include rule(padding-bottom, (xl: 80px, xlg: 80, lg: 80, md: 80, sm: 80));
-    @include native-scroll($nd-layout-scroll, transparent, 4, 7, 4);
+    @include native-scroll($nd-layout-scroll, transparent, 4, 4, 4);
 
     #{$b}__column_start & {
       padding-left: 150px;
@@ -529,21 +440,24 @@
 
       @include rule(padding-left, (xlg: 60, lg: 50, md: 50, sm: 20));
       @include rule(padding-right, (xl: 50px, xlg: 50, lg: 20, md: 50, sm: 20));
-      @include rule(padding-top, (xl: 55px, xlg: 55, lg: 44, md: 23, sm: 29));
+      @include rule(padding-top, (xl: 118px, xlg: 118, lg: 118, md: 23, sm: 29));
       @include rule(padding-bottom, (xl: 80px, xlg: 80, lg: 80, md: 80, sm: 80));
 
-      @include native-scroll($nd-layout-scroll, transparent, 4, 7, 4);
+      @include native-scroll($nd-layout-scroll, transparent, 4, 4, 4);
     }
 
     #{$b}__column_end & {
-      @include rule(padding-top, (xl: 11px, xlg: 11, lg: 19, md: 116, sm: 0));
+      @include rule(padding-top, (xl: 71px, xlg: 71, lg: 79, md: 95, sm: 0));
       @include rule(padding-left, (xl: 50px, xlg: 50, lg: 30, md: 30, sm: 20));
       @include rule(padding-right, (xl: 50px, xlg: 50, lg: 25, md: 25, sm: 20));
 
       .map-in-fullview &, .is-map-animated-out & {
-        @include rule(padding-top, (xl: 118px, xlg: 118, lg: 122, md: 116, sm: 0));
         @include rule(padding-left, (xl: 25px, xlg: 25, lg: 30, md: 30, sm: 20));
         @include rule(padding-right, (xl: 25px, xlg: 25, lg: 25, md: 25, sm: 20));
+      }
+
+      .layout_static & {
+        @include rule(padding-top, (xl: 11px, xlg: 11, lg: 19, md: 116, sm: 0));
       }
     }
 
@@ -552,24 +466,30 @@
     }
 
     #{$b}__column_popup.layout__column_start_space & {
-      @include rule(padding-top, (xl: 20px, xlg: 20, lg: 14, md: 88, sm: 60));
+      @include rule(padding-top, (xl: 60px, xlg: 60, lg: 60, md: 60, sm: 60));
     }
 
     #{$b}__column_popup.layout__column_start_offer & {
-      @include rule(padding-top, (xl: 50px, xlg: 50, lg: 14, md: 18, sm: 60));
+      @include rule(padding-top, (xl: 60px, xlg: 60, lg: 60, md: 60, sm: 60));
       @include rule(padding-right, (xl: 50px, xlg: 50, lg: 50, md: 40, sm: 20));
+
+      .layout_static & {
+        @include rule(padding-top, (xl: 50px, xlg: 50, lg: 14, md: 18, sm: 60));
+      }
     }
   }
 
   &_static {
-    grid-template-rows: 0 calc(100vh - 94px);
+    grid-template-rows: calc(100vh - 94px);
+
+    @include rule(padding-top, (xl: 94px, xlg: 94, lg: 66, md: 66, sm: 0));
 
     @include screen("xlg", max, 2) {
-      grid-template-rows: 0 calc(100vh - (9400 / 1660) * 1vw);
+      grid-template-rows: calc(100vh - (9400 / 1660) * 1vw);
     }
 
     @include screen("lg", max, 2) {
-      grid-template-rows: 0 calc(100vh - (6600 / 1366) * 1vw);
+      grid-template-rows: calc(100vh - (6600 / 1366) * 1vw);
     }
 
     @include screen("md", max, 2) {
@@ -577,7 +497,7 @@
     }
 
     @include screen("sm", max, 2) {
-      grid-template-rows: 0 pxtovw(208, 375) auto;
+      grid-template-rows: pxtovw(208, 375) auto;
     }
 
     #{$b} {

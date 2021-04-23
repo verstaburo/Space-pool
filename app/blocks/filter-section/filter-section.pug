@@ -10,3 +10,10 @@ mixin filter-section(data)
     +e.item
       +modal-output({placeholder: 'Sort by'}).js-toggle-modal(data-modal-target="filter-sort" data-modal-output-type="sort" data-modal-user-panel="visible" class=(data.sortClass || ''))
     block
+
+mixin filter-section-header()
+  +b.filter-section&attributes(attributes)
+    +e.group
+      +nd-filter.__filter
+    +e.item
+      +modal-output({placeholder: 'Filter'})._special._filter._no-pl.js-toggle-modal(data-modal-target="filter-multi" data-modal-mode="default" data-modal-output-type="multi" data-modal-user-panel="visible")

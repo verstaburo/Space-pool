@@ -1461,7 +1461,13 @@
     overflow: hidden;
 
     &:not(:first-child) {
-      @include rule(margin-top, (xl: 25px, xlg: 25, lg: 25, md: 25, sm: 25));
+      @include rule(margin-top, (sm: 25));
+    }
+
+    .layout_static & {
+      &:not(:first-child) {
+        @include rule(margin-top, (xl: 25px, xlg: 25, lg: 25, md: 25, sm: 25));
+      }
     }
 
     &:not(:last-child) {

@@ -1,14 +1,16 @@
 mixin nd-search-map-v2(mapid, markersurl)
   +b.nd-search-map_v2&attributes(attributes)
     +e.wrapper
-      +e.BUTTON.button.js-map-toggle-fullview
-        span(data-map-hidden) Full map view
-        span(data-map-shown="xl") Close map view
-        span(data-map-shown="sm") View list
+      +map-button.__button.js-map-toggle-fullview
       +e.BUTTON.filter.js-map-filter-show Filters
       +e.map(id=(mapid || 'search-map') data-map-markers-url=markersurl)
     block
 
-mixin nd-search-map-button()
-  +b.BUTTON.js-search-map-show.nd-search-map-button__&attributes(attributes)(type="button") map
-    block
+
+mixin map-button(header)
+  +b.BUTTON.map-button&attributes(attributes)(type="button")
+    if header
+      span(data-map-shown="xl") Close map view
+    else
+      span(data-map-hidden) Full map view
+      span(data-map-shown="sm") View list

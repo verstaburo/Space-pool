@@ -1,12 +1,13 @@
-mixin offer-description()
+mixin offer-description(static)
   +b.offer-description&attributes(attributes)
-    +offer-description-panel().nd-hide-sm(data-offer-panel-indicator)
-      +e.BUTTON.close.js-layout-close(data-layout-close-target="offer" type="button")
-        +icon('arrow7').__back
-        +icon('cross').__cross
-      +e.buttons
-        +nd-button._pad10._black.__button.js-nd-arrange-viewing(href="#nd-popup-arrange-viewing" data-min-date="2021-15-4" data-max-date="2021-20-8") Arrange viewing
-        +nd-button._pad10.__button(href="#") Request reservation
+    if static
+      +offer-description-panel().nd-hide-sm(data-offer-panel-indicator)
+        +e.BUTTON.close.js-layout-close(data-layout-close-target="offer" type="button")
+          +icon('arrow7').__back
+          +icon('cross').__cross
+        +e.buttons
+          +nd-button._pad10._black.__button.js-nd-arrange-viewing(href="#nd-popup-arrange-viewing" data-min-date="2021-15-4" data-max-date="2021-20-8") Arrange viewing
+          +nd-button._pad10.__button(href="#") Request reservation
     +e.P.subtitle.nd-hide-from-sm
       SPAN.gray Space:
       SPAN House of Creative - 320 Angel

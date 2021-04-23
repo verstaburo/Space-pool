@@ -8,19 +8,17 @@ mixin layout-header(data)
         +icon('arrow5')
     +e.wrapper
       - var isListing = (data.type === 'list' && data.popup)
-      - var titleClass = isListing ? '_fz20' : ''
-      if data.type === 'space' || data.popup
+      if data.type === 'space'
         +e.describe
           +e.boxes
             +nd-box._orange.__box
             +nd-box._red.__box
             +nd-box._blue.__box
             +nd-box._green.__box
-          +e.title_main Canvas Dalston Lane
-          if isListing
-            +e.title(class=titleClass) Listings
-            +e.BUTTON.close.js-layout-close(data-layout-close-target=data.type type="button")
-              +icon('cross')
+          +e.title Canvas Dalston Lane
+      if isListing
+        +e.BUTTON.close.js-layout-close(data-layout-close-target=data.type type="button")
+          +icon('cross')
       if data.type === 'space'
         +nd-link-icon('share').__share Share
       if data.type === 'list'

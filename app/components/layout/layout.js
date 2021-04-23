@@ -76,7 +76,9 @@ export const layoutsMethods = {
         document.body.classList.remove('layout-offer-active');
         document.body.classList.add('is-layout-offer-out');
         $('.js-layout-show').removeClass('is-active');
-        window.mapData.resetActiveMarker('search-map');
+        if (document.getElementById('search-map')) {
+          window.mapData.resetActiveMarker('search-map');
+        }
         break;
       }
       default:

@@ -15,12 +15,13 @@ mixin nd-header(host)
 
 mixin nd-header-special(host)
   - var isAuthorized = authorized ? 'is-login' : '';
-  +b.HEADER.compensate-for-scrollbar.nd-header.header__._search&attributes(attributes)(class=isAuthorized)
+  +b.HEADER.nd-header.header__._search&attributes(attributes)(class=isAuthorized)
     +e.wrapper
-      +e.logo
+      +e.logo.nd-hide-sm
         +nd-logo-short()(href="/")
-      +nd-filter().__filter
-      +e.menu
+        +map-button(true)._cross.__map-button.js-map-toggle-fullview
+      +filter-section-header.__filter
+      +e.menu.nd-hide-sm
         +nd-short-profile-origin('assets/images/nd/user-avatar-1.jpg', '', 'a')._login.__profile(href="#")
         +e.burger
           +nd-burger-icon().js-open-navigation(data-menu-position="top")
