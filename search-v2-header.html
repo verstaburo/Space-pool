@@ -18,31 +18,50 @@
 </head>
 
 <body class="no-js-scale nd   is-nofooter">
-    <header class="compensate-for-scrollbar nd-header header header_search is-login">
+    <header class="nd-header header header_search is-login">
         <div class="header__wrapper">
-            <div class="header__logo"><a class="nd-logo nd-logo_short" href="/"><svg class="nd-logo__icon"><use xlink:href="assets/images/icon.svg#icon_logo-short"></use></svg></a></div>
-            <div class="nd-filter header__filter">
-                <div class="nd-filter__item"><a class="nd-filter__button nd-hide-from-sm" href="#"><svg class="nd-filter__icon nd-filter__icon_back js-layout-close-active"><use xlink:href="assets/images/icon.svg#icon_back-arrow"></use></svg></a><button class="nd-filter__button nd-hide-sm js-sr-filter-reset" type="reset" disabled="disabled" form="search-filter"><svg class="nd-filter__icon nd-filter__icon_cross"><use xlink:href="assets/images/icon.svg#icon_cross-bold"></use></svg><span>Clear filter</span></button></div>
-                <div class="nd-filter__item">
-                    <div class="modal-output modal-output_special modal-output_location js-toggle-modal" data-modal-target="filter-location" data-modal-output-type="city">
-                        <div class="modal-output__placeholder">Location</div>
-                        <div class="modal-output__values" data-modal-output-value="data-modal-output-value" data-sm-default-value="Anywhere"></div><button class="modal-output__toggle" type="button"><svg width="7" heigh="4"><use xlink:href="assets/images/icon.svg#icon_select-arrow2"></use></svg></button>
+            <div class="header__logo nd-hide-sm"><a class="nd-logo nd-logo_short" href="/"><svg class="nd-logo__icon"><use xlink:href="assets/images/icon.svg#icon_logo-short"></use></svg></a><button class="map-button map-button_cross header__map-button js-map-toggle-fullview" type="button"><span data-map-shown="xl">Close map view</span></button></div>
+            <div class="filter-section header__filter">
+                <div class="filter-section__group">
+                    <div class="nd-filter filter-section__filter">
+                        <div class="nd-filter__item nd-filter__item_back nd-hide-from-sm"><a class="nd-filter__button" href="#"><svg class="nd-filter__icon nd-filter__icon_back js-layout-close-active"><use xlink:href="assets/images/icon.svg#icon_back-arrow"></use></svg></a></div>
+                        <div class="nd-filter__item nd-filter__item_type">
+                            <div class="modal-output modal-output_special modal-output_type modal-output_notoggle js-toggle-modal" data-modal-target="filter-type" data-modal-output-type="offer">
+                                <div class="modal-output__content">
+                                    <div class="modal-output__placeholder">Office type</div>
+                                    <div class="modal-output__values" data-modal-output-value="data-modal-output-value" data-sm-default-value="Any"></div>
+                                </div><button class="modal-output__toggle" type="button"><svg width="7" heigh="4"><use xlink:href="assets/images/icon.svg#icon_select-arrow2"></use></svg></button>
+                            </div>
+                        </div>
+                        <div class="nd-filter__item nd-filter__item_team">
+                            <div class="modal-output modal-output_special modal-output_team modal-output_notoggle js-toggle-modal" data-modal-target="filter-team" data-modal-output-type="team">
+                                <div class="modal-output__content">
+                                    <div class="modal-output__placeholder">Team size</div>
+                                    <div class="modal-output__values" data-modal-output-value="data-modal-output-value" data-sm-default-value="Any"></div>
+                                </div><button class="modal-output__toggle" type="button"><svg width="7" heigh="4"><use xlink:href="assets/images/icon.svg#icon_select-arrow2"></use></svg></button>
+                            </div>
+                        </div>
+                        <div class="nd-filter__item nd-filter__item_location">
+                            <div class="modal-output modal-output_special modal-output_notoggle modal-output_location js-toggle-modal" data-modal-target="filter-location" data-modal-output-type="city">
+                                <div class="modal-output__content">
+                                    <div class="modal-output__placeholder">Location</div>
+                                    <div class="modal-output__values" data-modal-output-value="data-modal-output-value" data-sm-default-value="Anywhere"></div>
+                                </div><button class="modal-output__toggle" type="button"><svg width="7" heigh="4"><use xlink:href="assets/images/icon.svg#icon_select-arrow2"></use></svg></button>
+                            </div>
+                        </div>
+                        <div class="nd-filter__item nd-filter__item_submit nd-hide-sm"><button class="nd-button nd-button_icon nd-button_pad10 nd-filter__submit" type="submit"><span class="nd-button__bg"></span><svg class="nd-button__icon nd-button__icon_search"><use xlink:href="assets/images/icon.svg#icon_search"></use></svg></button></div>
                     </div>
                 </div>
-                <div class="nd-filter__item">
-                    <div class="modal-output modal-output_special modal-output_type js-toggle-modal" data-modal-target="filter-type" data-modal-output-type="offer">
-                        <div class="modal-output__placeholder">Office type</div>
-                        <div class="modal-output__values" data-modal-output-value="data-modal-output-value" data-sm-default-value="Any"></div><button class="modal-output__toggle" type="button"><svg width="7" heigh="4"><use xlink:href="assets/images/icon.svg#icon_select-arrow2"></use></svg></button>
-                    </div>
-                </div>
-                <div class="nd-filter__item nd-filter__item_team">
-                    <div class="modal-output modal-output_special modal-output_team js-toggle-modal" data-modal-target="filter-team" data-modal-output-type="team">
-                        <div class="modal-output__placeholder">Team size</div>
-                        <div class="modal-output__values" data-modal-output-value="data-modal-output-value" data-sm-default-value="Any"></div><button class="modal-output__toggle" type="button"><svg width="7" heigh="4"><use xlink:href="assets/images/icon.svg#icon_select-arrow2"></use></svg></button>
+                <div class="filter-section__item nd-hide-sm">
+                    <div class="modal-output modal-output_special modal-output_filter modal-output_no-icon js-toggle-modal" data-modal-target="filter-multi" data-modal-mode="default" data-modal-output-type="multi" data-modal-user-panel="visible">
+                        <div class="modal-output__content">
+                            <div class="modal-output__placeholder">Filter</div>
+                            <div class="modal-output__values" data-modal-output-value="data-modal-output-value"></div>
+                        </div><button class="modal-output__toggle" type="button"><svg width="7" heigh="4"><use xlink:href="assets/images/icon.svg#icon_select-arrow2"></use></svg></button>
                     </div>
                 </div>
             </div>
-            <div class="header__menu"><a class="short-profile short-profile_login header__profile" href="#">
+            <div class="header__menu nd-hide-sm"><a class="short-profile short-profile_login header__profile" href="#">
                     <div class="avatar avatar_small short-profile__avatar"><img class="avatar__image" src="assets/images/nd/user-avatar-1.jpg" alt="" role="presentation" /></div><span class="short-profile__name"></span>
                 </a>
                 <div class="header__burger"><button class="nd-burger js-open-navigation" data-menu-position="top">
@@ -195,11 +214,11 @@
             </a></div>
         <div class="nd-info-notices__bottom"><a class="nd-link nd-link_icon nd-link_icon_reverse nd-info-notices__link" href="#"><svg class="nd-link__icon nd-link__icon_arrow2"><use xlink:href="assets/images/icon.svg#icon_arrow2"></use></svg><span class="nd-link__text">Read all messages</span></a></div>
     </div>
-    <main class="nd-page nd-page_nopad nd-page_header-search" role="main">
-        <section class="layout layout_search-header">
+    <main class="nd-page nd-page_nopad" role="main">
+        <section class="layout">
             <div class="layout__column layout__column_map js-map-sm-show-fullview">
                 <div class="nd-search-map nd-search-map_v2">
-                    <div class="nd-search-map__wrapper"><button class="nd-search-map__button js-map-toggle-fullview"><span data-map-hidden="data-map-hidden">Full map view</span><span data-map-shown="xl">Close map view</span><span data-map-shown="sm">View list</span></button><button class="nd-search-map__filter js-map-filter-show">Filters</button>
+                    <div class="nd-search-map__wrapper"><button class="map-button nd-search-map__button js-map-toggle-fullview" type="button"><span data-map-hidden="data-map-hidden">Full map view</span><span data-map-shown="sm">View list</span></button><button class="nd-search-map__filter js-map-filter-show">Filters</button>
                         <div class="nd-search-map__map" id="search-map" data-map-markers-url="assets/data/space-markers.json"></div>
                     </div>
                 </div>
@@ -209,37 +228,7 @@
                     <section class="nd-section md-only-visibility-hidden">
                         <div class="nd-section__header">
                             <h3 class="nd-section__title nd-section__title_fz30 nd-section__title_sm-fz22 nd-section__title_ls-015">Office spaces in London</h3>
-                            <div class="nd-section__filter-group">
-                                <div class="nd-section__text nd-section__text_fz15 nd-section__text_ls0 nd-section__text_gray">Looking for workspace type, Any team size and Any price</div>
-                                <div class="filter-section" form="search-filter">
-                                    <div class="filter-section__group nd-hide-sm">
-                                        <div class="filter-section__item">
-                                            <div class="modal-output js-toggle-modal" data-modal-target="filter-range" data-modal-output-type="range" data-modal-user-panel="visible">
-                                                <div class="modal-output__placeholder">Price range</div>
-                                                <div class="modal-output__values" data-modal-output-value="data-modal-output-value"></div><button class="modal-output__toggle" type="button"><svg width="7" heigh="4"><use xlink:href="assets/images/icon.svg#icon_select-arrow2"></use></svg></button>
-                                            </div>
-                                        </div>
-                                        <div class="filter-section__item">
-                                            <div class="modal-output js-toggle-modal" data-modal-target="filter-available" data-modal-output-type="available" data-modal-user-panel="visible">
-                                                <div class="modal-output__placeholder">Available from</div>
-                                                <div class="modal-output__values" data-modal-output-value="data-modal-output-value"></div><button class="modal-output__toggle" type="button"><svg width="7" heigh="4"><use xlink:href="assets/images/icon.svg#icon_select-arrow2"></use></svg></button>
-                                            </div>
-                                        </div>
-                                        <div class="filter-section__item">
-                                            <div class="modal-output js-toggle-modal" data-modal-target="filter-area" data-modal-output-type="area-size" data-modal-user-panel="visible">
-                                                <div class="modal-output__placeholder">Total floor area</div>
-                                                <div class="modal-output__values" data-modal-output-value="data-modal-output-value"></div><button class="modal-output__toggle" type="button"><svg width="7" heigh="4"><use xlink:href="assets/images/icon.svg#icon_select-arrow2"></use></svg></button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="filter-section__item">
-                                        <div class="modal-output js-toggle-modal" data-modal-target="filter-sort" data-modal-output-type="sort" data-modal-user-panel="visible">
-                                            <div class="modal-output__placeholder">Sort by</div>
-                                            <div class="modal-output__values" data-modal-output-value="data-modal-output-value"></div><button class="modal-output__toggle" type="button"><svg width="7" heigh="4"><use xlink:href="assets/images/icon.svg#icon_select-arrow2"></use></svg></button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                            <div class="nd-section__text nd-section__text_fz15 nd-section__text_ls0 nd-section__text_gray">Looking for workspace type, Any team size and Any price</div>
                         </div>
                     </section>
                     <div class="nd-results nd-results_v2">
@@ -1600,7 +1589,7 @@
                                 <div class="nd-box nd-box_blue layout-header__box"></div>
                                 <div class="nd-box nd-box_green layout-header__box"></div>
                             </div>
-                            <div class="layout-header__title layout-header__title_main">Canvas Dalston Lane</div>
+                            <div class="layout-header__title">Canvas Dalston Lane</div>
                         </div><a class="nd-link nd-link_icon layout-header__share"><svg class="nd-link__icon nd-link__icon_share"><use xlink:href="assets/images/icon.svg#icon_share"></use></svg><span class="nd-link__text">Share</span></a>
                     </div>
                 </div>
@@ -2041,17 +2030,7 @@
             </div>
             <div class="layout__column layout__column_end layout__column_popup" data-layout="list,space">
                 <div class="layout-header layout-header_sort layout-header_popup">
-                    <div class="layout-header__wrapper">
-                        <div class="layout-header__describe">
-                            <div class="layout-header__boxes">
-                                <div class="nd-box nd-box_orange layout-header__box"></div>
-                                <div class="nd-box nd-box_red layout-header__box"></div>
-                                <div class="nd-box nd-box_blue layout-header__box"></div>
-                                <div class="nd-box nd-box_green layout-header__box"></div>
-                            </div>
-                            <div class="layout-header__title layout-header__title_main">Canvas Dalston Lane</div>
-                            <div class="layout-header__title layout-header__title_fz20">Listings</div><button class="layout-header__close js-layout-close" data-layout-close-target="list" type="button"><svg><use xlink:href="assets/images/icon.svg#icon_cross"></use></svg></button>
-                        </div>
+                    <div class="layout-header__wrapper"><button class="layout-header__close js-layout-close" data-layout-close-target="list" type="button"><svg><use xlink:href="assets/images/icon.svg#icon_cross"></use></svg></button>
                         <div class="drop-navigation drop-navigation_md drop-navigation_rounded layout-header__select js-offer-select">
                             <div class="drop-navigation__head" data-head="data-head">
                                 <div class="drop-navigation__label" data-label="data-label"></div>
@@ -2310,9 +2289,6 @@
             <div class="layout__column layout__column_start layout__column_start_offer layout__column_popup" data-layout="offer">
                 <div class="layout__wrapper">
                     <div class="offer-description">
-                        <div class="offer-description-panel nd-hide-sm" data-offer-panel-indicator="data-offer-panel-indicator"><button class="offer-description-panel__close js-layout-close" data-layout-close-target="offer" type="button"><svg class="offer-description-panel__back"><use xlink:href="assets/images/icon.svg#icon_arrow7"></use></svg><svg class="offer-description-panel__cross"><use xlink:href="assets/images/icon.svg#icon_cross"></use></svg></button>
-                            <div class="offer-description-panel__buttons"><a class="nd-button nd-button_pad10 nd-button_black offer-description-panel__button js-nd-arrange-viewing" href="#nd-popup-arrange-viewing" data-min-date="2021-15-4" data-max-date="2021-20-8"><span class="nd-button__bg"></span><span class="nd-button__text">Arrange viewing</span></a><a class="nd-button nd-button_pad10 offer-description-panel__button" href="#"><span class="nd-button__bg"></span><span class="nd-button__text">Request reservation</span></a></div>
-                        </div>
                         <p class="offer-description__subtitle nd-hide-from-sm"><SPAN class="gray">Space:</SPAN><SPAN>House of Creative - 320 Angel</SPAN></p>
                         <div class="offer-description__media">
                             <picture class="offer-description__media-image">
@@ -2428,14 +2404,14 @@
                 </div>
             </fieldset>
             <fieldset class="modals__fieldset">
-                <div class="modal" id="filter-range">
+                <div class="modal" id="filter-multi">
                     <div class="modal__overlay js-close-modal"></div>
                     <div class="modal__wrapper">
                         <div class="modal__header nd-hide-from-sm"><button class="modal__close js-close-modal" type="button">Close</button>
-                            <div class="modal__title">Price range</div>
+                            <div class="modal__title">Filter</div>
                         </div>
                         <div class="modal__content">
-                            <div class="nd-range js-nd-range modal__range" data-start="[0, 5000]" data-connect="[false, true, false]" data-step="10" data-margin="30" data-min="0" data-max="10000" data-currency="£" data-modal-item="data-modal-item" data-modal-item-type="range">
+                            <div class="nd-range js-nd-range modal__range" data-start="[0, 5000]" data-connect="[false, true, false]" data-step="10" data-margin="30" data-min="0" data-max="10000" data-currency="£" data-modal-item="data-modal-item" data-modal-item-type="multi">
                                 <div class="nd-range__slider" data-nd-range-container="data-nd-range-container"></div>
                                 <div class="nd-range__output" data-nd-range-output="data-nd-range-output">
                                     <div class="nd-range__item"><label class="form-box nd-form-box nd-form-box_bg-white nd-form-box_sm-h50"><input class="nd-input nd-input_sm-h50" type="text" name="minPrice" placeholder="Min" data-nd-range-input-min="data-nd-range-input-min" /><span class="form-box__label">Min</span></label></div>
@@ -2444,24 +2420,6 @@
                             </div>
                         </div>
                         <div class="modal__footer modal__footer_range"><button class="nd-button nd-button_black nd-button_pad10 modal__reset js-modal-reset-value" type="reset"><span class="nd-button__bg"></span><span class="nd-button__text">Clear</span></button><button class="nd-button nd-button_pad10 modal__setter js-modal-set-value" type="button"><span class="nd-button__bg"></span><span class="nd-button__text">Set filter</span></button></div>
-                    </div>
-                </div>
-                <div class="modal" id="filter-available">
-                    <div class="modal__overlay js-close-modal"></div>
-                    <div class="modal__wrapper">
-                        <div class="modal__header nd-hide-from-sm"><button class="modal__close js-close-modal" type="button">Close</button>
-                            <div class="modal__title">Available from</div>
-                        </div>
-                        <div class="modal__content"></div>
-                    </div>
-                </div>
-                <div class="modal" id="filter-area">
-                    <div class="modal__overlay js-close-modal"></div>
-                    <div class="modal__wrapper">
-                        <div class="modal__header nd-hide-from-sm"><button class="modal__close js-close-modal" type="button">Close</button>
-                            <div class="modal__title">Total floor area</div>
-                        </div>
-                        <div class="modal__content"></div>
                     </div>
                 </div>
                 <div class="modal" id="filter-sort">
