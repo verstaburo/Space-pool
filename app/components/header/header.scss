@@ -282,22 +282,47 @@
 
     background-color: transparent;
     pointer-events: none;
+    overflow: visible;
 
     @include screen('sm', max, 2) {
       background-color: $nd-color-basic-light;
+      box-shadow: boxShadow(0, 2, 2, 0,rgba(0, 0, 0, 0.06), 375);
+      overflow: hidden;
     }
 
     #{$b} {
       &__wrapper {
         position: relative;
-        display: flex;
-        justify-content: flex-start;
+        display: grid;
+        grid-template-columns: auto 1fr 41.51%;
+        grid-template-rows: auto;
+        // display: flex;
+        // justify-content: flex-start;
         border-bottom: none;
         box-sizing: border-box;
         top: auto;
         left: auto;
+        overflow: visible;
 
         @include rule(height, (xl: 46px, xlg: 46, lg: 46, md: 46, sm: 60));
+
+        @include screen('lg', max, 2) {
+          grid-template-columns: auto 1fr 47.07%;
+          grid-template-rows: auto;
+        }
+
+        @include screen('md', max, 2) {
+          grid-template-columns: auto 1fr auto;
+          grid-template-rows: auto;
+        }
+
+        @include screen('sm', max, 2) {
+          grid-template-columns: 100%;
+          grid-template-rows: auto;
+          display: flex;
+          justify-content: flex-start;
+          overflow: hidden;
+        }
 
         &::before {
           display: none;
@@ -311,20 +336,22 @@
         margin-right: 0;
         height: 100%;
         flex: none;
-        width: 150px;
+        min-width: 150px;
         box-sizing: border-box;
         padding: 0 22px;
         pointer-events: auto;
+        grid-column: 1 / 2;
+        grid-row: 1 / 2;
 
         @include screen('xl', max, 2) {
-          width: 60px;
+          min-width: 92px;
           padding: 0 11px;
         }
 
         @include rule(padding-left, (xlg: 11
         , lg: 6, md: 6, sm: 0));
         @include rule(padding-right, (xlg: 11, lg: 6, md: 6, sm: 0));
-        @include rule(width, (xlg: 60, lg: 50, md: 50));
+        @include rule(min-width, (xlg: 92, lg: 82, md: 82));
 
         @include screen('sm', max, 2) {
           display: none;
@@ -334,6 +361,16 @@
       &__filter {
         height: 100%;
         pointer-events: auto;
+        grid-column: 2 / 3;
+        grid-row: 1 / 2;
+        box-sizing: border-box;
+
+        @include screen('sm', max, 2) {
+          grid-column: 1 / 2;
+          width: 100%;
+        }
+
+        @include rule(padding-right, (xl: 50px, xlg: 50, lg: 20, md: 0));
       }
 
       &__menu {
@@ -345,18 +382,82 @@
         box-sizing: border-box;
         background-color: $nd-color-basic-light;
         pointer-events: auto;
+        margin-right: 60px;
+        box-shadow: boxShadow(0, 3.2, 7.69511, 0,rgba(0, 0, 0, 0.1), false);
+        grid-column: 3 / 4;
+        grid-row: 1 / 2;
 
+        @include screen('xl', max, 2) {
+          margin-right: 27px;
+        }
+
+        @include rule(margin-right, (xlg: 27, lg: 22, md: 22, sm: 0));
         @include rule(border-radius, (xl: 35px, xlg: 35, lg: 35, md: 35, sm: 0));
         @include rule(padding-left, (xl: 6px, xlg: 6, lg: 6, md: 6, sm: 0));
         @include rule(padding-right, (xl: 22px, xlg: 22, lg: 22, md: 22, sm: 0));
 
+        @include screen('xlg', max, 2) {
+          box-shadow: boxShadow(0, 3.2, 7.69511, 0, rgba(0, 0, 0, 0.1), 1660);
+        }
+
+        @include screen('lg', max, 2) {
+          box-shadow: boxShadow(0, 3.2, 7.69511, 0, rgba(0, 0, 0, 0.1), 1366);
+        }
+
         @include screen('md', max, 2) {
+          box-shadow: boxShadow(0, 3.2, 7.69511, 0, rgba(0, 0, 0, 0.1), 960);
+        }
+
+        @include screen('sm', max, 2) {
           display: none;
+          box-shadow: 0 0 0 0 transparent;
         }
       }
 
       &__burger {
         @include rule(margin-left, (xl: 11px, xlg: 11, lg: 11, md: 11));
+      }
+    }
+
+    .nd-logo {
+      display: block;
+      position: relative;
+
+      .map-in-fullview &, .is-map-animated-out & {
+        display: none;
+      }
+
+      &__icon {
+        position: relative;
+        z-index: 1;
+      }
+
+      &::before {
+        @include screen('md', max, 2) {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          content: '';
+          display: block;
+          transform: translate3d(-50%, -50%, 0);
+          height: pxtovw(46, 960);
+          width: calc(100% + (1000 / 960)*1vw);
+          background-color: $nd-color-basic-light;
+          z-index: 0;
+          border-radius: pxtovw(35, 960);
+        }
+
+        @include screen('sm', max, 2) {
+          display: none
+        }
+      }
+    }
+
+    .map-button {
+      display: none;
+
+      .map-in-fullview &, .is-map-animated-out & {
+        display: block;
       }
     }
   }

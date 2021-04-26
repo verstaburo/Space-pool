@@ -45,7 +45,7 @@ export default function srMapToggle() {
   });
 
   $(document).on('touchstart', '.js-map-sm-show-fullview', () => {
-    if (!mapMethods.isActive() && window.Modernizr.mq(`(max-width: ${bp.sm - 1}px)`)) {
+    if (!mapMethods.isActive() && window.Modernizr.mq(`(max-width: ${bp.md - 1}px)`)) {
       mapMethods.open();
     }
   });

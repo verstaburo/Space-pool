@@ -4,34 +4,124 @@
   display: flex;
   align-items: stretch;
   justify-content: flex-start;
+  background-color: $nd-color-basic-light;
+  box-shadow: boxShadow(0, 3.2, 7.69511, 0, rgba(0, 0, 0, 0.1), false);
+
+  @include rule(border-radius, (xl: 35px, xlg: 35, lg: 35, md: 35, sm: 0));
+
+  @include screen('xlg', max, 2) {
+    box-shadow: boxShadow(0, 3.2, 7.69511, 0, rgba(0, 0, 0, 0.1), 1660);
+  }
+
+  @include screen('lg', max, 2) {
+    box-shadow: boxShadow(0, 3.2, 7.69511, 0, rgba(0, 0, 0, 0.1), 1366);
+  }
+
+  @include screen('md', max, 2) {
+    box-shadow: boxShadow(0, 3.2, 7.69511, 0, rgba(0, 0, 0, 0.1), 960);
+  }
+
+  @include screen('sm', max, 2) {
+    box-shadow: 0 0 0 0 transparent;
+    width: 100%;
+  }
 
   &__item {
+    position: relative;
     display: flex;
-    border-right: 1px solid $nd-color-border4;
-    flex: none;
+    justify-content: center;
+    align-items: center;
+    transition: box-shadow $ease-main;
 
-    &:first-child {
-      border-left: 1px solid $nd-color-border4;
-
+    &:not(:first-child) {
       @include screen('sm', max, 2) {
-        border-left-width: 0;
+        border-left: 1px solid $nd-color-border6;
       }
     }
 
-    &:last-child {
-      @include screen('sm', max, 2) {
-        border-right-width: 0;
+    &:hover {
+      @include screen('sm', min, 2) {
+        box-shadow: 1px 0 0 0 $nd-color-basic-light;
+        z-index: 1;
+      }
+
+      &::before {
+        opacity: 0;
       }
     }
 
-    &:nth-child(2) {
-      flex: 1;
+    &_location {
+      padding-left: 1px;
 
-      @include rule(max-width, (xl: 337px, xlg: 337, lg: 337, md: 337, sm: 337));
+      &::before {
+        @include pseudo;
+        @include rule(height, (xl: 34px, xlg: 34, lg: 34, md: 34, sm: 0));
+
+        width: 1px;
+        left: 0;
+        top: 50%;
+        transition: opacity $ease-main;
+        transform: translate3d(0, -50%, 0);
+        background-color: $nd-color-border7;
+
+        @include screen('sm', max, 2) {
+          display: none;
+        }
+      }
+
+      @include screen('sm', max, 2) {
+        padding-left: 0;
+        order: 4;
+        flex: 1;
+      }
     }
 
-    @include screen('sm', max, 2) {
-      border-color: $nd-color-border6;
+    &_type {
+      @include screen('sm', max, 2) {
+        order: 5;
+        flex: none;
+        width: pxtovw(110, 375);
+      }
+    }
+
+    &_team {
+      padding-left: 1px;
+
+      &::before {
+        @include pseudo;
+        @include rule(height, (xl: 34px, xlg: 34, lg: 34, md: 34, sm: 0));
+
+        width: 1px;
+        left: 0;
+        top: 50%;
+        transform: translate3d(0, -50%, 0);
+        background-color: $nd-color-border7;
+        z-index: 1;
+      }
+
+      @include screen('sm', max, 2) {
+        padding-left: 0;
+        order: 6;
+        width: pxtovw(88, 375);
+        flex: none;
+      }
+    }
+
+    &_submit {
+      opacity: 0;
+      overflow: hidden;
+      width: 0;
+      flex: none;
+      box-sizing: border-box;
+      transition: width $ease-main, opacity $ease-main, padding $ease-main;
+
+      #{$b}:hover & {
+        @include rule(padding-right, (xl: 6px, xlg: 6, lg: 6, md: 6, sm: 0));
+        @include rule(width, (xl: 66px, xlg: 66, lg: 66, md: 66, sm: 66));
+
+        padding-left: 2px;
+        opacity: 1;
+      }
     }
   }
 
@@ -39,21 +129,14 @@
     @include rule(padding-left, (xl: 13px, xlg: 13, lg: 13, md: 13, sm: 13));
     @include rule(padding-right, (xl: 13px, xlg: 13, lg: 13, md: 13, sm: 13));
     @include rule(font-size, (xl: 15px, xlg: 15, lg: 15, md: 15, sm: 15));
-    @include rule(width, (xl: 124px, xlg: 124, lg: 124, md: 124, sm: 40));
+    @include rule(width, (xl: 40px, xlg: 40, lg: 40, md: 40, sm: 40));
 
     display: flex;
     justify-content: flex-start;
-    color: $nd-color-basic;
+    color: $nd-color-basic-light;
     font-weight: 600;
     height: 100%;
     box-sizing: border-box;
-
-    &[disabled], &.is-disabled {
-      cursor: default;
-      cursor: not-allowed;
-      color: $nd-color-border6;
-      pointer-events: none;
-    }
 
     span {
       height: 100%;
@@ -61,6 +144,30 @@
       justify-content: center;
       align-items: center;
       text-align: center;
+    }
+  }
+
+  &__submit {
+    @include rule(height, (xl: 34px, xlg: 34, lg: 34, md: 34, sm: 34));
+
+    width: 100%;
+    font-size: 0;
+    line-height: 0;
+
+    .button__text {
+      display: none;
+    }
+
+    .button__icon {
+      margin: 0;
+
+      &:not(:last-child) {
+        margin: 0;
+      }
+
+      &:not(:first-child) {
+        margin: 0;
+      }
     }
   }
 
@@ -74,8 +181,10 @@
     // @include rule(height, (xl: 15px, xlg: 15, lg: 15, md: 15, sm: 15));
 
     &_back {
+      fill: $nd-color-basic;
+
       @include rule(width, (xl: 15px, xlg: 15, lg: 15, md: 15, sm: 15));
-      // @include rule(height, (xl: 15px, xlg: 15, lg: 15, md: 15, sm: 15));
+      @include rule(height, (sm: 60));
     }
 
     &_cross {
@@ -85,22 +194,6 @@
 
     &:not(:last-child) {
       @include rule(margin-right, (xl: 12px, xlg: 12, lg: 12, md: 12, sm: 12));
-    }
-  }
-
-  .modal-output {
-    height: 100%;
-
-    &_location {
-      width: 100%;
-    }
-
-    &_type {
-      @include rule(width, (xl: 216px, xlg: 216, lg: 216, md: 216, sm: 110))
-    }
-
-    &_team {
-      @include rule(width, (xl: 180px, xlg: 180, lg: 180, md: 180, sm: 89))
     }
   }
 }

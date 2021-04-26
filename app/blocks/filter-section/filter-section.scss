@@ -5,8 +5,12 @@
   justify-content: space-between;
   align-items: center;
 
-  .modal-output {
-    @include rule(min-width, (xl: 145px, xlg: 145, lg: 130, md: 130, sm: 127));
+  @include screen('md', max, 2) {
+    justify-content: flex-start;
+  }
+
+  .map-in-fullview & {
+    justify-content: flex-start;
   }
 
   &__group {
@@ -14,16 +18,36 @@
     justify-content: flex-start;
     align-items: center;
 
-    &:not(:last-child) {
-      @include rule(margin-right, (xl: 16px, xlg: 16, lg: 16, md: 16, sm: 16));
+    @include screen('sm', max, 2) {
+      width: 100%;
     }
 
-    .modal-output {
-      @include rule(min-width, (xl: 170px, xlg: 170, lg: 120, md: 120, sm: 120));
+    &:not(:last-child) {
+      @include rule(margin-right, (xl: 27px, xlg: 27, lg: 15, md: 15, sm: 0));
     }
   }
 
   &__item {
+    .modal-output {
+      box-shadow: boxShadow(0, 3.2, 7.69511, 0, rgba(0, 0, 0, 0.1), false);
+
+      @include screen('xlg', max, 2) {
+        box-shadow: boxShadow(0, 3.2, 7.69511, 0, rgba(0, 0, 0, 0.1), 1660);
+      }
+
+      @include screen('lg', max, 2) {
+        box-shadow: boxShadow(0, 3.2, 7.69511, 0, rgba(0, 0, 0, 0.1), 1366);
+      }
+
+      @include screen('md', max, 2) {
+        box-shadow: boxShadow(0, 3.2, 7.69511, 0, rgba(0, 0, 0, 0.1), 960);
+      }
+
+      @include screen('sm', max, 2) {
+        box-shadow: 0 0 0 0 transparent;
+      }
+    }
+
     &:not(:last-child) {
       @include rule(margin-right, (xl: 16px, xlg: 16, lg: 16, md: 16, sm: 16));
     }

@@ -5,14 +5,17 @@
   background-color: $nd-color-basic-light;
   color: $nd-color-basic;
   font-weight: 700;
-  transition: opacity $ease-main;
+  transition: opacity $ease-main, width $ease-main, padding $ease-main;
   box-shadow: boxShadow(0, 3.2, 7.7, 0, rgba(0, 0, 0, 0.1));
+  white-space: nowrap;
+  overflow: hidden;
 
   @include rule(border-radius, (xl: 35px, xlg: 35, lg: 35, md: 35, sm: 35));
   @include rule(padding-left, (xl: 26px, xlg: 26, lg: 26, md: 26, sm: 28));
   @include rule(padding-right, (xl: 23px, xlg:23, lg: 23, md: 23, sm: 28));
   @include rule(font-size, (xl: 18px, xlg: 18, lg: 18, md: 18, sm: 16));
   @include rule(height, (xl: 46px, xlg: 46, lg: 46, md: 46, sm: 40));
+  @include rule(width, (xl: 70px, xlg: 70, lg: 70, md: 70));
 
   @include screen('xlg', max, 2) {
     box-shadow: boxShadow(0, 3.2, 7.7, 0, rgba(0, 0, 0, 0.1), 1660);
@@ -28,6 +31,30 @@
 
   @include screen('sm', max, 2) {
     box-shadow: boxShadow(1, 3, 11, 0, rgba(0, 0, 0, 0.25), 375);
+    width: auto;
+  }
+
+  &::before {
+    @include rule(width, (xl: 20px, xlg: 20, lg: 20, md: 20, sm: 20));
+    @include rule(background-size, (xl: 20px, xlg: 20, lg: 16, md: 20, sm: 20));
+    @include rule(margin-right, (xl: 10px, xlg: 10, lg: 10, md: 10, sm: 10));
+
+    display: inline-block;
+    content: '';
+    height: 100%;
+    background-image: $icon-map-blue;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    vertical-align: top;
+
+    @include screen('sm', max, 2) {
+      display: none;
+    }
+  }
+
+  &_cross::before {
+    @include rule(background-size, (xl: 12px, xlg: 12, lg: 12, md: 10, sm: 10));
+    background-image: $icon-bold-cross-blue;
   }
 
   span {
@@ -35,32 +62,27 @@
     justify-content: center;
     align-items: center;
     height: 100%;
+    vertical-align: top;
 
-    &::before {
-      @include rule(width, (xl: 20px, xlg: 20, lg: 20, md: 20, sm: 20));
-      @include rule(background-size, (xl: 20px, xlg: 20, lg: 16, md: 20, sm: 20));
-      @include rule(margin-right, (xl: 10px, xlg: 10, lg: 10, md: 10, sm: 10));
+    @include screen('sm', min, 2) {
+      opacity: 0;
+    }
+  }
 
-      display: inline-block;
-      content: '';
-      top: 0;
-      left: 0;
-      height: 100%;
-      background-image: $icon-map-blue;
-      background-repeat: no-repeat;
-      background-position: 50% 50%;
-
-      @include screen('sm', max, 2) {
-        display: none;
-      }
+  &:hover {
+    @include screen('sm', min, 2) {
+      @include rule(width, (xl: 190px, xlg: 190, lg: 190, md: 190));
     }
 
-    #{$b}_cross & {
-      &::before {
-        @include rule(background-size, (xl: 12px, xlg: 12, lg: 12, md: 10, sm: 10));
-        background-image: $icon-bold-cross-blue;
+    span {
+      @include screen('sm', min, 2) {
+        opacity: 1;
       }
     }
+  }
+
+  &_cross:hover {
+    @include rule(padding-left, (xl: 18px, xlg: 18, lg: 18, md: 18, sm: 28));
   }
 
   [data-map-hidden] {

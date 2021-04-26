@@ -8,3 +8,15 @@ mixin modal-output(data)
     +e.BUTTON.toggle(type="button")
       +icon('select-arrow2')(width="7" heigh="4")
     block
+
+mixin modal-output-special(data)
+  +b.modal-output_special&attributes(attributes)
+    +e.content
+      +e.placeholder!=data.placeholder
+      if data.default
+        +e.values(data-modal-output-value data-sm-default-value=data.default)
+      else
+        +e.values(data-modal-output-value)
+    +e.BUTTON.toggle(type="button")
+      +icon('select-arrow2')(width="7" heigh="4")
+    block

@@ -53,71 +53,6 @@
     #{$b}.is-selected & {
       display: none;
     }
-
-    #{$b}_special & {
-      display: flex;
-      align-items: center;
-      color: $nd-modal-output-placeholder;
-      letter-spacing: -.015em;
-      font-family: $font-stolzl;
-
-      @include rule(font-size, (xl: 15px, xlg: 15, lg: 13, md: 13, sm: 12));
-      @include rule(margin-left, (sm: -4));
-
-      @include screen('sm', max, 2) {
-        font-family: $font-main;
-        color: $nd-color-gray-text;
-        letter-spacing: -.02em;
-        width: calc(100% + (400 / 375) * 1vw);
-      }
-
-      &::before {
-        display: inline-block;
-        content: '';
-        background-position: 50% 50%;
-        background-repeat: no-repeat;
-        background-size: contain;
-
-        @include rule(margin-right, (xl: 9px, xlg: 9, lg: 9, md: 9, sm: 5));
-      }
-    }
-
-    #{$b}_special.is-selected & {
-      @include screen('sm', max, 2) {
-        display: block;
-      }
-    }
-
-    #{$b}_location & {
-      &::before {
-        @include rule(width, (xl: 9px, xlg: 9, lg: 9, md: 9, sm: 9));
-        @include rule(height, (xl: 12px, xlg: 12, lg: 12, md: 12, sm: 12));
-
-        background-image: $icon-location;
-
-        @include screen('sm', min, 2) {
-          display: none;
-        }
-      }
-    }
-
-    #{$b}_team & {
-      &::before {
-        @include rule(width, (xl: 26px, xlg: 26, lg: 26, md: 26, sm: 17));
-        @include rule(height, (xl: 14px, xlg: 14, lg: 14, md: 14, sm: 9));
-
-        background-image: $icon-team;
-      }
-    }
-
-    #{$b}_type & {
-      &::before {
-        @include rule(width, (xl: 17px, xlg: 17, lg: 17, md: 17, sm: 11));
-        @include rule(height, (xl: 17px, xlg: 17, lg: 17, md: 17, sm: 11));
-
-        background-image: $icon-type2;
-      }
-    }
   }
 
   &__values {
@@ -131,64 +66,44 @@
       display: block;
     }
 
-    #{$b}_special & {
-      font-family: $font-stolzl;
-      letter-spacing: -.015em;
-
-      @include rule(font-size, (xl: 15px, xlg: 15, lg: 13, md: 13, sm: 12));
-
-      @include screen('sm', max, 2) {
-        display: block;
-      }
-    }
-
-    #{$b}_special:not(.is-selected) & {
-      &::before {
-        @include screen('sm', max, 2) {
-          display: block;
-          content: attr(data-sm-default-value);
-        }
-      }
-    }
-
     span {
       display: flex;
       justify-content: flex-start;
       align-items: center;
 
-      &::before {
-        display: inline-block;
-        content: '';
-        font-size: 0;
-        line-height: 0;
-        flex: none;
-        transform-origin: 50% 50%;
-        transform: rotate(45deg);
+      // &::before {
+      //   display: inline-block;
+      //   content: '';
+      //   font-size: 0;
+      //   line-height: 0;
+      //   flex: none;
+      //   transform-origin: 50% 50%;
+      //   transform: rotate(45deg);
 
-        @include rule(width, (xl: 12px, xlg: 12, lg: 9, md: 9, sm: 0));
-        @include rule(height, (xl: 12px, xlg: 12, lg: 9, md: 9, sm: 0));
-        @include rule(margin-right, (xl: 10px, xlg: 10, lg: 13, md: 13, sm: 0));
+      //   @include rule(width, (xl: 12px, xlg: 12, lg: 9, md: 9, sm: 0));
+      //   @include rule(height, (xl: 12px, xlg: 12, lg: 9, md: 9, sm: 0));
+      //   @include rule(margin-right, (xl: 10px, xlg: 10, lg: 13, md: 13, sm: 0));
 
-        @include screen('sm', max, 2) {
-          display: none;
-        }
-      }
+      //   @include screen('sm', max, 2) {
+      //     display: none;
+      //   }
+      // }
 
-      &.is-green::before {
-        background-color: $nd-color-privateoffice;
-      }
+      // &.is-green::before {
+      //   background-color: $nd-color-privateoffice;
+      // }
 
-      &.is-red::before {
-        background-color: $nd-color-fixeddesk;
-      }
+      // &.is-red::before {
+      //   background-color: $nd-color-fixeddesk;
+      // }
 
-      &.is-orange::before {
-        background-color: $nd-color-hotdesk;
-      }
+      // &.is-orange::before {
+      //   background-color: $nd-color-hotdesk;
+      // }
 
-      &.is-blue::before {
-        background-color: $nd-color-meetingroom;
-      }
+      // &.is-blue::before {
+      //   background-color: $nd-color-meetingroom;
+      // }
     }
   }
 
@@ -215,78 +130,245 @@
       flex: none;
     }
 
-    #{$b}_special & {
-      @include rule(width, (xl: 47px, xlg: 47, lg: 47, md: 40, sm: 30));
-
-      @include screen('sm', max, 2) {
-        display: none;
-      }
-    }
-
     #{$b}.is-opened & {
       transform: rotate(180deg);
     }
   }
 
   &_special {
-    @include rule(padding-left, (xl: 18px, xlg: 18, lg: 18, md: 18, sm: 13));
+    @include rule(padding-left, (xl: 13px, xlg: 13, lg: 13, md: 13, sm: 13));
     @include rule(padding-right, (xl: 35px, xlg: 35, lg: 35, md: 35, sm: 5));
-    @include rule(padding-bottom, (sm: 8));
+    @include rule(padding-top, (xl: 5px, xlg: 5, lg: 5, md: 5, sm: 5));
+    @include rule(padding-bottom, (xl: 5px, xlg: 5, lg: 5, md: 5, sm: 8));
+    @include rule(height, (xl: 46px, xlg: 46, lg: 46, md: 46, sm: 60));
+    @include rule(width, (xl: 158px, xlg: 158, lg: 150, md: 150));
 
-    transition: none;
+    transition: background $ease-main;
     border: none;
-    height: auto;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    background-color: $nd-color-basic-light;
 
     @include screen('sm', max, 2) {
-      align-content: space-between;
-      flex-wrap: wrap;
+      width: 100%;
     }
 
-    &::before {
-      @include pseudo;
-
-      top: -1px;
-      left: -1px;
-      right: -1px;
-      bottom: -1px;
-      border: 1px solid transparent;
-      transition: border $ease-main, box-shadow $ease-main;
-      pointer-events: none;
-      z-index: 1;
-    }
-
-    .nd-header &::before {
-      top: 0;
-      bottom: 0;
-    }
-
-    &:hover {
-      body:not(.is-touched-device) & {
-        &::before {
-          @include screen('sm', min, 2) {
-            border-color: $nd-color-basic;
-          }
-        }
+    &:hover,
+    &.is-opened, &:focus, &:active {
+      @include screen('sm', min, 2) {
+        background-color: $nd-color-selection-bg;
       }
     }
-
-    // &.is-selected {
-    //   &::before {
-    //     @include screen('sm', min, 2) {
-    //       border-color: $nd-color-basic;
-    //     }
-    //   }
-    // }
 
     &.is-opened,
     &:focus,
     &:active {
       box-shadow: none;
+    }
 
-      &::before {
-        @include screen('sm', min, 2) {
-          border-color: $nd-color-main !important;
-          box-shadow: inset 0 0 0 1px $nd-color-main;
+    &::before {
+      @include rule(margin-right, (xl: 13px, xlg: 13, lg: 13, md: 13, sm: 0));
+
+      display: block;
+      content: '';
+      background-repeat: no-repeat;
+      background-position: 50% 50%;
+      background-size: contain;
+      height: 100%;
+      flex: none;
+
+      @include screen('sm', max, 2) {
+        display: none;
+      }
+    }
+
+    #{$b} {
+
+      &__content {
+        display: block;
+
+        @include screen('sm', max, 2) {
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          justify-content: space-between;
+          height: 100%;
+          box-sizing: border-box;
+        }
+      }
+
+      &__toggle {
+        @include rule(width, (xl: 47px, xlg: 47, lg: 47, md: 40, sm: 30));
+
+        @include screen('sm', max, 2) {
+          display: none;
+        }
+      }
+
+      &__placeholder {
+        display: flex;
+        align-items: center;
+        color: $nd-color-basic;
+        letter-spacing: -.02em;
+        font-family: $font-main;
+        font-weight: 400;
+        line-height: (18 / 15);
+        transition: color $ease-main,
+        font $ease-main;
+
+        @include rule(font-size, (xl: 15px, xlg: 15, lg: 15, md: 15, sm: 12));
+        @include rule(margin-left, (sm: -4));
+
+        @include screen('sm', max, 2) {
+          font-family: $font-main;
+          color: $nd-color-gray-text;
+          letter-spacing: -.02em;
+          width: calc(100% + (400 / 375) * 1vw);
+        }
+
+        &::before {
+          @include screen('sm', max, 2) {
+            display: inline-block;
+            content: '';
+            background-position: 50% 50%;
+            background-repeat: no-repeat;
+            background-size: contain;
+          }
+
+          @include rule(margin-right, (sm: 5));
+        }
+      }
+
+      &__values {
+        display: none;
+        font-family: $font-main;
+        letter-spacing: -.02em;
+        color: $nd-color-basic;
+        font-weight: 400;
+        line-height: (18 / 15);
+
+        @include rule(font-size, (xl: 15px, xlg: 15, lg: 15, md: 15, sm: 12));
+
+        @include screen('sm', max, 2) {
+          display: block;
+          font-family: $font-stolzl;
+        }
+      }
+    }
+
+    &.is-selected #{$b} {
+      &__values {
+        display: block;
+      }
+
+      &__placeholder {
+        display: block;
+        color: $nd-color-gray-text;
+        font-weight: 400;
+        line-height: (13 / 11);
+
+        @include rule(font-size, (xl: 11px, xlg: 11, lg: 11, md: 11, sm: 12));
+      }
+    }
+
+    &:not(.is-selected) #{$b} {
+      &__values {
+        &::before {
+          @include screen('sm', max, 2) {
+            display: block;
+            content: attr(data-sm-default-value);
+          }
+        }
+      }
+    }
+  }
+
+  &_notoggle {
+    @include rule(padding-right, (xl: 13px, xlg: 13, lg: 13, md: 13, sm: 5));
+    #{$b} {
+      &__toggle {
+        display: none;
+      }
+    }
+  }
+
+  &_no-icon  {
+    @include rule(padding-left, (xl: 27px, xlg: 27, lg: 27, md: 27, sm: 13));
+
+    &::before {
+      display: none;
+    }
+  }
+
+  &_location {
+    &::before {
+      @include rule(width, (xl: 14px, xlg: 14, lg: 14, md: 14, sm: 0));
+      @include rule(height, (xl: 17px, xlg: 17, lg: 17, md: 17, sm: 0));
+
+      background-image: $icon-location-blue;
+    }
+
+    #{$b} {
+      &__placeholder {
+        &::before {
+          @include rule(width, (sm: 9));
+          @include rule(height, (sm: 12));
+
+          @include screen('sm', max, 2) {
+            background-image: $icon-location;
+          }
+        }
+      }
+    }
+  }
+
+  &_team {
+    @include rule(width, (lg: 140, md: 140));
+
+    @include screen('sm', max, 2) {
+      width: 100%;
+    }
+
+    &::before {
+      @include rule(width, (xl: 26px, xlg: 26, lg: 26, md: 26, sm: 0));
+      @include rule(height, (xl: 14px, xlg: 14, lg: 14, md: 14, sm: 0));
+
+      background-image: $icon-team-blue;
+    }
+
+    #{$b} {
+      &__placeholder {
+        &::before {
+          @include rule(width, (sm: 17));
+          @include rule(height, (sm: 9));
+
+          @include screen('sm', max, 2) {
+            background-image: $icon-team;
+          }
+        }
+      }
+    }
+  }
+
+  &_type {
+    &::before {
+      @include rule(width, (xl: 15px, xlg: 15, lg: 15, md: 15, sm: 0));
+      @include rule(height, (xl: 15px, xlg: 15, lg: 15, md: 15, sm: 0));
+
+      background-image: $icon-type;
+    }
+
+    #{$b} {
+      &__placeholder {
+        &::before {
+          @include rule(width, (sm: 11));
+          @include rule(height, (sm: 11));
+
+          @include screen('sm', max, 2) {
+            background-image: $icon-type2;
+          }
         }
       }
     }
