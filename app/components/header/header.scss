@@ -10,7 +10,7 @@
   width: 100%;
   max-width: 100vw;
   z-index: 10;
-  transition: border $ease-main;
+  transition: border $ease-main, transform $ease-main;
   background-color: $color-bg;
   box-sizing: border-box;
   border-top: 1px solid transparent;
@@ -394,7 +394,7 @@
         @include rule(margin-right, (xlg: 27, lg: 22, md: 22, sm: 0));
         @include rule(border-radius, (xl: 35px, xlg: 35, lg: 35, md: 35, sm: 0));
         @include rule(padding-left, (xl: 6px, xlg: 6, lg: 6, md: 6, sm: 0));
-        @include rule(padding-right, (xl: 22px, xlg: 22, lg: 22, md: 22, sm: 0));
+        @include rule(padding-right, (xl: 16px, xlg: 16, lg: 16, md: 16, sm: 0));
 
         @include screen('xlg', max, 2) {
           box-shadow: boxShadow(0, 3.2, 7.69511, 0, rgba(0, 0, 0, 0.1), 1660);
@@ -415,7 +415,22 @@
       }
 
       &__burger {
-        @include rule(margin-left, (xl: 11px, xlg: 11, lg: 11, md: 11));
+        @include rule(margin-left, (xl: 3px, xlg: 3, lg: 3, md: 3));
+
+      }
+    }
+
+    .layout-space-active &,
+    .layout-offer-active &,
+    .is-layout-offer-out & {
+      transform: translate3d(0, -20%, 0);
+    }
+
+    .nd-burger {
+
+      &__icon {
+        @include rule(width, (xl: 22px, xlg: 22, lg: 22, md: 22, sm: 22));
+        @include rule(width, (xl: 19px, xlg: 19, lg: 19, md: 19, sm: 19));
       }
     }
 

@@ -344,11 +344,18 @@
         @include rule(margin-right, (xlg: 28, lg: 28, md: 0, sm: 0));
       }
     }
+  }
 
-    &__dropdown .drop-navigation__link {
-      #{$b}_list & {
-        @include rule(padding-bottom, (xl: 27px, xlg: 27, lg: 16, md: 10, sm: 10));
-      }
+  &_sort .drop-navigation {
+    &__dropdown .drop-navigation__link{
+      @include rule(padding-bottom, (xl: 22px, xlg: 22, lg: 22, md: 10, sm: 10));
+      @include rule(padding-top, (xl: 22px, xlg: 22, lg: 22, md: 10, sm: 10));
+    }
+  }
+
+  &_list .drop-navigation {
+    &__dropdown .drop-navigation__link{
+      @include rule(padding-bottom, (xl: 27px, xlg: 27, lg: 16, md: 10, sm: 10));
     }
   }
 }
