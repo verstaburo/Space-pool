@@ -1,0 +1,61 @@
+extends ../../../layouts/redesign-default
+
+block head
+  - var pageTitle = 'Spacepool - Add Space - Facilities'
+
+block bodyClasses
+  - var bodyCls = '';
+  - var isNoFooter = true
+  - var isNoHeader = true
+  - var scripts = ['other']
+
+block header
+  - var headerClass = ''
+  - var pageClass = ' nd-page_nopad'
+  - var isMap = true
+
+block content
+  - var menuList = getData('navAddSpaceProgress.json').menu;
+  +nd-page-header._grid._grid_add
+    .nd-container.nd-container_wide
+      +e.title.nd-hide-from-sm Add space
+      +nd-page-header-side
+        +nd-link-icon('arrow5')._back.__back Back to Space list
+      +nd-page-header-main
+        +e.mb-menu.nd-hide-from-sm
+          +slider-navigation-for-add(menuList, 2, 'Facilities', '_progress')._mg
+  +progress-scale(menuList, 2).nd-hide-sm
+
+  +nd-content
+    .nd-container
+      +nd-content-aside
+        +sidebar-nosticky.nd-sidebar.nd-hide-md
+          +nd-side-navigation({addManager: {image: {src:  "assets/images/nd/add-facilities.svg", class: "_facilities"}, subtitle: "Step 3", title: "Facilities" }, note: {text: "Please highlight your space’s features."}})._add
+
+      +nd-content-main
+        +nd-form._app._app_pb118(data-validated-form data-submit-disabled)
+          +form-section
+            +form-section-header()
+              +e.H3.title_fz24._fw400 Facilities
+              +e.text_fz17._fw500._mt23 Mark the facilities that are available within the workspace
+            +facility-grid.__facilities
+              each item in getData('nd-form-facilities.json').standart
+                +nd-facility-checkbox(item).__item
+
+          +form-section._mt82
+            +form-section-header()
+              +e.H3.title_fz24._fw400 Extra facilities
+            +facility-grid.__facilities_mt10
+              each item in getData('nd-form-facilities.json').extra
+                +nd-facility-checkbox(item).__item
+
+          +nd-form-panel()._wide.is-fixed
+            .nd-content
+              .nd-container
+                +e.controls
+                  +nd-link-icon('arrow6')._underline._back._back_long.__back Back <span class="nd-hide-sm"> to previous step</span>
+                  +nd-button-icon('button', {iconBlock: true, icon: 'next', loader: true})._next._sm-h32._sm-fz16.__button_mw303(type="submit") Save and continue
+
+block panels
+
+block popups

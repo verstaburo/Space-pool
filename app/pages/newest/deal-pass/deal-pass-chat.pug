@@ -1,0 +1,44 @@
+extends ../../../layouts/redesign-default
+
+block head
+  - var pageTitle = 'Spacepool - Deal Passport'
+
+block bodyClasses
+  - var bodyCls = ' is-sm-noheader is-sm-no-userpanel';
+  - var isNoFooter = true
+  - var scripts = ['other']
+
+block header
+  - var headerClass = ' is-login'
+  - var pageClass = ' nd-page_chat'
+  - var isMap = false
+  - var host = false
+
+block content
+  +nd-page-header._grid
+    .nd-container
+      +nd-page-header-side
+        +nd-link-icon('arrow5')._underline._back._back_md21.__back_md-noname Back to deal list
+      +nd-page-header-main
+        - var menuList = getData('sideNavDealPassRent.json').menu;
+        +e.dt-menu.nd-hide-md
+          +nd-breadcrumbs([["Home", "#"], ["Spaces", "#"], ["Clerkenworks London"]]).__breadcrumbs.nd-hide
+          +person().__person
+            +e.position Client:
+            +nd-short-profile-data({ava: {img: 'assets/images/nd/user-avatar-2.jpg', class: '_sz34'}, name: 'Mike Regent', nameClass: '_fz17'})._nd.__profile
+        +e.mb-menu.nd-hide-from-md
+          +slider-navigation(menuList, 1, 'Chat')
+
+
+  +nd-content
+    .nd-container
+      +nd-content-aside
+        +sidebar-nosticky.nd-sidebar.nd-hide-md
+          - var nav = getData('sideNavDealPassRent.json')
+          +nd-side-navigation(nav, 'Chat')
+      +nd-content-main
+        +messenger(true)
+
+block panels
+
+block popups

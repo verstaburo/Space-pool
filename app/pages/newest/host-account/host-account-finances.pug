@@ -1,0 +1,165 @@
+extends ../../../layouts/redesign-default
+
+block head
+  - var pageTitle = 'Spacepool - Host Account - Finances'
+
+block bodyClasses
+  - var bodyCls = ' is-sm-noheader is-sm-no-userpanel';
+  - var isNoFooter = true
+  - var scripts = ['other']
+
+block header
+  - var headerClass = ' is-login'
+  - var pageClass = ''
+  - var isMap = false
+  - var host = true
+
+block content
+  +nd-page-header._grid
+    .nd-container
+      +nd-page-header-side
+        +nd-link-icon('arrow5')._back._back_md21.__back_md-noname.__back.nd-hide-from-md Back
+      +nd-page-header-main
+        - var menuList = getData('sideNavProfileHost.json').menu;
+        +e.mb-menu.nd-hide-from-md
+          +slider-navigation(menuList, 4, 'Finances')
+
+  +nd-content
+    .nd-container
+      +nd-content-aside
+        +sidebar-nosticky.nd-sidebar.nd-hide-md
+          - var nav = getData('sideNavProfileHost.json')
+          +nd-side-navigation(nav, 'Finances')._profile._profile_ha
+
+      +nd-content-main
+        +nd-section
+          +nd-section-header._fx._md-pg-head.nd-hide-md
+            +nd-section-title._fz24 Finances
+            +e.menu
+              +slider-navigation([{name: "Statements", href: "host-account-finances-statements.html"}, {name: "Bank account details", href: "host-account-finances.html"}, {name: "Account stats", href: "host-account-finances.html"}], 0)
+
+          +dashboard._host-account.__dashboard_mt
+            +board.__board_ha._ha_state
+              +board-title._fz22 Statements
+              +nd-table._ledger._blight.__table_mt27
+                thead
+                  tr
+                    th Issued
+                    th.nd-hide-sm Rent
+                    th Amount
+                    th.nd-hide-sm Status
+                    th Invoice
+                tbody
+                  tr.is-new
+                    td
+                      b 24 April
+                    td.nd-hide-sm
+                      b Offica space 31
+                    td
+                      b £ 860.00
+                    td.nd-hide-sm
+                      b Pending
+                    td
+                      +nd-link-pdf({tag: 'div'})._pdf_drop
+                        +dropdown-pdfs.__drop
+                  tr
+                    td
+                      b 24 April
+                    td.nd-hide-sm Fixed desk south side
+                    td £ 356.00
+                    td.nd-hide-sm Paid-in
+                    td
+                      +nd-link-pdf({tag: 'div'})._pdf_drop
+                        +dropdown-pdfs.__drop
+                  tr
+                    td
+                      b 24 April
+                    td.nd-hide-sm Hot desk
+                    td £ 356.00
+                    td.nd-hide-sm Paid-out
+                    td
+                      +nd-link-pdf({tag: 'div'})._pdf_drop
+                        +dropdown-pdfs.__drop
+                  tr
+                    td
+                      b 24 April
+                    td.nd-hide-sm Office 1129
+                    td £ 356.00
+                    td.nd-hide-sm Paid
+                    td
+                      +nd-link-pdf({tag: 'div'})._pdf_drop
+                        +dropdown-pdfs.__drop
+
+                  - for (var i = 0; i < 3; i ++) {
+                    tr
+                      td
+                        b 24 April
+                      td.nd-hide-sm Fixed desk south side
+                      td £ 356.00
+                      td.nd-hide-sm Paid
+                      td
+                        +nd-link-pdf({tag: 'div'})._pdf_drop
+                          +dropdown-pdfs.__drop
+                    tr
+                      td
+                        b 24 April
+                      td.nd-hide-sm Hot desk
+                      td £ 356.00
+                      td.nd-hide-sm Paid
+                      td
+                        +nd-link-pdf({tag: 'div'})._pdf_drop
+                          +dropdown-pdfs.__drop
+                    tr
+                      td
+                        b 24 April
+                      td.nd-hide-sm Office 1129
+                      td £ 356.00
+                      td.nd-hide-sm Paid
+                      td
+                        +nd-link-pdf({tag: 'div'})._pdf_drop
+                          +dropdown-pdfs.__drop
+                  - }
+              +e.links_mt73
+                +nd-link-image('nd-view')(class='' href='host-account-finances-statements.html').__link_fw600._fz14 View all statements
+            +board.__board_ha._ha_stats
+              +board-title._fz22 Stats
+              +price-tag.__price
+                +e.price <i>£</i> 24 600
+                +e.label Total income to date
+              +nd-table._fw500._info._info_h45._blight.__table_mt5
+                tbody
+                  tr
+                    td Contract signed
+                    td
+                      b 6
+                  tr
+                    td Completed viewings
+                    td
+                      b 28
+                  tr
+                    td Total monthly income
+                    td
+                      b  <i>£</i> 1 890.50
+              +e.links_mt50
+                +nd-link-image('nd-view')(class='' href='#').__link_fw600._fz14 View detailed stats
+            +board.__board_ha._ha_bank
+              +board-title._fz22 Bank account details
+              +e.text
+                p This is your HOST account bank details.
+                p All transaction proceeds for this Space will be paid-out to this bank account.
+              +nd-table._fw500._info._info_h45._blight.__table
+                tbody
+                  tr
+                    td Account number
+                    td
+                      b 12127784
+                  tr
+                    td Sort code
+                    td
+                      b 40-02-33
+              +e.links_mt42
+                +nd-link-image('nd-edit')(class='' href='#').__link_fw600._fz14 Edit bank account details
+
+block panels
+
+block popups

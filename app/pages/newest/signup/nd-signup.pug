@@ -1,0 +1,25 @@
+extends ../../../layouts/redesign-default
+
+block head
+  - var pageTitle = 'Spacepool - Sign Up'
+
+block bodyClasses
+  - var bodyCls = ' is-no-userpanel'
+  - var isNoFooter = true
+  - var scripts = ['other']
+
+block header
+  - var headerClass = ''
+  - var pageClass = ''
+  - var isMap = false
+  - var host = false
+  - var isNoUser = true
+
+block content
+  +nd-section
+    .nd-container.nd-container_centered
+      +registration-form({title: 'Join Spacepool', registration: true,})
+
+block panels
+
+block popups

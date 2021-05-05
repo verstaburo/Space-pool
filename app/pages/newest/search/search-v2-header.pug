@@ -1,0 +1,152 @@
+extends ../../../layouts/redesign-default
+
+block head
+  - var pageTitle = 'Spacepool - Search'
+
+block bodyClasses
+  - var bodyCls = ' ';
+  - var isNoFooter = true
+  - var scripts = ['other']
+  - var searchPage = true
+
+
+block header
+  - var headerClass = ' is-login'
+  - var pageClass = '_nopad'
+  - var isMap = true
+  - var isMapNew = true
+  - var host = false
+  - var headSpec = true
+
+block content
+  +layout
+    +e.column_map.js-map-sm-show-fullview
+      +nd-search-map-v2('search-map', 'assets/data/space-markers.json')
+
+    +e.column_results
+      +e.wrapper
+        +nd-section.md-only-visibility-hidden
+          +nd-section-header
+            +nd-section-title._fz30._sm-fz22._ls-015 Office spaces in London
+            +e.text_fz15._ls0._gray Looking for workspace type, Any team size and Any price
+
+        +nd-results._v2
+          each item in getData('new-nd-spaces-search.json')
+            +nd-results-item
+              +nd-space()._search-card._search-card_v2.js-layout-show(data-layout-target="space")
+                +gallery(item.gallery)._space.__media.js-nd-gallery
+                +e.describe
+                  +e.address
+                    each el in item.address
+                      span!= el
+                  +e.title!=item.title
+                  +e.clip-text
+                    +e.text!=item.text
+                +e.offer-list
+                  +offer-table(item.offers)._transforma._transforma_v2.__list
+                +e.button.hide-from-sm View all 20 listings
+
+    +e.column_start._start_space._popup(data-layout="space")
+      +layout-header({type: 'space', popup: true})._main._popup
+      +e.wrapper
+        +space-description
+        +space-description-panel
+
+    +e.column_end._popup(data-layout="list,space")
+      +layout-header({type: 'list', popup: true})._sort._popup
+      +e.wrapper
+        +nd-results._v2
+          +e.divider.nd-hide-from-md
+            +space-type._gray._fz12.__type
+              +nd-box()._green.__box_sz9
+              +e.name PRIVATE OFFICES
+          each item in getData('space-offers-po.json')
+            +nd-results-item._mt23
+              +nd-space()._single-offer._single-offer_short.js-layout-show(data-layout-target="offer")
+                if item.gallery && item.gallery.images.length === 1
+                  +nd-space-media-e()
+                    +e.PICTURE.image
+                      +e.SOURCE(srcset=item.gallery.images[0])
+                      +e.IMG(src=item.gallery.images[0])
+                else if item.gallery
+                  +gallery(item.gallery)._space.__media.js-nd-gallery
+                +e.describe
+                  +space-type._gray._fz12.__type.nd-hide-md
+                    +nd-box()(class=item.type.box + ' __box_sz9')
+                    +e.name!=item.type.name
+                  if item.title
+                    +e.title!=item.title
+                  +nd-table._info._info_space._info_space_small-fz.__table
+                    tbody
+                      tr
+                        td Amount of desks
+                        td 12
+                      tr
+                        td Floor area
+                        td 257 ft<sup>2</sup>
+                      tr
+                        td Min. term
+                        td 1 month
+                      tr
+                        td Price
+                        td
+                          b £ 2,400 per month
+
+    +e.column_start._start_offer._popup(data-layout="offer")
+      +e.wrapper
+        +offer-description
+        +offer-description-panel()._abs(data-offer-panel)
+          +e.offer
+            +space-type._gray.__type
+              +nd-box()._green.__box_sz7
+              +e.name PRIVATE OFFICE
+            +e.title 13 desks office space
+          +e.buttons
+            +nd-button._pad10._black.__button.js-nd-arrange-viewing(href="#nd-popup-arrange-viewing" data-min-date="2021-15-4" data-max-date="2021-20-8") Arrange viewing
+            +nd-button._pad10.__button(href="#") Request reservation
+
+  +modals('FORM')#search-filter(action="/")
+    +e.FIELDSET.fieldset
+      +modal({header: {title: 'Location'}, footer: false})#filter-location
+        +e.list
+          - var cityList = getData('nd-main-search-cities.json');
+          +e.checklist
+            each item in cityList
+              +b.LABEL.check-button_hov-blue._h34._sm-styled.__check(class=(item.cls || ''))
+                if item.checked
+                  +e.INPUT.input(name=item.name, value=item.value, checked, type="radio", data-modal-item, data-modal-item-value=item.title, data-modal-item-type="city")
+                else
+                  +e.INPUT.input(name=item.name, value=item.value, type="radio", data-modal-item, data-modal-item-value=item.title, data-modal-item-type="city")
+                +e.SPAN.content!=item.title
+      +modal({header: {title: 'Office type'}, describe: 'Pick the type of workspace you want.', footer: false})#filter-type
+        +e.list
+          each item in [{title: 'Private Office', value: 'Private Office', name: 'team', value2: 'Private Office', class: "_offer_green", wrapClass: 'is-green'}, {title: 'Hot Desk', value: 'Hot Desk', name: 'team', value2: 'Hot Desk', class: "_offer_orange", wrapClass: 'is-orange'}, {title: 'Fixed Desk', value: 'Fixed Desk', name: 'team', value2: 'Fixed Desk', class: "_offer_red", wrapClass: 'is-red'}, {title: 'Meeting Room', value: 'Meeting Room', name: 'team', value2: 'Meeting Room', class: "_offer_blue", wrapClass: 'is-blue'}]
+            +styled-radio(item.title)._offer(class=item.class + ' __item')
+              if (item.checked)
+                +e.INPUT.input(type="radio", value=item.value, name=item.name, data-modal-item, data-modal-item-value=item.value2, data-modal-item-wrapper-class=item.wrapClass data-modal-item-type="offer", checked)
+              else
+                +e.INPUT.input(type="radio", value=item.value, name=item.name, data-modal-item, data-modal-item-value=item.value2, data-modal-item-wrapper-class=item.wrapClass data-modal-item-type="offer")
+      +modal({header: {title: 'Team size'}, describe: 'Start-up, scale-up, big business or just you – we have a perfect match for you.', footer: false})#filter-team
+        +e.list
+          each item in [{title: '1', value: '1', name: 'team', value2: '1'}, {title: '2 - 4', value: '2 - 4', name: 'team'}, {title: '5 - 7', value: '5 - 7', name: 'team'}, {title: '8 - 10', value: '8 - 10', name: 'team'}, {title: '11 - 15', value: '11 - 15', name: 'team'}, {title: '16 - 20', value: '16 - 20', name: 'team'}, {title: '21 - 30', value: '21 - 30', name: 'team'}, {title: '31 +', value: '31 +', name: 'team', value2: '31 +'} ]
+            +styled-radio(item.title)._team.__item
+              +e.INPUT.input(type="radio", value=item.value, name=item.name, data-modal-item, data-modal-item-value=(item.value2 || item.value), data-modal-item-type="team")
+    +e.FIELDSET.fieldset
+      +modal({header: {title: 'Filter'}, footer: {class: '_range', view: 'range'}})#filter-multi
+        +nd-range({output: {minLabel: 'Min', maxLabel: 'Max', max: 'maxPrice', min: 'minPrice', formboxClass: '_bg-white _sm-h50', inputClass: '_sm-h50'}})(data-start="[0, 5000]" data-connect="[false, true, false]" data-step="10" data-margin="30" data-min="0" data-max="10000" data-currency="£" data-modal-item data-modal-item-type="multi").__range
+      +modal({header: {title: 'Sort by'}, footer: false})#filter-sort
+        +e.list
+          each item in [{title: 'Popular', value: 'Popular', name: 'sort', /*checked: true*/}, {title: 'Relevance', value: 'Relevance', name: 'sort'}, {title: 'Price ascending', value: 'Price ascending', name: 'sort'}, {title: 'Price descending', value: 'Price descending', name: 'sort'}]
+            +styled-radio(item.title)._sort.__item
+              if item.checked
+                +e.INPUT.input(type="radio", value=item.value, name=item.name, data-modal-item, data-modal-item-value=(item.value), data-modal-item-type="sort" checked)
+              else
+                +e.INPUT.input(type="radio", value=item.value, name=item.name, data-modal-item, data-modal-item-value=(item.value), data-modal-item-type="sort")
+
+
+
+
+block panels
+
+block popups
+  +nd-popup-arrange-viewing#nd-popup-arrange-viewing

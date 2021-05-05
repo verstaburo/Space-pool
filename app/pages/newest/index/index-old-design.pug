@@ -1,0 +1,86 @@
+extends ../../../layouts/default
+
+block head
+  - var pageTitle = 'SpacePool - Main'
+
+block content
+  - var spaces = getData('spaces.json')
+  - var spacesNew = getData('spaces-new.json')
+  - var rooms = getData('rooms.json')
+  - var news = getData('news.json')
+  +section._bg._lead
+    .container
+      +section-wrapper
+        +section-bg('assets/images/main-lead.jpg')
+        +section-content
+          +section-header
+            +e.lead_left
+              +section-title('h2')._big The place where you can find your dream workspace.
+            +e.lead_right
+              +condition-search
+          +section-footer
+            +e.note Between 2&nbsp;960&nbsp;offices, 380 conversation rooms and over 15&nbsp;000 free co-working desks
+  +section
+    +section-header
+      .container
+        +section-title('h2') Featured Spaces
+    +section-content
+      +slider(true, false).js-slider-spaces
+        each item in spaces
+          +slide
+            +space(item)(href="#")
+  +section._mid-mg
+    .container
+      +section-header._location
+        +e.header-content
+          +e.location-top(data-slot-id="location-clear" data-slot-res="bg")
+            +section-title('h2') Locations
+          +e.location-bottom
+            +filter.hide-sm(data-slot-id="location-clear" data-slot-res="xl")
+            +compact-filter.hide-from-sm
+      +section-content
+        +map()._big#mapTwo
+  +section._sm-mg
+    +section-header._tab-smmg
+      .container
+        +section-title('h2') Meeting Rooms
+    +section-content
+      +slider(true, false).js-slider-rooms
+        each item in rooms
+          +slide
+            +space(item)(href="#")
+  +section._bg._promo
+    .container
+      +section-wrapper
+        +section-bg('assets/images/section-bg.jpg')
+        +section-content
+          +section-header
+            +section-title('h2')._big Thousands of&nbsp;professionals prefer to&nbsp;search for perfect workplace on&nbsp;Space Pool
+            +button()(href="#") Find out why
+          +section-footer
+            +e.note_mb15 Today Space Pool is&nbsp;about searching for greatest and most amazing workplaces around London. It&rsquo;s like visiting hundreds of&nbsp;places whithout even leaving your room.
+  +section._ltl-mg
+    +section-header
+      .container
+        +section-title('h2') New Places
+    +section-content
+      +slider(true, false).js-slider-spaces
+        each item in spacesNew
+          +slide
+            +space(item)(href="#")
+  +section._mg
+    +section-header._subscribe
+      .container
+        +e.header-content
+          +section-title('h2') Articles
+          +e.socials
+            +e.note._mb15._bold Subscribe to our Social Media channels:
+            +socials-big
+    +section-content
+      +slider(true, false).js-slider-news
+        each item in news
+          +slide
+            +news(item)(href="#")
+
+block panels
+  +main-menu

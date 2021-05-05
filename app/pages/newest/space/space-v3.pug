@@ -1,0 +1,98 @@
+extends ../../../layouts/redesign-default
+
+block head
+  - var pageTitle = 'Spacepool - Space'
+
+block bodyClasses
+  - var bodyCls = ' is-md-no-userpanel';
+  - var scripts = ['other']
+
+block header
+  - var headerClass = ' is-login'
+  - var pageClass = ''
+  - var isMap = true
+  - var host = true
+
+block content
+  +nd-page-header
+    .nd-container
+      +nd-page-header-side
+        +nd-link-icon('arrow5')._back.__back Back to search
+      +nd-page-header-main._space
+        +nd-breadcrumbs([["London", "#"], ["Mayfare", "#"], ["EC2A 4SD"]]).__breadcrumbs.nd-hide-sm
+        +address('assets/images/nd/nd-subway.svg').__address.nd-hide-from-md Liverpool Street
+
+
+  +nd-content._space
+    .nd-container.nd-container_space
+
+      +nd-content-main
+        +nd-section._space._mt114
+          +gallery({images: ["assets/images/nd/nd-space-lead.jpg", "assets/images/space-lead1.jpg", "assets/images/space-lead2.jpg", "assets/images/space-lead3.jpg", "assets/images/space-lead4.jpg"], gallerytag: "spacegallery", buttons: true, dots: true, dotsClass: ' nd-hide-from-sm'}).__gallery.js-nd-gallery(data-equalizer-target="space")
+          +nd-section-header
+            +e.boxes.nd-hide-from-md
+              +nd-box._orange._size10
+              +nd-box._red._size10
+              +nd-box._blue._size10
+              +nd-box._green._size10
+            +nd-section-title('h1')._fz30._sm-fz26 About House of Creative - 229 Shoreditch High Street
+          +nd-section-content
+            +e.text Perfectly located on Shoreditch High Street, alongside three of our other buildings, 229 offers 12 private offices, meeting rooms, large board room and a perfect breakout/kitchen space and rooftop. House of Creative has been around for 8 years so we know what our client's needs are. We keep our pricing low and offer and all in service to make life easy for you.
+
+        +nd-section._mt114
+          +nd-section-header
+            +nd-section-title Location
+            +e.text 229 Shoreditch High St, Shoreditch, London E1 6PJ, UK, London, E1 6PJ
+          +map._space#spaceMap.__map
+          +routes.__routes
+
+        +nd-section._mt114
+          +nd-section-header
+            +nd-section-title Facilities
+            +facility-list.__facility
+
+        +nd-section._mt130
+          +nd-section-header
+            +nd-section-title Hot desks
+          +e.offers
+            each item in getData('nd-offers.json').hot
+              +offer-card-for-space(item, 'nd-section__offer')
+        +nd-section._mt80
+          +nd-section-header
+            +nd-section-title Fixed desks
+          +e.offers
+            each item in getData('nd-offers.json').fixed
+              +offer-card-for-space(item, ' nd-section__offer')
+
+        +nd-section._mt80
+          +nd-section-header
+            +nd-section-title Private offices
+          +e.offers
+            each item in getData('nd-offers.json').private
+              +offer-card-for-space(item, 'nd-section__offer')
+
+      +nd-content-aside
+        +sidebar.nd-sidebar.nd-hide-md
+          +scroll-form-v3(data-equalizer-target="space")
+
+      +e.column_footer
+        +nd-section
+          +nd-section-header
+            +nd-section-title More places
+          +nd-slider(false, false, true).__slider_spaces.js-nd-double-space-slider
+            each item in getData('nd-spaces-search-around.json')
+              +nd-space()._card.__slide_card.swiper-slide
+                +gallery(item.gallery)._space.__media.js-nd-gallery
+                +e.describe
+                  +e.address
+                    each el in item.address
+                      span!= el
+                  +e.title_fz20._proxima._bold!=item.title
+                  +offer-table(item.offers).__list
+
+block panels
+  +nd-offer-panel.nd-hide-from-md
+
+block popups
+  +nd-popup-arrange-viewing#nd-popup-arrange-viewing
+  +popup-offer-types#popup-offer-types

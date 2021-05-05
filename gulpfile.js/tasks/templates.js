@@ -6,31 +6,34 @@ const prettify = require('gulp-jsbeautifier');
 const filter = require('gulp-filter');
 const rename = require('gulp-rename');
 const getData = require('jade-get-data')('app/data');
+const gulpIf = require('gulp-if');
+
+const isDebug = process.env.NODE_ENV !== 'production';
 
 module.exports = () => (
   gulp.src('app/**/*.pug')
-  .pipe(plumber({
-    errorHandler: errorHandler('Error in templates task')
-  }))
-  .pipe(filter(file => /app[\\\/]pages/.test(file.path))) // eslint-disable-line no-useless-escape
-  .pipe(pug({
-    data: {
-      getData
-    }
-  }))
-  .pipe(prettify({
-    braceStyle: 'expand',
-    indentWithTabs: true,
-    indentInnerHtml: true,
-    preserveNewlines: true,
-    endWithNewline: true,
-    wrapLineLength: 120,
-    maxPreserveNewlines: 50,
-    wrapAttributesIndentSize: 1,
-    unformatted: ['use'],
-  }))
-  .pipe(rename({
-    dirname: '.'
-  }))
-  .pipe(gulp.dest('dist'))
+    .pipe(plumber({
+      errorHandler: errorHandler('Error in templates task'),
+    }))
+    .pipe(gulpIf(isDebug, filter((file) => /app[\\\/]pages[\\\/]newest/.test(file.path)), filter((file) => /app[\\\/]pages/.test(file.path)))) // eslint-disable-line no-useless-escape
+    .pipe(pug({
+      data: {
+        getData,
+      },
+    }))
+    .pipe(prettify({
+      braceStyle: 'expand',
+      indentWithTabs: true,
+      indentInnerHtml: true,
+      preserveNewlines: true,
+      endWithNewline: true,
+      wrapLineLength: 120,
+      maxPreserveNewlines: 50,
+      wrapAttributesIndentSize: 1,
+      unformatted: ['use'],
+    }))
+    .pipe(rename({
+      dirname: '.',
+    }))
+    .pipe(gulp.dest('dist'))
 );
