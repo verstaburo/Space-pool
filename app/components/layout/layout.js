@@ -160,18 +160,22 @@ export default function layoutsInit() {
     if (lastLayout !== undefined) {
       layoutsMethods.close(lastLayout, {});
     }
-    // if (activeLayouts.map) {
-    //   if (activeLayouts.offer) {
-    //     layoutsMethods.close('offer', {});
-    //   } else if (activeLayouts.list) {
-    //     layoutsMethods.close('list', {});
-    //   } else if (activeLayouts.space) {
-    //     layoutsMethods.close('space', {});
-    //   }
-    // } else if (activeLayouts.offer) {
-    //   layoutsMethods.close('offer', {});
-    // } else if (activeLayouts.space) {
-    //   layoutsMethods.close('space', {});
-    // }
+  });
+
+  $(document).on('mousewheel', '.layout_static .layout__wrapper', (evt) => {
+    const el = evt.currentTarget;
+    const height = el.clientHeight;
+    const { scrollHeight } = el;
+    const layout = el.closest('.layout_static');
+    const nextEl = layout.nextElementSibling;
+    const delta = evt.originalEvent.wheelDelta;
+
+    if ((el.scrollTop === (scrollHeight - height) && delta < 0)) {
+      if (nextEl) {
+        $('body, html').stop().animate({
+          scrollTop: $(nextEl).offset().top - 100,
+        }, 1000, 'swing');
+      }
+    }
   });
 }
