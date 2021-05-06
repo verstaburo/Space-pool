@@ -1,14 +1,15 @@
 mixin layout-header(data)
   +b.layout-header&attributes(attributes)
-    if data.popup && data.type=== 'space'
+    -var isSearch = data.type=== 'space'
+    -var isSpacePage = data.type === 'page'
+    if isSearch || isSpacePage
       +e.BUTTON.close.js-layout-close-active(data-layout-close-target=data.type type="button")
         +icon('cross')
-    if !data.popup && data.type === 'space'
-      +e.A.back.js-layout-close-active.nd-hide-from-sm(href="#")
-        +icon('arrow5')
+    if isSpacePage
+      +e.logo
+        +nd-logo-short()(href="/")
     +e.wrapper
-      - var isListing = (data.type === 'list' && data.popup)
-      if data.type === 'space'
+      if (data.type === 'space' || data.type==="page")
         +e.describe
           +e.boxes
             +nd-box._orange.__box
@@ -16,11 +17,10 @@ mixin layout-header(data)
             +nd-box._blue.__box
             +nd-box._green.__box
           +e.title Canvas Dalston Lane
-      if isListing
-        +e.BUTTON.close.js-layout-close(data-layout-close-target=data.type type="button")
-          +icon('cross')
-      if data.type === 'space'
+          if isSearch
+            +nd-link-icon-end('plus', 'a')._blue.__link.js-layout-show.js-layout-tab-redirect(href="space-v4.html" data-layout-target="space" data-layout-tab-target="tab-space-describe") Space info
+      if (data.type === 'space' || data.type==="page")
         +nd-link-icon('share').__share Share
       if data.type === 'list'
-        +drop-navigation({title: 'Offers', list: [{name: "All (15)", href: "#"}, {name: "Hot desks (2)", href: "#"}, {name: "Fixed desks (8)", href: "#"}, {name: "Meeting Rooms (8)", href: "#"}, {name: "Private offices (5)", href: "#"}]}, 4, 'Private offices (5)')._md._rounded.__select.js-offer-select
+        +drop-navigation({title: 'Offers', list: [{name: "All listings (15)", href: "#"}, {name: "Hot desks (2)", href: "#"}, {name: "Fixed desks (8)", href: "#"}, {name: "Meeting Rooms (8)", href: "#"}, {name: "Private offices (5)", href: "#"}]}, 4, 'Private offices (5)')._md._rounded.__select.js-offer-select
     block

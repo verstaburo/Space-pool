@@ -20,6 +20,12 @@ mixin nd-link-icon(iconname, tag)
     +e.SPAN.text
       block
 
+mixin nd-link-icon-end(iconname, tag)
+  +b(tag || 'a').nd-link_icon._icon_end&attributes(attributes)
+    +e.SPAN.text
+      block
+    +icon(iconname)(class="__icon _" + iconname)
+
 mixin nd-link-image(iconname, tag)
   +b(tag || 'a').nd-link_icon&attributes(attributes)
     +e.IMG(src=("assets/images/nd/" + iconname + ".svg") class=("__icon _" + iconname))

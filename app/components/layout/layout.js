@@ -6,20 +6,25 @@ export const layoutsMethods = {
     $(tabButton).trigger('click');
   },
   open(layoutName, context) {
+    const totalLayouts = $('[data-layout]');
     const layouts = $(`[data-layout*="${layoutName}"]`);
     const detail = context || {};
     $(layouts).each((i, el) => {
       el.dispatchEvent(new CustomEvent('layout-before-show'), { bubbles: true, cancelable: true, detail });
     });
+    $(totalLayouts).removeClass('is-current');
+    $(layouts).addClass('is-current');
     const activeLayouts = layoutsMethods.whichLayerActive();
     switch (layoutName) {
       case 'space': {
         document.body.classList.add('layout-space-active');
+        document.body.setAttribute('data-layout-last', 'space');
         break;
       }
       case 'list': {
         if (activeLayouts.map) {
           document.body.classList.add('layout-list-active');
+          document.body.setAttribute('data-layout-last', 'list');
         }
         break;
       }
@@ -29,6 +34,7 @@ export const layoutsMethods = {
         if (detail.sourceElement) {
           detail.sourceElement.classList.add('is-active');
         }
+        document.body.setAttribute('data-layout-last', 'offer');
         break;
       }
       default:
@@ -50,40 +56,50 @@ export const layoutsMethods = {
     });
     const activeLayouts = layoutsMethods.whichLayerActive();
     $('.js-layout-show').removeClass('is-active');
+
+    let last;
+
     switch (layoutName) {
       case 'space': {
-        if (activeLayouts.offer) {
-          document.body.classList.remove('layout-offer-active');
-          document.body.classList.add('is-layout-offer-out');
-          $('.js-layout-show').removeClass('is-active');
+        if (activeLayouts.offer && activeLayouts.list) {
+          last = 'offer';
+        } else if (activeLayouts.offer) {
+          last = 'offer';
+        } else if (activeLayouts.list) {
+          last = 'list';
         }
-        if (activeLayouts.space) {
-          document.body.classList.remove('layout-space-active');
-        }
-        if (activeLayouts.list) {
-          document.body.classList.remove('layout-list-active');
-        }
-        break;
-      }
-      case 'list': {
-        if (activeLayouts.map) {
-          document.body.classList.remove('layout-list-active');
-          window.mapData.resetActiveMarker('search-map');
-        }
+        document.body.classList.remove('layout-space-active');
         break;
       }
       case 'offer': {
-        document.body.classList.remove('layout-offer-active');
-        document.body.classList.add('is-layout-offer-out');
-        $('.js-layout-show').removeClass('is-active');
-        if (document.getElementById('search-map')) {
+        if (activeLayouts.space && activeLayouts.list) {
+          last = 'space';
+        } else if (activeLayouts.space) {
+          last = 'space';
+        } else if (activeLayouts.list) {
+          last = 'list';
+        }
+        if (!activeLayouts.map && document.getElementById('search-map')) {
           window.mapData.resetActiveMarker('search-map');
         }
+        document.body.classList.remove('layout-offer-active');
+        break;
+      }
+      case 'list': {
+        document.body.classList.remove('layout-list-active');
+        window.mapData.resetActiveMarker('search-map');
         break;
       }
       default:
         break;
     }
+
+    if (last !== undefined) {
+      document.body.setAttribute('data-layout-last', last);
+    } else {
+      document.body.removeAttribute('data-layout-last');
+    }
+
     $(layouts).each((i, el) => {
       $(el).one('transitionend', (evt) => {
         const _self = evt.currentTarget;
@@ -109,6 +125,8 @@ export default function layoutsInit() {
   $(document).on('click', '.js-layout-show', (evt) => {
     const _this = evt.currentTarget;
     const isStopEvtBubbling = $(_this).is('[data-dead-zone]');
+
+    evt.preventDefault();
 
     if (isStopEvtBubbling) {
       evt.stopPropagation();
@@ -137,19 +155,23 @@ export default function layoutsInit() {
   });
 
   $(document).on('click', '.js-layout-close-active', () => {
-    const activeLayouts = layoutsMethods.whichLayerActive();
-    if (activeLayouts.map) {
-      if (activeLayouts.offer) {
-        layoutsMethods.close('offer', {});
-      } else if (activeLayouts.list) {
-        layoutsMethods.close('list', {});
-      } else if (activeLayouts.space) {
-        layoutsMethods.close('space', {});
-      }
-    } else if (activeLayouts.offer) {
-      layoutsMethods.close('offer', {});
-    } else if (activeLayouts.space) {
-      layoutsMethods.close('space', {});
+    // const activeLayouts = layoutsMethods.whichLayerActive();
+    const lastLayout = document.body.getAttribute('data-layout-last');
+    if (lastLayout !== undefined) {
+      layoutsMethods.close(lastLayout, {});
     }
+    // if (activeLayouts.map) {
+    //   if (activeLayouts.offer) {
+    //     layoutsMethods.close('offer', {});
+    //   } else if (activeLayouts.list) {
+    //     layoutsMethods.close('list', {});
+    //   } else if (activeLayouts.space) {
+    //     layoutsMethods.close('space', {});
+    //   }
+    // } else if (activeLayouts.offer) {
+    //   layoutsMethods.close('offer', {});
+    // } else if (activeLayouts.space) {
+    //   layoutsMethods.close('space', {});
+    // }
   });
 }

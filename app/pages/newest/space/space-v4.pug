@@ -4,7 +4,9 @@ block head
   - var pageTitle = 'Spacepool - Space'
 
 block bodyClasses
-  - var bodyCls = ' is-sm-noheader';
+  - var isNoHeader = true;
+  - var isUserPanel = true;
+  - var bodyCls = '';
   - var scripts = ['other']
 
 block header
@@ -18,17 +20,14 @@ block content
   +layout._static
     +e.column_start._start_space
       +e.wrapper
-        +layout-header({type: 'space', popup: false})._inner
         +space-description
         +space-description-panel
 
     +e.column_end.nd-hide-sm
-      +layout-header({type: 'list', popup: false})._list._popup._bg-gray
       +e.wrapper
         +nd-results._v2
-          +e.divider
-            +e.divider-name.nd-hide-lg Canvas Dalstone Lane Private offices
-            +space-type._gray._fz12.__type.nd-hide-from-md
+          +e.divider.nd-hide-from-md
+            +space-type._gray._fz12.__type
               +nd-box()._green.__box_sz9
               +e.name PRIVATE OFFICES
           each item in getData('space-offers-po.json')
@@ -65,7 +64,7 @@ block content
 
     +e.column_start._start_offer._popup(data-layout="offer")
       +e.wrapper
-        +offer-description(true)
+        +offer-description
         +offer-description-panel()._abs(data-offer-panel)
           +e.offer
             +space-type._gray.__type
@@ -75,6 +74,10 @@ block content
           +e.buttons
             +nd-button._pad10._black.__button.js-nd-arrange-viewing(href="#nd-popup-arrange-viewing" data-min-date="2021-15-4" data-max-date="2021-20-8") Arrange viewing
             +nd-button._pad10.__button(href="#") Request reservation
+
+    +e.column_header(data-layout="offer")
+      +layout-header({type: 'page', popup: true})._main._page
+      +layout-header({type: 'list', popup: true})._sort
 
   +nd-section
     .nd-container

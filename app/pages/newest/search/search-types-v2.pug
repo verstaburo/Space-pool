@@ -62,8 +62,7 @@ block content
       +e.wrapper
         +space-description
         +space-description-panel
-    +e.column_end._popup(data-layout="list,space")
-      +layout-header({type: 'list', popup: true})._sort._popup
+    +e.column_end._popup(data-layout="list,space,offer")
       +e.wrapper
         +nd-results._v2
           +e.divider.nd-hide-from-md
@@ -113,8 +112,9 @@ block content
           +e.buttons
             +nd-button._pad10._black.__button.js-nd-arrange-viewing(href="#nd-popup-arrange-viewing" data-min-date="2021-15-4" data-max-date="2021-20-8") Arrange viewing
             +nd-button._pad10.__button(href="#") Request reservation
-    +e.column_start._start_header._popup(data-layout="space,offer")
-      +layout-header({type: 'space', popup: true})._main._popup
+    +e.column_header._popup(data-layout="space,offer,list")
+      +layout-header({type: 'space', popup: true})._main
+      +layout-header({type: 'list', popup: true})._sort
 
   +modals('form')#search-filter(action="/")
     +e.FIELDSET.fieldset

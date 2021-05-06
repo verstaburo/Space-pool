@@ -323,7 +323,16 @@ function generateMarker(data, map) {
           break;
         }
         case 'offer': {
-          window.globalFunctions.layoutsMethods.open('offer', { sourceElement: undefined, marker: mm });
+          if (wW >= bp.sm) {
+            const fullmap = window.globalFunctions.layoutsMethods.whichLayerActive().map;
+            if (fullmap) {
+              window.globalFunctions.layoutsMethods.open('list', { sourceElement: undefined, marker: mm });
+            } else {
+              window.globalFunctions.layoutsMethods.open('offer', { sourceElement: undefined, marker: mm });
+            }
+          } else {
+            window.globalFunctions.layoutsMethods.open('offer', { sourceElement: undefined, marker: mm });
+          }
           break;
         }
         default:

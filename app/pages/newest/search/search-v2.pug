@@ -32,7 +32,7 @@ block content
         +nd-results._v2
           each item in getData('new-nd-spaces-search.json')
             +nd-results-item
-              +nd-space()._search-card._search-card_v2.js-layout-show.js-layout-tab-redirect(data-layout-target="space" data-layout-tab-target="tab-space-describe")
+              +nd-space()._search-card._search-card_v2(href="space-v4.html" target="_blank")
                 +gallery(item.gallery)._space.__media.js-nd-gallery
                 +e.describe
                   +e.address
@@ -49,7 +49,7 @@ block content
       +e.wrapper
         +space-description
         +space-description-panel
-    +e.column_end._popup.nd-sm-hide(data-layout="list,space")
+    +e.column_end._popup.nd-sm-hide(data-layout="list,space,offer")
       +layout-header({type: 'list', popup: true})._sort._popup
       +e.wrapper
         +nd-results._v2
@@ -101,8 +101,9 @@ block content
           +e.buttons
             +nd-button._pad10._black.__button.js-nd-arrange-viewing(href="#nd-popup-arrange-viewing" data-min-date="2021-15-4" data-max-date="2021-20-8") Arrange viewing
             +nd-button._pad10.__button(href="#") Request reservation
-    +e.column_start._start_header._popup(data-layout="space,offer")
-      +layout-header({type: 'space', popup: true})._main._popup
+    +e.column_header._popup(data-layout="space,offer,list")
+      +layout-header({type: 'space', popup: true})._main
+      +layout-header({type: 'list', popup: true})._sort
 
   +modals('FORM')#search-filter(action="/")
     +e.FIELDSET.fieldset
