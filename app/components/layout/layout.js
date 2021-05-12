@@ -176,6 +176,14 @@ export default function layoutsInit() {
           scrollTop: $(nextEl).offset().top - 100,
         }, 1000, 'swing');
       }
+    } else if (delta > 0) {
+      const wH = window.innerHeight;
+      const elSizes = el.getBoundingClientRect();
+      if (elSizes.bottom < wH && elSizes.bottom > 0) {
+        $('body, html').stop().animate({
+          scrollTop: $(el).offset().top,
+        }, 1000, 'swing');
+      }
     }
   });
 }
