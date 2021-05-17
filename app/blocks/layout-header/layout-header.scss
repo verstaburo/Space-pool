@@ -67,11 +67,11 @@
 
     // border-right: 1px solid $nd-color-border6;
     flex: none;
+    opacity: 0;
 
     svg {
       @include rule(width, (xl: 18px, xlg: 18, lg: 18, md: 15, sm: 15));
       @include rule(height, (xl: 18px, xlg: 18, lg: 18, md: 15, sm: 15));
-      transition: opacity $ease-main;
 
       @include screen('sm', max, 2) {
         opacity: 0;
@@ -94,13 +94,15 @@
         background-image: none;
       }
 
+      opacity: 1;
+
       @include screen('sm', max, 2) {
         background-image: none;
       }
     }
 
     .layout-offer-active.map-in-fullview &,
-    .layout-space-active.map-in-fullview &{
+    .layout-space-active.map-in-fullview &  {
       svg {
         opacity: 0;
 
@@ -109,6 +111,7 @@
         }
       }
 
+      opacity: 1;
       background-repeat: no-repeat;
       background-position: 50% 50%;
       background-image: $icon-arrow5;
@@ -125,6 +128,7 @@
         opacity: 0;
       }
 
+      opacity: 1;
       background-repeat: no-repeat;
       background-position: 50% 50%;
       background-image: $icon-arrow5;

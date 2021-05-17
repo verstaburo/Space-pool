@@ -255,6 +255,7 @@ function generateMarker(data, map) {
     userState: 'default',
     markerType: data.markerType,
     labelText: data.offerCount,
+    url: data.spaceUrl,
     markerIconIndex: activeIconIndex,
   });
 
@@ -341,9 +342,12 @@ function generateMarker(data, map) {
     } else {
       switch (mm.markerType) {
         case 'space': {
-          window.globalFunctions.layoutsMethods.open('space', { sourceElement: undefined, marker: mm });
           if (wW < bp.sm) {
+            window.globalFunctions.layoutsMethods.open('space', { sourceElement: undefined, marker: mm });
             window.globalFunctions.layoutsMethods.redirectOnTab('tab-space-describe');
+          } else {
+            const url = mm.url || '/';
+            window.open(url, '_blank');
           }
           break;
         }

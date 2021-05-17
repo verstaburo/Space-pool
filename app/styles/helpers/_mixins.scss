@@ -376,6 +376,22 @@ div {
   }
 }
 
+@mixin uRule($name, $pointsAndValues, $direction: max) {
+
+  @each $breakpoint,
+  $value in $pointsAndValues {
+    @if ($breakpoint==xl) and ($direction==max) {
+      #{$name}: #{$value};
+    }
+
+    @else {
+      @include screen('#{$breakpoint}', $direction) {
+        #{$name}: #{$value};
+      }
+    }
+  }
+}
+
 @mixin native-scroll($track-color: $nd-color-scroll, $bar-color: transparent, $track-width: 3, $bar-width: 6, $radius: 4) {
   scrollbar-color: $track-color $bar-color;
   scrollbar-width: thin;

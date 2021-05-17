@@ -19,7 +19,7 @@
 
   @include screen("md", max, 2) {
     grid-template-columns: 68.75% 31.25%;
-    grid-template-rows: pxtovw(323, 960)auto;
+    grid-template-rows: pxtovw(333, 960)auto;
     overflow-x: hidden;
     overflow-y: auto;
     // max-height: calc(100vh - (6600 / 960) * 1vw);
@@ -206,7 +206,6 @@
       background-color: $nd-color-bg;
       overflow: visible;
       z-index: 11;
-      // opacity: 0;
       transform: translate3d(100vw, 0, 0);
       transition: transform .5s ease-in-out;
       will-change: transform, visibility, opacity;
@@ -230,21 +229,19 @@
         }
       }
 
+      &.layout__column_header {
+        transform: translate3d(0, -100%, 0);
+      }
+
       &.layout__column_end {
         @include screen('sm', min, 2) {
           z-index: 13;
         }
       }
 
-
-      // &.layout__column_start_offer {
-      //   z-index: 8;
-      // }
-
       .map-in-fullview & {
         &.layout__column_end {
           box-shadow: boxShadow(-11, 0, 11, 0, rgba(0, 0, 0, 0.14), false);
-          // z-index: 3;
 
           @include screen('xlg', max, 2) {
             box-shadow: boxShadow(-11, 0, 11, 0, rgba(0, 0, 0, 0.14), 1660);
@@ -263,12 +260,6 @@
           }
         }
       }
-
-      // .map-in-fullview.layout-offer-active & {
-      //   &.layout__column_end {
-      //     box-shadow: 0 0 0 0 transparent;
-      //   }
-      // }
 
       &.is-layout-animated-out {
         visibility: visible;
