@@ -2,7 +2,7 @@ mixin nd-search-map-v2(mapid, markersurl)
   +b.nd-search-map_v2&attributes(attributes)
     +e.wrapper
       +map-button.__button.js-map-toggle-fullview
-      +e.BUTTON.filter.js-map-filter-show Filters
+      +e.BUTTON.filter.js-toggle-modal(data-modal-target="filter-multi" data-modal-mode="default" data-modal-output-type="multi" data-modal-user-panel="visible") Filters
       +e.map(id=(mapid || 'search-map') data-map-markers-url=markersurl)
     block
 
