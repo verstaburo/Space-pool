@@ -87,6 +87,8 @@ export default function outputValuesFromModal() {
   const modalItems = $('[data-modal-item]:checked');
   modalItems.each((i, el) => modalItemMethods.setValue(el));
 
+  window.globalFunctions.modalItemMethods = modalItemMethods;
+
   $(document).on('change', '[data-modal-item]', (evt) => {
     const _this = evt.currentTarget;
     const isRange = $(_this).is('.js-nd-range');
