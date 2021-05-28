@@ -144,6 +144,7 @@ $(() => {
   tabs();
   heartActivation();
   offerSelect();
+  window.globalFunctions.offerSelect = offerSelect;
   formManipulations();
   deleteObject();
   blockHeightRounding();
