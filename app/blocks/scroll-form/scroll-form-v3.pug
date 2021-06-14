@@ -20,3 +20,31 @@ mixin scroll-form-v3()
       +nd-button('a')(href="#").__button Request reservation
       +nd-button('a')._black.__button.js-nd-arrange-viewing(href="#nd-popup-arrange-viewing") Arrange viewing
     +e.note prices are exclusive of VAT
+
+mixin scroll-form-v3-upd()
+  - var offers = getData('offer-select-nd.json')
+  +b.FORM.scroll-form_nd&attributes(attributes)
+    +e.header
+      +e.indicators
+        +e.boxes
+          +nd-box()._orange.__box
+          +nd-box()._red.__box
+          +nd-box()._blue.__box
+          +nd-box()._green.__box
+        +e.A.favorite.nd-hide-lg
+          +icon('nd-favorite')
+      +e.H3.title House of Creative - 229 Shoreditch High Street
+      +address('assets/images/nd/nd-subway.svg').__address Liverpool Street
+    +offer-select(true)._right._nd.__select
+      each item in offers
+        +offer-select-item(item)
+    +e.buttons
+      +nd-button('a')(href="#").__button Request reservation
+      +nd-button('a')._black.__button.js-nd-arrange-viewing(href="#nd-popup-arrange-viewing") Arrange viewing
+    +e.note prices are exclusive of VAT
+    +e.info
+      +nd-link()._underline._underline_blue.__link(href="#") Ask a question
+      p
+        | Or call&nbsp;
+        +nd-link().__link(href="tel:+4402084322219") +44 020 8432 2219
+        | &nbsp;to speak to our free Advisor
