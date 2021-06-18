@@ -1,0 +1,34 @@
+extends ../../../layouts/redesign-default
+
+block head
+  - var pageTitle = 'Spacepool - Space'
+
+block bodyClasses
+  - var isNoHeader = true;
+  - var isNoFooter = true
+  - var isUserPanel = true;
+  - var bodyCls = '';
+  - var scripts = ['other']
+
+block header
+  - var headerClass = ' is-login'
+  - var pageClass = ' _nopad'
+  - var isMap = true
+  - var isMapNew = true
+  - var host = true
+
+block content
+  +layout._stable._stable_centered
+    +e.column_start._start_offer(data-layout="offer")
+      +e.wrapper
+        +offer-description
+
+    +e.column_header(data-layout="offer")
+      +layout-header({type: 'page', popup: true})._main._page
+
+block panels
+  //- +nd-offer-panel.nd-hide-from-md
+
+block popups
+  +nd-popup-arrange-viewing#nd-popup-arrange-viewing
+  //- +popup-offer-types#popup-offer-types

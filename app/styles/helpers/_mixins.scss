@@ -7,6 +7,28 @@
   @return $result;
 }
 
+@function wPxtovw($value, $base: xl) {
+  $result: $value;
+
+  @if (type-of($value)=='number' and unit($value)=='') {
+    $result: ($value / map_get($nd-breaksizes, $base)) * 100vw;
+  }
+
+  @else if (type-of($value)=='list') {
+    $newValW: $value;
+
+    @for $i from 1 to length($value)+1 {
+      @if (type-of(nth($value, $i))=='number'and unit(nth($value, $i))=='') {
+        $newValW: set-nth($newValW, $i, (nth($value, $i) / map_get($nd-breaksizes, $base)) * 100vw);
+      }
+    }
+
+    $result: $newValW;
+  }
+
+  @return $result;
+}
+
 @function boxShadow($x: 0, $y: 0, $blur: 0, $size: 0, $color: rgba(0, 0, 0), $display: false, $inner: false) {
   $result: ($x * 1px) ($y * 1px) ($blur * 1px) ($size * 1px) $color;
 
@@ -364,13 +386,29 @@ div {
 
 @mixin rule($name, $pointsAndValues, $direction: max) {
   @each $breakpoint, $value in $pointsAndValues {
-    @if ($breakpoint == xl) and ($direction == max) {
+    @if ($breakpoint==xl) and ($direction==max) {
+      #{$name}: #{wPxtovw($value, xl)};
+    }
+
+    @else {
+      @include screen('#{$breakpoint}', $direction) {
+        #{$name}: #{wPxtovw($value, $breakpoint)};
+      }
+    }
+  }
+}
+
+@mixin cRule($name, $pointsAndValues, $direction: max) {
+
+  @each $breakpoint,
+  $value in $pointsAndValues {
+    @if ($breakpoint==xl) and ($direction==max) {
       #{$name}: #{$value};
     }
 
     @else {
-      @include screen('#{$breakpoint}', $direction, 2) {
-        #{$name}: pxtovw($value, map-get($nd-breaksizes, $breakpoint));
+      @include screen('#{$breakpoint}', $direction) {
+        #{$name}: #{$value};
       }
     }
   }
