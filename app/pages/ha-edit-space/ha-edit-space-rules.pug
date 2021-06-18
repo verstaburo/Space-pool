@@ -1,0 +1,85 @@
+extends ../../layouts/redesign-default
+
+block head
+  - var pageTitle = 'Spacepool - Space Edit - House rules'
+
+block bodyClasses
+  - var bodyCls = ' is-sm-noheader is-sm-no-userpanel';
+  - var isNoFooter = true
+  - var scripts = ['other']
+
+block header
+  - var headerClass = ' is-login'
+  - var pageClass = ''
+  - var isMap = true
+  - var host = true
+
+block content
+  +nd-page-header._grid
+    .nd-container
+      +nd-page-header-side
+        +nd-link-icon('arrow5')._underline._back._back_md21.__back_md-noname Back
+      +nd-page-header-main
+        - var menuList = getData('sideNavEditSpace.json').menu;
+        +e.mb-menu.nd-hide-from-md
+          +slider-navigation(menuList, 3, 'House rules')
+
+  +nd-content
+    .nd-container
+      +nd-content-aside
+        +sidebar-nosticky.nd-sidebar.nd-hide-md
+          - var nav = getData('sideNavEditSpace.json')
+          +nd-side-navigation(nav, 'House rules')
+
+      +nd-content-main
+        +nd-form._app._app_pb80.js-form-with-hidden-panel(data-validated-form data-submit-disabled)
+          +form-section
+            +form-section-header()
+              +e.H3.title_fz24._fw400 House rules
+              +e.text_fz17._fw500._mt23 Describe FBC / Clerkenwell house rules and regulations
+            +form-section-content._allday
+              +nd-checkbox({name: 'allDay', value: "true", checked: true})._fz16._stolzl.__allday.js-allday-fix 24 Reception hours
+              +e.interval(data-allday-container)
+                +form-section-wrapper
+                  +nd-form-box('Accessbile from')._bg-white
+                    +nd-select.js-nd-select(name="accessibilFrom" placeholder="Accessbile from" data-mobile-title="Accessbile from" required data-allday-from)
+                      option(value="" placeholder)
+                      - for (var i = 0; i <= 24; i++)
+                        - var zeroi = (`0${i}`).slice(-2);
+                        - var time = `${zeroi}:00`;
+                        option(value=time)= time
+                +e.interval-divider
+                +form-section-wrapper
+                  +nd-form-box('Accessbile till')._bg-white
+                    +nd-select.js-nd-select(name="accessbileTill" placeholder="Accessbile till" data-mobile-title="Accessbile till" required data-allday-till)
+                      option(value="" placeholder)
+                      - for (var i = 0; i <= 24; i++)
+                        - var zeroi = (`0${i}`).slice(-2);
+                        - var time = `${zeroi}:00`;
+                        option(value=time)= time
+          +form-section._mt80
+            +form-section-header()
+              +e.H4.title_fz18._fw400 House rules description (optional)
+            +form-section-content._mt32
+              +form-section-wrapper
+                +nd-form-box('House rules description')._bg-white
+                  +nd-textarea(type="text" name="houseRulese" placeholder="House rules description" rows="1")._h142
+          +form-section._mt80
+            +form-section-header()
+              +e.H4.title_fz18._fw400 Listing highlighted rules (optional)
+            +form-section-content._rules(data-deleted-group data-point-group)
+              +button-add.js-add-object(type="button")
+              +form-section-wrapper()(data-deleted-object data-point-object)
+                +nd-form-box-removable('')
+                  +nd-input(type="text" name="rules[0]" placeholder="Point")._point
+          +nd-form-panel()._wide._hidden.is-fixed(data-hidden-panel)
+            .nd-container
+              .nd-content__column_aside.nd-hide-md
+              .nd-content__column_main
+                +e.controls
+                  +nd-link-icon('cross', 'button')(type="reset")._underline.__reset.js-form-reset Discard <span class="nd-hide-sm">changes</span>
+                  +nd-button('button', true).__button(type="submit") Save <span class="nd-hide-sm">changes</span>
+
+block panels
+
+block popups

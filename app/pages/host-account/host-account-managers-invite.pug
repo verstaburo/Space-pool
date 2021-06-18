@@ -1,0 +1,70 @@
+extends ../../layouts/redesign-default
+
+block head
+  - var pageTitle = 'Spacepool - Host Account - Managers'
+
+block bodyClasses
+  - var bodyCls = ' is-sm-noheader is-sm-no-userpanel';
+  - var isNoFooter = true
+  - var scripts = ['other']
+
+block header
+  - var headerClass = ' is-login'
+  - var pageClass = ''
+  - var isMap = false
+  - var host = true
+
+block content
+  +nd-page-header._grid
+    .nd-container
+      +nd-page-header-side
+        +nd-link-icon('arrow5')._back._back_md21.__back_md-noname.__back.nd-hide-from-md Back
+      +nd-page-header-main
+        - var menuList = getData('sideNavProfileHost.json').menu;
+        +e.mb-menu.nd-hide-from-md
+          +slider-navigation(menuList, 2, 'Managers')
+
+  +nd-content
+    .nd-container
+      +nd-content-aside
+        +sidebar-nosticky.nd-sidebar.nd-hide-md
+          - var nav = getData('sideNavProfileHost.json')
+          +nd-side-navigation(nav, 'Managers')._profile._profile_ha
+
+      +nd-content-main
+        +nd-section
+          +nd-section-header._fx._md-pg-head.nd-hide-sm
+            +nd-section-title._fz24 Managers
+            +e.menu
+              +slider-navigation([{name: "All Managers", href: "host-account-managers.html"}, {name: "Free Managers", href: "#"}, {name: "Active Managers", href: "#"}, {name: "Inactive Managers", href: "host-account-managers-inactive.html"}], 0)
+              +nd-button('a')._pad10._h35.__add.is-disabled(href="host-account-managers-invite.html") Add manager
+
+          +e.board
+            +e.column_left._pb._divider
+              +nd-form.__form
+                +form-section-title._fz22._fw400 Sign up new manager
+                +form-section-text._mt44._indent
+                  p Your space manager don’t have an account on Spacepool yet? Invite him to create space manager account.
+                  p Send him invitation link:
+                +form-section-wrapper._mt
+                  +nd-form-box('Invitation link')._bg-white
+                    +nd-input(type="text" name="link" placeholder="Invitation link" readonly data-copy-target="inviteLink" value="spacepool.com/signupmanager/153458593")._copy
+                    +nd-button('button')._pad10._h35.__copy.js-copy(type="button" data-copy-from="inviteLink") Copy link
+              +nd-note({image: {src: 'assets/images/nd/nd-info.svg'}, text: true}).__note After registration the manager will appear in your manager list and you will be able to add him as a Space manager.
+            +e.column_right._pb
+              +nd-form.__form(data-validated-form)
+                +form-section-title._fz22._fw400 Invite from existing account
+                +form-section-text._mt44._indent
+                  p Your space manager has a Spacepool account? You can invite him to become your manager.
+                  p Send him invitation using his registration account Email:
+                +form-section-wrapper._mt
+                  +nd-form-box('Invited account email')._bg-white
+                    +nd-input(type="email" name="email" placeholder="Invited account email" required)
+                +e.buttons_mt24
+                  +nd-button('button', true).__button_wide(type="submit") Invite manager
+              +nd-note({image: {src: 'assets/images/nd/nd-info.svg'}, text: true}).__note After registration the manager will appear in your manager list and you will be able to add him as a Space manager.
+
+
+block panels
+
+block popups

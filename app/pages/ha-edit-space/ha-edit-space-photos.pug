@@ -1,0 +1,65 @@
+extends ../../layouts/redesign-default
+
+block head
+  - var pageTitle = 'Spacepool - Space Edit - Photos'
+
+block bodyClasses
+  - var bodyCls = ' is-sm-noheader is-sm-no-userpanel';
+  - var isNoFooter = true
+  - var scripts = ['other']
+
+block header
+  - var headerClass = ' is-login'
+  - var pageClass = ''
+  - var isMap = true
+  - var host = true
+
+block content
+  +nd-page-header._grid
+    .nd-container
+      +nd-page-header-side
+        +nd-link-icon('arrow5')._underline._back._back_md21.__back_md-noname Back
+      +nd-page-header-main
+        - var menuList = getData('sideNavEditSpace.json').menu;
+        +e.mb-menu.nd-hide-from-md
+          +slider-navigation(menuList, 4, 'Photos')
+
+  +nd-content
+    .nd-container
+      +nd-content-aside
+        +sidebar-nosticky.nd-sidebar.nd-hide-md
+          - var nav = getData('sideNavEditSpace.json')
+          +nd-side-navigation(nav, 'Photos')
+
+      +nd-content-main
+        +nd-form._app._app_pb80.js-form-with-hidden-panel(data-validated-form data-submit-disabled)
+          +form-section
+            +form-section-header()._fx
+              +e.H3.title_fz24._fw400 Photos
+              +e.counter(data-file-counter) <i>5</i> / 25
+            +nd-uploader-output.__upload-area(data-upload-area)
+              each item, index in [{image: "assets/images/nd/space-hq-1.jpg"}, {image: "assets/images/nd/space-hq-2.jpg"}, {image: "assets/images/nd/space-hq-3.jpg"}, {image: "assets/images/nd/space-hq-1.jpg"}, {image: "assets/images/nd/space-hq-2.jpg"}]
+                +e.item(data-draggable-item)
+                  if index == 0
+                    +nd-photo-preview({originalName: 'source', originalImage: item.image}, index).is-main(data-callback='deleteOnBackend' data-name-original-input='source' data-name-crop-input='crop' data-preview-content='data-preview-content' data-preview-item='data-preview-item')
+                      +nd-photo-preview-preview({select: "description"}, index)
+                        img(src=item.image)
+                      +nd-photo-preview-error
+                  else
+                    +nd-photo-preview({originalName: 'source', originalImage: item.image}, index)(data-callback='deleteOnBackend' data-name-original-input='source' data-name-crop-input='crop' data-preview-content='data-preview-content' data-preview-item='data-preview-item')
+                      +nd-photo-preview-preview({select: "description"}, index)
+                        img(src=item.image)
+                      +nd-photo-preview-error
+
+          +nd-form-panel()._wide._hidden.is-fixed(data-hidden-panel)
+            .nd-container
+              .nd-content__column_aside.nd-hide-md
+              .nd-content__column_main
+                +e.controls
+                  +nd-link-icon('cross', 'button')(type="reset")._underline.__reset.js-form-reset Discard <span class="nd-hide-sm">changes</span>
+                  +nd-button('button', true).__button(type="submit") Save <span class="nd-hide-sm">changes</span>
+
+block panels
+
+block popups
+  +popup-image-cropper#popup-image-crop

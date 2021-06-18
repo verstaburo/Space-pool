@@ -1,0 +1,53 @@
+extends ../../layouts/redesign-default
+
+block head
+  - var pageTitle = 'Spacepool - Rental Summary'
+
+block bodyClasses
+  - var bodyCls = '';
+  - var isNoFooter = true
+  - var isNoHeader = true
+  - var scripts = ['other']
+
+block header
+  - var headerClass = ''
+  - var pageClass = ' nd-page_nopad'
+  - var isMap = false
+  - var host = false
+  - var isNoUser = true
+
+block content
+  - var spaceData = {gallery: { images: ["assets/images/nd/nd-space-lead.jpg", "assets/images/space2.jpg", "assets/images/space3.jpg", "assets/images/space4.jpg", "assets/images/space7.jpg"], buttons: true, buttonsClass: "_bg-small nd-hide-sm"}, address: ["London", "Mayfare", "EC2A 4SD"], tube: "Liverpool Street", title: "House of Creative - 229 Shoreditch High Street", offers: [{box: "_red", name: "FIXED DESK", rows: [{ name: "Fixed desk 1st floor", price: "£ 860.00 per month"}]}]}
+  +rs-grid
+    .nd-container
+      +e.column_form
+        +nd-logo._rs.__logo.nd-hide-sm
+        +registration-form-summary({title: 'Email confirmed', confirmemail: true}).__form
+      +e.column_space
+        +nd-link-icon('arrow5')._back.__back Back to Space
+        +nd-space._rs
+          +e.top.nd-hide-sm
+            +e.address
+              each el in spaceData.address
+                span!= el
+            +e.tube
+              +address('assets/images/nd/nd-subway.svg')!=spaceData.tube
+          +gallery(spaceData.gallery)._space.__media.js-nd-gallery
+          +e.describe
+            +e.colors.nd-hide-sm
+              +nd-box._orange.__box
+              +nd-box._red.__box
+              +nd-box._blue.__box
+              +nd-box._green.__box
+            +space-type._fz15._gray.__type.nd-hide-from-sm
+              +nd-box()._red.__box_sz13
+              +e.name FIXED DESK IN
+            +e.title_fz28._fw500!=spaceData.title
+            +offer-data(spaceData.offers).__offers.nd-hide-sm
+
+
+
+
+block panels
+
+block popups

@@ -1,0 +1,52 @@
+extends ../../layouts/redesign-default
+
+block head
+  - var pageTitle = 'Spacepool - Add Space - Photo'
+
+block bodyClasses
+  - var bodyCls = '';
+  - var isNoFooter = true
+  - var isNoHeader = true
+  - var scripts = ['other']
+
+block header
+  - var headerClass = ''
+  - var pageClass = ' nd-page_nopad'
+  - var isMap = true
+
+block content
+  - var menuList = getData('navAddSpaceProgress.json').menu;
+  +nd-page-header._grid._grid_add
+    .nd-container.nd-container_wide
+      +e.title.nd-hide-from-sm Add space
+      +nd-page-header-side
+        +nd-link-icon('arrow5')._back.__back Back to Space list
+      +nd-page-header-main
+        +e.mb-menu.nd-hide-from-sm
+          +slider-navigation-for-add(menuList, 4, 'Photo', '_progress')._mg
+  +progress-scale(menuList, 4).nd-hide-sm
+
+  +nd-content
+    .nd-container
+      +nd-content-aside
+        +sidebar-nosticky.nd-sidebar.nd-hide-md
+          +nd-side-navigation({addManager: {image: {src:  "assets/images/nd/add-photo.svg", class: "_photo"}, subtitle: "Step 5", title: "Photo" }, note: {text: "Upload images of your space. We recommend taking the photos in landscape format."}})._add
+
+      +nd-content-main
+        +nd-form._app._app_pb80(data-validated-form)
+          +form-section
+            +form-section-header()._fx
+              +e.H3.title_fz24._fw400 Photos
+              +e.counter(data-file-counter) <i>0</i> / 25
+            +nd-uploader-output.is-empty.__upload-area(data-upload-area)
+
+          +nd-form-panel()._wide.is-fixed
+            .nd-content
+              .nd-container
+                +e.controls
+                  +nd-link-icon('arrow6')._underline._back._back_long.__back Back <span class="nd-hide-sm"> to previous step</span>
+                  +nd-button-icon('button', {iconBlock: true, icon: 'next', loader: true})._next._sm-h32._sm-fz16.__button_mw303(type="submit") Save and continue
+block panels
+
+block popups
+  +popup-image-cropper#popup-image-crop

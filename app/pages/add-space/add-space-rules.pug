@@ -1,0 +1,86 @@
+extends ../../layouts/redesign-default
+
+block head
+  - var pageTitle = 'Spacepool - Add Space - House rules'
+
+block bodyClasses
+  - var bodyCls = '';
+  - var isNoFooter = true
+  - var isNoHeader = true
+  - var scripts = ['other']
+
+block header
+  - var headerClass = ''
+  - var pageClass = ' nd-page_nopad'
+  - var isMap = true
+
+block content
+  - var menuList = getData('navAddSpaceProgress.json').menu;
+  +nd-page-header._grid._grid_add
+    .nd-container.nd-container_wide
+      +e.title.nd-hide-from-sm Add space
+      +nd-page-header-side
+        +nd-link-icon('arrow5')._back.__back Back to Space list
+      +nd-page-header-main
+        +e.mb-menu.nd-hide-from-sm
+          +slider-navigation-for-add(menuList, 3, 'House rules', '_progress')._mg
+
+  +progress-scale(menuList, 3).nd-hide-sm
+
+  +nd-content
+    .nd-container
+      +nd-content-aside
+        +sidebar-nosticky.nd-sidebar.nd-hide-md
+          +nd-side-navigation({addManager: {image: {src:  "assets/images/nd/add-rules.svg", class: "_rules"}, subtitle: "Step 4", title: "House rules" }, note: {text: "Rules give Guests a better idea of what it’s like to work in your space, and helps them settle in among their neighbours."}})._add
+
+      +nd-content-main
+        +nd-form._app._app_pb80(data-validated-form data-submit-disabled)
+          +form-section
+            +form-section-header()
+              +e.H3.title_fz24._fw400 House rules
+              +e.text_fz17._fw500._mt23 Describe FBC / Clerkenwell house rules and regulations
+            +form-section-content._allday
+              +nd-checkbox({name: 'allDay', value: "true", checked: true})._fz16._stolzl.__allday.js-allday-fix 24 Reception hours
+              +e.interval(data-allday-container)
+                +form-section-wrapper
+                  +nd-form-box('Accessbile from')._bg-white
+                    +nd-select.js-nd-select(name="accessibilFrom" placeholder="Accessbile from" data-mobile-title="Accessbile from" required data-allday-from)
+                      option(value="" placeholder)
+                      - for (var i = 0; i <= 24; i++)
+                        - var zeroi = (`0${i}`).slice(-2);
+                        - var time = `${zeroi}:00`;
+                        option(value=time)= time
+                +e.interval-divider
+                +form-section-wrapper
+                  +nd-form-box('Accessbile till')._bg-white
+                    +nd-select.js-nd-select(name="accessbileTill" placeholder="Accessbile till" data-mobile-title="Accessbile till" required data-allday-till)
+                      option(value="" placeholder)
+                      - for (var i = 0; i <= 24; i++)
+                        - var zeroi = (`0${i}`).slice(-2);
+                        - var time = `${zeroi}:00`;
+                        option(value=time)= time
+          +form-section._mt80
+            +form-section-header()
+              +e.H4.title_fz18._fw400 House rules description (optional)
+            +form-section-content._mt32
+              +form-section-wrapper
+                +nd-form-box('House rules description')._bg-white
+                  +nd-textarea(type="text" name="houseRulese" placeholder="House rules description" rows="1")._h142
+          +form-section._mt80
+            +form-section-header()
+              +e.H4.title_fz18._fw400 Listing highlighted rules (optional)
+            +form-section-content._rules(data-deleted-group data-point-group)
+              +button-add.js-add-object(type="button")
+              +form-section-wrapper()(data-deleted-object data-point-object)
+                +nd-form-box-removable('')
+                  +nd-input(type="text" name="rules[0]" placeholder="Point")._point
+          +nd-form-panel()._wide.is-fixed
+            .nd-content
+              .nd-container
+                +e.controls
+                  +nd-link-icon('arrow6')._underline._back._back_long.__back Back <span class="nd-hide-sm"> to previous step</span>
+                  +nd-button-icon('button', {iconBlock: true, icon: 'next', loader: true})._next._sm-h32._sm-fz16.__button_mw303(type="submit" disabled) Save and continue
+
+block panels
+
+block popups

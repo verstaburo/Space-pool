@@ -1,0 +1,44 @@
+extends ../../layouts/redesign-default
+
+block head
+  - var pageTitle = 'Spacepool - Guest Account'
+
+block bodyClasses
+  - var bodyCls = ' is-sm-noheader is-sm-no-userpanel';
+  - var scripts = ['other']
+
+block header
+  - var headerClass = ' is-login'
+  - var pageClass = ''
+  - var isMap = false
+  - var host = false
+
+block content
+  +nd-page-header._grid._grid_acc
+    .nd-container
+      +nd-page-header-side
+        +nd-link-icon('arrow5')._back.__back.nd-hide-from-sm Back
+      +nd-page-header-main
+        - var menuList = getData('sideNavProfile.json').menu;
+        +e.dt-menu.nd-hide-md
+          +nd-breadcrumbs([["Home", "#"], ["My account", "#"], ["My rents"]]).__breadcrumbs
+        +e.mb-menu.nd-hide-from-md
+          +slider-navigation(menuList, 1, 'My rents')
+
+  +nd-content
+    .nd-container
+      +nd-content-aside
+        +sidebar-nosticky.nd-sidebar.nd-hide-md
+          - var nav = getData('sideNavProfile.json')
+          +nd-side-navigation(nav, 'My rents')._profile
+
+      +nd-content-main
+        +nd-section._fx._fx_center._rents
+          +text-block._gray._empty.__content
+            +e.title_fz30 The list of your Rents
+            +e.content_fz18 Nothing here yet, but we expect you to start your first rent soon.
+            +e.links
+              +nd-link._blue.__link_fz16._stolzl(href="#") Search for spaces
+block panels
+
+block popups

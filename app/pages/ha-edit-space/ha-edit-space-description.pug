@@ -1,0 +1,54 @@
+extends ../../layouts/redesign-default
+
+block head
+  - var pageTitle = 'Spacepool - Space Edit - Title and description'
+
+block bodyClasses
+  - var bodyCls = ' is-sm-noheader is-sm-no-userpanel';
+  - var isNoFooter = true
+  - var scripts = ['other']
+
+block header
+  - var headerClass = ' is-login'
+  - var pageClass = ''
+  - var isMap = true
+  - var host = true
+
+block content
+  +nd-page-header._grid
+    .nd-container
+      +nd-page-header-side
+        +nd-link-icon('arrow5')._underline._back._back_md21.__back_md-noname Back
+      +nd-page-header-main
+        - var menuList = getData('sideNavEditSpace.json').menu;
+        +e.mb-menu.nd-hide-from-md
+          +slider-navigation(menuList, 1, 'Title and description')
+
+  +nd-content
+    .nd-container
+      +nd-content-aside
+        +sidebar-nosticky.nd-sidebar.nd-hide-md
+          - var nav = getData('sideNavEditSpace.json')
+          +nd-side-navigation(nav, 'Title and description')
+
+      +nd-content-main
+        +nd-form._app._app_pb62(data-validated-form data-submit-disabled)
+          +form-section
+            +form-section-header()
+              +e.H3.title_fz24._fw400 Title and description
+            +form-section-content
+              +nd-grid
+                +nd-grid-col({ xl: 12 })
+                  +form-section-wrapper
+                    +nd-form-box('Space title')._bg-white
+                      +nd-textarea(type="text" name="spaceName" placeholder="Space Name" rows="1" required) Clerkenworks FTC London
+                +nd-grid-col({ xl: 12 })
+                  +form-section-wrapper
+                    +nd-form-box('Description')._bg-white
+                      +nd-textarea(type="text" name="spaceDescription" placeholder="Space description" rows="1" required)._sm-fz17._h194 The office stretches across the 3rd and 4th floors of the 10 storey building. It has recently been refurbished to a high standard – matching the impressive double-height lobby. As well as plenty of terraces for the summer sun, it’s near Regent St and just a short walk to Oxford Circus.
+          +e.buttons_fxe._mt38
+            +nd-button('button', true).__button_mw320(type="submit" disabled) Save changes
+
+block panels
+
+block popups
