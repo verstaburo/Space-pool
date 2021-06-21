@@ -1,0 +1,9 @@
+mixin share-popover()
+  +b.FORM.share-popover&attributes(attributes)(data-popover)
+    +e.SECTION.top
+      +e.H3.title Share link
+      +copy-data({copyName: 'shareLink', copyValue: 'spacepool.com/space/Canvas_Data', name: 'shareLink', placeholder: '', buttonName: 'Copy link'})
+    +e.SECTION.bottom
+      +e.H3.title Share via
+      +share-socials([{icon: 'assets/images/nd/share-mail.svg', href: '#'}, {icon: 'assets/images/nd/share-linkedin.svg', href: '#'}, {icon: 'assets/images/nd/share-viber.svg', href: '#'}, {icon: 'assets/images/nd/share-skype.svg', href: '#'}, {icon: 'assets/images/nd/share-telegram.svg', href: '#'}])
+    block

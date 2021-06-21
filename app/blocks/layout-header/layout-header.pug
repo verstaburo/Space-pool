@@ -2,6 +2,7 @@ mixin layout-header(data)
   +b.layout-header&attributes(attributes)
     -var isSearch = data.type=== 'space'
     -var isSpacePage = data.type === 'page'
+    -var isOffer = data.offer;
     if isSearch || isSpacePage
       +e.BUTTON.close.js-layout-close-active(data-layout-close-target=data.type type="button")
         +icon('cross')
@@ -19,8 +20,10 @@ mixin layout-header(data)
           +e.title Canvas Dalston Lane
           if isSearch
             +nd-link-icon-end('plus', 'a')._blue.__link.js-layout-show.js-layout-tab-redirect(href="space-v4.html" data-layout-target="space" data-layout-tab-target="tab-space-describe") Space info
+          if isOffer
+            +nd-link-icon-end('plus', 'a')._blue.__link(href="space-v5.html") Space info
       if (data.type === 'space' || data.type==="page")
-        +nd-link-icon('share').__share Share
+        +nd-link-icon('share').__share.js-show-popover(href="#share-popover" data-popover-position="end") Share
       if data.type === 'list'
         +drop-navigation({title: 'Offers', list: [{name: "All listings (15)", href: "#"}, {name: "Hot desks (2)", href: "#"}, {name: "Fixed desks (8)", href: "#"}, {name: "Meeting Rooms (8)", href: "#"}, {name: "Private offices (5)", href: "#"}]}, 4, 'Private offices (5)')._md._rounded.__select.js-offer-select
     block

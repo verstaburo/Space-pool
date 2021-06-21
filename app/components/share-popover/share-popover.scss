@@ -1,0 +1,75 @@
+.share-popover {
+  $b: &;
+
+  position: fixed;
+  visibility: hidden;
+  overflow: hidden;
+  opacity: 0;
+  pointer-events: none;
+  z-index: 100;
+  transition: opacity $ease-main;
+  background-color: #fff;
+  box-sizing: border-box;
+  box-shadow: boxShadow(0, 3, 14, 0, rgba(0, 0, 0, .13), false),
+  boxShadow(0, 0, 4, 0, rgba(56, 58, 68, .09), false);
+
+  @include rule(width, (xl: 508px, xlg: 508, lg: 508, md: 508, sm: 325));
+  @include rule(border-radius, (xl: 3, xlg: 3, lg: 3, md: 3, sm: 3));
+  @include rule(margin-top, (xl: 36px, xlg: 36, lg: 36, md: 36, sm: 36));
+
+  @include screen('xlg', max, 2) {
+    box-shadow: boxShadow(0, 3, 14, 0, rgba(0, 0, 0, .13), 1660), boxShadow(0, 0, 4, 0, rgba(56, 58, 68, .09), 1660);
+  }
+
+  @include screen('lg', max, 2) {
+    box-shadow: boxShadow(0, 3, 14, 0, rgba(0, 0, 0, .13), 1366),
+    boxShadow(0, 0, 4, 0, rgba(56, 58, 68, .09), 1366);
+  }
+
+  @include screen('md', max, 2) {
+    box-shadow: boxShadow(0, 3, 14, 0, rgba(0, 0, 0, .13), 960),
+    boxShadow(0, 0, 4, 0, rgba(56, 58, 68, .09), 960);
+  }
+
+  @include screen('sm', max, 2) {
+    box-shadow: boxShadow(0, 3, 14, 0, rgba(0, 0, 0, .13), 375),
+    boxShadow(0, 0, 4, 0, rgba(56, 58, 68, .09), 375);
+  }
+
+  &__top {
+    background-color: $nd-color-basic-light;
+    box-sizing: border-box;
+    width: 100%;
+
+    @include rule(min-height, (xl: 140px, xlg: 140, lg: 140, md: 140, sm: 140));
+    @include rule(padding, (xl: 25px 30px, xlg: 25 30, lg: 25 30, md: 25 30, sm: 15 20));
+  }
+
+  &__bottom {
+    background-color: $nd-color-bg;
+    box-sizing: border-box;
+    width: 100%;
+
+    @include rule(min-height, (xl: 140px, xlg: 140, lg: 140, md: 140, sm: 140));
+    @include rule(padding, (xl: 25px 30px, xlg: 25 30, lg: 25 30, md: 25 30, sm: 15 20));
+  }
+
+  &__title {
+    font-weight: 400;
+    font-family: $font-stolzl;
+    line-height: 1.18;
+    letter-spacing: normal;
+
+    @include rule(font-size, (xl: 15px, xlg: 15, lg: 15, md: 15, sm: 15));
+
+    &:not(:last-child) {
+      @include rule(margin-bottom, (xl: 22px, xlg: 22, lg: 22, md: 22, sm: 22));
+    }
+  }
+
+  &.is-opened {
+    visibility: visible;
+    opacity: 1;
+    pointer-events: auto;
+  }
+}

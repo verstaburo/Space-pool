@@ -27,6 +27,7 @@ import ShiftInputLocationOnFocus from '../components/search-panel/search-panel';
 import selection from '../blocks/selection/selection';
 // search and space
 import offerPanel from '../blocks/offer-description-panel/offer-description-panel';
+import ShowPopover from './functions/showPopover';
 // other
 import positioning from './functions/position';
 import ndSelects from '../blocks/form-elements/nd-select';
@@ -131,6 +132,7 @@ $(() => {
   selection();
   // search
   offerPanel();
+  ShowPopover();
   // other
   positioning();
   ndSelects();

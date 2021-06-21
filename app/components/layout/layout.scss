@@ -673,14 +673,39 @@
           bottom: 0;
           background-color: $nd-color-bg;
 
-          @include rule(width, (xl: 41.51%, lg: 47.07%, md: 31.25%, sm: 0));
+          @include rule(width, (xl: calc(100% - 58.49vw), lg: calc(100% - 52.93vw), md: calc(100% - 68.75vw), sm: 0));
           @include rule(box-shadow, (xl: boxShadow(0, 4, 12, 0, rgba(0, 0, 0, .25), false), xlg: boxShadow(0, 4, 12, 0, rgba(0, 0, 0, .25), 1660), lg: boxShadow(0, 4, 12, 0, rgba(0, 0, 0, .25), 1366), md: boxShadow(0, 4, 12, 0, rgba(0, 0, 0, .25), 960), sm: none));
         }
       }
     }
 
     &_centered {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
 
+      #{$b} {
+        &__column {
+          &_start {
+            width: 100%;
+            border-right: none;
+
+            @include rule(max-width, (xl: 1164px, xlg: 1164, lg: 1164, md: 100%));
+            @include rule(padding, (xl: 0 50px, xlg: 0 50, lg: 0 50, md: 0, sm: 0));
+          }
+
+          &_header {
+            overflow: hidden;
+
+            .layout-header {
+              &_main {
+                @include rule(min-width, (xl: 100vw, md: 100%));
+                border-right: none;
+              }
+            }
+          }
+        }
+      }
     }
   }
 }

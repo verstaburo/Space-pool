@@ -1,0 +1,33 @@
+.share-socials {
+  $b: &;
+
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+
+  &__item {
+    display: inline-block;
+    flex: none;
+
+    @include rule(margin-top, (xl: 4px, xlg: 4, lg: 4, md: 4, sm: 4));
+
+    &:not(:last-child) {
+      @include rule(margin-right, (xl: 15px, xlg: 15, lg: 15, md: 15, sm: 15));
+    }
+  }
+
+  &__link {
+    display: inline-block;
+    font-size: 0;
+    line-height: 0;
+    overflow: hidden;
+    border-radius: 50%;
+  }
+
+  &__icon {
+    display: block;
+
+    @include rule(width, (xl: 40px, xlg: 40, lg: 40, md: 40, sm: 40));
+    @include rule(height, (xl: 40px, xlg: 40, lg: 40, md: 40, sm: 40));
+  }
+}

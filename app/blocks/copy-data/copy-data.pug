@@ -1,0 +1,5 @@
+mixin copy-data(data)
+  +b.copy-data&attributes(attributes)
+    +nd-form-box(data.placeholder || '')._bg-white.__field
+      +nd-input(type="text" name=data.name data-copy-target=data.copyName value=data.copyValue placeholder=(data.placeholder || '') readonly)._h40
+    +nd-button('button')._pad10.__button.js-copy(type="button" data-copy-from=data.copyName)!=data.buttonName

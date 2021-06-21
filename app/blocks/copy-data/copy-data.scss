@@ -1,0 +1,35 @@
+.copy-data {
+  $b: &;
+
+  display: flex;
+  justify-content: flex-start;
+
+  &__field {
+    width: auto;
+    flex: 1;
+  }
+
+  &__button {
+    flex: none;
+
+    @include rule(min-width, (xl: 145px, xlg: 145, lg: 145, md: 145, sm: 120));
+
+    &:not(:first-child) {
+      @include rule(margin-left, (xl: 18px, xlg: 18, lg: 18, md: 18, sm: 18));
+    }
+  }
+
+  .nd-input {
+    border-color: $nd-color-field-border;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
+    vertical-align: middle;
+
+    @include rule(padding, (xl: 5px 11px, xlg: 5 11, lg: 5 11, md: 5 11, sm: 5 11));
+  }
+
+  .is-top .nd-input {
+    border-color: $nd-color-field-border;
+  }
+}
