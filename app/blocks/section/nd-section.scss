@@ -158,66 +158,24 @@
     font-family: $font-stolzl;
     font-weight: 400;
     letter-spacing: -.015em;
-    font-size: 22px;
     line-height: (26 / 22);
 
-    @include screen('xlg', max, 2) {
-      font-size: pxtovw(22, 1660);
-    }
+    @include rule(font-size, (xl: 22px, xlg: 22, lg: 20, md: 20, sm: 20));
 
     @include screen('lg', max, 2) {
-      font-size: pxtovw(20, 1366);
       line-height: (24 / 20);
     }
 
-    @include screen('md', max, 2) {
-      font-size: pxtovw(20, 960);
-    }
-
-    @include screen('sm', max, 2) {
-      font-size: pxtovw(20, 375);
-    }
-
     &_fz22 {
-      font-size: 22px;
       line-height: 1;
 
-      @include screen('xlg', max, 2) {
-        font-size: pxtovw(22, 1660);
-      }
-
-      @include screen('lg', max, 2) {
-        font-size: pxtovw(22, 1366);
-      }
-
-      @include screen('md', max, 2) {
-        font-size: pxtovw(22, 960);
-      }
-
-      @include screen('sm', max, 2) {
-        font-size: pxtovw(20, 375);
-      }
+      @include rule(font-size, (xl: 22px, xlg: 22, lg: 22, md: 22, sm: 20));
     }
 
     &_fz24 {
-      font-size: 24px;
       line-height: 1;
 
-      @include screen('xlg', max, 2) {
-        font-size: pxtovw(24, 1660);
-      }
-
-      @include screen('lg', max, 2) {
-        font-size: pxtovw(24, 1366);
-      }
-
-      @include screen('md', max, 2) {
-        font-size: pxtovw(24, 960);
-      }
-
-      @include screen('sm', max, 2) {
-        font-size: pxtovw(20, 375);
-      }
+      @include rule(font-size, (xl: 24px, xlg: 24, lg: 24, md: 24, sm: 20));
 
       #{$b}_app & {
         @include rule(font-size, (xl: 24px, xlg: 24, lg: 20, md: 22, sm: 20));
@@ -227,25 +185,10 @@
     }
 
     &_fz30 {
-      font-size: 30px;
       line-height: 1.19;
       letter-spacing: normal;
 
-      @include screen('xlg', max, 2) {
-        font-size: pxtovw(30, 1660);
-      }
-
-      @include screen('lg', max, 2) {
-        font-size: pxtovw(30, 1366);
-      }
-
-      @include screen('md', max, 2) {
-        font-size: pxtovw(30, 960);
-      }
-
-      @include screen('sm', max, 2) {
-        font-size: pxtovw(20, 375);
-      }
+      @include rule(font-size, (xl: 30px, xlg: 30, lg: 30, md: 30, sm: 20));
     }
 
     &_fz26 {
@@ -254,6 +197,12 @@
       &_v2 {
         @include rule(font-size, (xl: 26px, xlg: 26, lg: 24, md: 18, sm: 20));
       }
+    }
+
+    &_fz16 {
+      line-height: 1.18;
+
+      @include rule(font-size, (xl: 16px, xlg: 16, lg: 16, md: 16, sm: 16));
     }
 
     &_sm-fz26 {
@@ -1605,5 +1554,55 @@
 
   &_app {
     @include rule(margin-top, (sm: 28));
+  }
+
+  &_space-map {
+
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+
+    #{$b} {
+      &__header {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        width: 100%;
+        flex: none;
+
+        .address-line {
+          &:not(:first-child) {
+            @include rule(margin-left, (xl: 20px, xlg: 20, lg: 20, md: 20, sm: 0));
+          }
+        }
+      }
+
+      &__space-map {
+        width: auto;
+        height: auto;
+        flex: 1;
+        border: none;
+        min-width: 30%;
+
+        @include rule(border-radius, (xl: 3px, xlg: 3, lg: 3, md: 3, sm: 0));
+        @include rule(min-height, (xl: 232px, xlg: 232, lg: 232, md: 232, sm: 177));
+
+        &:not(:first-child) {
+          margin-top: 0;
+        }
+      }
+
+      &__routes {
+        flex: none;
+        margin-bottom: 0;
+
+        @include rule(width, (xl: 369px, xlg: 369, lg: 369, md: 369, sm: 100%));
+        @include rule(margin-left, (xl: 49px, xlg: 49, lg: 49, md: 49, sm: 0));
+
+        &:not(:first-child) {
+          margin-top: 0;
+        }
+      }
+    }
   }
 }

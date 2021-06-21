@@ -25,7 +25,8 @@
     color: $color-gray-lightest;
 
     .nd & {
-      @include rule(font-size, (xl: 12px, xlg: 12, lg: 12, md: 12, sm: 12));
+      @include rule(font-size, (xl: 13px, xlg: 13, lg: 13, md: 12, sm: 12));
+      @include cRule(color, (xl: $nd-color-gray-text, sm: $color-gray-lightest));
 
       letter-spacing: normal;
     }
@@ -43,13 +44,15 @@
         @include rule(height, (xl: 1px, xlg: 1, lg: 1, md: 1, sm: 1));
         @include rule(right, (xl: 10px, xlg: 10, lg: 10, md: 10, sm: 10));
 
-        .nd & {
-          @include rule(width, (xl: 2px, xlg: 2, lg: 2, md: 2, sm: 2));
-        }
-
         top: 50%;
         background-color: $color-gray-lightest;
         transform: translate3d(0, -50%, 0);
+
+        .nd & {
+          @include rule(width, (xl: 4px, xlg: 4, lg: 4, md: 4, sm: 4));
+
+          @include cRule(backgroundcolor, (xl: $nd-color-gray-text, sm: $color-gray-lightest))
+        }
       }
     }
   }
