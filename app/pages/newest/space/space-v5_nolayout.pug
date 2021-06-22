@@ -18,14 +18,14 @@ block header
   - var host = true
 
 block content
-  +layout._static
+  +layout._stable
     +e.column_start._start_space
       +e.wrapper
-        +space-description
+        +space-description-v2
         +space-description-panel
 
     +e.column_end.nd-hide-sm
-      +e.wrapper
+      +e.wrapper.js-scrollbar-layout
         +nd-results._v2
           +e.divider.nd-hide-from-md
             +space-type._gray._fz12.__type
@@ -33,7 +33,7 @@ block content
               +e.name PRIVATE OFFICES
           each item in getData('space-offers-po.json')
             +nd-results-item._mt23
-              +nd-space()._single-offer._single-offer_short.js-layout-show(data-layout-target="offer")
+              +nd-space()._single-offer._single-offer_short(href="single-offer.html" target="_blank")
                 if item.gallery && item.gallery.images.length === 1
                   +nd-space-media-e()
                     +e.PICTURE.image
@@ -63,46 +63,9 @@ block content
                         td
                           b £ 2,400 per month
 
-    +e.column_start._start_offer._popup(data-layout="offer")
-      +e.wrapper
-        +offer-description
-        +offer-description-panel()._abs.is-visible(data-offer-panel)
-          +e.offer
-            +space-type._gray.__type
-              +nd-box()._green.__box_sz7
-              +e.name PRIVATE OFFICE
-            +e.title 13 desks office space
-          +e.buttons
-            +nd-button._pad10._black.__button.js-nd-arrange-viewing(href="#nd-popup-arrange-viewing" data-min-date="2021-15-4" data-max-date="2021-20-8") Arrange viewing
-            +nd-button._pad10.__button(href="#") Request reservation
-
     +e.column_header(data-layout="offer")
       +layout-header({type: 'page', popup: true})._main._page
       +layout-header({type: 'list', popup: true})._sort
-
-  +nd-section
-    .nd-container
-      +nd-section-header
-        +nd-section-title More places
-    +nd-slider(true, false).__slider.js-nd-slider
-      each item in getData('nd-spaces.json')
-        +nd-space('a').__slide_space.swiper-slide(href="#")
-          +nd-space-media()(data-slider-buttons-orientir)
-            img(src=item.image)
-          +nd-space-colors
-            each box in item.boxes
-              +nd-box()(class=box + ' __box')
-          +nd-space-title()!=item.title
-          +nd-space-text()!=item.text
-      each item in getData('nd-spaces.json')
-        +nd-space('a').__slide_space.swiper-slide(href="#")
-          +nd-space-media()(data-slider-buttons-orientir)
-            img(src=item.image)
-          +nd-space-colors
-            each box in item.boxes
-              +nd-box()(class=box + ' __box')
-          +nd-space-title()!=item.title
-          +nd-space-text()!=item.text
 
 block panels
   +share-popover#share-popover

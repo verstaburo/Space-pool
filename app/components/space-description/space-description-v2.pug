@@ -18,7 +18,7 @@ mixin space-description-v2()
     +tabs()._space.__tabs.nd-hide-from-sm
       +tab(data-tab-target="tab-space-offers" data-layout-tab="tab-space-offers") Office offers <span>(13)</span>
       +tab.active(data-tab-target="tab-space-describe" data-layout-tab="tab-space-describe") About this space
-    +tabs-content.space-description__tabs-content
+    +tabs-content.space-description-v2__tabs-content
       +tab-wrapper()(data-tab="tab-space-offers" data-tab-group="tab-space")
         +nd-results._v2
           +e.divider
@@ -100,6 +100,35 @@ mixin space-description-v2()
           +nd-section-header
             +nd-section-title._fz16 Facilities
           +facility-list._xsmall.__facility
+
+        +nd-section
+          +nd-section-header
+            +nd-section-title._fz16 Similar Spaces
+          +nd-section-content._mt34
+            +nd-grid.nd-grid_gap25.nd-grid_int50
+              each item, index in getData('nd-spaces.json')
+                if index < 3
+                  +nd-grid-col({xl: 4, md: 6, sm: 12})
+                    +nd-space('a')(href="#")
+                      +nd-space-media()(data-slider-buttons-orientir)
+                        img(src=item.image)
+                      +nd-space-colors
+                        each box in item.boxes
+                          +nd-box()(class=box + ' __box')
+                      +nd-space-title()!=item.title
+                      +nd-space-text()!=item.text
+
+              each item, index in getData('nd-spaces.json')
+                if index < 3
+                  +nd-grid-col({xl: 4, md: 6, sm: 12})
+                    +nd-space('a')(href="#")
+                      +nd-space-media()(data-slider-buttons-orientir)
+                        img(src=item.image)
+                      +nd-space-colors
+                        each box in item.boxes
+                          +nd-box()(class=box + ' __box')
+                      +nd-space-title()!=item.title
+                      +nd-space-text()!=item.text
 
 mixin space-description-panel()
   +nd-link-icon('nd-burger')._blue._block.space-description-panel.js-layout-tab-redirect.nd-hide-from-sm(href="#" data-layout-tab-target="tab-space-offers" data-tab="tab-space-describe" data-tab-group="tab-space") View listings
