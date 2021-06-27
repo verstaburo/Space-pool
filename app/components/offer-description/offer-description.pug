@@ -52,5 +52,61 @@ mixin offer-description(static)
         +e.PICTURE.image
           source(src="assets/images/nd/floor-plan2.jpg" srcset="assets/images/nd/floor-plan2.jpg")
           img(src="assets/images/nd/floor-plan2.jpg")
+    block
 
+
+mixin offer-description-v2(stable)
+  +b.offer-description_v2&attributes(attributes)
+    +e.media
+      +e.PICTURE.media-image
+        source(src="assets/images/nd/space30.jpg" srcset="assets/images/nd/space30.jpg")
+        img(src="assets/images/nd/space30.jpg")
+    +e.layout
+      +e.SECTION.content
+        +e.SECTION.section_describe
+          +e.header
+            +space-type._gray._fz12.__type
+              +nd-box()._green.__box_sz9
+              +e.name PRIVATE OFFICE
+            +e.bottom
+              +e.H3.title 13 desks office space
+              +favorite.__favorite
+          +e.text Perfectly located on Shoreditch High Street, alongside three of our other buildings, 229 offers 12 private offices, meeting rooms, large board room and a perfect breakout/kitchen
+        +e.row
+          +e.SECTION.section_table
+            +e.H4.title_fz16 About
+            +nd-table._info._info_space._info_space-v2.__table
+              tbody
+                tr
+                  td Amount of desks
+                  td 12
+                tr
+                  td Floor area
+                  td 257 ft<sup>2</sup>
+                tr
+                  td Min. term
+                  td 1 month
+          +e.SECTION.section_plan
+            +e.H4.title_fz16 Floor Plan
+            +e.PICTURE.image
+              source(src="assets/images/nd/floor-plan3.jpg" srcset="assets/images/nd/floor-plan3.jpg")
+              img(src="assets/images/nd/floor-plan3.jpg")
+        if stable
+          +e.SECTION.section_map
+            +e.head
+              +e.H4.title_fz16 Location
+              +address-line({line: ['London', 'Southwark', 'SE1']}).__address
+            +e.row
+              +space-map('space-map').__map
+              +routes-v2(true).__routes
+        +e.SECTION.section_list
+          +e.H4.title_fz16 Included
+          +styled-list
+            li Business rates included
+            li Utilities included
+            li Unlimited Teas and Coffees
+            li 12 Hour free meeting room allowance per desk
+      +e.sidebar
+        +offer-description-sidebar
+        +e.note prices are exclusive of VAT
     block

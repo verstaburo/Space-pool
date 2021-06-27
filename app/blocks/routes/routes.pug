@@ -69,7 +69,7 @@ mixin routes()
               +icon('car')
 
 
-mixin routes-v2()
+mixin routes-v2(offer)
   +b.SECTION.routes-v2&attributes(attributes)
     +e.TABLE.table
       tbody
@@ -92,17 +92,18 @@ mixin routes-v2()
             +e.name Goodge street
           +e.TD.time 9 min
 
-    +e.TABLE.table
-      tbody
-        +e.TR.row
-          +e.TD.location
-            +e.SPAN.icon
-              +e.IMG(src="assets/images/nd/nd-bus.svg")
-            +e.name Shoreditch High Street
-          +e.TD.time 9 min
-        +e.TR.row
-          +e.TD.location
-            +e.SPAN.icon
-              +e.IMG(src="assets/images/nd/nd-plane.svg")
-            +e.name City
-          +e.TD.time 9 min
+    if !offer
+      +e.TABLE.table
+        tbody
+          +e.TR.row
+            +e.TD.location
+              +e.SPAN.icon
+                +e.IMG(src="assets/images/nd/nd-bus.svg")
+              +e.name Shoreditch High Street
+            +e.TD.time 9 min
+          +e.TR.row
+            +e.TD.location
+              +e.SPAN.icon
+                +e.IMG(src="assets/images/nd/nd-plane.svg")
+              +e.name City
+            +e.TD.time 9 min

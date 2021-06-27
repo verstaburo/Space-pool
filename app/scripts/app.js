@@ -28,6 +28,7 @@ import selection from '../blocks/selection/selection';
 // search and space
 import offerPanel from '../blocks/offer-description-panel/offer-description-panel';
 import ShowPopover from './functions/showPopover';
+import toggleFavorite from '../blocks/favorite/favorite';
 // other
 import positioning from './functions/position';
 import ndSelects from '../blocks/form-elements/nd-select';
@@ -133,6 +134,7 @@ $(() => {
   // search
   offerPanel();
   ShowPopover();
+  toggleFavorite();
   // other
   positioning();
   ndSelects();

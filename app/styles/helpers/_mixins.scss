@@ -10,7 +10,7 @@
 @function wPxtovw($value, $base: xl) {
   $result: $value;
 
-  @if (type-of($value)=='number' and unit($value)=='') {
+  @if (type-of($value)=='number'and unit($value)=='') {
     $result: ($value / map_get($nd-breaksizes, $base)) * 100vw;
   }
 
@@ -391,7 +391,7 @@ div {
     }
 
     @else {
-      @include screen('#{$breakpoint}', $direction) {
+      @include screen('#{$breakpoint}', $direction, 2) {
         #{$name}: #{wPxtovw($value, $breakpoint)};
       }
     }
@@ -423,7 +423,7 @@ div {
     }
 
     @else {
-      @include screen('#{$breakpoint}', $direction) {
+      @include screen('#{$breakpoint}', $direction, 2) {
         #{$name}: #{$value};
       }
     }

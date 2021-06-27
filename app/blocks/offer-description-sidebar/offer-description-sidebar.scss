@@ -1,0 +1,98 @@
+.offer-description-sidebar {
+  $b: &;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  background-color: $nd-color-basic-light;
+  box-sizing: border-box;
+
+  @include rule(padding, (xl: 22px 50px 28px, xlg: 22 50 28, lg: 22 30 28, md: 20, sm: 20));
+  @include rule(border-radius, (xl: 3px, xlg: 3, lg: 3, md: 3, sm: 3));
+
+  &__subtitle {
+    color: $nd-color-gray-text;
+
+    @include rule(font-size, (xl: 15px, xlg: 15, lg: 15, md: 15, sm: 15));
+  }
+
+  &__payment {
+    display: block;
+    text-align: center;
+    width: 100%;
+    font-weight: 600;
+
+    @include rule(font-size, (xl: 20px, xlg: 20, lg: 20, md: 20, sm: 20));
+
+    &:not(:first-child) {
+      @include rule(margin-top, (xl: 27px, xlg: 27, lg: 27, md: 27, sm: 27));
+    }
+
+    &::after {
+      display: inline;
+      content: '*';
+      color: $nd-color-gray-text;
+
+      @include rule(font-size, (xl: 15px, xlg: 15, lg: 15, md: 15, sm: 15));
+      @include rule(margin-left, (xl: 5px, xlg: 5, lg: 5, md: 5, sm: 5));
+    }
+  }
+
+  &__mesure {
+    color: $nd-color-main;
+  }
+
+  &__buttons {
+    width: 100%;
+
+    &:not(:first-child) {
+      @include rule(margin-top, (xl: 30px, xlg: 30, lg: 30, md: 30, sm: 30));
+    }
+  }
+
+  &__button {
+    width: 100%;
+
+    &:not(:first-child) {
+      @include rule(margin-top, (xl: 15px, xlg: 15, lg: 15, md: 15, sm: 15));
+    }
+  }
+
+  &__question {
+    @include rule(font-size, (xl: 15px, xlg: 15, lg: 15, md: 15, sm: 15));
+
+    line-height: 1.5;
+    font-weight: 600;
+
+    &:not(:first-child) {
+      @include rule(margin-top, (xl: 40px, xlg: 40, lg: 40, md: 40, sm: 40));
+    }
+  }
+
+  &__avatar {
+    &:not(:first-child) {
+      @include rule(margin-top, (xl: 26px, xlg: 26, lg: 26, md: 26, sm: 26));
+    }
+  }
+
+  &__info {
+    display: block;
+    text-align: center;
+    line-height: 1.5;
+    width: 100%;
+    align-self: center;
+
+    @include rule(font-size, (xl: 15px, xlg: 15, lg: 15, md: 15, sm: 15));
+    // @include rule(max-width, (xl: 250px, xlg: 250, lg: 250, md: 250, sm: 250));
+
+    &:not(:first-child) {
+      @include rule(margin-top, (xl: 26px, xlg: 26, lg: 26, md: 26, sm: 26));
+    }
+  }
+
+  &__link {
+    font-weight: 600;
+  }
+}

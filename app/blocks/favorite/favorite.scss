@@ -1,0 +1,38 @@
+.favorite {
+  $b: &;
+
+  display: block;
+  flex: none;
+
+  @include rule(width, (xl: 18px, xlg: 18, lg: 18, md: 18, sm: 18));
+  @include rule(height, (xl: 18px, xlg: 18, lg: 18, md: 18, sm: 18));
+
+  svg {
+    stroke: $nd-color-basic;
+    fill: transparent;
+    width: 100%;
+    height: 100%;
+    transition: all $ease-main;
+  }
+
+  &.is-active {
+    svg {
+      stroke: $nd-color-main;
+      fill: $nd-color-main;
+    }
+  }
+
+  &:hover {
+    svg {
+      stroke: $nd-color-basic;
+      fill: $nd-color-basic;
+    }
+  }
+
+  &:active {
+    svg {
+      stroke: $nd-color-main;
+      fill: $nd-color-main;
+    }
+  }
+}

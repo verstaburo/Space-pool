@@ -28,6 +28,10 @@
     line-height: 1.75;
 
     @include rule(font-size, (xl: 15px, xlg: 15, lg: 15, md: 13, sm: 15));
+
+    &:not(:first-child) {
+      @include rule(margin-top, (xl: 32px, xlg: 32, lg: 32, md: 32, sm: 18));
+    }
   }
 
   &__media {
@@ -35,14 +39,9 @@
     // width: 100%;
     overflow: hidden;
     padding-top: 28.541667vw;
-    margin-left: -150px;
 
-    @include screen('xl', max, 2) {
-      margin-left: -60px;
-    }
-
-    @include rule(margin-left, (xlg: -60, lg: -50, md: -50, sm: 0));
-    @include rule(margin-right, (xl: -50px, xlg: -50, lg: -50, md: -40, sm: 0));
+    @include rule(margin-left, (md: -50, sm: 0));
+    @include rule(margin-right, (md: -40, sm: 0));
 
     @include screen('lg', max, 2) {
       padding-top: 29.868228vw;
@@ -60,17 +59,16 @@
       @include rule(margin-top, (sm: 20));
     }
 
-    // .layout_static & {
-    //   width: 100%;
-    //   margin-left: 0;
-    //   margin-right: 0;
+    .layout__column_popup & {
+      margin-left: -150px;
 
-    //   @include rule(border-radius, (xl: 3px, xlg: 3, lg: 3, md: 3, sm: 3));
+      @include screen('xl', max, 2) {
+        margin-left: -60px;
+      }
 
-    //   &:not(:first-child) {
-    //     @include rule(margin-top, (xl: 18px, xlg: 18, lg: 15, md: 15, sm: 20));
-    //   }
-    // }
+      @include rule(margin-left, (xlg: -60, lg: -50, md: -50, sm: 0));
+      @include rule(margin-right, (xl: -50px, xlg: -50, lg: -50, md: -40, sm: 0));
+    }
   }
 
   &__media-image {
@@ -172,6 +170,10 @@
     letter-spacing: normal;
 
     @include rule(font-size, (xl: 26px, xlg: 26, lg: 24, md: 18, sm: 20));
+
+    &_fz16 {
+      @include rule(font-size, (xl: 16px, xlg: 16, lg: 16, md: 16, sm: 20));
+    }
 
     &_fz20 {
       @include rule(font-size, (xl: 20px, xlg: 20, lg: 20, md: 16, sm: 20));
@@ -294,6 +296,208 @@
       &:not(:first-child) {
         @include rule(padding-top, (xl: 38px, xlg: 38, lg: 0));
         @include rule(margin-top, (xl: 0px, xlg: 0, lg: 55, md: 48, sm: 12));
+      }
+    }
+  }
+
+  &__layout {
+    display: flex;
+    justify-content: flex-start;
+
+    @include cRule(flex-wrap, (sm: wrap));
+
+    &:not(:first-child) {
+      @include rule(margin-top, (xl: 28px, xlg: 28, lg: 28, md: 28, sm: 18));
+    }
+  }
+
+  &__sidebar {
+    @include rule(width, (xl: 368px, xlg: 368, lg: 368, md: 280, sm: 100%));
+    @include rule(margin-left, (xl: 50px, xlg: 50, lg: 50, md: 30, sm: 0));
+    @include rule(padding-top, (xl: 16px, xlg: 16, lg: 16, md: 16, sm: 16));
+
+    flex: none;
+    box-sizing: border-box;
+
+    .layout__column_popup & {
+      @include rule(width, (xl: 368px, xlg: 368, lg: 280, md: 250, sm: 100%));
+      @include rule(margin-left, (xl: 50px, xlg: 50, lg: 30, md: 30, sm: 0));
+    }
+  }
+
+  &__bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+
+    &:not(:first-child) {
+      @include rule(margin-top, (xl: 5px, xlg: 5, lg: 5, md: 5, sm: 8));
+    }
+  }
+
+  &__row {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+
+    @include cRule(flex-wrap, (sm: wrap));
+
+    .layout__column_popup & {
+      @include cRule(flex-wrap, (md: wrap));
+    }
+  }
+
+  &__head {
+    display: flex;
+    justify-content: flex-start;
+    align-items: baseline;
+  }
+
+  &__routes {
+    flex: none;
+
+    @include rule(width, (xl: 300px, xlg: 300, lg: 300, md: 300, sm: 100%));
+    @include rule(margin-left, (xl: 35px, xlg: 35, lg: 35, md: 35, sm: 0));
+
+    &:not(:first-child) {
+      @include rule(margin-top, (sm: 20));
+    }
+
+    .layout__column_popup & {
+      @include rule(width, (lg: 250, md: 100%));
+      @include rule(margin-left, ( md: 20, sm: 0));
+    }
+  }
+
+  &__map {
+    flex: 1;
+    overflow: hidden;
+    height: auto;
+
+    @include rule(border-radius, (xl: 3px, xlg: 3, lg: 3, md: 3, sm: 0));
+    @include rule(min-height, (xl: 170px, xlg: 170, lg: 170, md: 170, sm: 177));
+
+    @include screen('sm', max, 2) {
+      flex: none;
+    }
+  }
+
+  &__address {
+    &:not(:first-child) {
+      @include rule(margin-left, (xl: 27px, xlg: 27, lg: 27, md: 27, sm: 27));
+    }
+  }
+
+  &__note {
+    display: inline-block;
+    color: $nd-color-gray-text;
+    line-height: (26 / 13);
+    font-weight: 400;
+    letter-spacing: normal;
+    text-align: center;
+    box-sizing: border-box;
+    width: 100%;
+
+    @include rule(font-size, (xl: 13px, xlg: 13, lg: 13, md: 13, sm: 13));
+
+    &::before {
+      display: inline-block;
+      vertical-align: middle;
+      content: '';
+      background-repeat: no-repeat;
+      background-position: 50% 50%;
+      background-image: url("data:image/svg+xml,%3Csvg width='6' height='6' viewBox='0 0 6 6' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M3.458 5.909L3.363 3.819L5.111 4.94L5.719 3.914L3.876 2.964L5.719 2.014L5.111 0.969L3.363 2.09L3.458 0H2.261L2.356 2.09L0.589 0.969L0 2.014L1.843 2.964L0 3.914L0.589 4.94L2.356 3.819L2.261 5.909H3.458Z' fill='%2386919E'/%3E%3C/svg%3E%0A");
+
+      @include rule(background-size, (xl: 6px, xlg: 6, lg: 6, md: 6, sm: 6));
+      @include rule(margin-right, (xl: 5px, xlg: 5, lg: 5, md: 5, sm: 5));
+      @include rule(height, (xl: 26px, xlg: 26, lg: 26, md: 26, sm: 26));
+      @include rule(width, (xl: 6px, xlg: 6, lg: 6, md: 6, sm: 6));
+    }
+
+    &:not(:first-child) {
+      @include rule(margin-top, (xl: 16px, xlg: 16, lg: 16, md: 16, sm: 16));
+    }
+  }
+
+  &_v2 {
+
+    #{$b} {
+      &__content {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        flex: 1;
+      }
+
+      &__section {
+        @include rule(margin-top, (xl: 44px, xlg: 44, lg: 44, md: 44, sm: 30));
+
+        &_describe {
+          padding-right: 0;
+          border-right: none;
+          margin-top: 0;
+        }
+
+        &_table {
+          padding-left: 0;
+          padding-right: 0;
+        }
+
+        &_map {
+          @include rule(margin-top, (xl: 38px, xlg: 38, lg: 38, md: 38, sm: 30));
+
+          .offer-description__row {
+            @include rule(margin-top, (xl: 24px, xlg: 24, lg: 24, md: 24, sm: 20));
+          }
+        }
+
+        &_plan {
+          padding-top: 0;
+          padding-right: 0;
+          border-right: none;
+          flex: none;
+
+          @include rule(width, (xl: 173px, xlg: 173, lg: 173, md: 173, sm: 100%));
+          @include rule(margin-left, (xl: 44px, xlg: 44, lg: 44, md: 30, sm: 0));
+
+          .layout__column_popup & {
+            @include rule(width, (lg: 150, md: 100%));
+            @include rule(margin-left, (lg: 30, md: 0));
+          }
+        }
+
+        &_list {
+          padding-left: 0;
+        }
+      }
+
+      &__media {
+        @include rule(border-radius, (xl: 3px, xlg: 3, lg: 3, md: 0, sm: 0 0 3 3));
+      }
+
+      &__title {
+        font-family: $font-main;
+        font-weight: 600;
+
+        @include rule(font-size, (xl: 24px, xlg: 24, lg: 24, md: 18, sm: 20));
+
+        &_fz16 {
+          font-family: $font-stolzl;
+          font-weight: 400;
+
+          @include rule(font-size, (xl: 16px, xlg: 16, lg: 16, md: 16, sm: 20));
+        }
+      }
+
+      &__table {
+        td {
+          line-height: 2.258;
+        }
+
+        &:not(:first-child) {
+          @include rule(margin-top, (xl: 22px, xlg: 22, lg: 22, md: 20, sm: 20));
+        }
       }
     }
   }
