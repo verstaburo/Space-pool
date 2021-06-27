@@ -214,6 +214,19 @@
             </a></div>
         <div class="nd-info-notices__bottom"><a class="nd-link nd-link_icon nd-link_icon_reverse nd-info-notices__link" href="#"><svg class="nd-link__icon nd-link__icon_arrow2"><use xlink:href="assets/images/icon.svg#icon_arrow2"></use></svg><span class="nd-link__text">Read all messages</span></a></div>
     </div>
+    <DIV class="modals">
+        <div class="modal" id="modal-support">
+            <div class="modal__overlay js-close-modal"></div>
+            <div class="modal__wrapper">
+                <div class="modal__header nd-hide-from-sm"><button class="modal__close js-close-modal" type="button">Close</button>
+                    <div class="modal__title">Support</div>
+                </div>
+                <div class="modal__content">
+                    <div class="modal__list"><a class="nd-button nd-button_icon nd-button_icon_start nd-button_border nd-button_border_blue nd-button_border_bw2 modal__sup-button" href="#"><span class="nd-button__bg"></span><svg class="nd-button__icon nd-button__icon_sup-call"><use xlink:href="assets/images/icon.svg#icon_sup-call"></use></svg><span class="nd-button__text">Call</span></a><a class="nd-button nd-button_icon nd-button_icon_start nd-button_border nd-button_border_blue nd-button_border_bw2 modal__sup-button" href="#"><span class="nd-button__bg"></span><svg class="nd-button__icon nd-button__icon_sup-mail"><use xlink:href="assets/images/icon.svg#icon_sup-mail"></use></svg><span class="nd-button__text">Email</span></a><a class="nd-button nd-button_icon nd-button_icon_start nd-button_border nd-button_border_blue nd-button_border_bw2 modal__sup-button" href="#"><span class="nd-button__bg"></span><svg class="nd-button__icon nd-button__icon_sup-chat"><use xlink:href="assets/images/icon.svg#icon_sup-chat"></use></svg><span class="nd-button__text">Chat</span></a></div>
+                </div>
+            </div>
+        </div>
+    </DIV>
     <main class="nd-page nd-page_nopad" role="main">
         <section class="layout">
             <div class="layout__column layout__column_map js-map-sm-show-fullview">
@@ -226,9 +239,15 @@
             <div class="layout__column layout__column_results">
                 <div class="layout__wrapper">
                     <section class="nd-section md-only-visibility-hidden">
-                        <div class="nd-section__header">
-                            <h3 class="nd-section__title nd-section__title_fz30 nd-section__title_sm-fz22 nd-section__title_ls-015">Private Office in London</h3>
-                            <div class="nd-section__text nd-section__text_fz15 nd-section__text_ls0 nd-section__text_gray">Looking for workspace type, Any team size and Any price</div>
+                        <div class="nd-section__filter-header">
+                            <div class="nd-section__header">
+                                <h3 class="nd-section__title nd-section__title_fz30 nd-section__title_sm-fz22 nd-section__title_ls-015">Private Office in London</h3>
+                                <div class="nd-section__text nd-section__text_fz15 nd-section__text_ls0 nd-section__text_gray">Looking for workspace type, Any team size and Any price</div>
+                            </div>
+                            <div class="modal-output js-toggle-modal nd-hide-sm" data-modal-target="filter-sort" data-modal-output-type="sort">
+                                <div class="modal-output__placeholder">Sort by</div>
+                                <div class="modal-output__values" data-modal-output-value="data-modal-output-value"></div><button class="modal-output__toggle" type="button"><svg width="7" heigh="4"><use xlink:href="assets/images/icon.svg#icon_select-arrow2"></use></svg></button>
+                            </div>
                         </div>
                     </section>
                     <div class="nd-results nd-results_v2">
@@ -1373,6 +1392,8 @@
                         <div class="modal__footer modal__footer_range"><button class="nd-button nd-button_black nd-button_pad10 modal__reset js-modal-reset-value" type="reset"><span class="nd-button__bg"></span><span class="nd-button__text">Clear</span></button><button class="nd-button nd-button_pad10 modal__setter js-modal-set-value" type="button"><span class="nd-button__bg"></span><span class="nd-button__text">Set filter</span></button></div>
                     </div>
                 </div>
+            </fieldset>
+            <fieldset class="modals__fieldset">
                 <div class="modal" id="filter-sort">
                     <div class="modal__overlay js-close-modal"></div>
                     <div class="modal__wrapper">
