@@ -320,6 +320,21 @@
       @include rule(height, (xl: 17px, xlg: 17, lg: 17, md: 17, sm: 13));
     }
 
+    &_sup-chat {
+      @include rule(width, (xl: 22px, xlg: 22, lg: 22, md: 22, sm: 22));
+      @include rule(height, (xl: 17px, xlg: 17, lg: 17, md: 17, sm: 17));
+    }
+
+    &_sup-mail {
+      @include rule(width, (xl: 19px, xlg: 19, lg: 19, md: 19, sm: 19));
+      @include rule(height, (xl: 14px, xlg: 14, lg: 14, md: 14, sm: 14));
+    }
+
+    &_sup-call {
+      @include rule(width, (xl: 15px, xlg: 15, lg: 15, md: 15, sm: 15));
+      @include rule(height, (xl: 18px, xlg: 18, lg: 18, md: 18, sm: 18));
+    }
+
     &_abs {
       position: absolute;
       top: 50%;
@@ -656,8 +671,17 @@
     color: $nd-color-basic;
     transition: border $ease-main, transform $ease-main;
 
+    &_bw2 {
+      border-width: 2px;
+      // @include rule(border-width, (xl: 2px, xlg: 2, lg: 2, md: 2, sm: 2));
+    }
+
     &_gray {
       border-color: $nd-color-border3;
+    }
+
+    &_blue {
+      border-color: $nd-color-main;
     }
 
     &_gray-txt {
@@ -777,24 +801,8 @@
           left: pxtovw(9, 375);
         }
 
-        &_user {
-          left: 15px;
-
-          @include screen('xlg', max, 2) {
-            left: pxtovw(15, 1660);
-          }
-
-          @include screen('lg', max, 2) {
-            left: pxtovw(15, 1366);
-          }
-
-          @include screen('md', max, 2) {
-            left: pxtovw(15, 960);
-          }
-
-          @include screen('sm', max, 2) {
-            left: pxtovw(15, 375);
-          }
+        &_user, &_sup-chat, &_sup-mail, &_sup-call {
+          @include rule(left, (xl: 15px, xlg: 15, lg: 15, md: 15, sm: 15));
         }
       }
     }

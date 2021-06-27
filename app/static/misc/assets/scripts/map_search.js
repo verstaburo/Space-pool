@@ -342,13 +342,15 @@ function generateMarker(data, map) {
     } else {
       switch (mm.markerType) {
         case 'space': {
-          if (wW < bp.sm) {
-            window.globalFunctions.layoutsMethods.open('space', { sourceElement: undefined, marker: mm });
-            window.globalFunctions.layoutsMethods.redirectOnTab('tab-space-describe');
-          } else {
-            const url = mm.url || '/';
-            window.open(url, '_blank');
-          }
+          // if (wW < bp.sm) {
+          //   window.globalFunctions.layoutsMethods.open('space', { sourceElement: undefined, marker: mm });
+          //   window.globalFunctions.layoutsMethods.redirectOnTab('tab-space-describe');
+          // } else {
+          //   const url = mm.url || '/';
+          //   window.open(url, '_blank');
+          // }
+          window.globalFunctions.layoutsMethods.open('space', { sourceElement: undefined, marker: mm });
+          window.globalFunctions.layoutsMethods.redirectOnTab('tab-space-describe');
           break;
         }
         case 'offer': {

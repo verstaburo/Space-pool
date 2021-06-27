@@ -217,6 +217,7 @@
 
       &.layout__column_start {
         transition-delay: 0;
+        border-right: none;
       }
 
       &.layout__column_header {
@@ -227,6 +228,8 @@
         @include screen('sm', min, 2) {
           z-index: 13;
         }
+
+        @include rule(box-shadow, (xl: boxShadow(0, 4, 12, 0, rgba(0, 0, 0, .25), false), xlg: boxShadow(0, 4, 12, 0, rgba(0, 0, 0, .25), 1660), lg: boxShadow(0, 4, 12, 0, rgba(0, 0, 0, .25), 1366), md: boxShadow(0, 4, 12, 0, rgba(0, 0, 0, .25), 960), sm: none));
       }
 
       .map-in-fullview & {
