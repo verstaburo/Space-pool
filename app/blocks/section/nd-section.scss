@@ -99,6 +99,23 @@
     }
   }
 
+  &__filter-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    width: 100%;
+
+    .nd-section__header {
+      @include cRule(width, (xl: auto, sm: 100%));
+      @include cRule(flex, (xl: 1, sm: none));
+    }
+
+    .modal-output {
+      @include rule(min-width, (xl: 185px, xlg: 185, lg: 185, md: 120, sm: 0));
+      @include rule(margin-left, (xl: 40px, xlg: 40, lg: 40, md: 30, sm: 0));
+    }
+  }
+
   &__header {
     display: block;
     width: 100%;
@@ -133,6 +150,10 @@
 
       @include screen('lg', max, 2) {
         align-items: center;
+      }
+
+      &_ai-end {
+        align-items: flex-end;
       }
     }
 

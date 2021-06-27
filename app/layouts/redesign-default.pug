@@ -61,6 +61,14 @@ html(lang='en')
         else
           each item in messages
             +info-notice(item).__notice
+
+      +modals('DIV')
+        +modal({header: {title: 'Support'}, footer: false})#modal-support
+          +e.list
+            +nd-button-icon('a', {iconLeft: true, icon: 'sup-call'})._icon_start._border._border_blue._border_bw2.__sup-button(href="#") Call
+            +nd-button-icon('a', {iconLeft: true, icon: 'sup-mail'})._icon_start._border._border_blue._border_bw2.__sup-button(href="#") Email
+            +nd-button-icon('a', {iconLeft: true, icon: 'sup-chat'})._icon_start._border._border_blue._border_bw2.__sup-button(href="#") Chat
+
     else if (noHeader && showUserPanel)
       +nd-user-menu-panel(isHost, noUser, isSearch)
       +nd-main-menu(menuData, isHost, noUser)
@@ -84,6 +92,13 @@ html(lang='en')
         else
           each item in messages
             +info-notice(item).__notice
+
+      +modals('DIV')
+        +modal({header: {title: 'Support'}, footer: false})#modal-support
+          +e.list
+            +nd-button-icon('a', {iconLeft: true, icon: 'sup-call'})._icon_start._border._border_blue._border_bw2.__sup-button(href="#") Call
+            +nd-button-icon('a', {iconLeft: true, icon: 'sup-mail'})._icon_start._border._border_blue._border_bw2.__sup-button(href="#") Email
+            +nd-button-icon('a', {iconLeft: true, icon: 'sup-chat'})._icon_start._border._border_blue._border_bw2.__sup-button(href="#") Chat
 
 
     +b.MAIN(class='nd-page' + pageCls)
