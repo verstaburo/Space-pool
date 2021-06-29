@@ -142,8 +142,9 @@ block content
               +e.INPUT.input(type="radio", value=item.value, name=item.name, data-modal-item, data-modal-item-value=(item.value2 || item.value), data-modal-item-type="team")
 
     +e.FIELDSET.fieldset
-      +modal({header: {title: 'Filter'}, footer: {class: '_range', view: 'range'}})#filter-multi
-        +nd-range({output: {minLabel: 'Min', maxLabel: 'Max', max: 'maxPrice', min: 'minPrice', formboxClass: '_bg-white _sm-h50', inputClass: '_sm-h50'}})(data-start="[0, 5000]" data-connect="[false, true, false]" data-step="10" data-margin="30" data-min="0" data-max="10000" data-currency="£" data-modal-item data-modal-item-type="multi").__range
+      +modal-filter#modal-filter
+      //- +modal({header: {title: 'Filter'}, footer: {class: '_range', view: 'range'}})#filter-multi
+      //-   +nd-range({output: {minLabel: 'Min', maxLabel: 'Max', max: 'maxPrice', min: 'minPrice', formboxClass: '_bg-white _sm-h50', inputClass: '_sm-h50'}})(data-start="[0, 5000]" data-connect="[false, true, false]" data-step="10" data-margin="30" data-min="0" data-max="10000" data-currency="£" data-modal-item data-modal-item-type="multi").__range
 
     +e.FIELDSET.fieldset
       +modal({header: {title: 'Sort by'}, footer: false})#filter-sort

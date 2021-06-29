@@ -1,0 +1,41 @@
+mixin modal-filter()
+  +b.modal-filter&attributes(attributes)
+    +e.content
+      +e.options
+        +e.header
+          +e.H3.title Filter
+          +nd-button-icon('button', {icon: 'cross'})._pad10._border._border_blue._border_bw2.__close.js-close-modal-filter(type="button") Close filter
+        +e.wrapper.js-scrollbar-layout
+          +e.options-inner
+            +e.section_price
+              +e.subtitle Price
+              +nd-range({output: {minLabel: 'From', maxLabel: 'To', max: 'maxPrice', min: 'minPrice', formboxClass: '_bg-white _h40', inputClass: '_h40'}})(data-start="[0, 5000]" data-connect="[false, true, false]" data-step="10" data-margin="30" data-min="0" data-max="10000" data-currency="£" data-modal-form-item data-modal-form-item-type="price")._v2.__range
+            +e.section
+              +e.subtitle Area
+              +e.list
+                each item in getData('nd-map-locations.json')
+                  +b.LABEL.check-button._hov-blue._pad10._h34._lg-fz13.__check
+                    if item.options.checked
+                      +e.INPUT.input(name=item.options.name, value=item.options.value, checked, type=item.options.type, data-modal-filter-item)
+                    else
+                      +e.INPUT.input(name=item.options.name, value=item.options.value, type=item.options.type, data-modal-filter-item)
+                    +e.SPAN.content!=item.name
+            +e.section
+              +e.subtitle Space Facilities
+              +e.list
+                each item in getData('nd-modal-features.json')
+                  +b.LABEL.check-button._hov-blue._pad10._h34._lg-fz13.__check
+                    if item.options.checked
+                      +e.INPUT.input(name=item.options.name, value=item.options.value, checked, type=item.options.type data-modal-filter-item)
+                    else
+                      +e.INPUT.input(name=item.options.name, value=item.options.value, type=item.options.type data-modal-filter-item)
+                    +e.SPAN.content!=item.name
+      +e.selected
+        +e.wrapper.js-scrollbar-layout
+          +e.selected-inner
+            +e.top
+              +nd-button-icon('button', {iconLeft: true, icon: 'cross'})._pad10._border._border_bw2._sm-h34.__clear.js-clear-modal-filter(type="button" disabled) Clear Filter
+            +e.tags(data-modal-filter-tags)
+            +e.bottom
+              +nd-button('button')._pad10._h34.__apply.js-apply-modal-filter(type="button") Apply filter
+    block
