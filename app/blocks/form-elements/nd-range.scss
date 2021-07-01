@@ -3,6 +3,7 @@
 // #####
 
 .nd-range {
+  $b: &;
   display: inline-block;
   width: 100%;
 
@@ -11,62 +12,28 @@
     display: inline-block;
     width: 100%;
     box-sizing: border-box;
-    padding: 0 12px;
     box-shadow: none;
     outline: none;
     border: none;
     border-radius: 0;
     background: transparent;
 
-    @include rule(height, (xl: 24px, xlg: 24, lg: 24, md: 24, sm: 24));
+    @include rule(height, (xl: 14px, xlg: 14, lg: 14, md: 14, sm: 14)); //handle height
 
-    @include screen('xlg', max, 2) {
-      padding: 0 pxtovw(12, 1660);
-    }
-
-    @include screen('lg', max, 2) {
-      padding: 0 pxtovw(12, 1366);
-    }
-
-    @include screen('md', max, 2) {
-      padding: 0 pxtovw(12, 960);
-    }
-
-    @include screen('sm', max, 2) {
-      padding: 0 pxtovw(12, 375);
-    }
+    @include rule(padding, (xl: 0 7px, xlg: 0 7, lg: 0 7, md: 0 7, sm: 0 7)); //half handle height
 
     &::before {
       @include pseudo;
 
       width: 100%;
-      height: 4px;
       background-color: $nd-color-gray2;
       top: 50%;
       left: 0;
       transform: translate3d(0, -50%, 0);
-      border-radius: 3px;
       z-index: 1;
 
-      @include screen('xlg', max, 2) {
-        height: pxtovw(4, 1660);
-        border-radius: pxtovw(3, 1660);
-      }
-
-      @include screen('lg', max, 2) {
-        height: pxtovw(4, 1366);
-        border-radius: pxtovw(3, 1366);
-      }
-
-      @include screen('md', max, 2) {
-        height: pxtovw(4, 960);
-        border-radius: pxtovw(3, 960);
-      }
-
-      @include screen('sm', max, 2) {
-        height: pxtovw(4, 375);
-        border-radius: pxtovw(3, 375);
-      }
+      @include rule(height, (xl: 4px, xlg: 4, lg: 4, md: 4, sm: 4));
+      @include rule(border-radius, (xl: 3px, xlg: 3, lg: 3, md: 3, sm: 3));
     }
   }
 
@@ -76,23 +43,7 @@
     align-items: center;
 
     &:not(:first-child) {
-      margin-top: 35px;
-
-      @include screen('xlg', max, 2) {
-        margin-top: pxtovw(35, 1660);
-      }
-
-      @include screen('lg', max, 2) {
-        margin-top: pxtovw(35, 1366);
-      }
-
-      @include screen('md', max, 2) {
-        margin-top: pxtovw(35, 960);
-      }
-
-      @include screen('sm', max, 2) {
-        margin-top: pxtovw(35, 375);
-      }
+      @include rule(margin-top, (xl: 35px, xlg: 35, lg: 35, md: 35, sm: 35));
     }
   }
 
@@ -102,23 +53,7 @@
     flex: 1;
 
     &:not(:last-child) {
-      margin-right: 50px;
-
-      @include screen('xlg', max, 2) {
-        margin-right: pxtovw(50, 1660);
-      }
-
-      @include screen('lg', max, 2) {
-        margin-right: pxtovw(50, 1366);
-      }
-
-      @include screen('md', max, 2) {
-        margin-right: pxtovw(50, 960);
-      }
-
-      @include screen('sm', max, 2) {
-        margin-right: pxtovw(40, 375);
-      }
+      @include rule(margin-right, (xl: 50px, xlg: 50, lg: 50, md: 50, sm: 40));
 
       &::after {
         position: absolute;
@@ -126,33 +61,39 @@
         display: block;
         content: '-';
         flex: none;
-        width: 50px;
         left: 100%;
         top: 50%;
         transform: translate3d(0, -50%, 0);
         color: $nd-color-basic;
-        font-size: 17px;
         text-align: center;
         line-height: 1.18;
 
-        @include screen('xlg', max, 2) {
-          font-size: pxtovw(17, 1660);
-          width: pxtovw(50, 1660);
-        }
+        @include rule(width, (xl: 50px, xlg: 50, lg: 50, md: 50, sm: 40));
+        @include rule(font-size, (xl: 17px, xlg: 17, lg: 17, md: 17, sm: 17));
+      }
+    }
+  }
 
-        @include screen('lg', max, 2) {
-          font-size: pxtovw(17, 1366);
-          width: pxtovw(50, 1366);
-        }
+  &_v2 {
+    display: flex;
+    flex-direction: column-reverse;
 
-        @include screen('md', max, 2) {
-          font-size: pxtovw(17, 960);
-          width: pxtovw(50, 960);
-        }
+    #{$b} {
+      &__output {
+        &:not(:first-child) {
+          margin-top: 0;
 
-        @include screen('sm', max, 2) {
-          font-size: pxtovw(17, 375);
-          width: pxtovw(40, 375);
+          @include rule(margin-bottom, (xl: 22px, xlg: 22, lg: 22, md: 22, sm: 22));
+        }
+      }
+
+      &__item {
+        &:not(:last-child) {
+          @include rule(margin-right, (xl: 28px, xlg: 28, lg: 28, md: 28, sm: 28));
+
+          &::after {
+            @include rule(width, (xl: 28px, xlg: 28, lg: 28, md: 28, sm: 28));
+          }
         }
       }
     }
@@ -163,35 +104,12 @@
   // z-index: 2;
 
   &-base {
-    height: 4px;
     background-color: $nd-color-gray2;
     position: relative;
-    border-radius: 3px;
-    margin: 10px 0; // margin нужен, чтобы handler не налезал на другие элементы
 
-    @include screen('xlg', max, 2) {
-      height: pxtovw(4, 1660);
-      border-radius: pxtovw(3, 1660);
-      margin: pxtovw(10, 1660) 0;
-    }
-
-    @include screen('lg', max, 2) {
-      height: pxtovw(4, 1366);
-      border-radius: pxtovw(3, 1366);
-      margin: pxtovw(10, 1366) 0;
-    }
-
-    @include screen('md', max, 2) {
-      height: pxtovw(4, 960);
-      border-radius: pxtovw(3, 960);
-      margin: pxtovw(10, 960) 0;
-    }
-
-    @include screen('sm', max, 2) {
-      height: pxtovw(4, 375);
-      border-radius: pxtovw(3, 375);
-      margin: pxtovw(10, 375) 0;
-    }
+    @include rule(height, (xl: 4px, xlg: 4, lg: 4, md: 4, sm: 4));
+    @include rule(border-radius, (xl: 3px, xlg: 3, lg: 3, md: 3, sm: 3));
+    @include rule(margin, (xl: 5px 0, xlg: 5 0, lg: 5 0, md: 5 0, sm: 5 0)); // margin (handleHeight - baseHeight) / 2; - чтобы не налазил на элементы
   }
 
   &-connect {
@@ -224,39 +142,19 @@
 
   &-handle {
     position: absolute;
-    width: 24px;
-    height: 24px;
     top: 50%;
     transform: translate3d(-50%, -50%, 0);
     border-radius: 50%;
-    background-color: $nd-color-main;
+    background-color: $nd-color-basic;
     box-sizing: border-box;
     transition: border $ease-main;
     cursor: pointer;
     box-shadow: none;
-    border-color: $nd-color-main;
+    border-color: $nd-color-basic;
 
-    @include rule(right, (xl: -24px, xlg: -24, lg: -24, md: -24, sm: -24));
-
-    @include screen('xlg', max, 2) {
-      height: pxtovw(24, 1660);
-      width: pxtovw(24, 1660);
-    }
-
-    @include screen('lg', max, 2) {
-      height: pxtovw(24, 1366);
-      width: pxtovw(24, 1366);
-    }
-
-    @include screen('md', max, 2) {
-      height: pxtovw(24, 960);
-      width: pxtovw(24, 960);
-    }
-
-    @include screen('sm', max, 2) {
-      height: pxtovw(24, 375);
-      width: pxtovw(24, 375);
-    }
+    @include rule(right, (xl: -14px, xlg: -14, lg: -14, md: -14, sm: -14));
+    @include rule(width, (xl: 14px, xlg: 14, lg: 14, md: 14, sm: 14));
+    @include rule(height, (xl: 14px, xlg: 14, lg: 14, md: 14, sm: 14));
 
     &::before, &::after {
       display: none;
@@ -264,7 +162,7 @@
 
     &:hover {
       @include screen('sm', min, 2) {
-        border-color: white;
+        border-color: $nd-color-main;
       }
     }
   }

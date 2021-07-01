@@ -1,19 +1,20 @@
 export default function createTag(data) {
   const element = document.createElement('div');
   const innerWrapper = document.createElement('div');
-  const closeEl = document.createElement('button');
+  const removeEl = document.createElement('button');
   const textEl = document.createElement('span');
-  const { uid } = data;
+  const { id } = data;
   const { text } = data;
 
   element.classList.add('modal-filter-option');
   innerWrapper.classList.add('modal-filter-option__wrapper');
-  closeEl.classList.add('modal-filter-option__close');
-  closeEl.classList.add('js-close-modal-filter');
-  closeEl.setAttribute('data-modal-filter-source', uid);
+  removeEl.classList.add('modal-filter-option__remove');
+  element.classList.add('js-modal-filter-remove-tag');
+  element.setAttribute('data-modal-filter-target-id', id);
   textEl.classList.add('modal-filter-option__text');
+  textEl.setAttribute('data-modal-filter-tag-text', 'data-modal-filter-tag-text');
   textEl.innerText = text;
-  innerWrapper.append(closeEl);
+  innerWrapper.append(removeEl);
   innerWrapper.append(textEl);
   element.append(innerWrapper);
   return element;

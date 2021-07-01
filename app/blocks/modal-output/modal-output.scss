@@ -70,40 +70,6 @@
       display: flex;
       justify-content: flex-start;
       align-items: center;
-
-      // &::before {
-      //   display: inline-block;
-      //   content: '';
-      //   font-size: 0;
-      //   line-height: 0;
-      //   flex: none;
-      //   transform-origin: 50% 50%;
-      //   transform: rotate(45deg);
-
-      //   @include rule(width, (xl: 12px, xlg: 12, lg: 9, md: 9, sm: 0));
-      //   @include rule(height, (xl: 12px, xlg: 12, lg: 9, md: 9, sm: 0));
-      //   @include rule(margin-right, (xl: 10px, xlg: 10, lg: 13, md: 13, sm: 0));
-
-      //   @include screen('sm', max, 2) {
-      //     display: none;
-      //   }
-      // }
-
-      // &.is-green::before {
-      //   background-color: $nd-color-privateoffice;
-      // }
-
-      // &.is-red::before {
-      //   background-color: $nd-color-fixeddesk;
-      // }
-
-      // &.is-orange::before {
-      //   background-color: $nd-color-hotdesk;
-      // }
-
-      // &.is-blue::before {
-      //   background-color: $nd-color-meetingroom;
-      // }
     }
   }
 
@@ -133,6 +99,47 @@
     #{$b}.is-opened & {
       transform: rotate(180deg);
     }
+  }
+
+  &__clear {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    border-radius: 50%;
+    color: $nd-color-basic-light;
+    background-color: $nd-color-main;
+    font-weight: 400;
+    letter-spacing: -0.02em;
+    text-align: center;
+    top: 50%;
+    transform: translate3d(0, -50%, 0);
+
+    @include rule(left, (xl: 9px, xlg: 9, lg: 9, md: 9, sm: 9));
+    @include rule(font-size, (xl: 15px, xlg: 15, lg: 15, md: 15, sm: 15));
+    @include rule(width, (xl: 28px, xlg: 28, lg: 28, md: 28, sm: 28));
+    @include rule(height, (xl: 28px, xlg: 28, lg: 28, md: 28, sm: 28));
+
+    svg {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform-origin: 50% 50%;
+      transform: translate3d(-50%, -50%, 0);
+      fill: currentColor;
+      opacity: 0;
+      transition: opacity $ease-main;
+
+      @include rule(width, (xl: 10px, xlg: 10, lg: 10, md: 10, sm: 10));
+      @include rule(height, (xl: 10px, xlg: 10, lg: 10, md: 10, sm: 10));
+    }
+  }
+
+  &__counter {
+    display: inline-block;
+    text-align: center;
+    width: 100%;
   }
 
   &_special {
@@ -369,6 +376,44 @@
 
           @include screen('sm', max, 2) {
             background-image: $icon-type2;
+          }
+        }
+      }
+    }
+  }
+
+  &_filter {
+    transition: border $ease-main, box-shadow $ease-main, padding $ease-main, background $ease-main, opacity $ease-main;
+
+    @include rule(min-width, (xl: 185px, xlg: 185, lg: 185, md: 185, sm: 0));
+
+    #{$b} {
+      &__clear {
+        opacity: 0;
+      }
+    }
+
+    &.is-filled {
+      @include rule(padding-left, (xl: 53px, xlg: 53, lg: 53, md: 53, sm: 40));
+
+      svg {
+        opacity: 0;
+      }
+
+      #{$b} {
+        &__clear {
+          opacity: 1;
+        }
+      }
+
+      &:hover {
+        svg {
+          opacity: 1;
+        }
+
+        #{$b} {
+          &__counter {
+            opacity: 0;
           }
         }
       }
