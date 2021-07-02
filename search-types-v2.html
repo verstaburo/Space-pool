@@ -53,11 +53,13 @@
                     </div>
                 </div>
                 <div class="filter-section__item nd-hide-sm">
-                    <div class="modal-output modal-output_special modal-output_filter modal-output_no-icon js-toggle-modal" data-modal-target="filter-multi" data-modal-mode="default" data-modal-output-type="multi" data-modal-user-panel="visible">
+                    <div class="modal-output modal-output_special modal-output_filter js-open-modal-filter">
                         <div class="modal-output__content">
                             <div class="modal-output__placeholder">Filter</div>
                             <div class="modal-output__values" data-modal-output-value="data-modal-output-value"></div>
-                        </div><button class="modal-output__toggle" type="button"><svg width="7" heigh="4"><use xlink:href="assets/images/icon.svg#icon_select-arrow2"></use></svg></button>
+                        </div><button class="modal-output__toggle" type="button"><svg width="7" heigh="4"><use xlink:href="assets/images/icon.svg#icon_select-arrow2"></use></svg></button><button class="modal-output__clear js-clear-modal-filter" data-modal-filter-clear-always="data-modal-filter-clear-always"><svg><use xlink:href="assets/images/icon.svg#icon_cross"></use></svg>
+                            <div class="modal-output__counter" data-modal-filter-output="data-modal-filter-output"></div>
+                        </button>
                     </div>
                 </div>
             </div>
@@ -76,7 +78,7 @@
     </header>
     <div class="nd-user-menu-panel user-menu-panel">
         <ul class="user-menu-panel__list">
-            <li class="user-menu-panel__item user-menu-panel__item_filter"><a class="user-menu-panel__link js-toggle-modal" data-modal-target="filter-multi" data-modal-mode="default" data-modal-user-panel="visible">
+            <li class="user-menu-panel__item user-menu-panel__item_filter"><a class="user-menu-panel__link js-open-modal-filter">
                     <div class="nd-user-link user-link"><svg class="user-link__icon user-link__icon_filter" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 23.8 21.1">
                             <path d="M21.25,4.2H7.35a.65.65,0,0,1,0-1.3h13.9a.65.65,0,1,1,0,1.3Z"></path>
                             <path d="M3.65,7.1A3.65,3.65,0,0,1,0,3.55,3.55,3.55,0,0,1,3.55,0,3.65,3.65,0,0,1,7.2,3.55,3.55,3.55,0,0,1,3.65,7.1Zm-.1-5.8A2.25,2.25,0,0,0,1.3,3.55,2.33,2.33,0,0,0,3.65,5.8,2.25,2.25,0,0,0,5.9,3.55,2.33,2.33,0,0,0,3.55,1.3Z" fill="#0085ff"></path>
@@ -1282,7 +1284,7 @@
                             <div class="modal__title">Filter</div>
                         </div>
                         <div class="modal__content">
-                            <div class="nd-range js-nd-range modal__range" data-start="[0, 5000]" data-connect="[false, true, false]" data-step="10" data-margin="30" data-min="0" data-max="10000" data-currency="£" data-modal-item="data-modal-item" data-modal-item-type="multi">
+                            <div class="js-nd-range nd-range modal__range" data-start="[0, 5000]" data-connect="[false, true, false]" data-step="10" data-margin="30" data-min="0" data-max="10000" data-currency="£" data-modal-item="data-modal-item" data-modal-item-type="multi">
                                 <div class="nd-range__slider" data-nd-range-container="data-nd-range-container"></div>
                                 <div class="nd-range__output" data-nd-range-output="data-nd-range-output">
                                     <div class="nd-range__item"><label class="form-box nd-form-box nd-form-box_bg-white nd-form-box_sm-h50"><input class="nd-input nd-input_sm-h50" type="text" name="minPrice" placeholder="Min" data-nd-range-input-min="data-nd-range-input-min" /><span class="form-box__label">Min</span></label></div>
