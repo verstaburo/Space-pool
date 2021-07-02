@@ -45,7 +45,9 @@ export default function modalFilter() {
       switch (state) {
         case 'reset': {
           clearButtons.forEach((el) => {
-            el.setAttribute('disabled', 'disabled');
+            if (!el.getAttribute('data-modal-filter-clear-always')) {
+              el.setAttribute('disabled', 'disabled');
+            }
           });
 
           applyButtons.forEach((el) => {
@@ -196,6 +198,8 @@ export default function modalFilter() {
       }
     },
   };
+
+  window.globalFunctions.modalFilterMethods = modalFilterMethods;
 
   const tags = document.querySelector('[data-modal-filter-tags]');
 

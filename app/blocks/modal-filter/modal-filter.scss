@@ -28,6 +28,10 @@
     boxShadow(0, 0, 4, 0, rgba(56, 58, 68, 0.09), 960);
   }
 
+  @include screen('sm', max) {
+    display: block;
+  }
+
   @include cRule(box-shadow, (sm: none));
 
   &.is-opened, &.is-animated {
@@ -45,8 +49,10 @@
     overflow: hidden;
 
     @include screen('sm', max, 2) {
-      flex-direction: column;
-      justify-content: flex-start;
+      display: grid;
+      height: 100%;
+      grid-template-columns: 100%;
+      grid-template-rows: 1fr auto;
     }
 
     #{$b}.is-opened & {
@@ -62,8 +68,12 @@
     height: 100%;
 
     @include screen('sm', max, 2) {
-      height: calc(100% - (20000 / 375) * 1vw);
+      grid-column: 1 / 2;
+      grid-row: 1 / 2;
       width: 100%;
+      height: auto;
+      max-height: 100%;
+      overflow: hidden;
     }
   }
 
@@ -98,7 +108,9 @@
     @include screen('sm', max, 2) {
       flex: none;
       width: 100%;
-      height: wPxtovw(200, sm);
+      grid-column: 1 / 2;
+      grid-row: 2 / 3;
+      height: auto;
     }
   }
 
@@ -109,7 +121,7 @@
     box-sizing: border-box;
     width: 100%;
 
-    @include rule(padding, (xl: 20px 0, xlg: 20 0, lg: 20 0, md: 20 0, sm: 20 0));
+    @include rule(padding, (xl: 20px 0, xlg: 20 0, lg: 20 0, md: 20 0, sm: 20 10 0 0));
   }
 
   &__selected-inner {
@@ -117,13 +129,13 @@
     width: 100%;
     box-sizing: border-box;
 
-    @include rule(padding, (xl: 0 35 35, xlg: 0 35 35, lg: 0 35 35, md: 0 35 35, sm: 0 20 20));
+    @include rule(padding, (xl: 0 35 35, xlg: 0 35 35, lg: 0 35 35, md: 0 35 35, sm: 20));
 
     @include screen('sm', max, 2) {
       display: flex;
       justify-content: flex-start;
-      align-items: center;
-      align-content: space-between;
+      align-items: flex-end;
+      align-content: flex-end;
       flex-wrap: wrap;
     }
   }
@@ -244,6 +256,28 @@
 
   &__tags {
     width: 100%;
+
+    @include rule(margin-top, (xl: 7px, xlg: 7, lg: 7, md: 7, sm: 7));
+
+    @include screen('sm', max, 2) {
+      display: flex;
+      justify-content: flex-start;
+      align-content: flex-end;
+      flex-wrap: wrap;
+      width: calc(100% + (500 / 375) * 1vw);
+      margin: 0 wPxtovw(-5, sm);
+    }
+
+    .modal-filter-option {
+      @include cRule(width, (xl: 100%, sm: auto));
+      @include cRule(flex, (sm: none));
+      @include rule(margin, (sm: 10 5 0));
+      @include rule(white-space, (sm: nowrap));
+
+      &:not(:first-child) {
+        @include rule(margin-top, (xl: 10px, xlg: 10, lg: 10, md: 10, sm: 10));
+      }
+    }
   }
 
   &__top, &__bottom {
@@ -255,6 +289,9 @@
   }
 
   &__bottom {
+    box-sizing: border-box;
+    @include rule(padding, (sm: 20 10 0 0));
+
     &:not(:first-child) {
       @include rule(margin-top, (xl: 18px, xlg: 18, lg: 18, md: 18, sm: 0));
     }

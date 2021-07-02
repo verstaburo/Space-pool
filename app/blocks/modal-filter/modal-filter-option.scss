@@ -5,20 +5,15 @@
   align-items: center;
   text-align: center;
   background-color: $nd-color-basic-light;
-  line-height: 1.2;
-  font-weight: 400;
-  letter-spacing: -0.02em;
+  line-height: 0;
   overflow: hidden;
+  box-sizing: border-box;
 
   @include rule(height, (xl: 34px, xlg: 34, lg: 34, md: 34, sm: 34));
   @include rule(border-radius, (xl: 34px, xlg: 34, lg: 34, md: 34, sm: 34));
-  @include rule(padding, (xl: 0 26px, xlg: 0 26, lg: 0 26, md: 0 26, sm: 0 26));
+  @include rule(padding, (xl: 0 26px, xlg: 0 26, lg: 0 26, md: 0 26, sm: 0 30));
   @include rule(font-size, (xl: 13px, xlg: 13, lg: 13, md: 13, sm: 13));
   @include cRule(box-shadow, (xl: boxShadow(0, 3.2, 7.7, 0, rgba(0, 0, 0, 0.1)), xlg: boxShadow(0, 3.2, 7.7, 0, rgba(0, 0, 0, 0.1), 1660), lg: boxShadow(0, 3.2, 7.7, 0, rgba(0, 0, 0, 0.1), 1366), md: boxShadow(0, 3.2, 7.7, 0, rgba(0, 0, 0, 0.1), 960), sm: boxShadow(0, 3.2, 7.7, 0, rgba(0, 0, 0, 0.1), 375)));
-
-  &:not(:first-child) {
-    @include rule(margin-top, (xl: 10px, xlg: 10, lg: 10, md: 10, sm: 10));
-  }
 
   &__remove {
     position: absolute;
@@ -38,6 +33,10 @@
     display: inline-block;
     margin: 0 auto;
     white-space: nowrap;
+    line-height: 1.2;
+    font-weight: 400;
+    letter-spacing: -0.02em;
+
     @include ellipsis(100%);
   }
 }

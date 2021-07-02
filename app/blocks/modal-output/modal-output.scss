@@ -386,6 +386,11 @@
     transition: border $ease-main, box-shadow $ease-main, padding $ease-main, background $ease-main, opacity $ease-main;
 
     @include rule(min-width, (xl: 185px, xlg: 185, lg: 185, md: 185, sm: 0));
+    @include rule(padding-left, (xl: 26px, xlg: 26, lg: 26, md: 26, sm: 13));
+
+    &::before {
+      display: none;
+    }
 
     #{$b} {
       &__clear {
