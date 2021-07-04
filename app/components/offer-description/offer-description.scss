@@ -452,8 +452,14 @@
         }
       }
 
+      &__text {
+        &:not(:first-child) {
+          @include rule(margin-top, (sm: 34));
+        }
+      }
+
       &__section {
-        @include rule(margin-top, (xl: 44px, xlg: 44, lg: 44, md: 44, sm: 30));
+        @include rule(margin-top, (xl: 44px, xlg: 44, lg: 44, md: 44, sm: 36));
 
         &_describe {
           padding-right: 0;
@@ -467,10 +473,10 @@
         }
 
         &_map {
-          @include rule(margin-top, (xl: 38px, xlg: 38, lg: 38, md: 38, sm: 30));
+          @include rule(margin-top, (xl: 38px, xlg: 38, lg: 38, md: 38, sm: 38));
 
           .offer-description__row {
-            @include rule(margin-top, (xl: 24px, xlg: 24, lg: 24, md: 24, sm: 20));
+            @include rule(margin-top, (xl: 24px, xlg: 24, lg: 24, md: 24, sm: 24));
           }
         }
 
@@ -515,6 +521,10 @@
       &__table {
         td {
           line-height: 2.258;
+
+          @include screen('sm', max, 2) {
+            line-height: 1.85;
+          }
         }
 
         &:not(:first-child) {
