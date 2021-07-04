@@ -57,6 +57,9 @@ mixin offer-description(static)
 
 mixin offer-description-v2(stable)
   +b.offer-description_v2&attributes(attributes)
+    +e.A.subtitle.nd-hide-from-sm(href="space-v5.html")
+      SPAN.gray Space:
+      SPAN &nbsp;House of Creative - 320 Angel
     +e.media
       +e.PICTURE.media-image
         source(src="assets/images/nd/space30.jpg" srcset="assets/images/nd/space30.jpg")
@@ -70,10 +73,25 @@ mixin offer-description-v2(stable)
               +e.name PRIVATE OFFICE
             +e.bottom
               +e.H3.title 13 desks office space
-              +favorite.__favorite
+            +favorite.__favorite
+          +nd-table._info._info_space._info_space-v2.__table.nd-hide-from-sm
+            tbody
+              tr
+                td Amount of desks
+                td 12
+              tr
+                td Floor area
+                td 257 ft<sup>2</sup>
+              tr
+                td Min. term
+                td 1 month
+              tr
+                td Price
+                td
+                  strong £ 2,400 per month
           +e.text Perfectly located on Shoreditch High Street, alongside three of our other buildings, 229 offers 12 private offices, meeting rooms, large board room and a perfect breakout/kitchen
         +e.row
-          +e.SECTION.section_table
+          +e.SECTION.section_table.nd-hide-sm
             +e.H4.title_fz16 About
             +nd-table._info._info_space._info_space-v2.__table
               tbody
@@ -106,7 +124,7 @@ mixin offer-description-v2(stable)
             li Utilities included
             li Unlimited Teas and Coffees
             li 12 Hour free meeting room allowance per desk
-      +e.sidebar
+      +e.sidebar.nd-hide-sm
         +offer-description-sidebar
         +e.note prices are exclusive of VAT
     block

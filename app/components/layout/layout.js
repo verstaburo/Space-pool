@@ -5,10 +5,13 @@ export const layoutsMethods = {
     const tabButton = $(`[data-layout-tab="${tabTarget}"]`);
     $(tabButton).trigger('click');
   },
-  open(layoutName, context) {
+  open(layoutName, context, describe) {
     const totalLayouts = $('[data-layout]');
     const layouts = $(`[data-layout*="${layoutName}"]`);
     const detail = context || {};
+    const layoutTitleOffer = $('[data-layout-title-offer]');
+    const layoutBoxes = $('[data-layout-title-boxes]');
+    const layoutTitleSpace = $('[data-layout-title-space]');
     $(layouts).each((i, el) => {
       el.dispatchEvent(new CustomEvent('layout-before-show'), { bubbles: true, cancelable: true, detail });
     });
@@ -19,12 +22,17 @@ export const layoutsMethods = {
       case 'space': {
         document.body.classList.add('layout-space-active');
         document.body.setAttribute('data-layout-last', 'space');
+        if (describe.title) {
+          layoutTitleSpace.text(describe.title);
+        }
+        layoutBoxes.removeClass('is-green is-red is-orange is-blue');
         break;
       }
       case 'list': {
         if (activeLayouts.map) {
           document.body.classList.add('layout-list-active');
           document.body.setAttribute('data-layout-last', 'list');
+          layoutBoxes.removeClass('is-green is-red is-orange is-blue');
         }
         break;
       }
@@ -35,6 +43,13 @@ export const layoutsMethods = {
           detail.sourceElement.classList.add('is-active');
         }
         document.body.setAttribute('data-layout-last', 'offer');
+        if (describe.title) {
+          layoutTitleOffer.text(describe.title);
+        }
+        layoutBoxes.removeClass('is-green is-red is-orange is-blue');
+        if (describe.color) {
+          layoutBoxes.addClass(`is-${describe.color}`);
+        }
         break;
       }
       default:
@@ -133,8 +148,14 @@ export default function layoutsInit() {
     }
 
     const layoutName = $(_this).attr('data-layout-target');
+    const layoutTitle = $(_this).attr('data-layout-title');
+    const layoutColor = $(_this).attr('data-layout-title-color');
     if (layoutName) {
-      layoutsMethods.open(layoutName, { sourceElement: _this, marker: undefined });
+      layoutsMethods.open(
+        layoutName,
+        { sourceElement: _this, marker: undefined },
+        { title: layoutTitle, color: layoutColor },
+      );
     }
   });
 

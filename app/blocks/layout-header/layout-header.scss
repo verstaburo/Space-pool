@@ -21,11 +21,51 @@
     &:not(:last-child) {
       @include rule(margin-right, (xl: 20px, xlg: 20, lg: 20, md: 20, sm: 20));
     }
+
+    .layout-offer-active & {
+
+      &::before {
+        display: block;
+        content: '';
+        @include rule(width, (xl: 8px, xlg: 8, lg: 8, md: 8, sm: 6));
+        @include rule(height, (xl: 8px, xlg: 8, lg: 8, md: 8, sm: 6));
+        background-color: transparent;
+        flex: none;
+      }
+
+      &.is-green {
+        &::before {
+          background-color: $nd-color-privateoffice;
+        }
+      }
+
+      &.is-blue {
+        &::before {
+          background-color: $nd-color-meetingroom;
+        }
+      }
+
+      &.is-red {
+        &::before {
+          background-color: $nd-color-fixeddesk;
+        }
+      }
+
+      &.is-orange {
+        &::before {
+          background-color: $nd-color-hotdesk;
+        }
+      }
+    }
   }
 
   &__box {
     @include rule(width, (xl: 8px, xlg: 8, lg: 8, md: 8, sm: 6));
     @include rule(height, (xl: 8px, xlg: 8, lg: 8, md: 8, sm: 6));
+
+    .layout-offer-active & {
+      display: none;
+    }
   }
 
   &__title {
@@ -39,6 +79,22 @@
 
     @include screen('sm', max, 2) {
       display: none;
+    }
+
+    [data-layout-title-space] {
+      display: inline-block;
+
+      .layout-offer-active & {
+        display: none;
+      }
+    }
+
+    [data-layout-title-offer] {
+      display: none;
+
+      .layout-offer-active & {
+        display: inline-block;
+      }
     }
   }
 
@@ -124,6 +180,20 @@
     }
 
     .layout-space-active.layout-offer-active & {
+      svg {
+        opacity: 0;
+      }
+
+      opacity: 1;
+      background-repeat: no-repeat;
+      background-position: 50% 50%;
+      background-image: $icon-arrow5;
+      border-right: none;
+
+      @include rule(background-size, (xl: 20px, xlg: 20, lg: 20, md: 20, sm: 22));
+    }
+
+    .layout-offer-active .layout_stable & {
       svg {
         opacity: 0;
       }

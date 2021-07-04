@@ -255,6 +255,8 @@ function generateMarker(data, map) {
     userState: 'default',
     markerType: data.markerType,
     labelText: data.offerCount,
+    offerTitle: data.offerTitle || undefined,
+    offerColor: data.offerColor || undefined,
     url: data.spaceUrl,
     markerIconIndex: activeIconIndex,
   });
@@ -329,10 +331,16 @@ function generateMarker(data, map) {
             if (fullmap) {
               window.globalFunctions.layoutsMethods.open('list', { sourceElement: undefined, marker: mm });
             } else {
-              window.globalFunctions.layoutsMethods.open('offer', { sourceElement: undefined, marker: mm });
+              console.log(mm);
+              console.log(mm.offerTitle);
+              console.log(mm.offerColor);
+              window.globalFunctions.layoutsMethods.open('offer', { sourceElement: undefined, marker: mm }, { title: mm.offerTitle, color: mm.offerColor });
             }
           } else {
-            window.globalFunctions.layoutsMethods.open('offer', { sourceElement: undefined, marker: mm });
+            console.log(mm);
+            console.log(mm.offerTitle);
+            console.log(mm.offerColor);
+            window.globalFunctions.layoutsMethods.open('offer', { sourceElement: undefined, marker: mm }, { title: mm.offerTitle, color: mm.offerColor });
           }
           break;
         }
@@ -354,7 +362,10 @@ function generateMarker(data, map) {
           break;
         }
         case 'offer': {
-          window.globalFunctions.layoutsMethods.open('offer', { sourceElement: undefined, marker: mm });
+          console.log(mm);
+          console.log(mm.offerTitle);
+          console.log(mm.offerColor);
+          window.globalFunctions.layoutsMethods.open('offer', { sourceElement: undefined, marker: mm }, { title: mm.offerTitle, color: mm.offerColor });
           break;
         }
         default:

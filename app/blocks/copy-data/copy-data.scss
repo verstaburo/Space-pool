@@ -1,6 +1,7 @@
 .copy-data {
   $b: &;
 
+  position: relative;
   display: flex;
   justify-content: flex-start;
 
@@ -31,5 +32,54 @@
 
   .is-top .nd-input {
     border-color: $nd-color-field-border;
+  }
+
+  &__success-copied {
+    position: absolute;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    vertical-align: middle;
+    top: 100%;
+    left: 0;
+    font-weight: 400;
+    letter-spacing: -.02em;
+    line-height: 1.2;
+    width: 100%;
+    box-sizing: border-box;
+    background-color: $nd-color-basic-light;
+    opacity: 0;
+    transition: opacity $ease-main;
+    z-index: 15;
+    pointer-events: none;
+    box-shadow: boxShadow(0, 3.2, 7.69511, 0, rgba(0, 0, 0, 0.1), false);
+
+    @include rule(margin-top, (xl: 10px, xlg: 10, lg: 10, md: 10, sm: 10));
+    @include rule(padding, (xl: 0 10px, xlg: 0 10, lg: 0 10, md: 0 10, sm: 0 10));
+    @include rule(height, (xl: 40px, xlg: 40, lg: 40, md: 40, sm: 40));
+    @include rule(border-radius, (xl: 25px, xlg: 25, lg: 25, md: 25, sm: 25));
+    @include rule(font-size, (xl: 15px, xlg: 15, lg: 15, md: 15, sm: 15));
+
+    @include screen('xlg', max, 2) {
+      box-shadow: boxShadow(0, 3.2, 7.69511, 0, rgba(0, 0, 0, 0.1), 1660);
+    }
+
+    @include screen('lg', max, 2) {
+      box-shadow: boxShadow(0, 3.2, 7.69511, 0, rgba(0, 0, 0, 0.1), 1366);
+    }
+
+    @include screen('md', max, 2) {
+      box-shadow: boxShadow(0, 3.2, 7.69511, 0, rgba(0, 0, 0, 0.1), 960);
+    }
+
+    @include screen('sm', max, 2) {
+      box-shadow: 0 0 0 0 transparent;
+    }
+
+    &.is-active {
+      pointer-events: auto;
+      opacity: 1;
+    }
   }
 }

@@ -12,12 +12,14 @@ mixin layout-header(data)
     +e.wrapper
       if (data.type === 'space' || data.type==="page")
         +e.describe
-          +e.boxes
+          +e.boxes(data-layout-title-boxes)
             +nd-box._orange.__box
             +nd-box._red.__box
             +nd-box._blue.__box
             +nd-box._green.__box
-          +e.title Canvas Dalston Lane
+          +e.title
+            span(data-layout-title-space) Canvas Dalston Lane
+            span(data-layout-title-offer)
           if isSearch
             +nd-link-icon-end('plus', 'a')._blue.__link.js-layout-show.js-layout-tab-redirect(href="space-v4.html" data-layout-target="space" data-layout-tab-target="tab-space-describe") Space info
           if isOffer

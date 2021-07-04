@@ -9,8 +9,6 @@
     color: $nd-color-gray-text;
   }
 
-  @include rule(margin-top, (sm: -37));
-
   &__subtitle {
     display: block;
     width: 100%;
@@ -19,6 +17,7 @@
     line-height: normal;
 
     @include rule(font-size, (xl: 14px, xlg: 14, lg: 14, md: 14, sm: 14));
+    @include rule(padding-top, (sm: 20));
   }
 
   &__text {
@@ -421,6 +420,11 @@
   }
 
   &_v2 {
+    @include rule(margin-top, (sm: 0));
+
+    .gray {
+      color: $nd-color-gray-text;
+    }
 
     #{$b} {
       &__content {
@@ -428,6 +432,24 @@
         flex-direction: column;
         justify-content: flex-start;
         flex: 1;
+      }
+
+      &__header {
+        position: relative;
+        box-sizing: border-box;
+
+        @include rule(padding-right, (xl: 18px, xlg: 18, lg: 18, md: 18, sm: 18));
+      }
+
+      &__favorite {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+
+        @include screen('sm', max, 2) {
+          bottom: 100%;
+          transform: translate3d(0, 100%, 0);
+        }
       }
 
       &__section {
@@ -486,7 +508,7 @@
           font-family: $font-stolzl;
           font-weight: 400;
 
-          @include rule(font-size, (xl: 16px, xlg: 16, lg: 16, md: 16, sm: 20));
+          @include rule(font-size, (xl: 16px, xlg: 16, lg: 16, md: 16, sm: 16));
         }
       }
 

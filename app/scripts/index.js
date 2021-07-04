@@ -25,6 +25,8 @@ import mapPopup from '../blocks/map-popup/map-popup';
 import screenKeyboardVisibility from './functions/screenKeyboardVisibility';
 import ShiftInputLocationOnFocus from '../components/search-panel/search-panel';
 import selection from '../blocks/selection/selection';
+import { modalShowes } from '../blocks/modals/modals';
+import outputValuesFromModal from '../blocks/modal/modal';
 
 const {
   $,
@@ -51,4 +53,6 @@ $(() => {
   screenKeyboardVisibility();
   ShiftInputLocationOnFocus();
   selection();
+  modalShowes();
+  outputValuesFromModal();
 });
