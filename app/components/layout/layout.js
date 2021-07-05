@@ -38,7 +38,7 @@ export const layoutsMethods = {
       }
       case 'offer': {
         document.body.classList.add('layout-offer-active');
-        $('.js-layout-show').removeClass('is-active');
+        $('.js-layout-show, .js-sm-layout-show').removeClass('is-active');
         if (detail.sourceElement) {
           detail.sourceElement.classList.add('is-active');
         }
@@ -70,7 +70,7 @@ export const layoutsMethods = {
       el.classList.add('is-layout-animated-out');
     });
     const activeLayouts = layoutsMethods.whichLayerActive();
-    $('.js-layout-show').removeClass('is-active');
+    $('.js-layout-show, .js-sm-layout-show').removeClass('is-active');
 
     let last;
 
@@ -156,6 +156,30 @@ export default function layoutsInit() {
         { sourceElement: _this, marker: undefined },
         { title: layoutTitle, color: layoutColor },
       );
+    }
+  });
+
+  $(document).on('click', '.js-sm-layout-show', (evt) => {
+    const _this = evt.currentTarget;
+    const isStopEvtBubbling = $(_this).is('[data-dead-zone]');
+
+    if (window.matchMedia('(max-width: 767px)').matches) {
+      evt.preventDefault();
+
+      if (isStopEvtBubbling) {
+        evt.stopPropagation();
+      }
+
+      const layoutName = $(_this).attr('data-layout-target');
+      const layoutTitle = $(_this).attr('data-layout-title');
+      const layoutColor = $(_this).attr('data-layout-title-color');
+      if (layoutName) {
+        layoutsMethods.open(
+          layoutName,
+          { sourceElement: _this, marker: undefined },
+          { title: layoutTitle, color: layoutColor },
+        );
+      }
     }
   });
 
