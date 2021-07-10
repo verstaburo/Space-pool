@@ -474,7 +474,11 @@
 
     @include rule(padding-top, (sm: 60));
     @include rule(padding-bottom, (xl: 80px, xlg: 80, lg: 80, md: 80, sm: 80));
-    @include native-scroll($nd-layout-scroll, transparent, 4, 4, 4);
+    @include native-scroll(transparent, transparent, 5, 5, 5);
+
+    &:hover {
+      @include native-scroll($nd-layout-scroll2, transparent, 5, 5, 5);
+    }
 
     #{$b}__column_start & {
       padding-left: 150px;
@@ -498,8 +502,6 @@
       @include rule(padding-right, (xl: 50px, xlg: 50, lg: 20, md: 50, sm: 20));
       @include rule(padding-top, (xl: 118px, xlg: 118, lg: 118, md: 23, sm: 29));
       @include rule(padding-bottom, (xl: 80px, xlg: 80, lg: 80, md: 80, sm: 80));
-
-      @include native-scroll($nd-layout-scroll, transparent, 4, 4, 4);
     }
 
     #{$b}__column_end & {

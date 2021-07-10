@@ -22,7 +22,7 @@ export const layoutsMethods = {
       case 'space': {
         document.body.classList.add('layout-space-active');
         document.body.setAttribute('data-layout-last', 'space');
-        if (describe.title) {
+        if (describe && describe.title) {
           layoutTitleSpace.text(describe.title);
         }
         layoutBoxes.removeClass('is-green is-red is-orange is-blue');

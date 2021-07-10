@@ -148,46 +148,4 @@ export default function scrollbar() {
       scrollbarLightOnlyMd(el);
     });
   });
-
-  function scrollbarLayout(el, isChainBlock) {
-    const inst = OverlayScrollbars(el, {
-      className: 'os-theme-layout',
-      scrollbars: {
-        autoHide: 'leave',
-        autoHideDelay: 300,
-      },
-    });
-
-    if (isChainBlock) {
-      inst.addExt('scroll-chain');
-    }
-  }
-
-  function initialScrollbarOnLayout(rec) {
-    if (rec.type === 'childList') {
-      const addedNodesList = rec.addedNodes;
-      if (addedNodesList.length) {
-        const scrollbarsEl = addedNodesList.filter((el) => el.classList.contain('.js-scrollbar-layout'));
-        scrollbarsEl.forEach((el) => {
-          scrollbarLayout(el, true);
-        });
-      }
-    }
-  }
-
-  const bodyElement = document.querySelector('body');
-  const observer = new MutationObserver(initialScrollbarOnLayout);
-
-  observer.observe(bodyElement, {
-    childList: true,
-    subtree: true,
-  });
-
-  const scrollbarLayoutElements = document.querySelectorAll('.js-scrollbar-layout');
-
-  if (scrollbarLayoutElements.length) {
-    scrollbarLayoutElements.forEach((el) => {
-      scrollbarLayout(el, true);
-    });
-  }
 }

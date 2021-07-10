@@ -434,19 +434,23 @@ div {
   scrollbar-color: $track-color $bar-color;
   scrollbar-width: thin;
   -ms-overflow-style: none;
+  transition: scrollbar-color $ease-main;
 
   &::-webkit-scrollbar-track {
     background-color: $bar-color;
+    transition: background $ease-main;
 
     @include rule(width, (xl: $track-width * 1px, xlg: $track-width, lg: $track-width, md: $track-width, sm: $track-width));
   }
 
   &::-webkit-scrollbar-track-piece {
     background-color: $bar-color;
+    transition: background $ease-main;
   }
 
   &::-webkit-scrollbar {
     background-color: $bar-color;
+    transition: background $ease-main;
 
     @include rule(width, (xl: $bar-width * 1px, xlg: $bar-width, lg: $bar-width, md: $bar-width, sm: $bar-width));
   }
@@ -457,6 +461,7 @@ div {
     border-color: $bar-color;
     background-color: $track-color;
     background-clip: padding-box;
+    transition: background $ease-main, border $ease-main;
 
     @include rule(width, (xl: $track-width * 1px, xlg: $track-width, lg: $track-width, md: $track-width, sm: $track-width));
     @include rule(border-radius, (xl: $radius * 1px, xlg: $radius, lg: $track-width, md: $radius, sm: $radius));
