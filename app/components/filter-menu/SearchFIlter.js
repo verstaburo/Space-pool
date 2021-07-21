@@ -1,5 +1,5 @@
 /* eslint-disable class-methods-use-this */
-import uid from 'uid';
+import { uid } from 'uid';
 
 const {
   $,
