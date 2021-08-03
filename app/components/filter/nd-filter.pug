@@ -1,12 +1,9 @@
 mixin nd-filter()
   +b.nd-filter&attributes(attributes)
-    +e.item_back.nd-hide-from-sm
-      +e.A.button(href="#")
-        +icon('back-arrow').__icon_back.js-layout-close-active
     +e.item_type
       +modal-output-special({placeholder: 'Office type', default: 'Any'})._type._notoggle.js-toggle-modal(data-modal-target="filter-type" data-modal-output-type="offer")
     +e.item_team
-      +modal-output-special({placeholder: 'Team size', default: 'Any'})._team._notoggle.js-toggle-modal(data-modal-target="filter-team" data-modal-output-type="team")
+      +modal-output-special({placeholder: 'Team <span class="nd-hide-sm">size</span>', default: 'Any'})._team._notoggle.js-toggle-modal(data-modal-target="filter-team" data-modal-output-type="team")
     +e.item_location
       +modal-output-special({placeholder: 'Location', default: 'Anywhere'})._notoggle._location.js-toggle-modal(data-modal-target="filter-location" data-modal-output-type="city")
     +e.item_submit.nd-hide-sm

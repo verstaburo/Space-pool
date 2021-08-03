@@ -145,7 +145,16 @@
     display: block;
     box-sizing: border-box;
     max-height: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
     z-index: 1;
+
+    @include native-scroll($nd-layout-scroll, transparent, 4, 4, 4);
+
+
+    @include screen('md', max, 2) {
+      @include native-scroll($nd-layout-scroll, transparent, 2, 2, 2);
+    }
   }
 
   &__close, &__clear {

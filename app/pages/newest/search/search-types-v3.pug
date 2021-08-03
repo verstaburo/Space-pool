@@ -34,9 +34,15 @@ block content
           each item in getData('new-nd-spaces-search-offer.json')
             +nd-results-item._mt23
               +nd-space()._single-offer.js-sm-layout-show(data-layout-target="offer" data-layout-title=item.subtitle data-layout-title-color='green' href="single-offer.html" target="_blank")
-                +gallery(item.gallery)._space.__media.js-nd-gallery
+                +e.preview
+                  +e.preview-info.nd-hide-from-sm
+                    +space-type._white._white_shadow._proxima.__type
+                      +nd-box()(class=item.type.box + ' __box')
+                      +e.name!=item.type.name
+                    +label._v2!=item.label
+                  +gallery(item.gallery)._space.__media.js-nd-gallery
                 +e.describe
-                  +e.head
+                  +e.head.nd-hide-sm
                     +e.subtitle!=item.subtitle
                     +space-type._gray.__type
                       +nd-box()(class=item.type.box + ' __box')
@@ -54,7 +60,7 @@ block content
                       tr
                         td Min. term
                         td 1 month
-                      tr
+                      tr.nd-hide-sm
                         td Price
                         td
                           b £ 2,400 per month

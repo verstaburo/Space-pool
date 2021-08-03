@@ -7,7 +7,7 @@
   background-color: $nd-color-basic-light;
   box-shadow: boxShadow(0, 3.2, 7.69511, 0, rgba(0, 0, 0, 0.1), false);
 
-  @include rule(border-radius, (xl: 35px, xlg: 35, lg: 35, md: 35, sm: 0));
+  @include rule(border-radius, (xl: 35px, xlg: 35, lg: 35, md: 35, sm: 35));
 
   @include screen('xlg', max, 2) {
     box-shadow: boxShadow(0, 3.2, 7.69511, 0, rgba(0, 0, 0, 0.1), 1660);
@@ -22,8 +22,9 @@
   }
 
   @include screen('sm', max, 2) {
-    box-shadow: 0 0 0 0 transparent;
-    width: 100%;
+    box-shadow: boxShadow(0, 3.2, 7.69511, 0, rgba(0, 0, 0, 0.1), 375);
+    box-sizing: border-box;
+    padding: 0 wPxtovw(10, sm);
   }
 
   &__item {
@@ -32,12 +33,6 @@
     justify-content: center;
     align-items: center;
     transition: box-shadow $ease-main;
-
-    &:not(:first-child) {
-      @include screen('sm', max, 2) {
-        border-left: 1px solid $nd-color-border6;
-      }
-    }
 
     &:not(.nd-filter__item_submit):hover {
       @include screen('sm', min, 2) {
@@ -50,12 +45,22 @@
       }
     }
 
+    &_back {
+      @include screen('sm', max) {
+        border-radius: 50%;
+      }
+
+      &:not(:last-child) {
+        @include rule(margin-right, (sm: 17));
+      }
+    }
+
     &_location {
       padding-left: 1px;
 
       &::before {
         @include pseudo;
-        @include rule(height, (xl: 34px, xlg: 34, lg: 34, md: 34, sm: 0));
+        @include rule(height, (xl: 34px, xlg: 34, lg: 34, md: 34, sm: 26));
 
         width: 1px;
         left: 0;
@@ -80,7 +85,24 @@
       @include screen('sm', max, 2) {
         order: 5;
         flex: none;
-        width: pxtovw(110, 375);
+        width: pxtovw(100, 375);
+        padding-left: 1px;
+      }
+
+      &::before {
+        @include pseudo;
+        @include rule(height, (xl: 34px, xlg: 34, lg: 34, md: 34, sm: 26));
+
+        width: 1px;
+        left: 0;
+        top: 50%;
+        transition: opacity $ease-main;
+        transform: translate3d(0, -50%, 0);
+        background-color: $nd-color-border7;
+
+        @include screen('sm', min, 2) {
+          display: none;
+        }
       }
     }
 
@@ -89,7 +111,7 @@
 
       &::before {
         @include pseudo;
-        @include rule(height, (xl: 34px, xlg: 34, lg: 34, md: 34, sm: 0));
+        @include rule(height, (xl: 34px, xlg: 34, lg: 34, md: 34, sm: 26));
 
         width: 1px;
         left: 0;
@@ -102,7 +124,7 @@
       @include screen('sm', max, 2) {
         padding-left: 0;
         order: 6;
-        width: pxtovw(88, 375);
+        width: pxtovw(62, 375);
         flex: none;
       }
     }
@@ -129,7 +151,7 @@
     @include rule(padding-left, (xl: 13px, xlg: 13, lg: 13, md: 13, sm: 13));
     @include rule(padding-right, (xl: 13px, xlg: 13, lg: 13, md: 13, sm: 13));
     @include rule(font-size, (xl: 15px, xlg: 15, lg: 15, md: 15, sm: 15));
-    @include rule(width, (xl: 40px, xlg: 40, lg: 40, md: 40, sm: 40));
+    @include rule(width, (xl: 40px, xlg: 40, lg: 40, md: 40, sm: 44));
 
     display: flex;
     justify-content: flex-start;
@@ -137,6 +159,11 @@
     font-weight: 600;
     height: 100%;
     box-sizing: border-box;
+
+    @include screen('sm', max) {
+      border-radius: 50%;
+      background-color: $nd-color-basic-light;
+    }
 
     span {
       height: 100%;
@@ -184,7 +211,7 @@
       fill: $nd-color-basic;
 
       @include rule(width, (xl: 15px, xlg: 15, lg: 15, md: 15, sm: 15));
-      @include rule(height, (sm: 60));
+      @include rule(height, (sm: 44));
     }
 
     &_cross {

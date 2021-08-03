@@ -263,8 +263,8 @@
     padding: 0;
     box-sizing: border-box;
 
-    @include rule(top, (md: 0, sm: 60));
-    @include rule(height, (md: 363, sm: 208));
+    @include rule(top, (md: 0));
+    @include rule(height, (md: 363, sm: 250));
 
     @include screen('md', max, 2) {
       position: fixed;
@@ -276,19 +276,11 @@
       @include screen('md', max, 2) {
         height: 100%;
       }
-
-      @include screen('sm', max, 2) {
-        height: calc(100% - (6000 / 375) * 1vw);
-      }
     }
 
     .is-map-animated-out & {
       @include screen('md', max, 2) {
         height: 100%;
-      }
-
-      @include screen('sm', max, 2) {
-        height: calc(100% - (6000 / 375) * 1vw);
       }
     }
 
