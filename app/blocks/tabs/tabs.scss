@@ -54,7 +54,16 @@
       }
     }
 
-    &:hover,
+    @media (hover: hover) {
+      &:hover {
+        box-shadow: inset 0 -5px 0 $color-border-light;
+
+        @include screen('sm') {
+          box-shadow: inset 0 -4px 0 $color-border-light;
+        }
+      }
+    }
+
     &.active {
       box-shadow: inset 0 -5px 0 $color-border-light;
 
@@ -360,7 +369,6 @@
           @include rule(margin-left, (xl: 20px, xlg: 20, lg: 20, md: 20, sm: 20));
         }
       }
-
     }
   }
 }

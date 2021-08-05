@@ -1076,4 +1076,49 @@
       }
     }
   }
+
+  &__counter.swiper-pagination-custom {
+    display: none;
+
+    @include screen('sm', max, 2) {
+      display: inline-block;
+      position: absolute;
+      bottom: wPxtovw(20, sm);
+      right: wPxtovw(20, sm);
+      left: auto;
+      width: auto;
+      background-color: rgba(0, 0, 0, .4);
+      backdrop-filter: blur(4px);
+      border-radius: wPxtovw(50, sm);
+      color: $nd-color-basic-light;
+      z-index: 3;
+      font-size: wPxtovw(15, sm);
+      letter-spacing: -0.01em;
+      line-height: 1.5;
+      padding: 0 wPxtovw(11, sm);
+    }
+  }
+
+  &_mask {
+
+    #{$b} {
+      &__slider {
+        &::before {
+          @include pseudo;
+
+          width: 100%;
+          height: 100%;
+          z-index: 2;
+          top: 0;
+          left: 0;
+          background-repeat: no-repeat;
+          background-image: linear-gradient(180deg, #13141A 0%, rgba(51, 53, 70, 0) 33%),
+          linear-gradient(180deg, rgba(51, 53, 70, 0) 66%, #13141A 100%);
+          ;
+          opacity: .8;
+          pointer-events: none;
+        }
+      }
+    }
+  }
 }

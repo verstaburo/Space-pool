@@ -1,23 +1,14 @@
 mixin space-description-v2()
   +b.space-description-v2&attributes(attributes)
-    +nd-section._space-map.__map
-      +nd-section-header.nd-hide-sm
-        +nd-section-title._fz16 Location
-        +address-line({line: ['London', 'Mayfare', 'EC2A 4SD']})
-      +space-map('space-map').__space-map
-      +routes-v2.__routes.nd-hide-sm
-    +nd-section._space._space_v2.__head
-      +nd-section-header
-        +address-line({line: ['London', 'Mayfare', 'EC2A 4SD']}).nd-hide-from-sm
-        +nd-section-title('h2')._fz24
-          span.nd-hide-sm About Canvas Dalston Lane
-          span.nd-hide-from-sm House of Creative - 320 Angel
+    +e.lead
       +space-gallery.__space-gallery
-      +nd-section-content.nd-hide-sm
-        +e.text_fz15 Perfectly located on Shoreditch High Street, alongside three of our other buildings, 229 offers 12 private offices, meeting rooms, large board room and a perfect breakout/kitchen space and rooftop. House of Creative has been around for 8 years so we know what our client's needs are. We keep our pricing low and offer and all in service to make life easy for you.
-    +tabs()._space.__tabs.nd-hide-from-sm
-      +tab(data-tab-target="tab-space-offers" data-layout-tab="tab-space-offers") Office offers <span>(13)</span>
-      +tab.active(data-tab-target="tab-space-describe" data-layout-tab="tab-space-describe") About this space
+      +e.lead-header
+        +e.boxes
+          +nd-box._orange._size5
+          +nd-box._red._size5
+          +nd-box._blue._size5
+          +nd-box._green._size5
+        +e.name 13 Hanover Square
     +tabs-content.space-description-v2__tabs-content
       +tab-wrapper()(data-tab="tab-space-offers" data-tab-group="tab-space")
         +nd-results._v2
@@ -81,19 +72,19 @@ mixin space-description-v2()
                       +e.price £ 4,950.00
 
       +tab-wrapper()(data-tab="tab-space-describe" data-tab-group="tab-space").active
-        +nd-section.nd-hide-from-sm
-          +nd-section-header
-            +e.boxes
-              +nd-box._orange._size10
-              +nd-box._red._size10
-              +nd-box._blue._size10
-              +nd-box._green._size10
+        +nd-section._space._space_v2.__head
+          +nd-section-header.nd-hide-sm
+            +nd-section-title('h2')._fz24 About Canvas Dalston Lane
           +nd-section-content
-            +e.text_fz15._xl-fz18 Perfectly located on Shoreditch High Street, alongside three of our other buildings, 229 offers 12 private offices, meeting rooms, large board room and a perfect breakout/kitchen space and rooftop. House of Creative has been around for 8 years so we know what our client's needs are. We keep our pricing low and offer and all in service to make life easy for you.
+            +e.text_fz15 Perfectly located on Shoreditch High Street, alongside three of our other buildings, 229 offers 12 private offices, meeting rooms, large board room and a perfect breakout/kitchen space and rooftop. House of Creative has been around for 8 years so we know what our client's needs are. We keep our pricing low and offer and all in service to make life easy for you.
 
-        +nd-section.nd-hide-from-sm
+        +nd-section._space-map.__map
           +nd-section-header
-            +nd-section-title._fz16 Nearby
+            +nd-section-title._fz16.nd-hide-sm Location
+            +address-line({line: ['London', 'Mayfare', 'EC2A 4SD']})
+          +space-map('space-map').__space-map
+          +nd-section-header.nd-hide-from-sm
+            +nd-section-title._fz16 Location
           +routes-v2.__routes
 
         +nd-section
@@ -101,7 +92,7 @@ mixin space-description-v2()
             +nd-section-title._fz16 Facilities
           +facility-list._xsmall.__facility
 
-        +nd-section
+        +nd-section.nd-hide-sm
           +nd-section-header
             +nd-section-title._fz16 Similar Spaces
           +nd-section-content._mt34
@@ -131,4 +122,7 @@ mixin space-description-v2()
                       +nd-space-text()!=item.text
 
 mixin space-description-panel()
-  +nd-link-icon('nd-burger')._blue._block.space-description-panel.active.js-layout-tab-redirect.nd-hide-from-sm(href="#" data-layout-tab-target="tab-space-offers" data-tab="tab-space-describe" data-tab-group="tab-space") View listings
+  +tabs().space-description-panel
+    +tab(data-tab-target="tab-space-offers" data-layout-tab="tab-space-offers") Listings <span>(15)</span>
+    +tab.active(data-tab-target="tab-space-describe" data-layout-tab="tab-space-describe") About
+    +e.line

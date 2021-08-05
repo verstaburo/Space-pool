@@ -56,14 +56,9 @@
     height: 100%;
     box-sizing: border-box;
 
-    @include rule(height, (sm: 177));
+    @include rule(height, (sm: 200));
 
     @include screen('sm', max, 2) {
-      position: fixed;
-      top: pxtovw(60, 375);
-      left: 0;
-      right: 0;
-      z-index: 0;
       pointer-events: none;
     }
 
@@ -72,12 +67,6 @@
         top: 0;
         height: 100%;
         pointer-events: auto;
-      }
-    }
-
-    .offer-description & {
-      @include screen('sm', max, 2) {
-        position: static;
       }
     }
   }

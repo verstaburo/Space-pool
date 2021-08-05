@@ -15,7 +15,16 @@ export default function tabs() {
         tab = $(document).find('[data-tab="' + targetTab + '"]'),
         tabGroup = tab.data('tab-group');
 
-    $(document).find('[data-tab-group="' + tabGroup + '"]').hide().removeClass('active');
+    $(document).find('[data-tab-group="' + tabGroup + '"]').not(tab).hide({
+      duration: 300,
+      start: function () {
+        $(this).removeClass('active');
+        $(this).addClass('in-active');
+      },
+      always: function () {
+        $(this).removeClass('in-active');
+      }
+    });
 
     tab.show(0, function () {
       $(this).addClass('active');

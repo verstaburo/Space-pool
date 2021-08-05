@@ -551,7 +551,8 @@ export default function slider() {
     const btnPrev = $(el).find('.js-gallery-button-prev')[0];
     const btnNext = $(el).find('.js-gallery-button-next')[0];
     const sliderContainer = $(el).find('.js-gallery-container');
-    const pagination = $(el).find('.js-gallery-pagination')[0];
+    const dots = $(el).find('.js-gallery-pagination')[0];
+    const counter = $(el).find('.js-gallery-counter')[0];
     const galleryController = $(el).siblings('.js-gallery-controller')[0];
     let controller = false;
     let control = {};
@@ -563,6 +564,24 @@ export default function slider() {
       isCSSMode = false;
       $(el).removeClass('is-css-mode-slider');
     }
+    let pagination = false;
+
+    if (counter) {
+      pagination = {
+        el: counter,
+        type: 'custom',
+        renderCustom(sw, curr, total) {
+          return `${curr}/${total}`;
+        },
+      };
+    }
+
+    if (dots) {
+      pagination = {
+        el: dots,
+      };
+    }
+
     if (galleryController) {
       controller = new Swiper(galleryController, {
         loop: false,
@@ -611,9 +630,7 @@ export default function slider() {
         nextEl: btnNext,
         prevEl: btnPrev,
       },
-      pagination: {
-        el: pagination,
-      },
+      pagination,
       on: {
         init() {
           $(sliderContainer).addClass('is-visible');

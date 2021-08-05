@@ -9,6 +9,10 @@
 
   @include rule(height, (xl: 60px, xlg: 60, lg: 60, md: 60, sm: 60));
 
+  @include screen('sm', max, 2) {
+    background-color: transparent;
+  }
+
   &__boxes {
     display: flex;
     justify-content: flex-start;
@@ -114,12 +118,36 @@
     }
 
     @include screen('sm', max, 2) {
-      line-height: 1.2;
+      line-height: (32 / 16);
+      background-color: $nd-color-basic-light;
+      box-sizing: border-box;
+      padding: 0 wPxtovw(11, sm);
+      border-radius: wPxtovw(32, sm);
+      box-shadow: boxShadow(0, 3.2, 7.69511, 0, rgba(0, 0, 0, 0.3), 375);
+    }
+  }
+
+  &__favorite {
+    display: none;
+
+    @include rule(width, (sm: 32));
+    @include rule(height, (sm: 32));
+    @include rule(padding, (sm: 7));
+
+    .layout-offer-active & {
+      @include screen('sm', max, 2) {
+        display: block;
+        box-sizing: border-box;
+        background-color: $nd-color-basic-light;
+        border-radius: 50%;
+        box-shadow: boxShadow(0, 3.2, 7.69511, 0, rgba(0, 0, 0, 0.3), 375);
+        margin-left: wPxtovw(20, sm);
+      }
     }
   }
 
   &__close {
-    @include rule(width, (xl: 104px, xlg: 104, lg: 72, md: 50, sm: 60));
+    @include rule(width, (xl: 104px, xlg: 104, lg: 72, md: 50, sm: 44));
 
     // border-right: 1px solid $nd-color-border6;
     flex: none;
@@ -140,6 +168,10 @@
       background-image: $icon-arrow5;
       border-right: none;
       background-size: pxtovw(22, 375);
+      background-color: $nd-color-basic-light;
+      height: wPxtovw(44, sm);
+      border-radius: 50%;
+      box-shadow: boxShadow(0, 3.2, 7.69511, 0, rgba(0, 0, 0, 0.3), 375);
     }
 
     .layout-offer-active &,
@@ -218,11 +250,15 @@
       pointer-events: none;
       opacity: 0;
 
-      @include rule(width, (xl: 104px, xlg: 104, lg: 104, md: 104, sm: 60));
+      @include rule(width, (xl: 104px, xlg: 104, lg: 104, md: 104, sm: 44));
 
       @include screen('sm', max, 2) {
         opacity: 1;
         pointer-events: auto;
+        background-color: $nd-color-basic-light;
+        bottom: auto;
+        left: wPxtovw(9, sm);
+        top: wPxtovw(9, sm);
       }
 
       .layout-offer-active & {
@@ -297,8 +333,8 @@
     #{$b}_main & {
       align-items: center;
 
-      @include rule(padding-left, (xl: 22px, xlg: 22, lg: 22, md: 25, sm: 25));
-      @include rule(padding-right, (xl: 30px, xlg: 30, lg: 30, md: 40, sm: 25));
+      @include rule(padding-left, (xl: 22px, xlg: 22, lg: 22, md: 25, sm: 0));
+      @include rule(padding-right, (xl: 30px, xlg: 30, lg: 30, md: 40, sm: 0));
     }
 
     #{$b}_sort & {
@@ -352,8 +388,8 @@
 
       @include cRule(margin, (xl: 0 auto, md: 0));
       @include rule(max-width, (xl: 1124px, xlg: 1124, lg: 1124, md: 100%));
-      @include rule(padding-left, (xl: 30px, xlg: 30, lg: 30, md: 25, sm: 25));
-      @include rule(padding-right, (xl: 30px, xlg: 30, lg: 30, md: 40, sm: 25));
+      @include rule(padding-left, (xl: 30px, xlg: 30, lg: 30, md: 25, sm: 0));
+      @include rule(padding-right, (xl: 30px, xlg: 30, lg: 30, md: 40, sm: 0));
     }
   }
 
@@ -380,6 +416,13 @@
     }
   }
 
+  &_main {
+    @include screen('sm', max, 2) {
+      box-sizing: border-box;
+      padding: wPxtovw(9, sm) wPxtovw(9, sm)wPxtovw(7, sm);
+    }
+  }
+
   &_popup {
     position: absolute;
     top: 0;
@@ -390,20 +433,16 @@
 
     @include rule(height, (xl: 60px, xlg: 60, lg: 60, md: 60, sm: 60));
 
-    @include screen('xlg') {
+    @include screen('xlg', max, 2) {
       box-shadow: boxShadow(0, 2, 2, 0, rgba(0, 0, 0, .06), 1660);
     }
 
-    @include screen('lg') {
+    @include screen('lg', max, 2) {
       box-shadow: boxShadow(0, 2, 2, 0, rgba(0, 0, 0, .06), 1366);
     }
 
-    @include screen('md') {
+    @include screen('md', max, 2) {
       box-shadow: boxShadow(0, 2, 2, 0, rgba(0, 0, 0, .06), 960);
-    }
-
-    @include screen('sm') {
-      box-shadow: boxShadow(0, 2, 2, 0, rgba(0, 0, 0, .06), 375);
     }
 
     @include screen('sm', max, 2) {
@@ -467,7 +506,7 @@
     @include rule(height, (xl: 114px, xlg: 114, lg: 95, md: 80, sm: 60));
 
     @include screen('sm', max, 2) {
-      background-color: $nd-color-basic-light;
+      background-color: transparent;
       position: fixed;
       top: 0;
       left: 0;
@@ -501,6 +540,10 @@
 
   &_bg-gray {
     background-color: $nd-color-bg;
+
+    @include screen('sm', max, 2) {
+      background-color: transparent;
+    }
   }
 
   .drop-navigation {
@@ -547,6 +590,6 @@
   &_centered {
     box-sizing: border-box;
 
-    @include rule(padding-right, (xl: 104px, xlg: 104, lg: 104, md: 0));
+    @include rule(padding-right, (xl: 104px, xlg: 104, lg: 104, md: 0, sm: 9));
   }
 }
