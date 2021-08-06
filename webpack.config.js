@@ -7,6 +7,7 @@ module.exports = (watch = false) => ({
   entry: {
     app: path.resolve('./app/scripts/app.js'),
     index: path.resolve('./app/scripts/index.js'),
+    search: path.resolve('./app/scripts/search.js'),
     // other: path.resolve('./app/scripts/other.js'),
     // old: path.resolve('./app/scripts/old.js'),
   },

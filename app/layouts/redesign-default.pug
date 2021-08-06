@@ -23,7 +23,7 @@ html(lang='en')
     - var newMapFile = isMapNew || false
     - var noUser = isNoUser || false
     - var menuData = getData('nd-guest-acc-list.json')
-    - var otherScripts = scripts || []
+    - var otherScripts = scripts || false
     - var isSearch = searchPage || false
     - var headerSpecial = headSpec || false
     if noUser
@@ -114,6 +114,12 @@ html(lang='en')
 
     if pageStyle == 'index'
       script(src='assets/scripts/index.min.js')
+    else if otherScripts
+      each item in otherScripts
+        if item === 'other'
+          script(src='assets/scripts/app.min.js')
+        else
+          script(src=('assets/scripts/' + item + '.min.js'))
     else
       script(src='assets/scripts/app.min.js')
     if map
