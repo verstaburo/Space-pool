@@ -151,10 +151,18 @@ block content
             +styled-radio(item.title)._team.__item
               +e.INPUT.input(type="radio", value=item.value, name=item.name, data-modal-item, data-modal-item-value=(item.value2 || item.value), data-modal-item-type="team")
 
+  +modals('div')
+    +modal({header: {title: 'Offer type'}, footer: false})#sort-offer
+      +e.list
+        each item in [{title: 'All listings', value: 'All listings', name: 'sortOffer', checked: true}, {title: 'Private office', value: 'Private office', name: 'sortOffer'}, {title: 'Fixed desk', value: 'Fixed desk', name: 'sortOffer'}, {title: 'Hot desk', value: 'Hot desk', name: 'sortOffer'}, {title: 'Meeting room', value: 'Meeting room', name: 'sortOffer'}, {title: 'Day pass', value: 'Day pass', name: 'sortOffer'}]
+          +styled-radio(item.title)._sort.__item
+            if item.checked
+              +e.INPUT.input(type="radio", value=item.value, name=item.name, data-modal-item, data-modal-item-value=(item.value), data-modal-item-type="sortOffer" checked)
+            else
+              +e.INPUT.input(type="radio", value=item.value, name=item.name, data-modal-item, data-modal-item-value=(item.value), data-modal-item-type="sortOffer")
+
     +e.FIELDSET.fieldset
       +modal-filter#modal-filter
-      //- +modal({header: {title: 'Filter'}, footer: {class: '_range', view: 'range'}})#filter-multi
-      //-   +nd-range({output: {minLabel: 'Min', maxLabel: 'Max', max: 'maxPrice', min: 'minPrice', formboxClass: '_bg-white _sm-h50', inputClass: '_sm-h50'}})(data-start="[0, 5000]" data-connect="[false, true, false]" data-step="10" data-margin="30" data-min="0" data-max="10000" data-currency="£" data-modal-item data-modal-item-type="multi").__range
 
     +e.FIELDSET.fieldset
       +modal({header: {title: 'Sort by'}, footer: false})#filter-sort

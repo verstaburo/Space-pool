@@ -1393,4 +1393,122 @@
       }
     }
   }
+
+  &_small_v2 {
+    border: none;
+    background-color: transparent;
+    display: flex;
+    justify-content: flex-start;
+    align-items: stretch;
+    box-shadow: none;
+    width: 100%;
+    padding: 0;
+
+
+    #{$b} {
+      &__media {
+        overflow: hidden;
+        flex: none;
+        margin: 0;
+
+        @include rule(width, (xl: 146px, xlg: 146, lg: 146, md: 146, sm: 146));
+
+        @include rule(border-radius, (xl: 3px 0 0 3px, xlg: 3 0 0 3, lg: 3 0 0 3, md: 3 0 0 3, sm: 3 0 0 3));
+      }
+
+      &__image {
+        padding-top: 66.2%;
+        min-height: 100%;
+      }
+
+      &__describe {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        flex-direction: column;
+        margin: 0;
+        flex: 1;
+        border: 1px solid #ebf1f2;
+        border-left-width: 0;
+        box-sizing: border-box;
+        box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.03);
+        background-color: $nd-color-basic-light;
+
+        @include rule(border-radius, (xl: 0 3px 3px 0, xlg: 0 3 3 0, lg: 0 3 3 0, md: 0 3 3 0, sm: 0 3 3 0));
+
+
+        @include rule(padding, (xl: 12px 6px 6px 15px, xlg: 12 6 6 15, lg: 12 6 6 15, md: 12 6 6 15, sm: 12 6 6 15));
+      }
+
+      &__title {
+        display: block;
+        width: 100%;
+        margin-top: 0;
+        margin-bottom: 0;
+        font-weight: 500;
+        line-height: (18 / 15);
+        font-family: $font-stolzl;
+        letter-spacing: normal;
+
+        @include rule(font-size, (xl: 15px, xlg: 15, lg: 15, md: 15, sm: 15));
+
+        &:not(:last-child) {
+          @include rule(margin-bottom, (xl: 5px, xlg: 5, lg: 5, md: 5, sm: 5));
+        }
+      }
+
+      &__info {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex: none;
+        width: 100%;
+        font-weight: 600;
+        margin-top: auto;
+        letter-spacing: normal;
+        line-height: 1.2;
+
+        @include rule(font-size, (xl: 14px, xlg: 14, lg: 14, md: 14, sm: 14));
+
+        strong {
+          display: inline;
+          color: $nd-color-main;
+          font-weight: 600;
+        }
+      }
+
+      &__price {
+        display: block;
+        margin-top: 0;
+        margin-bottom: 0;
+        background-color: transparent;
+        margin: 0;
+        padding: 0;
+        color: currentColor;
+        font-family: $font-main;
+        height: auto;
+
+        @include rule(font-size, (xl: 14px, xlg: 14, lg: 14, md: 14, sm: 14));
+
+        &:not(:last-child) {
+          @include rule(margin-right, (xl: 15px, xlg: 15, lg: 15, md: 15, sm: 15));
+        }
+      }
+
+      &__seats {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+      }
+
+      &__icon {
+        display: block;
+        fill: $nd-color-main;
+
+        @include rule(width, (xl: 12px, xlg: 12, lg: 12, md: 12, sm: 12));
+        @include rule(height, (xl: 12px, xlg: 12, lg: 12, md: 12, sm: 12));
+        @include rule(margin-right, (xl: 5px, xlg: 5, lg: 5, md: 5, sm: 5));
+      }
+    }
+  }
 }

@@ -1,0 +1,46 @@
+.list-toggle {
+  $b: &;
+
+  position: relative;
+  display: block;
+  box-sizing: border-box;
+  border: 1px solid $nd-color-border5;
+  color: $nd-color-main;
+  border-radius: 50%;
+
+  @include rule(width, (xl: 40px, xlg: 40, lg: 40, md: 40, sm: 40));
+  @include rule(height, (xl: 40px, xlg: 40, lg: 40, md: 40, sm: 40));
+
+  input:checked ~ & {
+
+    &__icon {
+      &_on {
+      opacity: 1;
+      }
+
+      &_off {
+        opacity: 0;
+      }
+    }
+  }
+
+  &__icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate3d(-50%, -50%, 0);
+    transform-origin: 50% 50%;
+    fill: currentColor;
+
+    @include rule(width, (xl: 20px, xlg: 20, lg: 20, md: 20, sm: 20));
+    @include rule(height, (xl: 20px, xlg: 20, lg: 20, md: 20, sm: 20));
+
+    &_on {
+      opacity: 0;
+    }
+
+    &_off {
+      opacity: 1;
+    }
+  }
+}

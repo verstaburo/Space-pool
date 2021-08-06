@@ -11,65 +11,99 @@ mixin space-description-v2()
         +e.name 13 Hanover Square
     +tabs-content.space-description-v2__tabs-content
       +tab-wrapper()(data-tab="tab-space-offers" data-tab-group="tab-space")
-        +nd-results._v2
+
+        +e.filter
+          +modal-output({placeholder: 'Offer type'})._h40._blue-toggle.__select.js-toggle-modal(data-modal-target="sort-offer" data-modal-output-type="sortOffer" )
+          +list-toggle('display-list', 'display-block', 'offerSwitch').__toggle
+
+        +nd-results._v2.is-active(data-list-type="off" data-list-name="offerSwitch")
+          each item in getData('new-nd-spaces-search-offer.json')
+            +nd-results-item._mt23
+              +nd-space()._single-offer.js-sm-layout-show(data-layout-target="offer" data-layout-title=item.subtitle data-layout-title-color='green' href="single-offer.html" target="_blank")
+                +e.preview
+                  +e.preview-info.nd-hide-from-sm
+                    +space-type._white._white_shadow._proxima.__type
+                      +nd-box()(class=item.type.box + ' __box')
+                      +e.name!=item.type.name
+                    +label._v2!=item.label
+                  +nd-space-media
+                    +e.IMG(src=item.gallery.images[0] alt="@@")
+                +e.describe
+                  +e.head.nd-hide-sm
+                    +e.subtitle!=item.subtitle
+                    +space-type._gray.__type
+                      +nd-box()(class=item.type.box + ' __box')
+                      +e.name!=item.type.name
+                  if item.title
+                    +e.title!=item.title
+                  +nd-table._info._info_space.__table
+                    tbody
+                      tr
+                        td Amount of desks
+                        td 12
+                      tr
+                        td Floor area
+                        td 257 ft<sup>2</sup>
+                      tr
+                        td Min. term
+                        td 1 month
+                      tr.nd-hide-sm
+                        td Price
+                        td
+                          b £ 2,400 per month
+
+        +nd-results._v2(data-list-type="on" data-list-name="offerSwitch")
           +e.divider
-            +space-type._gray._fz12.__type
+            +space-type._fw700._fz12.__type
               +nd-box()._green.__box_sz9
-              +e.name PRIVATE OFFICES
+              +e.name PRIVATE OFFICE
           +e.list
-            each item, index in ['assets/images/nd/space33.jpg', 'assets/images/nd/space32.jpg', 'assets/images/nd/space34.jpg']
-              +nd-results-item._mt-1
-                +offer-card()._small.js-layout-show(data-layout-target="offer" data-layout-title='Suite G0' data-layout-title-color='green')
+            each item, index in [{ image: 'assets/images/nd/space33.jpg', name: 'Office 4.02', seats: '16'}, {image: 'assets/images/nd/space32.jpg', name: 'Office 4.08', seats: '8'}, {image: 'assets/images/nd/space34.jpg', name: 'Office 8.02', seats: '<50'}]
+              +nd-results-item
+                +offer-card()._small_v2.js-layout-show(data-layout-target="offer" data-layout-title=item.name data-layout-title-color='green')
                   +e.media
                     +e.PICTURE.image
-                      source(srcset=item)
-                      img(src=item)
+                      source(srcset=item.image)
+                      img(src=item.image)
                   +e.describe
-                    +e.H4.title Suite G0#{index + 1}
-                    +e.pay
-                      +e.price £ 4,950.00
+                    +e.H4.title!=item.name
+                    +e.info
+                      +e.SPAN.price <strong>£ </strong> 25,400 <strong> / month</strong>
+                      +e.SPAN.seats
+                        +icon('person').__icon
+                        +e.SPAN.count= item.seats
           +e.divider
-            +space-type._gray._fz12.__type
+            +space-type._fw700._fz12.__type
+              +nd-box()._dark-blue.__box_sz9
+              +e.name DAY PASS
+          +e.list
+            each item, index in ['assets/images/nd/space33.jpg', 'assets/images/nd/space34.jpg']
+              +nd-results-item
+                +offer-card()._small_v2.js-layout-show(data-layout-target="offer" data-layout-title='10 Days/Month Hot Desk Membership' data-layout-title-color='dark-blue')
+                  +e.media
+                    +e.PICTURE.image
+                      source(srcset='assets/images/nd/space32.jpg')
+                      img(src='assets/images/nd/space32.jpg')
+                  +e.describe
+                    +e.H4.title 10 Days/Month Hot Desk Membership
+                    +e.info
+                      +e.price <strong>£ </strong> 25,400 <strong> / month</strong>
+          +e.divider
+            +space-type._fw700._fz12.__type
               +nd-box()._orange.__box_sz9
               +e.name HOT DESK
           +e.list
-            +nd-results-item._mt-1
-              +offer-card()._small.js-layout-show(data-layout-target="offer" data-layout-title='Hot desk available on demand' data-layout-title-color='orange')
-                +e.media
-                  +e.PICTURE.image
-                    source(srcset='assets/images/nd/space22.jpg')
-                    img(src='assets/images/nd/space22.jpg')
-                +e.describe
-                  +e.H4.title Hot desk available on demand
-                  +e.pay
-                    +e.price £ 350.00
-            +nd-results-item._mt-1
-              +offer-card()._small.js-layout-show(data-layout-target="offer" data-layout-title='Day pass Hot desk' data-layout-title-color='orange')
-                +e.media
-                  +e.PICTURE.image
-                    source(srcset='assets/images/nd/space32.jpg')
-                    img(src='assets/images/nd/space32.jpg')
-                +e.describe
-                  +e.H4.title Day pass Hot desk
-                  +e.pay
-                    +e.price £ 50.00
-                    +label.__label DAY PASS
-          +e.divider
-            +space-type._gray._fz12.__type
-              +nd-box()._red.__box_sz9
-              +e.name FIXED DESK
-          +e.list
             each item, index in ['assets/images/nd/space33.jpg', 'assets/images/nd/space34.jpg']
-              +nd-results-item._mt-1
-                +offer-card()._small.js-layout-show(data-layout-target="offer" data-layout-title="Suite G0" data-layout-title-color='red')
+              +nd-results-item
+                +offer-card()._small_v2.js-layout-show(data-layout-target="offer" data-layout-title="10 Days/Month Hot Desk Membership" data-layout-title-color='orange')
                   +e.media
                     +e.PICTURE.image
                       source(srcset=item)
                       img(src=item)
                   +e.describe
-                    +e.H4.title Suite G0#{index + 1}
-                    +e.pay
-                      +e.price £ 4,950.00
+                    +e.H4.title 10 Days/Month Hot Desk Membership
+                    +e.info
+                      +e.price <strong>£ </strong> 25,400 <strong> / month</strong>
 
       +tab-wrapper()(data-tab="tab-space-describe" data-tab-group="tab-space").active
         +nd-section._space._space_v2.__head

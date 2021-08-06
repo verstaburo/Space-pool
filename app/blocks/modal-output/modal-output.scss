@@ -64,6 +64,7 @@
 
     #{$b}.is-selected & {
       display: block;
+      font-weight: 500;
     }
 
     span {
@@ -98,6 +99,10 @@
 
     #{$b}.is-opened & {
       transform: rotate(180deg);
+    }
+
+    #{$b}_blue-toggle & {
+      color: $nd-color-main;
     }
   }
 
@@ -140,6 +145,10 @@
     display: inline-block;
     text-align: center;
     width: 100%;
+  }
+
+  &_h40 {
+    @include rule(height, (xl: 40px, xlg: 40, lg: 40, md: 40, sm: 40));
   }
 
   &_special {
@@ -268,6 +277,7 @@
     &.is-selected #{$b} {
       &__values {
         display: block;
+        font-weight: 400;
       }
 
       &__placeholder {

@@ -193,26 +193,3 @@
     @include rule(padding-top, (xl: 60px, xlg: 60, lg: 55, md: 50, sm: 0));
   }
 }
-
-.space-description-panel {
-  @include rule(font-size, (xl: 16px, xlg: 16, lg: 16, md: 16, sm: 16));
-  @include rule(margin-left, (sm: -20));
-  @include rule(margin-right, (sm: -20));
-
-  background-color: $nd-color-basic-light;
-  ;
-  display: none;
-  position: fixed;
-  bottom: 0;
-  z-index: 25;
-
-  @include screen('sm', max, 2) {
-    width: calc(100% + (4000 / 375)*1vw);
-  }
-
-  &.active {
-    @include screen('sm', max, 2) {
-      display: inline-flex !important;
-    }
-  }
-}

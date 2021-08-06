@@ -30,6 +30,7 @@ import offerPanel from '../blocks/offer-description-panel/offer-description-pane
 import ShowPopover from './functions/showPopover';
 import toggleFavorite from '../blocks/favorite/favorite';
 import modalFilter from '../blocks/modal-filter/modal-filter';
+import toggleList from '../blocks/list-toggle/list-toggle';
 // other
 import positioning from './functions/position';
 import ndSelects from '../blocks/form-elements/nd-select';
@@ -137,6 +138,7 @@ $(() => {
   ShowPopover();
   toggleFavorite();
   modalFilter();
+  toggleList();
   // other
   positioning();
   ndSelects();

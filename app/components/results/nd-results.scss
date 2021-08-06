@@ -212,11 +212,11 @@
     width: 100%;
 
     &:not(:first-child) {
-      @include rule(margin-top, (xl: 42px, xlg: 42, lg: 42, md: 42, sm: 42));
+      @include rule(margin-top, (xl: 42px, xlg: 42, lg: 42, md: 42, sm: 40));
     }
 
     &:not(:last-child) {
-      @include rule(margin-bottom, (xl: 10px, xlg: 10, lg: 10, md: 20, sm: 15));
+      @include rule(margin-bottom, (xl: 10px, xlg: 10, lg: 10, md: 20, sm: 20));
     }
 
     + #{$b}__item {
@@ -268,10 +268,14 @@
         padding-left: 0;
         padding-right: 0;
 
-        @include rule(margin-top, (sm: 23));
+        @include rule(margin-top, (sm: 20));
 
         &:first-child {
           @include rule(margin-top, (md: 0));
+        }
+
+        &_mt30 {
+          @include rule(margin-top, (xl: 30px, xlg: 30, lg: 30, md: 30, sm: 30));
         }
 
         &_mt-1 {
