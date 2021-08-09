@@ -25,5 +25,26 @@ export default function tooltips() {
       tap: true,
     },
   });
+
+  $('.js-tooltip-v2').tooltipster({
+    animation: 'slide',
+    delay: 0,
+    side: ['top', 'right', 'bottom', 'left'],
+    arrow: false,
+    distance: 0,
+    interactive: true,
+    maxWidth: 620,
+    theme: 'sp-dark',
+    trigger: 'custom',
+    triggerOpen: {
+      mouseenter: true,
+      tap: true,
+    },
+    triggerClose: {
+      mouseleave: true,
+      originClick: true,
+      tap: true,
+    },
+  });
 }
 /* eslint-enable no-unused-vars */

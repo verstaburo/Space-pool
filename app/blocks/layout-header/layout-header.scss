@@ -132,10 +132,11 @@
 
     @include rule(width, (sm: 32));
     @include rule(height, (sm: 32));
-    @include rule(padding, (sm: 7));
+    @include rule(padding, (sm: 9 8 8));
 
     .layout-offer-active &, .layout_stable_centered & {
       @include screen('sm', max, 2) {
+        position: relative;
         display: block;
         box-sizing: border-box;
         background-color: $nd-color-basic-light;
@@ -158,7 +159,12 @@
       @include rule(height, (xl: 18px, xlg: 18, lg: 18, md: 15, sm: 15));
 
       @include screen('sm', max, 2) {
+        position: absolute;
         opacity: 0;
+        top: 50%;
+        left: 50%;
+        transform-origin: 50% 50%;
+        transform: translate3d(-50%, -50%, 0);
       }
     }
 
@@ -172,6 +178,7 @@
       height: wPxtovw(44, sm);
       border-radius: 50%;
       box-shadow: boxShadow(0, 3.2, 7.69511, 0, rgba(0, 0, 0, 0.3), 375);
+      position: relative;
     }
 
     .layout-offer-active &,
