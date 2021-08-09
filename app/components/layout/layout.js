@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 const { $ } = window;
 
 export const layoutsMethods = {
@@ -9,6 +10,7 @@ export const layoutsMethods = {
     const totalLayouts = $('[data-layout]');
     const layouts = $(`[data-layout*="${layoutName}"]`);
     const detail = context || {};
+    // const { reopen } = detail;
     const layoutTitleOffer = $('[data-layout-title-offer]');
     const layoutBoxes = $('[data-layout-title-boxes]');
     const layoutTitleSpace = $('[data-layout-title-space]');
@@ -20,35 +22,47 @@ export const layoutsMethods = {
     const activeLayouts = layoutsMethods.whichLayerActive();
     switch (layoutName) {
       case 'space': {
-        document.body.classList.add('layout-space-active');
-        document.body.setAttribute('data-layout-last', 'space');
-        if (describe && describe.title) {
-          layoutTitleSpace.text(describe.title);
+        if (!activeLayouts.space) {
+          if (activeLayouts.offer) {
+            layoutsMethods.redirectOnTab('tab-space-describe');
+          }
+          document.body.classList.add('layout-space-active');
+          document.body.setAttribute('data-layout-last', 'space');
+          if (describe && describe.title) {
+            layoutTitleSpace.text(describe.title);
+          }
+          layoutBoxes.removeClass('is-green is-red is-orange is-blue is-dark-blue');
+        } else if (activeLayouts.offer) {
+          layoutsMethods.redirectOnTab('tab-space-describe');
+          layoutsMethods.close('offer', {});
         }
-        layoutBoxes.removeClass('is-green is-red is-orange is-blue');
         break;
       }
       case 'list': {
         if (activeLayouts.map) {
           document.body.classList.add('layout-list-active');
           document.body.setAttribute('data-layout-last', 'list');
-          layoutBoxes.removeClass('is-green is-red is-orange is-blue');
+          layoutBoxes.removeClass('is-green is-red is-orange is-blue is-dark-blue');
         }
         break;
       }
       case 'offer': {
-        document.body.classList.add('layout-offer-active');
-        $('.js-layout-show, .js-sm-layout-show').removeClass('is-active');
-        if (detail.sourceElement) {
-          detail.sourceElement.classList.add('is-active');
-        }
-        document.body.setAttribute('data-layout-last', 'offer');
-        if (describe.title) {
-          layoutTitleOffer.text(describe.title);
-        }
-        layoutBoxes.removeClass('is-green is-red is-orange is-blue');
-        if (describe.color) {
-          layoutBoxes.addClass(`is-${describe.color}`);
+        if (!activeLayouts.offer) {
+          document.body.classList.add('layout-offer-active');
+          $('.js-layout-show, .js-sm-layout-show').removeClass('is-active');
+          if (detail.sourceElement) {
+            detail.sourceElement.classList.add('is-active');
+          }
+          document.body.setAttribute('data-layout-last', 'offer');
+          if (describe.title) {
+            layoutTitleOffer.text(describe.title);
+          }
+          layoutBoxes.removeClass('is-green is-red is-orange is-blue is-dark-blue');
+          if (describe.color) {
+            layoutBoxes.addClass(`is-${describe.color}`);
+          }
+        } else if (activeLayouts.space) {
+          layoutsMethods.close('space', {});
         }
         break;
       }
@@ -132,6 +146,9 @@ export const layoutsMethods = {
       map: document.body.classList.contains('map-in-fullview'),
     };
   },
+  isLayoutExist(layoutName) {
+    return $(`[data-layout*="${layoutName}"]`).length > 0;
+  },
 };
 
 window.globalFunctions.layoutsMethods = layoutsMethods;
@@ -156,6 +173,37 @@ export default function layoutsInit() {
         { sourceElement: _this, marker: undefined },
         { title: layoutTitle, color: layoutColor },
       );
+    }
+  });
+
+  $(document).on('click', '.js-marker-link', (evt) => {
+    const _this = evt.currentTarget;
+
+    evt.preventDefault();
+
+    const layoutName = 'space';
+    const url = _this.href;
+    const existSpaceLayout = layoutsMethods.isLayoutExist(layoutName);
+    const isSpacePage = $(document).find('.layout__column_start_space').length > 0;
+
+    if (existSpaceLayout) {
+      console.log('space exist');
+      const activeLayouts = layoutsMethods.whichLayerActive();
+      console.log(activeLayouts);
+      if (activeLayouts.space && activeLayouts.offer) {
+        console.log('space and offer');
+        layoutsMethods.close('offer', {});
+      } else if (!activeLayouts.space && activeLayouts.offer) {
+        console.log('only offer');
+        layoutsMethods.open(
+          'space',
+          { sourceElement: undefined, marker: _this.mm },
+        );
+      }
+    } else if (isSpacePage) {
+      layoutsMethods.close('offer', {});
+    } else {
+      window.open(url, '_blank');
     }
   });
 

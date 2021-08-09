@@ -159,3 +159,38 @@
   @include rule(padding-right, (xl: 8px, xlg: 8, lg: 8, md: 8, sm: 8));
   @include rule(border-radius, (xl: 20px, xlg: 20, lg: 20, md: 20, sm: 20));
 }
+
+
+.map-marker-tooltip-offer {
+  position: absolute;
+  transform: translate3d(-50%, -100%, 0);
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(4px);
+  text-align: center;
+  font-weight: 400;
+  color: $nd-color-basic;
+  box-sizing: border-box;
+  font-family: $font-main;
+  text-decoration-line: underline;
+
+  @include rule(font-size, (xl: 15px, xlg: 15, lg: 15, md: 15, sm: 15));
+  @include rule(line-height, (xl: 28px, xlg: 28, lg: 28, md: 28, sm: 28));
+  @include rule(padding, (xl: 0 37px 0 12px, xlg: 0 37 0 12, lg: 0 37 0 12, md: 0 37 0 12, sm: 0 37 0 12));
+  @include rule(border-radius, (xl: 20px, xlg: 20, lg: 20, md: 20, sm: 20));
+
+  &::after {
+    @include pseudo;
+
+    top: 50%;
+    transform: translate3d(0, -50%, 0);
+    z-index: 1;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    background-size: 100%;
+    background-image: url("data:image/svg+xml,%3Csvg width='10' height='14' viewBox='0 0 10 14' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M2 2L7 7L2 12' stroke='%230085FF' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E%0A");
+
+    @include rule(right, (xl: 9px, xlg: 9, lg: 9, md: 9, sm: 9));
+    @include rule(width, (xl: 10px, xlg: 10, lg: 10, md: 10, sm: 10));
+    @include rule(height, (xl: 14px, xlg: 14, lg: 14, md: 14, sm: 14));
+  }
+}

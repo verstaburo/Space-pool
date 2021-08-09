@@ -1,6 +1,7 @@
-mixin space-map(mapID)
+mixin space-map(mapID, type)
+  - var url = type === 'offer' ? 'assets/data/lonely-offer-marker2.json' : 'assets/data/lonely-offer-marker.json'
   +b.space-map&attributes(attributes)
     +e.BUTTON.close(type="button") Close map
     +e.wrapper
-      +e.map(id=(mapID || '') data-map-markers-url="assets/data/lonely-offer-marker.json")
+      +e.map(id=(mapID || '') data-map-markers-url=url)
     block
