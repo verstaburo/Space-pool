@@ -132,7 +132,7 @@ export default function modalFilter() {
           el.setAttribute('data-modal-filter-item-id', id);
         }
       } else {
-        const { value } = el;
+        const value = el.getAttribute('data-modal-filter-title') || el.value;
         const id = `${name}-${uid()}`;
         const data = {
           id,

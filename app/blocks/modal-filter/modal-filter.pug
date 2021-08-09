@@ -16,9 +16,9 @@ mixin modal-filter()
                 each item in getData('nd-map-locations.json')
                   +b.LABEL.check-button._hov-blue._pad10._h34._lg-fz13.__check
                     if item.options.checked
-                      +e.INPUT.input(name=item.options.name, value=item.options.value, checked, type=item.options.type, data-modal-filter-item="area")
+                      +e.INPUT.input(name=item.options.name, value=item.options.value, checked, type=item.options.type, data-modal-filter-item="area", data-modal-filter-title=item.name)
                     else
-                      +e.INPUT.input(name=item.options.name, value=item.options.value, type=item.options.type, data-modal-filter-item="area")
+                      +e.INPUT.input(name=item.options.name, value=item.options.value, type=item.options.type, data-modal-filter-item="area", data-modal-filter-title=item.name)
                     +e.SPAN.content!=item.name
             +e.section
               +e.subtitle Space Facilities
@@ -26,9 +26,9 @@ mixin modal-filter()
                 each item in getData('nd-modal-features.json')
                   +b.LABEL.check-button._hov-blue._pad10._h34._lg-fz13.__check
                     if item.options.checked
-                      +e.INPUT.input(name=item.options.name, value=item.options.value, checked, type=item.options.type data-modal-filter-item="facilities")
+                      +e.INPUT.input(name=item.options.name, value=item.options.value, checked, type=item.options.type data-modal-filter-item="facilities", data-modal-filter-title=item.name)
                     else
-                      +e.INPUT.input(name=item.options.name, value=item.options.value, type=item.options.type data-modal-filter-item="facilities")
+                      +e.INPUT.input(name=item.options.name, value=item.options.value, type=item.options.type data-modal-filter-item="facilities", data-modal-filter-title=item.name)
                     +e.SPAN.content!=item.name
       +e.selected
         +e.wrapper.js-scrollbar-layout
