@@ -467,6 +467,18 @@ function initMap() {
       });
     }
   }
+
+  const lonelyOfferMap = document.getElementById('offer-map');
+
+  if (lonelyOfferMap) {
+    const mapMarkerUrl = lonelyOfferMap.getAttribute('data-map-markers-url');
+
+    if (mapMarkerUrl) {
+      fetch(mapMarkerUrl).then((response) => response.json()).then((result) => {
+        setMarkersOnMap(result.markers, result.center, 'offer-map');
+      });
+    }
+  }
 }
 
 window.initMap = initMap;
