@@ -83,15 +83,18 @@ export default function modalFilter() {
           break;
         }
         default: {
-          output.forEach((el) => {
-            const tg = el;
-            tg.innerText = count;
-            const modalOutput = tg.closest('.modal-output');
-            if (modalOutput) {
-              modalOutput.classList.add('is-filled');
-            }
-          });
-          modalFilterMethods.buttonsState('apply');
+          if (count) {
+            output.forEach((el) => {
+              const tg = el;
+              tg.innerText = count;
+              const modalOutput = tg.closest('.modal-output');
+              if (modalOutput) {
+                modalOutput.classList.add('is-filled');
+              }
+            });
+
+            modalFilterMethods.buttonsState('apply');
+          }
           break;
         }
       }
