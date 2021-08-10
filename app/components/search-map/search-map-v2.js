@@ -13,24 +13,34 @@ export default function srMapToggle() {
 
   const mapMethods = {
     open() {
-      $('body').addClass('map-in-fullview').addClass('is-map-animated-in');
-      $('.layout__column_results').one('transitionend', () => {
-        $('body').removeClass('is-map-animated-in');
-      });
       freeze();
+      const results = document.querySelector('.layout__column_results');
+      if (results) {
+        results.addEventListener('transitionend', () => {
+          console.log('results start');
+          document.body.classList.remove('is-map-animated-in');
+        }, { once: true });
+      }
+      document.body.classList.add('map-in-fullview');
+      document.body.classList.add('is-map-animated-in');
     },
     close() {
       if (layoutsMethods.whichLayerActive().list) {
         layoutsMethods.close('list', {});
       }
-      $('body').removeClass('map-in-fullview').addClass('is-map-animated-out');
-      $('.layout__column_results').one('transitionend', () => {
-        $('body').removeClass('is-map-animated-out');
-      });
-      unfreeze();
+      const results = document.querySelector('.layout__column_results');
+      if (results) {
+        results.addEventListener('transitionend', () => {
+          console.log('results end');
+          document.body.classList.remove('is-map-animated-out');
+          unfreeze();
+        }, { once: true });
+      }
+      document.body.classList.remove('map-in-fullview');
+      document.body.classList.add('is-map-animated-out');
     },
     isActive() {
-      return $('body').hasClass('map-in-fullview');
+      return document.body.classList.contains('map-in-fullview');
     },
   };
 
@@ -44,7 +54,10 @@ export default function srMapToggle() {
     }
   });
 
-  $(document).on('touchstart', '.js-map-sm-show-fullview', () => {
+  $(document).on('touchstart', '.js-map-sm-show-fullview', (evt) => {
+    const tg = evt.target;
+    const clickInside = tg.closest('.js-map-toggle-fullview') || tg.closest('.js-open-modal-filter');
+    if (clickInside) return;
     if (!mapMethods.isActive() && window.Modernizr.mq(`(max-width: ${bp.md - 1}px)`)) {
       mapMethods.open();
     }
