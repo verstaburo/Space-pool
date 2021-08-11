@@ -284,15 +284,8 @@ function generateMarker(data, map) {
     const mmInfo = new Popup(popupOptions);
 
     if (data.markerType === 'lonelyOffer') {
-      mm.addListener('click', (evt) => {
-        if (mm.userState !== 'open') {
-          mmInfo.open(map, mm);
-          mm.setIcon(markersIcon[activeIconIndex].hover);
-        } else {
-          mmInfo.close();
-          mm.setIcon(markersIcon[activeIconIndex].default);
-        }
-      });
+      mmInfo.open(map, mm);
+      mm.setIcon(markersIcon[activeIconIndex].hover);
     } else {
       mm.addListener('mouseover', (evt) => {
         mmInfo.open(map, mm);
