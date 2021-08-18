@@ -172,4 +172,48 @@
       }
     }
   }
+
+  &_sort {
+    &::before {
+      @include screen('sm', min, 2) {
+        display: none;
+      }
+    }
+
+    #{$b} {
+
+      &__content {
+        box-sizing: border-box;
+        white-space: nowrap;
+
+        @include rule(padding, (xl: 5px 15px, xlg: 5 15, lg: 5 15, md: 5 15, sm: 0 30 0 0));
+        @include rule(height, (xl: 30px, xlg: 30, lg: 30, md: 30, sm: 52));
+        @include rule(font-size, (xl: 15px, xlg: 15, lg: 15, md: 15, sm: 17));
+
+        @include screen('sm', min, 2) {
+          transition: color $ease-main,
+          background $ease-main;
+          line-height: 1.2;
+          font-weight: 400;
+          border: none;
+        }
+      }
+
+      &__input:checked ~ .styled-radio__content {
+        @include screen('sm', min, 2) {
+          background-color: $nd-color-main;
+          color: $nd-color-basic-light;
+        }
+      }
+    }
+
+    &:hover #{$b} {
+      &__content {
+        @include screen('sm', min, 2) {
+          background-color: $nd-color-main;
+          color: $nd-color-basic-light;
+        }
+      }
+    }
+  }
 }

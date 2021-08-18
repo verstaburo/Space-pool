@@ -359,4 +359,33 @@
       @include rule(margin-top, (xl: 21px, xlg: 21, lg: 21, md: 21, sm: 21));
     }
   }
+
+  &_small {
+    #{$b} {
+      &__wrapper {
+        @include rule(width, (xl: 230px, xlg: 230, lg: 230, md: 230));
+        box-sizing: border-box;
+
+        @include screen('sm', max, 2) {
+          width: 100%;
+        }
+      }
+
+      &__content {
+        box-sizing: border-box;
+
+        @include rule(padding, (xl: 12px 0 17px, xlg: 12 0 17, lg: 12 0 17, md: 12 0 17, sm: 25 25 65 25));
+      }
+
+      &__item {
+        &:not(:first-child) {
+          @include rule(margin-top, (xl: 8px, xlg: 8, lg: 8, md: 8));
+
+          @include screen('sm', max, 2) {
+            margin-top: -1px;
+          }
+        }
+      }
+    }
+  }
 }

@@ -374,9 +374,6 @@ function generateMarker(data, map) {
           break;
         }
         case 'offer': {
-          console.log(mm);
-          console.log(mm.offerTitle);
-          console.log(mm.offerColor);
           window.globalFunctions.layoutsMethods.open('offer', { sourceElement: undefined, marker: mm }, { title: mm.offerTitle, color: mm.offerColor });
           break;
         }
@@ -393,7 +390,7 @@ function initGMap(mapEl, center) {
   if (!mapEl) return undefined;
   const map = new google.maps.Map(
     mapEl, {
-      zoom: 13,
+      zoom: 12,
       center,
       disableDefaultUI: true,
       zoomControl: false,
@@ -424,6 +421,8 @@ function setMarkersOnMap(locationList, centerMap, mapId) {
           });
           return { text: result, index: 1 };
         },
+        maxZoom: 15,
+        averageCenter: true,
         styles:
           [MarkerClusterer.withDefaultStyle({
             url: 'assets/images/nd/cluster-icon.svg',

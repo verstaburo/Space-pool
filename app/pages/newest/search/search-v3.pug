@@ -139,9 +139,9 @@ block content
 
 
     +e.FIELDSET.fieldset
-      +modal({header: {title: 'Sort by'}, footer: false})#filter-sort
+      +modal({header: {title: 'Sort by'}, footer: false})._small(data-modal-placement="right")#filter-sort
         +e.list
-          each item in [{title: 'Popular', value: 'Popular', name: 'sort', /*checked: true*/}, {title: 'Relevance', value: 'Relevance', name: 'sort'}, {title: 'Price ascending', value: 'Price ascending', name: 'sort'}, {title: 'Price descending', value: 'Price descending', name: 'sort'}]
+          each item in [{title: 'Recommended', value: 'Recommended', name: 'sort', /*checked: true*/}, {title: 'Newest first', value: 'Newest first', name: 'sort'}, {title: 'Older first', value: 'Older first', name: 'sort'}, {title: 'Alphabetic order', value: 'Alphabetic order', name: 'sort'}, {title: 'Amount of listing', value: 'Amount of listing', name: 'sort'}]
             +styled-radio(item.title)._sort.__item
               if item.checked
                 +e.INPUT.input(type="radio", value=item.value, name=item.name, data-modal-item, data-modal-item-value=(item.value), data-modal-item-type="sort" checked)
@@ -149,7 +149,7 @@ block content
                 +e.INPUT.input(type="radio", value=item.value, name=item.name, data-modal-item, data-modal-item-value=(item.value), data-modal-item-type="sort")
 
   +modals('div')
-    +modal({header: {title: 'Offer type'}, footer: false})#sort-offer
+    +modal({header: {title: 'Offer type'}, footer: false})._small#sort-offer
       +e.list
         each item in [{title: 'All listings', value: 'All listings', name: 'sortOffer', checked: true}, {title: 'Private office', value: 'Private office', name: 'sortOffer'}, {title: 'Fixed desk', value: 'Fixed desk', name: 'sortOffer'}, {title: 'Hot desk', value: 'Hot desk', name: 'sortOffer'}, {title: 'Meeting room', value: 'Meeting room', name: 'sortOffer'}, {title: 'Day pass', value: 'Day pass', name: 'sortOffer'}]
           +styled-radio(item.title)._sort.__item
