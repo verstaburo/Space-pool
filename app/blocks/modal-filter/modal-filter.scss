@@ -3,36 +3,24 @@
 
   position: fixed;
   display: flex;
+  justify-content: center;
+  align-items: center;
   top: 0;
+  left: 0;
+  width: 100%;
   height: 100%;
   z-index: 30;
-  box-shadow: boxShadow(0, 3, 14, 0, rgba(0, 0, 0, 0.13)),
-  boxShadow(0, 0, 4, 0, rgba(56, 58, 68, 0.09));
+  background-color: rgba(0, 0, 0, .5);
+  opacity: 0;
+  transition: opacity $ease-main;
+  overflow: hidden;
+  box-sizing: border-box;
 
-  @include rule(width, (xl: 650px, xlg: 650, lg: 650, md: 650, sm: 100%));
-  @include cRule(left, (xl: 58.49vw, lg: 52.93vw, md: 68.75vw, sm: 0));
-  @include cRule(transform, (xl: translate3d(-64.62%, 0, 0), sm: translate3d(0, 0, 0)));
+  @include rule(padding, (xl: 130px 0, xlg: 130 0, lg: 130 0, md: 130 0, sm: 0));
 
-  @include screen('xlg', max, 2) {
-    box-shadow: boxShadow(0, 3, 14, 0, rgba(0, 0, 0, 0.13), 1660),
-    boxShadow(0, 0, 4, 0, rgba(56, 58, 68, 0.09), 1660);
+  &.is-opened {
+    opacity: 1;
   }
-
-  @include screen('lg', max, 2) {
-    box-shadow: boxShadow(0, 3, 14, 0, rgba(0, 0, 0, 0.13), 1366),
-    boxShadow(0, 0, 4, 0, rgba(56, 58, 68, 0.09), 1366);
-  }
-
-  @include screen('md', max, 2) {
-    box-shadow: boxShadow(0, 3, 14, 0, rgba(0, 0, 0, 0.13), 960),
-    boxShadow(0, 0, 4, 0, rgba(56, 58, 68, 0.09), 960);
-  }
-
-  @include screen('sm', max) {
-    display: block;
-  }
-
-  @include cRule(box-shadow, (sm: none));
 
   &.is-opened, &.is-animated {
     visibility: visible;
@@ -40,40 +28,51 @@
   }
 
   &__content {
+    position: relative;
     display: flex;
-    justify-content: flex-start;
-    width: 100%;
-    opacity: 0;
-    transition: opacity $ease-main;
-    max-height: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
     overflow: hidden;
+    height: 100%;
 
-    @include screen('sm', max, 2) {
-      display: grid;
-      height: 100%;
-      grid-template-columns: 100%;
-      grid-template-rows: 1fr auto;
-    }
-
-    #{$b}.is-opened & {
-      opacity: 1;
-    }
+    @include rule(border-radius, (xl: 3px, xlg: 3, lg: 3, md: 3, sm: 0));
+    @include rule(width, (xl: 780px, xlg: 780, lg: 780, md: 780, sm: 100%));
   }
 
   &__options {
     position: relative;
+    display: block;
     background-color: $nd-color-basic-light;
-    width: 64.62%;
+    // width: 64.62%;
+    width: 100%;
     box-sizing: border-box;
-    height: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
+    max-height: calc(100% - 130px);
+    z-index: 1;
+
+    @include screen('xlg', max, 2) {
+      max-height: calc(100% - (13000 / 1660) * 1vw);
+    }
+
+    @include screen('lg', max, 2) {
+      max-height: calc(100% - (13000 / 1366) * 1vw);
+    }
+
+    @include screen('md', max, 2) {
+      max-height: calc(100% - (13000 / 960) * 1vw);
+    }
 
     @include screen('sm', max, 2) {
-      grid-column: 1 / 2;
-      grid-row: 1 / 2;
-      width: 100%;
-      height: auto;
-      max-height: 100%;
-      overflow: hidden;
+      max-height: calc(100% - (12000 / 375) * 1vw);
+    }
+
+    @include native-scroll($nd-layout-scroll, transparent, 4, 4, 4);
+
+    @include screen('md', max, 2) {
+      @include native-scroll($nd-layout-scroll, transparent, 2, 2, 2);
     }
   }
 
@@ -82,13 +81,32 @@
     width: 100%;
     box-sizing: border-box;
 
-    @include rule(padding, (xl: 85px 50px 50px, xlg: 85 50 50, lg: 85 50 50, md: 85 50 50, sm: 65 20 50));
+    @include rule(padding, (xl: 0 50px 30px, xlg: 0 50 30, lg: 0 50 30, md: 0 50 30, sm: 0 20 30));
   }
 
   &__header {
-    position: absolute;
-    top: 0;
-    left: 0;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    width: 100%;
+    background-color: $nd-color-basic-light;
+    z-index: 2;
+    border-bottom: 1px solid $nd-color-border6;
+    text-align: center;
+
+    @include rule(padding, (xl: 0 50px, xlg: 0 50, lg: 0 50, md: 0 50, sm: 0 20));
+    @include rule(height, (xl: 70px, xlg: 70, lg: 70, md: 70, sm: 60));
+
+    @include screen('sm', max, 2) {
+      text-align: left;
+      justify-content: flex-start;
+    }
+  }
+
+  &__selected {
+    position: relative;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -96,32 +114,16 @@
     width: 100%;
     background-color: $nd-color-basic-light;
     z-index: 2;
+    border-top: 1px solid $nd-color-border6;
 
-    @include rule(padding, (xl: 22px 50, xlg: 22 50, lg: 22 50, md: 22 50, sm: 10 20));
-  }
-
-  &__selected {
-    background-color: $nd-color-payment-border;
-    flex: 1;
-    height: 100%;
-
-    @include screen('sm', max, 2) {
-      flex: none;
-      width: 100%;
-      grid-column: 1 / 2;
-      grid-row: 2 / 3;
-      height: auto;
-    }
+    @include rule(height, (xl: 60px, xlg: 60, lg: 60, md: 60, sm: 60));
+    @include rule(padding, (xl: 0 20px, xlg: 0 20, lg: 0 20, md: 0 20, sm: 0 15));
   }
 
   &__top {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    display: block;
     box-sizing: border-box;
-    width: 100%;
-
-    @include rule(padding, (xl: 20px 0, xlg: 20 0, lg: 20 0, md: 20 0, sm: 20 10 0 0));
+    width: auto;
   }
 
   &__selected-inner {
@@ -140,87 +142,49 @@
     }
   }
 
-  &__wrapper {
-    position: relative;
-    display: block;
-    box-sizing: border-box;
-    max-height: 100%;
-    overflow-x: hidden;
-    overflow-y: auto;
-    z-index: 1;
-
-    @include native-scroll($nd-layout-scroll, transparent, 4, 4, 4);
-
-
-    @include screen('md', max, 2) {
-      @include native-scroll($nd-layout-scroll, transparent, 2, 2, 2);
-    }
-  }
-
-  &__close, &__clear {
-    @include rule(height, (xl: 45px, xlg: 45, lg: 45, md: 45, sm: 34));
-    @include rule(border-radius, (xl: 35px, xlg: 35, lg: 35, md: 35, sm: 20));
-  }
-
   &__clear, &__apply {
-    width: 100%;
-  }
-
-  &__close, &__clear, &__apply {
     @include rule(font-size, (xl: 15px, xlg: 15, lg: 15, md: 15, sm: 15));
   }
 
   &__close {
-    font-weight: 400;
-    text-align: left;
-    justify-content: space-between;
-    letter-spacing: -.02em;
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-size: 0;
+    line-height: 0;
+    z-index: 2;
+    cursor: pointer;
 
-    @include rule(padding, (xl: 0 12px 0 25px, xlg: 0 12 0 25, lg: 0 12 0 25, md: 0 12 0 25, sm: 0 15));
-    @include rule(min-width, (xl: 158px, xlg: 158, lg: 158, md: 158, sm: 0));
+    @include rule(height, (xl: 70px, xlg: 70, lg: 70, md: 70, sm: 60));
+    @include rule(width, (xl: 70px, xlg: 70, lg: 70, md: 70, sm: 60));
+    @include rule(padding, (xl: 27px, xlg: 27, lg: 27, md: 27, sm: 23));
 
-    .nd-button {
-      &__text {
-        margin-left: 0;
-
-        &:not(:first-child) {
-          margin-left: 0;
-        }
-      }
-
-      &__icon {
-        @include rule(width, (xl: 8px, xlg: 8, lg: 8, md: 8, sm: 8));
-        @include rule(height, (xl: 8px, xlg: 8, lg: 8, md: 8, sm: 8));
-        fill: $nd-color-border2;
-      }
+    svg {
+      width: 100%;
+      height: 100%;
+      fill: currentColor;
     }
   }
 
   &__clear {
     font-weight: 600;
-    color: $nd-color-main;
-    border-color: currentColor;
+    color: $nd-color-basic;
     justify-content: flex-start;
 
-    @include rule(padding, (xl: 0 17px, xlg: 0 17, lg: 0 17, md: 0 17, sm: 0 17));
-
     &[disabled] {
-      color: $nd-clear-disabled;
+      // color: $nd-clear-disabled;
+      pointer-events: none;
+      cursor: not-allowed;
     }
 
-    .nd-button {
-      &__text {
+    .nd-link {
+      &__icon {
         margin: 0;
 
-        &:not(:first-child) {
-          @include rule(margin-left, (xl: 20px, xlg: 20, lg: 20, md: 20, sm: 20));
+        &:not(:last-child) {
+          @include rule(margin-right, (xl: 12px, xlg: 12, lg: 12, md: 12, sm: 10));
         }
-      }
-
-      &__icon {
-        @include rule(width, (xl: 12px, xlg: 12, lg: 12, md: 12, sm: 12));
-        @include rule(height, (xl: 12px, xlg: 12, lg: 12, md: 12, sm: 12));
-        fill: currrentColor;
       }
     }
   }
@@ -228,10 +192,7 @@
   &__apply {
     font-weight: 700;
 
-    &.is-hidden {
-      opacity: 0;
-      pointer-events: none;
-    }
+    @include rule(min-width, (xl: 230px, xlg: 230, lg: 230, md: 230, sm: 198));
   }
 
   &__title {
@@ -252,14 +213,14 @@
   }
 
   &__section {
-    @include rule(padding, (xl: 36px 0, xlg: 36 0, lg: 36 0, md: 36 0, sm: 30 0));
+    @include rule(padding, (xl: 26px 0 24px, xlg: 26 0 24, lg: 26 0 24, md: 26 0 24, sm: 26 0 24));
 
     &:not(:last-child) {
       border-bottom: 1px solid $nd-color-border6;
     }
 
     &_price {
-      @include rule(padding, (xl: 18px 0 25px, xlg: 18 0 25, lg: 18 0 25, md: 18 0 25, sm: 18 0));
+      @include rule(padding-bottom, (xl: 25px, xlg: 25, lg: 25, md: 25, sm: 35));
     }
   }
 
@@ -290,19 +251,14 @@
   }
 
   &__top, &__bottom {
-    @include cRule(width, (xl: 100%, sm: 50%));
-
-    @include screen('sm', max, 2) {
-      order: 2;
-    }
+    width: auto;
   }
 
   &__bottom {
     box-sizing: border-box;
-    @include rule(padding, (sm: 20 10 0 0));
 
     &:not(:first-child) {
-      @include rule(margin-top, (xl: 18px, xlg: 18, lg: 18, md: 18, sm: 0));
+      @include rule(margin-left, (xl: 18px, xlg: 18, lg: 18, md: 18, sm: 0));
     }
   }
 
@@ -332,12 +288,12 @@
   &__check {
     flex: 1;
 
-    @include rule(margin, (xl: 7px, xlg: 7, lg: 7, md: 7, sm: 7));
+    @include rule(margin, (xl: 5px 7px, xlg: 5 7, lg: 5 7, md: 5 7, sm: 5 7));
   }
 
   &__range {
     &:not(:first-child) {
-      @include rule(margin-top, (xl: 28px, xlg: 28, lg: 28, md: 28, sm: 20));
+      @include rule(margin-top, (xl: 26px, xlg: 26, lg: 26, md: 26, sm: 24));
     }
   }
 }

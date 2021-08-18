@@ -1,5 +1,5 @@
-import { uid } from 'uid';
-import createTag from './create-tag';
+// import { uid } from 'uid';
+// import createTag from './create-tag';
 
 const { $ } = window;
 
@@ -11,12 +11,12 @@ export default function modalFilter() {
     close() {
       $('#modal-filter').removeClass('is-opened');
     },
-    getTag(id) {
-      return document.querySelector(`[data-modal-filter-target-id="${id}"]`);
-    },
-    getItem(id) {
-      return document.querySelector(`[data-modal-filter-item-id="${id}"]`);
-    },
+    // getTag(id) {
+    //   return document.querySelector(`[data-modal-filter-target-id="${id}"]`);
+    // },
+    // getItem(id) {
+    //   return document.querySelector(`[data-modal-filter-item-id="${id}"]`);
+    // },
     getRangeValues(el, name) {
       const range = el.querySelector('[data-nd-range-container]');
 
@@ -41,7 +41,6 @@ export default function modalFilter() {
     },
     buttonsState(state) {
       const clearButtons = document.querySelectorAll('.js-clear-modal-filter');
-      const applyButtons = document.querySelectorAll('.js-apply-modal-filter');
       switch (state) {
         case 'reset': {
           clearButtons.forEach((el) => {
@@ -49,19 +48,11 @@ export default function modalFilter() {
               el.setAttribute('disabled', 'disabled');
             }
           });
-
-          applyButtons.forEach((el) => {
-            el.classList.add('is-hidden');
-          });
           break;
         }
         default: {
           clearButtons.forEach((el) => {
             el.removeAttribute('disabled');
-          });
-
-          applyButtons.forEach((el) => {
-            el.classList.remove('is-hidden');
           });
           break;
         }
@@ -99,76 +90,114 @@ export default function modalFilter() {
         }
       }
     },
-    setValue(el) {
-      const name = el.getAttribute('data-modal-filter-item');
-      const tagId = el.getAttribute('data-modal-filter-item-id');
-      const tagsEl = document.querySelector('[data-modal-filter-tags]');
-      if (tagId) {
-        const tag = modalFilterMethods.getTag(tagId);
+    getCheckedCount(itemsArr) {
+      let count = 0;
+      itemsArr.forEach((el) => {
         if (modalFilterMethods.isRange(el)) {
           const isResetRange = modalFilterMethods.isRangeReset(el);
           if (isResetRange) {
-            el.removeAttribute('data-modal-filter-item-id');
-            tag.remove();
+            count += 0;
           } else {
-            const value = modalFilterMethods.getRangeValues(el, name);
-            const text = tag ? tag.querySelector('[data-modal-filter-tag-text]') : undefined;
-            if (text) {
-              text.innerText = value;
-            }
+            count += 1;
           }
-        } else if (!el.checked) {
-          el.removeAttribute('data-modal-filter-item-id');
-          tag.remove();
+        } else {
+          count += (el.checked ? 1 : 0);
         }
-      } else if (modalFilterMethods.isRange(el)) {
-        const isResetRange = modalFilterMethods.isRangeReset(el);
-        if (!isResetRange) {
-          const value = modalFilterMethods.getRangeValues(el, name);
-          const id = `${name}-${uid()}`;
-          const data = {
-            id,
-            text: value,
-          };
-          const tag = createTag(data);
-          tagsEl.append(tag);
-          el.setAttribute('data-modal-filter-item-id', id);
+      });
+      return count;
+    },
+    // setValue(el) {
+    //   const name = el.getAttribute('data-modal-filter-item');
+    //   const tagId = el.getAttribute('data-modal-filter-item-id');
+    //   const tagsEl = document.querySelector('[data-modal-filter-tags]');
+    //   if (tagId) {
+    //     const tag = modalFilterMethods.getTag(tagId);
+    //     if (modalFilterMethods.isRange(el)) {
+    //       const isResetRange = modalFilterMethods.isRangeReset(el);
+    //       if (isResetRange) {
+    //         el.removeAttribute('data-modal-filter-item-id');
+    //         tag.remove();
+    //       } else {
+    //         const value = modalFilterMethods.getRangeValues(el, name);
+    //         const text = tag ? tag.querySelector('[data-modal-filter-tag-text]') : undefined;
+    //         if (text) {
+    //           text.innerText = value;
+    //         }
+    //       }
+    //     } else if (!el.checked) {
+    //       el.removeAttribute('data-modal-filter-item-id');
+    //       tag.remove();
+    //     }
+    //   } else if (modalFilterMethods.isRange(el)) {
+    //     const isResetRange = modalFilterMethods.isRangeReset(el);
+    //     if (!isResetRange) {
+    //       const value = modalFilterMethods.getRangeValues(el, name);
+    //       const id = `${name}-${uid()}`;
+    //       const data = {
+    //         id,
+    //         text: value,
+    //       };
+    //       const tag = createTag(data);
+    //       tagsEl.append(tag);
+    //       el.setAttribute('data-modal-filter-item-id', id);
+    //     }
+    //   } else {
+    //     const value = el.getAttribute('data-modal-filter-title') || el.value;
+    //     const id = `${name}-${uid()}`;
+    //     const data = {
+    //       id,
+    //       text: value,
+    //     };
+    //     const tag = createTag(data);
+    //     tagsEl.append(tag);
+    //     el.setAttribute('data-modal-filter-item-id', id);
+    //   }
+    // },
+    // resetValueByTag(tag) {
+    //   const tagId = tag.getAttribute('data-modal-filter-target-id');
+    //   if (tagId !== undefined) {
+    //     const item = modalFilterMethods.getItem(tagId);
+    //     if (item) {
+    //       if (modalFilterMethods.isRange(item)) {
+    //         const range = item.querySelector('[data-nd-range-container]');
+    //         if (range) {
+    //           window.globalFunctions.resetRange(range);
+    //         }
+    //       } else {
+    //         item.checked = false;
+    //       }
+    //       item.removeAttribute('data-modal-filter-item-id');
+    //     }
+    //   }
+    //   tag.remove();
+    // },
+    resetValue(elem) {
+      const item = elem;
+      if (item) {
+        if (modalFilterMethods.isRange(item)) {
+          const range = item.querySelector('[data-nd-range-container]');
+          if (range) {
+            window.globalFunctions.resetRange(range);
+          }
+        } else {
+          item.checked = false;
         }
-      } else {
-        const value = el.getAttribute('data-modal-filter-title') || el.value;
-        const id = `${name}-${uid()}`;
-        const data = {
-          id,
-          text: value,
-        };
-        const tag = createTag(data);
-        tagsEl.append(tag);
-        el.setAttribute('data-modal-filter-item-id', id);
       }
     },
-    resetValueByTag(tag) {
-      const tagId = tag.getAttribute('data-modal-filter-target-id');
-      if (tagId !== undefined) {
-        const item = modalFilterMethods.getItem(tagId);
-        if (item) {
-          if (modalFilterMethods.isRange(item)) {
-            const range = item.querySelector('[data-nd-range-container]');
-            if (range) {
-              window.globalFunctions.resetRange(range);
-            }
-          } else {
-            item.checked = false;
-          }
-          item.removeAttribute('data-modal-filter-item-id');
-        }
-      }
-      tag.remove();
-    },
+    // resetAll() {
+    //   const tags = document.querySelectorAll('.js-modal-filter-remove-tag');
+    //   if (tags) {
+    //     tags.forEach((el) => {
+    //       modalFilterMethods.resetValueByTag(el);
+    //     });
+    //     modalFilterMethods.toggleStates('reset');
+    //   }
+    // },
     resetAll() {
-      const tags = document.querySelectorAll('.js-modal-filter-remove-tag');
-      if (tags) {
-        tags.forEach((el) => {
-          modalFilterMethods.resetValueByTag(el);
+      const items = document.querySelectorAll('[data-modal-filter-item]');
+      if (items) {
+        items.forEach((el) => {
+          modalFilterMethods.resetValue(el);
         });
         modalFilterMethods.toggleStates('reset');
       }
@@ -176,18 +205,19 @@ export default function modalFilter() {
     presetFilter() {
       const items = document.querySelectorAll('[data-modal-filter-item]');
       if (items) {
-        items.forEach((el) => {
-          if (modalFilterMethods.isRange(el) || el.checked) {
-            modalFilterMethods.setValue(el);
-          }
-        });
+        // items.forEach((el) => {
+        //   if (modalFilterMethods.isRange(el) || el.checked) {
+        //     modalFilterMethods.setValue(el);
+        //   }
+        // });
         modalFilterMethods.applyFilter();
       }
     },
     applyFilter() {
-      const items = document.querySelectorAll('.modal-filter-option');
+      // const items = document.querySelectorAll('.modal-filter-option');
+      const items = document.querySelectorAll('[data-modal-filter-item]');
       if (items) {
-        const count = items.length;
+        const count = modalFilterMethods.getCheckedCount(items);
         modalFilterMethods.toggleStates('apply', count);
       } else {
         modalFilterMethods.toggleStates('reset');
@@ -204,20 +234,20 @@ export default function modalFilter() {
 
   window.globalFunctions.modalFilterMethods = modalFilterMethods;
 
-  const tags = document.querySelector('[data-modal-filter-tags]');
+  // const tags = document.querySelector('[data-modal-filter-tags]');
 
-  if (tags) {
-    modalFilterMethods.toggleButtonsStates(tags);
+  // if (tags) {
+  //   modalFilterMethods.toggleButtonsStates(tags);
 
-    const observer = new MutationObserver((mutations) => {
-      mutations.forEach((mutation) => {
-        const el = mutation.target;
-        modalFilterMethods.toggleButtonsStates(el);
-      });
-    });
+  //   const observer = new MutationObserver((mutations) => {
+  //     mutations.forEach((mutation) => {
+  //       const el = mutation.target;
+  //       modalFilterMethods.toggleButtonsStates(el);
+  //     });
+  //   });
 
-    observer.observe(tags, { childList: true });
-  }
+  //   observer.observe(tags, { childList: true });
+  // }
 
   $(document).on('click', '.js-open-modal-filter', modalFilterMethods.open);
 
@@ -229,16 +259,16 @@ export default function modalFilter() {
     }
   });
 
-  $(document).on('change', '[data-modal-filter-item]', (evt) => {
-    const el = evt.currentTarget;
-    modalFilterMethods.setValue(el);
-  });
+  // $(document).on('change', '[data-modal-filter-item]', (evt) => {
+  //   const el = evt.currentTarget;
+  //   modalFilterMethods.setValue(el);
+  // });
 
-  $(document).on('click', '.js-modal-filter-remove-tag', (evt) => {
-    evt.preventDefault();
-    const el = evt.currentTarget;
-    modalFilterMethods.resetValueByTag(el);
-  });
+  // $(document).on('click', '.js-modal-filter-remove-tag', (evt) => {
+  //   evt.preventDefault();
+  //   const el = evt.currentTarget;
+  //   modalFilterMethods.resetValueByTag(el);
+  // });
 
   $(document).on('click', '.js-clear-modal-filter', (evt) => {
     evt.preventDefault();
