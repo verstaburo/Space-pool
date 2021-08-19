@@ -34,15 +34,43 @@
     align-items: center;
     transition: box-shadow $ease-main;
 
-    &:not(.nd-filter__item_submit):hover {
-      @include screen('sm', min, 2) {
-        box-shadow: 1px 0 0 0 $nd-color-basic-light;
-        z-index: 2;
+    .modal-output {
+      &::after {
+        @include screen('sm', min, 2) {
+          @include pseudo;
+          @include rule(height, (xl: 34px, xlg: 34, lg: 34, md: 34, sm: 26));
+
+          z-index: 2;
+          pointer-events: none;
+          left: -1px;
+          right: -1px;
+          top: 50%;
+          transition: opacity $ease-main;
+          transform: translate3d(0, -50%, 0);
+          border-left: 1px solid $nd-color-basic-light;
+          border-right: 1px solid $nd-color-basic-light;
+          background-color: transparent;
+          opacity: 0;
+        }
       }
 
-      &::before {
-        opacity: 0;
+      &:hover,
+      &.is-opened {
+        &::after {
+          opacity: 1;
+        }
       }
+    }
+
+    &:not(.nd-filter__item_submit):hover {
+      // // @include screen('sm', min, 2) {
+      // //   box-shadow: 1px 0 0 0 $nd-color-basic-light;
+      // //   z-index: 2;
+      // // }
+
+      // &::before {
+      //   opacity: 0;
+      // }
     }
 
     &_back {
@@ -79,6 +107,10 @@
         order: 4;
         flex: 1;
       }
+
+      .modal-output::after {
+        border-right-color: transparent;
+      }
     }
 
     &_type {
@@ -103,6 +135,10 @@
         @include screen('sm', min, 2) {
           display: none;
         }
+      }
+
+      .modal-output::after {
+        border-left-color: transparent;
       }
     }
 

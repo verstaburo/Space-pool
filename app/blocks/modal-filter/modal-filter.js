@@ -11,12 +11,6 @@ export default function modalFilter() {
     close() {
       $('#modal-filter').removeClass('is-opened');
     },
-    // getTag(id) {
-    //   return document.querySelector(`[data-modal-filter-target-id="${id}"]`);
-    // },
-    // getItem(id) {
-    //   return document.querySelector(`[data-modal-filter-item-id="${id}"]`);
-    // },
     getRangeValues(el, name) {
       const range = el.querySelector('[data-nd-range-container]');
 
@@ -106,71 +100,6 @@ export default function modalFilter() {
       });
       return count;
     },
-    // setValue(el) {
-    //   const name = el.getAttribute('data-modal-filter-item');
-    //   const tagId = el.getAttribute('data-modal-filter-item-id');
-    //   const tagsEl = document.querySelector('[data-modal-filter-tags]');
-    //   if (tagId) {
-    //     const tag = modalFilterMethods.getTag(tagId);
-    //     if (modalFilterMethods.isRange(el)) {
-    //       const isResetRange = modalFilterMethods.isRangeReset(el);
-    //       if (isResetRange) {
-    //         el.removeAttribute('data-modal-filter-item-id');
-    //         tag.remove();
-    //       } else {
-    //         const value = modalFilterMethods.getRangeValues(el, name);
-    //         const text = tag ? tag.querySelector('[data-modal-filter-tag-text]') : undefined;
-    //         if (text) {
-    //           text.innerText = value;
-    //         }
-    //       }
-    //     } else if (!el.checked) {
-    //       el.removeAttribute('data-modal-filter-item-id');
-    //       tag.remove();
-    //     }
-    //   } else if (modalFilterMethods.isRange(el)) {
-    //     const isResetRange = modalFilterMethods.isRangeReset(el);
-    //     if (!isResetRange) {
-    //       const value = modalFilterMethods.getRangeValues(el, name);
-    //       const id = `${name}-${uid()}`;
-    //       const data = {
-    //         id,
-    //         text: value,
-    //       };
-    //       const tag = createTag(data);
-    //       tagsEl.append(tag);
-    //       el.setAttribute('data-modal-filter-item-id', id);
-    //     }
-    //   } else {
-    //     const value = el.getAttribute('data-modal-filter-title') || el.value;
-    //     const id = `${name}-${uid()}`;
-    //     const data = {
-    //       id,
-    //       text: value,
-    //     };
-    //     const tag = createTag(data);
-    //     tagsEl.append(tag);
-    //     el.setAttribute('data-modal-filter-item-id', id);
-    //   }
-    // },
-    // resetValueByTag(tag) {
-    //   const tagId = tag.getAttribute('data-modal-filter-target-id');
-    //   if (tagId !== undefined) {
-    //     const item = modalFilterMethods.getItem(tagId);
-    //     if (item) {
-    //       if (modalFilterMethods.isRange(item)) {
-    //         const range = item.querySelector('[data-nd-range-container]');
-    //         if (range) {
-    //           window.globalFunctions.resetRange(range);
-    //         }
-    //       } else {
-    //         item.checked = false;
-    //       }
-    //       item.removeAttribute('data-modal-filter-item-id');
-    //     }
-    //   }
-    //   tag.remove();
-    // },
     resetValue(elem) {
       const item = elem;
       if (item) {
@@ -184,15 +113,6 @@ export default function modalFilter() {
         }
       }
     },
-    // resetAll() {
-    //   const tags = document.querySelectorAll('.js-modal-filter-remove-tag');
-    //   if (tags) {
-    //     tags.forEach((el) => {
-    //       modalFilterMethods.resetValueByTag(el);
-    //     });
-    //     modalFilterMethods.toggleStates('reset');
-    //   }
-    // },
     resetAll() {
       const items = document.querySelectorAll('[data-modal-filter-item]');
       if (items) {
@@ -205,16 +125,10 @@ export default function modalFilter() {
     presetFilter() {
       const items = document.querySelectorAll('[data-modal-filter-item]');
       if (items) {
-        // items.forEach((el) => {
-        //   if (modalFilterMethods.isRange(el) || el.checked) {
-        //     modalFilterMethods.setValue(el);
-        //   }
-        // });
         modalFilterMethods.applyFilter();
       }
     },
     applyFilter() {
-      // const items = document.querySelectorAll('.modal-filter-option');
       const items = document.querySelectorAll('[data-modal-filter-item]');
       if (items) {
         const count = modalFilterMethods.getCheckedCount(items);
@@ -234,21 +148,6 @@ export default function modalFilter() {
 
   window.globalFunctions.modalFilterMethods = modalFilterMethods;
 
-  // const tags = document.querySelector('[data-modal-filter-tags]');
-
-  // if (tags) {
-  //   modalFilterMethods.toggleButtonsStates(tags);
-
-  //   const observer = new MutationObserver((mutations) => {
-  //     mutations.forEach((mutation) => {
-  //       const el = mutation.target;
-  //       modalFilterMethods.toggleButtonsStates(el);
-  //     });
-  //   });
-
-  //   observer.observe(tags, { childList: true });
-  // }
-
   $(document).on('click', '.js-open-modal-filter', modalFilterMethods.open);
 
   $(document).on('click', '.js-close-modal-filter', modalFilterMethods.close);
@@ -258,17 +157,6 @@ export default function modalFilter() {
       modalFilterMethods.close();
     }
   });
-
-  // $(document).on('change', '[data-modal-filter-item]', (evt) => {
-  //   const el = evt.currentTarget;
-  //   modalFilterMethods.setValue(el);
-  // });
-
-  // $(document).on('click', '.js-modal-filter-remove-tag', (evt) => {
-  //   evt.preventDefault();
-  //   const el = evt.currentTarget;
-  //   modalFilterMethods.resetValueByTag(el);
-  // });
 
   $(document).on('click', '.js-clear-modal-filter', (evt) => {
     evt.preventDefault();
