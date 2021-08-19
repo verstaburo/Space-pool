@@ -140,5 +140,15 @@ export default function outputValuesFromModal() {
     }
     $(_this).attr('disabled', 'disabled');
   });
+
+  $(document).on('click', '.js-reset-current-modal', (evt) => {
+    evt.preventDefault();
+    const res = evt.currentTarget;
+    const output = res.closest('.modal-output');
+    if (output) {
+      const modalId = output.getAttribute('data-modal-target');
+      modalItemMethods.resetValue(modalId);
+    }
+  });
 }
 /* eslint-enable max-len */

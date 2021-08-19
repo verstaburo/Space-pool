@@ -141,6 +141,47 @@
     }
   }
 
+  &__reset {
+    position: absolute;
+    top: 50%;
+    transform: translate3d(0, -50%, 0);
+    background-color: $nd-color-basic-light;
+    border-radius: 50%;
+    text-align: center;
+    z-index: 2;
+    cursor: pointer;
+    transition: opacity $ease-main;
+    opacity: 0;
+    pointer-events: none;
+
+    @include cRule(display, (xl: block, sm: none));
+    @include rule(right, (xl: 3px, xlg: 3, lg: 3, md: 3, sm: 0));
+    @include rule(width, (xl: 20px, xlg: 20, lg: 20, md: 20, sm: 20));
+    @include rule(height, (xl: 20px, xlg: 20, lg: 20, md: 20, sm: 20));
+
+    svg {
+      @include rule(width, (xl: 8px, xlg: 8, lg: 8, md: 8, sm: 8));
+
+      display: inline-block;
+      height: 100%;
+      transition: fill $ease-main;
+      fill: $nd-color-main;
+    }
+
+    @media (hover: hover) {
+      &:hover {
+        svg {
+          fill: $nd-color-basic;
+        }
+      }
+
+      #{$b}.is-selected:hover & {
+        opacity: 1;
+        pointer-events: auto;
+      }
+    }
+  }
+
   &__counter {
     display: inline-block;
     text-align: center;
@@ -296,9 +337,24 @@
 
     &:not(.is-selected) #{$b} {
       &__values {
+        display: block;
+
         &::before {
           display: block;
           content: attr(data-sm-default-value);
+        }
+      }
+
+      &__placeholder {
+        display: block;
+        color: $nd-color-gray-text;
+        font-weight: 400;
+        line-height: (13 / 11);
+
+        @include rule(font-size, (xl: 11px, xlg: 11, lg: 11, md: 11, sm: 12));
+
+        @include screen('sm', max, 2) {
+          display: flex;
         }
       }
     }

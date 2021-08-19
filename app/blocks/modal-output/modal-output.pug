@@ -17,6 +17,9 @@ mixin modal-output-special(data)
         +e.values(data-modal-output-value data-sm-default-value=data.default)
       else
         +e.values(data-modal-output-value)
+    if data.clear
+      +e.BUTTON.reset.js-reset-current-modal(type="reset")
+        +icon('cross')(width="8" height="8")
     +e.BUTTON.toggle(type="button")
       +icon('select-arrow2')(width="7" heigh="4")
     block

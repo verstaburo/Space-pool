@@ -86,6 +86,9 @@ export const modalMethods = {
 export function modalShowes() {
   $(document).on('click', '.js-toggle-modal', (evt) => {
     const _this = evt.currentTarget;
+    const isReset = evt.target.closest('.js-reset-current-modal');
+    console.log(isReset);
+    if (isReset) return;
     const modalId = $(_this).attr('data-modal-target');
     const isActive = $(_this).hasClass('is-opened');
     const isShowUserPanel = $(_this).is('[data-modal-user-panel="visible"]');
