@@ -1,12 +1,15 @@
+/* eslint-disable no-unused-vars */
 import {
   freeze,
   unfreeze,
 } from '../../scripts/functions/freeze';
 import { layoutsMethods } from '../layout/layout';
+import requestTimeout from '../../scripts/functions/requestTimeout';
 
 const {
   $,
 } = window;
+const noop = () => { };
 
 export default function srMapToggle() {
   const bp = window.globalOptions.sizes;
@@ -14,30 +17,31 @@ export default function srMapToggle() {
   const mapMethods = {
     open() {
       freeze();
-      const results = document.querySelector('.layout__column_results');
-      if (results) {
-        results.addEventListener('transitionend', () => {
-          console.log('results start');
-          document.body.classList.remove('is-map-animated-in');
-        }, { once: true });
-      }
+      let cancel = noop;
+      const regCancel = (fn) => { cancel = fn; };
+
       document.body.classList.add('map-in-fullview');
       document.body.classList.add('is-map-animated-in');
+
+      requestTimeout(() => {
+        document.body.classList.remove('is-map-animated-in');
+      }, 500, regCancel, noop);
     },
     close() {
       if (layoutsMethods.whichLayerActive().list) {
         layoutsMethods.close('list', {});
       }
-      const results = document.querySelector('.layout__column_results');
-      if (results) {
-        results.addEventListener('transitionend', () => {
-          console.log('results end');
-          document.body.classList.remove('is-map-animated-out');
-          unfreeze();
-        }, { once: true });
-      }
+
       document.body.classList.remove('map-in-fullview');
       document.body.classList.add('is-map-animated-out');
+
+      let cancel = noop;
+      const regCancel = (fn) => { cancel = fn; };
+
+      requestTimeout(() => {
+        document.body.classList.remove('is-map-animated-out');
+        unfreeze();
+      }, 500, regCancel, noop);
     },
     isActive() {
       return document.body.classList.contains('map-in-fullview');

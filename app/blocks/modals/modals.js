@@ -1,5 +1,9 @@
+/* eslint-disable no-unused-vars */
+import requestTimeout from '../../scripts/functions/requestTimeout';
+
 const { $ } = window;
 const bp = window.globalOptions.sizes;
+const noop = () => { };
 
 export const modalMethods = {
   closeAll() {
@@ -20,10 +24,14 @@ export const modalMethods = {
     modal.addClass('is-opened is-animated');
     modal.trigger('MODAL_BEFORE_SHOWN');
     modalOutput.addClass('is-opened');
-    setTimeout(() => {
+    let cancel = noop;
+    function regCancel(fn) {
+      cancel = fn;
+    }
+    requestTimeout(() => {
       modal.removeClass('is-animated');
       modal.trigger('MODAL_AFTER_SHOWN');
-    }, 300);
+    }, 300, regCancel, noop);
     $('body').currentActiveModal = $(modal).get(0);
   },
   close(id) {
@@ -36,10 +44,14 @@ export const modalMethods = {
     modalOutput.removeClass('is-opened');
     modal.trigger('MODAL_BEFORE_CLOSE');
 
-    setTimeout(() => {
+    let cancel = noop;
+    function regCancel(fn) {
+      cancel = fn;
+    }
+    requestTimeout(() => {
       modal.removeClass('is-animated');
       modal.trigger('MODAL_AFTER_CLOSE');
-    }, 300);
+    }, 300, regCancel, noop);
   },
   calculatePosition(modalEl, source) {
     const modal = modalEl || $($('body').currentActiveModal);
@@ -87,8 +99,8 @@ export function modalShowes() {
   $(document).on('click', '.js-toggle-modal', (evt) => {
     const _this = evt.currentTarget;
     const isReset = evt.target.closest('.js-reset-current-modal');
-    console.log(isReset);
     if (isReset) return;
+
     const modalId = $(_this).attr('data-modal-target');
     const isActive = $(_this).hasClass('is-opened');
     const isShowUserPanel = $(_this).is('[data-modal-user-panel="visible"]');

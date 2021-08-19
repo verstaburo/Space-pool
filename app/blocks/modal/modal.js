@@ -63,6 +63,7 @@ export default function outputValuesFromModal() {
       const range = $(modal).find('.js-nd-range');
       const isRange = range.length;
       const items = $(modal).find('[data-modal-item]').not('.js-nd-range');
+      const isOpen = $(modal).hasClass('is-opened');
       const isItems = items.length;
       if (isRange) {
         const rangeContainer = $(range).find('[data-nd-range-container]').get(0);
@@ -80,7 +81,9 @@ export default function outputValuesFromModal() {
       const valueEl = $(output).find('[data-modal-output-value]');
       $(output).removeClass('is-selected');
       $(valueEl).empty();
-      modalMethods.close(modalId);
+      if (isOpen) {
+        modalMethods.close(modalId);
+      }
     },
   };
 
