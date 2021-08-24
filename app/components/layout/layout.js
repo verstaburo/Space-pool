@@ -2,141 +2,293 @@
 const { $ } = window;
 
 export const layoutsMethods = {
+  // инициируем переход на вкладку с нужным контентом на мобильном
   redirectOnTab(tabTarget) {
     const tabButton = $(`[data-layout-tab="${tabTarget}"]`);
     $(tabButton).trigger('click');
   },
+  // получаем слой, который был открыт последним
+  getLastStepName() {
+    const hasLast = document.body.hasAttribute('data-layout-last');
+    return hasLast ? document.body.getAttribute('data-layout-last') : '';
+  },
+  getPrevStepName() {
+    const hasPrev = document.body.hasAttribute('data-layout-previous');
+    return hasPrev ? document.body.getAttribute('data-layout-previous') : '';
+  },
+  getPrevPrevStepName() {
+    const hasPrevPrev = document.body.hasAttribute('data-layout-previous-prev');
+    return hasPrevPrev ? document.body.getAttribute('data-layout-previous-prev') : '';
+  },
+  getNumberOfSteps() {
+    const hasSteps = document.body.hasAttribute('data-layout-steps-number');
+    const number = document.body.getAttribute('data-layout-steps-number');
+    return hasSteps ? Number.parseInt(number, 10) : 0;
+  },
+  getCurrentMainLayout() {
+    return $('[data-layout-main].is-current');
+  },
+  getPreviousMainLayout() {
+    return $('[data-layout-main].is-previous');
+  },
   open(layoutName, context, describe) {
-    const totalLayouts = $('[data-layout]');
-    const layouts = $(`[data-layout*="${layoutName}"]`);
+    // const totalLayouts = $('[data-layout]');
+    // Определяем был ли предидущий шаг
+    const prevLayout = layoutsMethods.getPrevStepName();
+
+    // Определяем последний активный слой
+    const lastLayout = layoutsMethods.getLastStepName();
+
+    if (lastLayout === layoutName) return;
+
+    // Определяем будут ли слои при открывании наслаиваться или смахиваться
+    const step = layoutsMethods.getNumberOfSteps();
+    let newStep = step;
+    let animationType = 'enter';
+
+    if (step < 3) {
+      document.body.classList.remove('is-layout-direction-back');
+      document.body.classList.add('is-layout-direction-next');
+      newStep += 1;
+    } else {
+      document.body.classList.remove('is-layout-direction-next');
+      document.body.classList.add('is-layout-direction-back');
+      newStep -= 1;
+      animationType = 'leave';
+    }
+
+    // // Определяем в мобильном мы разрешении или нет
+    // const isSm = window.matchMedia(`(max-width: ${window.globalOptions.ndsizes.sm - 1}px)`).matches;
+
+    // // Определяем является страница поисковой
+    // const isSinglePage = document.querySelector('.layout_stable');
+
+    // Находим целевой слой
+    const layout = document.querySelector(`[data-layout*="${layoutName}"]:not([data-layout-header], [data-layout-side])`);
+
+    // Находим предидущий целевой слой
+    const currentActive = document.querySelector('.is-current[data-layout-main]');
+
     const detail = context || {};
-    // const { reopen } = detail;
-    const layoutTitleOffer = $('[data-layout-title-offer]');
-    const layoutBoxes = $('[data-layout-title-boxes]');
-    const layoutTitleSpace = $('[data-layout-title-space]');
-    $(layouts).each((i, el) => {
-      el.dispatchEvent(new CustomEvent('layout-before-show'), { bubbles: true, cancelable: true, detail });
-    });
-    $(totalLayouts).removeClass('is-current');
-    $(layouts).addClass('is-current');
+
+    const layoutTitleOffer = document.querySelector('[data-layout-title-offer]');
+    const layoutBoxes = document.querySelector('[data-layout-title-boxes]');
+    const layoutTitleSpace = document.querySelector('[data-layout-title-space]');
+
     const activeLayouts = layoutsMethods.whichLayerActive();
+
+    document.body.setAttribute('data-layout-previous-prev', prevLayout);
+
+    document.body.setAttribute('data-layout-previous', lastLayout);
+
     switch (layoutName) {
       case 'space': {
-        if (!activeLayouts.space) {
-          if (activeLayouts.offer) {
-            layoutsMethods.redirectOnTab('tab-space-describe');
-          }
-          document.body.classList.add('layout-space-active');
-          document.body.setAttribute('data-layout-last', 'space');
-          if (describe && describe.title) {
-            layoutTitleSpace.text(describe.title);
-          }
-          layoutBoxes.removeClass('is-green is-red is-orange is-blue is-dark-blue');
-        } else if (activeLayouts.offer) {
-          layoutsMethods.redirectOnTab('tab-space-describe');
-          layoutsMethods.close('offer', {});
+        layoutsMethods.redirectOnTab('tab-space-describe');
+
+        if (describe && describe.title && layoutTitleSpace) {
+          layoutTitleSpace.innerText = describe.title;
         }
+
+        if (layoutBoxes) {
+          layoutBoxes.classList.remove('is-green', 'is-red', 'is-orange', 'is-blue', 'is-dark-blue');
+        }
+
+        if (lastLayout) {
+          document.body.classList.remove(`layout-${lastLayout}-active`);
+        }
+
+        document.body.classList.add('layout-space-active');
+
+        document.body.setAttribute('data-layout-last', 'space');
+
         break;
       }
       case 'list': {
         if (activeLayouts.map) {
+          if (lastLayout) {
+            document.body.classList.remove(`layout-${lastLayout}-active`);
+          }
+
           document.body.classList.add('layout-list-active');
+
           document.body.setAttribute('data-layout-last', 'list');
-          layoutBoxes.removeClass('is-green is-red is-orange is-blue is-dark-blue');
+
+          if (layoutBoxes) {
+            layoutBoxes.classList.remove('is-green', 'is-red', 'is-orange', 'is-blue', 'is-dark-blue');
+          }
         }
         break;
       }
       case 'offer': {
-        if (!activeLayouts.offer) {
-          document.body.classList.add('layout-offer-active');
-          $('.js-layout-show, .js-sm-layout-show').removeClass('is-active');
-          if (detail.sourceElement) {
-            detail.sourceElement.classList.add('is-active');
-          }
-          document.body.setAttribute('data-layout-last', 'offer');
-          if (describe.title) {
-            layoutTitleOffer.text(describe.title);
-          }
-          layoutBoxes.removeClass('is-green is-red is-orange is-blue is-dark-blue');
-          if (describe.color) {
-            layoutBoxes.addClass(`is-${describe.color}`);
-          }
-        } else if (activeLayouts.space) {
-          layoutsMethods.close('space', {});
+        if (lastLayout) {
+          document.body.classList.remove(`layout-${lastLayout}-active`);
+        }
+
+        document.body.classList.add('layout-offer-active');
+
+        $('.js-layout-show, .js-sm-layout-show').removeClass('is-active');
+
+        if (detail.sourceElement) {
+          detail.sourceElement.classList.add('is-active');
+        }
+
+        document.body.setAttribute('data-layout-last', 'offer');
+
+        if (describe.title && layoutTitleOffer) {
+          layoutTitleOffer.innerText = describe.title;
+        }
+
+        if (layoutBoxes && describe.color) {
+          layoutBoxes.classList.remove('is-green', 'is-red', 'is-orange', 'is-blue', 'is-dark-blue');
+
+          layoutBoxes.classList.add(`is-${describe.color}`);
         }
         break;
       }
       default:
         break;
     }
-    $(layouts).each((i, el) => {
-      $(el).one('transitionend', (evt) => {
-        const _self = evt.currentTarget;
-        _self.dispatchEvent(new CustomEvent('layout-after-show'), { bubbles: true, cancelable: true, detail });
-      });
-    });
+
+    if (layoutName !== 'list') {
+      if (step < 3) {
+        if (currentActive) {
+          currentActive.classList.remove('is-current');
+          currentActive.classList.add('is-previous');
+        }
+
+        if (layout) {
+          layout.classList.add('is-current', `layout-animation-${animationType}-from`);
+
+          layout.dispatchEvent(new CustomEvent('layout-before-show'), { bubbles: true, cancelable: true, detail });
+
+          requestAnimationFrame(() => {
+            layout.classList.remove(`layout-animation-${animationType}-from`);
+            layout.classList.add(`layout-animation-${animationType}-active`, `layout-animation-${animationType}-to`);
+          });
+
+          layout.addEventListener('transitionend', (evt) => {
+            const _self = evt.currentTarget;
+            _self.dispatchEvent(new CustomEvent('layout-after-show'), { bubbles: true, cancelable: true, detail });
+
+            _self.classList.remove(`layout-animation-${animationType}-active`, `layout-animation-${animationType}-to`);
+            if (currentActive) {
+              currentActive.classList.remove('is-previous');
+            }
+          }, { once: true });
+        }
+      } else {
+        if (layout) {
+          layout.classList.add('is-current');
+        }
+
+        if (currentActive) {
+          currentActive.classList.remove('is-current');
+          currentActive.classList.add('is-previous', `layout-animation-${animationType}-from`);
+
+          currentActive.dispatchEvent(new CustomEvent('layout-before-show'), { bubbles: true, cancelable: true, detail });
+
+          requestAnimationFrame(() => {
+            currentActive.classList.remove(`layout-animation-${animationType}-from`);
+            currentActive.classList.add(`layout-animation-${animationType}-active`, `layout-animation-${animationType}-to`);
+          });
+
+          currentActive.addEventListener('transitionend', (evt) => {
+            const _self = evt.currentTarget;
+            _self.dispatchEvent(new CustomEvent('layout-after-show'), { bubbles: true, cancelable: true, detail });
+
+            _self.classList.remove(`layout-animation-${animationType}-active`, `layout-animation-${animationType}-to`, 'is-previous');
+          }, { once: true });
+        }
+      }
+    }
+
+    // устанавливаем номер текущего шага
+    document.body.setAttribute('data-layout-steps-number', newStep);
   },
   close(layoutName, context) {
-    const layouts = $(`[data-layout*="${layoutName}"]`);
+    const step = layoutsMethods.getNumberOfSteps();
+
+    const animationType = 'leave';
+    document.body.classList.remove('is-layout-direction-next');
+    document.body.classList.add('is-layout-direction-back');
+
+    // Определяем последний активный слой
+    const lastLayout = layoutsMethods.getLastStepName();
+
+    // Определяем предидущий активный слой
+    const prevLayout = step === 1 ? '' : layoutsMethods.getPrevStepName();
+
+    // Определяем стартовый шаг
+    const prevPrevLayout = step === 1 ? '' : layoutsMethods.getPrevPrevStepName();
+
+    const layout = step === 1 ? false : document.querySelector(`[data-layout*="${prevLayout}"]:not([data-layout-header], [data-layout-side])`);
+
+    const currentActive = document.querySelector('.is-current[data-layout-main]');
+
+    const header = document.querySelector('[data-layout-header]');
+
     const detail = context || {};
-    $(layouts).each((i, el) => {
-      el.dispatchEvent(new CustomEvent('layout-before-close'), { bubbles: true, cancelable: true, detail });
-      el.classList.add('is-layout-animated-out');
-    });
-    const activeLayouts = layoutsMethods.whichLayerActive();
+
     $('.js-layout-show, .js-sm-layout-show').removeClass('is-active');
 
-    let last;
+    document.body.classList.remove(`layout-${lastLayout}-active`);
 
-    switch (layoutName) {
-      case 'space': {
-        if (activeLayouts.offer && activeLayouts.list) {
-          last = 'offer';
-        } else if (activeLayouts.offer) {
-          last = 'offer';
-        } else if (activeLayouts.list) {
-          last = 'list';
-        }
-        document.body.classList.remove('layout-space-active');
-        break;
-      }
-      case 'offer': {
-        if (activeLayouts.space && activeLayouts.list) {
-          last = 'space';
-        } else if (activeLayouts.space) {
-          last = 'space';
-        } else if (activeLayouts.list) {
-          last = 'list';
-        }
-        if (!activeLayouts.map && document.getElementById('search-map')) {
-          window.mapData.resetActiveMarker('search-map');
-        }
-        document.body.classList.remove('layout-offer-active');
-        break;
-      }
-      case 'list': {
-        document.body.classList.remove('layout-list-active');
-        window.mapData.resetActiveMarker('search-map');
-        break;
-      }
-      default:
-        break;
+    if (prevLayout) {
+      document.body.classList.add(`layout-${prevLayout}-active`);
     }
 
-    if (last !== undefined) {
-      document.body.setAttribute('data-layout-last', last);
-    } else {
-      document.body.removeAttribute('data-layout-last');
+    if (step === 1) {
+      document.body.classList.add('layout-interface-leave-animation-from');
     }
 
-    $(layouts).each((i, el) => {
-      $(el).one('transitionend', (evt) => {
+    if (layout) {
+      layout.classList.add('is-current');
+    }
+
+    if (currentActive) {
+      currentActive.dispatchEvent(new CustomEvent('layout-before-close'), { bubbles: true, cancelable: true, detail });
+      currentActive.classList.remove('is-current');
+      currentActive.classList.add('is-previous', `layout-animation-${animationType}-from`);
+
+      requestAnimationFrame(() => {
+        currentActive.classList.remove(`layout-animation-${animationType}-from`);
+        currentActive.classList.add(`layout-animation-${animationType}-active`, `layout-animation-${animationType}-to`);
+      });
+    }
+
+    if (document.getElementById('search-map')) {
+      window.mapData.resetActiveMarker('search-map');
+    }
+
+    document.body.setAttribute('data-layout-last', prevLayout);
+    document.body.setAttribute('data-layout-previous', prevPrevLayout);
+    document.body.setAttribute('data-layout-previous-prev', '');
+
+    if (currentActive) {
+      currentActive.addEventListener('transitionend', (evt) => {
         const _self = evt.currentTarget;
         _self.dispatchEvent(new CustomEvent('layout-after-close'), { bubbles: true, cancelable: true, detail });
-        _self.classList.remove('is-layout-animated-out');
-        document.body.classList.remove('is-layout-offer-out');
+        _self.classList.remove(`layout-animation-${animationType}-active`, `layout-animation-${animationType}-to`, 'is-previous');
+      }, {
+        once: true,
       });
-    });
+    }
+
+    if (header && step === 1) {
+      requestAnimationFrame(() => {
+        document.body.classList.remove('layout-interface-leave-animation-from');
+        document.body.classList.add('layout-interface-leave-animation-to');
+      });
+
+      header.addEventListener('transitionend', () => {
+        document.body.classList.remove('layout-interface-leave-animation-to');
+      }, {
+        once: true,
+      });
+    }
+
+    // устанавливаем номер текущего шага
+    document.body.setAttribute('data-layout-steps-number', step - 1);
   },
   whichLayerActive() {
     return {
@@ -147,7 +299,7 @@ export const layoutsMethods = {
     };
   },
   isLayoutExist(layoutName) {
-    return $(`[data-layout*="${layoutName}"]`).length > 0;
+    return document.querySelector(`[data-layout*="${layoutName}"]`);
   },
 };
 
@@ -181,29 +333,22 @@ export default function layoutsInit() {
 
     evt.preventDefault();
 
-    const layoutName = 'space';
+    // const layoutName = 'space';
     const url = _this.href;
-    const existSpaceLayout = layoutsMethods.isLayoutExist(layoutName);
-    const isSpacePage = $(document).find('.layout__column_start_space').length > 0;
+    const isExistOfferLayout = layoutsMethods.isLayoutExist('offer');
+    const isSinglePage = document.querySelector('.layout_stable');
 
-    if (existSpaceLayout) {
-      console.log('space exist');
-      const activeLayouts = layoutsMethods.whichLayerActive();
-      console.log(activeLayouts);
-      if (activeLayouts.space && activeLayouts.offer) {
-        console.log('space and offer');
+    if (isSinglePage) {
+      if (isExistOfferLayout) {
         layoutsMethods.close('offer', {});
-      } else if (!activeLayouts.space && activeLayouts.offer) {
-        console.log('only offer');
-        layoutsMethods.open(
-          'space',
-          { sourceElement: undefined, marker: _this.mm },
-        );
+      } else {
+        window.open(url, '_blank');
       }
-    } else if (isSpacePage) {
-      layoutsMethods.close('offer', {});
     } else {
-      window.open(url, '_blank');
+      layoutsMethods.open(
+        'space',
+        { sourceElement: undefined, marker: _this.mm },
+      );
     }
   });
 
@@ -249,34 +394,9 @@ export default function layoutsInit() {
 
   $(document).on('click', '.js-layout-close-active', () => {
     // const activeLayouts = layoutsMethods.whichLayerActive();
-    const lastLayout = document.body.getAttribute('data-layout-last');
-    if (lastLayout !== undefined) {
+    const lastLayout = layoutsMethods.getLastStepName();
+    if (lastLayout) {
       layoutsMethods.close(lastLayout, {});
-    }
-  });
-
-  $(document).on('mousewheel', '.layout_static .layout__wrapper', (evt) => {
-    const el = evt.currentTarget;
-    const height = el.clientHeight;
-    const { scrollHeight } = el;
-    const layout = el.closest('.layout_static');
-    const nextEl = layout.nextElementSibling;
-    const delta = evt.originalEvent.wheelDelta;
-
-    if ((el.scrollTop === (scrollHeight - height) && delta < 0)) {
-      if (nextEl) {
-        $('body, html').stop().animate({
-          scrollTop: $(nextEl).offset().top - 100,
-        }, 1000, 'swing');
-      }
-    } else if (delta > 0) {
-      const wH = window.innerHeight;
-      const elSizes = el.getBoundingClientRect();
-      if (elSizes.bottom < wH && elSizes.bottom > 0) {
-        $('body, html').stop().animate({
-          scrollTop: $(el).offset().top,
-        }, 1000, 'swing');
-      }
     }
   });
 }

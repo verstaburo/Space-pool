@@ -4,12 +4,11 @@ import {
   unfreeze,
 } from '../../scripts/functions/freeze';
 import { layoutsMethods } from '../layout/layout';
-import requestTimeout from '../../scripts/functions/requestTimeout';
+// import requestTimeout from '../../scripts/functions/requestTimeout';
 
 const {
   $,
 } = window;
-const noop = () => { };
 
 export default function srMapToggle() {
   const bp = window.globalOptions.sizes;
@@ -17,15 +16,13 @@ export default function srMapToggle() {
   const mapMethods = {
     open() {
       freeze();
-      let cancel = noop;
-      const regCancel = (fn) => { cancel = fn; };
 
       document.body.classList.add('map-in-fullview');
       document.body.classList.add('is-map-animated-in');
 
-      requestTimeout(() => {
+      setTimeout(() => {
         document.body.classList.remove('is-map-animated-in');
-      }, 500, regCancel, noop);
+      }, 500);
     },
     close() {
       if (layoutsMethods.whichLayerActive().list) {
@@ -35,13 +32,10 @@ export default function srMapToggle() {
       document.body.classList.remove('map-in-fullview');
       document.body.classList.add('is-map-animated-out');
 
-      let cancel = noop;
-      const regCancel = (fn) => { cancel = fn; };
-
-      requestTimeout(() => {
+      setTimeout(() => {
         document.body.classList.remove('is-map-animated-out');
         unfreeze();
-      }, 500, regCancel, noop);
+      }, 500);
     },
     isActive() {
       return document.body.classList.contains('map-in-fullview');

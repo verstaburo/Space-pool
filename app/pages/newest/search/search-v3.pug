@@ -47,12 +47,12 @@ block content
                   +offer-table(item.offers)._transforma._transforma_v2.__list
                 +e.button.hide-from-sm.js-layout-show.js-layout-tab-redirect(data-layout-target="space" data-layout-tab-target="tab-space-offers" data-dead-zone) View all 20 listings
 
-    +e.column_start._start_space._popup(data-layout="space")
+    +e.column_start._start_space._popup(data-layout="space" data-layout-main)
       +e.wrapper
         +space-description-v2
         +space-description-panel
 
-    +e.column_end._popup.nd-sm-hide(data-layout="list,space,offer")
+    +e.column_end._popup.nd-sm-hide(data-layout="list,space,offer" data-layout-side)
       +layout-header({type: 'list', popup: true})._sort._popup
       +e.wrapper
         +nd-results._v2
@@ -92,7 +92,7 @@ block content
                         td
                           b £ 2,400 per month
 
-    +e.column_start._start_offer._popup(data-layout="offer")
+    +e.column_start._start_offer._popup(data-layout="offer" data-layout-main)
       +e.wrapper
         +offer-description-v2
         +offer-description-panel()._fixed.is-visible.nd-hide-from-sm
@@ -100,7 +100,7 @@ block content
             +nd-button._pad10._black.__button.js-nd-arrange-viewing(href="#nd-popup-arrange-viewing" data-min-date="2021-15-4" data-max-date="2021-20-8") Arrange viewing
             +nd-button._pad10.__button(href="#") Request reservation
 
-    +e.column_header._popup(data-layout="space,offer,list")
+    +e.column_header._popup(data-layout="space,offer,list" data-layout-header)
       +layout-header({type: 'space', popup: true})._main
       +layout-header({type: 'list', popup: true})._sort
 

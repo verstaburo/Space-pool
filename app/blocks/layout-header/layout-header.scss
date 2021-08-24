@@ -158,15 +158,22 @@
 
     // border-right: 1px solid $nd-color-border6;
     flex: none;
-    opacity: 0;
+    // opacity: 0;
+    opacity: 1;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    background-image: $icon-arrow5;
+
+    @include rule(background-size, (xl: 20px, xlg: 20, lg: 20, md: 20, sm: 22));
 
     svg {
       @include rule(width, (xl: 18px, xlg: 18, lg: 18, md: 15, sm: 15));
       @include rule(height, (xl: 18px, xlg: 18, lg: 18, md: 15, sm: 15));
+      opacity: 0;
 
       @include screen('sm', max, 2) {
         position: absolute;
-        opacity: 0;
+        // opacity: 0;
         top: 50%;
         left: 50%;
         transform-origin: 50% 50%;
@@ -175,11 +182,11 @@
     }
 
     @include screen('sm', max, 2) {
-      background-repeat: no-repeat;
-      background-position: 50% 50%;
-      background-image: $icon-arrow5;
+      // background-repeat: no-repeat;
+      // background-position: 50% 50%;
+      // background-image: $icon-arrow5;
       border-right: none;
-      background-size: pxtovw(22, 375);
+      // background-size: pxtovw(22, 375);
       background-color: $nd-color-basic-light;
       height: wPxtovw(44, sm);
       border-radius: 50%;
@@ -187,98 +194,117 @@
       position: relative;
     }
 
-    .layout-offer-active &,
-    .layout-space-active &,
-    .layout-list-active & {
+    [data-layout-steps-number="1"] &,
+    [data-layout-steps-number="0"] & {
+      background-image: none;
+      opacity: 1;
+
       svg {
         opacity: 1;
-        background-image: none;
-      }
-
-      opacity: 1;
-
-      @include screen('sm', max, 2) {
-        background-image: none;
       }
     }
 
-    .layout-offer-active.map-in-fullview &,
-    .layout-space-active.map-in-fullview &  {
-      svg {
-        opacity: 0;
-
-        @include screen('sm', max, 2) {
-          opacity: 1;
-        }
-      }
-
+    [data-layout-steps-number="1"] .layout_stable & {
       opacity: 1;
-      background-repeat: no-repeat;
-      background-position: 50% 50%;
       background-image: $icon-arrow5;
 
-      @include rule(background-size, (xl: 20px, xlg: 20, lg: 20, md: 20, sm: 22));
-
-      @include screen('sm', max, 2) {
-        background-image: none;
-      }
-    }
-
-    .layout-space-active.layout-offer-active & {
       svg {
         opacity: 0;
       }
-
-      opacity: 1;
-      background-repeat: no-repeat;
-      background-position: 50% 50%;
-      background-image: $icon-arrow5;
-      border-right: none;
-
-      @include rule(background-size, (xl: 20px, xlg: 20, lg: 20, md: 20, sm: 22));
     }
 
-    .layout-offer-active .layout_stable & {
-      svg {
-        opacity: 0;
-      }
+    // .layout-offer-active &,
+    // .layout-space-active &,
+    // .layout-list-active & {
+    //   svg {
+    //     opacity: 1;
+    //     background-image: none;
+    //   }
 
-      opacity: 1;
-      background-repeat: no-repeat;
-      background-position: 50% 50%;
-      background-image: $icon-arrow5;
-      border-right: none;
+    //   opacity: 1;
 
-      @include rule(background-size, (xl: 20px, xlg: 20, lg: 20, md: 20, sm: 22));
-    }
+    //   @include screen('sm', max, 2) {
+    //     background-image: none;
+    //   }
+    // }
 
-    #{$b}_page & {
-      position: absolute;
-      top: 0;
-      bottom: 0;
-      left: 0;
-      background-color: $nd-color-basic-light;
-      z-index: 1;
-      transition: opacity $ease-main;
-      pointer-events: none;
-      opacity: 0;
+    // .layout-offer-active.map-in-fullview &,
+    // .layout-space-active.map-in-fullview &  {
+    //   svg {
+    //     opacity: 0;
 
-      @include rule(width, (xl: 104px, xlg: 104, lg: 104, md: 104, sm: 44));
+    //     @include screen('sm', max, 2) {
+    //       opacity: 1;
+    //     }
+    //   }
 
-      @include screen('sm', max, 2) {
-        opacity: 1;
-        pointer-events: auto;
-        background-color: $nd-color-basic-light;
-        bottom: auto;
-        left: wPxtovw(9, sm);
-        top: wPxtovw(9, sm);
-      }
+    //   opacity: 1;
+    //   background-repeat: no-repeat;
+    //   background-position: 50% 50%;
+    //   background-image: $icon-arrow5;
 
-      .layout-offer-active & {
-        opacity: 1;
-        pointer-events: auto;
-      }
-    }
+    //   @include rule(background-size, (xl: 20px, xlg: 20, lg: 20, md: 20, sm: 22));
+
+    //   @include screen('sm', max, 2) {
+    //     background-image: none;
+    //   }
+    // }
+
+    // .layout-space-active.layout-offer-active & {
+    //   svg {
+    //     opacity: 0;
+    //   }
+
+    //   opacity: 1;
+    //   background-repeat: no-repeat;
+    //   background-position: 50% 50%;
+    //   background-image: $icon-arrow5;
+    //   border-right: none;
+
+    //   @include rule(background-size, (xl: 20px, xlg: 20, lg: 20, md: 20, sm: 22));
+    // }
+
+    // .layout-offer-active .layout_stable & {
+    //   svg {
+    //     opacity: 0;
+    //   }
+
+    //   opacity: 1;
+    //   background-repeat: no-repeat;
+    //   background-position: 50% 50%;
+    //   background-image: $icon-arrow5;
+    //   border-right: none;
+
+    //   @include rule(background-size, (xl: 20px, xlg: 20, lg: 20, md: 20, sm: 22));
+    // }
+
+    // #{$b}_page & {
+    //   position: absolute;
+    //   top: 0;
+    //   bottom: 0;
+    //   left: 0;
+    //   background-color: $nd-color-basic-light;
+    //   z-index: 1;
+    //   transition: opacity $ease-main;
+    //   pointer-events: none;
+    //   opacity: 0;
+
+    //   @include rule(width, (xl: 104px, xlg: 104, lg: 104, md: 104, sm: 44));
+
+    //   @include screen('sm', max, 2) {
+    //     opacity: 1;
+    //     pointer-events: auto;
+    //     background-color: $nd-color-basic-light;
+    //     bottom: auto;
+    //     left: wPxtovw(9, sm);
+    //     top: wPxtovw(9, sm);
+    //   }
+
+    //   .layout-offer-active & {
+    //     opacity: 1;
+    //     pointer-events: auto;
+    //   }
+    // }
   }
 
   &__back {
