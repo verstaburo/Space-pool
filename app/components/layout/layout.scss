@@ -53,7 +53,7 @@
       overflow: hidden;
       box-sizing: border-box;
       background-color: $nd-color-bg;
-      transition: transform .5s ease-in-out;
+      transition: transform .5s ease;
       z-index: 1;
 
       @include screen('md', max, 2) {
@@ -87,7 +87,7 @@
       justify-self: end;
       will-change: width, height;
       box-sizing: border-box;
-      transition: padding .5s ease-in-out;
+      transition: padding .5s ease;
       padding-right: 0;
 
       @include screen('md', max, 2) {
@@ -104,10 +104,10 @@
       }
 
       .map-in-fullview & {
-        animation: map-hor-animation .5s ease-in-out forwards 1;
+        animation: map-hor-animation .5s ease forwards 1;
 
         @include screen('lg', max, 2) {
-          animation: map-hor-animation-lg .5s ease-in-out forwards 1;
+          animation: map-hor-animation-lg .5s ease forwards 1;
         }
 
         @include screen('md', max, 2) {
@@ -120,10 +120,10 @@
       }
 
       .is-map-animated-out & {
-        animation: map-hor-animation-reverse .5s ease-in-out forwards 1;
+        animation: map-hor-animation-reverse .5s ease forwards 1;
 
         @include screen('lg', max, 2) {
-          animation: map-hor-animation-lg-reverse .5s ease-in-out forwards 1;
+          animation: map-hor-animation-lg-reverse .5s ease forwards 1;
         }
 
         @include screen('md', max, 2) {
@@ -242,13 +242,13 @@
 
       &.layout__column_header {
         transform: translate3d(0, -100%, 0);
-        transition: transform .5s ease-in-out;
+        transition: transform .5s ease;
       }
 
       &.layout__column_end {
         @include screen('sm', min, 2) {
           z-index: 13;
-          transition: transform .5s ease-in-out;
+          transition: transform .5s ease;
           transform: translate3d(100vw, 0, 0);
         }
 
@@ -328,7 +328,7 @@
       }
 
       &.layout-animation-enter-active {
-        transition: transform .5s ease-in-out;
+        transition: transform .5s ease;
         transition-delay: .45s;
 
         @include screen('sm', max, 2) {
@@ -342,7 +342,7 @@
       }
 
       &.layout-animation-leave-active {
-        transition: transform .5s ease-in-out;
+        transition: transform .5s ease;
         transition-delay: 0s;
       }
 
