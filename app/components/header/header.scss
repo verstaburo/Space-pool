@@ -292,14 +292,16 @@
       @include pseudo;
       @include rule(height, (xl: 92px, xlg: 92, lg: 86, md: 76, sm: 0));
       @include uRule(width, (xl: 58.49%, lg: 52.93%, md: 100%));
-      @include uRule(background-image, (xl: linear-gradient(180deg, #f2f6f7 34.38%, rgba(242, 246, 247, 0) 100%), md: linear-gradient(180deg, #f2f6f7 34.38%, #f2f6f7 100%)));
+      // @include uRule(background-image, (xl: linear-gradient(180deg, #f2f6f7 34.38%, rgba(242, 246, 247, 0) 100%), md: linear-gradient(180deg, #f2f6f7 34.38%, #f2f6f7 100%)));
 
       top: -1px;
       left: 0;
       pointer-events: none;
       transition: opacity $ease-main, transform $ease-main;
-      background-repeat: repeat;
-      background-size: 10px 100%;
+      background-repeat: repeat-x;
+      background-position: 0 100%;
+      background-size: 107px;
+      background-image: $icon-gradient;
 
       @include screen('sm', max, 2) {
         display: none;
