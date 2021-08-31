@@ -164,9 +164,9 @@ block content
       +modal-filter#modal-filter
 
     +e.FIELDSET.fieldset
-      +modal({header: {title: 'Sort by'}, footer: false})#filter-sort
+      +modal({header: {title: 'Sort by'}, footer: false})._small(data-modal-placement="right")#filter-sort
         +e.list
-          each item in [{title: 'Popular', value: 'Popular', name: 'sort', /*checked: true*/}, {title: 'Relevance', value: 'Relevance', name: 'sort'}, {title: 'Price ascending', value: 'Price ascending', name: 'sort'}, {title: 'Price descending', value: 'Price descending', name: 'sort'}]
+          each item in [{title: 'Recommended', value: 'Recommended', name: 'sort', /*checked: true*/}, {title: 'Newest first', value: 'Newest first', name: 'sort'}, {title: 'Older first', value: 'Older first', name: 'sort'}, {title: 'Alphabetic order', value: 'Alphabetic order', name: 'sort'}, {title: 'Amount of listing', value: 'Amount of listing', name: 'sort'}]
             +styled-radio(item.title)._sort.__item
               if item.checked
                 +e.INPUT.input(type="radio", value=item.value, name=item.name, data-modal-item, data-modal-item-value=(item.value), data-modal-item-type="sort" checked)
