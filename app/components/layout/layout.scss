@@ -188,7 +188,7 @@
       right: 0;
       bottom: 0;
       height: auto;
-      visibility: hidden;
+      opacity: 0;
       background-color: $nd-color-bg;
       overflow: visible;
       z-index: 11;
@@ -210,13 +210,13 @@
 
       &.is-current {
         transform: translate3d(0, 0, 0);
-        visibility: visible;
+        opacity: 1;
         pointer-events: auto;
       }
 
       &.is-previous {
         // transform: translate3d(100vw, 0, 0);
-        visibility: visible;
+        opacity: 1;
         pointer-events: none;
       }
 
@@ -294,7 +294,6 @@
 
       .layout-space-active &, .layout-list-active &, .layout-offer-active & {
         &[data-layout-side], &[data-layout-header] {
-          visibility: visible;
           opacity: 1;
           transform: translate3d(0, 0, 0);
           pointer-events: auto;
@@ -304,7 +303,6 @@
       .layout-interface-leave-animation-from & {
         &[data-layout-side],
         &[data-layout-header] {
-          visibility: visible;
           opacity: 1;
           transform: translate3d(0, 0, 0);
           pointer-events: none;
@@ -313,14 +311,12 @@
 
       .layout-interface-leave-animation-to & {
         &[data-layout-side] {
-          visibility: visible;
           opacity: 1;
           transform: translate3d(100vw, 0, 0);
           pointer-events: none;
         }
 
         &[data-layout-header] {
-          visibility: visible;
           opacity: 1;
           transform: translate3d(0, -100%, 0);
           pointer-events: none;
@@ -349,28 +345,24 @@
       &.layout-animation-enter-from {
         transform: translate3d(100vw, 0, 0) !important;
         opacity: 1;
-        visibility: visible;
         pointer-events: none;
       }
 
       &.layout-animation-enter-to {
         transform: translate3d(0, 0, 0) !important;
         opacity: 1;
-        visibility: visible;
         pointer-events: none;
       }
 
       &.layout-animation-leave-from {
         transform: translate3d(0, 0, 0) !important;
         opacity: 1;
-        visibility: visible;
         pointer-events: none;
       }
 
       &.layout-animation-leave-to {
         transform: translate3d(100vw, 0, 0) !important;
         opacity: 1;
-        visibility: visible;
         pointer-events: none;
       }
     }

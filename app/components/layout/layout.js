@@ -45,6 +45,7 @@ export const layoutsMethods = {
     const step = layoutsMethods.getNumberOfSteps();
     let newStep = step;
     let animationType = 'enter';
+    console.log('open');
 
     if (step < 3) {
       document.body.classList.remove('is-layout-direction-back');
@@ -158,12 +159,16 @@ export const layoutsMethods = {
 
         if (layout) {
           layout.classList.add('is-current', `layout-animation-${animationType}-from`);
+          console.log('add animation from');
+          console.log(layout);
 
           layout.dispatchEvent(new CustomEvent('layout-before-show'), { bubbles: true, cancelable: true, detail });
 
           requestAnimationFrame(() => {
             layout.classList.remove(`layout-animation-${animationType}-from`);
             layout.classList.add(`layout-animation-${animationType}-active`, `layout-animation-${animationType}-to`);
+            console.log('remove animation from, add others');
+            console.log(layout);
           });
 
           layout.addEventListener('transitionend', (evt) => {
@@ -171,6 +176,8 @@ export const layoutsMethods = {
             _self.dispatchEvent(new CustomEvent('layout-after-show'), { bubbles: true, cancelable: true, detail });
 
             _self.classList.remove(`layout-animation-${animationType}-active`, `layout-animation-${animationType}-to`);
+            console.log('remove animation class');
+            console.log(_self);
             if (currentActive) {
               currentActive.classList.remove('is-previous');
             }
@@ -207,6 +214,7 @@ export const layoutsMethods = {
   },
   close(layoutName, context) {
     const step = layoutsMethods.getNumberOfSteps();
+    console.log('close');
 
     const animationType = 'leave';
     document.body.classList.remove('is-layout-direction-next');

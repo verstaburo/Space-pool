@@ -149,6 +149,7 @@ $(() => {
   popups();
   scrollCont();
   tooltips();
+  window.globalFunctions.tooltips = tooltips;
   tabs();
   heartActivation();
   offerSelect();
