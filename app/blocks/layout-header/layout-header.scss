@@ -213,9 +213,31 @@
       }
     }
 
-    .layout_stable_centered & {
+    .layout_stable & {
+      @include rule(width, (xl: 104px, xlg: 104, lg: 104, md: 104, sm: 44));
+
       @include screen('sm', min, 2) {
-        display: none;
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        background-color: $nd-color-basic-light;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity $ease-main;
+      }
+
+      svg {
+        @include screen('sm', min, 2) {
+          opacity: 0;
+        }
+      }
+
+      .layout-offer-active & {
+        @include screen('sm', min, 2) {
+          opacity: 1;
+          pointer-events: auto;
+        }
       }
     }
 
