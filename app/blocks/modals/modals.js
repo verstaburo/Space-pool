@@ -2,7 +2,7 @@
 import requestTimeout from '../../scripts/functions/requestTimeout';
 
 const { $ } = window;
-const bp = window.globalOptions.sizes;
+const bp = window.globalOptions.ndsizes;
 const noop = () => { };
 
 export const modalMethods = {
@@ -15,6 +15,11 @@ export const modalMethods = {
         modalMethods.close(modalId);
       }
     });
+  },
+  closeScrollAll() {
+    if (window.matchMedia(`(min-width: ${bp.sm}px)`).matches) {
+      modalMethods.closeAll();
+    }
   },
   open(id, source) {
     modalMethods.closeAll();
@@ -134,18 +139,18 @@ export function modalShowes() {
     $('body').removeClass(' is-overlay-user-panel');
   });
 
-  const layouts = document.querySelectorAll('.layout__column');
+  const layouts = document.querySelectorAll('.layout__wrapper');
   const layout = document.querySelectorAll('.layout');
 
   layouts.forEach((el) => {
-    el.addEventListener('scroll', modalMethods.closeAll, { passive: true });
+    el.addEventListener('scroll', modalMethods.closeScrollAll, { passive: true });
   });
 
   layout.forEach((el) => {
-    el.addEventListener('scroll', modalMethods.closeAll, { passive: true });
+    el.addEventListener('scroll', modalMethods.closeScrollAll, { passive: true });
   });
 
-  window.addEventListener('scroll', modalMethods.closeAll, { passive: true });
+  window.addEventListener('scroll', modalMethods.closeScrollAll, { passive: true });
 
-  window.addEventListener('resize', modalMethods.closeAll, { passive: true });
+  window.addEventListener('resize', modalMethods.closeScrollAll, { passive: true });
 }
