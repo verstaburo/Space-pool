@@ -11,7 +11,7 @@ const {
 } = window;
 
 export default function srMapToggle() {
-  const bp = window.globalOptions.sizes;
+  const bp = window.globalOptions.ndsizes;
 
   const mapMethods = {
     open() {
@@ -56,7 +56,7 @@ export default function srMapToggle() {
     const tg = evt.target;
     const clickInside = tg.closest('.js-map-toggle-fullview') || tg.closest('.js-open-modal-filter');
     if (clickInside) return;
-    if (!mapMethods.isActive() && window.Modernizr.mq(`(max-width: ${bp.md - 1}px)`)) {
+    if (!mapMethods.isActive() && window.matchMedia(`(max-width: ${bp.md - 1}px)`).matches) {
       mapMethods.open();
     }
   });
