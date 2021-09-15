@@ -61,6 +61,15 @@ export default function srMapToggle() {
     }
   });
 
+  $(document).on('click', '.js-map-sm-show-fullview', (evt) => {
+    const tg = evt.target;
+    const clickInside = tg.closest('.js-map-toggle-fullview') || tg.closest('.js-open-modal-filter');
+    if (clickInside) return;
+    if (!mapMethods.isActive() && window.matchMedia(`(max-width: ${bp.md - 1}px)`).matches) {
+      mapMethods.open();
+    }
+  });
+
   $(document).on('click', '.js-map-filter-show', () => {
     $('body').addClass('is-map-filter-shown');
   });
