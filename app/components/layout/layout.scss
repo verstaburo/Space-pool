@@ -444,8 +444,20 @@
     @include rule(padding-bottom, (xl: 80px, xlg: 80, lg: 80, md: 80, sm: 80));
     @include native-scroll(transparent, transparent, 5, 5, 5);
 
+    @include screen('sm', max) {
+      @include native-scroll(transparent, transparent, 0, 0, 0);
+
+      scrollbar-width: none;
+    }
+
     &:hover {
       @include native-scroll($nd-layout-scroll2, transparent, 5, 5, 5);
+
+      @include screen('sm', max) {
+        @include native-scroll($nd-layout-scroll2, transparent, 0, 0, 0);
+
+        scrollbar-width: none;
+      }
     }
 
     #{$b}__column_start & {

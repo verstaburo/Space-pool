@@ -27,6 +27,23 @@ export default function ShowPopover() {
     popover.style.setProperty('top', `${basePopY}px`);
   }
 
+  function openPopover(base) {
+    const position = base.getAttribute('data-popover-position');
+    const { hash } = base;
+    const popover = document.querySelector(hash);
+    const isOpened = popover.classList.contains('is-opened');
+
+    if (popover && !isOpened) {
+      setPosition(base, popover, position);
+      popover.classList.add('is-opened');
+    } else {
+      popover.classList.remove('is-opened');
+    }
+  }
+
+  window.globalFunctions.setPopoverPosition = setPosition;
+  window.globalFunctions.openPopover = openPopover;
+
   $(document).on('click', '.js-show-popover', (evt) => {
     evt.preventDefault();
 

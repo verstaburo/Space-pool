@@ -39,7 +39,30 @@ export const layoutsMethods = {
     // Определяем последний активный слой
     const lastLayout = layoutsMethods.getLastStepName();
 
-    if (lastLayout === layoutName) return;
+    const detail = context || {};
+
+    const layoutTitleOffer = document.querySelector('[data-layout-title-offer]');
+    const layoutBoxes = document.querySelector('[data-layout-title-boxes]');
+    const layoutTitleSpace = document.querySelector('[data-layout-title-space]');
+
+    if (lastLayout === layoutName) {
+      if (detail.sourceElement && lastLayout === 'offer') {
+        $('.js-layout-show, .js-sm-layout-show').removeClass('is-active');
+
+        if (describe.title && layoutTitleOffer) {
+          layoutTitleOffer.innerText = describe.title;
+        }
+
+        if (layoutBoxes && describe.color) {
+          layoutBoxes.classList.remove('is-green', 'is-red', 'is-orange', 'is-blue', 'is-dark-blue');
+
+          layoutBoxes.classList.add(`is-${describe.color}`);
+        }
+
+        detail.sourceElement.classList.add('is-active');
+      }
+      return;
+    }
 
     // Определяем будут ли слои при открывании наслаиваться или смахиваться
     const step = layoutsMethods.getNumberOfSteps();
@@ -69,12 +92,6 @@ export const layoutsMethods = {
 
     // Находим предидущий целевой слой
     const currentActive = document.querySelector('.is-current[data-layout-main]');
-
-    const detail = context || {};
-
-    const layoutTitleOffer = document.querySelector('[data-layout-title-offer]');
-    const layoutBoxes = document.querySelector('[data-layout-title-boxes]');
-    const layoutTitleSpace = document.querySelector('[data-layout-title-space]');
 
     const activeLayouts = layoutsMethods.whichLayerActive();
 
@@ -343,7 +360,7 @@ export default function layoutsInit() {
 
     // const layoutName = 'space';
     const url = _this.href;
-    const isExistOfferLayout = layoutsMethods.isLayoutExist('offer');
+    const isExistOfferLayout = document.body.classList.contains('layout-offer-active');
     const isSinglePage = document.querySelector('.layout_stable');
 
     if (isSinglePage) {
