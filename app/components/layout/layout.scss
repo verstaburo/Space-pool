@@ -195,9 +195,12 @@
       // transform: translate3d(100vw, 0, 0);
       will-change: transform, visibility, opacity;
       pointer-events: none;
+      touch-action: none;
       border-top: none;
       border-bottom: none;
       overscroll-behavior: none;
+      transform: translate3d(100vw, 0, 0);
+      // visibility: hidden;
 
       @include screen('md', max, 2) {
         position: fixed;
@@ -208,16 +211,23 @@
         background-color: $nd-color-basic-light;
       }
 
+      // &.is-visible {
+      //   visibility: visible;
+      // }
+
       &.is-current {
         transform: translate3d(0, 0, 0);
         opacity: 1;
         pointer-events: auto;
+        touch-action: auto;
       }
 
       &.is-previous {
         // transform: translate3d(100vw, 0, 0);
+        transform: translate3d(0, 0, 0);
         opacity: 1;
         pointer-events: none;
+        touch-action: none;
       }
 
       .is-layout-direction-next &.is-current {
@@ -297,6 +307,7 @@
           opacity: 1;
           transform: translate3d(0, 0, 0);
           pointer-events: auto;
+          // visibility: visible;
         }
       }
 
