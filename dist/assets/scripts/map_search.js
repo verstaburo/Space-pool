@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 class Popup extends google.maps.OverlayView {
   constructor(options) {
     super();
@@ -147,7 +148,16 @@ window.mapData = {
         fillColor: 'black',
         fillOpacity: 1,
         strokeColor: 'black',
-        scale: 1.18,
+        scale: 1,
+        anchor: new google.maps.Point(16, 44),
+        labelOrigin: new google.maps.Point(16, 15),
+      },
+      visited: {
+        path: 'M32.5 16.3528C32.5 23.2608 28.4673 30.0588 24.36 35.1772C22.3144 37.7265 20.2675 39.838 18.7319 41.3121C17.9644 42.0488 17.3253 42.6256 16.8791 43.0175C16.7324 43.1463 16.6065 43.2551 16.5039 43.3431C16.4005 43.2525 16.2734 43.1401 16.125 43.0069C15.6785 42.6061 15.0392 42.017 14.2714 41.2665C12.7351 39.7649 10.6876 37.6205 8.64125 35.0489C4.53115 29.8838 0.5 23.0865 0.5 16.3528C0.5 7.59059 7.64797 0.5 16.5 0.5C25.352 0.5 32.5 7.59059 32.5 16.3528Z',
+        fillColor: '#0F5493',
+        fillOpacity: 1,
+        strokeColor: '#144673',
+        scale: 1,
         anchor: new google.maps.Point(16, 44),
         labelOrigin: new google.maps.Point(16, 15),
       },
@@ -173,6 +183,15 @@ window.mapData = {
         labelOrigin: new google.maps.Point(20, 23),
       },
       active: {
+        path: 'M39.5 20.0693C39.5 28.5897 34.5902 36.9593 29.6081 43.2455C27.1248 46.3789 24.6403 48.9738 22.7765 50.7853C21.8449 51.6908 21.0691 52.3998 20.5271 52.8817C20.3155 53.0698 20.1395 53.2234 20.0039 53.3404C19.8677 53.2201 19.6905 53.062 19.4769 52.8679C18.9347 52.375 18.1586 51.6509 17.2267 50.7287C15.3623 48.8836 12.8771 46.2483 10.3931 43.0877C5.40827 36.745 0.5 28.376 0.5 20.0693C0.5 9.24616 9.21845 0.5 20 0.5C30.7816 0.5 39.5 9.24616 39.5 20.0693Z',
+        fillColor: '#0085FF',
+        fillOpacity: 1,
+        strokeColor: '#0969C1',
+        scale: 0.65,
+        anchor: new google.maps.Point(20, 44),
+        labelOrigin: new google.maps.Point(20, 23),
+      },
+      visited: {
         path: 'M39.5 20.0693C39.5 28.5897 34.5902 36.9593 29.6081 43.2455C27.1248 46.3789 24.6403 48.9738 22.7765 50.7853C21.8449 51.6908 21.0691 52.3998 20.5271 52.8817C20.3155 53.0698 20.1395 53.2234 20.0039 53.3404C19.8677 53.2201 19.6905 53.062 19.4769 52.8679C18.9347 52.375 18.1586 51.6509 17.2267 50.7287C15.3623 48.8836 12.8771 46.2483 10.3931 43.0877C5.40827 36.745 0.5 28.376 0.5 20.0693C0.5 9.24616 9.21845 0.5 20 0.5C30.7816 0.5 39.5 9.24616 39.5 20.0693Z',
         fillColor: '#0085FF',
         fillOpacity: 1,
@@ -211,6 +230,15 @@ window.mapData = {
         anchor: new google.maps.Point(28, 76),
         labelOrigin: new google.maps.Point(28, 29),
       },
+      visited: {
+        path: 'M55.5 28.2457C55.5 40.3094 48.5893 52.1353 41.6073 60.9916C38.124 65.4101 34.6394 69.0687 32.0256 71.6226C30.7189 72.8993 29.6307 73.8992 28.8699 74.5791C28.4992 74.9105 28.2063 75.1658 28.0039 75.3401C27.8013 75.1615 27.5071 74.899 27.1341 74.5583C26.3731 73.863 25.2846 72.8419 23.9776 71.5417C21.3632 68.9406 17.878 65.2254 14.3939 60.7688C7.40916 51.8344 0.5 40.0091 0.5 28.2457C0.5 12.8988 12.7972 0.5 28 0.5C43.2028 0.5 55.5 12.8988 55.5 28.2457Z',
+        fillColor: '#323232',
+        fillOpacity: 1,
+        strokeColor: 'black',
+        scale: 1,
+        anchor: new google.maps.Point(28, 76),
+        labelOrigin: new google.maps.Point(28, 29),
+      },
       labelClass: 'map-marker-label',
     },
   ],
@@ -222,7 +250,7 @@ function resetActiveMarker(mapId) {
   if (!activeMarker) return;
   const markerIcons = window.mapData.markerIconArray;
   if (activeMarker) {
-    activeMarker.setIcon(markerIcons[activeMarker.markerIconIndex].default);
+    activeMarker.setIcon(markerIcons[activeMarker.markerIconIndex].visited);
     activeMarker.setLabel({
       text: activeMarker.labelText,
       className: ' map-marker-label',
@@ -242,7 +270,7 @@ function generateMarker(data, map) {
   const mm = new google.maps.Marker({
     position: data.coords,
     map,
-    icon: markersIcon[activeIconIndex].default,
+    icon: data.visited ? markersIcon[activeIconIndex].visited : markersIcon[activeIconIndex].default,
     label: {
       text: data.offerCount || '.',
       className: markersIcon[activeIconIndex].labelClass || 'map-marker-label',
@@ -258,6 +286,7 @@ function generateMarker(data, map) {
     offerTitle: data.offerTitle || undefined,
     offerColor: data.offerColor || undefined,
     url: data.spaceUrl,
+    visited: data.visited || false,
     markerIconIndex: activeIconIndex,
   });
 
@@ -297,7 +326,8 @@ function generateMarker(data, map) {
       mm.addListener('mouseout', (evt) => {
         mmInfo.close();
         if (mm.userState !== 'active') {
-          mm.setIcon(markersIcon[activeIconIndex].default);
+          const icon = mm.visited ? markersIcon[activeIconIndex].visited : markersIcon[activeIconIndex].default;
+          mm.setIcon(icon);
         }
       });
     }
@@ -312,24 +342,26 @@ function generateMarker(data, map) {
       resetActiveMarker(mapId);
       if (mm.userState !== 'active') {
         mm.setIcon(markersIcon[activeIconIndex].active);
-        mm.setLabel({
-          text: '.',
-          className: ' map-marker-label-circle',
-          color: '#fff',
-          fontSize: '1px',
-        });
+        // mm.setLabel({
+        //   text: '.',
+        //   className: ' map-marker-label-circle',
+        //   color: '#fff',
+        //   fontSize: '1px',
+        // });
         mm.userState = 'active';
+        mm.visited = true;
         window.mapData[mapId].activeMarker = mm;
       } else {
-        mm.setIcon(markersIcon[activeIconIndex].default);
-        mm.setLabel({
-          text: mm.labelText,
-          className: ' map-marker-label',
-          color: '#fff',
-          fontFamily: 'ProximaNova, Arial, sans-serif',
-          fontSize: '18px',
-          fontWeight: '700',
-        });
+        const icon = mm.visited ? markersIcon[activeIconIndex].visited : markersIcon[activeIconIndex].default;
+        mm.setIcon(icon);
+        // mm.setLabel({
+        //   text: mm.labelText,
+        //   className: ' map-marker-label',
+        //   color: '#fff',
+        //   fontFamily: 'ProximaNova, Arial, sans-serif',
+        //   fontSize: '18px',
+        //   fontWeight: '700',
+        // });
         mm.userState = 'default';
       }
 
@@ -360,6 +392,18 @@ function generateMarker(data, map) {
           break;
       }
     } else {
+      resetActiveMarker(mapId);
+      if (mm.userState !== 'active') {
+        mm.setIcon(markersIcon[activeIconIndex].active);
+        mm.userState = 'active';
+        mm.visited = true;
+        window.mapData[mapId].activeMarker = mm;
+      } else {
+        const icon = mm.visited ? markersIcon[activeIconIndex].visited : markersIcon[activeIconIndex].default;
+        mm.setIcon(icon);
+        mm.userState = 'default';
+      }
+
       switch (mm.markerType) {
         case 'space': {
           // if (wW < bp.sm) {
@@ -396,6 +440,11 @@ function initGMap(mapEl, center) {
       zoomControl: false,
     },
   );
+
+  map.addListener('click', () => {
+    const mapId = map.getDiv().getAttribute('id');
+    resetActiveMarker(mapId);
+  });
 
   return map;
 }
