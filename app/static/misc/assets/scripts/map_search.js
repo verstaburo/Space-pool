@@ -317,6 +317,8 @@ function generateMarker(data, map) {
       mm.setIcon(markersIcon[activeIconIndex].hover);
     } else {
       mm.addListener('mouseover', (evt) => {
+        const mapId = map.getDiv().getAttribute('id');
+        resetActiveMarker(mapId);
         mmInfo.open(map, mm);
         if (mm.userState !== 'active') {
           mm.setIcon(markersIcon[activeIconIndex].hover);

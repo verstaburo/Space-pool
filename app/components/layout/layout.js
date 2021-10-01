@@ -281,9 +281,9 @@ export const layoutsMethods = {
       });
     }
 
-    if (document.getElementById('search-map')) {
-      window.mapData.resetActiveMarker('search-map');
-    }
+    // if (document.getElementById('search-map')) {
+    //   window.mapData.resetActiveMarker('search-map');
+    // }
 
     document.body.setAttribute('data-layout-last', prevLayout);
     document.body.setAttribute('data-layout-previous', prevPrevLayout);
