@@ -1,4 +1,4 @@
-extends ../../layouts/redesign-default
+extends ../../../layouts/redesign-default
 
 block head
   - var pageTitle = 'Spacepool - Rental Summary'
@@ -17,12 +17,12 @@ block header
   - var isNoUser = true
 
 block content
-  - var spaceData = {gallery: { images: ["assets/images/nd/nd-space-lead.jpg", "assets/images/space2.jpg", "assets/images/space3.jpg", "assets/images/space4.jpg", "assets/images/space7.jpg"], buttons: true, buttonsClass: "_bg-small nd-hide-sm"}, address: ["London", "Mayfare", "EC2A 4SD"], tube: "Liverpool Street", title: "House of Creative - 229 Shoreditch High Street", offers: [{box: "_red", name: "FIXED DESK", rows: [{ name: "Fixed desk 1st floor", price: "£ 860.00 per month"}]}]}
+  - var spaceData = {gallery: { images: ["assets/images/nd/nd-space-lead.jpg", "assets/images/space2.jpg", "assets/images/space3.jpg", "assets/images/space4.jpg", "assets/images/space7.jpg"], buttons: true, buttonsClass: "_bg-small"}, address: ["London", "Mayfare", "EC2A 4SD"], tube: "Liverpool Street", title: "House of Creative - 229 Shoreditch High Street", offers: [{box: "_red", name: "FIXED DESK", rows: [{ name: "Fixed desk 1st floor", price: "£ 860.00 per month"}]}]}
   +rs-grid
     .nd-container
       +e.column_form
         +nd-logo._rs.__logo.nd-hide-sm
-        +registration-form-summary({title: 'Email confirmed', confirmemail: true}).__form
+        +rs-form
       +e.column_space
         +nd-link-icon('arrow5')._back.__back Back to Space
         +nd-space._rs

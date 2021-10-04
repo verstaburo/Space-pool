@@ -56,6 +56,7 @@ export default class DatePicker {
     this._generateNewSlide = this._generateNewSlide.bind(this);
     this._hideDates = this._hideDates.bind(this);
     this._showDates = this._showDates.bind(this);
+    this.isInit = false;
   }
 
   init() {
@@ -64,9 +65,14 @@ export default class DatePicker {
     t._render();
     t._sliderInit();
     t._setSelectedDateInFieldsOnInit();
-    t._bindEvents();
+    if (!t.isInit) {
+      t._bindEvents();
+    }
     if (t.autoactivate) {
       t._showDates();
+    }
+    if (!t.isInit) {
+      t.isInit = true;
     }
   }
 
