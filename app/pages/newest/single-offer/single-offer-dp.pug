@@ -1,0 +1,37 @@
+extends ../../../layouts/redesign-default
+
+block head
+  - var pageTitle = 'Spacepool - Space'
+
+block bodyClasses
+  - var isNoHeader = true;
+  - var isNoFooter = true
+  - var isUserPanel = true;
+  - var bodyCls = '';
+  - var scripts = ['search']
+
+block header
+  - var headerClass = ' is-login'
+  - var pageClass = ' _nopad'
+  - var isMap = true
+  - var isMapNew = true
+  - var host = true
+
+block content
+  +layout._stable._stable_centered
+    +e.column_start._start_offer(data-layout="offer")
+      +e.wrapper
+        +offer-description-v2-daypass-2(true)
+
+    +e.column_header(data-layout="offer")
+      +layout-header({type: 'page', popup: true, offer: true})._main._page._centered
+
+block panels
+  +share-popover#share-popover
+  +offer-description-panel()._fixed.is-visible.nd-hide-from-sm
+    +e.buttons
+      +nd-button._pad10.__button._wide(href="#") Book now
+
+block popups
+  +nd-popup-arrange-viewing#nd-popup-arrange-viewing
+  //- +popup-offer-types#popup-offer-types

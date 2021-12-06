@@ -225,3 +225,62 @@ mixin offer-description-v2-daypass(stable)
       +e.sidebar.nd-hide-sm
         +offer-description-sidebar
         +e.note prices are exclusive of VAT
+
+
+mixin offer-description-v2-daypass-2(stable)
+  +b.offer-description_v2._v2_dp&attributes(attributes)
+    +e.preview
+      +e.preview-info
+        +e.preview-start
+          +space-type._white._fz12.__type
+            +nd-box()._dark-blue.__box_sz9
+            +e.name day pass
+          +e.H3.preview-title Office Day Pass
+        +e.preview-end
+          +e.preview-price £ 25 / day
+          +e.BUTTON.preview-tooltip.js-tooltip-v2(href="#" title='*  prices are exclusive of VAT')
+            +icon('tooltip-marker')
+      +e.media
+        +e.PICTURE.media-image
+          source(src="assets/images/nd/space30.jpg" srcset="assets/images/nd/space30.jpg")
+          img(src="assets/images/nd/space30.jpg")
+
+
+    +e.layout
+      +e.SECTION.content_panel
+        +e.SECTION.section_describe
+          +e.header.nd-hide-sm
+            +space-type._gray._fz12.__type
+              +nd-box()._dark-blue.__box_sz9
+              +e.name day pass
+            +e.bottom
+              +e.H3.title 13 desks office space
+            +favorite.__favorite
+          +nd-table._info._info_space._info_space-v2.__table
+            tbody
+              tr
+                td Access hours
+                td 9:00 - 17:00
+              tr
+                td Available desks
+                td 25
+              tr
+                td Min. term
+                td 1 day
+
+        +e.SECTION.section_map(class=(stable ? '' : 'nd-hide-from-sm'))
+          +e.head
+            +e.H4.title_fz16.nd-hide-sm Location
+            +address-line({line: ['London', 'Southwark', 'SE1']}).__address
+
+          +e.row
+            +space-map('offer-map', 'offer').__map
+            if stable
+              +routes-v2(true).__routes.nd-hide-sm
+
+        +e.SECTION.section_description
+          +e.text Neighbourhood Works is a vibrant and engaging coworking space in the heart of London Fields. Whether you want to escape the kitchen table, avoid the commute or simply bring together your team in your backyard, we’ve built a
+
+      +e.sidebar.nd-hide-sm
+        +offer-description-sidebar-daypass
+        +e.note prices are exclusive of VAT
