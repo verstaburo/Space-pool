@@ -1,8 +1,9 @@
-mixin offer-table(data, isFrom)
+mixin offer-table(data, isFrom, isEmptyClass)
   +b.TABLE.offer-table&attributes(attributes)
     tbody
       each item in data
-        - var rowEmptyClass = (item.price === '-' || item.price === '') ? ' nd-hide-sm' : ''
+        - var emptyClassName = isEmptyClass ? 'is-empty' : ' nd-hide-sm'
+        - var rowEmptyClass = (item.price === '-' || item.price === '') ? emptyClassName : ''
         +e.TR.row(class=rowEmptyClass)
           +e.TD.cell
             +e.offer

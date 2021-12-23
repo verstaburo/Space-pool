@@ -10,19 +10,19 @@
     box-sizing: border-box;
     padding: 6px 0;
 
-    @include screen('xlg', max, 2) {
+    @include screen("xlg", max, 2) {
       padding: pxtovw(6, 1660) 0;
     }
 
-    @include screen('lg', max, 2) {
+    @include screen("lg", max, 2) {
       padding: pxtovw(6, 1366) 0;
     }
 
-    @include screen('md', max, 2) {
+    @include screen("md", max, 2) {
       padding: pxtovw(6, 960) 0;
     }
 
-    @include screen('sm', max, 2) {
+    @include screen("sm", max, 2) {
       padding: pxtovw(5, 375) 0;
     }
 
@@ -30,7 +30,7 @@
       text-align: right;
     }
 
-    @include screen('sm', max, 2) {
+    @include screen("sm", max, 2) {
       padding: pxtovw(6, 375) 0;
     }
   }
@@ -47,22 +47,22 @@
     width: 8px;
     height: 8px;
 
-    @include screen('xlg', max, 2) {
+    @include screen("xlg", max, 2) {
       width: pxtovw(8, 1660);
       height: pxtovw(8, 1660);
     }
 
-    @include screen('lg', max, 2) {
+    @include screen("lg", max, 2) {
       width: pxtovw(8, 1366);
       height: pxtovw(8, 1366);
     }
 
-    @include screen('md', max, 2) {
+    @include screen("md", max, 2) {
       width: pxtovw(8, 960);
       height: pxtovw(8, 960);
     }
 
-    @include screen('sm', max, 2) {
+    @include screen("sm", max, 2) {
       width: pxtovw(8, 375);
       height: pxtovw(8, 375);
     }
@@ -70,19 +70,19 @@
     &:not(:last-child) {
       margin-right: 8px;
 
-      @include screen('xlg', max, 2) {
+      @include screen("xlg", max, 2) {
         margin-right: pxtovw(8, 1660);
       }
 
-      @include screen('lg', max, 2) {
+      @include screen("lg", max, 2) {
         margin-right: pxtovw(8, 1366);
       }
 
-      @include screen('md', max, 2) {
+      @include screen("md", max, 2) {
         margin-right: pxtovw(5, 960);
       }
 
-      @include screen('sm', max, 2) {
+      @include screen("sm", max, 2) {
         margin-right: pxtovw(7, 375);
       }
     }
@@ -95,32 +95,41 @@
     line-height: (13 / 12);
     font-size: 11px;
 
-    @include screen('xlg', max, 2) {
+    @include screen("xlg", max, 2) {
       font-size: pxtovw(11, 1660);
     }
 
-    @include screen('lg', max, 2) {
+    @include screen("lg", max, 2) {
       font-size: pxtovw(11, 1366);
     }
 
-    @include screen('md', max, 2) {
+    @include screen("md", max, 2) {
       font-size: pxtovw(11, 960);
     }
 
-    @include screen('sm', max, 2) {
+    @include screen("sm", max, 2) {
       font-size: pxtovw(11, 375);
     }
 
     &_count {
-      @include screen('sm', min, 2) {
+      @include screen("sm", min, 2) {
         display: none;
       }
 
-      @include rule(width, (xl: 18px, xlg: 18, lg: 18, md: 18, sm: 18));
+      @include rule(
+        width,
+        (
+          xl: 18px,
+          xlg: 18,
+          lg: 18,
+          md: 18,
+          sm: 18,
+        )
+      );
     }
 
     #{$b}_map & {
-      @include screen('sm', max, 2) {
+      @include screen("sm", max, 2) {
         font-size: pxtovw(10, 375);
       }
     }
@@ -136,19 +145,19 @@
     text-align: right;
     width: 100%;
 
-    @include screen('xlg', max, 2) {
+    @include screen("xlg", max, 2) {
       font-size: pxtovw(13, 1660);
     }
 
-    @include screen('lg', max, 2) {
+    @include screen("lg", max, 2) {
       font-size: pxtovw(13, 1366);
     }
 
-    @include screen('md', max, 2) {
+    @include screen("md", max, 2) {
       font-size: pxtovw(13, 960);
     }
 
-    @include screen('sm', max, 2) {
+    @include screen("sm", max, 2) {
       font-size: pxtovw(13, 375);
     }
   }
@@ -158,7 +167,7 @@
     justify-content: flex-start;
     align-items: flex-start;
 
-    @include screen('sm', max, 2) {
+    @include screen("sm", max, 2) {
       display: table;
     }
 
@@ -168,7 +177,7 @@
       align-items: flex-start;
       width: 100%;
 
-      @include screen('sm', max, 2) {
+      @include screen("sm", max, 2) {
         display: table;
       }
     }
@@ -177,13 +186,22 @@
       &__row {
         display: inline-block;
 
-        @include screen('sm', max, 2) {
+        @include screen("sm", max, 2) {
           display: table-row;
           width: 100%;
         }
 
         &:not(:last-child) {
-          @include rule(margin-right, (xl: 25px, xlg: 25, lg: 20, md: 27, sm: 0));
+          @include rule(
+            margin-right,
+            (
+              xl: 25px,
+              xlg: 25,
+              lg: 20,
+              md: 27,
+              sm: 0,
+            )
+          );
         }
       }
 
@@ -191,7 +209,7 @@
         display: block;
         width: auto;
 
-        @include screen('sm', max, 2) {
+        @include screen("sm", max, 2) {
           display: table-cell;
           width: 50%;
           padding: pxtovw(5, 375) 0 pxtovw(6, 375);
@@ -201,7 +219,7 @@
           text-align: left;
           padding-top: 0;
 
-          @include screen('sm', max, 2) {
+          @include screen("sm", max, 2) {
             padding-top: pxtovw(5, 375);
             text-align: right;
           }
@@ -212,7 +230,7 @@
         flex-direction: column;
         align-items: flex-start;
 
-        @include screen('sm', max, 2) {
+        @include screen("sm", max, 2) {
           flex-direction: row;
           align-items: baseline;
         }
@@ -226,25 +244,25 @@
         line-height: 0;
         font-size: 0;
 
-        @include screen('xlg', max, 2) {
+        @include screen("xlg", max, 2) {
           width: pxtovw(9, 1660);
           height: pxtovw(9, 1660);
           margin-bottom: pxtovw(4, 1660);
         }
 
-        @include screen('lg', max, 2) {
+        @include screen("lg", max, 2) {
           width: pxtovw(9, 1366);
           height: pxtovw(9, 1366);
           margin-bottom: pxtovw(4, 1366);
         }
 
-        @include screen('md', max, 2) {
+        @include screen("md", max, 2) {
           width: pxtovw(9, 960);
           height: pxtovw(9, 960);
           margin-bottom: pxtovw(4, 960);
         }
 
-        @include screen('sm', max, 2) {
+        @include screen("sm", max, 2) {
           width: pxtovw(8, 375);
           height: pxtovw(8, 375);
           margin-bottom: 0;
@@ -258,19 +276,19 @@
         font-size: 12px;
         line-height: (15 / 12);
 
-        @include screen('xlg', max, 2) {
+        @include screen("xlg", max, 2) {
           font-size: pxtovw(12, 1660);
         }
 
-        @include screen('lg', max, 2) {
+        @include screen("lg", max, 2) {
           font-size: pxtovw(12, 1366);
         }
 
-        @include screen('md', max, 2) {
+        @include screen("md", max, 2) {
           font-size: pxtovw(12, 960);
         }
 
-        @include screen('sm', max, 2) {
+        @include screen("sm", max, 2) {
           font-size: pxtovw(12, 375);
         }
       }
@@ -282,19 +300,19 @@
         text-align: left;
         justify-content: flex-start;
 
-        @include screen('xlg', max, 2) {
+        @include screen("xlg", max, 2) {
           font-size: pxtovw(13, 1660);
         }
 
-        @include screen('lg', max, 2) {
+        @include screen("lg", max, 2) {
           font-size: pxtovw(14, 1366);
         }
 
-        @include screen('md', max, 2) {
+        @include screen("md", max, 2) {
           font-size: pxtovw(14, 960);
         }
 
-        @include screen('sm', max, 2) {
+        @include screen("sm", max, 2) {
           font-size: pxtovw(15, 375);
           line-height: (18 / 15);
           text-align: right;
@@ -332,19 +350,19 @@
             padding-top: 6px;
             text-align: right;
 
-            @include screen('xlg', max, 2) {
+            @include screen("xlg", max, 2) {
               padding-top: pxtovw(6, 1660);
             }
 
-            @include screen('lg', max, 2) {
+            @include screen("lg", max, 2) {
               padding-top: pxtovw(6, 1366);
             }
 
-            @include screen('md', max, 2) {
+            @include screen("md", max, 2) {
               padding-top: pxtovw(6, 960);
             }
 
-            @include screen('sm', max, 2) {
+            @include screen("sm", max, 2) {
               padding-top: pxtovw(5, 375);
             }
           }
@@ -359,29 +377,29 @@
           align-self: center;
           margin-bottom: 0;
 
-          @include screen('lg', max, 2) {
+          @include screen("lg", max, 2) {
             width: pxtovw(9, 1366);
             height: pxtovw(9, 1366);
           }
 
-          @include screen('md', max, 2) {
+          @include screen("md", max, 2) {
             width: pxtovw(8, 960);
             height: pxtovw(8, 960);
           }
 
-          @include screen('sm', max, 2) {
+          @include screen("sm", max, 2) {
             width: pxtovw(8, 375);
             height: pxtovw(8, 375);
           }
         }
 
         &__name {
-          @include screen('md', max, 2) {
+          @include screen("md", max, 2) {
             font-size: pxtovw(11, 960);
             line-height: (13 / 11);
           }
 
-          @include screen('sm', max, 2) {
+          @include screen("sm", max, 2) {
             font-size: pxtovw(12, 375);
             line-height: (15 / 12);
           }
@@ -391,20 +409,20 @@
           font-size: 15px;
           line-height: (18 / 15);
 
-          @include screen('xlg', max, 2) {
+          @include screen("xlg", max, 2) {
             font-size: pxtovw(15, 1660);
           }
 
-          @include screen('lg', max, 2) {
+          @include screen("lg", max, 2) {
             font-size: pxtovw(15, 1366);
           }
 
-          @include screen('md', max, 2) {
+          @include screen("md", max, 2) {
             font-size: pxtovw(13, 960);
             line-height: (16 / 13);
           }
 
-          @include screen('sm', max, 2) {
+          @include screen("sm", max, 2) {
             font-size: pxtovw(15, 375);
             line-height: (18 / 15);
           }
@@ -424,20 +442,163 @@
           min-width: 133px;
           overflow: hidden;
 
-          @include screen('xl', max, 2) {
+          @include screen("xl", max, 2) {
             min-width: 100px;
           }
 
-          @include rule(min-width, (xlg: 120, lg: 133, md: 133, sm: 0));
+          @include rule(
+            min-width,
+            (
+              xlg: 120,
+              lg: 133,
+              md: 133,
+              sm: 0,
+            )
+          );
 
           &:not(:last-child) {
-            @include rule(margin-right, (xl: 3px, xlg: 3, lg: 13, md: 3, sm: 0));
+            @include rule(
+              margin-right,
+              (
+                xl: 3px,
+                xlg: 3,
+                lg: 13,
+                md: 3,
+                sm: 0,
+              )
+            );
           }
         }
 
         &__cell {
-          @include rule(padding-top, (xl: 5px, xlg: 5, lg: 5, md: 5, sm: 5));
-          @include rule(padding-bottom, (xl: 5px, xlg: 5, lg: 5, md: 5, sm: 5));
+          @include rule(
+            padding-top,
+            (
+              xl: 5px,
+              xlg: 5,
+              lg: 5,
+              md: 5,
+              sm: 5,
+            )
+          );
+          @include rule(
+            padding-bottom,
+            (
+              xl: 5px,
+              xlg: 5,
+              lg: 5,
+              md: 5,
+              sm: 5,
+            )
+          );
+        }
+      }
+    }
+  }
+
+  &_striped {
+    #{$b} {
+      &__row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        box-sizing: border-box;
+
+        @include rule(
+          padding,
+          (
+            xl: 0 7px,
+            xlg: 0 7,
+            lg: 0 7,
+            md: 0 7,
+            sm: 0,
+          )
+        );
+
+        @include rule(
+          min-height,
+          (
+            xl: 40px,
+            xlg: 40,
+            lg: 40,
+            md: 40,
+            sm: 0,
+          )
+        );
+
+        &:nth-child(even) {
+          background-color: $nd-color-bg;
+
+          @include screen("sm", max, 2) {
+            background-color: transparent;
+          }
+        }
+
+        &.is-empty {
+          @include screen("sm", max, 2) {
+            display: none;
+          }
+
+          .offer-table__offer {
+            opacity: 0.5;
+          }
+        }
+      }
+
+      &__cell {
+        &:first-child {
+          flex-shrink: 0;
+        }
+
+        &:last-child {
+          flex: 1;
+        }
+      }
+
+      &__box {
+        &:not(:last-child) {
+          @include rule(
+            margin-right,
+            (
+              xl: 6px,
+              xlg: 6,
+              lg: 6,
+              md: 6,
+              sm: 6,
+            )
+          );
+        }
+      }
+
+      &__name {
+        @include rule(
+          font-size,
+          (
+            xl: 12px,
+            xlg: 12,
+            lg: 12,
+            md: 12,
+            sm: 12,
+          )
+        );
+      }
+
+      &__price {
+        letter-spacing: normal;
+
+        @include rule(
+          font-size,
+          (
+            xl: 15px,
+            xlg: 15,
+            lg: 15,
+            md: 15,
+            sm: 15,
+          )
+        );
+
+        strong {
+          font-weight: 600;
         }
       }
     }

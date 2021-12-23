@@ -19,7 +19,7 @@
       padding-top: 63.3%;
       flex: none;
 
-      @include screen('xlg', max, 2) {
+      @include screen("xlg", max, 2) {
         padding-top: 65.5%;
       }
     }
@@ -33,25 +33,25 @@
       border-radius: 3px;
       overflow: hidden;
 
-      @include screen('xlg', max, 2) {
+      @include screen("xlg", max, 2) {
         width: pxtovw(284, 1660);
         height: pxtovw(180, 1660);
         border-radius: pxtovw(3, 1660);
       }
 
-      @include screen('lg', max, 2) {
+      @include screen("lg", max, 2) {
         width: pxtovw(196, 1366);
         height: pxtovw(138, 1366);
         border-radius: pxtovw(3, 1366);
       }
 
-      @include screen('md', max, 2) {
+      @include screen("md", max, 2) {
         width: pxtovw(219, 960);
         height: pxtovw(151, 960);
         border-radius: pxtovw(3, 960);
       }
 
-      @include screen('sm', max, 2) {
+      @include screen("sm", max, 2) {
         width: 100%;
         height: auto;
         padding-top: 63.3%;
@@ -63,17 +63,44 @@
       grid-column: 1 / 2;
       grid-row: 1 / 3;
 
-      @include screen('lg', max, 2) {
+      @include screen("lg", max, 2) {
         grid-row: 1 / 2;
       }
 
-      @include screen('md', max, 2) {
+      @include screen("md", max, 2) {
         grid-row: 1 / 3;
       }
 
-      @include screen('sm', max, 2) {
+      @include screen("sm", max, 2) {
         grid-row: 1 / 2;
       }
+    }
+
+    #{$b}_search-card_v3 & {
+      grid-column: 1 / 2;
+      grid-row: 1 / 3;
+
+      @include screen("lg", max, 2) {
+        grid-row: 1 / 2;
+      }
+
+      @include screen("md", max, 2) {
+        grid-row: 1 / 3;
+      }
+
+      @include screen("sm", max, 2) {
+        grid-row: 1 / 2;
+      }
+
+      @include rule(
+        height,
+        (
+          xl: 100%,
+          lg: 138,
+          md: 100%,
+          sm: 151,
+        )
+      );
     }
 
     #{$b}_single-offer & {
@@ -83,11 +110,36 @@
       border-radius: 3px;
       overflow: hidden;
 
-      @include rule(width, (xl: 284px, xlg: 284, lg: 284, md: 284));
-      @include rule(height, (xl: 180px, xlg: 180, lg: 180, md: 180));
-      @include rule(border-radius, (xl: 3px, xlg: 3, lg: 3, md: 3, sm: 0));
+      @include rule(
+        width,
+        (
+          xl: 284px,
+          xlg: 284,
+          lg: 284,
+          md: 284,
+        )
+      );
+      @include rule(
+        height,
+        (
+          xl: 180px,
+          xlg: 180,
+          lg: 180,
+          md: 180,
+        )
+      );
+      @include rule(
+        border-radius,
+        (
+          xl: 3px,
+          xlg: 3,
+          lg: 3,
+          md: 3,
+          sm: 0,
+        )
+      );
 
-      @include screen('sm', max, 2) {
+      @include screen("sm", max, 2) {
         width: 100%;
         height: auto;
         padding-top: 63.3%;
@@ -95,12 +147,26 @@
     }
 
     #{$b}_single-offer_short & {
-      @include rule(width, (xl: 284px, xlg: 284, lg: 205));
-      @include rule(height, (xl: 180px, xlg: 180, lg: 154));
+      @include rule(
+        width,
+        (
+          xl: 284px,
+          xlg: 284,
+          lg: 205,
+        )
+      );
+      @include rule(
+        height,
+        (
+          xl: 180px,
+          xlg: 180,
+          lg: 154,
+        )
+      );
 
       position: relative;
 
-      @include screen('md', max, 2) {
+      @include screen("md", max, 2) {
         width: 100%;
         height: auto;
         padding-top: 63.3%;
@@ -114,19 +180,19 @@
       max-width: none;
       flex: none;
 
-      @include screen('xlg', max, 2) {
+      @include screen("xlg", max, 2) {
         width: pxtovw(114, 1660);
       }
 
-      @include screen('lg', max, 2) {
+      @include screen("lg", max, 2) {
         width: pxtovw(114, 1366);
       }
 
-      @include screen('md', max, 2) {
+      @include screen("md", max, 2) {
         width: pxtovw(114, 960);
       }
 
-      @include screen('sm', max, 2) {
+      @include screen("sm", max, 2) {
         width: pxtovw(65, 375);
       }
     }
@@ -134,19 +200,19 @@
     #{$b}_map-card & {
       max-width: 100px;
 
-      @include screen('xlg', max, 2) {
+      @include screen("xlg", max, 2) {
         max-width: pxtovw(100, 1660);
       }
 
-      @include screen('lg', max, 2) {
+      @include screen("lg", max, 2) {
         max-width: pxtovw(100, 1366);
       }
 
-      @include screen('md', max, 2) {
+      @include screen("md", max, 2) {
         max-width: pxtovw(100, 960);
       }
 
-      @include screen('sm', max, 2) {
+      @include screen("sm", max, 2) {
         max-width: pxtovw(100, 375);
       }
     }
@@ -157,11 +223,11 @@
       padding-top: 63.3%;
       border-radius: 0;
 
-      @include screen('md', max, 2) {
+      @include screen("md", max, 2) {
         padding-top: 63.7%;
       }
 
-      @include screen('sm', max, 2) {
+      @include screen("sm", max, 2) {
         padding-top: 63.3%;
       }
     }
@@ -169,39 +235,39 @@
     &:not(:first-child) {
       margin-top: 16px;
 
-      @include screen('xlg', max, 2) {
+      @include screen("xlg", max, 2) {
         margin-top: pxtovw(16, 1660);
       }
 
-      @include screen('lg', max, 2) {
+      @include screen("lg", max, 2) {
         margin-top: pxtovw(13, 1366);
       }
 
-      @include screen('md', max, 2) {
+      @include screen("md", max, 2) {
         margin-top: pxtovw(13, 960);
       }
 
-      @include screen('sm', max, 2) {
+      @include screen("sm", max, 2) {
         margin-top: pxtovw(13, 375);
       }
 
       #{$b}_side-nav & {
         margin-top: 20px;
 
-        @include screen('xlg', max, 2) {
+        @include screen("xlg", max, 2) {
           margin-top: pxtovw(20, 1660);
         }
 
-        @include screen('lg', max, 2) {
+        @include screen("lg", max, 2) {
           margin-top: pxtovw(27, 1366);
         }
 
-        @include screen('md', max, 2) {
+        @include screen("md", max, 2) {
           margin-top: pxtovw(21, 960);
           max-width: pxtovw(137, 960);
         }
 
-        @include screen('sm', max, 2) {
+        @include screen("sm", max, 2) {
           margin-top: pxtovw(15, 375);
           margin-left: pxtovw(-18, 375);
           margin-right: pxtovw(-18, 375);
@@ -211,16 +277,16 @@
       }
 
       #{$b}_side-nav_view & {
-        @include screen('lg', max, 2) {
+        @include screen("lg", max, 2) {
           margin-top: pxtovw(21, 1366);
         }
 
-        @include screen('md', max, 2) {
+        @include screen("md", max, 2) {
           margin-top: pxtovw(21, 960);
           max-width: pxtovw(137, 960);
         }
 
-        @include screen('sm', max, 2) {
+        @include screen("sm", max, 2) {
           margin-top: pxtovw(15, 375);
           margin-left: pxtovw(-18, 375);
           margin-right: pxtovw(-18, 375);
@@ -232,21 +298,21 @@
       #{$b}_rs & {
         margin-top: 28px;
 
-        @include screen('xlg', max, 2) {
+        @include screen("xlg", max, 2) {
           margin-top: pxtovw(28, 1660);
         }
 
-        @include screen('lg', max, 2) {
+        @include screen("lg", max, 2) {
           padding-top: 56%;
           margin-top: pxtovw(28, 1366);
         }
 
-        @include screen('md', max, 2) {
+        @include screen("md", max, 2) {
           padding-top: 55.8%;
           margin-top: pxtovw(23, 960);
         }
 
-        @include screen('sm', max, 2) {
+        @include screen("sm", max, 2) {
           width: pxtovw(64, 375);
           height: pxtovw(45, 375);
           padding-top: 0;
@@ -269,22 +335,43 @@
       border-radius: 3px;
       overflow: hidden;
 
-      @include rule(width, (xl: 284px, xlg: 284, lg: 284, md: 284));
-      @include rule(border-radius, (xl: 3px, xlg: 3, lg: 3, md: 3, sm: 0));
+      @include rule(
+        width,
+        (
+          xl: 284px,
+          xlg: 284,
+          lg: 284,
+          md: 284,
+        )
+      );
+      @include rule(
+        border-radius,
+        (
+          xl: 3px,
+          xlg: 3,
+          lg: 3,
+          md: 3,
+          sm: 0,
+        )
+      );
 
-      @include screen('sm', max, 2) {
+      @include screen("sm", max, 2) {
         width: 100%;
       }
 
       &::before {
-        @include screen('sm', max, 2) {
+        @include screen("sm", max, 2) {
           @include pseudo;
 
           top: 0;
           left: 0;
           width: 100%;
           height: 100%;
-          background: linear-gradient(180deg, #13141A 0%, rgba(51, 53, 70, 0) 33%);
+          background: linear-gradient(
+            180deg,
+            #13141a 0%,
+            rgba(51, 53, 70, 0) 33%
+          );
           background-repeat: no-repeat;
           z-index: 2;
           opacity: 0.3;
@@ -294,23 +381,34 @@
     }
 
     #{$b}_single-offer_short & {
-      @include rule(width, (xl: 284px, xlg: 284, lg: 205));
+      @include rule(
+        width,
+        (
+          xl: 284px,
+          xlg: 284,
+          lg: 205,
+        )
+      );
 
       position: relative;
 
-      @include screen('md', max, 2) {
+      @include screen("md", max, 2) {
         width: 100%;
       }
 
       &::before {
-        @include screen('sm', max, 2) {
+        @include screen("sm", max, 2) {
           @include pseudo;
 
           top: 0;
           left: 0;
           width: 100%;
           height: 100%;
-          background: linear-gradient(180deg, #13141A 0%, rgba(51, 53, 70, 0) 33%);
+          background: linear-gradient(
+            180deg,
+            #13141a 0%,
+            rgba(51, 53, 70, 0) 33%
+          );
           background-repeat: no-repeat;
           z-index: 2;
           opacity: 0.3;
@@ -351,7 +449,16 @@
     display: block;
     pointer-events: none;
 
-    @include rule(padding, (xl: 16px, xlg: 16, lg: 16, md: 16, sm: 16));
+    @include rule(
+      padding,
+      (
+        xl: 16px,
+        xlg: 16,
+        lg: 16,
+        md: 16,
+        sm: 16,
+      )
+    );
 
     .label {
       position: absolute;
@@ -369,19 +476,19 @@
     line-height: 0;
     border-radius: 3px;
 
-    @include screen('xlg', max, 2) {
+    @include screen("xlg", max, 2) {
       border-radius: pxtovw(3, 1660);
     }
 
-    @include screen('lg', max, 2) {
+    @include screen("lg", max, 2) {
       border-radius: pxtovw(3, 1366);
     }
 
-    @include screen('md', max, 2) {
+    @include screen("md", max, 2) {
       border-radius: pxtovw(3, 960);
     }
 
-    @include screen('sm', max, 2) {
+    @include screen("sm", max, 2) {
       border-radius: pxtovw(3, 375);
     }
 
@@ -394,15 +501,15 @@
       padding-top: 50.5%;
       border-radius: 0;
 
-      @include screen('lg', max, 2) {
+      @include screen("lg", max, 2) {
         padding-top: 61.8%;
       }
 
-      @include screen('md', max, 2) {
+      @include screen("md", max, 2) {
         padding-top: 62.7%;
       }
 
-      @include screen('sm', max, 2) {
+      @include screen("sm", max, 2) {
         padding-top: 61.8%;
       }
     }
@@ -410,11 +517,11 @@
     #{$b}_side-nav_view & {
       padding-top: 63.3%;
 
-      @include screen('lg', max, 2) {
+      @include screen("lg", max, 2) {
         padding-top: 58.5%;
       }
 
-      @include screen('md', max, 2) {
+      @include screen("md", max, 2) {
         padding-top: 63%;
       }
     }
@@ -424,7 +531,7 @@
       height: 100%;
       width: 100%;
 
-      @include screen('sm', max, 2) {
+      @include screen("sm", max, 2) {
         height: auto;
         padding-top: 69.2%;
       }
@@ -447,19 +554,19 @@
 
       @include fill-img;
 
-      @include screen('xlg', max, 2) {
+      @include screen("xlg", max, 2) {
         border-radius: pxtovw(3, 1660);
       }
 
-      @include screen('lg', max, 2) {
+      @include screen("lg", max, 2) {
         border-radius: pxtovw(3, 1366);
       }
 
-      @include screen('md', max, 2) {
+      @include screen("md", max, 2) {
         border-radius: pxtovw(3, 960);
       }
 
-      @include screen('sm', max, 2) {
+      @include screen("sm", max, 2) {
         border-radius: pxtovw(3, 375);
       }
 
@@ -482,42 +589,51 @@
     &:not(:first-child) {
       margin-top: 16px;
 
-      @include screen('xlg', max, 2) {
+      @include screen("xlg", max, 2) {
         margin-top: pxtovw(16, 1660);
       }
 
-      @include screen('lg', max, 2) {
+      @include screen("lg", max, 2) {
         margin-top: pxtovw(13, 1366);
       }
 
-      @include screen('md', max, 2) {
+      @include screen("md", max, 2) {
         margin-top: pxtovw(13, 960);
       }
 
-      @include screen('sm', max, 2) {
+      @include screen("sm", max, 2) {
         margin-top: pxtovw(13, 375);
       }
 
       #{$b}_side-nav & {
-        @include rule(margin-top, (xl: 12px, xlg: 12, lg: 12, md: 12, sm: 12));
+        @include rule(
+          margin-top,
+          (
+            xl: 12px,
+            xlg: 12,
+            lg: 12,
+            md: 12,
+            sm: 12,
+          )
+        );
       }
 
       #{$b}_rs & {
         margin-top: 56px;
 
-        @include screen('xlg', max, 2) {
+        @include screen("xlg", max, 2) {
           margin-top: pxtovw(56, 1660);
         }
 
-        @include screen('lg', max, 2) {
+        @include screen("lg", max, 2) {
           margin-top: pxtovw(56, 1366);
         }
 
-        @include screen('md', max, 2) {
+        @include screen("md", max, 2) {
           margin-top: pxtovw(18, 960);
         }
 
-        @include screen('sm', max, 2) {
+        @include screen("sm", max, 2) {
           margin-top: pxtovw(18, 375);
         }
       }
@@ -530,48 +646,48 @@
     &:not(:first-child) {
       margin-top: 16px;
 
-      @include screen('xl', max, 2) {
+      @include screen("xl", max, 2) {
         margin-top: 13px;
       }
 
-      @include screen('xlg', max, 2) {
+      @include screen("xlg", max, 2) {
         margin-top: pxtovw(13, 1660);
       }
 
-      @include screen('lg', max, 2) {
+      @include screen("lg", max, 2) {
         margin-top: pxtovw(13, 1366);
       }
 
-      @include screen('md', max, 2) {
+      @include screen("md", max, 2) {
         margin-top: pxtovw(13, 960);
       }
 
-      @include screen('sm', max, 2) {
+      @include screen("sm", max, 2) {
         margin-top: pxtovw(13, 375);
       }
 
       #{$b}_side-nav & {
         margin-top: 10px;
 
-        @include screen('xlg', max, 2) {
+        @include screen("xlg", max, 2) {
           margin-top: pxtovw(10, 1660);
         }
 
-        @include screen('lg', max, 2) {
+        @include screen("lg", max, 2) {
           margin-top: pxtovw(10, 1366);
         }
 
-        @include screen('md', max, 2) {
+        @include screen("md", max, 2) {
           margin-top: pxtovw(10, 960);
         }
 
-        @include screen('sm', max, 2) {
+        @include screen("sm", max, 2) {
           margin-top: pxtovw(13, 375);
         }
       }
 
       #{$b}_rs & {
-        @include screen('sm', max, 2) {
+        @include screen("sm", max, 2) {
           margin-top: 0;
         }
       }
@@ -582,14 +698,27 @@
       width: auto;
 
       &:not(:first-child) {
-        @include rule(margin-top, (xl: 0, xlg: 0, lg: 16, md: 0, sm: 23));
+        @include rule(
+          margin-top,
+          (
+            xl: 0,
+            xlg: 0,
+            lg: 16,
+            md: 0,
+            sm: 23,
+          )
+        );
       }
     }
 
     #{$b}_single-offer_short & {
-
       &:not(:first-child) {
-        @include rule(margin-top, (md: 0));
+        @include rule(
+          margin-top,
+          (
+            md: 0,
+          )
+        );
       }
     }
   }
@@ -603,39 +732,39 @@
     font-size: 17px;
     line-height: (20 / 17);
 
-    @include screen('xlg', max, 2) {
+    @include screen("xlg", max, 2) {
       font-size: pxtovw(17, 1660);
     }
 
-    @include screen('lg', max, 2) {
+    @include screen("lg", max, 2) {
       line-height: (17 / 14);
       font-size: pxtovw(14, 1366);
     }
 
-    @include screen('md', max, 2) {
+    @include screen("md", max, 2) {
       font-size: pxtovw(14, 960);
     }
 
-    @include screen('sm', max, 2) {
+    @include screen("sm", max, 2) {
       font-size: pxtovw(14, 375);
     }
 
     &:not(:first-child) {
       margin-top: 9px;
 
-      @include screen('xlg', max, 2) {
+      @include screen("xlg", max, 2) {
         margin-top: pxtovw(9, 1660);
       }
 
-      @include screen('lg', max, 2) {
+      @include screen("lg", max, 2) {
         margin-top: pxtovw(6, 1366);
       }
 
-      @include screen('md', max, 2) {
+      @include screen("md", max, 2) {
         margin-top: pxtovw(6, 960);
       }
 
-      @include screen('sm', max, 2) {
+      @include screen("sm", max, 2) {
         margin-top: pxtovw(6, 375);
       }
     }
@@ -660,96 +789,123 @@
       font-size: 20px;
       line-height: (24 / 20);
 
-      @include screen('xlg', max, 2) {
+      @include screen("xlg", max, 2) {
         font-size: pxtovw(20, 1660);
       }
 
-      @include screen('lg', max, 2) {
+      @include screen("lg", max, 2) {
         line-height: (22 / 18);
         font-size: pxtovw(18, 1366);
       }
 
-      @include screen('md', max, 2) {
+      @include screen("md", max, 2) {
         font-size: pxtovw(18, 960);
       }
 
-      @include screen('sm', max, 2) {
+      @include screen("sm", max, 2) {
         font-size: pxtovw(20, 375);
         line-height: (24 / 20);
       }
     }
 
     &_fz22 {
-      @include rule(font-size, (xl: 22px, xlg: 22, lg: 22, md: 22, sm: 20));
+      @include rule(
+        font-size,
+        (
+          xl: 22px,
+          xlg: 22,
+          lg: 22,
+          md: 22,
+          sm: 20,
+        )
+      );
     }
 
     &_fz28 {
       font-size: 28px;
       line-height: 1;
 
-      @include screen('xlg', max, 2) {
+      @include screen("xlg", max, 2) {
         font-size: pxtovw(28, 1660);
       }
 
-      @include screen('lg', max, 2) {
+      @include screen("lg", max, 2) {
         font-size: pxtovw(28, 1366);
       }
 
-      @include screen('md', max, 2) {
+      @include screen("md", max, 2) {
         font-size: pxtovw(20, 960);
       }
 
-      @include screen('sm', max, 2) {
+      @include screen("sm", max, 2) {
         font-size: pxtovw(13, 375);
         line-height: 1.08;
       }
     }
 
     #{$b}_listing & {
-      @include rule(font-size, (xl: 20px, xlg: 20, lg: 20, md: 20, sm: 20));
+      @include rule(
+        font-size,
+        (
+          xl: 20px,
+          xlg: 20,
+          lg: 20,
+          md: 20,
+          sm: 20,
+        )
+      );
 
       line-height: (24 / 20);
 
       &:not(:first-child) {
-        @include rule(margin-top, (xl: 9px, xlg: 9, lg: 9, md: 9, sm: 6));
+        @include rule(
+          margin-top,
+          (
+            xl: 9px,
+            xlg: 9,
+            lg: 9,
+            md: 9,
+            sm: 6,
+          )
+        );
       }
     }
 
     #{$b}_card & {
       margin-bottom: 16px;
 
-      @include screen('xlg', max, 2) {
+      @include screen("xlg", max, 2) {
         margin-bottom: pxtovw(16, 1660);
       }
 
-      @include screen('lg', max, 2) {
+      @include screen("lg", max, 2) {
         margin-bottom: pxtovw(16, 1366);
       }
 
-      @include screen('md', max, 2) {
+      @include screen("md", max, 2) {
         margin-bottom: pxtovw(16, 960);
       }
 
-      @include screen('sm', max, 2) {
+      @include screen("sm", max, 2) {
         margin-bottom: pxtovw(16, 375);
       }
 
       &:not(:first-child) {
         margin-top: 10px;
 
-        @include screen('xlg', max, 2) {
+        @include screen("xlg", max, 2) {
           margin-top: pxtovw(10, 1660);
         }
 
-        @include screen('lg', max, 2) {
+        @include screen("lg", max, 2) {
           margin-top: pxtovw(10, 1366);
         }
 
-        @include screen('md', max, 2) {
+        @include screen("md", max, 2) {
           margin-top: pxtovw(10, 960);
         }
 
-        @include screen('sm', max, 2) {
+        @include screen("sm", max, 2) {
           margin-top: pxtovw(10, 375);
         }
       }
@@ -759,72 +915,227 @@
       line-height: (24 / 20);
       font-weight: 400;
 
-      @include rule(font-size, (xl: 20px, xlg: 20, lg: 20, md: 20, sm: 20));
+      @include rule(
+        font-size,
+        (
+          xl: 20px,
+          xlg: 20,
+          lg: 20,
+          md: 20,
+          sm: 20,
+        )
+      );
 
       &:not(:first-child) {
-        @include rule(margin-top, (xl: 15px, xlg: 15, lg: 16, md: 16, sm: 10));
+        @include rule(
+          margin-top,
+          (
+            xl: 15px,
+            xlg: 15,
+            lg: 16,
+            md: 16,
+            sm: 10,
+          )
+        );
       }
 
       &:not(:last-child) {
-        @include rule(margin-bottom, (xl: 10px, xlg: 10, lg: 16, md: 16, sm: 35));
+        @include rule(
+          margin-bottom,
+          (
+            xl: 10px,
+            xlg: 10,
+            lg: 16,
+            md: 16,
+            sm: 35,
+          )
+        );
       }
 
       .is-search-map-hide & {
         font-family: $font-main;
         font-weight: 700;
 
-        @include rule(font-size, (xl: 20px, xlg: 18, lg: 18, md: 18, sm: 20));
+        @include rule(
+          font-size,
+          (
+            xl: 20px,
+            xlg: 18,
+            lg: 18,
+            md: 18,
+            sm: 20,
+          )
+        );
 
-        @include screen('xlg', max, 2) {
+        @include screen("xlg", max, 2) {
           line-height: (22 / 18);
         }
 
-
-        @include screen('sm', max, 2) {
+        @include screen("sm", max, 2) {
           line-height: (24 / 20);
           font-family: $font-stolzl;
           font-weight: 400;
         }
 
         &:not(:first-child) {
-          @include rule(margin-top, (xl: 10px, xlg: 10, lg: 10, md: 10, sm: 10));
+          @include rule(
+            margin-top,
+            (
+              xl: 10px,
+              xlg: 10,
+              lg: 10,
+              md: 10,
+              sm: 10,
+            )
+          );
         }
 
         &:not(:last-child) {
-          @include rule(margin-bottom, (xl: 45px, xlg: 45, lg: 20, md: 16, sm: 35));
+          @include rule(
+            margin-bottom,
+            (
+              xl: 45px,
+              xlg: 45,
+              lg: 20,
+              md: 16,
+              sm: 35,
+            )
+          );
         }
       }
     }
 
     #{$b}_search-card_v2 & {
-      @include rule(font-size, (xl: 20px, xlg: 20, lg: 19, md: 20, sm: 20));
+      @include rule(
+        font-size,
+        (
+          xl: 20px,
+          xlg: 20,
+          lg: 19,
+          md: 20,
+          sm: 20,
+        )
+      );
 
       &:not(:first-child) {
-        @include rule(margin-top, (xl: 14px, xlg: 14, lg: 10, md: 14, sm: 10));
+        @include rule(
+          margin-top,
+          (
+            xl: 14px,
+            xlg: 14,
+            lg: 10,
+            md: 14,
+            sm: 10,
+          )
+        );
       }
 
       &:not(:last-child) {
-        @include rule(margin-bottom, (xl: 13px, xlg: 13, lg: 26, md: 17, sm: 0));
+        @include rule(
+          margin-bottom,
+          (
+            xl: 13px,
+            xlg: 13,
+            lg: 26,
+            md: 17,
+            sm: 0,
+          )
+        );
+      }
+    }
+
+    #{$b}_search-card_v3 & {
+      @include rule(
+        font-size,
+        (
+          xl: 20px,
+          xlg: 20,
+          lg: 19,
+          md: 20,
+          sm: 20,
+        )
+      );
+
+      &:not(:first-child) {
+        @include rule(
+          margin-top,
+          (
+            xl: 14px,
+            xlg: 14,
+            lg: 10,
+            md: 14,
+            sm: 10,
+          )
+        );
+      }
+
+      &:not(:last-child) {
+        @include rule(
+          margin-bottom,
+          (
+            xl: 13px,
+            xlg: 13,
+            lg: 26,
+            md: 17,
+            sm: 0,
+          )
+        );
       }
     }
 
     #{$b}_single-offer & {
-      @include rule(font-size, (xl: 20px, xlg: 20, lg: 18, md: 20, sm: 18));
+      @include rule(
+        font-size,
+        (
+          xl: 20px,
+          xlg: 20,
+          lg: 18,
+          md: 20,
+          sm: 18,
+        )
+      );
 
       line-height: (24 / 20);
 
       &:not(:first-child) {
-        @include rule(margin-top, (xl: 9px, xlg: 9, lg: 16, md: 9, sm: 0));
+        @include rule(
+          margin-top,
+          (
+            xl: 9px,
+            xlg: 9,
+            lg: 16,
+            md: 9,
+            sm: 0,
+          )
+        );
       }
     }
 
     #{$b}_single-offer_short & {
-      @include rule(font-size, (xl: 20px, xlg: 20, lg: 16, md: 15, sm: 15));
+      @include rule(
+        font-size,
+        (
+          xl: 20px,
+          xlg: 20,
+          lg: 16,
+          md: 15,
+          sm: 15,
+        )
+      );
 
       line-height: (24 / 20);
 
       &:not(:first-child) {
-        @include rule(margin-top, (xl: 14px, xlg: 14, lg: 6, md: 12, sm: 9));
+        @include rule(
+          margin-top,
+          (
+            xl: 14px,
+            xlg: 14,
+            lg: 6,
+            md: 12,
+            sm: 9,
+          )
+        );
       }
     }
 
@@ -833,38 +1144,38 @@
       line-height: 1.2;
       min-height: 2.4em;
 
-      @include screen('xlg', max, 2) {
+      @include screen("xlg", max, 2) {
         font-size: pxtovw(18, 1660);
       }
 
-      @include screen('lg', max, 2) {
+      @include screen("lg", max, 2) {
         font-size: pxtovw(18, 1366);
       }
 
-      @include screen('md', max, 2) {
+      @include screen("md", max, 2) {
         font-size: pxtovw(16, 960);
       }
 
-      @include screen('sm', max, 2) {
+      @include screen("sm", max, 2) {
         font-size: pxtovw(18, 375);
       }
 
       &:not(:first-child) {
         margin-top: 10px;
 
-        @include screen('xlg', max, 2) {
+        @include screen("xlg", max, 2) {
           margin-top: pxtovw(10, 1660);
         }
 
-        @include screen('lg', max, 2) {
+        @include screen("lg", max, 2) {
           margin-top: pxtovw(10, 1366);
         }
 
-        @include screen('md', max, 2) {
+        @include screen("md", max, 2) {
           margin-top: pxtovw(7, 960);
         }
 
-        @include screen('sm', max, 2) {
+        @include screen("sm", max, 2) {
           margin-top: pxtovw(10, 375);
         }
       }
@@ -875,38 +1186,38 @@
       line-height: 1.2;
       min-height: 2.4em;
 
-      @include screen('xlg', max, 2) {
+      @include screen("xlg", max, 2) {
         font-size: pxtovw(18, 1660);
       }
 
-      @include screen('lg', max, 2) {
+      @include screen("lg", max, 2) {
         font-size: pxtovw(16, 1366);
       }
 
-      @include screen('md', max, 2) {
+      @include screen("md", max, 2) {
         font-size: pxtovw(16, 960);
       }
 
-      @include screen('sm', max, 2) {
+      @include screen("sm", max, 2) {
         font-size: pxtovw(18, 375);
       }
 
       &:not(:first-child) {
         margin-top: 10px;
 
-        @include screen('xlg', max, 2) {
+        @include screen("xlg", max, 2) {
           margin-top: pxtovw(10, 1660);
         }
 
-        @include screen('lg', max, 2) {
+        @include screen("lg", max, 2) {
           margin-top: pxtovw(8, 1366);
         }
 
-        @include screen('md', max, 2) {
+        @include screen("md", max, 2) {
           margin-top: pxtovw(8, 960);
         }
 
-        @include screen('sm', max, 2) {
+        @include screen("sm", max, 2) {
           margin-top: pxtovw(14, 375);
         }
       }
@@ -918,39 +1229,39 @@
       font-size: 18px;
       line-height: 1.2;
 
-      @include screen('xlg', max, 2) {
+      @include screen("xlg", max, 2) {
         font-size: pxtovw(18, 1660);
       }
 
-      @include screen('lg', max, 2) {
+      @include screen("lg", max, 2) {
         font-size: pxtovw(18, 1366);
       }
 
-      @include screen('md', max, 2) {
+      @include screen("md", max, 2) {
         font-size: pxtovw(18, 960);
       }
 
-      @include screen('sm', max, 2) {
+      @include screen("sm", max, 2) {
         font-size: pxtovw(15, 375);
       }
 
       &:not(:first-child) {
-        margin-top: -.13em;
+        margin-top: -0.13em;
         margin-left: 9px;
 
-        @include screen('xlg', max, 2) {
+        @include screen("xlg", max, 2) {
           margin-left: pxtovw(9, 1660);
         }
 
-        @include screen('lg', max, 2) {
+        @include screen("lg", max, 2) {
           margin-left: pxtovw(9, 1366);
         }
 
-        @include screen('md', max, 2) {
+        @include screen("md", max, 2) {
           margin-left: pxtovw(9, 960);
         }
 
-        @include screen('sm', max, 2) {
+        @include screen("sm", max, 2) {
           margin-left: pxtovw(9, 375);
         }
       }
@@ -961,19 +1272,19 @@
       line-height: 1.1;
       font-weight: 400;
 
-      @include screen('xlg', max, 2) {
+      @include screen("xlg", max, 2) {
         font-size: pxtovw(22, 1660);
       }
 
-      @include screen('lg', max, 2) {
+      @include screen("lg", max, 2) {
         font-size: pxtovw(18, 1366);
       }
 
-      @include screen('md', max, 2) {
+      @include screen("md", max, 2) {
         font-size: pxtovw(22, 960);
       }
 
-      @include screen('sm', max, 2) {
+      @include screen("sm", max, 2) {
         font-size: pxtovw(20, 375);
       }
     }
@@ -981,19 +1292,19 @@
     #{$b}_side-nav_view & {
       font-size: 20px;
 
-      @include screen('xlg', max, 2) {
+      @include screen("xlg", max, 2) {
         font-size: pxtovw(20, 1660);
       }
 
-      @include screen('lg', max, 2) {
+      @include screen("lg", max, 2) {
         font-size: pxtovw(20, 1366);
       }
 
-      @include screen('md', max, 2) {
+      @include screen("md", max, 2) {
         font-size: pxtovw(20, 960);
       }
 
-      @include screen('sm', max, 2) {
+      @include screen("sm", max, 2) {
         font-size: pxtovw(20, 375);
       }
     }
@@ -1002,19 +1313,19 @@
       &:not(:first-child) {
         margin-top: 22px;
 
-        @include screen('xlg', max, 2) {
+        @include screen("xlg", max, 2) {
           margin-top: pxtovw(22, 1660);
         }
 
-        @include screen('lg', max, 2) {
+        @include screen("lg", max, 2) {
           margin-top: pxtovw(22, 1366);
         }
 
-        @include screen('md', max, 2) {
+        @include screen("md", max, 2) {
           margin-top: pxtovw(13, 960);
         }
 
-        @include screen('sm', max, 2) {
+        @include screen("sm", max, 2) {
           margin-top: pxtovw(6, 375);
         }
       }
@@ -1028,39 +1339,39 @@
 
       @include ellipsis(100%);
 
-      @include screen('xlg', max, 2) {
+      @include screen("xlg", max, 2) {
         font-size: pxtovw(18, 1660);
       }
 
-      @include screen('lg', max, 2) {
+      @include screen("lg", max, 2) {
         font-size: pxtovw(16, 1366);
         line-height: (19 / 16);
       }
 
-      @include screen('md', max, 2) {
+      @include screen("md", max, 2) {
         font-size: pxtovw(16, 960);
       }
 
-      @include screen('sm', max, 2) {
+      @include screen("sm", max, 2) {
         font-size: pxtovw(16, 375);
       }
 
       &:not(:first-child) {
         margin-top: 4px;
 
-        @include screen('xlg', max, 2) {
+        @include screen("xlg", max, 2) {
           margin-top: pxtovw(4, 1660);
         }
 
-        @include screen('lg', max, 2) {
+        @include screen("lg", max, 2) {
           margin-top: pxtovw(4, 1366);
         }
 
-        @include screen('md', max, 2) {
+        @include screen("md", max, 2) {
           margin-top: pxtovw(4, 960);
         }
 
-        @include screen('sm', max, 2) {
+        @include screen("sm", max, 2) {
           margin-top: pxtovw(1, 375);
         }
       }
@@ -1077,17 +1388,26 @@
     letter-spacing: normal;
     line-height: normal;
 
-    @include rule(font-size, (xl: 14px, xlg: 14, lg: 12, md: 14, sm: 12));
+    @include rule(
+      font-size,
+      (
+        xl: 14px,
+        xlg: 14,
+        lg: 12,
+        md: 14,
+        sm: 12,
+      )
+    );
 
-    @include screen('lg', max, 2) {
+    @include screen("lg", max, 2) {
       width: 100%;
     }
 
-    @include screen('md', max, 2) {
+    @include screen("md", max, 2) {
       width: auto;
     }
 
-    @include screen('sm', max, 2) {
+    @include screen("sm", max, 2) {
       font-weight: 600;
       font-family: $font-main;
       width: 100%;
@@ -1105,38 +1425,38 @@
     font-size: 15px;
     line-height: (18 / 15);
 
-    @include screen('xlg', max, 2) {
+    @include screen("xlg", max, 2) {
       font-size: pxtovw(15, 1660);
     }
 
-    @include screen('lg', max, 2) {
+    @include screen("lg", max, 2) {
       line-height: (17 / 14);
       font-size: pxtovw(14, 1366);
     }
 
-    @include screen('md', max, 2) {
+    @include screen("md", max, 2) {
       font-size: pxtovw(14, 960);
     }
 
-    @include screen('sm', max, 2) {
+    @include screen("sm", max, 2) {
       font-size: pxtovw(14, 375);
     }
 
     &_any-fz15 {
-      @include screen('xlg', max, 2) {
+      @include screen("xlg", max, 2) {
         font-size: pxtovw(15, 1660);
         line-height: (18 / 15);
       }
 
-      @include screen('lg', max, 2) {
+      @include screen("lg", max, 2) {
         font-size: pxtovw(15, 1366);
       }
 
-      @include screen('md', max, 2) {
+      @include screen("md", max, 2) {
         font-size: pxtovw(15, 960);
       }
 
-      @include screen('sm', max, 2) {
+      @include screen("sm", max, 2) {
         font-size: pxtovw(15, 375);
       }
     }
@@ -1144,23 +1464,23 @@
     &:not(:first-child) {
       margin-top: 11px;
 
-      @include screen('xl', max, 2) {
+      @include screen("xl", max, 2) {
         margin-top: 7px;
       }
 
-      @include screen('xlg', max, 2) {
+      @include screen("xlg", max, 2) {
         margin-top: pxtovw(7, 1660);
       }
 
-      @include screen('lg', max, 2) {
+      @include screen("lg", max, 2) {
         margin-top: pxtovw(4, 1366);
       }
 
-      @include screen('md', max, 2) {
+      @include screen("md", max, 2) {
         margin-top: pxtovw(4, 960);
       }
 
-      @include screen('sm', max, 2) {
+      @include screen("sm", max, 2) {
         margin-top: pxtovw(4, 375);
       }
     }
@@ -1177,7 +1497,7 @@
       -webkit-box-orient: vertical;
       line-clamp: 2;
 
-      @include screen('sm', max, 2) {
+      @include screen("sm", max, 2) {
         display: none;
       }
     }
@@ -1186,12 +1506,27 @@
       -webkit-line-clamp: 2;
       line-clamp: 2;
 
-      @include screen('lg', max, 2) {
+      @include screen("lg", max, 2) {
         -webkit-line-clamp: 4;
         line-clamp: 4;
       }
 
-      @include screen('md', max, 2) {
+      @include screen("md", max, 2) {
+        -webkit-line-clamp: 4;
+        line-clamp: 4;
+      }
+    }
+
+    #{$b}_search-card_v3 & {
+      -webkit-line-clamp: 2;
+      line-clamp: 2;
+
+      @include screen("lg", max, 2) {
+        -webkit-line-clamp: 4;
+        line-clamp: 4;
+      }
+
+      @include screen("md", max, 2) {
         -webkit-line-clamp: 4;
         line-clamp: 4;
       }
@@ -1207,19 +1542,19 @@
     color: $nd-color-gray-text8;
     font-size: 15px;
 
-    @include screen('xlg', max, 2) {
+    @include screen("xlg", max, 2) {
       font-size: pxtovw(15, 1660);
     }
 
-    @include screen('lg', max, 2) {
+    @include screen("lg", max, 2) {
       font-size: pxtovw(15, 1366);
     }
 
-    @include screen('md', max, 2) {
+    @include screen("md", max, 2) {
       font-size: pxtovw(15, 960);
     }
 
-    @include screen('sm', max, 2) {
+    @include screen("sm", max, 2) {
       display: none;
       font-size: pxtovw(15, 375);
     }
@@ -1227,15 +1562,15 @@
     &:not(:first-child) {
       margin-top: 0;
 
-      @include screen('lg', max, 2) {
+      @include screen("lg", max, 2) {
         margin-top: pxtovw(-4, 1366);
       }
 
-      @include screen('md', max, 2) {
+      @include screen("md", max, 2) {
         margin-top: pxtovw(-4, 960);
       }
 
-      @include screen('sm', max, 2) {
+      @include screen("sm", max, 2) {
         margin-top: pxtovw(-4, 375);
       }
     }
@@ -1249,11 +1584,21 @@
     }
 
     #{$b}_search-card_v2 & {
-      @include screen('lg', max, 2) {
+      @include screen("lg", max, 2) {
         max-height: 4 * $line-height * 1em;
       }
 
-      @include screen('md', max, 2) {
+      @include screen("md", max, 2) {
+        max-height: 2 * $line-height * 1em;
+      }
+    }
+
+    #{$b}_search-card_v3 & {
+      @include screen("lg", max, 2) {
+        max-height: 4 * $line-height * 1em;
+      }
+
+      @include screen("md", max, 2) {
         max-height: 2 * $line-height * 1em;
       }
     }
@@ -1269,38 +1614,38 @@
     padding: 15px 19px;
     flex: 1;
 
-    @include screen('xlg', max, 2) {
+    @include screen("xlg", max, 2) {
       padding: pxtovw(15, 1660) pxtovw(19, 1660);
     }
 
-    @include screen('lg', max, 2) {
+    @include screen("lg", max, 2) {
       padding: pxtovw(12, 1366) pxtovw(15, 1366);
     }
 
-    @include screen('md', max, 2) {
+    @include screen("md", max, 2) {
       padding: pxtovw(12, 960) pxtovw(15, 960);
     }
 
-    @include screen('sm', max, 2) {
+    @include screen("sm", max, 2) {
       padding: pxtovw(13, 375) pxtovw(16, 375);
     }
 
     #{$b}_listing & {
       padding: 15px 19px;
 
-      @include screen('xlg', max, 2) {
+      @include screen("xlg", max, 2) {
         padding: pxtovw(15, 1660) pxtovw(19, 1660);
       }
 
-      @include screen('lg', max, 2) {
+      @include screen("lg", max, 2) {
         padding: pxtovw(15, 1366) pxtovw(19, 1366);
       }
 
-      @include screen('md', max, 2) {
+      @include screen("md", max, 2) {
         padding: pxtovw(15, 960) pxtovw(19, 960);
       }
 
-      @include screen('sm', max, 2) {
+      @include screen("sm", max, 2) {
         padding: pxtovw(13, 375) pxtovw(18, 375);
       }
     }
@@ -1309,19 +1654,19 @@
       padding: 0;
       padding-left: 30px;
 
-      @include screen('xlg', max, 2) {
+      @include screen("xlg", max, 2) {
         padding-left: pxtovw(30, 1660);
       }
 
-      @include screen('lg', max, 2) {
+      @include screen("lg", max, 2) {
         padding-left: pxtovw(30, 1366);
       }
 
-      @include screen('md', max, 2) {
+      @include screen("md", max, 2) {
         padding-left: pxtovw(25, 960);
       }
 
-      @include screen('sm', max, 2) {
+      @include screen("sm", max, 2) {
         padding: pxtovw(13, 375) pxtovw(16, 375) pxtovw(24, 375);
       }
 
@@ -1334,19 +1679,19 @@
         padding: 15px 19px 24px;
         flex: 1;
 
-        @include screen('xlg', max, 2) {
+        @include screen("xlg", max, 2) {
           padding: pxtovw(15, 1660) pxtovw(19, 1660) pxtovw(24, 1660);
         }
 
-        @include screen('lg', max, 2) {
+        @include screen("lg", max, 2) {
           padding: pxtovw(12, 1366) pxtovw(18, 1366) pxtovw(16, 1366);
         }
 
-        @include screen('md', max, 2) {
+        @include screen("md", max, 2) {
           padding: pxtovw(12, 960) pxtovw(15, 960);
         }
 
-        @include screen('sm', max, 2) {
+        @include screen("sm", max, 2) {
           padding: pxtovw(13, 375) pxtovw(16, 375);
         }
       }
@@ -1356,9 +1701,42 @@
       grid-column: 2 / 3;
       grid-row: 1 / 2;
 
-      @include rule(padding-bottom, (sm: 0));
+      @include rule(
+        padding-bottom,
+        (
+          sm: 0,
+        )
+      );
 
-      @include screen('sm', max, 2) {
+      @include screen("sm", max, 2) {
+        grid-column: 1 / 2;
+        grid-row: 2 / 3;
+      }
+    }
+
+    #{$b}_search-card_v3 & {
+      grid-column: 2 / 3;
+      grid-row: 1 / 2;
+
+      @include rule(
+        padding-bottom,
+        (
+          sm: 0,
+        )
+      );
+
+      @include rule(
+        padding-left,
+        (
+          xl: 25px,
+          xlg: 25,
+          lg: 25,
+          md: 25,
+          sm: 16,
+        )
+      );
+
+      @include screen("sm", max, 2) {
         grid-column: 1 / 2;
         grid-row: 2 / 3;
       }
@@ -1367,9 +1745,18 @@
     #{$b}_single-offer & {
       padding: 0;
 
-      @include rule(padding-left, (xl: 27px, xlg: 27, lg: 27, md: 27, sm: 18));
+      @include rule(
+        padding-left,
+        (
+          xl: 27px,
+          xlg: 27,
+          lg: 27,
+          md: 27,
+          sm: 18,
+        )
+      );
 
-      @include screen('sm', max, 2) {
+      @include screen("sm", max, 2) {
         padding: pxtovw(15, 375) pxtovw(18, 375);
       }
     }
@@ -1377,13 +1764,22 @@
     #{$b}_single-offer_short & {
       padding: 0;
 
-      @include rule(padding-left, (xl: 27px, xlg: 27, lg: 27, md: 18, sm: 18));
+      @include rule(
+        padding-left,
+        (
+          xl: 27px,
+          xlg: 27,
+          lg: 27,
+          md: 18,
+          sm: 18,
+        )
+      );
 
-      @include screen('md', max, 2) {
+      @include screen("md", max, 2) {
         padding: 0 pxtovw(15, 960) pxtovw(10, 960);
       }
 
-      @include screen('sm', max, 2) {
+      @include screen("sm", max, 2) {
         padding: 0 pxtovw(15, 375) pxtovw(10, 375);
       }
     }
@@ -1394,19 +1790,19 @@
       &:not(:first-child) {
         margin-top: 56px;
 
-        @include screen('xlg', max, 2) {
+        @include screen("xlg", max, 2) {
           margin-top: pxtovw(56, 1660);
         }
 
-        @include screen('lg', max, 2) {
+        @include screen("lg", max, 2) {
           margin-top: pxtovw(56, 1366);
         }
 
-        @include screen('md', max, 2) {
+        @include screen("md", max, 2) {
           margin-top: pxtovw(18, 960);
         }
 
-        @include screen('sm', max, 2) {
+        @include screen("sm", max, 2) {
           margin-top: 0;
           margin-left: pxtovw(14, 375);
         }
@@ -1415,10 +1811,28 @@
   }
 
   &__info {
-    @include rule(padding-bottom, (xl: 58px, xlg: 58, lg: 58, md: 56, sm: 56));
+    @include rule(
+      padding-bottom,
+      (
+        xl: 58px,
+        xlg: 58,
+        lg: 58,
+        md: 56,
+        sm: 56,
+      )
+    );
 
     &:not(:first-child) {
-      @include rule(margin-top, (xl: 60px, xlg: 60, lg: 60, md: 60, sm: 60));
+      @include rule(
+        margin-top,
+        (
+          xl: 60px,
+          xlg: 60,
+          lg: 60,
+          md: 60,
+          sm: 60,
+        )
+      );
     }
   }
 
@@ -1429,19 +1843,19 @@
     #{$b}_search-card & {
       margin-top: 22px;
 
-      @include screen('xlg', max, 2) {
+      @include screen("xlg", max, 2) {
         margin-top: pxtovw(22, 1660);
       }
 
-      @include screen('lg', max, 2) {
+      @include screen("lg", max, 2) {
         margin-top: pxtovw(22, 1366);
       }
 
-      @include screen('md', max, 2) {
+      @include screen("md", max, 2) {
         margin-top: pxtovw(22, 960);
       }
 
-      @include screen('sm', max, 2) {
+      @include screen("sm", max, 2) {
         margin-top: auto;
       }
 
@@ -1453,41 +1867,99 @@
     #{$b}_search-card_v2 & {
       margin-top: 0;
     }
+
+    #{$b}_search-card_v3 & {
+      margin-top: 0;
+    }
   }
 
   &__offer-list {
-    @include rule(margin-top, (xl: 23px, xlg: 23, lg: 17, md: 23, sm: 22));
-    @include rule(padding-left, (xl: 30px, xlg: 30, lg: 0, md: 25, sm: 16));
-    @include rule(padding-right, (sm: 16));
+    @include rule(
+      margin-top,
+      (
+        xl: 23px,
+        xlg: 23,
+        lg: 17,
+        md: 23,
+        sm: 22,
+      )
+    );
+    @include rule(
+      padding-left,
+      (
+        xl: 30px,
+        xlg: 30,
+        lg: 0,
+        md: 25,
+        sm: 16,
+      )
+    );
+    @include rule(
+      padding-right,
+      (
+        sm: 16,
+      )
+    );
 
     grid-column: 2 / 3;
     grid-row: 2 / 3;
     box-sizing: border-box;
 
-    @include screen('lg', max, 2) {
+    @include screen("lg", max, 2) {
       grid-column: 1 / 3;
       grid-row: 2 / 3;
     }
 
-    @include screen('md', max, 2) {
-      grid-column:  2 / 3;
+    @include screen("md", max, 2) {
+      grid-column: 2 / 3;
       grid-row: 2 / 3;
     }
 
-    @include screen('sm', max, 2) {
+    @include screen("sm", max, 2) {
       grid-column: 1 / 2;
       grid-row: 3 / 4;
+    }
+
+    #{$b}_search-card_v3 & {
+      @include rule(
+        padding-left,
+        (
+          xl: 25px,
+          xlg: 25,
+          lg: 0,
+          md: 25,
+          sm: 16,
+        )
+      );
     }
   }
 
   &__table {
     &:not(:first-child) {
-      @include rule(margin-top, (xl: 34px, xlg: 34, lg: 20, md: 34, sm: 12));
+      @include rule(
+        margin-top,
+        (
+          xl: 34px,
+          xlg: 34,
+          lg: 20,
+          md: 34,
+          sm: 12,
+        )
+      );
     }
 
     #{$b}_single-offer_short & {
       &:not(:first-child) {
-        @include rule(margin-top, (xl: 34px, xlg: 34, lg: 36, md: 15, sm: 34));
+        @include rule(
+          margin-top,
+          (
+            xl: 34px,
+            xlg: 34,
+            lg: 36,
+            md: 15,
+            sm: 34,
+          )
+        );
       }
     }
   }
@@ -1501,31 +1973,81 @@
     line-height: (15 / 12);
     color: $color-gray-lightest;
 
-    @include rule(font-size, (xl: 12px, xlg: 12, lg: 12, md: 12, sm: 12));
+    @include rule(
+      font-size,
+      (
+        xl: 12px,
+        xlg: 12,
+        lg: 12,
+        md: 12,
+        sm: 12,
+      )
+    );
 
     #{$b}_search-card_v2 & {
-      @include rule(font-size, (xl: 12px, xlg: 12, lg: 11, md: 12, sm: 12));
+      @include rule(
+        font-size,
+        (
+          xl: 12px,
+          xlg: 12,
+          lg: 11,
+          md: 12,
+          sm: 12,
+        )
+      );
+    }
+
+    #{$b}_search-card_v3 & {
+      @include rule(
+        font-size,
+        (
+          xl: 12px,
+          xlg: 12,
+          lg: 11,
+          md: 12,
+          sm: 12,
+        )
+      );
     }
 
     #{$b}_rs & {
       color: $nd-color-gray-text;
       line-height: (18 / 15);
 
-      @include rule(font-size, (xl: 15px, xlg: 15, lg: 15, md: 15, sm: 15));
+      @include rule(
+        font-size,
+        (
+          xl: 15px,
+          xlg: 15,
+          lg: 15,
+          md: 15,
+          sm: 15,
+        )
+      );
     }
 
-    span, a {
+    span,
+    a {
       position: relative;
       display: block;
       box-sizing: border-box;
 
       &:not(:last-child) {
-        @include rule(padding-right, (xl: 23px, xlg: 23, lg: 23, md: 23, sm: 23));
+        @include rule(
+          padding-right,
+          (
+            xl: 23px,
+            xlg: 23,
+            lg: 23,
+            md: 23,
+            sm: 23,
+          )
+        );
 
         &::after {
           position: absolute;
           display: inline-block;
-          content: '-';
+          content: "-";
           height: 100%;
           text-align: center;
           vertical-align: middle;
@@ -1533,22 +2055,93 @@
           right: 0;
           transform: translate3d(0, -50%, 0);
 
-          @include rule(width, (xl: 23px, xlg: 23, lg: 23, md: 23, sm: 23));
+          @include rule(
+            width,
+            (
+              xl: 23px,
+              xlg: 23,
+              lg: 23,
+              md: 23,
+              sm: 23,
+            )
+          );
         }
 
         #{$b}_rs & {
-          @include rule(padding-right, (xl: 28px, xlg: 28, lg: 28, md: 28, sm: 28));
+          @include rule(
+            padding-right,
+            (
+              xl: 28px,
+              xlg: 28,
+              lg: 28,
+              md: 28,
+              sm: 28,
+            )
+          );
 
           &::after {
-            @include rule(width, (xl: 28px, xlg: 28, lg: 28, md: 28, sm: 28));
+            @include rule(
+              width,
+              (
+                xl: 28px,
+                xlg: 28,
+                lg: 28,
+                md: 28,
+                sm: 28,
+              )
+            );
           }
         }
 
         #{$b}_search-card_v2 & {
-          @include rule(padding-right, (xl: 21px, xlg: 21, lg: 23, md: 23, sm: 23));
+          @include rule(
+            padding-right,
+            (
+              xl: 21px,
+              xlg: 21,
+              lg: 23,
+              md: 23,
+              sm: 23,
+            )
+          );
 
           &::after {
-            @include rule(width, (xl: 21px, xlg: 21, lg: 23, md: 23, sm: 23));
+            @include rule(
+              width,
+              (
+                xl: 21px,
+                xlg: 21,
+                lg: 23,
+                md: 23,
+                sm: 23,
+              )
+            );
+          }
+        }
+
+        #{$b}_search-card_v3 & {
+          @include rule(
+            padding-right,
+            (
+              xl: 21px,
+              xlg: 21,
+              lg: 23,
+              md: 23,
+              sm: 23,
+            )
+          );
+
+          &::after {
+            @include rule(
+              width,
+              (
+                xl: 21px,
+                xlg: 21,
+                lg: 23,
+                md: 23,
+                sm: 23,
+              )
+            );
           }
         }
       }
@@ -1567,28 +2160,28 @@
     transition: color $ease-main;
     fill: currentColor;
 
-    @include screen('xlg', max, 2) {
+    @include screen("xlg", max, 2) {
       top: pxtovw(18, 1660);
       right: pxtovw(15, 1660);
       width: pxtovw(16, 1660);
       height: pxtovw(16, 1660);
     }
 
-    @include screen('lg', max, 2) {
+    @include screen("lg", max, 2) {
       top: pxtovw(18, 1366);
       right: pxtovw(15, 1366);
       width: pxtovw(16, 1366);
       height: pxtovw(16, 1366);
     }
 
-    @include screen('md', max, 2) {
+    @include screen("md", max, 2) {
       top: pxtovw(18, 960);
       right: pxtovw(15, 960);
       width: pxtovw(16, 960);
       height: pxtovw(16, 960);
     }
 
-    @include screen('sm', max, 2) {
+    @include screen("sm", max, 2) {
       top: pxtovw(18, 375);
       right: pxtovw(18, 375);
       width: pxtovw(16, 375);
@@ -1637,19 +2230,19 @@
     padding: 18px 18px 0;
     box-sizing: border-box;
 
-    @include screen('xlg', max, 2) {
+    @include screen("xlg", max, 2) {
       padding: pxtovw(18, 1660) pxtovw(18, 1660) 0;
     }
 
-    @include screen('lg', max, 2) {
+    @include screen("lg", max, 2) {
       padding: pxtovw(18, 1366) pxtovw(18, 1366) 0;
     }
 
-    @include screen('md', max, 2) {
+    @include screen("md", max, 2) {
       padding: pxtovw(15, 960) pxtovw(14, 960) 0;
     }
 
-    @include screen('sm', max, 2) {
+    @include screen("sm", max, 2) {
       padding: pxtovw(15, 375) pxtovw(17, 375) 0;
     }
 
@@ -1657,19 +2250,19 @@
       position: relative;
       padding-right: 36px;
 
-      @include screen('xlg', max, 2) {
+      @include screen("xlg", max, 2) {
         padding-right: pxtovw(36, 1660);
       }
 
-      @include screen('lg', max, 2) {
+      @include screen("lg", max, 2) {
         padding-right: pxtovw(36, 1366);
       }
 
-      @include screen('md', max, 2) {
+      @include screen("md", max, 2) {
         padding: pxtovw(19, 960) pxtovw(30, 960) 0 pxtovw(18, 960);
       }
 
-      @include screen('sm', max, 2) {
+      @include screen("sm", max, 2) {
         padding: pxtovw(17, 375) pxtovw(32, 375) 0 pxtovw(16, 375);
       }
     }
@@ -1677,8 +2270,23 @@
     #{$b}_search-offer & {
       position: relative;
 
-      @include rule(padding-right, (xl: 36px, xlg: 36, lg: 36, md: 30, sm: 32));
-      @include rule(padding-top, (md: 19, sm: 17));
+      @include rule(
+        padding-right,
+        (
+          xl: 36px,
+          xlg: 36,
+          lg: 36,
+          md: 30,
+          sm: 32,
+        )
+      );
+      @include rule(
+        padding-top,
+        (
+          md: 19,
+          sm: 17,
+        )
+      );
     }
 
     #{$b}_single-offer & {
@@ -1689,15 +2297,15 @@
       justify-content: space-between;
       align-items: center;
 
-      @include screen('lg', max, 2) {
+      @include screen("lg", max, 2) {
         flex-wrap: wrap;
       }
 
-      @include screen('md', max, 2) {
+      @include screen("md", max, 2) {
         flex-wrap: nowrap;
       }
 
-      @include screen('sm', max, 2) {
+      @include screen("sm", max, 2) {
         flex-wrap: wrap;
       }
     }
@@ -1710,7 +2318,7 @@
       justify-content: space-between;
       align-items: center;
 
-      @include screen('lg', max, 2) {
+      @include screen("lg", max, 2) {
         flex-wrap: wrap;
       }
     }
@@ -1718,15 +2326,15 @@
     #{$b}_side-nav & {
       padding: 0 30px;
 
-      @include screen('xlg', max, 2) {
+      @include screen("xlg", max, 2) {
         padding: 0 pxtovw(30, 1660);
       }
 
-      @include screen('lg', max, 2) {
+      @include screen("lg", max, 2) {
         padding: 0 pxtovw(30, 1366);
       }
 
-      @include screen('md', max, 2) {
+      @include screen("md", max, 2) {
         padding: 0;
       }
     }
@@ -1739,19 +2347,19 @@
       &:not(:first-child) {
         margin-left: 26px;
 
-        @include screen('xlg', max, 2) {
+        @include screen("xlg", max, 2) {
           margin-left: pxtovw(26, 1660);
         }
 
-        @include screen('lg', max, 2) {
+        @include screen("lg", max, 2) {
           margin-left: pxtovw(24, 1366);
         }
 
-        @include screen('md', max, 2) {
+        @include screen("md", max, 2) {
           margin-left: pxtovw(24, 960);
         }
 
-        @include screen('sm', max, 2) {
+        @include screen("sm", max, 2) {
           margin-left: pxtovw(12, 375);
         }
       }
@@ -1762,19 +2370,19 @@
     &:not(:first-child) {
       margin-top: 58px;
 
-      @include screen('xlg', max, 2) {
+      @include screen("xlg", max, 2) {
         margin-top: pxtovw(58, 1660);
       }
 
-      @include screen('lg', max, 2) {
+      @include screen("lg", max, 2) {
         margin-top: pxtovw(58, 1366);
       }
 
-      @include screen('md', max, 2) {
+      @include screen("md", max, 2) {
         margin-top: pxtovw(48, 960);
       }
 
-      @include screen('sm', max, 2) {
+      @include screen("sm", max, 2) {
         margin-top: pxtovw(48, 375);
       }
     }
@@ -1787,38 +2395,38 @@
     &:not(:first-child) {
       margin-top: 16px;
 
-      @include screen('xlg', max, 2) {
+      @include screen("xlg", max, 2) {
         margin-top: pxtovw(16, 1660);
       }
 
-      @include screen('lg', max, 2) {
+      @include screen("lg", max, 2) {
         margin-top: pxtovw(14, 1366);
       }
 
-      @include screen('md', max, 2) {
+      @include screen("md", max, 2) {
         margin-top: pxtovw(11, 960);
       }
 
-      @include screen('sm', max, 2) {
+      @include screen("sm", max, 2) {
         margin-top: pxtovw(9, 375);
       }
 
       #{$b}_search-offer_short & {
         margin-top: 20px;
 
-        @include screen('xlg', max, 2) {
+        @include screen("xlg", max, 2) {
           margin-top: pxtovw(20, 1660);
         }
 
-        @include screen('lg', max, 2) {
+        @include screen("lg", max, 2) {
           margin-top: pxtovw(25, 1366);
         }
 
-        @include screen('md', max, 2) {
+        @include screen("md", max, 2) {
           margin-top: pxtovw(17, 960);
         }
 
-        @include screen('sm', max, 2) {
+        @include screen("sm", max, 2) {
           margin-top: pxtovw(14, 375);
         }
       }
@@ -1831,7 +2439,7 @@
     width: 100%;
 
     #{$b}_rs & {
-      @include screen('md', max, 2) {
+      @include screen("md", max, 2) {
         flex-wrap: wrap;
         align-items: flex-start;
         align-content: flex-start;
@@ -1841,19 +2449,19 @@
     &:not(:last-child) {
       margin-bottom: 6px;
 
-      @include screen('xlg', max, 2) {
+      @include screen("xlg", max, 2) {
         margin-bottom: pxtovw(6, 1660);
       }
 
-      @include screen('lg', max, 2) {
+      @include screen("lg", max, 2) {
         margin-bottom: pxtovw(6, 1366);
       }
 
-      @include screen('md', max, 2) {
+      @include screen("md", max, 2) {
         margin-bottom: pxtovw(6, 960);
       }
 
-      @include screen('sm', max, 2) {
+      @include screen("sm", max, 2) {
         margin-bottom: pxtovw(6, 375);
       }
     }
@@ -1862,27 +2470,27 @@
   &__tube {
     display: inline-block;
 
-    @include screen('md', max, 2) {
+    @include screen("md", max, 2) {
       width: 100%;
     }
 
     &:not(:first-child) {
       margin-left: 20px;
 
-      @include screen('xlg', max, 2) {
+      @include screen("xlg", max, 2) {
         margin-left: pxtovw(20, 1660);
       }
 
-      @include screen('lg', max, 2) {
+      @include screen("lg", max, 2) {
         margin-left: pxtovw(20, 1366);
       }
 
-      @include screen('md', max, 2) {
+      @include screen("md", max, 2) {
         margin-left: 0;
         margin-top: pxtovw(17, 960);
       }
 
-      @include screen('sm', max, 2) {
+      @include screen("sm", max, 2) {
         margin-top: pxtovw(17, 375);
       }
     }
@@ -1901,13 +2509,58 @@
     font-weight: 400;
     letter-spacing: normal;
 
-    @include rule(font-size, (xl: 16px, xlg: 16, lg: 16, md: 16, sm: 16));
-    @include rule(height, (xl: 52px, xlg: 52, lg: 52, md: 52, sm: 52));
-    @include rule(padding-left, (xl: 40px, xlg: 40, lg: 40, md: 40, sm: 40));
-    @include rule(padding-right, (xl: 40px, xlg: 40, lg: 40, md: 40, sm: 40));
+    @include rule(
+      font-size,
+      (
+        xl: 16px,
+        xlg: 16,
+        lg: 16,
+        md: 16,
+        sm: 16,
+      )
+    );
+    @include rule(
+      height,
+      (
+        xl: 52px,
+        xlg: 52,
+        lg: 52,
+        md: 52,
+        sm: 52,
+      )
+    );
+    @include rule(
+      padding-left,
+      (
+        xl: 40px,
+        xlg: 40,
+        lg: 40,
+        md: 40,
+        sm: 40,
+      )
+    );
+    @include rule(
+      padding-right,
+      (
+        xl: 40px,
+        xlg: 40,
+        lg: 40,
+        md: 40,
+        sm: 40,
+      )
+    );
 
     &:not(:first-child) {
-      @include rule(margin-top, (xl: 23px, xlg: 23, lg: 23, md: 23, sm: 23));
+      @include rule(
+        margin-top,
+        (
+          xl: 23px,
+          xlg: 23,
+          lg: 23,
+          md: 23,
+          sm: 23,
+        )
+      );
     }
 
     #{$b}_search-card_v2 & {
@@ -1915,15 +2568,75 @@
       grid-column: 1 / 3;
       grid-row: 3 / 4;
 
-      @include screen('sm', max, 2) {
+      @include screen("sm", max, 2) {
         grid-column: 1 / 2;
         grid-row: 4 / 5;
       }
 
       &::before {
         @include pseudo;
-        @include rule(width, (xl: 40px, xlg: 40, lg: 40, md: 40, sm: 40));
-        @include rule(background-size, (xl: 10px, xlg: 10, lg: 10, md: 10, sm: 10));
+        @include rule(
+          width,
+          (
+            xl: 40px,
+            xlg: 40,
+            lg: 40,
+            md: 40,
+            sm: 40,
+          )
+        );
+        @include rule(
+          background-size,
+          (
+            xl: 10px,
+            xlg: 10,
+            lg: 10,
+            md: 10,
+            sm: 10,
+          )
+        );
+
+        top: 0;
+        left: 0;
+        bottom: 0;
+        background-repeat: no-repeat;
+        background-position: 50% 50%;
+        background-image: $icon-small-burger-blue;
+      }
+    }
+
+    #{$b}_search-card_v3 & {
+      position: relative;
+      grid-column: 1 / 3;
+      grid-row: 3 / 4;
+
+      @include screen("sm", max, 2) {
+        grid-column: 1 / 2;
+        grid-row: 4 / 5;
+      }
+
+      &::before {
+        @include pseudo;
+        @include rule(
+          width,
+          (
+            xl: 40px,
+            xlg: 40,
+            lg: 40,
+            md: 40,
+            sm: 40,
+          )
+        );
+        @include rule(
+          background-size,
+          (
+            xl: 10px,
+            xlg: 10,
+            lg: 10,
+            md: 10,
+            sm: 10,
+          )
+        );
 
         top: 0;
         left: 0;
@@ -1942,22 +2655,23 @@
     align-items: center;
     background-color: $nd-color-basic-light;
     border-radius: 3px;
-    box-shadow: 1px 1px 1px rgba(0, 0, 0, .03), 2px 2px 2px rgba(0, 0, 0, .04), 3px 3px 3px rgba(0, 0, 0, .02);
+    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.03), 2px 2px 2px rgba(0, 0, 0, 0.04),
+      3px 3px 3px rgba(0, 0, 0, 0.02);
     overflow: hidden;
 
-    @include screen('xlg', max, 2) {
+    @include screen("xlg", max, 2) {
       border-radius: pxtovw(3, 1660);
     }
 
-    @include screen('lg', max, 2) {
+    @include screen("lg", max, 2) {
       border-radius: pxtovw(3, 1366);
     }
 
-    @include screen('md', max, 2) {
+    @include screen("md", max, 2) {
       border-radius: pxtovw(3, 960);
     }
 
-    @include screen('sm', max, 2) {
+    @include screen("sm", max, 2) {
       border-radius: pxtovw(3, 375);
     }
   }
@@ -1969,37 +2683,50 @@
     align-items: flex-start;
     background-color: $nd-color-basic-light;
     border-radius: 3px;
-    box-shadow: 1px 1px 1px rgba(0, 0, 0, .03), 2px 2px 2px rgba(0, 0, 0, .04), 3px 3px 3px rgba(0, 0, 0, .02);
+    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.03), 2px 2px 2px rgba(0, 0, 0, 0.04),
+      3px 3px 3px rgba(0, 0, 0, 0.02);
     overflow: hidden;
     padding: 25px 25px 20px;
     transition: box-shadow $ease-main;
 
-    @include screen('xlg', max, 2) {
+    @include screen("xlg", max, 2) {
       border-radius: pxtovw(3, 1660);
       padding: pxtovw(25, 1660) pxtovw(25, 1660) pxtovw(20, 1660);
-      box-shadow: pxtovw(1, 1660) pxtovw(1, 1660) pxtovw(1, 1660) rgba(0, 0, 0, .03), pxtovw(2, 1660) pxtovw(2, 1660) pxtovw(2, 1660) rgba(0, 0, 0, .04), pxtovw(3, 1660) pxtovw(3, 1660) pxtovw(3, 1660) rgba(0, 0, 0, .02);
+      box-shadow: pxtovw(1, 1660) pxtovw(1, 1660) pxtovw(1, 1660)
+          rgba(0, 0, 0, 0.03),
+        pxtovw(2, 1660) pxtovw(2, 1660) pxtovw(2, 1660) rgba(0, 0, 0, 0.04),
+        pxtovw(3, 1660) pxtovw(3, 1660) pxtovw(3, 1660) rgba(0, 0, 0, 0.02);
     }
 
-    @include screen('lg', max, 2) {
+    @include screen("lg", max, 2) {
       border-radius: pxtovw(3, 1366);
       padding: pxtovw(25, 1366) pxtovw(25, 1366) pxtovw(20, 1366);
-      box-shadow: pxtovw(1, 1366) pxtovw(1, 1366) pxtovw(1, 1366) rgba(0, 0, 0, .03), pxtovw(2, 1366) pxtovw(2, 1366) pxtovw(2, 1366) rgba(0, 0, 0, .04), pxtovw(3, 1366) pxtovw(3, 1366) pxtovw(3, 1366) rgba(0, 0, 0, .02);
+      box-shadow: pxtovw(1, 1366) pxtovw(1, 1366) pxtovw(1, 1366)
+          rgba(0, 0, 0, 0.03),
+        pxtovw(2, 1366) pxtovw(2, 1366) pxtovw(2, 1366) rgba(0, 0, 0, 0.04),
+        pxtovw(3, 1366) pxtovw(3, 1366) pxtovw(3, 1366) rgba(0, 0, 0, 0.02);
     }
 
-    @include screen('md', max, 2) {
+    @include screen("md", max, 2) {
       border-radius: pxtovw(3, 960);
       padding: pxtovw(25, 960) pxtovw(25, 960) pxtovw(20, 960);
-      box-shadow: pxtovw(1, 960) pxtovw(1, 960) pxtovw(1, 960) rgba(0, 0, 0, .03), pxtovw(2, 960) pxtovw(2, 960) pxtovw(2, 960) rgba(0, 0, 0, .04), pxtovw(3, 960) pxtovw(3, 960) pxtovw(3, 960) rgba(0, 0, 0, .02);
+      box-shadow: pxtovw(1, 960) pxtovw(1, 960) pxtovw(1, 960)
+          rgba(0, 0, 0, 0.03),
+        pxtovw(2, 960) pxtovw(2, 960) pxtovw(2, 960) rgba(0, 0, 0, 0.04),
+        pxtovw(3, 960) pxtovw(3, 960) pxtovw(3, 960) rgba(0, 0, 0, 0.02);
     }
 
-    @include screen('sm', max, 2) {
+    @include screen("sm", max, 2) {
       display: flex;
       flex-direction: column;
       justify-content: flex-start;
       align-items: center;
       border-radius: pxtovw(3, 375);
       padding: 0;
-      box-shadow: pxtovw(1, 375) pxtovw(1, 375) pxtovw(1, 375) rgba(0, 0, 0, .03), pxtovw(2, 375) pxtovw(2, 375) pxtovw(2, 375) rgba(0, 0, 0, .04), pxtovw(3, 375) pxtovw(3, 375) pxtovw(3, 375) rgba(0, 0, 0, .02);
+      box-shadow: pxtovw(1, 375) pxtovw(1, 375) pxtovw(1, 375)
+          rgba(0, 0, 0, 0.03),
+        pxtovw(2, 375) pxtovw(2, 375) pxtovw(2, 375) rgba(0, 0, 0, 0.04),
+        pxtovw(3, 375) pxtovw(3, 375) pxtovw(3, 375) rgba(0, 0, 0, 0.02);
     }
 
     .is-search-map-hide & {
@@ -2011,22 +2738,35 @@
     }
 
     &:hover {
-      box-shadow: 1px 1px 1px rgba(0, 0, 0, .03), 2px 2px 2px rgba(0, 0, 0, .04), 3px 3px 3px rgba(0, 0, 0, .07);
+      box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.03),
+        2px 2px 2px rgba(0, 0, 0, 0.04), 3px 3px 3px rgba(0, 0, 0, 0.07);
 
-      @include screen('xlg', max, 2) {
-        box-shadow: pxtovw(1, 1660) pxtovw(1, 1660) pxtovw(1, 1660) rgba(0, 0, 0, .03), pxtovw(2, 1660) pxtovw(2, 1660) pxtovw(2, 1660) rgba(0, 0, 0, .04), pxtovw(3, 1660) pxtovw(3, 1660) pxtovw(3, 1660) rgba(0, 0, 0, .07);
+      @include screen("xlg", max, 2) {
+        box-shadow: pxtovw(1, 1660) pxtovw(1, 1660) pxtovw(1, 1660)
+            rgba(0, 0, 0, 0.03),
+          pxtovw(2, 1660) pxtovw(2, 1660) pxtovw(2, 1660) rgba(0, 0, 0, 0.04),
+          pxtovw(3, 1660) pxtovw(3, 1660) pxtovw(3, 1660) rgba(0, 0, 0, 0.07);
       }
 
-      @include screen('lg', max, 2) {
-        box-shadow: pxtovw(1, 1366) pxtovw(1, 1366) pxtovw(1, 1366) rgba(0, 0, 0, .03), pxtovw(2, 1366) pxtovw(2, 1366) pxtovw(2, 1366) rgba(0, 0, 0, .04), pxtovw(3, 1366) pxtovw(3, 1366) pxtovw(3, 1366) rgba(0, 0, 0, .07);
+      @include screen("lg", max, 2) {
+        box-shadow: pxtovw(1, 1366) pxtovw(1, 1366) pxtovw(1, 1366)
+            rgba(0, 0, 0, 0.03),
+          pxtovw(2, 1366) pxtovw(2, 1366) pxtovw(2, 1366) rgba(0, 0, 0, 0.04),
+          pxtovw(3, 1366) pxtovw(3, 1366) pxtovw(3, 1366) rgba(0, 0, 0, 0.07);
       }
 
-      @include screen('md', max, 2) {
-        box-shadow: pxtovw(1, 960) pxtovw(1, 960) pxtovw(1, 960) rgba(0, 0, 0, .03), pxtovw(2, 960) pxtovw(2, 960) pxtovw(2, 960) rgba(0, 0, 0, .04), pxtovw(3, 960) pxtovw(3, 960) pxtovw(3, 960) rgba(0, 0, 0, .07);
+      @include screen("md", max, 2) {
+        box-shadow: pxtovw(1, 960) pxtovw(1, 960) pxtovw(1, 960)
+            rgba(0, 0, 0, 0.03),
+          pxtovw(2, 960) pxtovw(2, 960) pxtovw(2, 960) rgba(0, 0, 0, 0.04),
+          pxtovw(3, 960) pxtovw(3, 960) pxtovw(3, 960) rgba(0, 0, 0, 0.07);
       }
 
-      @include screen('sm', max, 2) {
-        box-shadow: pxtovw(1, 375) pxtovw(1, 375) pxtovw(1, 375) rgba(0, 0, 0, .03), pxtovw(2, 375) pxtovw(2, 375) pxtovw(2, 375) rgba(0, 0, 0, .04), pxtovw(3, 375) pxtovw(3, 375) pxtovw(3, 375) rgba(0, 0, 0, .07);
+      @include screen("sm", max, 2) {
+        box-shadow: pxtovw(1, 375) pxtovw(1, 375) pxtovw(1, 375)
+            rgba(0, 0, 0, 0.03),
+          pxtovw(2, 375) pxtovw(2, 375) pxtovw(2, 375) rgba(0, 0, 0, 0.04),
+          pxtovw(3, 375) pxtovw(3, 375) pxtovw(3, 375) rgba(0, 0, 0, 0.07);
       }
 
       #{$b}__title {
@@ -2039,22 +2779,56 @@
       grid-template-columns: 284px 1fr;
       grid-template-rows: repeat(3, auto);
 
-      @include screen('xlg', max, 2) {
+      @include screen("xlg", max, 2) {
         grid-template-columns: pxtovw(284, 1660) 1fr;
       }
 
-      @include screen('lg', max, 2) {
+      @include screen("lg", max, 2) {
         grid-template-columns: pxtovw(196, 1366) 1fr;
       }
 
-      @include screen('md', max, 2) {
+      @include screen("md", max, 2) {
         grid-template-columns: pxtovw(219, 960) 1fr;
       }
 
-      @include screen('sm', max, 2) {
+      @include screen("sm", max, 2) {
         grid-template-columns: 100%;
         grid-template-rows: repeat(4, auto);
       }
+    }
+
+    &_v3 {
+      display: grid;
+      grid-template-columns: 284px 1fr;
+      grid-template-rows: repeat(3, auto);
+
+      @include screen("xlg", max, 2) {
+        grid-template-columns: pxtovw(284, 1660) 1fr;
+      }
+
+      @include screen("lg", max, 2) {
+        grid-template-columns: pxtovw(196, 1366) 1fr;
+      }
+
+      @include screen("md", max, 2) {
+        grid-template-columns: pxtovw(219, 960) 1fr;
+      }
+
+      @include screen("sm", max, 2) {
+        grid-template-columns: 100%;
+        grid-template-rows: repeat(4, auto);
+      }
+
+      @include rule(
+        padding,
+        (
+          xl: 25px 25px 30px,
+          xlg: 25 25 30,
+          lg: 25 25 30,
+          md: 25 25 30,
+          sm: 0,
+        )
+      );
     }
   }
 
@@ -2065,56 +2839,83 @@
     align-items: flex-start;
     background-color: $nd-color-basic-light;
     border-radius: 3px;
-    box-shadow: 1px 1px 1px rgba(0, 0, 0, .03), 2px 2px 2px rgba(0, 0, 0, .04), 3px 3px 3px rgba(0, 0, 0, .02);
+    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.03), 2px 2px 2px rgba(0, 0, 0, 0.04),
+      3px 3px 3px rgba(0, 0, 0, 0.02);
     overflow: hidden;
     padding: 25px 25px 20px;
     transition: box-shadow $ease-main;
 
-    @include screen('xlg', max, 2) {
+    @include screen("xlg", max, 2) {
       border-radius: pxtovw(3, 1660);
       padding: pxtovw(25, 1660) pxtovw(25, 1660) pxtovw(20, 1660);
-      box-shadow: pxtovw(1, 1660) pxtovw(1, 1660) pxtovw(1, 1660) rgba(0, 0, 0, .03), pxtovw(2, 1660) pxtovw(2, 1660) pxtovw(2, 1660) rgba(0, 0, 0, .04), pxtovw(3, 1660) pxtovw(3, 1660) pxtovw(3, 1660) rgba(0, 0, 0, .02);
+      box-shadow: pxtovw(1, 1660) pxtovw(1, 1660) pxtovw(1, 1660)
+          rgba(0, 0, 0, 0.03),
+        pxtovw(2, 1660) pxtovw(2, 1660) pxtovw(2, 1660) rgba(0, 0, 0, 0.04),
+        pxtovw(3, 1660) pxtovw(3, 1660) pxtovw(3, 1660) rgba(0, 0, 0, 0.02);
     }
 
-    @include screen('lg', max, 2) {
+    @include screen("lg", max, 2) {
       border-radius: pxtovw(3, 1366);
-      padding: pxtovw(25, 1366) pxtovw(28, 1366) pxtovw(23, 1366) pxtovw(25, 1366);
-      box-shadow: pxtovw(1, 1366) pxtovw(1, 1366) pxtovw(1, 1366) rgba(0, 0, 0, .03), pxtovw(2, 1366) pxtovw(2, 1366) pxtovw(2, 1366) rgba(0, 0, 0, .04), pxtovw(3, 1366) pxtovw(3, 1366) pxtovw(3, 1366) rgba(0, 0, 0, .02);
+      padding: pxtovw(25, 1366) pxtovw(28, 1366) pxtovw(23, 1366)
+        pxtovw(25, 1366);
+      box-shadow: pxtovw(1, 1366) pxtovw(1, 1366) pxtovw(1, 1366)
+          rgba(0, 0, 0, 0.03),
+        pxtovw(2, 1366) pxtovw(2, 1366) pxtovw(2, 1366) rgba(0, 0, 0, 0.04),
+        pxtovw(3, 1366) pxtovw(3, 1366) pxtovw(3, 1366) rgba(0, 0, 0, 0.02);
     }
 
-    @include screen('md', max, 2) {
+    @include screen("md", max, 2) {
       border-radius: pxtovw(3, 960);
       padding: pxtovw(25, 960) pxtovw(25, 960) pxtovw(20, 960);
-      box-shadow: pxtovw(1, 960) pxtovw(1, 960) pxtovw(1, 960) rgba(0, 0, 0, .03), pxtovw(2, 960) pxtovw(2, 960) pxtovw(2, 960) rgba(0, 0, 0, .04), pxtovw(3, 960) pxtovw(3, 960) pxtovw(3, 960) rgba(0, 0, 0, .02);
+      box-shadow: pxtovw(1, 960) pxtovw(1, 960) pxtovw(1, 960)
+          rgba(0, 0, 0, 0.03),
+        pxtovw(2, 960) pxtovw(2, 960) pxtovw(2, 960) rgba(0, 0, 0, 0.04),
+        pxtovw(3, 960) pxtovw(3, 960) pxtovw(3, 960) rgba(0, 0, 0, 0.02);
     }
 
-    @include screen('sm', max, 2) {
+    @include screen("sm", max, 2) {
       display: flex;
       flex-direction: column;
       justify-content: flex-start;
       align-items: center;
       border-radius: pxtovw(3, 375);
       padding: 0;
-      box-shadow: pxtovw(1, 375) pxtovw(1, 375) pxtovw(1, 375) rgba(0, 0, 0, .03), pxtovw(2, 375) pxtovw(2, 375) pxtovw(2, 375) rgba(0, 0, 0, .04), pxtovw(3, 375) pxtovw(3, 375) pxtovw(3, 375) rgba(0, 0, 0, .02);
+      box-shadow: pxtovw(1, 375) pxtovw(1, 375) pxtovw(1, 375)
+          rgba(0, 0, 0, 0.03),
+        pxtovw(2, 375) pxtovw(2, 375) pxtovw(2, 375) rgba(0, 0, 0, 0.04),
+        pxtovw(3, 375) pxtovw(3, 375) pxtovw(3, 375) rgba(0, 0, 0, 0.02);
     }
 
     &:hover {
-      box-shadow: 1px 1px 1px rgba(0, 0, 0, .03), 2px 2px 2px rgba(0, 0, 0, .04), 3px 3px 3px rgba(0, 0, 0, .07);
+      box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.03),
+        2px 2px 2px rgba(0, 0, 0, 0.04), 3px 3px 3px rgba(0, 0, 0, 0.07);
 
-      @include screen('xlg', max, 2) {
-        box-shadow: pxtovw(1, 1660) pxtovw(1, 1660) pxtovw(1, 1660) rgba(0, 0, 0, .03), pxtovw(2, 1660) pxtovw(2, 1660) pxtovw(2, 1660) rgba(0, 0, 0, .04), pxtovw(3, 1660) pxtovw(3, 1660) pxtovw(3, 1660) rgba(0, 0, 0, .07);
+      @include screen("xlg", max, 2) {
+        box-shadow: pxtovw(1, 1660) pxtovw(1, 1660) pxtovw(1, 1660)
+            rgba(0, 0, 0, 0.03),
+          pxtovw(2, 1660) pxtovw(2, 1660) pxtovw(2, 1660) rgba(0, 0, 0, 0.04),
+          pxtovw(3, 1660) pxtovw(3, 1660) pxtovw(3, 1660) rgba(0, 0, 0, 0.07);
       }
 
-      @include screen('lg', max, 2) {
-        box-shadow: pxtovw(1, 1366) pxtovw(1, 1366) pxtovw(1, 1366) rgba(0, 0, 0, .03), pxtovw(2, 1366) pxtovw(2, 1366) pxtovw(2, 1366) rgba(0, 0, 0, .04), pxtovw(3, 1366) pxtovw(3, 1366) pxtovw(3, 1366) rgba(0, 0, 0, .07);
+      @include screen("lg", max, 2) {
+        box-shadow: pxtovw(1, 1366) pxtovw(1, 1366) pxtovw(1, 1366)
+            rgba(0, 0, 0, 0.03),
+          pxtovw(2, 1366) pxtovw(2, 1366) pxtovw(2, 1366) rgba(0, 0, 0, 0.04),
+          pxtovw(3, 1366) pxtovw(3, 1366) pxtovw(3, 1366) rgba(0, 0, 0, 0.07);
       }
 
-      @include screen('md', max, 2) {
-        box-shadow: pxtovw(1, 960) pxtovw(1, 960) pxtovw(1, 960) rgba(0, 0, 0, .03), pxtovw(2, 960) pxtovw(2, 960) pxtovw(2, 960) rgba(0, 0, 0, .04), pxtovw(3, 960) pxtovw(3, 960) pxtovw(3, 960) rgba(0, 0, 0, .07);
+      @include screen("md", max, 2) {
+        box-shadow: pxtovw(1, 960) pxtovw(1, 960) pxtovw(1, 960)
+            rgba(0, 0, 0, 0.03),
+          pxtovw(2, 960) pxtovw(2, 960) pxtovw(2, 960) rgba(0, 0, 0, 0.04),
+          pxtovw(3, 960) pxtovw(3, 960) pxtovw(3, 960) rgba(0, 0, 0, 0.07);
       }
 
-      @include screen('sm', max, 2) {
-        box-shadow: pxtovw(1, 375) pxtovw(1, 375) pxtovw(1, 375) rgba(0, 0, 0, .03), pxtovw(2, 375) pxtovw(2, 375) pxtovw(2, 375) rgba(0, 0, 0, .04), pxtovw(3, 375) pxtovw(3, 375) pxtovw(3, 375) rgba(0, 0, 0, .07);
+      @include screen("sm", max, 2) {
+        box-shadow: pxtovw(1, 375) pxtovw(1, 375) pxtovw(1, 375)
+            rgba(0, 0, 0, 0.03),
+          pxtovw(2, 375) pxtovw(2, 375) pxtovw(2, 375) rgba(0, 0, 0, 0.04),
+          pxtovw(3, 375) pxtovw(3, 375) pxtovw(3, 375) rgba(0, 0, 0, 0.07);
       }
 
       #{$b}__title {
@@ -2125,30 +2926,54 @@
     &.is-active {
       box-shadow: boxShadow(0, 0, 0, 2, $nd-color-main, false, true);
 
-      @include screen('xlg', max, 2) {
+      @include screen("xlg", max, 2) {
         box-shadow: boxShadow(0, 0, 0, 2, $nd-color-main, 1660, true);
       }
 
-      @include screen('lg', max, 2) {
+      @include screen("lg", max, 2) {
         box-shadow: boxShadow(0, 0, 0, 2, $nd-color-main, 1366, true);
       }
 
-      @include screen('md', max, 2) {
+      @include screen("md", max, 2) {
         box-shadow: boxShadow(0, 0, 0, 2, $nd-color-main, 960, true);
       }
 
-      @include screen('sm', max, 2) {
+      @include screen("sm", max, 2) {
         box-shadow: boxShadow(0, 0, 0, 2, $nd-color-main, 375, true);
       }
     }
 
     &_short {
-      @include rule(padding-left, (lg: 22, md: 0));
-      @include rule(padding-right, (lg: 22, md: 0));
-      @include rule(padding-top, (lg: 19, md: 0));
-      @include rule(padding-bottom, (lg: 19, md: 0));
+      @include rule(
+        padding-left,
+        (
+          lg: 22,
+          md: 0,
+        )
+      );
+      @include rule(
+        padding-right,
+        (
+          lg: 22,
+          md: 0,
+        )
+      );
+      @include rule(
+        padding-top,
+        (
+          lg: 19,
+          md: 0,
+        )
+      );
+      @include rule(
+        padding-bottom,
+        (
+          lg: 19,
+          md: 0,
+        )
+      );
 
-      @include screen('md', max, 2) {
+      @include screen("md", max, 2) {
         display: flex;
         flex-direction: column;
         justify-content: flex-start;
@@ -2166,47 +2991,73 @@
     align-items: flex-start;
     background-color: $nd-color-basic-light;
     border-radius: 3px;
-    box-shadow: 1px 1px 1px rgba(0, 0, 0, .03), 2px 2px 2px rgba(0, 0, 0, .04), 3px 3px 3px rgba(0, 0, 0, .02);
+    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.03), 2px 2px 2px rgba(0, 0, 0, 0.04),
+      3px 3px 3px rgba(0, 0, 0, 0.02);
     overflow: hidden;
     transition: box-shadow $ease-main;
 
-    @include screen('xlg', max, 2) {
+    @include screen("xlg", max, 2) {
       border-radius: pxtovw(3, 1660);
-      box-shadow: pxtovw(1, 1660) pxtovw(1, 1660) pxtovw(1, 1660) rgba(0, 0, 0, .03), pxtovw(2, 1660) pxtovw(2, 1660) pxtovw(2, 1660) rgba(0, 0, 0, .04), pxtovw(3, 1660) pxtovw(3, 1660) pxtovw(3, 1660) rgba(0, 0, 0, .02);
+      box-shadow: pxtovw(1, 1660) pxtovw(1, 1660) pxtovw(1, 1660)
+          rgba(0, 0, 0, 0.03),
+        pxtovw(2, 1660) pxtovw(2, 1660) pxtovw(2, 1660) rgba(0, 0, 0, 0.04),
+        pxtovw(3, 1660) pxtovw(3, 1660) pxtovw(3, 1660) rgba(0, 0, 0, 0.02);
     }
 
-    @include screen('lg', max, 2) {
+    @include screen("lg", max, 2) {
       border-radius: pxtovw(3, 1366);
-      box-shadow: pxtovw(1, 1366) pxtovw(1, 1366) pxtovw(1, 1366) rgba(0, 0, 0, .03), pxtovw(2, 1366) pxtovw(2, 1366) pxtovw(2, 1366) rgba(0, 0, 0, .04), pxtovw(3, 1366) pxtovw(3, 1366) pxtovw(3, 1366) rgba(0, 0, 0, .02);
+      box-shadow: pxtovw(1, 1366) pxtovw(1, 1366) pxtovw(1, 1366)
+          rgba(0, 0, 0, 0.03),
+        pxtovw(2, 1366) pxtovw(2, 1366) pxtovw(2, 1366) rgba(0, 0, 0, 0.04),
+        pxtovw(3, 1366) pxtovw(3, 1366) pxtovw(3, 1366) rgba(0, 0, 0, 0.02);
     }
 
-    @include screen('md', max, 2) {
+    @include screen("md", max, 2) {
       border-radius: pxtovw(3, 960);
-      box-shadow: pxtovw(1, 960) pxtovw(1, 960) pxtovw(1, 960) rgba(0, 0, 0, .03), pxtovw(2, 960) pxtovw(2, 960) pxtovw(2, 960) rgba(0, 0, 0, .04), pxtovw(3, 960) pxtovw(3, 960) pxtovw(3, 960) rgba(0, 0, 0, .02);
+      box-shadow: pxtovw(1, 960) pxtovw(1, 960) pxtovw(1, 960)
+          rgba(0, 0, 0, 0.03),
+        pxtovw(2, 960) pxtovw(2, 960) pxtovw(2, 960) rgba(0, 0, 0, 0.04),
+        pxtovw(3, 960) pxtovw(3, 960) pxtovw(3, 960) rgba(0, 0, 0, 0.02);
     }
 
-    @include screen('sm', max, 2) {
+    @include screen("sm", max, 2) {
       border-radius: pxtovw(3, 375);
-      box-shadow: pxtovw(1, 375) pxtovw(1, 375) pxtovw(1, 375) rgba(0, 0, 0, .03), pxtovw(2, 375) pxtovw(2, 375) pxtovw(2, 375) rgba(0, 0, 0, .04), pxtovw(3, 375) pxtovw(3, 375) pxtovw(3, 375) rgba(0, 0, 0, .02);
+      box-shadow: pxtovw(1, 375) pxtovw(1, 375) pxtovw(1, 375)
+          rgba(0, 0, 0, 0.03),
+        pxtovw(2, 375) pxtovw(2, 375) pxtovw(2, 375) rgba(0, 0, 0, 0.04),
+        pxtovw(3, 375) pxtovw(3, 375) pxtovw(3, 375) rgba(0, 0, 0, 0.02);
     }
 
     &:hover {
-      box-shadow: 1px 1px 1px rgba(0, 0, 0, .03), 2px 2px 2px rgba(0, 0, 0, .04), 3px 3px 3px rgba(0, 0, 0, .07);
+      box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.03),
+        2px 2px 2px rgba(0, 0, 0, 0.04), 3px 3px 3px rgba(0, 0, 0, 0.07);
 
-      @include screen('xlg', max, 2) {
-        box-shadow: pxtovw(1, 1660) pxtovw(1, 1660) pxtovw(1, 1660) rgba(0, 0, 0, .03), pxtovw(2, 1660) pxtovw(2, 1660) pxtovw(2, 1660) rgba(0, 0, 0, .04), pxtovw(3, 1660) pxtovw(3, 1660) pxtovw(3, 1660) rgba(0, 0, 0, .07);
+      @include screen("xlg", max, 2) {
+        box-shadow: pxtovw(1, 1660) pxtovw(1, 1660) pxtovw(1, 1660)
+            rgba(0, 0, 0, 0.03),
+          pxtovw(2, 1660) pxtovw(2, 1660) pxtovw(2, 1660) rgba(0, 0, 0, 0.04),
+          pxtovw(3, 1660) pxtovw(3, 1660) pxtovw(3, 1660) rgba(0, 0, 0, 0.07);
       }
 
-      @include screen('lg', max, 2) {
-        box-shadow: pxtovw(1, 1366) pxtovw(1, 1366) pxtovw(1, 1366) rgba(0, 0, 0, .03), pxtovw(2, 1366) pxtovw(2, 1366) pxtovw(2, 1366) rgba(0, 0, 0, .04), pxtovw(3, 1366) pxtovw(3, 1366) pxtovw(3, 1366) rgba(0, 0, 0, .07);
+      @include screen("lg", max, 2) {
+        box-shadow: pxtovw(1, 1366) pxtovw(1, 1366) pxtovw(1, 1366)
+            rgba(0, 0, 0, 0.03),
+          pxtovw(2, 1366) pxtovw(2, 1366) pxtovw(2, 1366) rgba(0, 0, 0, 0.04),
+          pxtovw(3, 1366) pxtovw(3, 1366) pxtovw(3, 1366) rgba(0, 0, 0, 0.07);
       }
 
-      @include screen('md', max, 2) {
-        box-shadow: pxtovw(1, 960) pxtovw(1, 960) pxtovw(1, 960) rgba(0, 0, 0, .03), pxtovw(2, 960) pxtovw(2, 960) pxtovw(2, 960) rgba(0, 0, 0, .04), pxtovw(3, 960) pxtovw(3, 960) pxtovw(3, 960) rgba(0, 0, 0, .07);
+      @include screen("md", max, 2) {
+        box-shadow: pxtovw(1, 960) pxtovw(1, 960) pxtovw(1, 960)
+            rgba(0, 0, 0, 0.03),
+          pxtovw(2, 960) pxtovw(2, 960) pxtovw(2, 960) rgba(0, 0, 0, 0.04),
+          pxtovw(3, 960) pxtovw(3, 960) pxtovw(3, 960) rgba(0, 0, 0, 0.07);
       }
 
-      @include screen('sm', max, 2) {
-        box-shadow: pxtovw(1, 375) pxtovw(1, 375) pxtovw(1, 375) rgba(0, 0, 0, .03), pxtovw(2, 375) pxtovw(2, 375) pxtovw(2, 375) rgba(0, 0, 0, .04), pxtovw(3, 375) pxtovw(3, 375) pxtovw(3, 375) rgba(0, 0, 0, .07);
+      @include screen("sm", max, 2) {
+        box-shadow: pxtovw(1, 375) pxtovw(1, 375) pxtovw(1, 375)
+            rgba(0, 0, 0, 0.03),
+          pxtovw(2, 375) pxtovw(2, 375) pxtovw(2, 375) rgba(0, 0, 0, 0.04),
+          pxtovw(3, 375) pxtovw(3, 375) pxtovw(3, 375) rgba(0, 0, 0, 0.07);
       }
 
       #{$b}__title {
@@ -2215,22 +3066,31 @@
     }
 
     &:active {
-      box-shadow: 1px 1px 1px rgba(0, 0, 0, .03), 2px 2px 2px rgba(0, 0, 0, .04);
+      box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.03),
+        2px 2px 2px rgba(0, 0, 0, 0.04);
 
-      @include screen('xlg', max, 2) {
-        box-shadow: pxtovw(1, 1660) pxtovw(1, 1660) pxtovw(1, 1660) rgba(0, 0, 0, .03), pxtovw(2, 1660) pxtovw(2, 1660) pxtovw(2, 1660) rgba(0, 0, 0, .04);
+      @include screen("xlg", max, 2) {
+        box-shadow: pxtovw(1, 1660) pxtovw(1, 1660) pxtovw(1, 1660)
+            rgba(0, 0, 0, 0.03),
+          pxtovw(2, 1660) pxtovw(2, 1660) pxtovw(2, 1660) rgba(0, 0, 0, 0.04);
       }
 
-      @include screen('lg', max, 2) {
-        box-shadow: pxtovw(1, 1366) pxtovw(1, 1366) pxtovw(1, 1366) rgba(0, 0, 0, .03), pxtovw(2, 1366) pxtovw(2, 1366) pxtovw(2, 1366) rgba(0, 0, 0, .04);
+      @include screen("lg", max, 2) {
+        box-shadow: pxtovw(1, 1366) pxtovw(1, 1366) pxtovw(1, 1366)
+            rgba(0, 0, 0, 0.03),
+          pxtovw(2, 1366) pxtovw(2, 1366) pxtovw(2, 1366) rgba(0, 0, 0, 0.04);
       }
 
-      @include screen('md', max, 2) {
-        box-shadow: pxtovw(1, 960) pxtovw(1, 960) pxtovw(1, 960) rgba(0, 0, 0, .03), pxtovw(2, 960) pxtovw(2, 960) pxtovw(2, 960) rgba(0, 0, 0, .04);
+      @include screen("md", max, 2) {
+        box-shadow: pxtovw(1, 960) pxtovw(1, 960) pxtovw(1, 960)
+            rgba(0, 0, 0, 0.03),
+          pxtovw(2, 960) pxtovw(2, 960) pxtovw(2, 960) rgba(0, 0, 0, 0.04);
       }
 
-      @include screen('sm', max, 2) {
-        box-shadow: pxtovw(1, 375) pxtovw(1, 375) pxtovw(1, 375) rgba(0, 0, 0, .03), pxtovw(2, 375) pxtovw(2, 375) pxtovw(2, 375) rgba(0, 0, 0, .04);
+      @include screen("sm", max, 2) {
+        box-shadow: pxtovw(1, 375) pxtovw(1, 375) pxtovw(1, 375)
+            rgba(0, 0, 0, 0.03),
+          pxtovw(2, 375) pxtovw(2, 375) pxtovw(2, 375) rgba(0, 0, 0, 0.04);
       }
     }
   }
@@ -2243,37 +3103,50 @@
     align-items: flex-start;
     background-color: $nd-color-basic-light;
     border-radius: 3px;
-    box-shadow: 1px 1px 1px rgba(0, 0, 0, .03), 2px 2px 2px rgba(0, 0, 0, .04), 3px 3px 3px rgba(0, 0, 0, .02);
+    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.03), 2px 2px 2px rgba(0, 0, 0, 0.04),
+      3px 3px 3px rgba(0, 0, 0, 0.02);
     overflow: hidden;
     padding: 12px 11px 8px;
 
-    @include screen('xlg', max, 2) {
+    @include screen("xlg", max, 2) {
       padding: pxtovw(12, 1660) pxtovw(11, 1660) pxtovw(8, 1660);
       border-radius: pxtovw(3, 1660);
-      box-shadow: pxtovw(1, 1660) pxtovw(1, 1660) pxtovw(1, 1660) rgba(0, 0, 0, .03), pxtovw(2, 1660) pxtovw(2, 1660) pxtovw(2, 1660) rgba(0, 0, 0, .04), pxtovw(3, 1660) pxtovw(3, 1660) pxtovw(3, 1660) rgba(0, 0, 0, .02);
+      box-shadow: pxtovw(1, 1660) pxtovw(1, 1660) pxtovw(1, 1660)
+          rgba(0, 0, 0, 0.03),
+        pxtovw(2, 1660) pxtovw(2, 1660) pxtovw(2, 1660) rgba(0, 0, 0, 0.04),
+        pxtovw(3, 1660) pxtovw(3, 1660) pxtovw(3, 1660) rgba(0, 0, 0, 0.02);
     }
 
-    @include screen('lg', max, 2) {
+    @include screen("lg", max, 2) {
       padding: pxtovw(12, 1366) pxtovw(11, 1366) pxtovw(8, 1366);
       border-radius: pxtovw(3, 1366);
-      box-shadow: pxtovw(1, 1366) pxtovw(1, 1366) pxtovw(1, 1366) rgba(0, 0, 0, .03), pxtovw(2, 1366) pxtovw(2, 1366) pxtovw(2, 1366) rgba(0, 0, 0, .04), pxtovw(3, 1366) pxtovw(3, 1366) pxtovw(3, 1366) rgba(0, 0, 0, .02);
+      box-shadow: pxtovw(1, 1366) pxtovw(1, 1366) pxtovw(1, 1366)
+          rgba(0, 0, 0, 0.03),
+        pxtovw(2, 1366) pxtovw(2, 1366) pxtovw(2, 1366) rgba(0, 0, 0, 0.04),
+        pxtovw(3, 1366) pxtovw(3, 1366) pxtovw(3, 1366) rgba(0, 0, 0, 0.02);
     }
 
-    @include screen('md', max, 2) {
+    @include screen("md", max, 2) {
       padding: pxtovw(12, 960) pxtovw(11, 960) pxtovw(8, 960);
       border-radius: pxtovw(3, 960);
-      box-shadow: pxtovw(1, 960) pxtovw(1, 960) pxtovw(1, 960) rgba(0, 0, 0, .03), pxtovw(2, 960) pxtovw(2, 960) pxtovw(2, 960) rgba(0, 0, 0, .04), pxtovw(3, 960) pxtovw(3, 960) pxtovw(3, 960) rgba(0, 0, 0, .02);
+      box-shadow: pxtovw(1, 960) pxtovw(1, 960) pxtovw(1, 960)
+          rgba(0, 0, 0, 0.03),
+        pxtovw(2, 960) pxtovw(2, 960) pxtovw(2, 960) rgba(0, 0, 0, 0.04),
+        pxtovw(3, 960) pxtovw(3, 960) pxtovw(3, 960) rgba(0, 0, 0, 0.02);
     }
 
-    @include screen('sm', max, 2) {
+    @include screen("sm", max, 2) {
       padding: pxtovw(12, 375) pxtovw(11, 375) pxtovw(8, 375);
       border-radius: pxtovw(3, 375);
-      box-shadow: pxtovw(1, 375) pxtovw(1, 375) pxtovw(1, 375) rgba(0, 0, 0, .03), pxtovw(2, 375) pxtovw(2, 375) pxtovw(2, 375) rgba(0, 0, 0, .04), pxtovw(3, 375) pxtovw(3, 375) pxtovw(3, 375) rgba(0, 0, 0, .02);
+      box-shadow: pxtovw(1, 375) pxtovw(1, 375) pxtovw(1, 375)
+          rgba(0, 0, 0, 0.03),
+        pxtovw(2, 375) pxtovw(2, 375) pxtovw(2, 375) rgba(0, 0, 0, 0.04),
+        pxtovw(3, 375) pxtovw(3, 375) pxtovw(3, 375) rgba(0, 0, 0, 0.02);
     }
   }
 
   &_rs {
-    @include screen('sm', max, 2) {
+    @include screen("sm", max, 2) {
       display: flex;
       justify-content: flex-start;
       align-items: flex-start;
@@ -2286,22 +3159,22 @@
         width: 10px;
         height: 10px;
 
-        @include screen('xlg', max, 2) {
+        @include screen("xlg", max, 2) {
           width: pxtovw(10, 1660);
           height: pxtovw(10, 1660);
         }
 
-        @include screen('lg', max, 2) {
+        @include screen("lg", max, 2) {
           width: pxtovw(10, 1366);
           height: pxtovw(10, 1366);
         }
 
-        @include screen('md', max, 2) {
+        @include screen("md", max, 2) {
           width: pxtovw(7, 960);
           height: pxtovw(7, 960);
         }
 
-        @include screen('sm', max, 2) {
+        @include screen("sm", max, 2) {
           width: pxtovw(7, 375);
           height: pxtovw(7, 375);
         }
@@ -2318,29 +3191,60 @@
   }
 
   &_listing {
-    @include rule(border-radius, (xl: 3px, xlg: 3, lg: 3, md: 3, sm: 3));
-    @include rule(border-width, (xl: 1px, xlg: 1, lg: 1, md: 1, sm: 0));
+    @include rule(
+      border-radius,
+      (
+        xl: 3px,
+        xlg: 3,
+        lg: 3,
+        md: 3,
+        sm: 3,
+      )
+    );
+    @include rule(
+      border-width,
+      (
+        xl: 1px,
+        xlg: 1,
+        lg: 1,
+        md: 1,
+        sm: 0,
+      )
+    );
 
     box-sizing: border-box;
     border-style: solid;
     border-color: #e5eef0;
     overflow: hidden;
-    box-shadow: 3px 3px 3px rgba(0, 0, 0, .02), 2px 2px 2px rgba(0, 0, 0, .04), 1px 1px 1px rgba(0, 0, 0, .03);
+    box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.02), 2px 2px 2px rgba(0, 0, 0, 0.04),
+      1px 1px 1px rgba(0, 0, 0, 0.03);
 
-    @include screen('xlg', max, 2) {
-      box-shadow: pxtovw(3, 1660) pxtovw(3, 1660) pxtovw(3, 1660) rgba(0, 0, 0, .02),pxtovw(2, 1660) pxtovw(2, 1660) pxtovw(2, 1660) rgba(0, 0, 0, .04), pxtovw(1, 1660) pxtovw(1, 1660) pxtovw(1, 1660) rgba(0, 0, 0, .03);
+    @include screen("xlg", max, 2) {
+      box-shadow: pxtovw(3, 1660) pxtovw(3, 1660) pxtovw(3, 1660)
+          rgba(0, 0, 0, 0.02),
+        pxtovw(2, 1660) pxtovw(2, 1660) pxtovw(2, 1660) rgba(0, 0, 0, 0.04),
+        pxtovw(1, 1660) pxtovw(1, 1660) pxtovw(1, 1660) rgba(0, 0, 0, 0.03);
     }
 
-    @include screen('lg', max, 2) {
-      box-shadow: pxtovw(3, 1366) pxtovw(3, 1366) pxtovw(3, 1366) rgba(0, 0, 0, .02),pxtovw(2, 1366) pxtovw(2, 1366) pxtovw(2, 1366) rgba(0, 0, 0, .04), pxtovw(1, 1366) pxtovw(1, 1366) pxtovw(1, 1366) rgba(0, 0, 0, .03);
+    @include screen("lg", max, 2) {
+      box-shadow: pxtovw(3, 1366) pxtovw(3, 1366) pxtovw(3, 1366)
+          rgba(0, 0, 0, 0.02),
+        pxtovw(2, 1366) pxtovw(2, 1366) pxtovw(2, 1366) rgba(0, 0, 0, 0.04),
+        pxtovw(1, 1366) pxtovw(1, 1366) pxtovw(1, 1366) rgba(0, 0, 0, 0.03);
     }
 
-    @include screen('md', max, 2) {
-      box-shadow: pxtovw(3, 960) pxtovw(3, 960) pxtovw(3, 960) rgba(0, 0, 0, .02),pxtovw(2, 960) pxtovw(2, 960) pxtovw(2, 960) rgba(0, 0, 0, .04), pxtovw(1, 960) pxtovw(1, 960) pxtovw(1, 960) rgba(0, 0, 0, .03);
+    @include screen("md", max, 2) {
+      box-shadow: pxtovw(3, 960) pxtovw(3, 960) pxtovw(3, 960)
+          rgba(0, 0, 0, 0.02),
+        pxtovw(2, 960) pxtovw(2, 960) pxtovw(2, 960) rgba(0, 0, 0, 0.04),
+        pxtovw(1, 960) pxtovw(1, 960) pxtovw(1, 960) rgba(0, 0, 0, 0.03);
     }
 
-    @include screen('sm', max, 2) {
-      box-shadow: pxtovw(3, 375) pxtovw(3, 375) pxtovw(3, 375) rgba(0, 0, 0, .02),pxtovw(2, 375) pxtovw(2, 375) pxtovw(2, 375) rgba(0, 0, 0, .04), pxtovw(1, 375) pxtovw(1, 375) pxtovw(1, 375) rgba(0, 0, 0, .03);
+    @include screen("sm", max, 2) {
+      box-shadow: pxtovw(3, 375) pxtovw(3, 375) pxtovw(3, 375)
+          rgba(0, 0, 0, 0.02),
+        pxtovw(2, 375) pxtovw(2, 375) pxtovw(2, 375) rgba(0, 0, 0, 0.04),
+        pxtovw(1, 375) pxtovw(1, 375) pxtovw(1, 375) rgba(0, 0, 0, 0.03);
     }
   }
 }
