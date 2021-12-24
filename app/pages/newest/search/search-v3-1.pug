@@ -53,44 +53,42 @@ block content
         +space-description-panel
 
     +e.column_end._popup.nd-sm-hide(data-layout="list,space,offer" data-layout-side)
-      +layout-header({type: 'list', popup: true})._sort._popup
+      //- +layout-header({type: 'list', popup: true})._sort._popup
       +e.wrapper
         +nd-results._v2
-          +e.divider.nd-hide-from-md
-            +space-type._gray._fz12.__type
-              +nd-box()._green.__box_sz9
-              +e.name PRIVATE OFFICES
-          each item in getData('space-offers-po.json')
-            +nd-results-item._mt23
-              +nd-space()._single-offer._single-offer_short.js-layout-show(data-layout-target="offer" data-layout-title=item.title data-layout-title-color='green')
-                if item.gallery && item.gallery.images.length === 1
-                  +nd-space-media-e()
-                    +e.PICTURE.image
-                      +e.SOURCE(srcset=item.gallery.images[0])
-                      +e.IMG(src=item.gallery.images[0])
-                else if item.gallery
-                  +gallery(item.gallery)._space.__media.js-nd-gallery
-                +e.describe
-                  +space-type._gray._fz12.__type.nd-hide-md
-                    +nd-box()(class=item.type.box + ' __box_sz9')
-                    +e.name!=item.type.name
-                  if item.title
-                    +e.title!=item.title
-                  +nd-table._info._info_space._info_space_small-fz.__table
-                    tbody
-                      tr
-                        td Amount of desks
-                        td 12
-                      tr
-                        td Floor area
-                        td 257 ft<sup>2</sup>
-                      tr
-                        td Min. term
-                        td 1 month
-                      tr
-                        td Price
-                        td
-                          b £ 2,400 per month
+          each list in getData('space-offers-dividers.json')
+            +e.subheader!=list.title
+            each item in list.list
+              +nd-results-item._mt23
+                +nd-space()._single-offer._single-offer_short.js-layout-show(data-layout-target="offer" data-layout-title=item.title data-layout-title-color='green')
+                  if item.gallery && item.gallery.images.length === 1
+                    +nd-space-media-e()
+                      +e.PICTURE.image
+                        +e.SOURCE(srcset=item.gallery.images[0])
+                        +e.IMG(src=item.gallery.images[0])
+                  else if item.gallery
+                    +gallery(item.gallery)._space.__media.js-nd-gallery
+                  +e.describe
+                    +space-type._gray._fz12.__type.nd-hide-md
+                      +nd-box()(class=item.type.box + ' __box_sz9')
+                      +e.name!=item.type.name
+                    if item.title
+                      +e.title!=item.title
+                    +nd-table._info._info_space._info_space_small-fz.__table
+                      tbody
+                        tr
+                          td Amount of desks
+                          td 12
+                        tr
+                          td Floor area
+                          td 257 ft<sup>2</sup>
+                        tr
+                          td Min. term
+                          td 1 month
+                        tr
+                          td Price
+                          td
+                            b £ 2,400 per month
 
     +e.column_start._start_offer._popup(data-layout="offer" data-layout-main)
       +e.wrapper
@@ -102,7 +100,7 @@ block content
 
     +e.column_header._popup(data-layout="space,offer,list" data-layout-header)
       +layout-header({type: 'space', popup: true})._main
-      +layout-header({type: 'list', popup: true})._sort
+      +layout-header({type: 'list2', popup: true})._sort-v2
 
   +modals('FORM')#search-filter(action="/")
     +e.FIELDSET.fieldset
@@ -157,6 +155,16 @@ block content
               +e.INPUT.input(type="radio", value=item.value, name=item.name, data-modal-item, data-modal-item-value=(item.value), data-modal-item-type="sortOffer" checked)
             else
               +e.INPUT.input(type="radio", value=item.value, name=item.name, data-modal-item, data-modal-item-value=(item.value), data-modal-item-type="sortOffer")
+
+  +modals('FORM')#form-listing-sort(action="/")
+    +modal({header2: {title: 'Filter'}, footer: false})._type3#listing-sort
+      +e.list
+        each item in [{title: 'All listings', value: 'All listings', name: 'lsort', checked: true}, {title: 'Day pass', value: 'Day pass', name: 'lsort'}, {title: 'Private office', value: 'Private office', name: 'lsort'}, {title: 'Co-Working', value: 'Co-Working', name: 'lsort'}, {title: 'Meeting Room', value: 'Meeting Room', name: 'lsort'}]
+          +styled-radio(item.title)._sort-v2.__item
+            if item.checked
+              +e.INPUT.input(type="radio", value=item.value, name=item.name, data-modal-item, data-modal-item-value=(item.value), data-modal-item-type="lsort" checked)
+            else
+              +e.INPUT.input(type="radio", value=item.value, name=item.name, data-modal-item, data-modal-item-value=(item.value), data-modal-item-type="lsort")
 
 
 block panels

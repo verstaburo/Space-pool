@@ -29,4 +29,7 @@ mixin layout-header(data)
         +favorite.__favorite.nd-hide-from-sm
       if data.type === 'list'
         +drop-navigation({title: 'Offers', list: [{name: "All listings (15)", href: "#"}, {name: "Hot desks (2)", href: "#"}, {name: "Fixed desks (8)", href: "#"}, {name: "Meeting Rooms (8)", href: "#"}, {name: "Private offices (5)", href: "#"}]}, 4, 'Private offices (5)')._md._rounded.__select.js-offer-select
+      if data.type === 'list2'
+        +e.subtitle Space listings
+        +modal-output({placeholder: 'Sort by'})._square-rounded.__modal.js-toggle-modal(data-modal-target="listing-sort" data-modal-output-type="lsort" )
     block

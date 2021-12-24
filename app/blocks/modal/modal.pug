@@ -6,6 +6,10 @@ mixin modal(data)
         +e.header(class=(data.header.class || ' nd-hide-from-sm'))
           +e.BUTTON.close.js-close-modal(type="button") Close
           +e.title!=data.header.title
+      if data.header2
+        +e.header
+          +e.title!=data.header2.title
+          +nd-link-icon('cross-bold', 'button')._pad10.__clear.js-modal-reset-value(type="reset") Clear Filter
       +e.content
         if data.describe
           +e.describe

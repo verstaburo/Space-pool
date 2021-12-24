@@ -12,11 +12,38 @@
   }
 
   &::before {
-    @include screen('sm', min, 2) {
+    @include screen("sm", min, 2) {
       @include pseudo;
-      @include rule(left, (xl: -8px, xlg: -8, lg: -8, md: -8, sm: 0));
-      @include rule(right, (xl: -8px, xlg: -8, lg: -8, md: -8, sm: 0));
-      @include rule(border-radius, (xl: 3px, xlg: 3, lg: 3, md: 3, sm: 0));
+      @include rule(
+        left,
+        (
+          xl: -8px,
+          xlg: -8,
+          lg: -8,
+          md: -8,
+          sm: 0,
+        )
+      );
+      @include rule(
+        right,
+        (
+          xl: -8px,
+          xlg: -8,
+          lg: -8,
+          md: -8,
+          sm: 0,
+        )
+      );
+      @include rule(
+        border-radius,
+        (
+          xl: 3px,
+          xlg: 3,
+          lg: 3,
+          md: 3,
+          sm: 0,
+        )
+      );
 
       top: 0;
       bottom: 0;
@@ -28,21 +55,44 @@
   }
 
   &:hover {
-    @include screen('sm', min, 2) {
+    @include screen("sm", min, 2) {
       z-index: 3;
     }
 
     &::before {
-      @include screen('sm', min, 2) {
+      @include screen("sm", min, 2) {
         opacity: 1;
       }
     }
   }
 
   &__content {
-    @include rule(font-size, (xl: 18px, xlg: 18, lg: 18, md: 18, sm: 17));
-    @include rule(height, (xl: 56px, xlg: 56, lg: 56, md: 56, sm: 52));
-    @include rule(padding-right, (sm: 30));
+    @include rule(
+      font-size,
+      (
+        xl: 18px,
+        xlg: 18,
+        lg: 18,
+        md: 18,
+        sm: 17,
+      )
+    );
+    @include rule(
+      height,
+      (
+        xl: 56px,
+        xlg: 56,
+        lg: 56,
+        md: 56,
+        sm: 52,
+      )
+    );
+    @include rule(
+      padding-right,
+      (
+        sm: 30,
+      )
+    );
 
     box-sizing: border-box;
     border-top: 1px solid $nd-color-border6;
@@ -50,22 +100,32 @@
     position: relative;
     line-height: (22 / 18);
     font-weight: 600;
-    letter-spacing: -.02em;
+    letter-spacing: -0.02em;
     display: flex;
     align-items: center;
     justify-content: flex-start;
     transition: border $ease-main;
     z-index: 2;
 
-    @include screen('sm', max, 2) {
+    @include screen("sm", max, 2) {
       font-weight: 500;
     }
 
     &::after {
-      @include rule(width, (sm: 20));
-      @include rule(height, (sm: 20));
+      @include rule(
+        width,
+        (
+          sm: 20,
+        )
+      );
+      @include rule(
+        height,
+        (
+          sm: 20,
+        )
+      );
 
-      @include screen('sm', max, 2) {
+      @include screen("sm", max, 2) {
         @include pseudo;
 
         border-radius: 50%;
@@ -88,38 +148,74 @@
       border-color: $nd-color-logo;
       z-index: 3;
 
-      @include screen('sm', max, 2) {
+      @include screen("sm", max, 2) {
         border-color: $nd-color-border6;
       }
 
       &::after {
-        @include screen('sm', max, 2) {
+        @include screen("sm", max, 2) {
           background-color: $nd-color-main;
-          background-image: url('../images/bg/bg-check.svg');
+          background-image: url("../images/bg/bg-check.svg");
         }
       }
     }
 
     #{$b}:first-child #{$b}__input:checked ~ & {
-      @include screen('sm', max, 2) {
+      @include screen("sm", max, 2) {
         border-top-color: transparent;
       }
     }
 
     #{$b}:hover & {
-      @include screen('sm', min, 2) {
+      @include screen("sm", min, 2) {
         border-color: transparent;
       }
     }
 
     #{$b}_offer & {
-      @include rule(padding-left, (xl: 30px, xlg: 30, lg: 30, md: 30, sm: 20));
+      @include rule(
+        padding-left,
+        (
+          xl: 30px,
+          xlg: 30,
+          lg: 30,
+          md: 30,
+          sm: 20,
+        )
+      );
 
       &::before {
         @include pseudo;
-        @include rule(width, (xl: 8px, xlg: 8, lg: 8, md: 8, sm: 8));
-        @include rule(height, (xl: 8px, xlg: 8, lg: 8, md: 8, sm: 8));
-        @include rule(left, (xl: 3px, xlg: 3, lg: 3, md: 3, sm: 0));
+        @include rule(
+          width,
+          (
+            xl: 8px,
+            xlg: 8,
+            lg: 8,
+            md: 8,
+            sm: 8,
+          )
+        );
+        @include rule(
+          height,
+          (
+            xl: 8px,
+            xlg: 8,
+            lg: 8,
+            md: 8,
+            sm: 8,
+          )
+        );
+        @include rule(
+          left,
+          (
+            xl: 3px,
+            xlg: 3,
+            lg: 3,
+            md: 3,
+            sm: 0,
+          )
+        );
 
         top: 50%;
         transform: translate3d(0, -50%, 0) rotate(45deg);
@@ -151,22 +247,58 @@
     }
 
     #{$b}_team & {
-      @include rule(padding-left, (xl: 30px, xlg: 30, lg: 30, md: 30, sm: 0));
+      @include rule(
+        padding-left,
+        (
+          xl: 30px,
+          xlg: 30,
+          lg: 30,
+          md: 30,
+          sm: 0,
+        )
+      );
 
       &::before {
         @include pseudo;
-        @include rule(width, (xl: 12px, xlg: 12, lg: 12, md: 12, sm: 12));
-        @include rule(height, (xl: 13px, xlg: 13, lg: 13, md: 13, sm: 13));
-        @include rule(left, (xl: 3px, xlg: 3, lg: 3, md: 3, sm: 0));
+        @include rule(
+          width,
+          (
+            xl: 12px,
+            xlg: 12,
+            lg: 12,
+            md: 12,
+            sm: 12,
+          )
+        );
+        @include rule(
+          height,
+          (
+            xl: 13px,
+            xlg: 13,
+            lg: 13,
+            md: 13,
+            sm: 13,
+          )
+        );
+        @include rule(
+          left,
+          (
+            xl: 3px,
+            xlg: 3,
+            lg: 3,
+            md: 3,
+            sm: 0,
+          )
+        );
 
         top: 50%;
         transform: translate3d(0, -50%, 0);
         background-position: 50% 50%;
         background-size: contain;
         background-repeat: no-repeat;
-        background-image: url('../images/bg/bg-human.svg');
+        background-image: url("../images/bg/bg-human.svg");
 
-        @include screen('sm', max, 2) {
+        @include screen("sm", max, 2) {
           display: none;
         }
       }
@@ -175,24 +307,49 @@
 
   &_sort {
     &::before {
-      @include screen('sm', min, 2) {
+      @include screen("sm", min, 2) {
         display: none;
       }
     }
 
     #{$b} {
-
       &__content {
         box-sizing: border-box;
         white-space: nowrap;
 
-        @include rule(padding, (xl: 5px 15px, xlg: 5 15, lg: 5 15, md: 5 15, sm: 0 30 0 0));
-        @include rule(height, (xl: 30px, xlg: 30, lg: 30, md: 30, sm: 52));
-        @include rule(font-size, (xl: 15px, xlg: 15, lg: 15, md: 15, sm: 17));
+        @include rule(
+          padding,
+          (
+            xl: 5px 15px,
+            xlg: 5 15,
+            lg: 5 15,
+            md: 5 15,
+            sm: 0 30 0 0,
+          )
+        );
+        @include rule(
+          height,
+          (
+            xl: 30px,
+            xlg: 30,
+            lg: 30,
+            md: 30,
+            sm: 52,
+          )
+        );
+        @include rule(
+          font-size,
+          (
+            xl: 15px,
+            xlg: 15,
+            lg: 15,
+            md: 15,
+            sm: 17,
+          )
+        );
 
-        @include screen('sm', min, 2) {
-          transition: color $ease-main,
-          background $ease-main;
+        @include screen("sm", min, 2) {
+          transition: color $ease-main, background $ease-main;
           line-height: 1.2;
           font-weight: 400;
           border: none;
@@ -200,7 +357,7 @@
       }
 
       &__input:checked ~ .styled-radio__content {
-        @include screen('sm', min, 2) {
+        @include screen("sm", min, 2) {
           background-color: $nd-color-main;
           color: $nd-color-basic-light;
         }
@@ -209,9 +366,157 @@
 
     &:hover #{$b} {
       &__content {
-        @include screen('sm', min, 2) {
+        @include screen("sm", min, 2) {
           background-color: $nd-color-main;
           color: $nd-color-basic-light;
+        }
+      }
+    }
+  }
+
+  &_sort-v2 {
+    &::before {
+      @include screen("sm", min, 2) {
+        display: none;
+      }
+    }
+
+    #{$b} {
+      &__content {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+        box-sizing: border-box;
+        white-space: nowrap;
+        color: rgba($nd-color-basic, 0.6);
+        letter-spacing: -0.02em;
+        line-height: (21 / 17);
+        transition: color $ease-main, background $ease-main, border $ease-main;
+        font-weight: 400;
+        border-top: none;
+        border-bottom: 1px solid $nd-color-border6;
+
+        @include rule(
+          padding,
+          (
+            xl: 14px 0px,
+            xlg: 14 0,
+            lg: 14 0,
+            md: 14 0,
+            sm: 14 0,
+          )
+        );
+
+        @include rule(
+          height,
+          (
+            xl: 59px,
+            xlg: 59,
+            lg: 59,
+            md: 59,
+            sm: 59,
+          )
+        );
+
+        @include rule(
+          font-size,
+          (
+            xl: 17px,
+            xlg: 17,
+            lg: 17,
+            md: 17,
+            sm: 17,
+          )
+        );
+
+        &::after {
+          display: block;
+          content: "";
+          flex-shrink: 0;
+          border-radius: 50%;
+          border: 1px solid $nd-color-field-border;
+          box-sizing: border-box;
+          transition: background $ease-main, border $ease-main;
+          align-self: center;
+
+          @include rule(
+            width,
+            (
+              xl: 20px,
+              xlg: 20,
+              lg: 20,
+              md: 20,
+              sm: 20,
+            )
+          );
+
+          @include rule(
+            height,
+            (
+              xl: 20px,
+              xlg: 20,
+              lg: 20,
+              md: 20,
+              sm: 20,
+            )
+          );
+        }
+      }
+
+      &__input:checked ~ .styled-radio__content {
+        background-color: transparent;
+        color: $nd-color-basic;
+        border-color: $nd-color-basic;
+
+        &::after {
+          border-color: $nd-color-main;
+          background-color: $nd-color-basic-light;
+
+          @include rule(
+            border-width,
+            (
+              xl: 5px,
+              xlg: 5,
+              lg: 5,
+              md: 5,
+              sm: 5,
+            )
+          );
+        }
+      }
+
+      &__input:disabled ~ .styled-radio__content {
+        &::after {
+          border-color: $nd-color-field-border;
+          background-color: $nd-color-field-border;
+        }
+      }
+    }
+
+    &:hover #{$b} {
+      &__content {
+        background-color: transparent;
+        color: $nd-color-basic;
+        border-color: rgba($nd-color-basic, 0.5);
+
+        &::after {
+          border-color: $nd-color-basic;
+        }
+      }
+
+      &__input:checked ~ .styled-radio__content {
+        border-color: $nd-color-basic;
+
+        &::after {
+          border-color: $nd-color-blue-dark;
+        }
+      }
+
+      &__input:disabled ~ .styled-radio__content {
+        &::after {
+          border-color: $nd-color-field-border;
+          background-color: $nd-color-field-border;
         }
       }
     }

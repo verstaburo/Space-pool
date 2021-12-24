@@ -35,8 +35,7 @@
 
   @include native-scroll($nd-layout-scroll, transparent, 4, 4, 4);
 
-
-  @include screen('md', max, 2) {
+  @include screen("md", max, 2) {
     @include native-scroll($nd-layout-scroll, transparent, 2, 2, 2);
   }
 
@@ -53,10 +52,10 @@
       overflow: hidden;
       box-sizing: border-box;
       background-color: $nd-color-bg;
-      transition: transform .5s ease;
+      transition: transform 0.5s ease;
       z-index: 1;
 
-      @include screen('md', max, 2) {
+      @include screen("md", max, 2) {
         grid-column: 1 / 3;
         grid-row: 2 / 3;
         z-index: 1;
@@ -64,7 +63,7 @@
         overflow: visible;
       }
 
-      @include screen('sm', max, 2) {
+      @include screen("sm", max, 2) {
         grid-row: 2 / 3;
       }
 
@@ -73,7 +72,7 @@
       .map-in-fullview & {
         transform: translate3d(-100%, 0, 0);
 
-        @include screen('md', max, 2) {
+        @include screen("md", max, 2) {
           transform: translate3d(0, 100%, 0);
         }
       }
@@ -87,46 +86,46 @@
       justify-self: end;
       will-change: width, height;
       box-sizing: border-box;
-      transition: padding .5s ease;
+      transition: padding 0.5s ease;
       padding-right: 0;
 
-      @include screen('md', max, 2) {
+      @include screen("md", max, 2) {
         grid-column: 1 / 3;
         grid-row: 1 / 3;
       }
 
-      @include screen('sm', max, 2) {
+      @include screen("sm", max, 2) {
         grid-row: 1 / 3;
       }
 
-      @include screen('md', min, 2) {
+      @include screen("md", min, 2) {
         z-index: 9;
       }
 
       .map-in-fullview & {
-        animation: map-hor-animation .5s ease forwards 1;
+        animation: map-hor-animation 0.5s ease forwards 1;
 
-        @include screen('lg', max, 2) {
-          animation: map-hor-animation-lg .5s ease forwards 1;
+        @include screen("lg", max, 2) {
+          animation: map-hor-animation-lg 0.5s ease forwards 1;
         }
 
-        @include screen('md', max, 2) {
+        @include screen("md", max, 2) {
           animation: none;
         }
 
-        @include screen('sm', min, 2) {
+        @include screen("sm", min, 2) {
           grid-column: 1 / 3;
         }
       }
 
       .is-map-animated-out & {
-        animation: map-hor-animation-reverse .5s ease forwards 1;
+        animation: map-hor-animation-reverse 0.5s ease forwards 1;
 
-        @include screen('lg', max, 2) {
-          animation: map-hor-animation-lg-reverse .5s ease forwards 1;
+        @include screen("lg", max, 2) {
+          animation: map-hor-animation-lg-reverse 0.5s ease forwards 1;
         }
 
-        @include screen('md', max, 2) {
+        @include screen("md", max, 2) {
           animation: none;
         }
       }
@@ -141,12 +140,12 @@
       border-right: 1px solid $nd-color-border6;
       border-top: 1px solid $nd-color-border6;
 
-      @include screen('md', max, 2) {
+      @include screen("md", max, 2) {
         grid-column: 1 / 2;
         grid-row: 1 / 3;
       }
 
-      @include screen('sm', max, 2) {
+      @include screen("sm", max, 2) {
         grid-column: 1 / 3;
         grid-row: 1 / 3;
       }
@@ -160,22 +159,22 @@
       overflow: hidden;
       border-top: 1px solid $nd-color-border6;
 
-      @include screen('md', max, 2) {
+      @include screen("md", max, 2) {
         grid-column: 2 / 3;
         grid-row: 1 / 3;
       }
 
-      @include screen('sm', max, 2) {
+      @include screen("sm", max, 2) {
         grid-column: 1 / 3;
         grid-row: 1 / 3;
       }
 
-      @include screen('sm', min, 2) {
+      @include screen("sm", min, 2) {
         z-index: 13;
       }
 
       &.layout__column_popup {
-        @include screen('sm', max, 2) {
+        @include screen("sm", max, 2) {
           display: none;
         }
       }
@@ -202,11 +201,11 @@
       transform: translate3d(100vw, 0, 0);
       // visibility: hidden;
 
-      @include screen('md', max, 2) {
+      @include screen("md", max, 2) {
         position: fixed;
       }
 
-      @include screen('sm', max, 2) {
+      @include screen("sm", max, 2) {
         position: fixed;
         background-color: $nd-color-basic-light;
       }
@@ -252,39 +251,56 @@
 
       &.layout__column_header {
         transform: translate3d(0, -100%, 0);
-        transition: transform .5s ease;
+        transition: transform 0.5s ease;
       }
 
       &.layout__column_end {
-        @include screen('sm', min, 2) {
+        @include screen("sm", min, 2) {
           z-index: 13;
-          transition: transform .5s ease;
+          transition: transform 0.5s ease;
           transform: translate3d(100vw, 0, 0);
         }
 
-        @include cRule(box-shadow, (xl: boxShadow(0, 4, 12, 0, rgba(0, 0, 0, .25), false), xlg: boxShadow(0, 4, 12, 0, rgba(0, 0, 0, .25), 1660), lg: boxShadow(0, 4, 12, 0, rgba(0, 0, 0, .25), 1366), md: boxShadow(0, 4, 12, 0, rgba(0, 0, 0, .25), 960), sm: none));
+        @include cRule(
+          box-shadow,
+          (
+            xl: boxShadow(0, 4, 12, 0, rgba(0, 0, 0, 0.25), false),
+            xlg: boxShadow(0, 4, 12, 0, rgba(0, 0, 0, 0.25), 1660),
+            lg: boxShadow(0, 4, 12, 0, rgba(0, 0, 0, 0.25), 1366),
+            md: boxShadow(0, 4, 12, 0, rgba(0, 0, 0, 0.25), 960),
+            sm: none,
+          )
+        );
 
-        @include screen('sm', max, 2) {
+        @include screen("sm", max, 2) {
           display: none;
         }
       }
 
       .map-in-fullview & {
-
         &.layout__column_end {
-          @include cRule(box-shadow, (xl: boxShadow(-11, 0, 11, 0, rgba(0, 0, 0, .14), false), xlg: boxShadow(-11, 0, 11, 0, rgba(0, 0, 0, .14), 1660), lg: boxShadow(-11, 0, 11, 0, rgba(0, 0, 0, .14), 1366), md: boxShadow(-11, 0, 11, 0, rgba(0, 0, 0, .14), 960), sm: none));
+          @include cRule(
+            box-shadow,
+            (
+              xl: boxShadow(-11, 0, 11, 0, rgba(0, 0, 0, 0.14), false),
+              xlg: boxShadow(-11, 0, 11, 0, rgba(0, 0, 0, 0.14), 1660),
+              lg: boxShadow(-11, 0, 11, 0, rgba(0, 0, 0, 0.14), 1366),
+              md: boxShadow(-11, 0, 11, 0, rgba(0, 0, 0, 0.14), 960),
+              sm: none,
+            )
+          );
         }
       }
 
       &[layout-column-main] {
         width: 100%;
 
-        @include screen('md', max, 2) {
+        @include screen("md", max, 2) {
           left: 0;
           width: 68.75vw;
         }
 
-        @include screen('sm', max, 2) {
+        @include screen("sm", max, 2) {
           width: 100%;
         }
       }
@@ -292,18 +308,21 @@
       &[data-layout-side] {
         width: 100%;
 
-        @include screen('md', max, 2) {
+        @include screen("md", max, 2) {
           right: 0;
           width: 31.25vw;
         }
 
-        @include screen('sm', max, 2) {
+        @include screen("sm", max, 2) {
           width: 100%;
         }
       }
 
-      .layout-space-active &, .layout-list-active &, .layout-offer-active & {
-        &[data-layout-side], &[data-layout-header] {
+      .layout-space-active &,
+      .layout-list-active &,
+      .layout-offer-active & {
+        &[data-layout-side],
+        &[data-layout-header] {
           opacity: 1;
           transform: translate3d(0, 0, 0);
           pointer-events: auto;
@@ -335,10 +354,10 @@
       }
 
       &.layout-animation-enter-active {
-        transition: transform .5s ease;
-        transition-delay: .45s;
+        transition: transform 0.5s ease;
+        transition-delay: 0.45s;
 
-        @include screen('sm', max, 2) {
+        @include screen("sm", max, 2) {
           transition-delay: 0s;
         }
 
@@ -349,7 +368,7 @@
       }
 
       &.layout-animation-leave-active {
-        transition: transform .5s ease;
+        transition: transform 0.5s ease;
         transition-delay: 0s;
       }
 
@@ -389,25 +408,25 @@
       z-index: 14;
       pointer-events: auto;
       background-color: transparent;
-      box-shadow: boxShadow(0, 2, 2, 0, rgba(0, 0, 0, .06));
+      box-shadow: boxShadow(0, 2, 2, 0, rgba(0, 0, 0, 0.06));
 
-      @include screen('xlg') {
-        box-shadow: boxShadow(0, 2, 2, 0, rgba(0, 0, 0, .06), 1660);
+      @include screen("xlg") {
+        box-shadow: boxShadow(0, 2, 2, 0, rgba(0, 0, 0, 0.06), 1660);
       }
 
-      @include screen('lg') {
-        box-shadow: boxShadow(0, 2, 2, 0, rgba(0, 0, 0, .06), 1366);
+      @include screen("lg") {
+        box-shadow: boxShadow(0, 2, 2, 0, rgba(0, 0, 0, 0.06), 1366);
       }
 
-      @include screen('md') {
-        box-shadow: boxShadow(0, 2, 2, 0, rgba(0, 0, 0, .06), 960);
+      @include screen("md") {
+        box-shadow: boxShadow(0, 2, 2, 0, rgba(0, 0, 0, 0.06), 960);
       }
 
-      @include screen('sm') {
-        box-shadow: boxShadow(0, 2, 2, 0, rgba(0, 0, 0, .06), 375);
+      @include screen("sm") {
+        box-shadow: boxShadow(0, 2, 2, 0, rgba(0, 0, 0, 0.06), 375);
       }
 
-      @include screen('sm', max, 2) {
+      @include screen("sm", max, 2) {
         box-shadow: none;
       }
 
@@ -417,15 +436,15 @@
           border-right: 1px solid $nd-color-border6;
           box-sizing: border-box;
 
-          @include screen('lg', max, 2) {
+          @include screen("lg", max, 2) {
             width: 52.93vw;
           }
 
-          @include screen('md', max, 2) {
+          @include screen("md", max, 2) {
             width: 68.75vw;
           }
 
-          @include screen('sm', max, 2) {
+          @include screen("sm", max, 2) {
             width: 100%;
             border-right: none;
           }
@@ -434,7 +453,15 @@
         &_sort {
           flex: 1;
 
-          @include screen('sm', max, 2) {
+          @include screen("sm", max, 2) {
+            display: none;
+          }
+        }
+
+        &_sort-v2 {
+          flex: 1;
+
+          @include screen("sm", max, 2) {
             display: none;
           }
         }
@@ -443,7 +470,7 @@
   }
 
   &__wrapper {
-    display:block;
+    display: block;
     box-sizing: border-box;
     width: 100%;
     height: auto;
@@ -451,11 +478,25 @@
     overflow-x: hidden;
     overflow-y: auto;
 
-    @include rule(padding-top, (sm: 60));
-    @include rule(padding-bottom, (xl: 80px, xlg: 80, lg: 80, md: 80, sm: 80));
+    @include rule(
+      padding-top,
+      (
+        sm: 60,
+      )
+    );
+    @include rule(
+      padding-bottom,
+      (
+        xl: 80px,
+        xlg: 80,
+        lg: 80,
+        md: 80,
+        sm: 80,
+      )
+    );
     @include native-scroll(transparent, transparent, 5, 5, 5);
 
-    @include screen('sm', max) {
+    @include screen("sm", max) {
       @include native-scroll(transparent, transparent, 0, 0, 0);
 
       scrollbar-width: none;
@@ -464,7 +505,7 @@
     &:hover {
       @include native-scroll($nd-layout-scroll2, transparent, 5, 5, 5);
 
-      @include screen('sm', max) {
+      @include screen("sm", max) {
         @include native-scroll($nd-layout-scroll2, transparent, 0, 0, 0);
 
         scrollbar-width: none;
@@ -474,35 +515,133 @@
     #{$b}__column_start & {
       padding-left: 150px;
 
-      @include screen('xl', max, 2) {
+      @include screen("xl", max, 2) {
         padding-left: 60px;
       }
 
-      @include rule(padding-left, (xlg: 60, lg: 50, md: 50, sm: 20));
-      @include rule(padding-right, (xl: 50px, xlg: 50, lg: 30, md: 40, sm: 20));
+      @include rule(
+        padding-left,
+        (
+          xlg: 60,
+          lg: 50,
+          md: 50,
+          sm: 20,
+        )
+      );
+      @include rule(
+        padding-right,
+        (
+          xl: 50px,
+          xlg: 50,
+          lg: 30,
+          md: 40,
+          sm: 20,
+        )
+      );
     }
 
     #{$b}__column_results & {
       padding-left: 150px;
 
-      @include screen('xl') {
+      @include screen("xl") {
         padding-left: 60px;
       }
 
-      @include rule(padding-left, (xlg: 60, lg: 50, md: 50, sm: 20));
-      @include rule(padding-right, (xl: 50px, xlg: 50, lg: 20, md: 50, sm: 20));
-      @include rule(padding-top, (xl: 118px, xlg: 118, lg: 118, md: 23, sm: 29));
-      @include rule(padding-bottom, (xl: 80px, xlg: 80, lg: 80, md: 80, sm: 80));
+      @include rule(
+        padding-left,
+        (
+          xlg: 60,
+          lg: 50,
+          md: 50,
+          sm: 20,
+        )
+      );
+      @include rule(
+        padding-right,
+        (
+          xl: 50px,
+          xlg: 50,
+          lg: 20,
+          md: 50,
+          sm: 20,
+        )
+      );
+      @include rule(
+        padding-top,
+        (
+          xl: 118px,
+          xlg: 118,
+          lg: 118,
+          md: 23,
+          sm: 29,
+        )
+      );
+      @include rule(
+        padding-bottom,
+        (
+          xl: 80px,
+          xlg: 80,
+          lg: 80,
+          md: 80,
+          sm: 80,
+        )
+      );
     }
 
     #{$b}__column_end & {
-      @include rule(padding-top, (xl: 71px, xlg: 71, lg: 79, md: 95, sm: 0));
-      @include rule(padding-left, (xl: 50px, xlg: 50, lg: 30, md: 30, sm: 20));
-      @include rule(padding-right, (xl: 50px, xlg: 50, lg: 25, md: 25, sm: 20));
+      @include rule(
+        padding-top,
+        (
+          xl: 94px,
+          xlg: 94,
+          lg: 94,
+          md: 94,
+          sm: 0,
+        )
+      );
+      @include rule(
+        padding-left,
+        (
+          xl: 50px,
+          xlg: 50,
+          lg: 30,
+          md: 30,
+          sm: 20,
+        )
+      );
+      @include rule(
+        padding-right,
+        (
+          xl: 50px,
+          xlg: 50,
+          lg: 25,
+          md: 25,
+          sm: 20,
+        )
+      );
 
-      .map-in-fullview &, .is-map-animated-out & {
-        @include rule(padding-left, (xl: 25px, xlg: 25, lg: 30, md: 30, sm: 20));
-        @include rule(padding-right, (xl: 25px, xlg: 25, lg: 25, md: 25, sm: 20));
+      .map-in-fullview &,
+      .is-map-animated-out & {
+        @include rule(
+          padding-left,
+          (
+            xl: 25px,
+            xlg: 25,
+            lg: 30,
+            md: 30,
+            sm: 20,
+          )
+        );
+        @include rule(
+          padding-right,
+          (
+            xl: 25px,
+            xlg: 25,
+            lg: 25,
+            md: 25,
+            sm: 20,
+          )
+        );
       }
     }
 
@@ -511,12 +650,39 @@
     }
 
     .layout__column_start_space & {
-      @include rule(padding-top, (xl: 60px, xlg: 60, lg: 60, md: 60, sm: 0));
+      @include rule(
+        padding-top,
+        (
+          xl: 60px,
+          xlg: 60,
+          lg: 60,
+          md: 60,
+          sm: 0,
+        )
+      );
     }
 
     .layout__column_start_offer & {
-      @include rule(padding-top, (xl: 60px, xlg: 60, lg: 60, md: 60, sm: 0));
-      @include rule(padding-right, (xl: 50px, xlg: 50, lg: 50, md: 40, sm: 20));
+      @include rule(
+        padding-top,
+        (
+          xl: 60px,
+          xlg: 60,
+          lg: 60,
+          md: 60,
+          sm: 0,
+        )
+      );
+      @include rule(
+        padding-right,
+        (
+          xl: 50px,
+          xlg: 50,
+          lg: 50,
+          md: 40,
+          sm: 20,
+        )
+      );
     }
   }
 
@@ -538,14 +704,22 @@
           overflow: auto;
           border: none;
 
-          @include cRule(padding-right, (xl: 41.51%, lg: 47.07%, md: 31.25%, sm: 0));
+          @include cRule(
+            padding-right,
+            (
+              xl: 41.51%,
+              lg: 47.07%,
+              md: 31.25%,
+              sm: 0,
+            )
+          );
 
-          @include screen('md', max, 2) {
+          @include screen("md", max, 2) {
             grid-column: 1 / 3;
             grid-row: 1 / 3;
           }
 
-          @include screen('sm', max, 2) {
+          @include screen("sm", max, 2) {
             grid-column: 1 / 3;
             grid-row: 1 / 2;
           }
@@ -564,8 +738,25 @@
           bottom: 0;
           background-color: $nd-color-bg;
 
-          @include cRule(width, (xl: calc(100% - 58.49vw), lg: calc(100% - 52.93vw), md: calc(100% - 68.75vw), sm: 0));
-          @include rule(box-shadow, (xl: boxShadow(0, 4, 12, 0, rgba(0, 0, 0, .25), false), xlg: boxShadow(0, 4, 12, 0, rgba(0, 0, 0, .25), 1660), lg: boxShadow(0, 4, 12, 0, rgba(0, 0, 0, .25), 1366), md: boxShadow(0, 4, 12, 0, rgba(0, 0, 0, .25), 960), sm: none));
+          @include cRule(
+            width,
+            (
+              xl: calc(100% - 58.49vw),
+              lg: calc(100% - 52.93vw),
+              md: calc(100% - 68.75vw),
+              sm: 0,
+            )
+          );
+          @include rule(
+            box-shadow,
+            (
+              xl: boxShadow(0, 4, 12, 0, rgba(0, 0, 0, 0.25), false),
+              xlg: boxShadow(0, 4, 12, 0, rgba(0, 0, 0, 0.25), 1660),
+              lg: boxShadow(0, 4, 12, 0, rgba(0, 0, 0, 0.25), 1366),
+              md: boxShadow(0, 4, 12, 0, rgba(0, 0, 0, 0.25), 960),
+              sm: none,
+            )
+          );
         }
 
         &_popup {
@@ -574,7 +765,15 @@
           &.layout__column_start {
             width: 100%;
 
-            @include cRule(padding-right, (xl: calc(100% - 58.49vw), lg: calc(100% - 52.93vw), md: calc(100% - 68.75vw), sm: 0));
+            @include cRule(
+              padding-right,
+              (
+                xl: calc(100% - 58.49vw),
+                lg: calc(100% - 52.93vw),
+                md: calc(100% - 68.75vw),
+                sm: 0,
+              )
+            );
 
             .layout__wrapper {
               max-height: 100%;
@@ -600,13 +799,53 @@
             border-right: none;
             max-height: none;
 
-            @include rule(max-width, (xl: 1164px, xlg: 1164, lg: 1164, md: 100%));
-            @include rule(padding, (xl: 0 50px, xlg: 0 50, lg: 0 50, md: 0, sm: 0));
+            @include rule(
+              max-width,
+              (
+                xl: 1164px,
+                xlg: 1164,
+                lg: 1164,
+                md: 100%,
+              )
+            );
+            @include rule(
+              padding,
+              (
+                xl: 0 50px,
+                xlg: 0 50,
+                lg: 0 50,
+                md: 0,
+                sm: 0,
+              )
+            );
 
             .layout__wrapper {
-              @include rule(padding-top, (xl: 95px, xlg: 95, lg: 95, md: 60, sm: 0));
-              @include rule(padding-left, (xl: 0, md: 50, sm: 20));
-              @include rule(padding-right, (xl: 0, md: 40, sm: 20));
+              @include rule(
+                padding-top,
+                (
+                  xl: 95px,
+                  xlg: 95,
+                  lg: 95,
+                  md: 60,
+                  sm: 0,
+                )
+              );
+              @include rule(
+                padding-left,
+                (
+                  xl: 0,
+                  md: 50,
+                  sm: 20,
+                )
+              );
+              @include rule(
+                padding-right,
+                (
+                  xl: 0,
+                  md: 40,
+                  sm: 20,
+                )
+              );
             }
           }
 
@@ -615,7 +854,13 @@
 
             .layout-header {
               &_main {
-                @include rule(min-width, (xl: 100vw, md: 100%));
+                @include rule(
+                  min-width,
+                  (
+                    xl: 100vw,
+                    md: 100%,
+                  )
+                );
                 border-right: none;
               }
             }
