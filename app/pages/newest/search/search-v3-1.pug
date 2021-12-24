@@ -60,7 +60,7 @@ block content
             +e.subheader!=list.title
             each item in list.list
               +nd-results-item._mt23
-                +nd-space()._single-offer._single-offer_short.js-layout-show(data-layout-target="offer" data-layout-title=item.title data-layout-title-color='green')
+                +nd-space()._single-offer._single-offer_short.js-layout-show(data-layout-target="offer" data-layout-title=item.title data-layout-title-color=item.type.box.substring(1))
                   if item.gallery && item.gallery.images.length === 1
                     +nd-space-media-e()
                       +e.PICTURE.image
