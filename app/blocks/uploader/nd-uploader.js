@@ -212,6 +212,10 @@ export default function uploader() {
               errorMessage = 'This photo is too small';
               $(preview).find('[data-preview-error-text]').text(errorMessage);
               $(previewEl).addClass('is-error');
+            } else if (width * height > conditions.maxImagePixels) {
+              errorMessage = `This photo size (${width * height} pixels) exceeds limit of ${conditions.maxImagePixels} pixels`;
+              $(preview).find('[data-preview-error-text]').text(errorMessage);
+              $(previewEl).addClass('is-error');
             } else {
               img.src = e.target.result;
               const inputEl = document.createElement('input');
@@ -289,6 +293,8 @@ export default function uploader() {
       };
       // conditions.minSize = parseInt($(self).attr('data-min-size'), 10) || 0;
       // conditions.maxSize = parseInt($(self).attr('data-max-size'), 10) || '1000000000000';
+      // Limit to around a quarter gigabyte for a 24 bit (3 bpp) image
+      conditions.maxImagePixels = parseInt($(self).attr('data-max-pixels'), 10) || '89478485';
       conditions.formats = $(self).attr('data-format');
       conditions.maxCount = parseInt($(self).attr('data-total-count'), 10);
       const droppedFiles = evt.originalEvent.dataTransfer.files;
@@ -311,6 +317,8 @@ export default function uploader() {
     };
     // conditions.minSize = parseInt($(self).attr('data-min-size'), 10) || 0;
     // conditions.maxSize = parseInt($(self).attr('data-max-size'), 10) || '1000000000000';
+    // Limit to around a quarter gigabyte for a 24 bit (3 bpp) image
+    conditions.maxImagePixels = parseInt($(self).attr('data-max-pixels'), 10) || '89478485';
     conditions.formats = $(self).attr('data-format');
     conditions.maxCount = parseInt($(self).attr('data-total-count'), 10) || -1;
     processingImages(files, conditions, evt.currentTarget);
