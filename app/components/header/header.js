@@ -65,6 +65,10 @@ export default function header() {
       offset = 13;
     }
 
+    if ($('.header__promo-line').length > 0) {
+      offset += $('.header__promo-line').height();
+    }
+
     if (!$('html').hasClass('freeze')) {
       if (sT > offset) {
         $('.page').addClass('is-short');
