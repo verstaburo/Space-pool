@@ -1,0 +1,122 @@
+.review {
+  display: block;
+  margin: 0;
+  padding: 0;
+  font-weight: 400;
+  line-height: 1.2;
+
+  &__image {
+    background-color: $nd-color-main;
+    color: $nd-avatar-text;
+    background-clip: content-box;
+    padding: 1px;
+  }
+
+  &__data {
+    display: flex;
+    align-items: center;
+
+    @include rule(
+      gap,
+      (
+        xl: 10px,
+        xlg: 10,
+        lg: 10,
+        md: 10,
+        sm: 10,
+      )
+    );
+  }
+
+  &__author {
+    font-style: normal;
+    font-weight: 600;
+    line-height: 1.2;
+
+    @include rule(
+      font-size,
+      (
+        xl: 18px,
+        xlg: 18,
+        lg: 18,
+        md: 16,
+        sm: 16,
+      )
+    );
+  }
+
+  &__date {
+    color: $nd-color-gray-text;
+
+    @include rule(
+      font-size,
+      (
+        xl: 13px,
+        xlg: 13,
+        lg: 13,
+        md: 12,
+        sm: 12,
+      )
+    );
+  }
+
+  &__content {
+    @include rule(
+      padding-left,
+      (
+        xl: 50px,
+        xlg: 50,
+        lg: 50,
+        md: 50,
+        sm: 50,
+      )
+    );
+
+    @include rule(
+      margin-top,
+      (
+        xl: 5px,
+        xlg: 5,
+        lg: 5,
+        md: 5,
+        sm: 5,
+      )
+    );
+  }
+
+  &__text {
+    font-family: $font-stolzl;
+    font-weight: 400;
+    line-height: (24 / 14);
+
+    @include rule(
+      font-size,
+      (
+        xl: 14px,
+        xlg: 14,
+        lg: 14,
+        md: 13,
+        sm: 13,
+      )
+    );
+
+    @include rule(
+      margin-top,
+      (
+        xl: 11px,
+        xlg: 11,
+        lg: 11,
+        md: 10,
+        sm: 10,
+      )
+    );
+
+    @include screen("sm", max, 2) {
+      // display: -webkit-box;
+      line-height: (19.5 / 13);
+      // -webkit-box-orient: vertical;
+      // -webkit-line-clamp: 3;
+      // overflow: hidden;
+    }
+  }
+}

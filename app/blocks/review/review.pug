@@ -1,0 +1,11 @@
+mixin review(data)
+  +b.BLOCKQUOTE.review&attributes(attributes)
+    +e.data
+      +avatar(data.image.src)._sz40.__image
+        if !data.image.src
+          +e.SPAN.__text!=data.image.alt
+      +e.CITE.author!=data.author
+      +e.TIME.date!=data.time
+    +e.content
+      +rating(data.rating.active, data.rating.count, true).__rating
+      +e.text!=data.text

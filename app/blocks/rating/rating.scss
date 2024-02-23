@@ -2,29 +2,65 @@
   $b: &;
   font-size: 0;
   display: inline-flex;
-  flex-flow: row-reverse;
-  margin-left: -4px;
+  flex-direction: row-reverse;
+
+  @include rule(
+    gap,
+    (
+      xl: 3px,
+      xlg: 3,
+      lg: 3,
+      md: 3,
+      sm: 3,
+    )
+  );
 
   &__box {
-    margin-left: 4px;
-    #{$b}_interactive & { cursor: pointer; }
+    cursor: pointer;
+
+    #{$b}__control:disabled ~ & {
+      cursor: default;
+      pointer-events: none;
+    }
   }
 
-  &__control { display: none; }
+  &__control {
+    display: none;
+  }
 
   &__icon {
-    stroke: $color-border;
+    stroke: $nd-color-main;
     fill: transparent;
     transition: fill $ease-main, stroke $ease-main;
-    width: 24px;
-    height: 22px;
 
-    #{$b}_interactive #{$b}__box:hover &,
-    #{$b}_interactive #{$b}__box:hover ~ #{$b}__box &,
-    #{$b}__box.is-active &,
-    #{$b}__box.is-active ~ #{$b}__box & {
-      fill: $color-main;
-      stroke: $color-main;
+    @include rule(
+      width,
+      (
+        xl: 20px,
+        xlg: 20,
+        lg: 20,
+        md: 20,
+        sm: 20,
+      )
+    );
+
+    @include rule(
+      height,
+      (
+        xl: 20px,
+        xlg: 20,
+        lg: 20,
+        md: 20,
+        sm: 20,
+      )
+    );
+
+    #{$b}__box:hover &,
+    #{$b}__box:hover ~ #{$b}__box &,
+    #{$b}__control:checked &,
+    #{$b}__control:checked ~ #{$b}__box & {
+      fill: $nd-color-main;
+      stroke: $nd-color-main;
     }
   }
 }

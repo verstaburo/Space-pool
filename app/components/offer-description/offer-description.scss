@@ -1040,6 +1040,34 @@
     }
   }
 
+  &__review-list {
+    @include rule(
+      margin-top,
+      (
+        xl: 40px,
+        xlg: 40,
+        lg: 40,
+        md: 40,
+        sm: 40,
+      )
+    );
+  }
+
+  &__review {
+    &:not(:first-child) {
+      @include rule(
+        margin-top,
+        (
+          xl: 40px,
+          xlg: 40,
+          lg: 40,
+          md: 32,
+          sm: 32,
+        )
+      );
+    }
+  }
+
   &_v2 {
     @include rule(
       margin-top,
@@ -1233,6 +1261,36 @@
             )
           );
         }
+
+        &_review {
+          @include rule(
+            padding-bottom,
+            (
+              xl: 50px,
+              xlg: 50,
+              lg: 50,
+              md: 50,
+              sm: 30,
+            )
+          );
+
+          #{$b}__head {
+            justify-content: space-between;
+            align-items: center;
+            gap: 10px;
+
+            @include rule(
+              padding-bottom,
+              (
+                xl: 30px,
+                xlg: 30,
+                lg: 30,
+                md: 30,
+                sm: 30,
+              )
+            );
+          }
+        }
       }
 
       &__media {
@@ -1277,6 +1335,32 @@
               sm: 16,
             )
           );
+        }
+
+        &_fz20 {
+          @include rule(
+            font-size,
+            (
+              xl: 20px,
+              xlg: 20,
+              lg: 20,
+              md: 18,
+              sm: 16,
+            )
+          );
+
+          @include rule(
+            line-height,
+            (
+              xl: 1,
+              sm: 1.18,
+            )
+          );
+
+          @include screen("sm", max, 2) {
+            font-weight: 400;
+            font-family: $font-stolzl;
+          }
         }
       }
 
@@ -1343,6 +1427,95 @@
         &__sidebar {
           padding-top: 0;
         }
+      }
+    }
+  }
+
+  &_v3 {
+    #{$b} {
+      &__layout {
+        &:not(:first-child) {
+          @include rule(
+            margin-top,
+            (
+              xl: 35px,
+              xlg: 35,
+              lg: 35,
+              md: 35,
+              sm: 0,
+            )
+          );
+        }
+      }
+
+      &__panel {
+        background-color: $nd-color-basic-light;
+
+        @include rule(
+          border-radius,
+          (
+            xl: 3px,
+            xlg: 3,
+            lg: 3,
+            md: 3,
+            sm: 0,
+          )
+        );
+
+        @include rule(
+          padding,
+          (
+            xl: 30px 36px,
+            xlg: 30 36,
+            lg: 30 36,
+            md: 30 36,
+            sm: 25 0,
+          )
+        );
+
+        &:first-child {
+          @include rule(
+            padding-top,
+            (
+              sm: 0,
+            )
+          );
+        }
+
+        &:not(:first-child) {
+          @include rule(
+            margin-top,
+            (
+              xl: 40px,
+              xlg: 40,
+              lg: 40,
+              md: 40,
+              sm: 0,
+            )
+          );
+        }
+
+        & > #{$b}__section:first-child {
+          @include rule(
+            margin-top,
+            (
+              xl: 0,
+              xlg: 0,
+              lg: 0,
+              md: 0,
+              sm: 0,
+            )
+          );
+        }
+      }
+
+      &__favorite {
+        bottom: auto;
+        top: 0;
+      }
+
+      &__sidebar {
+        padding-top: 0;
       }
     }
   }

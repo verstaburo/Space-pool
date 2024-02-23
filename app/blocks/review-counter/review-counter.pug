@@ -1,0 +1,7 @@
+mixin review-counter(active, count, disabled, grade, reviewers)
+  +b.SPAN.review-counter&attributes(attributes)
+    +rating(active, count, disabled).__rating
+    if grade
+      +e.grade!=grade
+    if reviewers
+      +e.reviewers!=reviewers

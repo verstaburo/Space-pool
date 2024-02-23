@@ -1,17 +1,12 @@
-mixin rating(active, count)
+mixin rating(active, count, disabled)
   - var initialCount = Number(count) || 5
+  - var initialName = 'rating-'+ Math.random().toString(36).slice(2).split('').sort(() => Math.random() - .5).join('')
 
   +b.rating&attributes(attributes)
-    - for (var i = 0; i < initialCount; i++)
-      +e.box(class=i+1 === active ? 'is-active' : '')
-        +icon('star').__icon
-
-mixin rating-interactive(count, name)
-  - var initialCount = Number(count) || 5
-  - var initialName = name || 'rating-'+ Math.random().toString(36).slice(2).split('').sort(() => Math.random() - .5).join('')
-
-  +b.rating._interactive&attributes(attributes)
     - for (var i = initialCount; i > 0; i--)
-      +e.LABEL.box
-        +e.INPUT(type='radio' name='name' value=i-1).control.js-rating-control
+      if disabled
+        +e.INPUT(type='radio' name=initialName id=(initialName + '-' + i) value=i-1 checked=(Number(active) === i) disabled).control
+      else
+        +e.INPUT(type='radio' name=initialName id=(initialName + '-' + i) value=i-1 checked=(Number(active) === i)).control
+      +e.LABEL.box(for=(initialName + '-' + i))
         +icon('star').__icon
