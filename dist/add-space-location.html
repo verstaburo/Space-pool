@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimal-ui">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Spacepool - Add Space - Location</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <link href="favicon.ico" rel="shortcut icon">
+    <link rel="preload" href="assets/fonts/Stolzl-Regular.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="assets/fonts/Stolzl-Book.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="assets/fonts/ProximaNovaRegular.woff2" as="font" type="font/woff2" crossorigin>
+    <link href="assets/styles/fonts.min.css" rel="stylesheet">
+    <link href="assets/styles/app.min.css" rel="stylesheet">
+    <script src="assets/scripts/libs/jquery.min.js"></script>
+</head>
+
+<body class="no-js-scale nd  is-nofooter is-noheader">
+    <main class="nd-page nd-page nd-page_nopad" role="main">
+        <div class="nd-page-header nd-page-header_grid nd-page-header_grid_add">
+            <div class="nd-container nd-container_wide">
+                <div class="nd-page-header__title nd-hide-from-sm">Add space</div>
+                <div class="nd-page-header__column nd-page-header__column_side"><a class="nd-link nd-link_icon nd-link_back nd-page-header__back"><svg class="nd-link__icon nd-link__icon_arrow5"><use xlink:href="assets/images/icon.svg#icon_arrow5"></use></svg><span class="nd-link__text">Back to Space list</span></a></div>
+                <div class="nd-page-header__column nd-page-header__column_main">
+                    <div class="nd-page-header__mb-menu nd-hide-from-sm">
+                        <div class="js-nav-slider slider-navigation slider-navigation_mg" data-first-slide-index="0">
+                            <div class="swiper-wrapper">
+                                <div class="slider-navigation__slide swiper-slide"><a class="slider-navigation__link slider-navigation__link_progress is-active" href="add-space-location.html">Location</a></div>
+                                <div class="slider-navigation__slide swiper-slide"><a class="slider-navigation__link slider-navigation__link_progress is-disabled" href="add-space-description.html">Title and description</a></div>
+                                <div class="slider-navigation__slide swiper-slide"><a class="slider-navigation__link slider-navigation__link_progress is-disabled" href="add-space-facilities.html">Facilities</a></div>
+                                <div class="slider-navigation__slide swiper-slide"><a class="slider-navigation__link slider-navigation__link_progress is-disabled" href="add-space-rules.html">House rules</a></div>
+                                <div class="slider-navigation__slide swiper-slide"><a class="slider-navigation__link slider-navigation__link_progress is-disabled" href="add-space-photo.html">Photo</a></div>
+                                <div class="slider-navigation__slide swiper-slide"><a class="slider-navigation__link slider-navigation__link_progress is-disabled" href="add-space-conditions.html">Terms and conditions</a></div>
+                                <div class="slider-navigation__slide swiper-slide"><a class="slider-navigation__link slider-navigation__link_progress is-disabled" href="add-space-listing.html">Listing</a></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="progress-scale nd-hide-sm">
+            <div class="nd-container">
+                <div class="progress-scale__wrapper">
+                    <div class="progress-scale__state is-active">
+                        <div class="progress-scale__title">Location</div>
+                    </div>
+                    <div class="progress-scale__state is-disabled">
+                        <div class="progress-scale__title">Title and description</div>
+                    </div>
+                    <div class="progress-scale__state is-disabled">
+                        <div class="progress-scale__title">Facilities</div>
+                    </div>
+                    <div class="progress-scale__state is-disabled">
+                        <div class="progress-scale__title">House rules</div>
+                    </div>
+                    <div class="progress-scale__state is-disabled">
+                        <div class="progress-scale__title">Photo</div>
+                    </div>
+                    <div class="progress-scale__state is-disabled">
+                        <div class="progress-scale__title">Terms and conditions</div>
+                    </div>
+                    <div class="progress-scale__state is-disabled">
+                        <div class="progress-scale__title">Listing</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <section class="nd-content">
+            <div class="nd-container">
+                <div class="nd-content__column nd-content__column_aside" data-sticky-parent="data-sticky-parent">
+                    <aside class="sidebar nd-sidebar nd-hide-md">
+                        <div class="nd-side-navigation nd-side-navigation_add">
+                            <div class="step-info nd-side-navigation__step">
+                                <div class="step-info__image step-info__image_loc"><img src="assets/images/nd/add-location.svg" /></div>
+                                <div class="step-info__subtitle">Step 1</div>
+                                <div class="step-info__title">Location</div>
+                            </div>
+                            <div class="nd-side-navigation__note">Click on the map, then zoom and drag until the cursor points to your workspace.</div>
+                        </div>
+                    </aside>
+                </div>
+                <div class="nd-content__column nd-content__column_main">
+                    <div class="nd-location">
+                        <div class="nd-location__map">
+                            <div class="nd-location__wrapper" id="add-map"></div>
+                            <div class="nd-location__marker"><img src="assets/images/nd/add-location.svg" /></div>
+                        </div>
+                        <form class="nd-form nd-location__form" data-validated-form="data-validated-form" data-submit-disabled="data-submit-disabled">
+                            <fieldset class="nd-form__section">
+                                <div class="nd-form__header">
+                                    <h3 class="nd-form__title nd-form__title_fz24 nd-form__title_md-fz20 nd-form__title_fw400">Space location</h3>
+                                </div>
+                                <div class="nd-form__content"><input class="input" type="hidden" name="coordinates" data-map-coordinates="add-map" />
+                                    <div class="nd-grid nd-grid_int32">
+                                        <div class="nd-grid__col nd-grid__col_xl_12">
+                                            <div class="nd-form__wrapper"><label class="form-box nd-form-box nd-form-box_bg-white"><select class="nd-select js-nd-select" name="country" placeholder="Country" data-mobile-title="Country" required="required">
+                                                        <option value="" placeholder="placeholder"></option>
+                                                        <option value="uk">United-Kingdom</option>
+                                                        <option value="lv">Latvia</option>
+                                                        <option value="ru">Russia</option>
+                                                        <option value="de">Germany</option>
+                                                        <option value="fr">France</option>
+                                                    </select><span class="form-box__label">Country</span></label>
+                                                <div class="error-message"></div>
+                                            </div>
+                                        </div>
+                                        <div class="nd-grid__col nd-grid__col_xl_12">
+                                            <div class="nd-form__wrapper"><label class="form-box nd-form-box nd-form-box_bg-white"><select class="nd-select js-nd-select" name="city" placeholder="City" data-mobile-title="City" required="required">
+                                                        <option value="" placeholder="placeholder">City</option>
+                                                        <option value="London" selected="selected">London</option>
+                                                        <option value="Cambridge">Cambridge</option>
+                                                        <option value="Oxford">Oxford</option>
+                                                        <option value="Portsmouth">Portsmouth</option>
+                                                        <option value="Chichester">Chichester</option>
+                                                    </select><span class="form-box__label">City</span></label>
+                                                <div class="error-message"></div>
+                                            </div>
+                                        </div>
+                                        <div class="nd-grid__col nd-grid__col_xl_12">
+                                            <div class="nd-form__wrapper"><label class="form-box nd-form-box nd-form-box_bg-white"><textarea class="nd-textarea nd-textarea_h86" type="text" name="adress" placeholder="Address" rows="1" required="required"></textarea><span class="form-box__label">Adress</span></label>
+                                                <div class="error-message"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="nd-form-panel nd-form-panel_wide is-fixed">
+                                    <div class="nd-content">
+                                        <div class="nd-container">
+                                            <div class="nd-form-panel__controls"><a class="nd-link nd-link_icon nd-link_underline nd-link_back nd-link_back_long nd-form-panel__back"><svg class="nd-link__icon nd-link__icon_arrow6"><use xlink:href="assets/images/icon.svg#icon_arrow6"></use></svg><span class="nd-link__text">Back <span class="nd-hide-sm"> to previous step</span></span></a><button class="nd-button nd-button_icon nd-button_next nd-button_sm-h32 nd-button_sm-fz16 nd-form-panel__button nd-form-panel__button_mw303" type="submit" disabled="disabled"><span class="nd-button__bg"></span><span class="nd-button__text">Save and continue</span><span class="nd-button__icon nd-button__icon_next"></span>
+                                                    <div class="nd-button__preloader">
+                                                        <div class="loader loader_small"></div>
+                                                    </div>
+                                                </button></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <div class="popups"></div>
+    <script src="assets/scripts/app.min.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAlLpVITMmaCmvob8dU3xWWBDOjPefUkZ4&amp;callback"></script>
+    <script src="assets/scripts/map.js"></script>
+</body>
+
+</html>

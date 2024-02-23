@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimal-ui">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Spacepool - Add Space - Photo</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <link href="favicon.ico" rel="shortcut icon">
+    <link rel="preload" href="assets/fonts/Stolzl-Regular.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="assets/fonts/Stolzl-Book.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="assets/fonts/ProximaNovaRegular.woff2" as="font" type="font/woff2" crossorigin>
+    <link href="assets/styles/fonts.min.css" rel="stylesheet">
+    <link href="assets/styles/app.min.css" rel="stylesheet">
+    <script src="assets/scripts/libs/jquery.min.js"></script>
+</head>
+
+<body class="no-js-scale nd  is-nofooter is-noheader">
+    <main class="nd-page nd-page nd-page_nopad" role="main">
+        <div class="nd-page-header nd-page-header_grid nd-page-header_grid_add">
+            <div class="nd-container nd-container_wide">
+                <div class="nd-page-header__title nd-hide-from-sm">Add space</div>
+                <div class="nd-page-header__column nd-page-header__column_side"><a class="nd-link nd-link_icon nd-link_back nd-page-header__back"><svg class="nd-link__icon nd-link__icon_arrow5"><use xlink:href="assets/images/icon.svg#icon_arrow5"></use></svg><span class="nd-link__text">Back to Space list</span></a></div>
+                <div class="nd-page-header__column nd-page-header__column_main">
+                    <div class="nd-page-header__mb-menu nd-hide-from-sm">
+                        <div class="js-nav-slider slider-navigation slider-navigation_mg" data-first-slide-index="4">
+                            <div class="swiper-wrapper">
+                                <div class="slider-navigation__slide swiper-slide"><a class="slider-navigation__link slider-navigation__link_progress" href="add-space-location.html">Location</a></div>
+                                <div class="slider-navigation__slide swiper-slide"><a class="slider-navigation__link slider-navigation__link_progress" href="add-space-description.html">Title and description</a></div>
+                                <div class="slider-navigation__slide swiper-slide"><a class="slider-navigation__link slider-navigation__link_progress" href="add-space-facilities.html">Facilities</a></div>
+                                <div class="slider-navigation__slide swiper-slide"><a class="slider-navigation__link slider-navigation__link_progress" href="add-space-rules.html">House rules</a></div>
+                                <div class="slider-navigation__slide swiper-slide"><a class="slider-navigation__link slider-navigation__link_progress is-active" href="add-space-photo.html">Photo</a></div>
+                                <div class="slider-navigation__slide swiper-slide"><a class="slider-navigation__link slider-navigation__link_progress is-disabled" href="add-space-conditions.html">Terms and conditions</a></div>
+                                <div class="slider-navigation__slide swiper-slide"><a class="slider-navigation__link slider-navigation__link_progress is-disabled" href="add-space-listing.html">Listing</a></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="progress-scale nd-hide-sm">
+            <div class="nd-container">
+                <div class="progress-scale__wrapper">
+                    <div class="progress-scale__state">
+                        <div class="progress-scale__title">Location</div>
+                    </div>
+                    <div class="progress-scale__state">
+                        <div class="progress-scale__title">Title and description</div>
+                    </div>
+                    <div class="progress-scale__state">
+                        <div class="progress-scale__title">Facilities</div>
+                    </div>
+                    <div class="progress-scale__state">
+                        <div class="progress-scale__title">House rules</div>
+                    </div>
+                    <div class="progress-scale__state is-active">
+                        <div class="progress-scale__title">Photo</div>
+                    </div>
+                    <div class="progress-scale__state is-disabled">
+                        <div class="progress-scale__title">Terms and conditions</div>
+                    </div>
+                    <div class="progress-scale__state is-disabled">
+                        <div class="progress-scale__title">Listing</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <section class="nd-content">
+            <div class="nd-container">
+                <div class="nd-content__column nd-content__column_aside" data-sticky-parent="data-sticky-parent">
+                    <aside class="sidebar nd-sidebar nd-hide-md">
+                        <div class="nd-side-navigation nd-side-navigation_add">
+                            <div class="step-info nd-side-navigation__step">
+                                <div class="step-info__image step-info__image_photo"><img src="assets/images/nd/add-photo.svg" /></div>
+                                <div class="step-info__subtitle">Step 5</div>
+                                <div class="step-info__title">Photo</div>
+                            </div>
+                            <div class="nd-side-navigation__note">Upload images of your space. We recommend taking the photos in landscape format.</div>
+                        </div>
+                    </aside>
+                </div>
+                <div class="nd-content__column nd-content__column_main">
+                    <form class="nd-form nd-form_app nd-form_app_pb80" data-validated-form="data-validated-form">
+                        <fieldset class="nd-form__section">
+                            <div class="nd-form__header nd-form__header_fx">
+                                <h3 class="nd-form__title nd-form__title_fz24 nd-form__title_fw400">Photos</h3>
+                                <div class="nd-form__counter" data-file-counter="data-file-counter"><i>0</i> / 25</div>
+                            </div>
+                            <div class="nd-uploader-output is-empty nd-form__upload-area" data-upload-area="data-upload-area">
+                                <div class="nd-uploader-output__empty-area"><label class="nd-uploader js-upload-file" data-format="jpg,png" data-total-count="25" data-short-side="1024" data-url-template="assets/data/nd-templates.json"><input class="nd-uploader__input" type="file" multiple="multiple" /><span class="nd-uploader__content"><span class="nd-uploader__icon"><img src="assets/images/nd/nd-upload.svg" alt="" role="presentation" /></span><span class="nd-uploader__title">Upload images</span><span class="nd-uploader__hint">Drag and drop or push the button</span>
+                                            <div class="nd-button nd-uploader__button"><span class="nd-button__bg"></span><span class="nd-button__text">Browse...</span></div><span class="nd-uploader__conditions">
+                                                <p>Please upload quality images</p>
+                                                <p>1024 px on the shortest side</p>
+                                                <p>High quality JPG, PNG</p>
+                                            </span>
+                                        </span></label></div>
+                                <div class="nd-uploader-output__files" data-draggable-list="data-draggable-list">
+                                    <div class="nd-uploader-output__item" data-insert-preview="data-insert-preview"><label class="nd-uploader nd-uploader_small nd-uploader_gray js-upload-file" data-format="jpg,png" data-total-count="25" data-short-side="1024" data-url-template="assets/data/nd-templates.json"><input class="nd-uploader__input" type="file" multiple="multiple" /><span class="nd-uploader__content"><span class="nd-uploader__icon"><img src="assets/images/nd/nd-upload.svg" alt="" role="presentation" /></span><span class="nd-uploader__title">Upload images</span><span class="nd-uploader__hint">Drag and drop or push the button</span>
+                                                <div class="nd-button nd-button_lg-h32 nd-button_lg-fz15 nd-uploader__button"><span class="nd-button__bg"></span><span class="nd-button__text">Browse...</span></div><span class="nd-uploader__conditions">
+                                                    <p>Please upload quality images</p>
+                                                </span>
+                                            </span></label></div>
+                                </div>
+                            </div>
+                        </fieldset>
+                        <div class="nd-form-panel nd-form-panel_wide is-fixed">
+                            <div class="nd-content">
+                                <div class="nd-container">
+                                    <div class="nd-form-panel__controls"><a class="nd-link nd-link_icon nd-link_underline nd-link_back nd-link_back_long nd-form-panel__back"><svg class="nd-link__icon nd-link__icon_arrow6"><use xlink:href="assets/images/icon.svg#icon_arrow6"></use></svg><span class="nd-link__text">Back <span class="nd-hide-sm"> to previous step</span></span></a><button class="nd-button nd-button_icon nd-button_next nd-button_sm-h32 nd-button_sm-fz16 nd-form-panel__button nd-form-panel__button_mw303" type="submit"><span class="nd-button__bg"></span><span class="nd-button__text">Save and continue</span><span class="nd-button__icon nd-button__icon_next"></span>
+                                            <div class="nd-button__preloader">
+                                                <div class="loader loader_small"></div>
+                                            </div>
+                                        </button></div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+    <div class="popups">
+        <div class="nd-popup popup-image-cropper" id="popup-image-crop">
+            <div class="nd-popup__container">
+                <div class="nd-popup__wrapper">
+                    <div class="nd-popup__header">
+                        <h3 class="nd-popup__title _fz18">Crop Image</h3>
+                        <div class="nd-popup__close" data-fancybox-close="data-fancybox-close"></div>
+                    </div>
+                    <div class="nd-popup__content">
+                        <div class="popup-image-cropper__media">
+                            <div><img src="data:image/svg+xml,%3Csvg width='1' height='1' viewBox='0 0 1 1' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3C/svg%3E" data-cropped-area="data-cropped-area" alt="" role="presentation" /></div>
+                        </div>
+                    </div>
+                    <div class="nd-popup__footer"><button class="nd-button popup-image-cropper__button js-preview-save-crop" type="button"><span class="nd-button__bg"></span><span class="nd-button__text">Save</span></button></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="assets/scripts/app.min.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAlLpVITMmaCmvob8dU3xWWBDOjPefUkZ4&amp;callback"></script>
+    <script src="assets/scripts/map.js"></script>
+</body>
+
+</html>
