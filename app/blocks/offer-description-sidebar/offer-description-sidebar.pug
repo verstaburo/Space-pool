@@ -30,3 +30,16 @@ mixin offer-description-sidebar-daypass()
       | Or call&nbsp;
       +nd-link().__link(href="tel:+4402084322219") +44 020 8432 2219
       | &nbsp;to&nbsp;speak to&nbsp;our free Advisor
+
+mixin offer-description-sidebar-v2()
+  +b.offer-description-sidebar._v2&attributes(attributes)
+    +e.header
+      +e.title.nd-hide-from-sm Book Now
+      +e.payment
+        +e.SPAN.price £ 149
+        +e.SPAN.mesure  per hour
+      +e.note Price exclusive VAT / Minimum 2 hours
+      +e.label
+        +icon('timer')
+        | instant book
+    +booking-form.__form

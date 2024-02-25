@@ -9,13 +9,177 @@
   background-color: $nd-color-basic-light;
   box-sizing: border-box;
 
-  @include rule(padding, (xl: 22px 50px 28px, xlg: 22 50 28, lg: 22 30 28, md: 20, sm: 20));
-  @include rule(border-radius, (xl: 3px, xlg: 3, lg: 3, md: 3, sm: 3));
+  @include rule(
+    padding,
+    (
+      xl: 22px 50px 28px,
+      xlg: 22 50 28,
+      lg: 22 30 28,
+      md: 20,
+      sm: 20,
+    )
+  );
+  @include rule(
+    border-radius,
+    (
+      xl: 3px,
+      xlg: 3,
+      lg: 3,
+      md: 3,
+      sm: 3,
+    )
+  );
+
+  &__header {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    box-sizing: border-box;
+    width: 100%;
+    border-bottom: 1px solid $nd-color-border6;
+    text-align: center;
+
+    @include rule(
+      padding,
+      (
+        xl: 38px 33px 19px,
+        xlg: 38 33 19,
+        lg: 38 33 19,
+        md: 38 33 19,
+        sm: 13 37 40,
+      )
+    );
+  }
+
+  &__title {
+    font-family: $font-stolzl;
+    font-weight: 700;
+    width: 100%;
+    text-align: center;
+
+    @include rule(
+      font-size,
+      (
+        xl: 22px,
+        xlg: 22,
+        lg: 22,
+        md: 22,
+        sm: 22,
+      )
+    );
+  }
 
   &__subtitle {
     color: $nd-color-gray-text;
 
-    @include rule(font-size, (xl: 15px, xlg: 15, lg: 15, md: 15, sm: 15));
+    @include rule(
+      font-size,
+      (
+        xl: 15px,
+        xlg: 15,
+        lg: 15,
+        md: 15,
+        sm: 15,
+      )
+    );
+  }
+
+  &__label {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    background-color: $nd-color-main;
+    color: $nd-color-basic-light;
+    font-family: $font-stolzl;
+    font-weight: 700;
+    text-transform: uppercase;
+    transform: translate3d(-50%, -50%, 0);
+    letter-spacing: normal;
+    line-height: 1.2;
+
+    @include rule(
+      font-size,
+      (
+        xl: 11px,
+        xlg: 11,
+        lg: 11,
+        md: 11,
+        sm: 11,
+      )
+    );
+
+    @include rule(
+      border-radius,
+      (
+        xl: 16px,
+        xlg: 16,
+        lg: 16,
+        md: 16,
+        sm: 16,
+      )
+    );
+
+    @include rule(
+      gap,
+      (
+        xl: 5px,
+        xlg: 5,
+        lg: 5,
+        md: 5,
+        sm: 5,
+      )
+    );
+
+    @include rule(
+      padding,
+      (
+        xl: 4px 8px 3px 5px,
+        xlg: 4 8 3 5,
+        lg: 4 8 3 5,
+        md: 4 8 3 5,
+        sm: 4 8 4 5,
+      )
+    );
+
+    @include screen("sm", max, 2) {
+      top: auto;
+      bottom: 0;
+      transform: translate3d(-50%, 50%, 0);
+    }
+
+    svg {
+      display: inline-block;
+      stroke: currentColor;
+      fill: transparent;
+      font-size: 0;
+      line-height: 0;
+
+      @include rule(
+        width,
+        (
+          xl: 10,
+          xlg: 10,
+          lg: 10,
+          md: 10,
+          sm: 10,
+        )
+      );
+      @include rule(
+        height,
+        (
+          xl: 13,
+          xlg: 13,
+          lg: 13,
+          md: 13,
+          sm: 13,
+        )
+      );
+    }
   }
 
   &__payment {
@@ -24,19 +188,55 @@
     width: 100%;
     font-weight: 600;
 
-    @include rule(font-size, (xl: 20px, xlg: 20, lg: 20, md: 20, sm: 20));
+    @include rule(
+      font-size,
+      (
+        xl: 20px,
+        xlg: 20,
+        lg: 20,
+        md: 20,
+        sm: 20,
+      )
+    );
 
     &:not(:first-child) {
-      @include rule(margin-top, (xl: 27px, xlg: 27, lg: 27, md: 27, sm: 27));
+      @include rule(
+        margin-top,
+        (
+          xl: 27px,
+          xlg: 27,
+          lg: 27,
+          md: 27,
+          sm: 27,
+        )
+      );
     }
 
     &::after {
       display: inline;
-      content: '*';
+      content: "*";
       color: $nd-color-gray-text;
 
-      @include rule(font-size, (xl: 15px, xlg: 15, lg: 15, md: 15, sm: 15));
-      @include rule(margin-left, (xl: 5px, xlg: 5, lg: 5, md: 5, sm: 5));
+      @include rule(
+        font-size,
+        (
+          xl: 15px,
+          xlg: 15,
+          lg: 15,
+          md: 15,
+          sm: 15,
+        )
+      );
+      @include rule(
+        margin-left,
+        (
+          xl: 5px,
+          xlg: 5,
+          lg: 5,
+          md: 5,
+          sm: 5,
+        )
+      );
     }
   }
 
@@ -48,7 +248,16 @@
     width: 100%;
 
     &:not(:first-child) {
-      @include rule(margin-top, (xl: 30px, xlg: 30, lg: 30, md: 30, sm: 30));
+      @include rule(
+        margin-top,
+        (
+          xl: 30px,
+          xlg: 30,
+          lg: 30,
+          md: 30,
+          sm: 30,
+        )
+      );
     }
   }
 
@@ -56,24 +265,60 @@
     width: 100%;
 
     &:not(:first-child) {
-      @include rule(margin-top, (xl: 15px, xlg: 15, lg: 15, md: 15, sm: 15));
+      @include rule(
+        margin-top,
+        (
+          xl: 15px,
+          xlg: 15,
+          lg: 15,
+          md: 15,
+          sm: 15,
+        )
+      );
     }
   }
 
   &__question {
-    @include rule(font-size, (xl: 15px, xlg: 15, lg: 15, md: 15, sm: 15));
+    @include rule(
+      font-size,
+      (
+        xl: 15px,
+        xlg: 15,
+        lg: 15,
+        md: 15,
+        sm: 15,
+      )
+    );
 
     line-height: 1.5;
     font-weight: 600;
 
     &:not(:first-child) {
-      @include rule(margin-top, (xl: 40px, xlg: 40, lg: 40, md: 40, sm: 40));
+      @include rule(
+        margin-top,
+        (
+          xl: 40px,
+          xlg: 40,
+          lg: 40,
+          md: 40,
+          sm: 40,
+        )
+      );
     }
   }
 
   &__avatar {
     &:not(:first-child) {
-      @include rule(margin-top, (xl: 26px, xlg: 26, lg: 26, md: 26, sm: 26));
+      @include rule(
+        margin-top,
+        (
+          xl: 26px,
+          xlg: 26,
+          lg: 26,
+          md: 26,
+          sm: 26,
+        )
+      );
     }
   }
 
@@ -84,15 +329,120 @@
     width: 100%;
     align-self: center;
 
-    @include rule(font-size, (xl: 15px, xlg: 15, lg: 15, md: 15, sm: 15));
+    @include rule(
+      font-size,
+      (
+        xl: 15px,
+        xlg: 15,
+        lg: 15,
+        md: 15,
+        sm: 15,
+      )
+    );
     // @include rule(max-width, (xl: 250px, xlg: 250, lg: 250, md: 250, sm: 250));
 
     &:not(:first-child) {
-      @include rule(margin-top, (xl: 26px, xlg: 26, lg: 26, md: 26, sm: 26));
+      @include rule(
+        margin-top,
+        (
+          xl: 26px,
+          xlg: 26,
+          lg: 26,
+          md: 26,
+          sm: 26,
+        )
+      );
     }
   }
 
   &__link {
     font-weight: 600;
+  }
+
+  &__form {
+    width: 100%;
+    box-sizing: border-box;
+
+    @include rule(
+      padding,
+      (
+        xl: 30px 33px 40px,
+        xlg: 30 33 40,
+        lg: 30 33 40,
+        md: 30 33 40,
+        sm: 40 37,
+      )
+    );
+  }
+
+  &__note {
+    color: $nd-color-gray-text;
+    font-weight: 400;
+
+    @include rule(
+      font-size,
+      (
+        xl: 13px,
+        xlg: 13,
+        lg: 13,
+        md: 13,
+        sm: 13,
+      )
+    );
+
+    &:not(:first-child) {
+      @include rule(
+        margin-top,
+        (
+          xl: 21px,
+          xlg: 21,
+          lg: 21,
+          md: 21,
+          sm: 9,
+        )
+      );
+    }
+  }
+
+  &_v2 {
+    padding: 0;
+    box-shadow: 1px 1px 1px 0 rgba(0, 0, 0, 0.03),
+      2px 2px 2px 0 rgba(0, 0, 0, 0.04), 3px 3px 3px 0 rgba(0, 0, 0, 0.02);
+
+    @include screen("sm", max, 2) {
+      box-shadow: 0 0 0 0 transparent;
+    }
+
+    #{$b} {
+      &__payment {
+        @include rule(
+          font-size,
+          (
+            xl: 24px,
+            xlg: 24,
+            lg: 24,
+            md: 24,
+            sm: 24,
+          )
+        );
+
+        &::after {
+          display: none;
+        }
+
+        &:not(:first-child) {
+          @include rule(
+            margin-top,
+            (
+              xl: 0,
+              xlg: 0,
+              lg: 0,
+              md: 0,
+              sm: 25,
+            )
+          );
+        }
+      }
+    }
   }
 }

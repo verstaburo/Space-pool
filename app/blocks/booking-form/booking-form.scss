@@ -1,0 +1,196 @@
+.booking-form {
+  $b: &;
+
+  &__section {
+    display: block;
+    width: 100%;
+
+    &:not(:first-child) {
+      @include rule(
+        margin-top,
+        (
+          xl: 30px,
+          xlg: 30,
+          lg: 30,
+          md: 30,
+          sm: 30,
+        )
+      );
+    }
+  }
+
+  &__title {
+    font-weight: 700;
+    line-height: 1.2;
+
+    @include rule(
+      font-size,
+      (
+        xl: 18px,
+        xlg: 18,
+        lg: 18,
+        md: 18,
+        sm: 18,
+      )
+    );
+  }
+
+  &__row {
+    width: 100%;
+
+    &:not(:first-child) {
+      @include rule(
+        margin-top,
+        (
+          xl: 20px,
+          xlg: 20,
+          lg: 20,
+          md: 20,
+          sm: 20,
+        )
+      );
+    }
+
+    &_datetime {
+      display: flex;
+      justify-content: center;
+      flex-wrap: nowrap;
+
+      @include rule(
+        gap,
+        (
+          xl: 10px,
+          xlg: 10,
+          lg: 10,
+          md: 10,
+          sm: 10,
+        )
+      );
+
+      .nd-form-box {
+        flex: 1;
+      }
+    }
+  }
+
+  &__divider {
+    flex: none;
+    display: block;
+    box-sizing: border-box;
+    border-style: solid;
+    border-color: $nd-color-main;
+    align-self: center;
+
+    @include rule(
+      border-width,
+      (
+        xl: 1px,
+        xlg: 1,
+        lg: 1,
+        md: 1,
+        sm: 1,
+      )
+    );
+
+    @include rule(
+      width,
+      (
+        xl: 8px,
+        xlg: 8,
+        lg: 8,
+        md: 8,
+        sm: 8,
+      )
+    );
+  }
+
+  &__table {
+    width: 100%;
+    color: $nd-color-gray-text;
+
+    @include rule(
+      font-size,
+      (
+        xl: 15px,
+        xlg: 15,
+        lg: 15,
+        md: 15,
+        sm: 15,
+      )
+    );
+
+    @include rule(
+      margin-top,
+      (
+        xl: 20px,
+        xlg: 20,
+        lg: 20,
+        md: 20,
+        sm: 20,
+      )
+    );
+
+    td {
+      @include rule(
+        padding-bottom,
+        (
+          xl: 10px,
+          xlg: 10,
+          lg: 10,
+          md: 10,
+          sm: 10,
+        )
+      );
+
+      &:last-child {
+        text-align: right;
+      }
+    }
+
+    tfoot {
+      td {
+        color: $nd-color-basic;
+        font-weight: 700;
+        border-top: 1px solid $nd-color-border6;
+        padding-bottom: 0;
+
+        @include rule(
+          padding-top,
+          (
+            xl: 10px,
+            xlg: 10,
+            lg: 10,
+            md: 10,
+            sm: 10,
+          )
+        );
+
+        @include rule(
+          font-size,
+          (
+            xl: 18px,
+            xlg: 18,
+            lg: 18,
+            md: 18,
+            sm: 18,
+          )
+        );
+      }
+    }
+  }
+
+  &__button {
+    width: 100%;
+
+    @include rule(
+      margin-top,
+      (
+        xl: 30px,
+        xlg: 30,
+        lg: 30,
+        md: 30,
+        sm: 30,
+      )
+    );
+  }
+}

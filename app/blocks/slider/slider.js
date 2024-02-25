@@ -289,7 +289,9 @@ export default function slider() {
             } = this;
             const activeSlide = slides[activeIndex];
             const item = $(it).find(`[data-calendar-month=${activeIndex}]`);
-            window.chooseMonth(item);
+            if (window.chooseMonth) {
+              window.chooseMonth(item);
+            }
             // $(activeSlide).find('[data-calendar-month]').trigger('click');
           },
         },

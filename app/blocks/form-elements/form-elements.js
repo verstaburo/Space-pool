@@ -603,7 +603,7 @@ export function datepicker() {
       startDate = setFormattedDate(startDateParam);
     }
     const maxDate = maxDateParam !== undefined ? setFormattedDate(maxDateParam) : '';
-    const addClasses = $(el).closest('.popup').length > 0 ? 'datepicker_fancybox' : '';
+    const addClasses = $(el).closest('.popup, .nd-popup').length > 0 ? 'datepicker_fancybox' : '';
 
     $(el).datepicker({
       language: 'en',
@@ -652,7 +652,7 @@ export function datepicker() {
       startDate = setFormattedDate(startDateParam);
     }
     const maxDate = maxDateParam !== undefined ? setFormattedDate(maxDateParam) : '';
-    const addClasses = $(el).closest('.popup').length > 0 ? 'datepicker_fancybox' : '';
+    const addClasses = $(el).closest('.popup, .nd-popup').length > 0 ? 'datepicker_fancybox' : '';
 
     $(el).datepicker({
       language: 'en',
@@ -705,7 +705,7 @@ export function datepicker() {
       startDate = setFormattedDate(startDateParam);
     }
     const maxDate = maxDateParam !== undefined ? setFormattedDate(maxDateParam) : '';
-    const addClasses = $(el).closest('.popup').length > 0 ? 'datepicker_fancybox' : '';
+    const addClasses = $(el).closest('.popup, .nd-popup').length > 0 ? 'datepicker_fancybox' : '';
 
     $(el).datepicker({
       language: 'en',
@@ -751,7 +751,7 @@ export function datepicker() {
       startDate = setFormattedDate(startDateParam);
     }
     const maxDate = maxDateParam !== undefined ? setFormattedDate(maxDateParam) : '';
-    const addClasses = $(el).closest('.popup').length > 0 ? 'datepicker_fancybox' : '';
+    const addClasses = $(el).closest('.popup, .nd-popup').length > 0 ? 'datepicker_fancybox' : '';
 
     $(el).datepicker({
       language: 'en',

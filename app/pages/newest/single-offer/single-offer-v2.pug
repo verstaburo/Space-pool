@@ -8,7 +8,7 @@ block bodyClasses
   - var isNoFooter = true
   - var isUserPanel = true;
   - var bodyCls = '';
-  - var scripts = ['search']
+  - var scripts = ['other']
 
 block header
   - var headerClass = ' is-login'
@@ -30,8 +30,9 @@ block panels
   +share-popover#share-popover
   +offer-description-panel()._fixed.is-visible.nd-hide-from-sm
     +e.buttons
-      +nd-button._pad10.__button._wide(href="#") Book now
+      +nd-button._pad10.__button._wide.js-nd-popup(href="#nd-popup-booking-form") Book now
 
 block popups
+  +popup-booking-form#nd-popup-booking-form
   //- +nd-popup-arrange-viewing#nd-popup-arrange-viewing
   //- +popup-offer-types#popup-offer-types
