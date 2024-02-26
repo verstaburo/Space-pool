@@ -650,6 +650,30 @@ export function datepicker() {
           disabled,
         };
       },
+      onChangeMonth() {
+        const leftEl = $(el).offset().left;
+        const width = $(el).outerWidth() / 2;
+        const widthDp = $('.datepicker').outerWidth() / 2;
+        $('.datepicker').offset({ left: leftEl + width - widthDp });
+      },
+      onChangeYear() {
+        const leftEl = $(el).offset().left;
+        const width = $(el).outerWidth() / 2;
+        const widthDp = $('.datepicker').outerWidth() / 2;
+        $('.datepicker').offset({ left: leftEl + width - widthDp });
+      },
+      onChangeDecade() {
+        const leftEl = $(el).offset().left;
+        const width = $(el).outerWidth() / 2;
+        const widthDp = $('.datepicker').outerWidth() / 2;
+        $('.datepicker').offset({ left: leftEl + width - widthDp });
+      },
+      onChangeView() {
+        const leftEl = $(el).offset().left;
+        const width = $(el).outerWidth() / 2;
+        const widthDp = $('.datepicker').outerWidth() / 2;
+        $('.datepicker').offset({ left: leftEl + width - widthDp });
+      },
     });
   }
 
@@ -722,6 +746,30 @@ export function datepicker() {
           disabled,
         };
       },
+      onChangeMonth() {
+        const leftEl = $(el).offset().left;
+        const width = $(el).outerWidth() / 2;
+        const widthDp = $('.datepicker').outerWidth() / 2;
+        $('.datepicker').offset({ left: leftEl + width - widthDp });
+      },
+      onChangeYear() {
+        const leftEl = $(el).offset().left;
+        const width = $(el).outerWidth() / 2;
+        const widthDp = $('.datepicker').outerWidth() / 2;
+        $('.datepicker').offset({ left: leftEl + width - widthDp });
+      },
+      onChangeDecade() {
+        const leftEl = $(el).offset().left;
+        const width = $(el).outerWidth() / 2;
+        const widthDp = $('.datepicker').outerWidth() / 2;
+        $('.datepicker').offset({ left: leftEl + width - widthDp });
+      },
+      onChangeView() {
+        const leftEl = $(el).offset().left;
+        const width = $(el).outerWidth() / 2;
+        const widthDp = $('.datepicker').outerWidth() / 2;
+        $('.datepicker').offset({ left: leftEl + width - widthDp });
+      },
     });
   }
 
@@ -791,6 +839,30 @@ export function datepicker() {
           disabled,
         };
       },
+      onChangeMonth() {
+        const leftEl = $(el).offset().left;
+        const width = $(el).outerWidth() / 2;
+        const widthDp = $('.datepicker').outerWidth() / 2;
+        $('.datepicker').offset({ left: leftEl + width - widthDp });
+      },
+      onChangeYear() {
+        const leftEl = $(el).offset().left;
+        const width = $(el).outerWidth() / 2;
+        const widthDp = $('.datepicker').outerWidth() / 2;
+        $('.datepicker').offset({ left: leftEl + width - widthDp });
+      },
+      onChangeDecade() {
+        const leftEl = $(el).offset().left;
+        const width = $(el).outerWidth() / 2;
+        const widthDp = $('.datepicker').outerWidth() / 2;
+        $('.datepicker').offset({ left: leftEl + width - widthDp });
+      },
+      onChangeView() {
+        const leftEl = $(el).offset().left;
+        const width = $(el).outerWidth() / 2;
+        const widthDp = $('.datepicker').outerWidth() / 2;
+        $('.datepicker').offset({ left: leftEl + width - widthDp });
+      },
     });
   });
 
@@ -852,6 +924,30 @@ export function datepicker() {
         return {
           disabled,
         };
+      },
+      onChangeMonth() {
+        const leftEl = $(el).offset().left;
+        const width = $(el).outerWidth() / 2;
+        const widthDp = $('.datepicker').outerWidth() / 2;
+        $('.datepicker').offset({ left: leftEl + width - widthDp });
+      },
+      onChangeYear() {
+        const leftEl = $(el).offset().left;
+        const width = $(el).outerWidth() / 2;
+        const widthDp = $('.datepicker').outerWidth() / 2;
+        $('.datepicker').offset({ left: leftEl + width - widthDp });
+      },
+      onChangeDecade() {
+        const leftEl = $(el).offset().left;
+        const width = $(el).outerWidth() / 2;
+        const widthDp = $('.datepicker').outerWidth() / 2;
+        $('.datepicker').offset({ left: leftEl + width - widthDp });
+      },
+      onChangeView() {
+        const leftEl = $(el).offset().left;
+        const width = $(el).outerWidth() / 2;
+        const widthDp = $('.datepicker').outerWidth() / 2;
+        $('.datepicker').offset({ left: leftEl + width - widthDp });
       },
     });
   });
