@@ -23,7 +23,7 @@
     pointer-events: none;
     will-change: transform, color, font;
 
-    @include screen('sm') {
+    @include screen("sm") {
       @include text16;
     }
 
@@ -35,7 +35,7 @@
     #{$b}_fz17 & {
       @include text-mid;
 
-      @include screen('sm') {
+      @include screen("sm") {
         @include text15;
       }
     }
@@ -48,7 +48,10 @@
       color: $color-new-input;
     }
 
-    input:hover ~ &, input:focus ~ &, textarea:hover ~ &, textarea:focus ~ & {
+    input:hover ~ &,
+    input:focus ~ &,
+    textarea:hover ~ &,
+    textarea:focus ~ & {
       color: $color-basic;
 
       .is-error & {
@@ -65,7 +68,9 @@
       box-sizing: border-box;
     }
 
-    #{$b}.is-top &, .choices.is-item-select ~ &, .choices.is-open ~ & {
+    #{$b}.is-top &,
+    .choices.is-item-select ~ &,
+    .choices.is-open ~ & {
       @include text;
 
       font-weight: 700;
@@ -74,7 +79,7 @@
       transform: translate3d(0, -27px, 0);
       padding-right: 0;
 
-      @include screen('sm') {
+      @include screen("sm") {
         @include text;
 
         line-height: (26/14);
@@ -85,31 +90,38 @@
       }
     }
 
-    #{$b}_lbl-small.is-top &, #{$b}_lbl-small .choices.is-item-select ~ &, #{$b}_lbl-small .choices.is-open ~ & {
+    #{$b}_lbl-small.is-top &,
+    #{$b}_lbl-small .choices.is-item-select ~ &,
+    #{$b}_lbl-small .choices.is-open ~ & {
       @include text13;
 
       line-height: (26 / 13);
       transform: translate3d(0, -23px, 0);
     }
 
-    #{$b}_lbl-nochange.is-top &,#{$b}_lbl-nochange .choices.is-item-select ~ &,#{$b}_lbl-nochange .choices.is-open ~ & {
+    #{$b}_lbl-nochange.is-top &,
+    #{$b}_lbl-nochange .choices.is-item-select ~ &,
+    #{$b}_lbl-nochange .choices.is-open ~ & {
       @include text-big;
 
       line-height: (26 / 18);
       transform: translate3d(0, -39px, 0);
 
-      @include screen('sm') {
+      @include screen("sm") {
         @include text16;
 
         transform: translate3d(0, -30px, 0);
       }
     }
 
-    #{$b}_invis .choices.is-item-select ~ &, #{$b}_invis .choices.is-open ~ & {
+    #{$b}_invis .choices.is-item-select ~ &,
+    #{$b}_invis .choices.is-open ~ & {
       color: transparent;
     }
 
-    #{$b}_gray-label.is-top &, #{$b}_gray-label .choices.is-item-select ~ &, #{$b}_gray-label .choices.is-open ~ & {
+    #{$b}_gray-label.is-top &,
+    #{$b}_gray-label .choices.is-item-select ~ &,
+    #{$b}_gray-label .choices.is-open ~ & {
       color: $color-bc-light;
 
       .is-error & {
@@ -139,7 +151,9 @@
       color: $color-error;
     }
 
-    input:disabled ~ &, textarea:disabled ~ &, .is-disabled ~ & {
+    input:disabled ~ &,
+    textarea:disabled ~ &,
+    .is-disabled ~ & {
       color: $nd-color-field-border !important;
 
       .is-error > .nd-form-box & {
@@ -156,11 +170,11 @@
     right: 3px;
     fill: currentColor;
 
-    @include screen('md') {
+    @include screen("md") {
       right: 12px;
     }
 
-    @include screen('sm') {
+    @include screen("sm") {
       right: 9px;
     }
 
@@ -187,16 +201,16 @@
       width: auto;
       height: auto;
 
-      @include screen('md') {
+      @include screen("md") {
         right: 12px;
       }
 
-      @include screen('sm') {
+      @include screen("sm") {
         right: 9px;
       }
 
       sup {
-        font-size: .6em;
+        font-size: 0.6em;
         line-height: 1;
         margin-left: -3px;
         font-weight: 700;
@@ -213,7 +227,7 @@
         color: $color-placeholder;
         right: 0;
 
-        @include screen('sm') {
+        @include screen("sm") {
           @include text;
 
           line-height: (26/14);
@@ -229,11 +243,29 @@
     transform: translate3d(0, -50%, 0);
     z-index: 2;
 
-    @include rule(min-width, (xl: 104px, xlg: 104, lg: 104, md: 104, sm: 104));
-    @include rule(right, (xl: 10px, xlg: 10, lg: 10, md: 10, sm: 10));
+    @include rule(
+      min-width,
+      (
+        xl: 104px,
+        xlg: 104,
+        lg: 104,
+        md: 104,
+        sm: 104,
+      )
+    );
+    @include rule(
+      right,
+      (
+        xl: 10px,
+        xlg: 10,
+        lg: 10,
+        md: 10,
+        sm: 10,
+      )
+    );
 
     &:active {
-      transform: translate3d(0, -50%, 0) scale(.96);
+      transform: translate3d(0, -50%, 0) scale(0.96);
     }
   }
 
@@ -336,7 +368,7 @@
     .input {
       padding-bottom: 4px;
 
-      @include screen('sm') {
+      @include screen("sm") {
         padding-top: 0;
         padding-bottom: 0;
       }
@@ -346,7 +378,7 @@
       right: 0;
       bottom: 12px;
 
-      @include screen('sm') {
+      @include screen("sm") {
         bottom: 8px;
       }
     }
@@ -366,7 +398,8 @@
   }
 
   &_icon {
-    .input, .textarea {
+    .input,
+    .textarea {
       padding-right: 30px;
     }
 
@@ -388,7 +421,8 @@
   }
 
   &_gray {
-    .input, .textarea {
+    .input,
+    .textarea {
       border-bottom-color: $color-new-input;
     }
   }
@@ -400,18 +434,45 @@
         right: 0;
         top: 0;
         height: 100%;
-        opacity: .3;
+        opacity: 0.3;
         transition: opacity $ease-main;
         display: flex;
         justify-content: flex-start;
         align-items: center;
         cursor: pointer;
 
-        @include rule(width, (xl: 28px, xlg: 28, lg: 28, md: 28, sm: 25));
+        @include rule(
+          width,
+          (
+            xl: 28px,
+            xlg: 28,
+            lg: 28,
+            md: 28,
+            sm: 25,
+          )
+        );
 
         svg {
-          @include rule(width, (xl: 16px, xlg: 16, lg: 16, md: 16, sm: 16));
-          @include rule(height, (xl: 16px, xlg: 16, lg: 16, md: 16, sm: 16));
+          @include rule(
+            width,
+            (
+              xl: 16px,
+              xlg: 16,
+              lg: 16,
+              md: 16,
+              sm: 16,
+            )
+          );
+          @include rule(
+            height,
+            (
+              xl: 16px,
+              xlg: 16,
+              lg: 16,
+              md: 16,
+              sm: 16,
+            )
+          );
 
           flex: none;
           fill: $nd-color-basic;
@@ -436,29 +497,31 @@
         bottom: 0;
         left: 7px;
         box-sizing: border-box;
-        transition: transform $ease-main-2s, color $ease-main-2s, font $ease-main-2s, background $ease-main-2s, padding $ease-main-2s, opacity $ease-main-2s;
+        transition: transform $ease-main-2s, color $ease-main-2s,
+          font $ease-main-2s, background $ease-main-2s, padding $ease-main-2s,
+          opacity $ease-main-2s;
         z-index: 2;
         transform: translate3d(0, 0, 0);
 
-        @include screen('xlg', max, 2) {
+        @include screen("xlg", max, 2) {
           left: pxtovw(7, 1660);
           font-size: pxtovw(17, 1660);
           padding: pxtovw(13, 1660) pxtovw(4, 1660) pxtovw(9, 1660);
         }
 
-        @include screen('lg', max, 2) {
+        @include screen("lg", max, 2) {
           left: pxtovw(7, 1366);
           font-size: pxtovw(17, 1366);
           padding: pxtovw(13, 1366) pxtovw(4, 1366) pxtovw(9, 1366);
         }
 
-        @include screen('md', max, 2) {
+        @include screen("md", max, 2) {
           left: pxtovw(7, 960);
           font-size: pxtovw(17, 960);
           padding: pxtovw(13, 960) pxtovw(4, 960) pxtovw(9, 960);
         }
 
-        @include screen('sm', max, 2) {
+        @include screen("sm", max, 2) {
           left: pxtovw(9, 375);
           font-size: pxtovw(15, 375);
           line-height: (26 / 15);
@@ -467,7 +530,9 @@
       }
     }
 
-    &.is-top #{$b}__label,.nd-choices.is-item-select ~ #{$b}__label,.nd-choices.is-open ~ #{$b}__label {
+    &.is-top #{$b}__label,
+    .nd-choices.is-item-select ~ #{$b}__label,
+    .nd-choices.is-open ~ #{$b}__label {
       font-size: 12px;
       line-height: (13 / 12);
       font-weight: 400;
@@ -477,25 +542,25 @@
       padding: 4px;
       background-color: $nd-color-bg;
 
-      @include screen('xlg', max, 2) {
+      @include screen("xlg", max, 2) {
         transform: translate3d(0, pxtovw(-39, 1660), 0);
         font-size: pxtovw(12, 1660);
         padding: pxtovw(4, 1660);
       }
 
-      @include screen('lg', max, 2) {
+      @include screen("lg", max, 2) {
         transform: translate3d(0, pxtovw(-39, 1366), 0);
         font-size: pxtovw(12, 1366);
         padding: pxtovw(4, 1366);
       }
 
-      @include screen('md', max, 2) {
+      @include screen("md", max, 2) {
         transform: translate3d(0, pxtovw(-39, 960), 0);
         font-size: pxtovw(12, 960);
         padding: pxtovw(4, 960);
       }
 
-      @include screen('sm', max, 2) {
+      @include screen("sm", max, 2) {
         transform: translate3d(0, pxtovw(-31, 375), 0);
         padding: pxtovw(2, 375);
         font-size: pxtovw(10, 375);
@@ -511,7 +576,16 @@
       bottom: auto;
       transform-origin: 0 50%;
 
-      @include rule(top, (xl: 3px, xlg: 3, lg: 3, md: 3, sm: 0));
+      @include rule(
+        top,
+        (
+          xl: 3px,
+          xlg: 3,
+          lg: 3,
+          md: 3,
+          sm: 0,
+        )
+      );
     }
 
     &.is-top textarea + #{$b}__label {
@@ -519,22 +593,22 @@
       transform-origin: 0 50%;
       padding: 4px;
 
-      @include screen('xlg', max, 2) {
+      @include screen("xlg", max, 2) {
         transform: translate3d(0, pxtovw(-12, 1660), 0);
         padding: pxtovw(4, 1660);
       }
 
-      @include screen('lg', max, 2) {
+      @include screen("lg", max, 2) {
         transform: translate3d(0, pxtovw(-12, 1366), 0);
         padding: pxtovw(4, 1366);
       }
 
-      @include screen('md', max, 2) {
+      @include screen("md", max, 2) {
         transform: translate3d(0, pxtovw(-12, 960), 0);
         padding: pxtovw(4, 960);
       }
 
-      @include screen('sm', max, 2) {
+      @include screen("sm", max, 2) {
         transform: translate3d(0, pxtovw(-8, 375), 0);
         padding: pxtovw(2, 375);
       }
@@ -546,40 +620,42 @@
       &__label {
         padding: 8px 4px 4px;
 
-        @include screen('xlg', max, 2) {
+        @include screen("xlg", max, 2) {
           padding: pxtovw(8, 1660) pxtovw(4, 1660) pxtovw(4, 1660);
         }
 
-        @include screen('lg', max, 2) {
+        @include screen("lg", max, 2) {
           padding: pxtovw(8, 1366) pxtovw(4, 1366) pxtovw(4, 1366);
         }
 
-        @include screen('md', max, 2) {
+        @include screen("md", max, 2) {
           padding: pxtovw(8, 960) pxtovw(4, 960) pxtovw(4, 960);
         }
 
-        @include screen('sm', max, 2) {
+        @include screen("sm", max, 2) {
           padding: pxtovw(8, 375) pxtovw(2, 375) pxtovw(4, 375);
         }
       }
     }
 
-    &.is-top #{$b}__label,.nd-choices.is-item-select ~ #{$b}__label,.nd-choices.is-open ~ #{$b}__label {
+    &.is-top #{$b}__label,
+    .nd-choices.is-item-select ~ #{$b}__label,
+    .nd-choices.is-open ~ #{$b}__label {
       transform: translate3d(0, -30px, 0);
 
-      @include screen('xlg', max, 2) {
+      @include screen("xlg", max, 2) {
         transform: translate3d(0, pxtovw(-30, 1660), 0);
       }
 
-      @include screen('lg', max, 2) {
+      @include screen("lg", max, 2) {
         transform: translate3d(0, pxtovw(-30, 1366), 0);
       }
 
-      @include screen('md', max, 2) {
+      @include screen("md", max, 2) {
         transform: translate3d(0, pxtovw(-30, 960), 0);
       }
 
-      @include screen('sm', max, 2) {
+      @include screen("sm", max, 2) {
         transform: translate3d(0, pxtovw(-31, 375), 0);
       }
     }
@@ -588,7 +664,7 @@
   &.nd-form-box_sm-h50 {
     #{$b} {
       &__label {
-        @include screen('sm', max, 2) {
+        @include screen("sm", max, 2) {
           left: pxtovw(7, 375);
           font-size: pxtovw(17, 375);
           line-height: (26 / 17);
@@ -597,8 +673,10 @@
       }
     }
 
-    &.is-top #{$b}__label,.nd-choices.is-item-select ~ #{$b}__label,.nd-choices.is-open ~ #{$b}__label {
-      @include screen('sm', max, 2) {
+    &.is-top #{$b}__label,
+    .nd-choices.is-item-select ~ #{$b}__label,
+    .nd-choices.is-open ~ #{$b}__label {
+      @include screen("sm", max, 2) {
         transform: translate3d(0, pxtovw(-39, 375), 0);
         font-size: pxtovw(11, 375);
         padding: pxtovw(4, 375);
@@ -607,7 +685,9 @@
   }
 
   &.nd-form-box_bg-white {
-    &.is-top #{$b}__label, .nd-choices.is-item-select ~ #{$b}__label, .nd-choices.is-open ~ #{$b}__label {
+    &.is-top #{$b}__label,
+    .nd-choices.is-item-select ~ #{$b}__label,
+    .nd-choices.is-open ~ #{$b}__label {
       background-color: $nd-color-basic-light;
     }
   }
@@ -627,22 +707,22 @@
     background-color: $nd-color-bg;
     margin-top: 20px;
 
-    @include screen('xlg', max, 2) {
+    @include screen("xlg", max, 2) {
       width: pxtovw(868, 1660);
       margin-top: pxtovw(20, 1660);
     }
 
-    @include screen('lg', max, 2) {
+    @include screen("lg", max, 2) {
       width: pxtovw(868, 1366);
       margin-top: pxtovw(20, 1366);
     }
 
-    @include screen('md', max, 2) {
+    @include screen("md", max, 2) {
       width: pxtovw(868, 960);
       margin-top: pxtovw(20, 960);
     }
 
-    @include screen('sm', max, 2) {
+    @include screen("sm", max, 2) {
       position: fixed;
       display: flex;
       width: 100%;
@@ -671,9 +751,18 @@
       margin-top: 0;
       margin-bottom: 20px;
 
-      @include rule(margin-bottom, (xl: 20px, xlg: 20, lg: 20, md: 20, sm: 0));
+      @include rule(
+        margin-bottom,
+        (
+          xl: 20px,
+          xlg: 20,
+          lg: 20,
+          md: 20,
+          sm: 0,
+        )
+      );
 
-      @include screen('sm', max, 2) {
+      @include screen("sm", max, 2) {
         top: 0;
         bottom: auto;
       }
@@ -683,6 +772,60 @@
       opacity: 1;
       pointer-events: auto;
       visibility: visible;
+    }
+  }
+
+  &.nd-form-box_select {
+    &::after {
+      position: absolute;
+      top: 0;
+      right: 0;
+      display: block;
+      content: "";
+      height: 100%;
+      width: 30px;
+      pointer-events: none;
+      background-image: $icon-select-arrow;
+      background-repeat: no-repeat;
+      background-position: 50% 50%;
+      background-size: 10px 7px;
+      transform-origin: 50% 50%;
+      transition: transform $ease-main;
+      z-index: 2;
+
+      @include screen("xlg", max, 2) {
+        width: pxtovw(30, 1660);
+        background-size: pxtovw(10, 1660) pxtovw(7, 1660);
+      }
+
+      @include screen("lg", max, 2) {
+        width: pxtovw(30, 1366);
+        background-size: pxtovw(10, 1366) pxtovw(7, 1366);
+      }
+
+      @include screen("md", max, 2) {
+        width: pxtovw(30, 960);
+        background-size: pxtovw(10, 960) pxtovw(7, 960);
+      }
+
+      @include screen("sm", max, 2) {
+        width: pxtovw(30, 375);
+        background-size: pxtovw(10, 375) pxtovw(7, 375);
+      }
+    }
+
+    &.is-top::after {
+      transform: rotate(-180deg);
+      z-index: 4;
+      pointer-events: auto;
+
+      @include screen("sm", max, 2) {
+        pointer-events: none;
+      }
+    }
+
+    &.is-disabled::after {
+      background-image: url("data:image/svg+xml,%3Csvg width='10' height='7' viewBox='0 0 10 7' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1L5 5L9 1' stroke='%23C8CCD0' stroke-width='1.5' stroke-linecap='round'/%3E%3C/svg%3E ");
     }
   }
 }

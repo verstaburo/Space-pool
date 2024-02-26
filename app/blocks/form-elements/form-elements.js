@@ -592,6 +592,7 @@ export function datepicker() {
     const minDateParam = $(el).attr('data-mindate');
     const maxDateParam = $(el).attr('data-maxdate');
     const startDateParam = $(el).attr('data-startdate');
+    const classList = $(el).attr('data-class-list');
     let startDate = new Date();
     let minDate = new Date();
     if (minDateParam === 'all') {
@@ -603,7 +604,12 @@ export function datepicker() {
       startDate = setFormattedDate(startDateParam);
     }
     const maxDate = maxDateParam !== undefined ? setFormattedDate(maxDateParam) : '';
-    const addClasses = $(el).closest('.popup, .nd-popup').length > 0 ? 'datepicker_fancybox' : '';
+    const popupClass = $(el).closest('.popup, .nd-popup').length > 0 ? 'datepicker_fancybox' : '';
+    const addClasses = `${classList} ${popupClass}`;
+
+    if ($('.datepicker-overlay').length === 0) {
+      $('.datepicker').after('<div class="datepicker-overlay"></div>');
+    }
 
     $(el).datepicker({
       language: 'en',
@@ -618,6 +624,19 @@ export function datepicker() {
         const self = inst.el;
         $(self).trigger('change');
         window.setLabelPosition(self);
+      },
+      onShow() {
+        const leftEl = $(el).offset().left;
+        const width = $(el).outerWidth() / 2;
+        const widthDp = $('.datepicker').outerWidth() / 2;
+        $('.datepicker').offset({ left: leftEl + width - widthDp });
+        $('body').addClass('is-air-datepicker-open');
+        if ($('.datepicker-overlay').length === 0) {
+          $('.datepicker').after('<div class="datepicker-overlay"></div>');
+        }
+      },
+      onHide() {
+        $('body').removeClass('is-air-datepicker-open');
       },
       onRenderCell(d, type) {
         let disabled = false;
@@ -641,6 +660,7 @@ export function datepicker() {
     const minDateParam = $(el).attr('data-mindate');
     const maxDateParam = $(el).attr('data-maxdate');
     const startDateParam = $(el).attr('data-startdate');
+    const classList = $(el).attr('data-class-list');
     let startDate = new Date();
     let minDate = new Date();
     if (minDateParam === 'all') {
@@ -652,7 +672,12 @@ export function datepicker() {
       startDate = setFormattedDate(startDateParam);
     }
     const maxDate = maxDateParam !== undefined ? setFormattedDate(maxDateParam) : '';
-    const addClasses = $(el).closest('.popup, .nd-popup').length > 0 ? 'datepicker_fancybox' : '';
+    const popupClass = $(el).closest('.popup, .nd-popup').length > 0 ? 'datepicker_fancybox' : '';
+    const addClasses = `${classList} ${popupClass}`;
+
+    if ($('.datepicker-overlay').length === 0) {
+      $('.datepicker').after('<div class="datepicker-overlay"></div>');
+    }
 
     $(el).datepicker({
       language: 'en',
@@ -672,6 +697,19 @@ export function datepicker() {
         $(copyfield).text(stringDate);
         $(self).trigger('change');
         window.setLabelPosition(self);
+      },
+      onShow() {
+        const leftEl = $(el).offset().left;
+        const width = $(el).outerWidth() / 2;
+        const widthDp = $('.datepicker').outerWidth() / 2;
+        $('.datepicker').offset({ left: leftEl + width - widthDp });
+        $('body').addClass('is-air-datepicker-open');
+        if ($('.datepicker-overlay').length === 0) {
+          $('.datepicker').after('<div class="datepicker-overlay"></div>');
+        }
+      },
+      onHide() {
+        $('body').removeClass('is-air-datepicker-open');
       },
       onRenderCell(d, type) {
         let disabled = false;
@@ -694,6 +732,7 @@ export function datepicker() {
     const minDateParam = $(el).attr('data-mindate');
     const maxDateParam = $(el).attr('data-maxdate');
     const startDateParam = $(el).attr('data-startdate');
+    const classList = $(el).attr('data-class-list');
     let minDate = new Date();
     let startDate = new Date();
     if (minDateParam === 'all') {
@@ -705,20 +744,40 @@ export function datepicker() {
       startDate = setFormattedDate(startDateParam);
     }
     const maxDate = maxDateParam !== undefined ? setFormattedDate(maxDateParam) : '';
-    const addClasses = $(el).closest('.popup, .nd-popup').length > 0 ? 'datepicker_fancybox' : '';
+    const popupClass = $(el).closest('.popup, .nd-popup').length > 0 ? 'datepicker_fancybox' : '';
+    const addClasses = `${classList} ${popupClass}`;
 
     $(el).datepicker({
       language: 'en',
       dateFormat: 'dd MM yyyy',
+      firstDay: 1,
       autoClose: true,
       minDate,
       maxDate,
       startDate,
       classes: addClasses,
+      navTitles: {
+        days: 'MM yyyy',
+        months: 'yyyy',
+        years: 'yyyy1 - yyyy2',
+      },
       onSelect(a, b, inst) {
         const self = inst.el;
         $(self).trigger('change');
         window.setLabelPosition(self);
+      },
+      onShow() {
+        const leftEl = $(el).offset().left;
+        const width = $(el).outerWidth() / 2;
+        const widthDp = $('.datepicker').outerWidth() / 2;
+        $('.datepicker').offset({ left: leftEl + width - widthDp });
+        $('body').addClass('is-air-datepicker-open');
+        if ($('.datepicker-overlay').length === 0) {
+          $('.datepicker').after('<div class="datepicker-overlay"></div>');
+        }
+      },
+      onHide() {
+        $('body').removeClass('is-air-datepicker-open');
       },
       onRenderCell(d, type) {
         let disabled = false;
@@ -740,6 +799,7 @@ export function datepicker() {
     const minDateParam = $(el).attr('data-mindate');
     const maxDateParam = $(el).attr('data-maxdate');
     const startDateParam = $(el).attr('data-startdate');
+    const classList = $(el).attr('data-class-list');
     let startDate = new Date();
     let minDate = new Date();
     if (minDateParam === 'all') {
@@ -751,7 +811,8 @@ export function datepicker() {
       startDate = setFormattedDate(startDateParam);
     }
     const maxDate = maxDateParam !== undefined ? setFormattedDate(maxDateParam) : '';
-    const addClasses = $(el).closest('.popup, .nd-popup').length > 0 ? 'datepicker_fancybox' : '';
+    const popupClass = $(el).closest('.popup, .nd-popup').length > 0 ? 'datepicker_fancybox' : '';
+    const addClasses = `${classList} ${popupClass}`;
 
     $(el).datepicker({
       language: 'en',
@@ -765,6 +826,20 @@ export function datepicker() {
         const self = inst.el;
         $(self).trigger('change');
         window.setLabelPosition(self);
+      },
+      onShow() {
+        const leftEl = $(el).offset().left;
+        const width = $(el).outerWidth() / 2;
+        const widthDp = $('.datepicker').outerWidth() / 2;
+        $('.datepicker').offset({ left: leftEl + width - widthDp });
+        $('body').addClass('is-air-datepicker-open');
+
+        if ($('.datepicker-overlay').length === 0) {
+          $('.datepicker').after('<div class="datepicker-overlay"></div>');
+        }
+      },
+      onHide() {
+        $('body').removeClass('is-air-datepicker-open');
       },
       onRenderCell(d, type) {
         let disabled = false;
