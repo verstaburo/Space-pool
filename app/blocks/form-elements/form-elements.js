@@ -775,6 +775,70 @@ export function datepicker() {
 
   window.changedDatepickerInit = changedDatepickerInit;
 
+  function inlineDatepickerInit(el) {
+    const disabledDates = $(el).attr('data-disabled-dates') ? $(el).attr('data-disabled-dates').split(',') : [];
+    const minDateParam = $(el).attr('data-mindate');
+    const maxDateParam = $(el).attr('data-maxdate');
+    const startDateParam = $(el).attr('data-startdate');
+    const classList = $(el).attr('data-class-list');
+    let startDate = new Date();
+    let minDate = new Date();
+    if (minDateParam === 'all') {
+      minDate = '';
+    } else if (minDateParam !== undefined) {
+      minDate = setFormattedDate(minDateParam);
+    }
+    if (startDateParam !== undefined) {
+      startDate = setFormattedDate(startDateParam);
+    }
+    const maxDate = maxDateParam !== undefined ? setFormattedDate(maxDateParam) : '';
+    const addClasses = `${classList}`;
+    const datepickerID = $(el).data('datepicker-id');
+    const output = $(`[data-datepicker-output=${datepickerID}]`);
+    const selectedDate = new Date($(output).val());
+
+    console.log('datepickerinit');
+    console.log(output);
+    console.log(`selected Date ${selectedDate}`);
+
+    $(el).datepicker({
+      language: 'en',
+      dateFormat: 'mm/dd/yy',
+      inline: true,
+      classes: addClasses,
+      minDate,
+      maxDate,
+      startDate,
+      navTitles: {
+        days: 'MM yyyy',
+        months: 'yyyy',
+        years: 'yyyy1 - yyyy2',
+      },
+      onSelect(a, b, inst) {
+        $(output).val(inst.selectedDates[0]);
+      },
+      onRenderCell(d, type) {
+        let disabled = false;
+        const formatted = getFormattedDate(d);
+        if (type === 'day') {
+          disabled = disabledDates.filter((date) => (date === formatted)).length;
+        }
+
+        return {
+          disabled,
+        };
+      },
+    });
+
+    $(el).datepicker().data('datepicker').selectDate(selectedDate);
+  }
+
+  window.inlineDatepickerInit = inlineDatepickerInit;
+
+  $('.js-inline-datepicker').each((i, el) => {
+    inlineDatepickerInit(el);
+  });
+
   $('.js-datepicker').each((i, el) => {
     const disabledDates = $(el).attr('data-disabled-dates') ? $(el).attr('data-disabled-dates').split(',') : [];
     const minDateParam = $(el).attr('data-mindate');

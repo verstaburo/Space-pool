@@ -25,3 +25,16 @@ mixin nd-header-special(host)
         +nd-short-profile-origin('assets/images/nd/user-avatar-1.jpg', '', 'a')._login.__profile(href="#")
         +e.burger
           +nd-burger-icon().js-open-navigation(data-menu-position="top")
+
+mixin nd-header-special-v2(host)
+  - var isAuthorized = authorized ? 'is-login' : '';
+  +b.HEADER.nd-header.header__._search&attributes(attributes)(class=isAuthorized)
+    +e.wrapper
+      +e.logo.nd-hide-sm
+        +nd-logo-short()(href="/")
+        +map-button(true)._cross.__map-button.js-map-toggle-fullview
+      +filter-section-header-v2.__filter
+      +e.menu.nd-hide-sm
+        +nd-short-profile-origin('assets/images/nd/user-avatar-1.jpg', '', 'a')._login.__profile(href="#")
+        +e.burger
+          +nd-burger-icon().js-open-navigation(data-menu-position="top")

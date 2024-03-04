@@ -19,7 +19,16 @@
   backface-visibility: hidden;
   overscroll-behavior: none;
 
-  @include rule(height, (xl: 94px, xlg: 94, lg: 66, md: 66, sm: 66));
+  @include rule(
+    height,
+    (
+      xl: 94px,
+      xlg: 94,
+      lg: 66,
+      md: 66,
+      sm: 66,
+    )
+  );
 
   &__wrapper {
     position: absolute;
@@ -31,20 +40,45 @@
     z-index: 10;
     max-width: 100vw;
 
-    @include rule(top, (xl: 17px, xlg: 17, lg: 3, md: 3, sm: 3));
-    @include rule(height, (xl: 60px, xlg: 60, lg: 60, md: 60, sm: 60));
+    @include rule(
+      top,
+      (
+        xl: 17px,
+        xlg: 17,
+        lg: 3,
+        md: 3,
+        sm: 3,
+      )
+    );
+    @include rule(
+      height,
+      (
+        xl: 60px,
+        xlg: 60,
+        lg: 60,
+        md: 60,
+        sm: 60,
+      )
+    );
 
     &::before {
       @include pseudo;
-      @include rule(height, (xl: 60px, xlg: 60, lg: 60, md: 60, sm: 60));
+      @include rule(
+        height,
+        (
+          xl: 60px,
+          xlg: 60,
+          lg: 60,
+          md: 60,
+          sm: 60,
+        )
+      );
 
       top: 0;
       width: 100%;
       border-bottom: 1px solid transparent;
       background-color: $color-bg;
-      transition:
-        background .15s ease,
-        border .15s ease;
+      transition: background 0.15s ease, border 0.15s ease;
       box-sizing: border-box;
       z-index: 1;
       backface-visibility: hidden;
@@ -52,7 +86,7 @@
 
     #{$b}_border & {
       &::before {
-        @include screen('sm') {
+        @include screen("sm") {
           border-bottom-color: $color-border-light;
         }
       }
@@ -60,7 +94,7 @@
 
     #{$b}_no-mob-border & {
       &::before {
-        @include screen('sm') {
+        @include screen("sm") {
           border-bottom-color: transparent;
         }
       }
@@ -68,20 +102,20 @@
 
     #{$b}_sm-white & {
       &::before {
-        @include screen('sm', max, 2) {
+        @include screen("sm", max, 2) {
           background-color: transparent;
         }
       }
     }
 
     #{$b}.is-short & {
-      @include screen('sm', min, 2) {
+      @include screen("sm", min, 2) {
         position: fixed;
         top: 0;
       }
 
       &::before {
-        @include screen('sm', min, 2) {
+        @include screen("sm", min, 2) {
           background-color: $color-white;
           border-bottom-color: $color-border-light;
         }
@@ -94,7 +128,7 @@
   }
 
   &_no-mob-border {
-    @include screen('sm') {
+    @include screen("sm") {
       border-bottom-color: transparent;
     }
   }
@@ -104,12 +138,12 @@
     display: flex;
     z-index: 2;
 
-    @include screen('sm') {
+    @include screen("sm") {
       justify-content: space-between;
     }
 
     #{$b}.is-login & {
-      @include screen('sm') {
+      @include screen("sm") {
         justify-content: flex-start;
       }
     }
@@ -125,24 +159,24 @@
     line-height: 0;
     margin-right: 50px;
 
-    @include screen('xlg', max, 2) {
+    @include screen("xlg", max, 2) {
       margin-right: pxtovw(50, 1660);
     }
 
-    @include screen('lg', max, 2) {
+    @include screen("lg", max, 2) {
       margin-right: pxtovw(50, 1366);
     }
 
-    @include screen('md', max, 2) {
+    @include screen("md", max, 2) {
       margin-right: pxtovw(50, 960);
     }
 
-    @include screen('sm', max, 2) {
+    @include screen("sm", max, 2) {
       margin-right: pxtovw(20, 375);
     }
 
     #{$b}_sm-white & {
-      @include screen('sm') {
+      @include screen("sm") {
         color: $nd-color-basic-light;
       }
     }
@@ -154,7 +188,7 @@
     align-items: center;
     flex: 1;
 
-    @include screen('sm', max, 2) {
+    @include screen("sm", max, 2) {
       display: none;
     }
   }
@@ -176,20 +210,29 @@
     line-height: 0;
     align-self: center;
 
-    @include rule(margin-left, (xl: 73px, xlg: 73, lg: 60, md: 60, sm: 0));
+    @include rule(
+      margin-left,
+      (
+        xl: 73px,
+        xlg: 73,
+        lg: 60,
+        md: 60,
+        sm: 0,
+      )
+    );
 
     .burger {
       left: 0;
       top: 11px;
 
-      @include screen('sm') {
+      @include screen("sm") {
         top: 8px;
       }
     }
 
     #{$b}_sm-white & {
       .nd-burger {
-        @include screen('sm', max, 2) {
+        @include screen("sm", max, 2) {
           color: $nd-color-basic-light;
         }
       }
@@ -206,7 +249,7 @@
     margin-left: 0;
     transition: opacity $ease-main;
 
-    @include screen('sm') {
+    @include screen("sm") {
       margin-top: 0;
       margin-left: -97px;
     }
@@ -214,13 +257,13 @@
     &:not(:last-child) {
       margin-right: 30px;
 
-      @include screen('sm') {
+      @include screen("sm") {
         margin-right: 20px;
       }
     }
 
     #{$b}.is-short & {
-      @include screen('md', min) {
+      @include screen("md", min) {
         opacity: 0;
       }
     }
@@ -239,13 +282,13 @@
   &.nd-header_border {
     border-bottom: 1px solid $nd-color-border4;
 
-    @include screen('xl', max, 2) {
+    @include screen("xl", max, 2) {
       border-bottom: none;
     }
   }
 
   .is-sm-noheader & {
-    @include screen('sm', max, 2) {
+    @include screen("sm", max, 2) {
       display: none;
     }
   }
@@ -255,7 +298,7 @@
       &__logo {
         margin-right: 30px;
 
-        @include screen('sm') {
+        @include screen("sm") {
           margin-right: 15px;
         }
       }
@@ -269,29 +312,69 @@
   &_sm-white {
     color: $nd-color-basic-light;
 
-    @include screen('sm', max, 2) {
+    @include screen("sm", max, 2) {
       z-index: 1;
       background-color: transparent;
     }
   }
 
   &_search {
-    @include rule(height, (xl: 70px, xlg: 70, lg: 66, md: 66, sm: 60));
-    @include rule(padding-top, (xl: 22px, xlg: 22, lg: 20, md: 10, sm: 0));
-    @include rule(padding-bottom, (md: 10, sm: 0));
+    @include rule(
+      height,
+      (
+        xl: 70px,
+        xlg: 70,
+        lg: 66,
+        md: 66,
+        sm: 60,
+      )
+    );
+    @include rule(
+      padding-top,
+      (
+        xl: 22px,
+        xlg: 22,
+        lg: 20,
+        md: 10,
+        sm: 0,
+      )
+    );
+    @include rule(
+      padding-bottom,
+      (
+        md: 10,
+        sm: 0,
+      )
+    );
 
     background-color: transparent;
     pointer-events: none;
     overflow: visible;
 
-    @include screen('sm', max, 2) {
+    @include screen("sm", max, 2) {
       overflow: hidden;
     }
 
     &::before {
       @include pseudo;
-      @include rule(height, (xl: 92px, xlg: 92, lg: 86, md: 76, sm: 0));
-      @include uRule(width, (xl: 58.49%, lg: 52.93%, md: 100%));
+      @include rule(
+        height,
+        (
+          xl: 92px,
+          xlg: 92,
+          lg: 86,
+          md: 76,
+          sm: 0,
+        )
+      );
+      @include uRule(
+        width,
+        (
+          xl: 58.49%,
+          lg: 52.93%,
+          md: 100%,
+        )
+      );
       // @include uRule(background-image, (xl: linear-gradient(180deg, #f2f6f7 34.38%, rgba(242, 246, 247, 0) 100%), md: linear-gradient(180deg, #f2f6f7 34.38%, #f2f6f7 100%)));
 
       top: -1px;
@@ -303,7 +386,7 @@
       background-size: 107px;
       background-image: $icon-gradient;
 
-      @include screen('sm', max, 2) {
+      @include screen("sm", max, 2) {
         display: none;
       }
 
@@ -311,9 +394,8 @@
         transition: opacity 0s ease, transform 0s ease;
         opacity: 0;
 
-        @include screen('md', max, 2) {
-          transition: opacity $ease-main,
-          transform $ease-main;
+        @include screen("md", max, 2) {
+          transition: opacity $ease-main, transform $ease-main;
         }
       }
     }
@@ -332,19 +414,28 @@
         left: auto;
         overflow: visible;
 
-        @include rule(height, (xl: 46px, xlg: 46, lg: 46, md: 46, sm: 60));
+        @include rule(
+          height,
+          (
+            xl: 46px,
+            xlg: 46,
+            lg: 46,
+            md: 46,
+            sm: 60,
+          )
+        );
 
-        @include screen('lg', max, 2) {
+        @include screen("lg", max, 2) {
           grid-template-columns: auto 1fr 47.07%;
           grid-template-rows: auto;
         }
 
-        @include screen('md', max, 2) {
+        @include screen("md", max, 2) {
           grid-template-columns: auto 1fr auto;
           grid-template-rows: auto;
         }
 
-        @include screen('sm', max, 2) {
+        @include screen("sm", max, 2) {
           grid-template-columns: 100%;
           grid-template-rows: auto;
           display: flex;
@@ -372,17 +463,39 @@
         grid-column: 1 / 2;
         grid-row: 1 / 2;
 
-        @include screen('xl', max, 2) {
+        @include screen("xl", max, 2) {
           min-width: 92px;
           padding: 0 11px;
         }
 
-        @include rule(padding-left, (xlg: 11
-        , lg: 6, md: 6, sm: 0));
-        @include rule(padding-right, (xlg: 11, lg: 6, md: 6, sm: 0));
-        @include rule(min-width, (xlg: 92, lg: 82, md: 82));
+        @include rule(
+          padding-left,
+          (
+            xlg: 11,
+            lg: 6,
+            md: 6,
+            sm: 0,
+          )
+        );
+        @include rule(
+          padding-right,
+          (
+            xlg: 11,
+            lg: 6,
+            md: 6,
+            sm: 0,
+          )
+        );
+        @include rule(
+          min-width,
+          (
+            xlg: 92,
+            lg: 82,
+            md: 82,
+          )
+        );
 
-        @include screen('sm', max, 2) {
+        @include screen("sm", max, 2) {
           display: none;
         }
       }
@@ -394,12 +507,20 @@
         grid-row: 1 / 2;
         box-sizing: border-box;
 
-        @include screen('sm', max, 2) {
+        @include screen("sm", max, 2) {
           grid-column: 1 / 2;
           width: 100%;
         }
 
-        @include rule(padding-right, (xl: 50px, xlg: 50, lg: 20, md: 0));
+        @include rule(
+          padding-right,
+          (
+            xl: 50px,
+            xlg: 50,
+            lg: 20,
+            md: 0,
+          )
+        );
       }
 
       &__menu {
@@ -412,40 +533,82 @@
         background-color: $nd-color-basic-light;
         pointer-events: auto;
         margin-right: 60px;
-        box-shadow: boxShadow(0, 3.2, 7.69511, 0,rgba(0, 0, 0, 0.1), false);
+        box-shadow: boxShadow(0, 3.2, 7.69511, 0, rgba(0, 0, 0, 0.1), false);
         grid-column: 3 / 4;
         grid-row: 1 / 2;
 
-        @include screen('xl', max, 2) {
+        @include screen("xl", max, 2) {
           margin-right: 27px;
         }
 
-        @include rule(margin-right, (xlg: 27, lg: 22, md: 22, sm: 0));
-        @include rule(border-radius, (xl: 35px, xlg: 35, lg: 35, md: 35, sm: 0));
-        @include rule(padding-left, (xl: 6px, xlg: 6, lg: 6, md: 6, sm: 0));
-        @include rule(padding-right, (xl: 16px, xlg: 16, lg: 16, md: 16, sm: 0));
+        @include rule(
+          margin-right,
+          (
+            xlg: 27,
+            lg: 22,
+            md: 22,
+            sm: 0,
+          )
+        );
+        @include rule(
+          border-radius,
+          (
+            xl: 35px,
+            xlg: 35,
+            lg: 35,
+            md: 35,
+            sm: 0,
+          )
+        );
+        @include rule(
+          padding-left,
+          (
+            xl: 6px,
+            xlg: 6,
+            lg: 6,
+            md: 6,
+            sm: 0,
+          )
+        );
+        @include rule(
+          padding-right,
+          (
+            xl: 16px,
+            xlg: 16,
+            lg: 16,
+            md: 16,
+            sm: 0,
+          )
+        );
 
-        @include screen('xlg', max, 2) {
+        @include screen("xlg", max, 2) {
           box-shadow: boxShadow(0, 3.2, 7.69511, 0, rgba(0, 0, 0, 0.1), 1660);
         }
 
-        @include screen('lg', max, 2) {
+        @include screen("lg", max, 2) {
           box-shadow: boxShadow(0, 3.2, 7.69511, 0, rgba(0, 0, 0, 0.1), 1366);
         }
 
-        @include screen('md', max, 2) {
+        @include screen("md", max, 2) {
           box-shadow: boxShadow(0, 3.2, 7.69511, 0, rgba(0, 0, 0, 0.1), 960);
         }
 
-        @include screen('sm', max, 2) {
+        @include screen("sm", max, 2) {
           display: none;
           box-shadow: 0 0 0 0 transparent;
         }
       }
 
       &__burger {
-        @include rule(margin-left, (xl: 3px, xlg: 3, lg: 3, md: 3));
-
+        @include rule(
+          margin-left,
+          (
+            xl: 3px,
+            xlg: 3,
+            lg: 3,
+            md: 3,
+          )
+        );
       }
     }
 
@@ -454,10 +617,27 @@
     }
 
     .nd-burger {
-
       &__icon {
-        @include rule(width, (xl: 22px, xlg: 22, lg: 22, md: 22, sm: 22));
-        @include rule(width, (xl: 19px, xlg: 19, lg: 19, md: 19, sm: 19));
+        @include rule(
+          width,
+          (
+            xl: 22px,
+            xlg: 22,
+            lg: 22,
+            md: 22,
+            sm: 22,
+          )
+        );
+        @include rule(
+          width,
+          (
+            xl: 19px,
+            xlg: 19,
+            lg: 19,
+            md: 19,
+            sm: 19,
+          )
+        );
       }
     }
 
@@ -465,7 +645,8 @@
       display: block;
       position: relative;
 
-      .map-in-fullview &, .is-map-animated-out & {
+      .map-in-fullview &,
+      .is-map-animated-out & {
         display: none;
       }
 
@@ -498,7 +679,8 @@
     .map-button {
       display: none;
 
-      .map-in-fullview &, .is-map-animated-out & {
+      .map-in-fullview &,
+      .is-map-animated-out & {
         display: block;
       }
     }

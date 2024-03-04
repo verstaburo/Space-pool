@@ -7,21 +7,30 @@
   background-color: $nd-color-basic-light;
   box-shadow: boxShadow(0, 3.2, 7.69511, 0, rgba(0, 0, 0, 0.1), false);
 
-  @include rule(border-radius, (xl: 35px, xlg: 35, lg: 35, md: 35, sm: 35));
+  @include rule(
+    border-radius,
+    (
+      xl: 35px,
+      xlg: 35,
+      lg: 35,
+      md: 35,
+      sm: 35,
+    )
+  );
 
-  @include screen('xlg', max, 2) {
+  @include screen("xlg", max, 2) {
     box-shadow: boxShadow(0, 3.2, 7.69511, 0, rgba(0, 0, 0, 0.1), 1660);
   }
 
-  @include screen('lg', max, 2) {
+  @include screen("lg", max, 2) {
     box-shadow: boxShadow(0, 3.2, 7.69511, 0, rgba(0, 0, 0, 0.1), 1366);
   }
 
-  @include screen('md', max, 2) {
+  @include screen("md", max, 2) {
     box-shadow: boxShadow(0, 3.2, 7.69511, 0, rgba(0, 0, 0, 0.1), 960);
   }
 
-  @include screen('sm', max, 2) {
+  @include screen("sm", max, 2) {
     box-shadow: boxShadow(0, 3.2, 7.69511, 0, rgba(0, 0, 0, 0.1), 375);
     box-sizing: border-box;
     padding: 0 wPxtovw(10, sm);
@@ -36,9 +45,18 @@
 
     .modal-output {
       &::after {
-        @include screen('sm', min, 2) {
+        @include screen("sm", min, 2) {
           @include pseudo;
-          @include rule(height, (xl: 34px, xlg: 34, lg: 34, md: 34, sm: 26));
+          @include rule(
+            height,
+            (
+              xl: 34px,
+              xlg: 34,
+              lg: 34,
+              md: 34,
+              sm: 26,
+            )
+          );
 
           z-index: 2;
           pointer-events: none;
@@ -74,12 +92,17 @@
     }
 
     &_back {
-      @include screen('sm', max) {
+      @include screen("sm", max) {
         border-radius: 50%;
       }
 
       &:not(:last-child) {
-        @include rule(margin-right, (sm: 17));
+        @include rule(
+          margin-right,
+          (
+            sm: 17,
+          )
+        );
       }
     }
 
@@ -88,7 +111,16 @@
 
       &::before {
         @include pseudo;
-        @include rule(height, (xl: 34px, xlg: 34, lg: 34, md: 34, sm: 26));
+        @include rule(
+          height,
+          (
+            xl: 34px,
+            xlg: 34,
+            lg: 34,
+            md: 34,
+            sm: 26,
+          )
+        );
 
         width: 1px;
         left: 0;
@@ -97,12 +129,12 @@
         transform: translate3d(0, -50%, 0);
         background-color: $nd-color-border7;
 
-        @include screen('sm', max, 2) {
+        @include screen("sm", max, 2) {
           display: none;
         }
       }
 
-      @include screen('sm', max, 2) {
+      @include screen("sm", max, 2) {
         padding-left: 0;
         order: 4;
         flex: 1;
@@ -114,7 +146,7 @@
     }
 
     &_type {
-      @include screen('sm', max, 2) {
+      @include screen("sm", max, 2) {
         order: 5;
         flex: none;
         width: pxtovw(100, 375);
@@ -123,7 +155,16 @@
 
       &::before {
         @include pseudo;
-        @include rule(height, (xl: 34px, xlg: 34, lg: 34, md: 34, sm: 26));
+        @include rule(
+          height,
+          (
+            xl: 34px,
+            xlg: 34,
+            lg: 34,
+            md: 34,
+            sm: 26,
+          )
+        );
 
         width: 1px;
         left: 0;
@@ -132,7 +173,7 @@
         transform: translate3d(0, -50%, 0);
         background-color: $nd-color-border7;
 
-        @include screen('sm', min, 2) {
+        @include screen("sm", min, 2) {
           display: none;
         }
       }
@@ -147,7 +188,16 @@
 
       &::before {
         @include pseudo;
-        @include rule(height, (xl: 34px, xlg: 34, lg: 34, md: 34, sm: 26));
+        @include rule(
+          height,
+          (
+            xl: 34px,
+            xlg: 34,
+            lg: 34,
+            md: 34,
+            sm: 26,
+          )
+        );
 
         width: 1px;
         left: 0;
@@ -157,7 +207,7 @@
         z-index: 1;
       }
 
-      @include screen('sm', max, 2) {
+      @include screen("sm", max, 2) {
         padding-left: 0;
         order: 6;
         width: pxtovw(62, 375);
@@ -174,8 +224,26 @@
       transition: width $ease-main, opacity $ease-main, padding $ease-main;
 
       #{$b}:hover & {
-        @include rule(padding-right, (xl: 6px, xlg: 6, lg: 6, md: 6, sm: 0));
-        @include rule(width, (xl: 66px, xlg: 66, lg: 66, md: 66, sm: 66));
+        @include rule(
+          padding-right,
+          (
+            xl: 6px,
+            xlg: 6,
+            lg: 6,
+            md: 6,
+            sm: 0,
+          )
+        );
+        @include rule(
+          width,
+          (
+            xl: 66px,
+            xlg: 66,
+            lg: 66,
+            md: 66,
+            sm: 66,
+          )
+        );
 
         padding-left: 2px;
         opacity: 1;
@@ -184,10 +252,46 @@
   }
 
   &__button {
-    @include rule(padding-left, (xl: 13px, xlg: 13, lg: 13, md: 13, sm: 13));
-    @include rule(padding-right, (xl: 13px, xlg: 13, lg: 13, md: 13, sm: 13));
-    @include rule(font-size, (xl: 15px, xlg: 15, lg: 15, md: 15, sm: 15));
-    @include rule(width, (xl: 40px, xlg: 40, lg: 40, md: 40, sm: 44));
+    @include rule(
+      padding-left,
+      (
+        xl: 13px,
+        xlg: 13,
+        lg: 13,
+        md: 13,
+        sm: 13,
+      )
+    );
+    @include rule(
+      padding-right,
+      (
+        xl: 13px,
+        xlg: 13,
+        lg: 13,
+        md: 13,
+        sm: 13,
+      )
+    );
+    @include rule(
+      font-size,
+      (
+        xl: 15px,
+        xlg: 15,
+        lg: 15,
+        md: 15,
+        sm: 15,
+      )
+    );
+    @include rule(
+      width,
+      (
+        xl: 40px,
+        xlg: 40,
+        lg: 40,
+        md: 40,
+        sm: 44,
+      )
+    );
 
     display: flex;
     justify-content: flex-start;
@@ -196,7 +300,7 @@
     height: 100%;
     box-sizing: border-box;
 
-    @include screen('sm', max) {
+    @include screen("sm", max) {
       border-radius: 50%;
       background-color: $nd-color-basic-light;
     }
@@ -211,7 +315,16 @@
   }
 
   &__submit {
-    @include rule(height, (xl: 34px, xlg: 34, lg: 34, md: 34, sm: 34));
+    @include rule(
+      height,
+      (
+        xl: 34px,
+        xlg: 34,
+        lg: 34,
+        md: 34,
+        sm: 34,
+      )
+    );
 
     width: 100%;
     font-size: 0;
@@ -240,23 +353,101 @@
     flex: none;
     height: 100%;
 
-    @include rule(width, (xl: 15px, xlg: 15, lg: 15, md: 15, sm: 15));
+    @include rule(
+      width,
+      (
+        xl: 15px,
+        xlg: 15,
+        lg: 15,
+        md: 15,
+        sm: 15,
+      )
+    );
     // @include rule(height, (xl: 15px, xlg: 15, lg: 15, md: 15, sm: 15));
 
     &_back {
       fill: $nd-color-basic;
 
-      @include rule(width, (xl: 15px, xlg: 15, lg: 15, md: 15, sm: 15));
-      @include rule(height, (sm: 44));
+      @include rule(
+        width,
+        (
+          xl: 15px,
+          xlg: 15,
+          lg: 15,
+          md: 15,
+          sm: 15,
+        )
+      );
+      @include rule(
+        height,
+        (
+          sm: 44,
+        )
+      );
     }
 
     &_cross {
-      @include rule(width, (xl: 12px, xlg: 12, lg: 12, md: 12, sm: 12));
+      @include rule(
+        width,
+        (
+          xl: 12px,
+          xlg: 12,
+          lg: 12,
+          md: 12,
+          sm: 12,
+        )
+      );
       // @include rule(height, (xl: 12px, xlg: 12, lg: 12, md: 12, sm: 12));
     }
 
     &:not(:last-child) {
-      @include rule(margin-right, (xl: 12px, xlg: 12, lg: 12, md: 12, sm: 12));
+      @include rule(
+        margin-right,
+        (
+          xl: 12px,
+          xlg: 12,
+          lg: 12,
+          md: 12,
+          sm: 12,
+        )
+      );
+    }
+  }
+
+  &_v2 {
+    @include screen("sm", max, 2) {
+      flex-direction: column;
+    }
+
+    #{$b} {
+      &:hover #{$b}__item {
+        &_submit {
+          @include rule(
+            width,
+            (
+              lg: 46,
+              md: 46,
+              sm: 100%,
+            )
+          );
+        }
+      }
+
+      &__item {
+        &_submit {
+          @include screen("sm", max, 2) {
+            width: 100%;
+          }
+        }
+      }
+
+      &__submit {
+        .nd-button__text {
+          @include screen("sm", min, 2) {
+            display: none;
+          }
+        }
+      }
     }
   }
 }

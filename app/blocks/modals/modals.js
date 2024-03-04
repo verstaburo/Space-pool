@@ -75,18 +75,24 @@ export const modalMethods = {
       const mWidth = modalSizes.width;
       const mHeight = modalSizes.height;
       const oBottom = outputSizes.bottom;
+      const oWidth = outputSizes.width;
       const oTop = outputSizes.top;
       const oLeft = outputSizes.left;
       const oRight = outputSizes.right;
+      const freeLeft = wW - oRight;
       const freeRight = wW - oLeft;
       const freeBottom = wH - oBottom;
       let y = 0;
       let x = 0;
 
-      if (freeRight < (mWidth + 10)) {
-        x = oRight - mWidth;
-      } else {
+      if (freeRight >= (mWidth + 10)) {
         x = oLeft;
+      } else if (freeLeft > (mWidth + 10)) {
+        x = oRight - mWidth;
+      } else if (freeLeft > Math.abs(mWidth - oWidth / 2)) {
+        x = oLeft - 10 - (oWidth - mWidth) / 2;
+      } else {
+        x = oRight - 10 + (oWidth - mWidth) / 2;
       }
 
       if (freeBottom < (mHeight + 20)) {
@@ -130,7 +136,7 @@ export function modalShowes() {
 
   $(document).on('click', '.js-close-modal', (evt) => {
     const _this = evt.currentTarget;
-    const modalId = $(_this).closest('.modal').attr('id');
+    const modalId = $(_this).closest('.modal').attr('id') || $(_this).attr('data-modal-target');
     const isMapInFullView = $('body').hasClass('map-in-fullview');
     modalMethods.close(modalId);
     if (isMapInFullView) {

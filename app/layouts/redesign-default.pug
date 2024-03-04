@@ -26,6 +26,7 @@ html(lang='en')
     - var otherScripts = scripts || false
     - var isSearch = searchPage || false
     - var headerSpecial = headSpec || false
+    - var headerSpecial2 = headSpec2 || false
     if noUser
       - menuData = getData('nd-nouser-acc-list.json')
     if isHost
@@ -35,7 +36,9 @@ html(lang='en')
     if gradients
       +gradients-redesign
     if !noHeader
-      if headerSpecial
+      if headerSpecial2
+        +nd-header-special-v2(isHost)(class=addClass)
+      else if headerSpecial
         +nd-header-special(isHost)(class=addClass)
       else
         +nd-header(isHost)(class=addClass)

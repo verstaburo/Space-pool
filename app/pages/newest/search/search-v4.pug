@@ -1,0 +1,194 @@
+extends ../../../layouts/redesign-default
+
+block head
+  - var pageTitle = 'Spacepool - Search'
+
+block bodyClasses
+  - var bodyCls = ' ';
+  - var isNoFooter = true
+  - var scripts = ['search']
+  - var searchPage = true
+
+block header
+  - var headerClass = ' is-login'
+  - var pageClass = '_nopad'
+  - var isMap = true
+  - var isMapNew = true
+  - var host = false
+  - var headSpec2 = true
+
+block content
+  +layout
+    +e.column_map.js-map-sm-show-fullview
+      +nd-search-map-v2('search-map', 'assets/data/space-markers.json')
+
+    +e.column_results
+      +e.wrapper
+        +nd-section.md-only-visibility-hidden
+          +e.filter-header
+            +nd-section-header
+              +nd-section-title._fz30._sm-fz22._ls-015 Office spaces in London
+              +e.text_fz15._ls0._gray Looking for workspace type, Any team size and Any price
+            +modal-output({placeholder: 'Sort by'}).js-toggle-modal.nd-hide-sm(data-modal-target="filter-sort" data-modal-output-type="sort" )
+
+        +nd-results._v2
+          each item in getData('new-nd-spaces-search-with-dp.json')
+            +nd-results-item
+              +nd-space()._search-card._search-card_v3(href="space-v5-1.html" target="_blank")
+                +gallery(item.gallery)._space.__media.js-nd-gallery
+                +e.describe
+                  +e.address
+                    each el in item.address
+                      span!= el
+                  +e.title!=item.title
+                  +e.clip-text
+                    +e.text!=item.text
+                +e.offer-list
+                  +offer-table(item.offers, false, true)._striped.__list
+                +e.button.hide-from-sm.js-layout-show.js-layout-tab-redirect(data-layout-target="space" data-layout-tab-target="tab-space-offers" data-dead-zone) View all 20 listings
+
+    +e.column_start._start_space._popup(data-layout="space" data-layout-main)
+      +e.wrapper
+        +space-description-v2
+        +space-description-panel
+
+    +e.column_end._popup.nd-sm-hide(data-layout="list,space,offer" data-layout-side)
+      //- +layout-header({type: 'list', popup: true})._sort._popup
+      +e.wrapper
+        +nd-results._v2
+          each list in getData('space-offers-dividers.json')
+            +e.subheader!=list.title
+            each item in list.list
+              +nd-results-item._mt23
+                +nd-space()._single-offer._single-offer_short.js-layout-show(data-layout-target="offer" data-layout-title=item.title data-layout-title-color=item.type.box.substring(1))
+                  if item.gallery && item.gallery.images.length === 1
+                    +nd-space-media-e()
+                      +e.PICTURE.image
+                        +e.SOURCE(srcset=item.gallery.images[0])
+                        +e.IMG(src=item.gallery.images[0])
+                  else if item.gallery
+                    +gallery(item.gallery)._space.__media.js-nd-gallery
+                  +e.describe
+                    +space-type._gray._fz12.__type.nd-hide-md
+                      +nd-box()(class=item.type.box + ' __box_sz9')
+                      +e.name!=item.type.name
+                    if item.title
+                      +e.title!=item.title
+                    +nd-table._info._info_space._info_space_small-fz.__table
+                      tbody
+                        tr
+                          td Amount of desks
+                          td 12
+                        tr
+                          td Floor area
+                          td 257 ft<sup>2</sup>
+                        tr
+                          td Min. term
+                          td 1 month
+                        tr
+                          td Price
+                          td
+                            b £ 2,400 per month
+
+    +e.column_start._start_offer._popup(data-layout="offer" data-layout-main)
+      +e.wrapper
+        +offer-description-v2
+        +offer-description-panel()._fixed.is-visible.nd-hide-from-sm
+          +e.buttons
+            +nd-button._pad10._black.__button.js-nd-arrange-viewing(href="#nd-popup-arrange-viewing" data-min-date="2021-15-4" data-max-date="2021-20-8") Arrange viewing
+            +nd-button._pad10.__button(href="#") Request reservation
+
+    +e.column_header._popup(data-layout="space,offer,list" data-layout-header)
+      +layout-header({type: 'space', popup: true})._main
+      +layout-header({type: 'list2', popup: true})._sort-v2
+
+  +modals('FORM')#search-filter(action="/")
+    +e.FIELDSET.fieldset
+      +modal({header: {title: 'Location'}, footer: false})#filter-location
+        +e.list
+          - var cityList = getData('nd-main-search-cities.json');
+          +e.checklist
+            each item in cityList
+              +b.LABEL.check-button_hov-blue._h34._sm-styled.__check(class=(item.cls || ''))
+                if item.checked
+                  +e.INPUT.input(name=item.name, value=item.value, checked, type="radio", data-modal-item, data-modal-item-value=item.title, data-modal-item-type="city")
+                else
+                  +e.INPUT.input(name=item.name, value=item.value, type="radio", data-modal-item, data-modal-item-value=item.title, data-modal-item-type="city")
+                +e.SPAN.content!=item.title
+
+      +modal({header: {title: 'Office type'}, describe: 'Pick the type of workspace you want.', footer: false})#filter-type
+        +e.list
+          each item in [{title: 'Private Office', value: 'Private Office', name: 'team', value2: 'Private Office', class: "_offer_green", wrapClass: 'is-green'}, {title: 'Hot Desk', value: 'Hot Desk', name: 'team', value2: 'Hot Desk', class: "_offer_orange", wrapClass: 'is-orange'}, {title: 'Fixed Desk', value: 'Fixed Desk', name: 'team', value2: 'Fixed Desk', class: "_offer_red", wrapClass: 'is-red'}, {title: 'Meeting Room', value: 'Meeting Room', name: 'team', value2: 'Meeting Room', class: "_offer_blue", wrapClass: 'is-blue'}]
+            +styled-radio(item.title)._offer(class=item.class + ' __item')
+              if (item.checked)
+                +e.INPUT.input(type="radio", value=item.value, name=item.name, data-modal-item, data-modal-item-value=item.value2, data-modal-item-wrapper-class=item.wrapClass data-modal-item-type="offer", checked)
+              else
+                +e.INPUT.input(type="radio", value=item.value, name=item.name, data-modal-item, data-modal-item-value=item.value2, data-modal-item-wrapper-class=item.wrapClass data-modal-item-type="offer")
+
+      +modal({header: {title: 'Team size'}, describe: 'Start-up, scale-up, big business or just you – we have a perfect match for you.', footer: false})#filter-team
+        +e.list
+          each item in [{title: '1', value: '1', name: 'team', value2: '1'}, {title: '2 - 4', value: '2 - 4', name: 'team'}, {title: '5 - 7', value: '5 - 7', name: 'team'}, {title: '8 - 10', value: '8 - 10', name: 'team'}, {title: '11 - 15', value: '11 - 15', name: 'team'}, {title: '16 - 20', value: '16 - 20', name: 'team'}, {title: '21 - 30', value: '21 - 30', name: 'team'}, {title: '31 +', value: '31 +', name: 'team', value2: '31 +'} ]
+            +styled-radio(item.title)._team.__item
+              +e.INPUT.input(type="radio", value=item.value, name=item.name, data-modal-item, data-modal-item-value=(item.value2 || item.value), data-modal-item-type="team")
+
+      +modal({header3: {title: 'Date and time'}, footer: {view: 'date', class: 'modal__footer_v2'} })._v2#filter-date
+        +e.calendar
+          +e.calendar-section.js-inline-datepicker(data-date-format="mm/dd/yy" data-class-list="datepicker_gray" data-datepicker-id="filter")
+          +e.calendar-section_time
+            +nd-input()._sm-h50(type="hidden" name="date" value="03/08/2024" data-datepicker-output="filter")
+            +e.calendar-title Select time
+            +e.calendar-time
+              +nd-form-box('From', 'div')._sm-h50._bg-white
+                +nd-select().js-nd-select(name="startTime" data-choices-classes="nd-choices_sm-h50")
+                  option(placeholder)
+                  each item in ['0:00', '1:00', '2:00', '3:00', '4:00', '5:00', '6:00', '7:00', '8:00', '9:00', '10:00', '11:00', '12:00', '13:00', '14:00', '15:00', '16:00', '17:00', '18:00', '19:00', '20:00', '21:00', '22:00', '23:00', '24:00']
+                    option(value=item) #{item}
+              +e.calendar-divider
+              +nd-form-box('Till', 'div')._sm-h50._bg-white
+                +nd-select().js-nd-select(name="endTime" data-choices-classes="nd-choices_sm-h50")
+                  option(placeholder)
+                  each item in ['0:00', '1:00', '2:00', '3:00', '4:00', '5:00', '6:00', '7:00', '8:00', '9:00', '10:00', '11:00', '12:00', '13:00', '14:00', '15:00', '16:00', '17:00', '18:00', '19:00', '20:00', '21:00', '22:00', '23:00', '24:00']
+                    option(value=item) #{item}
+
+
+    +e.FIELDSET.fieldset
+      +modal-filter#modal-filter
+      //- +modal({header: {title: 'Filter'}, footer: {class: '_range', view: 'range'}})#filter-multi
+
+
+    +e.FIELDSET.fieldset
+      +modal({header: {title: 'Sort by'}, footer: false})._small(data-modal-placement="right")#filter-sort
+        +e.list
+          each item in [{title: 'Recommended', value: 'Recommended', name: 'sort', /*checked: true*/}, {title: 'Newest first', value: 'Newest first', name: 'sort'}, {title: 'Older first', value: 'Older first', name: 'sort'}, {title: 'Alphabetic order', value: 'Alphabetic order', name: 'sort'}, {title: 'Amount of listing', value: 'Amount of listing', name: 'sort'}]
+            +styled-radio(item.title)._sort.__item
+              if item.checked
+                +e.INPUT.input(type="radio", value=item.value, name=item.name, data-modal-item, data-modal-item-value=(item.value), data-modal-item-type="sort" checked)
+              else
+                +e.INPUT.input(type="radio", value=item.value, name=item.name, data-modal-item, data-modal-item-value=(item.value), data-modal-item-type="sort")
+
+  +modals('div')
+    +modal({header: {title: 'Offer type'}, footer: false})._small#sort-offer
+      +e.list
+        each item in [{title: 'All listings', value: 'All listings', name: 'sortOffer', checked: true}, {title: 'Private office', value: 'Private office', name: 'sortOffer'}, {title: 'Fixed desk', value: 'Fixed desk', name: 'sortOffer'}, {title: 'Hot desk', value: 'Hot desk', name: 'sortOffer'}, {title: 'Meeting room', value: 'Meeting room', name: 'sortOffer'}, {title: 'Day pass', value: 'Day pass', name: 'sortOffer'}]
+          +styled-radio(item.title)._sort.__item
+            if item.checked
+              +e.INPUT.input(type="radio", value=item.value, name=item.name, data-modal-item, data-modal-item-value=(item.value), data-modal-item-type="sortOffer" checked)
+            else
+              +e.INPUT.input(type="radio", value=item.value, name=item.name, data-modal-item, data-modal-item-value=(item.value), data-modal-item-type="sortOffer")
+
+  +modals('FORM')#form-listing-sort(action="/")
+    +modal({header2: {title: 'Filter'}, footer: false})._type3#listing-sort
+      +e.list
+        each item in [{title: 'All listings', value: 'All listings', name: 'lsort', checked: true}, {title: 'Day pass', value: 'Day pass', name: 'lsort'}, {title: 'Private office', value: 'Private office', name: 'lsort'}, {title: 'Co-Working', value: 'Co-Working', name: 'lsort'}, {title: 'Meeting Room', value: 'Meeting Room', name: 'lsort'}]
+          +styled-radio(item.title)._sort-v2.__item
+            if item.checked
+              +e.INPUT.input(type="radio", value=item.value, name=item.name, data-modal-item, data-modal-item-value=(item.value), data-modal-item-type="lsort" checked)
+            else
+              +e.INPUT.input(type="radio", value=item.value, name=item.name, data-modal-item, data-modal-item-value=(item.value), data-modal-item-type="lsort")
+
+
+block panels
+  +share-popover#share-popover
+
+block popups
+  +nd-popup-arrange-viewing#nd-popup-arrange-viewing

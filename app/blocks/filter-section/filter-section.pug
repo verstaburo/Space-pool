@@ -22,3 +22,29 @@ mixin filter-section-header()
         +e.BUTTON.clear.js-clear-modal-filter(data-modal-filter-clear-always)
           +icon('cross')
           +e.counter(data-modal-filter-output)
+
+mixin filter-section-header-v2()
+  +b.filter-section_v2&attributes(attributes)
+    +e.A.button.js-layout-close-active.nd-hide-from-sm(href="#")
+      +icon('back-arrow-mid').__icon_back
+    +e.group
+      +modal-output({placeholder: 'Search for Spaces'})._search.nd-hide-from-sm.js-toggle-modal(data-modal-target="search-space-mobile")
+      +e.modal#search-space-mobile
+        +e.modal-header.nd-hide-from-sm
+          +e.BUTTON.button_v2.nd-hide-from-sm.js-close-modal(type="button" data-modal-target="search-space-mobile")
+            +icon('back-arrow-mid').__icon_back
+          +e.modal-title Search Spaces
+        +nd-filter-advanced.__filter
+    +e.item
+      +modal-output-special({placeholder: 'Filter'})._filter.nd-hide-sm.js-open-modal-filter
+        +e.BUTTON.clear.js-clear-modal-filter(data-modal-filter-clear-always)
+          +icon('cross')
+          +e.counter(data-modal-filter-output)
+      +e.BUTTON.button_v2.nd-hide-from-sm.js-open-modal-filter
+        +e.SVG.icon_filter(xmlns="http://www.w3.org/2000/svg" viewBox="0 0 23.8 21.1")
+          path(d="M21.25,4.2H7.35a.65.65,0,0,1,0-1.3h13.9a.65.65,0,1,1,0,1.3Z")
+          path(d="M3.65,7.1A3.65,3.65,0,0,1,0,3.55,3.55,3.55,0,0,1,3.55,0,3.65,3.65,0,0,1,7.2,3.55,3.55,3.55,0,0,1,3.65,7.1Zm-.1-5.8A2.25,2.25,0,0,0,1.3,3.55,2.33,2.33,0,0,0,3.65,5.8,2.25,2.25,0,0,0,5.9,3.55,2.33,2.33,0,0,0,3.55,1.3Z" fill="#0085ff")
+          path(d="M21.25,18.2H7.35a.65.65,0,0,1,0-1.3h13.9a.65.65,0,1,1,0,1.3Z")
+          path(d="M3.65,21.1A3.55,3.55,0,1,1,7.2,17.55,3.55,3.55,0,0,1,3.65,21.1Zm0-5.8A2.25,2.25,0,1,0,5.9,17.55,2.25,2.25,0,0,0,3.65,15.3Z" fill="#0085ff")
+          path(d="M16.55,11.4H2.65a.65.65,0,1,1,0-1.3h13.9a.65.65,0,1,1,0,1.3Z")
+          path(d="M20.25,14.3a3.55,3.55,0,0,1-3.55-3.55A3.69,3.69,0,0,1,17.84,8.1a3.3,3.3,0,0,1,2.45-.9h0a3.55,3.55,0,0,1,0,7.1Zm-.13-5.8a2,2,0,0,0-1.39.55,2.37,2.37,0,0,0-.73,1.7A2.25,2.25,0,1,0,20.25,8.5Z" fill="#0085ff")

@@ -1017,3 +1017,447 @@
 
   // Стили промежуточных ячеек в диапазоне
 }
+
+.datepicker_gray {
+  width: auto;
+  border: none;
+  color: $nd-color-basic;
+  box-shadow: 1px 1px 1px 0 rgba(0, 0, 0, 0.03),
+    2px 2px 2px 0 rgba(0, 0, 0, 0.04), 3px 3px 3px 0 rgba(0, 0, 0, 0.02);
+  transition: opacity 0.3s ease-out;
+
+  @include rule(
+    min-width,
+    (
+      xl: 390px,
+      xlg: 390,
+      lg: 390,
+      md: 341,
+      sm: 375,
+    )
+  );
+
+  @include rule(
+    font-size,
+    (
+      xl: 15px,
+      xlg: 15,
+      lg: 15,
+      md: 15,
+      sm: 15,
+    )
+  );
+
+  @include rule(
+    border-radius,
+    (
+      xl: 3px,
+      xlg: 3,
+      lg: 3,
+      md: 3,
+      sm: 3,
+    )
+  );
+
+  @include screen("sm", max, 2) {
+    position: fixed;
+  }
+
+  &.active {
+    transition: opacity 0.3s ease-out;
+
+    @include screen("sm", max, 2) {
+      left: 50% !important;
+      top: 50% !important;
+      transform: translate3d(-50%, -50%, 0);
+    }
+  }
+
+  & ~ .datepicker-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.2);
+    z-index: 99999;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .is-freeze-window & {
+    position: fixed;
+  }
+
+  // Стрелочка сверху над блоком
+
+  .datepicker--pointer {
+    display: none;
+  }
+
+  // Шапка календаря
+
+  .datepicker--nav {
+    border: none;
+    @include rule(
+      padding,
+      (
+        xl: 20px 37px,
+        xlg: 20 37,
+        lg: 20 37,
+        md: 20 30,
+        sm: 33 28 20,
+      )
+    );
+
+    // Ячейка с заголовком месяца/года
+
+    &-title {
+      font-family: $font-stolzl;
+      font-weight: 400;
+      border-radius: 0;
+      color: $nd-color-basic;
+      transition: color $ease-main, background-color $ease-main;
+      pointer-events: none;
+
+      &:hover {
+        background: transparent;
+        color: $nd-color-main;
+      }
+    }
+
+    // Ячейка со стрелкой
+
+    &-action {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex: none;
+      border-radius: 0;
+      transition: color $ease-main, background-color $ease-main;
+
+      @include rule(
+        width,
+        (
+          xl: 40px,
+          xlg: 40,
+          lg: 40,
+          md: 35,
+          sm: 35,
+        )
+      );
+
+      @include rule(
+        height,
+        (
+          xl: 40px,
+          xlg: 40,
+          lg: 40,
+          md: 35,
+          sm: 35,
+        )
+      );
+
+      &:hover {
+        background: transparent;
+      }
+
+      svg {
+        display: block;
+        width: 100%;
+        height: 100%;
+        background-repeat: no-repeat;
+        background-position: 50% 50%;
+
+        @include rule(
+          background-size,
+          (
+            xl: 7px 10px,
+            xlg: 7 10,
+            lg: 7 10,
+            md: 7 10,
+            sm: 7 10,
+          )
+        );
+      }
+
+      // Цвет стрелок
+      path {
+        display: none;
+        visibility: hidden;
+        stroke: $nd-color-basic;
+      }
+
+      &[data-action="prev"] svg {
+        background-image: $icon-arrow-prev-v2;
+      }
+
+      &[data-action="next"] svg {
+        background-image: $icon-arrow-next-v2;
+      }
+
+      &[data-action="prev"]:hover svg {
+        background-image: $icon-arrow-prev-v2-blue;
+      }
+
+      &[data-action="next"]:hover svg {
+        background-image: $icon-arrow-next-v2-blue;
+      }
+
+      &.-disabled- {
+        visibility: visible;
+        opacity: 0.3;
+        pointer-events: none;
+        cursor: not-allowed;
+      }
+    }
+  }
+
+  .datepicker--content {
+    padding: 0;
+    margin: 0 auto;
+    box-sizing: border-box;
+
+    @include rule(
+      padding,
+      (
+        xl: 2px 37px 40px,
+        xlg: 2 37 40,
+        lg: 2 37 40,
+        md: 2 30 10,
+        sm: 2 28 10,
+      )
+    );
+
+    @include rule(
+      max-width,
+      (
+        xl: 390px,
+        xlg: 390,
+        lg: 390,
+        md: 341,
+        sm: 375,
+      )
+    );
+  }
+
+  .datepicker--days-names {
+    margin: 0;
+
+    @include rule(
+      gap,
+      (
+        xl: 6px,
+        xlg: 6,
+        lg: 6,
+        md: 6,
+        sm: 6,
+      )
+    );
+  }
+
+  .datepicker--day-name {
+    text-transform: capitalize;
+    color: $nd-color-gray-text;
+    letter-spacing: -0.02em;
+
+    @include rule(
+      font-size,
+      (
+        xl: 11px,
+        xlg: 11,
+        lg: 11,
+        md: 11,
+        sm: 11,
+      )
+    );
+
+    @include rule(
+      width,
+      (
+        xl: 40px,
+        xlg: 40,
+        lg: 40,
+        md: 35,
+        sm: 40,
+      )
+    );
+
+    @include rule(
+      height,
+      (
+        xl: 30px,
+        xlg: 30,
+        lg: 30,
+        md: 30,
+        sm: 30,
+      )
+    );
+  }
+
+  .datepicker--cells {
+    @include rule(
+      gap,
+      (
+        xl: 6px,
+        xlg: 6,
+        lg: 6,
+        md: 6,
+        sm: 6,
+      )
+    );
+  }
+
+  // Стиль ячейки
+
+  .datepicker--cell {
+    border-radius: 50%;
+    flex: none;
+    transition: color $ease-main, background-color $ease-main;
+
+    @include rule(
+      width,
+      (
+        xl: 40px,
+        xlg: 40,
+        lg: 40,
+        md: 35,
+        sm: 40,
+      )
+    );
+
+    @include rule(
+      height,
+      (
+        xl: 40px,
+        xlg: 40,
+        lg: 40,
+        md: 35,
+        sm: 40,
+      )
+    );
+
+    // Цвет сегодняшнего даты/месяца
+
+    &.-current- {
+      font-weight: 700;
+      color: $nd-color-basic;
+      background: transparent;
+    }
+
+    &:hover {
+      background: $nd-color-date-hover;
+    }
+    // Ховер по активной дате
+
+    &.-selected-.-focus- {
+      color: $nd-color-basic;
+      background: $nd-color-date-hover;
+    }
+
+    // Неактивная ячейка
+
+    &.-disabled- {
+      pointer-events: none;
+    }
+
+    &.-disabled-,
+    &.-other-month {
+      color: $nd-color-gray-text;
+    }
+
+    // Цвет фона активного месяца/дня
+
+    &.-selected-,
+    &.-selected-.-current- {
+      color: $nd-color-basic-light;
+      background: $nd-color-main;
+    }
+
+    &-month,
+    &-year {
+      @include rule(
+        width,
+        (
+          xl: 74px,
+          xlg: 74,
+          lg: 74,
+          md: 70,
+          sm: 70,
+        )
+      );
+
+      @include rule(
+        border-radius,
+        (
+          xl: 20px,
+          xlg: 20,
+          lg: 20,
+          md: 18,
+          sm: 18,
+        )
+      );
+    }
+
+    // Цвет даты другого месяца/года
+
+    &-day.-other-month-,
+    &-year.-other-decade- {
+      color: $nd-color-gray-text;
+
+      &:hover {
+        color: $nd-color-gray-text;
+      }
+
+      &.-selected- {
+        color: $nd-color-basic-light;
+        background: $nd-color-main;
+      }
+    }
+
+    &.-range-to-,
+    &.-range-from- {
+      border: 0;
+      border-radius: 50%;
+      background-color: transparent;
+
+      &:hover {
+        color: $nd-color-gray-text;
+      }
+
+      &.-selected- {
+        background-color: $nd-color-main;
+        color: $nd-color-basic-light;
+      }
+    }
+
+    &.-in-range- {
+      background: $nd-color-date-hover;
+      border-radius: 0;
+
+      &.-current- {
+        font-weight: 700;
+      }
+
+      &.-focus- {
+        background: $nd-color-main;
+        color: $nd-color-basic-light;
+      }
+    }
+  }
+
+  // Стили ячеек другого месяца, находящихся в диапазоне
+
+  .-in-range-.datepicker--cell-day.-other-month-,
+  .-in-range-.datepicker--cell-year.-other-decade- {
+    background-color: $nd-color-date-hover;
+
+    &.-focus- {
+      background-color: $nd-color-main;
+      color: $nd-color-basic-light;
+    }
+  }
+
+  // Стили промежуточных ячеек в диапазоне
+}

@@ -521,6 +521,7 @@
     #{$b} {
       &__content {
         display: block;
+        overflow: hidden;
 
         @include screen("sm", max, 2) {
           display: flex;
@@ -602,6 +603,10 @@
         color: $nd-color-basic;
         font-weight: 400;
         line-height: (18 / 15);
+        width: 100%;
+        text-wrap: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
 
         @include rule(
           font-size,
@@ -679,6 +684,33 @@
 
         @include screen("sm", max, 2) {
           display: flex;
+        }
+      }
+    }
+
+    &_v2 {
+      @include rule(
+        width,
+        (
+          xl: 158px,
+          xlg: 158,
+          lg: 110,
+          md: 120,
+          sm: 100%,
+        )
+      );
+
+      &::before {
+        @include screen("sm", max, 2) {
+          display: block;
+        }
+      }
+
+      #{$b} {
+        &__toggle {
+          @include screen("sm", max, 2) {
+            display: block;
+          }
         }
       }
     }
@@ -848,6 +880,17 @@
       width: 100%;
     }
 
+    &.modal-output_special_v2 {
+      @include rule(
+        width,
+        (
+          lg: 120,
+          md: 120,
+          sm: 100%,
+        )
+      );
+    }
+
     &::before {
       @include rule(
         width,
@@ -956,8 +999,8 @@
       (
         xl: 185px,
         xlg: 185,
-        lg: 185,
-        md: 185,
+        lg: 120,
+        md: 120,
         sm: 0,
       )
     );
@@ -1014,6 +1057,186 @@
             opacity: 0;
           }
         }
+      }
+    }
+  }
+
+  &_date {
+    &::before {
+      @include rule(
+        width,
+        (
+          xl: 14px,
+          xlg: 14,
+          lg: 14,
+          md: 14,
+          sm: 14,
+        )
+      );
+      @include rule(
+        height,
+        (
+          xl: 15px,
+          xlg: 15,
+          lg: 15,
+          md: 15,
+          sm: 15,
+        )
+      );
+
+      background-image: $icon-date;
+    }
+  }
+
+  &_search {
+    @include rule(
+      padding-left,
+      (
+        xl: 13px,
+        xlg: 13,
+        lg: 13,
+        md: 13,
+        sm: 11,
+      )
+    );
+
+    @include rule(
+      padding-right,
+      (
+        xl: 35px,
+        xlg: 35,
+        lg: 35,
+        md: 35,
+        sm: 11,
+      )
+    );
+    @include rule(
+      padding-top,
+      (
+        xl: 5px,
+        xlg: 5,
+        lg: 5,
+        md: 5,
+        sm: 7,
+      )
+    );
+    @include rule(
+      padding-bottom,
+      (
+        xl: 5px,
+        xlg: 5,
+        lg: 5,
+        md: 5,
+        sm: 8,
+      )
+    );
+    @include rule(
+      height,
+      (
+        xl: 46px,
+        xlg: 46,
+        lg: 46,
+        md: 46,
+        sm: 44,
+      )
+    );
+
+    @include rule(
+      border-radius,
+      (
+        xl: 35px,
+        xlg: 35,
+        lg: 35,
+        md: 35,
+        sm: 35,
+      )
+    );
+
+    transition: background $ease-main;
+    border: none;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    background-color: $nd-color-basic-light;
+    box-shadow: 0 wPxtovw(3.2, sm) wPxtovw(7.7, sm) 0 rgba($nd-color-basic, 0.3);
+
+    @include screen("sm", max, 2) {
+      width: 100%;
+    }
+
+    &:hover,
+    &.is-opened,
+    &:focus,
+    &:active {
+      @include screen("sm", min, 2) {
+        background-color: $nd-color-selection-bg;
+      }
+    }
+
+    &.is-opened,
+    &:focus,
+    &:active {
+      box-shadow: none;
+    }
+
+    &::before {
+      @include rule(
+        width,
+        (
+          xl: 18px,
+          xlg: 18,
+          lg: 18,
+          md: 18,
+          sm: 18,
+        )
+      );
+      @include rule(
+        height,
+        (
+          xl: 18px,
+          xlg: 18,
+          lg: 18,
+          md: 18,
+          sm: 18,
+        )
+      );
+
+      @include rule(
+        margin-right,
+        (
+          xl: 13px,
+          xlg: 13,
+          lg: 13,
+          md: 13,
+          sm: 9,
+        )
+      );
+
+      display: block;
+      content: "";
+      background-repeat: no-repeat;
+      background-position: 50% 50%;
+      background-size: contain;
+      background-image: $icon-search;
+      flex: none;
+    }
+
+    #{$b} {
+      &__placeholder {
+        font-family: $font-stolzl;
+        letter-spacing: -0.015em;
+
+        @include rule(
+          font-size,
+          (
+            xl: 15px,
+            xlg: 15,
+            lg: 15,
+            md: 15,
+            sm: 12,
+          )
+        );
       }
     }
   }
