@@ -917,6 +917,12 @@
   }
 
   &_v2 {
+    .nd-choices_popup .nd-choices__list {
+      @include screen("sm", max, 2) {
+        z-index: 100;
+      }
+    }
+
     #{$b} {
       &__wrapper {
         @include rule(
@@ -937,7 +943,7 @@
             xlg: 600,
             lg: 600,
             md: 600,
-            sm: 100vh,
+            sm: 100%,
           )
         );
       }
