@@ -12,7 +12,7 @@ import {
 // import scrollanimation from './functions/scrollanimation';
 import header from '../components/header/header';
 import slider from '../blocks/slider/slider';
-// import '../blocks/put-block-into-slot/put-block-into-slot';
+import '../blocks/put-block-into-slot/put-block-into-slot';
 import floatingLabels from '../blocks/form-box/form-box';
 // import setBlogNewsTitlesHeight from '../blocks/blog/blog';
 import stickyMessage from '../blocks/sticky-message/sticky-message';

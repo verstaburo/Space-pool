@@ -140,9 +140,9 @@
         flex: 1;
       }
 
-      .modal-output::after {
-        border-right-color: transparent;
-      }
+      // .modal-output::after {
+      //   border-right-color: transparent;
+      // }
     }
 
     &_type {
@@ -212,6 +212,40 @@
         order: 6;
         width: pxtovw(62, 375);
         flex: none;
+      }
+    }
+
+    &_date {
+      padding-left: 1px;
+
+      &::before {
+        @include pseudo;
+        @include rule(
+          height,
+          (
+            xl: 34px,
+            xlg: 34,
+            lg: 34,
+            md: 34,
+            sm: 26,
+          )
+        );
+
+        width: 1px;
+        left: 0;
+        top: 50%;
+        transform: translate3d(0, -50%, 0);
+        background-color: $nd-color-border7;
+        z-index: 1;
+      }
+
+      @include screen("sm", max, 2) {
+        padding-left: 0;
+        flex: none;
+      }
+
+      .modal-output::after {
+        border-right-color: transparent;
       }
     }
 
@@ -417,6 +451,9 @@
   &_v2 {
     @include screen("sm", max, 2) {
       flex-direction: column;
+      background-color: transparent;
+      border-radius: 0;
+      box-shadow: none;
     }
 
     #{$b} {
@@ -434,17 +471,108 @@
       }
 
       &__item {
+        @include screen("sm", max, 2) {
+          width: 100%;
+        }
+
+        &_location {
+          @include screen("sm", max, 2) {
+            order: 0;
+          }
+
+          &::before {
+            @include screen("sm", max, 2) {
+              display: none;
+            }
+          }
+        }
+
+        &_team {
+          @include screen("sm", max, 2) {
+            order: 0;
+          }
+
+          &::before {
+            @include screen("sm", max, 2) {
+              display: none;
+            }
+          }
+        }
+
+        &_type {
+          @include screen("sm", max, 2) {
+            order: 0;
+          }
+
+          &::before {
+            @include screen("sm", max, 2) {
+              display: none;
+            }
+          }
+        }
+
+        &_date {
+          &::before {
+            @include screen("sm", max, 2) {
+              display: none;
+            }
+          }
+        }
+
         &_submit {
           @include screen("sm", max, 2) {
+            opacity: 1;
             width: 100%;
           }
+        }
+
+        &:not(:first-child) {
+          @include rule(
+            margin-top,
+            (
+              sm: 18,
+            )
+          );
         }
       }
 
       &__submit {
+        @include rule(
+          height,
+          (
+            sm: 50,
+          )
+        );
+
+        @include rule(
+          border-radius,
+          (
+            sm: 25,
+          )
+        );
+
+        @include rule(
+          font-size,
+          (
+            sm: 18,
+          )
+        );
+
         .nd-button__text {
-          @include screen("sm", min, 2) {
-            display: none;
+          display: none;
+
+          @include screen("sm", max, 2) {
+            display: block;
+          }
+        }
+      }
+    }
+
+    &:hover {
+      #{$b} {
+        &__item {
+          @include screen("sm", max, 2) {
+            width: 100%;
           }
         }
       }

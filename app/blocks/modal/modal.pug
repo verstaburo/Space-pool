@@ -9,7 +9,7 @@ mixin modal(data)
       if data.header2
         +e.header
           +e.title!=data.header2.title
-          +nd-link-icon('cross-bold', 'button')._pad10.__clear.js-modal-reset-value(type="reset") Clear Filter
+          +nd-link-icon('cross-bold', 'button')._pad10.__clear.js-modal-reset-value(type="reset" disabled) Clear Filter
       if data.header3
         +e.header
           +nd-link('button')._pad10.__clear.nd-hide-from-sm.js-modal-reset-value(type="reset") Clear
@@ -27,7 +27,7 @@ mixin modal(data)
             +nd-button('button')(type="reset")._black._pad10.__reset.js-modal-reset-value Clear
             +nd-button('button')._pad10(type="button").__setter.js-modal-set-value Set filter
           else if data.footer.view === 'date'
-            +nd-link-icon('cross-bold', 'button')._pad10.__clear.nd-hide-sm.js-clear-modal-reset-value(type="button" disabled) Clear Filter
+            +nd-link-icon('cross-bold', 'button')._pad10.__clear.nd-hide-sm.js-modal-reset-value(type="button" disabled) Clear Filter
             +nd-button('button')._pad10(type="button").__setter.js-modal-set-value
               span.nd-hide-sm Show available
               span.nd-hide-from-sm Set date and time

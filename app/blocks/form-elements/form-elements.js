@@ -797,10 +797,6 @@ export function datepicker() {
     const output = $(`[data-datepicker-output=${datepickerID}]`);
     const selectedDate = new Date($(output).val());
 
-    console.log('datepickerinit');
-    console.log(output);
-    console.log(`selected Date ${selectedDate}`);
-
     $(el).datepicker({
       language: 'en',
       dateFormat: 'mm/dd/yy',
@@ -815,7 +811,8 @@ export function datepicker() {
         years: 'yyyy1 - yyyy2',
       },
       onSelect(a, b, inst) {
-        $(output).val(inst.selectedDates[0]);
+        const val = inst.selectedDates[0] ? inst.selectedDates[0].toLocaleDateString('en-US', { year: '2-digit', month: '2-digit', day: '2-digit' }) : '';
+        $(output).val(val);
       },
       onRenderCell(d, type) {
         let disabled = false;

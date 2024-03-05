@@ -48,6 +48,29 @@ export default function outputValuesFromModal() {
         }
       }
     },
+    setDateValue(items) {
+      const outputName = $(items).attr('data-modal-item-type');
+      const outputEl = $(`[data-modal-output-type="${outputName}"]`);
+      const outputTarget = $(outputEl).find('[data-modal-output-value]');
+      let result = '';
+
+      $(items).each((i, el) => {
+        if (i === 2 && el.value) {
+          result += `- ${el.value}`;
+        } else {
+          result += `${el.value} `;
+        }
+      });
+
+      if (result) {
+        $(outputTarget).empty();
+        $(outputTarget).text(result.trim());
+        $(outputEl).addClass('is-selected');
+      } else {
+        $(outputEl).removeClass('is-selected');
+        $(outputTarget).empty();
+      }
+    },
     resetValues(form) {
       const modals = $(form).find('.modal').toArray();
       const modalIds = modals.map((el) => el.getAttribute('id'));
@@ -72,8 +95,21 @@ export default function outputValuesFromModal() {
 
       if (isItems) {
         $(items).each((i, el) => {
-          $(el).prop('checked', false);
-          $(el).removeAttr('checked');
+          const elType = $(el).attr('type');
+
+          if (elType === 'radio' || elType === 'checkbox') {
+            $(el).prop('checked', false);
+            $(el).removeAttr('checked');
+          } else if ($(el).is('select')) {
+            const container = $(el).closest('.choices, .nd-choices');
+            el.choices.removeActiveItems();
+            $(container).removeClass('is-item-select');
+          } else if ($(el).is('[data-datepicker-output]')) {
+            const datepicker = $(modal).find('.js-inline-datepicker');
+            $(datepicker).datepicker().data('datepicker').clear();
+          } else {
+            $(el).val('');
+          }
         });
       }
 
@@ -92,10 +128,15 @@ export default function outputValuesFromModal() {
 
   window.globalFunctions.modalItemMethods = modalItemMethods;
 
+  const dates = $('[data-modal-item-type="date"]').filter((i, el) => $(el).is('[data-modal-item]'));
+
+  modalItemMethods.setDateValue(dates);
+
   $(document).on('change', '[data-modal-item]', (evt) => {
     const _this = evt.currentTarget;
     const isRange = $(_this).is('.js-nd-range');
-    if (!isRange) {
+    const isDate = $(_this).is('[data-modal-item-type="date"]');
+    if (!isRange && !isDate) {
       modalMethods.closeAll();
 
       const { form } = _this;
@@ -111,6 +152,7 @@ export default function outputValuesFromModal() {
     const modal = $(_this).closest('.modal');
     const modalId = $(modal).attr('id');
     const items = $(modal).find('[data-modal-item]');
+    $(modal).find('.js-modal-reset-value').removeAttr('disabled');
     let item = null;
     if (items.length > 1) {
       item = $(modal).find('[data-modal-item]:checked').get(0);
@@ -122,8 +164,12 @@ export default function outputValuesFromModal() {
         item = $(items).is('[data-modal-item]:checked') ? $(items).get(0) : null;
       }
     }
+
     if (item) {
       modalItemMethods.setValue(item);
+      modalMethods.close(modalId);
+    } else if (modalId === 'filter-date') {
+      modalItemMethods.setDateValue(items);
       modalMethods.close(modalId);
     }
   });

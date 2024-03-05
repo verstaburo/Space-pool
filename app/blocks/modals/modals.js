@@ -128,8 +128,9 @@ export function modalShowes() {
   $(document).on('click', (evt) => {
     const _this = evt.target;
     const isModalLink = $(_this).closest('.js-toggle-modal').length;
-    const isModal = $(_this).closest('.modal').length;
-    if (!isModal && !isModalLink) {
+    const isModal = $(_this).closest('.modal, .datepicker-inline').length;
+    const isDatepicker = $(_this).closest('[class*=datepicker]').length;
+    if (!isModal && !isModalLink && !isDatepicker) {
       modalMethods.closeAll();
     }
   });

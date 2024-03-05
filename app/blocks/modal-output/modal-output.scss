@@ -181,7 +181,7 @@
         )
       );
       @include rule(
-        heigh,
+        height,
         (
           xl: 8px,
           xlg: 8,
@@ -689,6 +689,33 @@
     }
 
     &_v2 {
+      padding-left: 0;
+
+      @include rule(
+        padding-right,
+        (
+          xl: 35px,
+          xlg: 35,
+          lg: 28,
+          md: 28,
+          sm: 52,
+        )
+      );
+
+      @include rule(
+        height,
+        (
+          sm: 50,
+        )
+      );
+
+      @include rule(
+        border-radius,
+        (
+          sm: 25,
+        )
+      );
+
       @include rule(
         width,
         (
@@ -700,17 +727,107 @@
         )
       );
 
+      @include screen("sm", max, 2) {
+        border: 1px solid $nd-color-border7;
+        box-shadow: boxShadow(0, 3.2, 7.69511, 0, rgba(0, 0, 0, 0.1), 375);
+      }
+
+      &.is-opened {
+        @include screen("sm", max, 2) {
+          border: 1px solid $nd-color-border7;
+          box-shadow: boxShadow(0, 3.2, 7.69511, 0, rgba(0, 0, 0, 0.1), 375);
+        }
+      }
+
       &::before {
+        margin-right: 0;
+
+        @include rule(
+          width,
+          (
+            xl: 44px,
+            xlg: 44,
+            lg: 30,
+            md: 30,
+            sm: 44,
+          )
+        );
+
         @include screen("sm", max, 2) {
           display: block;
+          height: 100%;
         }
       }
 
       #{$b} {
+        &__content {
+          @include screen("sm", max, 2) {
+            align-items: flex-start;
+            justify-content: center;
+          }
+        }
+
+        &__placeholder {
+          @include rule(
+            font-size,
+            (
+              sm: 16,
+            )
+          );
+
+          @include screen("sm", max, 2) {
+            color: $nd-color-basic;
+          }
+
+          &::before {
+            @include screen("sm", max, 2) {
+              display: none;
+            }
+          }
+        }
+
+        &__values {
+          @include screen("sm", max, 2) {
+            display: none;
+          }
+        }
+
         &__toggle {
+          display: none;
+
+          @include rule(
+            width,
+            (
+              sm: 50,
+            )
+          );
+
           @include screen("sm", max, 2) {
             display: block;
           }
+
+          svg {
+            @include rule(
+              width,
+              (
+                sm: 12,
+              )
+            );
+            @include rule(
+              height,
+              (
+                sm: 8,
+              )
+            );
+          }
+        }
+      }
+
+      &.is-selected #{$b},
+      &.modal-output_topalways #{$b} {
+        @include screen("sm", max, 2) {
+          align-items: flex-start;
+          justify-content: space-between;
         }
       }
     }
@@ -843,6 +960,34 @@
       background-image: $icon-location-blue;
     }
 
+    &.modal-output_special_v2 {
+      &::before {
+        height: 100%;
+
+        @include rule(
+          width,
+          (
+            xl: 44px,
+            xlg: 44,
+            lg: 30,
+            md: 30,
+            sm: 44,
+          )
+        );
+
+        @include rule(
+          background-size,
+          (
+            xl: 13px 16px,
+            xlg: 13 16,
+            lg: 13 16,
+            md: 13 16,
+            sm: 13 16,
+          )
+        );
+      }
+    }
+
     #{$b} {
       &__placeholder {
         &::before {
@@ -916,6 +1061,34 @@
       background-image: $icon-team-blue;
     }
 
+    &.modal-output_special_v2 {
+      &::before {
+        height: 100%;
+
+        @include rule(
+          width,
+          (
+            xl: 44px,
+            xlg: 44,
+            lg: 30,
+            md: 30,
+            sm: 44,
+          )
+        );
+
+        @include rule(
+          background-size,
+          (
+            xl: 24px 13px,
+            xlg: 24 13,
+            lg: 20 13,
+            md: 20 13,
+            sm: 24 13,
+          )
+        );
+      }
+    }
+
     #{$b} {
       &__placeholder {
         &::before {
@@ -964,6 +1137,34 @@
       );
 
       background-image: $icon-type;
+    }
+
+    &.modal-output_special_v2 {
+      &::before {
+        height: 100%;
+
+        @include rule(
+          width,
+          (
+            xl: 44px,
+            xlg: 44,
+            lg: 30,
+            md: 30,
+            sm: 44,
+          )
+        );
+
+        @include rule(
+          background-size,
+          (
+            xl: 15px 15px,
+            xlg: 15 15,
+            lg: 15 15,
+            md: 15 15,
+            sm: 15 15,
+          )
+        );
+      }
     }
 
     #{$b} {
@@ -1063,6 +1264,8 @@
 
   &_date {
     &::before {
+      height: 100%;
+
       @include rule(
         width,
         (
@@ -1086,6 +1289,32 @@
 
       background-image: $icon-date;
     }
+
+    &.modal-output_special_v2 {
+      &::before {
+        @include rule(
+          width,
+          (
+            xl: 44px,
+            xlg: 44,
+            lg: 30,
+            md: 30,
+            sm: 44,
+          )
+        );
+
+        @include rule(
+          background-size,
+          (
+            xl: 14px 15px,
+            xlg: 14 15,
+            lg: 14 15,
+            md: 14 15,
+            sm: 14 15,
+          )
+        );
+      }
+    }
   }
 
   &_search {
@@ -1107,7 +1336,7 @@
         xlg: 35,
         lg: 35,
         md: 35,
-        sm: 11,
+        sm: 34,
       )
     );
     @include rule(
@@ -1235,6 +1464,15 @@
             lg: 15,
             md: 15,
             sm: 12,
+          )
+        );
+      }
+
+      &__toggle {
+        @include rule(
+          width,
+          (
+            sm: 34,
           )
         );
       }
