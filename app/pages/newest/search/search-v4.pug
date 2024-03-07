@@ -31,21 +31,41 @@ block content
               +e.text_fz15._ls0._gray Looking for workspace type, Any team size and Any price
             +modal-output({placeholder: 'Sort by'}).js-toggle-modal.nd-hide-sm(data-modal-target="filter-sort" data-modal-output-type="sort" )
 
-        +nd-results._v2
-          each item in getData('new-nd-spaces-search-with-dp.json')
+        +nd-results._v3
+          each item in getData('new-nd-spaces-search-dp.json')
             +nd-results-item
-              +nd-space()._search-card._search-card_v3(href="space-v5-1.html" target="_blank")
-                +gallery(item.gallery)._space.__media.js-nd-gallery
+              +nd-space()._result-card(href="space-v5-1.html" target="_blank")
+                +nd-space-media-e
+                  if item.typeLabel
+                    +e.type-label
+                      +space-type
+                        +nd-box()(class=item.type.box + ' __box')
+                        +e.name!=item.type.name
+                  +e.FIGURE.image-grid
+                    each image in item.mediagrid
+                      +e.image-item
+                        +e.IMG(src=image)
                 +e.describe
-                  +e.address
-                    each el in item.address
-                      span!= el
-                  +e.title!=item.title
-                  +e.clip-text
-                    +e.text!=item.text
-                +e.offer-list
-                  +offer-table(item.offers, false, true)._striped.__list
-                +e.button.hide-from-sm.js-layout-show.js-layout-tab-redirect(data-layout-target="space" data-layout-tab-target="tab-space-offers" data-dead-zone) View all 20 listings
+                  +e.top(class=item.top.class)
+                    if item.typeLabel
+                      +e.address
+                        each el in item.address
+                          span!= el
+                      +review-counter(item.rating.active, item.rating.count, item.rating.disabled, "4.1", "(234)")(class=item.rating.class + " __rating")
+                    else
+                      +review-counter(item.rating.active, item.rating.count, item.rating.disabled, "4.1", "(234)")(class=item.rating.class + " __rating")
+                      +space-type.__type
+                        +nd-box()(class=item.type.box + ' __box')
+                        +e.name!=item.type.name
+                  +e.title_bold!=item.title
+                  +e.bottom
+                    +e.label(class=item.label.class)
+                      if item.label.icon
+                        +icon(item.label.icon)
+                      span!=item.label.text
+                    +e.price!=item.price
+
+
 
     +e.column_start._start_space._popup(data-layout="space" data-layout-main)
       +e.wrapper

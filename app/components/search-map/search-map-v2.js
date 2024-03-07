@@ -45,7 +45,6 @@ export default function srMapToggle() {
   window.globalFunctions.mapMethods = mapMethods;
 
   $(document).on('click', '.js-map-toggle-fullview', () => {
-    console.log('click map toggle');
     if (mapMethods.isActive()) {
       mapMethods.close();
     } else {

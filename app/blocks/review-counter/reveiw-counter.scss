@@ -1,4 +1,6 @@
 .review-counter {
+  $b: &;
+
   display: flex;
   align-items: center;
   gap: 5px;
@@ -48,5 +50,29 @@
         sm: 12,
       )
     );
+  }
+
+  &_reverse {
+    #{$b} {
+      &__grade {
+        order: 1;
+
+        @include rule(
+          margin-right,
+          (
+            xl: 5px,
+            xlg: 5,
+            lg: 5,
+            md: 5,
+            sm: 5,
+          )
+        );
+      }
+
+      &__rating {
+        order: 2;
+        margin-right: 0;
+      }
+    }
   }
 }

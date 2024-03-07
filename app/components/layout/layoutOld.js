@@ -223,14 +223,10 @@ export default function layoutsInit() {
     const isSpacePage = $(document).find('.layout__column_start_space').length > 0;
 
     if (existSpaceLayout) {
-      console.log('space exist');
       const activeLayouts = layoutsMethods.whichLayerActive();
-      console.log(activeLayouts);
       if (activeLayouts.space && activeLayouts.offer) {
-        console.log('space and offer');
         layoutsMethods.close('offer', {});
       } else if (!activeLayouts.space && activeLayouts.offer) {
-        console.log('only offer');
         layoutsMethods.open(
           'space',
           { sourceElement: undefined, marker: _this.mm },
