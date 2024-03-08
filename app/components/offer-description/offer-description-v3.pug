@@ -21,46 +21,22 @@ mixin offer-description-v3(stable)
           +e.SECTION.section_describe
             +e.header.nd-hide-sm
               +space-type._gray._fz12.__type
-                +nd-box()._green.__box_sz9
-                +e.name PRIVATE OFFICE
+                +nd-box()._blue.__box_sz9
+                +e.name MEETING ROOM
               +e.bottom
-                +e.H3.title 13 desks office space
+                +e.H3.title Emerald Design Meeting Room Studio
               +favorite.__favorite
-            +nd-table._info._info_space._info_space-v2.__table.nd-hide-from-sm
+            +nd-table._info._info_space._info_space-v2.__table
               tbody
                 tr
-                  td Amount of desks
-                  td 12
+                  td Access hours
+                  td 9:00 - 17:00
                 tr
-                  td Floor area
-                  td 257 ft<sup>2</sup>
+                  td Available desks
+                  td 25
                 tr
                   td Min. term
-                  td 1 month
-                tr.nd-hide-sm
-                  td Price
-                  td
-                    strong £ 2,400 per month
-            +e.text Perfectly located on Shoreditch High Street, alongside three of our other buildings, 229 offers 12 private offices, meeting rooms, large board room and a perfect breakout/kitchen
-          +e.row_plan
-            +e.SECTION.section_table.nd-hide-sm
-              +e.H4.title_fz16 About
-              +nd-table._info._info_space._info_space-v2.__table
-                tbody
-                  tr
-                    td Amount of desks
-                    td 12
-                  tr
-                    td Floor area
-                    td 257 ft<sup>2</sup>
-                  tr
-                    td Min. term
-                    td 1 month
-            +e.SECTION.section_plan
-              +e.H4.title_fz16 Floor Plan
-              +e.PICTURE.image(data-fancybox='floorplan' data-src="assets/images/nd/floor-plan3.jpg")
-                source(src="assets/images/nd/floor-plan3.jpg" srcset="assets/images/nd/floor-plan3.jpg")
-                img(src="assets/images/nd/floor-plan3.jpg")
+                  td 1 day
 
           +e.SECTION.section_map(class=(stable ? '' : 'nd-hide-from-sm'))
             +e.head
@@ -71,6 +47,8 @@ mixin offer-description-v3(stable)
               +space-map('offer-map', 'offer').__map
               if stable
                 +routes-v2(true).__routes.nd-hide-sm
+          +e.SECTION.section_description
+            +e.text Neighbourhood Works is a vibrant and engaging coworking space in the heart of London Fields. Whether you want to escape the kitchen table, avoid the commute or simply bring together your team in your backyard, we’ve built a
           +e.SECTION.section_list
             +e.H4.title_fz16 Included
             +styled-list
@@ -156,5 +134,6 @@ mixin offer-description-v3-daypass(stable)
                 +review(item).__review
 
       +e.sidebar.nd-hide-sm
-        +offer-description-sidebar-daypass
-        +e.note prices are exclusive of VAT
+        div(data-slot-id="booking-form" data-slot-res="xl")
+          +offer-description-sidebar-v2-disabled()(data-target-slot="booking-form")
+        +advisor
