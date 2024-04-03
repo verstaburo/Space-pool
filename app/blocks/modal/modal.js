@@ -62,7 +62,7 @@ export default function outputValuesFromModal() {
         }
       });
 
-      if (result) {
+      if (result.trim()) {
         $(outputTarget).empty();
         $(outputTarget).text(result.trim());
         $(outputEl).addClass('is-selected');

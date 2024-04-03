@@ -795,7 +795,7 @@ export function datepicker() {
     const addClasses = `${classList}`;
     const datepickerID = $(el).data('datepicker-id');
     const output = $(`[data-datepicker-output=${datepickerID}]`);
-    const selectedDate = new Date($(output).val());
+    const selectedDate = $(output).val() ? new Date($(output).val()) : '';
 
     $(el).datepicker({
       language: 'en',
@@ -826,7 +826,6 @@ export function datepicker() {
         };
       },
     });
-
     $(el).datepicker().data('datepicker').selectDate(selectedDate);
   }
 
