@@ -1202,7 +1202,7 @@
       }
 
       &.-disabled- {
-        visibility: visible;
+        // visibility: visible;
         opacity: 0.3;
         pointer-events: none;
         cursor: not-allowed;
@@ -1454,6 +1454,14 @@
       color: $nd-color-basic-light;
     }
   }
-
   // Стили промежуточных ячеек в диапазоне
+}
+
+.active .datepicker_gray,
+.is-opened .datepicker_gray {
+  .datepicker--nav-action {
+    &.-disabled- {
+      visibility: visible;
+    }
+  }
 }

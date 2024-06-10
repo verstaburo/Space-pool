@@ -587,6 +587,12 @@ export function datepicker() {
     return result;
   }
 
+  function setDateInCalendar(el, date) {
+    $(el).datepicker().data('datepicker').selectDate(date);
+  }
+
+  window.globalFunctions.setDateInCalendar = setDateInCalendar;
+
   function simpleDatepickerInit(el) {
     const disabledDates = $(el).attr('data-disabled-dates') ? $(el).attr('data-disabled-dates').split(',') : [];
     const minDateParam = $(el).attr('data-mindate');
@@ -816,9 +822,13 @@ export function datepicker() {
       },
       onRenderCell(d, type) {
         let disabled = false;
-        const formatted = getFormattedDate(d);
+        const day = d.toLocaleDateString('en-EN');
         if (type === 'day') {
-          disabled = disabledDates.filter((date) => (date === formatted)).length;
+          const disabledDatesCount = disabledDates.filter((date) => {
+            const disabledDate = new Date(date).toLocaleDateString('en-EN');
+            return disabledDate === day;
+          });
+          disabled = disabledDatesCount.length;
         }
 
         return {
