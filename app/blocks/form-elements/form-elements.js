@@ -4,6 +4,7 @@ import Choices from 'choices.js';
 // https://github.com/leongersen/noUiSlider
 import noUiSlider from 'nouislider';
 
+import moment from 'moment';
 // https://github.com/t1m0n/air-datepicker
 import 'air-datepicker';
 
@@ -808,7 +809,8 @@ export function datepicker() {
     const addClasses = `${classList}`;
     const datepickerID = $(el).data('datepicker-id');
     const output = $(`[data-datepicker-output=${datepickerID}]`);
-    const selectedDate = $(output).val() ? new Date($(output).val()) : '';
+    const datePreset = moment($(output).val(), dateFormat.toUpperCase());
+    const selectedDate = datePreset.isValid() ? datePreset._d : '';
 
     $(el).datepicker({
       language: 'en',
