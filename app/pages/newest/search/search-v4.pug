@@ -153,9 +153,9 @@ block content
 
       +modal({header3: {title: 'Date and time'}, footer: {view: 'date', class: 'modal__footer_v2'} })._v2#filter-date
         +e.calendar
-          +e.calendar-section.js-inline-datepicker(data-date-format="mm/dd/yy" data-class-list="datepicker_gray" data-datepicker-id="filter" data-disabled-dates="06/30/2024,07/25/2024,08/10/2025")
+          +e.calendar-section.js-inline-datepicker(data-date-format="dd/mm/yy" data-class-list="datepicker_gray" data-datepicker-id="filter" data-disabled-dates="06/30/2024,07/25/2024,08/10/2025")
           +e.calendar-section_time
-            - var date = (new Date(Date.now() + 24*60*60*1000)).toLocaleDateString('en-EN');
+            - var date = (new Date(Date.now() + 24*60*60*1000)).toLocaleDateString('en-GB', {day: "2-digit", month: "2-digit", year: "2-digit"});
             +nd-input()._sm-h50(type="hidden" name="date" value=date data-datepicker-output="filter" data-modal-item data-modal-item-type="date")
             +e.calendar-title Select time
             +e.calendar-time

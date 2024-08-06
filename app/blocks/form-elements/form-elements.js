@@ -566,12 +566,18 @@ $.fn.datepicker.language.en = {
 };
 
 export function datepicker() {
-  function getFormattedDate(date) {
-    const year = date.getFullYear();
-    const month = date.getMonth() + 1;
-    const day = date.getDate();
+  function splitDate(date) {
+    return {
+      year: date.getFullYear(),
+      month: date.getMonth() + 1,
+      day: date.getDate(),
+    };
+  }
 
-    return `${year}-${month}-${day}`;
+  function getFormattedDate(date) {
+    const dateData = splitDate(date);
+
+    return `${dateData.year}-${dateData.month}-${dateData.day}`;
   }
 
   function setFormattedDate(date) {
@@ -786,6 +792,7 @@ export function datepicker() {
     const minDateParam = $(el).attr('data-mindate');
     const maxDateParam = $(el).attr('data-maxdate');
     const startDateParam = $(el).attr('data-startdate');
+    const dateFormat = $(el).attr('data-date-format');
     const classList = $(el).attr('data-class-list');
     let startDate = new Date();
     let minDate = new Date();
@@ -805,7 +812,7 @@ export function datepicker() {
 
     $(el).datepicker({
       language: 'en',
-      dateFormat: 'mm/dd/yy',
+      dateFormat,
       inline: true,
       classes: addClasses,
       minDate,
@@ -817,7 +824,7 @@ export function datepicker() {
         years: 'yyyy1 - yyyy2',
       },
       onSelect(a, b, inst) {
-        const val = inst.selectedDates[0] ? inst.selectedDates[0].toLocaleDateString('en-US', { year: '2-digit', month: '2-digit', day: '2-digit' }) : '';
+        const val = inst.selectedDates[0] ? inst.formatDate(dateFormat, inst.selectedDates[0]) : '';
         $(output).val(val);
       },
       onRenderCell(d, type) {
