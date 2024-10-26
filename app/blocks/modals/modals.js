@@ -60,6 +60,7 @@ export const modalMethods = {
   },
   calculatePosition(modalEl, source) {
     const modal = modalEl || $($('body').currentActiveModal);
+
     if (!modal) return;
     const isSm = window.Modernizr.mq(`(max-width: ${bp.sm - 1}px)`);
 
@@ -79,7 +80,7 @@ export const modalMethods = {
       const oTop = outputSizes.top;
       const oLeft = outputSizes.left;
       const oRight = outputSizes.right;
-      const freeLeft = wW - oRight;
+      const freeLeft = oRight;
       const freeRight = wW - oLeft;
       const freeBottom = wH - oBottom;
       let y = 0;
